@@ -1,7 +1,7 @@
 {
-  "name": "openapi",
-  "version": "0.0.1",
-  "author": "Speakeasy",
+  "name": "circle-ts",
+  "version": "2.0.0",
+  "author": "Speakeasy API",
   "scripts": {
     "lint:fix": "tsc --noemit && eslint \"./src\" --ext .ts,.tsx --fix",
     "build": "tsc --build",

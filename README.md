@@ -1,4 +1,6 @@
-# openapi
+# CircleCI API Node SDK
+
+The CircleCI API Node SDK is a NPM library for accessing the resources that make up the [CircleCI API V2](https://circleci.com/docs/api/v2/index.html).
 
 <!-- Start SDK Installation -->
 ## SDK Installation
@@ -6,13 +8,13 @@
 ### NPM
 
 ```bash
-npm add openapi
+npm add circle-ts
 ```
 
 ### Yarn
 
 ```bash
-yarn add openapi
+yarn add circle-ts
 ```
 <!-- End SDK Installation -->
 
@@ -20,8 +22,8 @@ yarn add openapi
 ## SDK Example Usage
 
 ```typescript
-import { SDK, withSecurity} from "openapi";
-import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "openapi/src/sdk/models/operations";
+import { SDK, withSecurity} from "circle-ts";
+import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "circle-ts/src/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new SDK(withSecurity(
