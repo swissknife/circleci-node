@@ -1,6 +1,6 @@
 {
   "name": "circleci-v2-sdk",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "author": "Speakeasy API",
   "scripts": {
     "lint:fix": "tsc --noemit && eslint \"./src\" --ext .ts,.tsx --fix",
