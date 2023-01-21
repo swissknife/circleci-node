@@ -142,7 +142,7 @@ export function replaceParameters(
   let res: string = stringWithParams;
   params.forEach((value, key) => {
     const match: string = "{" + key + "}";
-    res = res.replaceAll(match, value);
+    res = res.replace(new RegExp(match, "g"), value);
   });
   return res;
 }
