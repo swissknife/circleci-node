@@ -1,5 +1,4 @@
-import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
-import FormData from "form-data";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
 import * as operations from "./models/operations";
 import * as utils from "../internal/utils";
 
@@ -45,18 +44,18 @@ export class Webhook {
     }
     
     const client: AxiosInstance = this._securityClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
-    let body: any;
-    if (reqBody instanceof FormData) body = reqBody;
-    else body = {...reqBody};
-    return client
-      .request({
-        url: url,
-        method: "post",
-        headers: headers,
-        data: body, 
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -69,14 +68,13 @@ export class Webhook {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createWebhookDefaultApplicationJsonObject = httpRes?.data;
+                res.createWebhookDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -96,12 +94,14 @@ export class Webhook {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "delete",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "delete",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -114,14 +114,13 @@ export class Webhook {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteWebhookDefaultApplicationJsonObject = httpRes?.data;
+                res.deleteWebhookDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -143,12 +142,14 @@ export class Webhook {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -161,14 +162,13 @@ export class Webhook {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWebhookByIdDefaultApplicationJsonObject = httpRes?.data;
+                res.getWebhookByIdDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -198,12 +198,14 @@ export class Webhook {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -211,19 +213,18 @@ export class Webhook {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWebhooks200ApplicationJsonObject = httpRes?.data;
+                res.getWebhooks200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWebhooksDefaultApplicationJsonObject = httpRes?.data;
+                res.getWebhooksDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -252,18 +253,18 @@ export class Webhook {
     }
     
     const client: AxiosInstance = this._securityClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
-    let body: any;
-    if (reqBody instanceof FormData) body = reqBody;
-    else body = {...reqBody};
-    return client
-      .request({
-        url: url,
-        method: "put",
-        headers: headers,
-        data: body, 
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "put",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -276,14 +277,13 @@ export class Webhook {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.updateWebhookDefaultApplicationJsonObject = httpRes?.data;
+                res.updateWebhookDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
 }

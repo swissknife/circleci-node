@@ -10,7 +10,7 @@ export class ContinuePipelineRequestBody extends SpeakeasyBase {
   continuationKey: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters?: Map<string, any>;
+  parameters?: Record<string, any>;
 }
 
 
@@ -47,5 +47,5 @@ export class ContinuePipelineResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  continuePipelineDefaultApplicationJsonObject?: ContinuePipelineDefaultApplicationJson;
+  continuePipelineDefaultApplicationJSONObject?: ContinuePipelineDefaultApplicationJson;
 }

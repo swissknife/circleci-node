@@ -37,8 +37,8 @@ export class GetAllInsightsBranchesResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getAllInsightsBranches200ApplicationJsonAny?: any;
+  getAllInsightsBranches200ApplicationJSONAny?: any;
 
   @SpeakeasyMetadata()
-  getAllInsightsBranchesDefaultApplicationJsonObject?: GetAllInsightsBranchesDefaultApplicationJson;
+  getAllInsightsBranchesDefaultApplicationJSONObject?: GetAllInsightsBranchesDefaultApplicationJson;
 }

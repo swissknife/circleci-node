@@ -43,5 +43,5 @@ export class GetContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getContextDefaultApplicationJsonObject?: GetContextDefaultApplicationJson;
+  getContextDefaultApplicationJSONObject?: GetContextDefaultApplicationJson;
 }

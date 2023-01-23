@@ -41,5 +41,5 @@ export class DeleteContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteContextDefaultApplicationJsonObject?: DeleteContextDefaultApplicationJson;
+  deleteContextDefaultApplicationJSONObject?: DeleteContextDefaultApplicationJson;
 }

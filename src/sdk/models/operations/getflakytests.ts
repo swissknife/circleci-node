@@ -19,10 +19,10 @@ export class GetFlakyTests200ApplicationJsonFlakyTests extends SpeakeasyBase {
   jobName: string;
 
   @SpeakeasyMetadata({ data: "json, name=job-number" })
-  jobNumber: Map<string, any>;
+  jobNumber: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=pipeline-number" })
-  pipelineNumber: Map<string, any>;
+  pipelineNumber: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=source" })
   source: string;
@@ -31,7 +31,7 @@ export class GetFlakyTests200ApplicationJsonFlakyTests extends SpeakeasyBase {
   testName: string;
 
   @SpeakeasyMetadata({ data: "json, name=time-wasted" })
-  timeWasted?: Map<string, any>;
+  timeWasted?: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=times-flaked" })
   timesFlaked: number;
@@ -80,8 +80,8 @@ export class GetFlakyTestsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getFlakyTests200ApplicationJsonObject?: GetFlakyTests200ApplicationJson;
+  getFlakyTests200ApplicationJSONObject?: GetFlakyTests200ApplicationJson;
 
   @SpeakeasyMetadata()
-  getFlakyTestsDefaultApplicationJsonObject?: GetFlakyTestsDefaultApplicationJson;
+  getFlakyTestsDefaultApplicationJSONObject?: GetFlakyTestsDefaultApplicationJson;
 }

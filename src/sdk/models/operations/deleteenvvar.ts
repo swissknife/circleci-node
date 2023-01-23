@@ -44,5 +44,5 @@ export class DeleteEnvVarResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteEnvVarDefaultApplicationJsonObject?: DeleteEnvVarDefaultApplicationJson;
+  deleteEnvVarDefaultApplicationJSONObject?: DeleteEnvVarDefaultApplicationJson;
 }

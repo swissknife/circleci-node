@@ -18,13 +18,13 @@ export enum GetProjectWorkflowsPageDataReportingWindowEnum {
 
 export class GetProjectWorkflowsPageDataQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
-  branches?: Map<string, any>;
+  branches?: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
   reportingWindow?: GetProjectWorkflowsPageDataReportingWindowEnum;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=workflow-names" })
-  workflowNames?: Map<string, any>;
+  workflowNames?: Record<string, any>;
 }
 
 
@@ -235,8 +235,8 @@ export class GetProjectWorkflowsPageDataResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowsPageData200ApplicationJsonObject?: GetProjectWorkflowsPageData200ApplicationJson;
+  getProjectWorkflowsPageData200ApplicationJSONObject?: GetProjectWorkflowsPageData200ApplicationJson;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowsPageDataDefaultApplicationJsonObject?: GetProjectWorkflowsPageDataDefaultApplicationJson;
+  getProjectWorkflowsPageDataDefaultApplicationJSONObject?: GetProjectWorkflowsPageDataDefaultApplicationJson;
 }

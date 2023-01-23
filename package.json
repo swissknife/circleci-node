@@ -1,11 +1,9 @@
 {
-  "name": "circleci-v2-sdk",
-  "version": "2.0.2",
+  "name": "@swissknife/circle-ts",
+  "version": "2.0.0",
   "author": "Speakeasy API",
   "scripts": {
-    "lint:fix": "tsc --noemit && eslint \"./src\" --ext .ts,.tsx --fix",
-    "build": "tsc --build",
-    "prepare": "npm run build"
+    "prepare": "tsc --build"
   },
   "dependencies": {
     "axios": "^1.1.3",
@@ -14,15 +12,8 @@
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
     "@types/node": "^18.11.5",
     "@types/qs": "^6.9.7",
-    "@types/reflect-metadata": "^0.1.0",
-    "eslint": "^8.25.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.1",
     "typescript": "^4.8.4"
   },
   "main": "dist/index.js",

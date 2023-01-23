@@ -44,5 +44,5 @@ export class DeleteEnvironmentVariableFromContextResponse extends SpeakeasyBase 
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteEnvironmentVariableFromContextDefaultApplicationJsonObject?: DeleteEnvironmentVariableFromContextDefaultApplicationJson;
+  deleteEnvironmentVariableFromContextDefaultApplicationJSONObject?: DeleteEnvironmentVariableFromContextDefaultApplicationJson;
 }

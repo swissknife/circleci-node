@@ -97,8 +97,8 @@ export class GetProjectWorkflowRunsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowRuns200ApplicationJsonObject?: GetProjectWorkflowRuns200ApplicationJson;
+  getProjectWorkflowRuns200ApplicationJSONObject?: GetProjectWorkflowRuns200ApplicationJson;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowRunsDefaultApplicationJsonObject?: GetProjectWorkflowRunsDefaultApplicationJson;
+  getProjectWorkflowRunsDefaultApplicationJSONObject?: GetProjectWorkflowRunsDefaultApplicationJson;
 }

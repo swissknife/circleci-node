@@ -114,7 +114,7 @@ export class CreateScheduleCreateScheduleParameters extends SpeakeasyBase {
   name: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters: Map<string, any>;
+  parameters: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=timetable" })
   timetable: any;
@@ -244,7 +244,7 @@ export class CreateScheduleSchedule extends SpeakeasyBase {
   name: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters: Map<string, any>;
+  parameters: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=project-slug" })
   projectSlug: string;
@@ -283,5 +283,5 @@ export class CreateScheduleResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  createScheduleDefaultApplicationJsonObject?: CreateScheduleDefaultApplicationJson;
+  createScheduleDefaultApplicationJSONObject?: CreateScheduleDefaultApplicationJson;
 }

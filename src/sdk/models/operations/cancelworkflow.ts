@@ -41,5 +41,5 @@ export class CancelWorkflowResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  cancelWorkflowDefaultApplicationJsonObject?: CancelWorkflowDefaultApplicationJson;
+  cancelWorkflowDefaultApplicationJSONObject?: CancelWorkflowDefaultApplicationJson;
 }

@@ -142,7 +142,7 @@ export function replaceParameters(
   let res: string = stringWithParams;
   params.forEach((value, key) => {
     const match: string = "{" + key + "}";
-    res = res.replace(new RegExp(match, "g"), value);
+    res = res.replaceAll(match, value);
   });
   return res;
 }
@@ -210,4 +210,45 @@ export function parseParamDecorator(
     }
   });
   return decorator;
+}
+
+export function isStringRecord(obj: any): obj is Record<string, string> {
+  if (typeof obj !== "object")
+    return false
+
+  if (Object.getOwnPropertySymbols(obj).length > 0)
+    return false
+
+  return Object.getOwnPropertyNames(obj)
+      .every(prop => typeof obj[prop] === "string")
+}
+
+export function isNumberRecord(obj: any): obj is Record<string, number> {
+  if (typeof obj !== "object")
+    return false
+
+  if (Object.getOwnPropertySymbols(obj).length > 0)
+    return false
+
+  return Object.getOwnPropertyNames(obj)
+      .every(prop => typeof obj[prop] === "number")
+}
+
+export function isBooleanRecord(obj: any): obj is Record<string, boolean> {
+  if (typeof obj !== "object")
+    return false
+
+  if (Object.getOwnPropertySymbols(obj).length > 0)
+    return false
+
+  return Object.getOwnPropertyNames(obj)
+      .every(prop => typeof obj[prop] === "boolean")
+}
+
+export function isEmpty(value: any): boolean {
+  // check for undefined, null, and NaN
+  let res: boolean = false;
+  if (typeof value === "number") res = Number.isNaN(value);
+  else if (typeof value === "string") res = value === "";
+  return res || value == null;
 }

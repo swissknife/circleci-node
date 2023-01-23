@@ -24,6 +24,9 @@ export class AddEnvironmentVariableToContext200ApplicationJson1 extends Speakeas
   @SpeakeasyMetadata({ data: "json, name=created_at" })
   createdAt: Date;
 
+  @SpeakeasyMetadata({ data: "json, name=updated_at" })
+  updatedAt: Date;
+
   @SpeakeasyMetadata({ data: "json, name=variable" })
   variable: string;
 }
@@ -62,8 +65,8 @@ export class AddEnvironmentVariableToContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  addEnvironmentVariableToContext200ApplicationJsonAnyOf?: any;
+  addEnvironmentVariableToContext200ApplicationJSONAnyOf?: any;
 
   @SpeakeasyMetadata()
-  addEnvironmentVariableToContextDefaultApplicationJsonObject?: AddEnvironmentVariableToContextDefaultApplicationJson;
+  addEnvironmentVariableToContextDefaultApplicationJSONObject?: AddEnvironmentVariableToContextDefaultApplicationJson;
 }

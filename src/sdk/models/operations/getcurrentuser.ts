@@ -31,5 +31,5 @@ export class GetCurrentUserResponse extends SpeakeasyBase {
   user?: GetCurrentUserUser;
 
   @SpeakeasyMetadata()
-  getCurrentUserDefaultApplicationJsonObject?: GetCurrentUserDefaultApplicationJson;
+  getCurrentUserDefaultApplicationJSONObject?: GetCurrentUserDefaultApplicationJson;
 }

@@ -1,5 +1,4 @@
-import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
-import FormData from "form-data";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
 import * as operations from "./models/operations";
 import * as utils from "../internal/utils";
 
@@ -47,18 +46,18 @@ export class Schedule {
     }
     
     const client: AxiosInstance = this._securityClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
-    let body: any;
-    if (reqBody instanceof FormData) body = reqBody;
-    else body = {...reqBody};
-    return client
-      .request({
-        url: url,
-        method: "post",
-        headers: headers,
-        data: body, 
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -71,14 +70,13 @@ export class Schedule {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createScheduleDefaultApplicationJsonObject = httpRes?.data;
+                res.createScheduleDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -100,12 +98,14 @@ export class Schedule {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "delete",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "delete",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -118,14 +118,13 @@ export class Schedule {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteScheduleByIdDefaultApplicationJsonObject = httpRes?.data;
+                res.deleteScheduleByIdDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -147,12 +146,14 @@ export class Schedule {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -165,14 +166,13 @@ export class Schedule {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getScheduleByIdDefaultApplicationJsonObject = httpRes?.data;
+                res.getScheduleByIdDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -202,12 +202,14 @@ export class Schedule {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -215,19 +217,18 @@ export class Schedule {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listSchedulesForProject200ApplicationJsonObject = httpRes?.data;
+                res.listSchedulesForProject200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listSchedulesForProjectDefaultApplicationJsonObject = httpRes?.data;
+                res.listSchedulesForProjectDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -258,18 +259,18 @@ export class Schedule {
     }
     
     const client: AxiosInstance = this._securityClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
-    let body: any;
-    if (reqBody instanceof FormData) body = reqBody;
-    else body = {...reqBody};
-    return client
-      .request({
-        url: url,
-        method: "patch",
-        headers: headers,
-        data: body, 
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "patch",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -282,14 +283,13 @@ export class Schedule {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.updateScheduleDefaultApplicationJsonObject = httpRes?.data;
+                res.updateScheduleDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
 }

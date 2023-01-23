@@ -120,5 +120,5 @@ export class CreateWebhookResponse extends SpeakeasyBase {
   webhook?: CreateWebhookWebhook;
 
   @SpeakeasyMetadata()
-  createWebhookDefaultApplicationJsonObject?: CreateWebhookDefaultApplicationJson;
+  createWebhookDefaultApplicationJSONObject?: CreateWebhookDefaultApplicationJson;
 }

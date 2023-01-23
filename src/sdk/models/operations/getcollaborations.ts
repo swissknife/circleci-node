@@ -37,5 +37,5 @@ export class GetCollaborationsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getCollaborationsDefaultApplicationJsonObject?: GetCollaborationsDefaultApplicationJson;
+  getCollaborationsDefaultApplicationJSONObject?: GetCollaborationsDefaultApplicationJson;
 }

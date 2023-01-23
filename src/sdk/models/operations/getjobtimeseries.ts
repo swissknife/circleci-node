@@ -135,8 +135,8 @@ export class GetJobTimeseriesResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getJobTimeseries200ApplicationJsonObject?: GetJobTimeseries200ApplicationJson;
+  getJobTimeseries200ApplicationJSONObject?: GetJobTimeseries200ApplicationJson;
 
   @SpeakeasyMetadata()
-  getJobTimeseriesDefaultApplicationJsonObject?: GetJobTimeseriesDefaultApplicationJson;
+  getJobTimeseriesDefaultApplicationJSONObject?: GetJobTimeseriesDefaultApplicationJson;
 }

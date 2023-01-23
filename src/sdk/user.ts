@@ -1,4 +1,4 @@
-import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import * as operations from "./models/operations";
 import * as utils from "../internal/utils";
 
@@ -38,12 +38,14 @@ export class User {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -56,14 +58,13 @@ export class User {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getCollaborationsDefaultApplicationJsonObject = httpRes?.data;
+                res.getCollaborationsDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -80,12 +81,14 @@ export class User {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -98,14 +101,13 @@ export class User {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getCurrentUserDefaultApplicationJsonObject = httpRes?.data;
+                res.getCurrentUserDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -127,12 +129,14 @@ export class User {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -145,14 +149,13 @@ export class User {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getUserDefaultApplicationJsonObject = httpRes?.data;
+                res.getUserDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
 }

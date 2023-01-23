@@ -157,7 +157,7 @@ export class ListPipelinesForProjectPipelineListResponsePipeline extends Speakea
   trigger: ListPipelinesForProjectPipelineListResponsePipelineTrigger;
 
   @SpeakeasyMetadata({ data: "json, name=trigger_parameters" })
-  triggerParameters?: Map<string, any>;
+  triggerParameters?: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=updated_at" })
   updatedAt?: Date;
@@ -206,5 +206,5 @@ export class ListPipelinesForProjectResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listPipelinesForProjectDefaultApplicationJsonObject?: ListPipelinesForProjectDefaultApplicationJson;
+  listPipelinesForProjectDefaultApplicationJSONObject?: ListPipelinesForProjectDefaultApplicationJson;
 }

@@ -81,5 +81,5 @@ export class GetProjectBySlugResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectBySlugDefaultApplicationJsonObject?: GetProjectBySlugDefaultApplicationJson;
+  getProjectBySlugDefaultApplicationJSONObject?: GetProjectBySlugDefaultApplicationJson;
 }

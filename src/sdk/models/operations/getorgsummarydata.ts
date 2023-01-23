@@ -18,7 +18,7 @@ export enum GetOrgSummaryDataReportingWindowEnum {
 
 export class GetOrgSummaryDataQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=project-names" })
-  projectNames?: Map<string, any>;
+  projectNames?: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
   reportingWindow?: GetOrgSummaryDataReportingWindowEnum;
@@ -171,8 +171,8 @@ export class GetOrgSummaryDataResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getOrgSummaryData200ApplicationJsonObject?: GetOrgSummaryData200ApplicationJson;
+  getOrgSummaryData200ApplicationJSONObject?: GetOrgSummaryData200ApplicationJson;
 
   @SpeakeasyMetadata()
-  getOrgSummaryDataDefaultApplicationJsonObject?: GetOrgSummaryDataDefaultApplicationJson;
+  getOrgSummaryDataDefaultApplicationJSONObject?: GetOrgSummaryDataDefaultApplicationJson;
 }

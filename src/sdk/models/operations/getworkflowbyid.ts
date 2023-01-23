@@ -90,5 +90,5 @@ export class GetWorkflowByIdResponse extends SpeakeasyBase {
   workflow?: GetWorkflowByIdWorkflow;
 
   @SpeakeasyMetadata()
-  getWorkflowByIdDefaultApplicationJsonObject?: GetWorkflowByIdDefaultApplicationJson;
+  getWorkflowByIdDefaultApplicationJSONObject?: GetWorkflowByIdDefaultApplicationJson;
 }

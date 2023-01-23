@@ -63,8 +63,8 @@ export class ListContextsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listContexts200ApplicationJsonObject?: ListContexts200ApplicationJson;
+  listContexts200ApplicationJSONObject?: ListContexts200ApplicationJson;
 
   @SpeakeasyMetadata()
-  listContextsDefaultApplicationJsonObject?: ListContextsDefaultApplicationJson;
+  listContextsDefaultApplicationJSONObject?: ListContextsDefaultApplicationJson;
 }

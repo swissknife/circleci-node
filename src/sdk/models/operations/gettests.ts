@@ -67,5 +67,5 @@ export class GetTestsResponse extends SpeakeasyBase {
   testsResponse?: GetTestsTestsResponse;
 
   @SpeakeasyMetadata()
-  getTestsDefaultApplicationJsonObject?: GetTestsDefaultApplicationJson;
+  getTestsDefaultApplicationJSONObject?: GetTestsDefaultApplicationJson;
 }

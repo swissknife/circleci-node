@@ -138,8 +138,8 @@ export class GetProjectWorkflowJobMetricsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowJobMetrics200ApplicationJsonObject?: GetProjectWorkflowJobMetrics200ApplicationJson;
+  getProjectWorkflowJobMetrics200ApplicationJSONObject?: GetProjectWorkflowJobMetrics200ApplicationJson;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowJobMetricsDefaultApplicationJsonObject?: GetProjectWorkflowJobMetricsDefaultApplicationJson;
+  getProjectWorkflowJobMetricsDefaultApplicationJSONObject?: GetProjectWorkflowJobMetricsDefaultApplicationJson;
 }

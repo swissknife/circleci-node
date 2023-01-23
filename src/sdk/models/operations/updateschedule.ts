@@ -75,7 +75,7 @@ export class UpdateScheduleUpdateScheduleParameters extends SpeakeasyBase {
   name?: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters?: Map<string, any>;
+  parameters?: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=timetable" })
   timetable?: UpdateScheduleUpdateScheduleParametersTimetable;
@@ -205,7 +205,7 @@ export class UpdateScheduleSchedule extends SpeakeasyBase {
   name: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters: Map<string, any>;
+  parameters: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=project-slug" })
   projectSlug: string;
@@ -244,5 +244,5 @@ export class UpdateScheduleResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  updateScheduleDefaultApplicationJsonObject?: UpdateScheduleDefaultApplicationJson;
+  updateScheduleDefaultApplicationJSONObject?: UpdateScheduleDefaultApplicationJson;
 }
