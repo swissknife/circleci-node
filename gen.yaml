@@ -1,5 +1,5 @@
 typescript:
-  packagename: '@swissknife/circle-ts'
+  packagename: 'circleci-v2-sdk'
   version: 2.0.0
   author: Speakeasy API
 # baseserverurl optional, if not specified it will use the server URL from the OpenAPI spec
