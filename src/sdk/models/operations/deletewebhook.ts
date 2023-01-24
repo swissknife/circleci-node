@@ -41,5 +41,5 @@ export class DeleteWebhookResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteWebhookDefaultApplicationJsonObject?: DeleteWebhookDefaultApplicationJson;
+  deleteWebhookDefaultApplicationJSONObject?: DeleteWebhookDefaultApplicationJson;
 }

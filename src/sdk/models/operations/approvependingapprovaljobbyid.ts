@@ -44,5 +44,5 @@ export class ApprovePendingApprovalJobByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  approvePendingApprovalJobByIdDefaultApplicationJsonObject?: ApprovePendingApprovalJobByIdDefaultApplicationJson;
+  approvePendingApprovalJobByIdDefaultApplicationJSONObject?: ApprovePendingApprovalJobByIdDefaultApplicationJson;
 }

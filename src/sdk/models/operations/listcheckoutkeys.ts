@@ -63,5 +63,5 @@ export class ListCheckoutKeysResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listCheckoutKeysDefaultApplicationJsonObject?: ListCheckoutKeysDefaultApplicationJson;
+  listCheckoutKeysDefaultApplicationJSONObject?: ListCheckoutKeysDefaultApplicationJson;
 }

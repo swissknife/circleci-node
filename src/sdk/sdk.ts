@@ -12,37 +12,19 @@ import { User } from "./user";
 import { Webhook } from "./webhook";
 import { Workflow } from "./workflow";
 
-type OptsFunc = (sdk: SDK) => void;
 
 export const ServerList = [
 	"https://circleci.com/api/v2",
 ] as const;
 
-export function withServerURL(
-  serverURL: string,
-  params?: Map<string, string>
-): OptsFunc {
-  return (sdk: SDK) => {
-    if (params != null) {
-      serverURL = utils.replaceParameters(serverURL, params);
-    }
-    sdk._serverURL = serverURL;
-  };
-}
 
-export function withClient(client: AxiosInstance): OptsFunc {
-  return (sdk: SDK) => {
-    sdk._defaultClient = client;
-  };
-}
 
-export function withSecurity(security: Security): OptsFunc {
-  if (!(security instanceof utils.SpeakeasyBase)) {
-    security = new Security(security);
-  }
-  return (sdk: SDK) => {
-    sdk._security = security;
-  };
+export type SDKProps = {
+  defaultClient?: AxiosInstance;
+
+  security?: Security;
+
+  serverUrl?: string;
 }
 
 
@@ -59,31 +41,25 @@ export class SDK {
 
   public _defaultClient: AxiosInstance;
   public _securityClient: AxiosInstance;
-  public _security?: Security;
   public _serverURL: string;
   private _language = "typescript";
   private _sdkVersion = "2.0.0";
-  private _genVersion = "";
+  private _genVersion = "0.19.0";
 
-  constructor(...opts: OptsFunc[]) {
-    opts.forEach((o) => o(this));
-    if (!this._serverURL) {
-      this._serverURL = ServerList[0];
-    }
+  constructor(props: SDKProps) {
+    this._serverURL = props.serverUrl ?? ServerList[0];
 
-    if (!this._defaultClient) {
-      this._defaultClient = axios.create({ baseURL: this._serverURL });
-    }
-
-    if (!this._securityClient) {
-      if (this._security) {
-        this._securityClient = utils.createSecurityClient(
-          this._defaultClient,
-          this._security
-        );
-      } else {
-        this._securityClient = this._defaultClient;
-      }
+    this._defaultClient = props.defaultClient ?? axios.create({ baseURL: this._serverURL });
+    if (props.security) {
+      let security: Security = props.security;
+      if (!(props.security instanceof utils.SpeakeasyBase))
+        security = new Security(props.security);
+      this._securityClient = utils.createSecurityClient(
+        this._defaultClient,
+        security
+      );
+    } else {
+      this._securityClient = this._defaultClient;
     }
     
     this.context = new Context(

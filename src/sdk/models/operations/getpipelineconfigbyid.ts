@@ -50,5 +50,5 @@ export class GetPipelineConfigByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getPipelineConfigByIdDefaultApplicationJsonObject?: GetPipelineConfigByIdDefaultApplicationJson;
+  getPipelineConfigByIdDefaultApplicationJSONObject?: GetPipelineConfigByIdDefaultApplicationJson;
 }

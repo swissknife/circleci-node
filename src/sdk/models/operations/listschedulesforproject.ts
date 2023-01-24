@@ -137,7 +137,7 @@ export class ListSchedulesForProject200ApplicationJsonSchedule extends Speakeasy
   name: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters: Map<string, any>;
+  parameters: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=project-slug" })
   projectSlug: string;
@@ -186,8 +186,8 @@ export class ListSchedulesForProjectResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listSchedulesForProject200ApplicationJsonObject?: ListSchedulesForProject200ApplicationJson;
+  listSchedulesForProject200ApplicationJSONObject?: ListSchedulesForProject200ApplicationJson;
 
   @SpeakeasyMetadata()
-  listSchedulesForProjectDefaultApplicationJsonObject?: ListSchedulesForProjectDefaultApplicationJson;
+  listSchedulesForProjectDefaultApplicationJSONObject?: ListSchedulesForProjectDefaultApplicationJson;
 }

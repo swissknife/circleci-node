@@ -8,22 +8,20 @@ The CircleCI API Node SDK is a NPM library for accessing the resources that make
 ### NPM
 
 ```bash
-npm add circleci-v2-sdk
+npm add @swissknife/circle-ts
 ```
 
 ### Yarn
 
 ```bash
-yarn add circleci-v2-sdk
+yarn add @swissknife/circle-ts
 ```
 <!-- End SDK Installation -->
 
 <!-- Start SDK Example Usage -->
-## SDK Example Usage
-
 ```typescript
-import { SDK, withSecurity} from "circleci-v2-sdk";
-import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/src/sdk/models/operations";
+import { SDK, withSecurity} from "@swissknife/circle-ts";
+import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "@swissknife/circle-ts/src/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new SDK(withSecurity(
@@ -33,7 +31,7 @@ const sdk = new SDK(withSecurity(
     },
   }
 ));
-
+    
 const req: AddEnvironmentVariableToContextRequest = {
   pathParams: {
     contextId: "sit",

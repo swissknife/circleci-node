@@ -49,5 +49,5 @@ export class ListEnvVarsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listEnvVarsDefaultApplicationJsonObject?: ListEnvVarsDefaultApplicationJson;
+  listEnvVarsDefaultApplicationJSONObject?: ListEnvVarsDefaultApplicationJson;
 }

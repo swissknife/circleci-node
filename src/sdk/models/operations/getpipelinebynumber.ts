@@ -151,7 +151,7 @@ export class GetPipelineByNumberPipeline extends SpeakeasyBase {
   trigger: GetPipelineByNumberPipelineTrigger;
 
   @SpeakeasyMetadata({ data: "json, name=trigger_parameters" })
-  triggerParameters?: Map<string, any>;
+  triggerParameters?: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=updated_at" })
   updatedAt?: Date;
@@ -184,5 +184,5 @@ export class GetPipelineByNumberResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getPipelineByNumberDefaultApplicationJsonObject?: GetPipelineByNumberDefaultApplicationJson;
+  getPipelineByNumberDefaultApplicationJSONObject?: GetPipelineByNumberDefaultApplicationJson;
 }

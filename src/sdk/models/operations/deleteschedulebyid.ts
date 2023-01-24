@@ -41,5 +41,5 @@ export class DeleteScheduleByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteScheduleByIdDefaultApplicationJsonObject?: DeleteScheduleByIdDefaultApplicationJson;
+  deleteScheduleByIdDefaultApplicationJSONObject?: DeleteScheduleByIdDefaultApplicationJson;
 }

@@ -1,5 +1,4 @@
-import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
-import FormData from "form-data";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
 import * as operations from "./models/operations";
 import * as utils from "../internal/utils";
 
@@ -47,18 +46,18 @@ export class Pipeline {
     }
     
     const client: AxiosInstance = this._securityClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
-    let body: any;
-    if (reqBody instanceof FormData) body = reqBody;
-    else body = {...reqBody};
-    return client
-      .request({
-        url: url,
-        method: "post",
-        headers: headers,
-        data: body, 
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -71,14 +70,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.continuePipelineDefaultApplicationJsonObject = httpRes?.data;
+                res.continuePipelineDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -100,12 +98,14 @@ export class Pipeline {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -118,14 +118,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getPipelineByIdDefaultApplicationJsonObject = httpRes?.data;
+                res.getPipelineByIdDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -147,12 +146,14 @@ export class Pipeline {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -165,14 +166,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getPipelineByNumberDefaultApplicationJsonObject = httpRes?.data;
+                res.getPipelineByNumberDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -194,12 +194,14 @@ export class Pipeline {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -212,14 +214,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getPipelineConfigByIdDefaultApplicationJsonObject = httpRes?.data;
+                res.getPipelineConfigByIdDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -249,12 +250,14 @@ export class Pipeline {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -267,14 +270,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listMyPipelinesDefaultApplicationJsonObject = httpRes?.data;
+                res.listMyPipelinesDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -304,12 +306,14 @@ export class Pipeline {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -322,14 +326,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listPipelinesDefaultApplicationJsonObject = httpRes?.data;
+                res.listPipelinesDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -359,12 +362,14 @@ export class Pipeline {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -377,14 +382,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listPipelinesForProjectDefaultApplicationJsonObject = httpRes?.data;
+                res.listPipelinesForProjectDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -414,12 +418,14 @@ export class Pipeline {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -432,14 +438,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listWorkflowsByPipelineIdDefaultApplicationJsonObject = httpRes?.data;
+                res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -470,18 +475,18 @@ export class Pipeline {
     }
     
     const client: AxiosInstance = this._securityClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
-    let body: any;
-    if (reqBody instanceof FormData) body = reqBody;
-    else body = {...reqBody};
-    return client
-      .request({
-        url: url,
-        method: "post",
-        headers: headers,
-        data: body, 
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -494,14 +499,13 @@ export class Pipeline {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.triggerPipelineDefaultApplicationJsonObject = httpRes?.data;
+                res.triggerPipelineDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
 }

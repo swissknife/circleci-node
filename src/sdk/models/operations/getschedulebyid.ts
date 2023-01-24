@@ -131,7 +131,7 @@ export class GetScheduleByIdSchedule extends SpeakeasyBase {
   name: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters: Map<string, any>;
+  parameters: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=project-slug" })
   projectSlug: string;
@@ -167,5 +167,5 @@ export class GetScheduleByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getScheduleByIdDefaultApplicationJsonObject?: GetScheduleByIdDefaultApplicationJson;
+  getScheduleByIdDefaultApplicationJSONObject?: GetScheduleByIdDefaultApplicationJson;
 }

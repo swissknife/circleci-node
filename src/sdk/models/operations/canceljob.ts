@@ -44,5 +44,5 @@ export class CancelJobResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  cancelJobDefaultApplicationJsonObject?: CancelJobDefaultApplicationJson;
+  cancelJobDefaultApplicationJSONObject?: CancelJobDefaultApplicationJson;
 }

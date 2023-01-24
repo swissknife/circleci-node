@@ -73,5 +73,5 @@ export class CreateContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  createContextDefaultApplicationJsonObject?: CreateContextDefaultApplicationJson;
+  createContextDefaultApplicationJSONObject?: CreateContextDefaultApplicationJson;
 }

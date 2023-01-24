@@ -59,5 +59,5 @@ export class GetJobArtifactsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getJobArtifactsDefaultApplicationJsonObject?: GetJobArtifactsDefaultApplicationJson;
+  getJobArtifactsDefaultApplicationJSONObject?: GetJobArtifactsDefaultApplicationJson;
 }

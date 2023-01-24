@@ -16,7 +16,7 @@ export class GetWorkflowSummaryQueryParams extends SpeakeasyBase {
   allBranches?: boolean;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
-  branches?: Map<string, any>;
+  branches?: Record<string, any>;
 }
 
 
@@ -152,8 +152,8 @@ export class GetWorkflowSummaryResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getWorkflowSummary200ApplicationJsonObject?: GetWorkflowSummary200ApplicationJson;
+  getWorkflowSummary200ApplicationJSONObject?: GetWorkflowSummary200ApplicationJson;
 
   @SpeakeasyMetadata()
-  getWorkflowSummaryDefaultApplicationJsonObject?: GetWorkflowSummaryDefaultApplicationJson;
+  getWorkflowSummaryDefaultApplicationJSONObject?: GetWorkflowSummaryDefaultApplicationJson;
 }

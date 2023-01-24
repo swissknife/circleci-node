@@ -60,8 +60,8 @@ export class RerunWorkflowResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  rerunWorkflow202ApplicationJsonObject?: RerunWorkflow202ApplicationJson;
+  rerunWorkflow202ApplicationJSONObject?: RerunWorkflow202ApplicationJson;
 
   @SpeakeasyMetadata()
-  rerunWorkflowDefaultApplicationJsonObject?: RerunWorkflowDefaultApplicationJson;
+  rerunWorkflowDefaultApplicationJSONObject?: RerunWorkflowDefaultApplicationJson;
 }

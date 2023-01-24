@@ -112,5 +112,5 @@ export class ListWorkflowsByPipelineIdResponse extends SpeakeasyBase {
   workflowListResponse?: ListWorkflowsByPipelineIdWorkflowListResponse;
 
   @SpeakeasyMetadata()
-  listWorkflowsByPipelineIdDefaultApplicationJsonObject?: ListWorkflowsByPipelineIdDefaultApplicationJson;
+  listWorkflowsByPipelineIdDefaultApplicationJSONObject?: ListWorkflowsByPipelineIdDefaultApplicationJson;
 }

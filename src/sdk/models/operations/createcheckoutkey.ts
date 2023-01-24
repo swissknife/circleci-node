@@ -68,5 +68,5 @@ export class CreateCheckoutKeyResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  createCheckoutKeyDefaultApplicationJsonObject?: CreateCheckoutKeyDefaultApplicationJson;
+  createCheckoutKeyDefaultApplicationJSONObject?: CreateCheckoutKeyDefaultApplicationJson;
 }

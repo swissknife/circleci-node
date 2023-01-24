@@ -44,5 +44,5 @@ export class DeleteCheckoutKeyResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteCheckoutKeyDefaultApplicationJsonObject?: DeleteCheckoutKeyDefaultApplicationJson;
+  deleteCheckoutKeyDefaultApplicationJSONObject?: DeleteCheckoutKeyDefaultApplicationJson;
 }

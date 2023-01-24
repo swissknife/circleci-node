@@ -1,4 +1,4 @@
-import { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
 import * as operations from "./models/operations";
 import * as utils from "../internal/utils";
 
@@ -45,12 +45,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -58,19 +60,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getAllInsightsBranches200ApplicationJsonAny = httpRes?.data;
+                res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getAllInsightsBranchesDefaultApplicationJsonObject = httpRes?.data;
+                res.getAllInsightsBranchesDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -93,12 +94,14 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...config,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -106,19 +109,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getFlakyTests200ApplicationJsonObject = httpRes?.data;
+                res.getFlakyTests200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getFlakyTestsDefaultApplicationJsonObject = httpRes?.data;
+                res.getFlakyTestsDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -148,12 +150,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -161,19 +165,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getJobTimeseries200ApplicationJsonObject = httpRes?.data;
+                res.getJobTimeseries200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getJobTimeseriesDefaultApplicationJsonObject = httpRes?.data;
+                res.getJobTimeseriesDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -204,12 +207,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -217,19 +222,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getOrgSummaryData200ApplicationJsonObject = httpRes?.data;
+                res.getOrgSummaryData200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getOrgSummaryDataDefaultApplicationJsonObject = httpRes?.data;
+                res.getOrgSummaryDataDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -259,12 +263,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -272,19 +278,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowJobMetrics200ApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowJobMetrics200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowJobMetricsDefaultApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -314,12 +319,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -327,19 +334,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowMetrics200ApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowMetrics200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowMetricsDefaultApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowMetricsDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -369,12 +375,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -382,19 +390,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowRuns200ApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowRuns200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowRunsDefaultApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowRunsDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -424,12 +431,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -437,19 +446,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowTestMetrics200ApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowTestMetrics200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowTestMetricsDefaultApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -484,12 +492,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -497,19 +507,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowsPageData200ApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowsPageData200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowsPageDataDefaultApplicationJsonObject = httpRes?.data;
+                res.getProjectWorkflowsPageDataDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
   
@@ -539,12 +548,14 @@ export class Insights {
       paramsSerializer: qpSerializer,
     };
     
-    return client
-      .request({
-        url: url,
-        method: "get",
-        ...requestConfig,
-      }).then((httpRes: AxiosResponse) => {
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...requestConfig,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
@@ -552,19 +563,18 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWorkflowSummary200ApplicationJsonObject = httpRes?.data;
+                res.getWorkflowSummary200ApplicationJSONObject = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWorkflowSummaryDefaultApplicationJsonObject = httpRes?.data;
+                res.getWorkflowSummaryDefaultApplicationJSONObject = httpRes?.data;
             }
             break;
         }
 
         return res;
       })
-      .catch((error: AxiosError) => {throw error});
   }
 
 }

@@ -105,5 +105,5 @@ export class ListWorkflowJobsResponse extends SpeakeasyBase {
   workflowJobListResponse?: ListWorkflowJobsWorkflowJobListResponse;
 
   @SpeakeasyMetadata()
-  listWorkflowJobsDefaultApplicationJsonObject?: ListWorkflowJobsDefaultApplicationJson;
+  listWorkflowJobsDefaultApplicationJSONObject?: ListWorkflowJobsDefaultApplicationJson;
 }

@@ -79,5 +79,5 @@ export class GetWebhookByIdResponse extends SpeakeasyBase {
   webhook?: GetWebhookByIdWebhook;
 
   @SpeakeasyMetadata()
-  getWebhookByIdDefaultApplicationJsonObject?: GetWebhookByIdDefaultApplicationJson;
+  getWebhookByIdDefaultApplicationJSONObject?: GetWebhookByIdDefaultApplicationJson;
 }

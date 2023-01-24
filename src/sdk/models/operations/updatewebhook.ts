@@ -109,5 +109,5 @@ export class UpdateWebhookResponse extends SpeakeasyBase {
   webhook?: UpdateWebhookWebhook;
 
   @SpeakeasyMetadata()
-  updateWebhookDefaultApplicationJsonObject?: UpdateWebhookDefaultApplicationJson;
+  updateWebhookDefaultApplicationJSONObject?: UpdateWebhookDefaultApplicationJson;
 }

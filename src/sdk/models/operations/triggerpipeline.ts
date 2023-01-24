@@ -17,7 +17,7 @@ export class TriggerPipelineTriggerPipelineParameters extends SpeakeasyBase {
   branch?: string;
 
   @SpeakeasyMetadata({ data: "json, name=parameters" })
-  parameters?: Map<string, any>;
+  parameters?: Record<string, any>;
 
   @SpeakeasyMetadata({ data: "json, name=tag" })
   tag?: string;
@@ -77,5 +77,5 @@ export class TriggerPipelineResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  triggerPipelineDefaultApplicationJsonObject?: TriggerPipelineDefaultApplicationJson;
+  triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJson;
 }

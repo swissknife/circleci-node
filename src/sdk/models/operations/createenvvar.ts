@@ -43,5 +43,5 @@ export class CreateEnvVarResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  createEnvVarDefaultApplicationJsonObject?: CreateEnvVarDefaultApplicationJson;
+  createEnvVarDefaultApplicationJSONObject?: CreateEnvVarDefaultApplicationJson;
 }
