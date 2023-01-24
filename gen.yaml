@@ -1,7 +1,9 @@
+management:
+    openapi-checksum: 04bde2a2575228c7518178d3a2838039
+    openapi-version: v2
+    speakeasy-version: 0.21.0
 typescript:
-  packagename: 'circleci-v2-sdk'
-  version: 2.0.0
-  author: Speakeasy API
-# baseserverurl optional, if not specified it will use the server URL from the OpenAPI spec
-# this can also be provided via the --baseurl flag when calling the command line
+    version: 2.1.0
+    packagename: circleci-v2-sdk
+    author: Speakeasy API
 baseserverurl: https://circleci.com/api/v2/
