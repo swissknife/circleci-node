@@ -44,7 +44,7 @@ export class SDK {
   public _serverURL: string;
   private _language = "typescript";
   private _sdkVersion = "2.0.0";
-  private _genVersion = "0.19.0";
+  private _genVersion = "0.20.6";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
