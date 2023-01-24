@@ -5,14 +5,13 @@ on:
     paths:
       - "RELEASES.md"
     branches:
-      - main
+      - master
 
 jobs:
   publish:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v7 # Import the sdk publish workflow which will handle the publishing to the package managers
     with:
       publish_typescript: true
-      publish_python: true
       create_release: true
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
