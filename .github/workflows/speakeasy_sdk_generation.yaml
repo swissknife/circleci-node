@@ -15,7 +15,7 @@ jobs:
         - typescript
         - python
       publish_typescript: true
-      publish_python: true
+      publish_python: false
       mode: pr
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
