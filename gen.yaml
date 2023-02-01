@@ -1,9 +1,9 @@
 management:
-    openapi-checksum: 59502797c2ad2a69498667496344a1e0
+    openapi-checksum: e31315f725d3ccc342a0703eb66d67a4
     openapi-version: v2
-    speakeasy-version: 0.21.1
+    speakeasy-version: 0.21.2
 typescript:
-    version: 2.1.2
+    version: 2.1.3
     packagename: circleci-v2-sdk
     author: Speakeasy API
 baseserverurl: https://circleci.com/api/v2/
