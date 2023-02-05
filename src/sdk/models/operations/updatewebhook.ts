@@ -1,17 +1,14 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class UpdateWebhookPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=webhook-id" })
   webhookId: string;
 }
-
 export enum UpdateWebhookRequestBodyEventsEnum {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed"
 }
-
 
 // UpdateWebhookRequestBody
 /** 
@@ -34,11 +31,22 @@ export class UpdateWebhookRequestBody extends SpeakeasyBase {
   verifyTls?: boolean;
 }
 
+export class UpdateWebhookRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: UpdateWebhookPathParams;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: UpdateWebhookRequestBody;
+}
+
+export class UpdateWebhookDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum UpdateWebhookWebhookEventsEnum {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed"
 }
-
 
 // UpdateWebhookWebhookScope
 /** 
@@ -51,7 +59,6 @@ export class UpdateWebhookWebhookScope extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: string;
 }
-
 
 export class UpdateWebhookWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created-at" })
@@ -82,22 +89,6 @@ export class UpdateWebhookWebhook extends SpeakeasyBase {
   verifyTls: boolean;
 }
 
-
-export class UpdateWebhookDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class UpdateWebhookRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateWebhookPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateWebhookRequestBody;
-}
-
-
 export class UpdateWebhookResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -109,5 +100,5 @@ export class UpdateWebhookResponse extends SpeakeasyBase {
   webhook?: UpdateWebhookWebhook;
 
   @SpeakeasyMetadata()
-  updateWebhookDefaultApplicationJSONObject?: UpdateWebhookDefaultApplicationJson;
+  updateWebhookDefaultApplicationJSONObject?: UpdateWebhookDefaultApplicationJSON;
 }

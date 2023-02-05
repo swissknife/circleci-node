@@ -1,17 +1,15 @@
-import axios, { AxiosInstance } from "axios";
 import * as utils from "../internal/utils";
-import { Security } from "./models/shared";
-
 import { Context } from "./context";
 import { Insights } from "./insights";
 import { Job } from "./job";
+import { Security } from "./models/shared";
 import { Pipeline } from "./pipeline";
 import { Project } from "./project";
 import { Schedule } from "./schedule";
 import { User } from "./user";
 import { Webhook } from "./webhook";
 import { Workflow } from "./workflow";
-
+import axios, { AxiosInstance } from "axios";
 
 export const ServerList = [
 	"https://circleci.com/api/v2",
@@ -43,8 +41,8 @@ export class SDK {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "2.1.1";
-  private _genVersion = "0.21.0";
+  private _sdkVersion = "3.0.0";
+  private _genVersion = "1.0.0";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
@@ -143,4 +141,5 @@ export class SDK {
       this._genVersion
     );
   }
+  
 }

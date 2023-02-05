@@ -1,10 +1,8 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export enum GetWebhooksScopeTypeEnum {
     Project = "project"
 }
-
 
 export class GetWebhooksQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=scope-id" })
@@ -14,17 +12,25 @@ export class GetWebhooksQueryParams extends SpeakeasyBase {
   scopeType: GetWebhooksScopeTypeEnum;
 }
 
-export enum GetWebhooks200ApplicationJsonWebhookEventsEnum {
+export class GetWebhooksRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  queryParams: GetWebhooksQueryParams;
+}
+
+export class GetWebhooksDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+export enum GetWebhooks200ApplicationJSONWebhookEventsEnum {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed"
 }
 
-
-// GetWebhooks200ApplicationJsonWebhookScope
+// GetWebhooks200ApplicationJSONWebhookScope
 /** 
  * The scope in which the relevant events that will trigger webhooks
 **/
-export class GetWebhooks200ApplicationJsonWebhookScope extends SpeakeasyBase {
+export class GetWebhooks200ApplicationJSONWebhookScope extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=id" })
   id: string;
 
@@ -32,13 +38,12 @@ export class GetWebhooks200ApplicationJsonWebhookScope extends SpeakeasyBase {
   type: string;
 }
 
-
-export class GetWebhooks200ApplicationJsonWebhook extends SpeakeasyBase {
+export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created-at" })
   createdAt: Date;
 
   @SpeakeasyMetadata({ data: "json, name=events" })
-  events: GetWebhooks200ApplicationJsonWebhookEventsEnum[];
+  events: GetWebhooks200ApplicationJSONWebhookEventsEnum[];
 
   @SpeakeasyMetadata({ data: "json, name=id" })
   id: string;
@@ -47,7 +52,7 @@ export class GetWebhooks200ApplicationJsonWebhook extends SpeakeasyBase {
   name: string;
 
   @SpeakeasyMetadata({ data: "json, name=scope" })
-  scope: GetWebhooks200ApplicationJsonWebhookScope;
+  scope: GetWebhooks200ApplicationJSONWebhookScope;
 
   @SpeakeasyMetadata({ data: "json, name=signing-secret" })
   signingSecret: string;
@@ -62,31 +67,17 @@ export class GetWebhooks200ApplicationJsonWebhook extends SpeakeasyBase {
   verifyTls: boolean;
 }
 
-
-// GetWebhooks200ApplicationJson
+// GetWebhooks200ApplicationJSON
 /** 
  * A list of webhooks
 **/
-export class GetWebhooks200ApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetWebhooks200ApplicationJsonWebhook })
-  items: GetWebhooks200ApplicationJsonWebhook[];
+export class GetWebhooks200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetWebhooks200ApplicationJSONWebhook })
+  items: GetWebhooks200ApplicationJSONWebhook[];
 
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class GetWebhooksDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetWebhooksRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  queryParams: GetWebhooksQueryParams;
-}
-
 
 export class GetWebhooksResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -96,8 +87,8 @@ export class GetWebhooksResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getWebhooks200ApplicationJSONObject?: GetWebhooks200ApplicationJson;
+  getWebhooks200ApplicationJSONObject?: GetWebhooks200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  getWebhooksDefaultApplicationJSONObject?: GetWebhooksDefaultApplicationJson;
+  getWebhooksDefaultApplicationJSONObject?: GetWebhooksDefaultApplicationJSON;
 }

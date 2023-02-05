@@ -1,12 +1,10 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class TriggerPipelinePathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
   projectSlug: string;
 }
-
 
 // TriggerPipelineTriggerPipelineParameters
 /** 
@@ -23,6 +21,18 @@ export class TriggerPipelineTriggerPipelineParameters extends SpeakeasyBase {
   tag?: string;
 }
 
+export class TriggerPipelineRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: TriggerPipelinePathParams;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: TriggerPipelineTriggerPipelineParameters;
+}
+
+export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum TriggerPipelinePipelineCreationStateEnum {
     Created = "created",
     Errored = "errored",
@@ -30,7 +40,6 @@ export enum TriggerPipelinePipelineCreationStateEnum {
     Setup = "setup",
     Pending = "pending"
 }
-
 
 // TriggerPipelinePipelineCreation
 /** 
@@ -50,22 +59,6 @@ export class TriggerPipelinePipelineCreation extends SpeakeasyBase {
   state: TriggerPipelinePipelineCreationStateEnum;
 }
 
-
-export class TriggerPipelineDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class TriggerPipelineRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: TriggerPipelinePathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: TriggerPipelineTriggerPipelineParameters;
-}
-
-
 export class TriggerPipelineResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -77,5 +70,5 @@ export class TriggerPipelineResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJson;
+  triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJSON;
 }

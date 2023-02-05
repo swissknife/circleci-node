@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetPipelineByNumberPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class GetPipelineByNumberPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class GetPipelineByNumberRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetPipelineByNumberPathParams;
+}
+
+export class GetPipelineByNumberDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum GetPipelineByNumberPipelineErrorsTypeEnum {
     Config = "config",
     ConfigFetch = "config-fetch",
@@ -18,7 +26,6 @@ export enum GetPipelineByNumberPipelineErrorsTypeEnum {
     Other = "other",
     Plan = "plan"
 }
-
 
 // GetPipelineByNumberPipelineErrors
 /** 
@@ -31,7 +38,6 @@ export class GetPipelineByNumberPipelineErrors extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: GetPipelineByNumberPipelineErrorsTypeEnum;
 }
-
 export enum GetPipelineByNumberPipelineStateEnum {
     Created = "created",
     Errored = "errored",
@@ -39,7 +45,6 @@ export enum GetPipelineByNumberPipelineStateEnum {
     Setup = "setup",
     Pending = "pending"
 }
-
 
 // GetPipelineByNumberPipelineTriggerActor
 /** 
@@ -52,14 +57,12 @@ export class GetPipelineByNumberPipelineTriggerActor extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=login" })
   login: string;
 }
-
 export enum GetPipelineByNumberPipelineTriggerTypeEnum {
     ScheduledPipeline = "scheduled_pipeline",
     Explicit = "explicit",
     Api = "api",
     Webhook = "webhook"
 }
-
 
 // GetPipelineByNumberPipelineTrigger
 /** 
@@ -76,7 +79,6 @@ export class GetPipelineByNumberPipelineTrigger extends SpeakeasyBase {
   type: GetPipelineByNumberPipelineTriggerTypeEnum;
 }
 
-
 // GetPipelineByNumberPipelineVcsCommit
 /** 
  * The latest commit in the pipeline.
@@ -88,7 +90,6 @@ export class GetPipelineByNumberPipelineVcsCommit extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=subject" })
   subject: string;
 }
-
 
 // GetPipelineByNumberPipelineVcs
 /** 
@@ -122,7 +123,6 @@ export class GetPipelineByNumberPipelineVcs extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=target_repository_url" })
   targetRepositoryUrl: string;
 }
-
 
 // GetPipelineByNumberPipeline
 /** 
@@ -160,19 +160,6 @@ export class GetPipelineByNumberPipeline extends SpeakeasyBase {
   vcs?: GetPipelineByNumberPipelineVcs;
 }
 
-
-export class GetPipelineByNumberDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetPipelineByNumberRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetPipelineByNumberPathParams;
-}
-
-
 export class GetPipelineByNumberResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -184,5 +171,5 @@ export class GetPipelineByNumberResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getPipelineByNumberDefaultApplicationJSONObject?: GetPipelineByNumberDefaultApplicationJson;
+  getPipelineByNumberDefaultApplicationJSONObject?: GetPipelineByNumberDefaultApplicationJSON;
 }

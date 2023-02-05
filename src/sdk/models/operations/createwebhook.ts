@@ -1,15 +1,12 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export enum CreateWebhookRequestBodyEventsEnum {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed"
 }
-
 export enum CreateWebhookRequestBodyScopeTypeEnum {
     Project = "project"
 }
-
 
 // CreateWebhookRequestBodyScope
 /** 
@@ -22,7 +19,6 @@ export class CreateWebhookRequestBodyScope extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: CreateWebhookRequestBodyScopeTypeEnum;
 }
-
 
 // CreateWebhookRequestBody
 /** 
@@ -48,11 +44,19 @@ export class CreateWebhookRequestBody extends SpeakeasyBase {
   verifyTls: boolean;
 }
 
+export class CreateWebhookRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: CreateWebhookRequestBody;
+}
+
+export class CreateWebhookDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum CreateWebhookWebhookEventsEnum {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed"
 }
-
 
 // CreateWebhookWebhookScope
 /** 
@@ -65,7 +69,6 @@ export class CreateWebhookWebhookScope extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: string;
 }
-
 
 export class CreateWebhookWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created-at" })
@@ -96,19 +99,6 @@ export class CreateWebhookWebhook extends SpeakeasyBase {
   verifyTls: boolean;
 }
 
-
-export class CreateWebhookDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class CreateWebhookRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateWebhookRequestBody;
-}
-
-
 export class CreateWebhookResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -120,5 +110,5 @@ export class CreateWebhookResponse extends SpeakeasyBase {
   webhook?: CreateWebhookWebhook;
 
   @SpeakeasyMetadata()
-  createWebhookDefaultApplicationJSONObject?: CreateWebhookDefaultApplicationJson;
+  createWebhookDefaultApplicationJSONObject?: CreateWebhookDefaultApplicationJSON;
 }

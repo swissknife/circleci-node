@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ApprovePendingApprovalJobByIdPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class ApprovePendingApprovalJobByIdPathParams extends SpeakeasyBase {
   id: string;
 }
 
+export class ApprovePendingApprovalJobByIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ApprovePendingApprovalJobByIdPathParams;
+}
+
+export class ApprovePendingApprovalJobByIdDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // ApprovePendingApprovalJobByIdMessageResponse
 /** 
@@ -19,19 +27,6 @@ export class ApprovePendingApprovalJobByIdMessageResponse extends SpeakeasyBase 
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class ApprovePendingApprovalJobByIdDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ApprovePendingApprovalJobByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ApprovePendingApprovalJobByIdPathParams;
-}
-
 
 export class ApprovePendingApprovalJobByIdResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -44,5 +39,5 @@ export class ApprovePendingApprovalJobByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  approvePendingApprovalJobByIdDefaultApplicationJSONObject?: ApprovePendingApprovalJobByIdDefaultApplicationJson;
+  approvePendingApprovalJobByIdDefaultApplicationJSONObject?: ApprovePendingApprovalJobByIdDefaultApplicationJSON;
 }

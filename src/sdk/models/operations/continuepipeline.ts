@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ContinuePipelineRequestBody extends SpeakeasyBase {
@@ -13,6 +12,15 @@ export class ContinuePipelineRequestBody extends SpeakeasyBase {
   parameters?: Record<string, any>;
 }
 
+export class ContinuePipelineRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: ContinuePipelineRequestBody;
+}
+
+export class ContinuePipelineDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // ContinuePipelineMessageResponse
 /** 
@@ -22,19 +30,6 @@ export class ContinuePipelineMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class ContinuePipelineDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ContinuePipelineRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: ContinuePipelineRequestBody;
-}
-
 
 export class ContinuePipelineResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -47,5 +42,5 @@ export class ContinuePipelineResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  continuePipelineDefaultApplicationJSONObject?: ContinuePipelineDefaultApplicationJson;
+  continuePipelineDefaultApplicationJSONObject?: ContinuePipelineDefaultApplicationJSON;
 }

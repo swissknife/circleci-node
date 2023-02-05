@@ -14,11 +14,11 @@ const sdk = new SDK(withSecurity(
     
 const req: AddEnvironmentVariableToContextRequest = {
   pathParams: {
-    contextId: "sit",
-    envVarName: "voluptas",
+    contextId: "unde",
+    envVarName: "deserunt",
   },
   request: {
-    value: "culpa",
+    value: "porro",
   },
 };
 

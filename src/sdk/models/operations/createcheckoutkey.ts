@@ -1,28 +1,36 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class CreateCheckoutKeyPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
   projectSlug: string;
 }
-
 export enum CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum {
     UserKey = "user-key",
     DeployKey = "deploy-key"
 }
-
 
 export class CreateCheckoutKeyCheckoutKeyInput extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum;
 }
 
+export class CreateCheckoutKeyRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: CreateCheckoutKeyPathParams;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: CreateCheckoutKeyCheckoutKeyInput;
+}
+
+export class CreateCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum {
     DeployKey = "deploy-key",
     GithubUserKey = "github-user-key"
 }
-
 
 export class CreateCheckoutKeyCheckoutKey extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created-at" })
@@ -41,22 +49,6 @@ export class CreateCheckoutKeyCheckoutKey extends SpeakeasyBase {
   type: CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum;
 }
 
-
-export class CreateCheckoutKeyDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class CreateCheckoutKeyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateCheckoutKeyPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateCheckoutKeyCheckoutKeyInput;
-}
-
-
 export class CreateCheckoutKeyResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   checkoutKey?: CreateCheckoutKeyCheckoutKey;
@@ -68,5 +60,5 @@ export class CreateCheckoutKeyResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  createCheckoutKeyDefaultApplicationJSONObject?: CreateCheckoutKeyDefaultApplicationJson;
+  createCheckoutKeyDefaultApplicationJSONObject?: CreateCheckoutKeyDefaultApplicationJSON;
 }

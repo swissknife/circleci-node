@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetProjectWorkflowRunsPathParams extends SpeakeasyBase {
@@ -9,7 +8,6 @@ export class GetProjectWorkflowRunsPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=workflow-name" })
   workflowName: string;
 }
-
 
 export class GetProjectWorkflowRunsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=all-branches" })
@@ -28,7 +26,19 @@ export class GetProjectWorkflowRunsQueryParams extends SpeakeasyBase {
   startDate?: Date;
 }
 
-export enum GetProjectWorkflowRuns200ApplicationJsonItemsStatusEnum {
+export class GetProjectWorkflowRunsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetProjectWorkflowRunsPathParams;
+
+  @SpeakeasyMetadata()
+  queryParams: GetProjectWorkflowRunsQueryParams;
+}
+
+export class GetProjectWorkflowRunsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+export enum GetProjectWorkflowRuns200ApplicationJSONItemsStatusEnum {
     Success = "success",
     Failed = "failed",
     Error = "error",
@@ -36,8 +46,7 @@ export enum GetProjectWorkflowRuns200ApplicationJsonItemsStatusEnum {
     Unauthorized = "unauthorized"
 }
 
-
-export class GetProjectWorkflowRuns200ApplicationJsonItems extends SpeakeasyBase {
+export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=branch" })
   branch: string;
 
@@ -54,40 +63,23 @@ export class GetProjectWorkflowRuns200ApplicationJsonItems extends SpeakeasyBase
   id: string;
 
   @SpeakeasyMetadata({ data: "json, name=status" })
-  status: GetProjectWorkflowRuns200ApplicationJsonItemsStatusEnum;
+  status: GetProjectWorkflowRuns200ApplicationJSONItemsStatusEnum;
 
   @SpeakeasyMetadata({ data: "json, name=stopped_at" })
   stoppedAt: Date;
 }
 
-
-// GetProjectWorkflowRuns200ApplicationJson
+// GetProjectWorkflowRuns200ApplicationJSON
 /** 
  * Paginated recent workflow runs.
 **/
-export class GetProjectWorkflowRuns200ApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetProjectWorkflowRuns200ApplicationJsonItems })
-  items: GetProjectWorkflowRuns200ApplicationJsonItems[];
+export class GetProjectWorkflowRuns200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetProjectWorkflowRuns200ApplicationJSONItems })
+  items: GetProjectWorkflowRuns200ApplicationJSONItems[];
 
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class GetProjectWorkflowRunsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetProjectWorkflowRunsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetProjectWorkflowRunsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetProjectWorkflowRunsQueryParams;
-}
-
 
 export class GetProjectWorkflowRunsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -97,8 +89,8 @@ export class GetProjectWorkflowRunsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowRuns200ApplicationJSONObject?: GetProjectWorkflowRuns200ApplicationJson;
+  getProjectWorkflowRuns200ApplicationJSONObject?: GetProjectWorkflowRuns200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowRunsDefaultApplicationJSONObject?: GetProjectWorkflowRunsDefaultApplicationJson;
+  getProjectWorkflowRunsDefaultApplicationJSONObject?: GetProjectWorkflowRunsDefaultApplicationJSON;
 }

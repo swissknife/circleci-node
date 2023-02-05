@@ -1,12 +1,15 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
-
-export class SchemeApiKeyHeader extends SpeakeasyBase {
+export class SchemeAPIKeyHeader extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "security, name=Circle-Token" })
   apiKey: string;
 }
 
+export class SchemeAPIKeyQuery extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "security, name=circle-token" })
+  apiKey: string;
+}
 
 export class SchemeBasicAuth extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "security, name=password" })
@@ -16,20 +19,13 @@ export class SchemeBasicAuth extends SpeakeasyBase {
   username: string;
 }
 
-
-export class SchemeApiKeyQuery extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, name=circle-token" })
-  apiKey: string;
-}
-
-
 export class Security extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header" })
-  apiKeyHeader?: SchemeApiKeyHeader;
+  apiKeyHeader?: SchemeAPIKeyHeader;
+
+  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=query" })
+  apiKeyQuery?: SchemeAPIKeyQuery;
 
   @SpeakeasyMetadata({ data: "security, scheme=true;type=http;subtype=basic" })
   basicAuth?: SchemeBasicAuth;
-
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=query" })
-  apiKeyQuery?: SchemeApiKeyQuery;
 }

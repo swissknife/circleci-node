@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class CancelWorkflowPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class CancelWorkflowPathParams extends SpeakeasyBase {
   id: string;
 }
 
+export class CancelWorkflowRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: CancelWorkflowPathParams;
+}
+
+export class CancelWorkflowDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // CancelWorkflowMessageResponse
 /** 
@@ -16,19 +24,6 @@ export class CancelWorkflowMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class CancelWorkflowDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class CancelWorkflowRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CancelWorkflowPathParams;
-}
-
 
 export class CancelWorkflowResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -41,5 +36,5 @@ export class CancelWorkflowResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  cancelWorkflowDefaultApplicationJSONObject?: CancelWorkflowDefaultApplicationJson;
+  cancelWorkflowDefaultApplicationJSONObject?: CancelWorkflowDefaultApplicationJSON;
 }

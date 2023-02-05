@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ListWorkflowsByPipelineIdPathParams extends SpeakeasyBase {
@@ -7,12 +6,23 @@ export class ListWorkflowsByPipelineIdPathParams extends SpeakeasyBase {
   pipelineId: string;
 }
 
-
 export class ListWorkflowsByPipelineIdQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
   pageToken?: string;
 }
 
+export class ListWorkflowsByPipelineIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ListWorkflowsByPipelineIdPathParams;
+
+  @SpeakeasyMetadata()
+  queryParams: ListWorkflowsByPipelineIdQueryParams;
+}
+
+export class ListWorkflowsByPipelineIdDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum {
     Success = "success",
     Running = "running",
@@ -24,11 +34,9 @@ export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum {
     Canceled = "canceled",
     Unauthorized = "unauthorized"
 }
-
 export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTagEnum {
     Setup = "setup"
 }
-
 
 // ListWorkflowsByPipelineIdWorkflowListResponseWorkflow
 /** 
@@ -72,7 +80,6 @@ export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends Speak
   tag?: ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTagEnum;
 }
 
-
 // ListWorkflowsByPipelineIdWorkflowListResponse
 /** 
  * A list of workflows and associated pagination token.
@@ -85,22 +92,6 @@ export class ListWorkflowsByPipelineIdWorkflowListResponse extends SpeakeasyBase
   nextPageToken: string;
 }
 
-
-export class ListWorkflowsByPipelineIdDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ListWorkflowsByPipelineIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListWorkflowsByPipelineIdPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListWorkflowsByPipelineIdQueryParams;
-}
-
-
 export class ListWorkflowsByPipelineIdResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -112,5 +103,5 @@ export class ListWorkflowsByPipelineIdResponse extends SpeakeasyBase {
   workflowListResponse?: ListWorkflowsByPipelineIdWorkflowListResponse;
 
   @SpeakeasyMetadata()
-  listWorkflowsByPipelineIdDefaultApplicationJSONObject?: ListWorkflowsByPipelineIdDefaultApplicationJson;
+  listWorkflowsByPipelineIdDefaultApplicationJSONObject?: ListWorkflowsByPipelineIdDefaultApplicationJSON;
 }

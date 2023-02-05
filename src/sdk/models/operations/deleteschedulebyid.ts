@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class DeleteScheduleByIdPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class DeleteScheduleByIdPathParams extends SpeakeasyBase {
   scheduleId: string;
 }
 
+export class DeleteScheduleByIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: DeleteScheduleByIdPathParams;
+}
+
+export class DeleteScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // DeleteScheduleByIdMessageResponse
 /** 
@@ -16,19 +24,6 @@ export class DeleteScheduleByIdMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class DeleteScheduleByIdDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class DeleteScheduleByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteScheduleByIdPathParams;
-}
-
 
 export class DeleteScheduleByIdResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -41,5 +36,5 @@ export class DeleteScheduleByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteScheduleByIdDefaultApplicationJSONObject?: DeleteScheduleByIdDefaultApplicationJson;
+  deleteScheduleByIdDefaultApplicationJSONObject?: DeleteScheduleByIdDefaultApplicationJSON;
 }

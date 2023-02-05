@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetWebhookByIdPathParams extends SpeakeasyBase {
@@ -7,11 +6,19 @@ export class GetWebhookByIdPathParams extends SpeakeasyBase {
   webhookId: string;
 }
 
+export class GetWebhookByIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetWebhookByIdPathParams;
+}
+
+export class GetWebhookByIdDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum GetWebhookByIdWebhookEventsEnum {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed"
 }
-
 
 // GetWebhookByIdWebhookScope
 /** 
@@ -24,7 +31,6 @@ export class GetWebhookByIdWebhookScope extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: string;
 }
-
 
 export class GetWebhookByIdWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created-at" })
@@ -55,19 +61,6 @@ export class GetWebhookByIdWebhook extends SpeakeasyBase {
   verifyTls: boolean;
 }
 
-
-export class GetWebhookByIdDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetWebhookByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetWebhookByIdPathParams;
-}
-
-
 export class GetWebhookByIdResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -79,5 +72,5 @@ export class GetWebhookByIdResponse extends SpeakeasyBase {
   webhook?: GetWebhookByIdWebhook;
 
   @SpeakeasyMetadata()
-  getWebhookByIdDefaultApplicationJSONObject?: GetWebhookByIdDefaultApplicationJson;
+  getWebhookByIdDefaultApplicationJSONObject?: GetWebhookByIdDefaultApplicationJSON;
 }

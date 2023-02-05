@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetJobDetailsPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class GetJobDetailsPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class GetJobDetailsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetJobDetailsPathParams;
+}
+
+export class GetJobDetailsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // GetJobDetailsJobDetailsContexts
 /** 
@@ -19,7 +27,6 @@ export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=name" })
   name: string;
 }
-
 
 // GetJobDetailsJobDetailsExecutor
 /** 
@@ -33,7 +40,6 @@ export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
   type?: string;
 }
 
-
 // GetJobDetailsJobDetailsLatestWorkflow
 /** 
  * Info about the latest workflow the job was a part of.
@@ -45,7 +51,6 @@ export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=name" })
   name: string;
 }
-
 
 // GetJobDetailsJobDetailsMessages
 /** 
@@ -62,7 +67,6 @@ export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
   type: string;
 }
 
-
 // GetJobDetailsJobDetailsOrganization
 /** 
  * Information about an organization.
@@ -71,7 +75,6 @@ export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=name" })
   name: string;
 }
-
 
 // GetJobDetailsJobDetailsParallelRuns
 /** 
@@ -85,7 +88,6 @@ export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
   status: string;
 }
 
-
 // GetJobDetailsJobDetailsPipeline
 /** 
  * Info about a pipeline the job is a part of.
@@ -94,7 +96,6 @@ export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=id" })
   id: string;
 }
-
 
 // GetJobDetailsJobDetailsProject
 /** 
@@ -113,7 +114,6 @@ export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=slug" })
   slug: string;
 }
-
 export enum GetJobDetailsJobDetailsStatusEnum {
     Success = "success",
     Running = "running",
@@ -130,7 +130,6 @@ export enum GetJobDetailsJobDetailsStatusEnum {
     Canceled = "canceled",
     Unauthorized = "unauthorized"
 }
-
 
 // GetJobDetailsJobDetails
 /** 
@@ -192,19 +191,6 @@ export class GetJobDetailsJobDetails extends SpeakeasyBase {
   webUrl: string;
 }
 
-
-export class GetJobDetailsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetJobDetailsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetJobDetailsPathParams;
-}
-
-
 export class GetJobDetailsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -216,5 +202,5 @@ export class GetJobDetailsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getJobDetailsDefaultApplicationJSONObject?: GetJobDetailsDefaultApplicationJson;
+  getJobDetailsDefaultApplicationJSONObject?: GetJobDetailsDefaultApplicationJSON;
 }

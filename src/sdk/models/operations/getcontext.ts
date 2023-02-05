@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetContextPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class GetContextPathParams extends SpeakeasyBase {
   contextId: string;
 }
 
+export class GetContextRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetContextPathParams;
+}
+
+export class GetContextDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 export class GetContextContext extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created_at" })
@@ -19,19 +27,6 @@ export class GetContextContext extends SpeakeasyBase {
   name: string;
 }
 
-
-export class GetContextDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetContextRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetContextPathParams;
-}
-
-
 export class GetContextResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -43,5 +38,5 @@ export class GetContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getContextDefaultApplicationJSONObject?: GetContextDefaultApplicationJson;
+  getContextDefaultApplicationJSONObject?: GetContextDefaultApplicationJSON;
 }

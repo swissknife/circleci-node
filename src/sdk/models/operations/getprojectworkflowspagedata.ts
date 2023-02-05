@@ -1,12 +1,10 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetProjectWorkflowsPageDataPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
   projectSlug: string;
 }
-
 export enum GetProjectWorkflowsPageDataReportingWindowEnum {
     Last7Days = "last-7-days",
     Last90Days = "last-90-days",
@@ -14,7 +12,6 @@ export enum GetProjectWorkflowsPageDataReportingWindowEnum {
     Last30Days = "last-30-days",
     Last60Days = "last-60-days"
 }
-
 
 export class GetProjectWorkflowsPageDataQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
@@ -27,12 +24,24 @@ export class GetProjectWorkflowsPageDataQueryParams extends SpeakeasyBase {
   workflowNames?: Record<string, any>;
 }
 
+export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetProjectWorkflowsPageDataPathParams;
 
-// GetProjectWorkflowsPageData200ApplicationJsonProjectDataMetrics
+  @SpeakeasyMetadata()
+  queryParams: GetProjectWorkflowsPageDataQueryParams;
+}
+
+export class GetProjectWorkflowsPageDataDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+// GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics
 /** 
  * Metrics aggregated across all workflows and branches for a project.
 **/
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectDataMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=success_rate" })
   successRate: number;
 
@@ -49,12 +58,11 @@ export class GetProjectWorkflowsPageData200ApplicationJsonProjectDataMetrics ext
   totalRuns: number;
 }
 
-
-// GetProjectWorkflowsPageData200ApplicationJsonProjectDataTrends
+// GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends
 /** 
  * Metric trends aggregated across all workflows and branches for a project.
 **/
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectDataTrends extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=success_rate" })
   successRate: number;
 
@@ -71,25 +79,23 @@ export class GetProjectWorkflowsPageData200ApplicationJsonProjectDataTrends exte
   totalRuns: number;
 }
 
-
-// GetProjectWorkflowsPageData200ApplicationJsonProjectData
+// GetProjectWorkflowsPageData200ApplicationJSONProjectData
 /** 
  * Metrics and trends data aggregated for a given project.
 **/
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectData extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectData extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=metrics" })
-  metrics: GetProjectWorkflowsPageData200ApplicationJsonProjectDataMetrics;
+  metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics;
 
   @SpeakeasyMetadata({ data: "json, name=trends" })
-  trends: GetProjectWorkflowsPageData200ApplicationJsonProjectDataTrends;
+  trends: GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends;
 }
 
-
-// GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchDataMetrics
+// GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics
 /** 
  * Metrics aggregated across a workflow or branchfor a project.
 **/
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchDataMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
   p95DurationSecs: number;
 
@@ -103,12 +109,11 @@ export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchD
   totalRuns: number;
 }
 
-
-// GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchDataTrends
+// GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends
 /** 
  * Trends aggregated across a workflow or branch for a project.
 **/
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchDataTrends extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
   p95DurationSecs: number;
 
@@ -122,27 +127,25 @@ export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchD
   totalRuns: number;
 }
 
-
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchData extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=branch" })
   branch: string;
 
   @SpeakeasyMetadata({ data: "json, name=metrics" })
-  metrics: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchDataMetrics;
+  metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics;
 
   @SpeakeasyMetadata({ data: "json, name=trends" })
-  trends: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchDataTrends;
+  trends: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends;
 
   @SpeakeasyMetadata({ data: "json, name=workflow_name" })
   workflowName: string;
 }
 
-
-// GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataMetrics
+// GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics
 /** 
  * Metrics aggregated across a workflow or branchfor a project.
 **/
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
   p95DurationSecs: number;
 
@@ -156,12 +159,11 @@ export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataMet
   totalRuns: number;
 }
 
-
-// GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataTrends
+// GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends
 /** 
  * Trends aggregated across a workflow or branch for a project.
 **/
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataTrends extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
   p95DurationSecs: number;
 
@@ -175,20 +177,18 @@ export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataTre
   totalRuns: number;
 }
 
-
-export class GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowData extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=metrics" })
-  metrics: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataMetrics;
+  metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics;
 
   @SpeakeasyMetadata({ data: "json, name=trends" })
-  trends: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowDataTrends;
+  trends: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends;
 
   @SpeakeasyMetadata({ data: "json, name=workflow_name" })
   workflowName: string;
 }
 
-
-export class GetProjectWorkflowsPageData200ApplicationJson extends SpeakeasyBase {
+export class GetProjectWorkflowsPageData200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=all_branches" })
   allBranches?: string[];
 
@@ -199,33 +199,17 @@ export class GetProjectWorkflowsPageData200ApplicationJson extends SpeakeasyBase
   orgId?: any;
 
   @SpeakeasyMetadata({ data: "json, name=project_data" })
-  projectData?: GetProjectWorkflowsPageData200ApplicationJsonProjectData;
+  projectData?: GetProjectWorkflowsPageData200ApplicationJSONProjectData;
 
   @SpeakeasyMetadata({ data: "json, name=project_id" })
   projectId?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=project_workflow_branch_data", elemType: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchData })
-  projectWorkflowBranchData?: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowBranchData[];
+  @SpeakeasyMetadata({ data: "json, name=project_workflow_branch_data", elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData })
+  projectWorkflowBranchData?: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData[];
 
-  @SpeakeasyMetadata({ data: "json, name=project_workflow_data", elemType: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowData })
-  projectWorkflowData?: GetProjectWorkflowsPageData200ApplicationJsonProjectWorkflowData[];
+  @SpeakeasyMetadata({ data: "json, name=project_workflow_data", elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData })
+  projectWorkflowData?: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData[];
 }
-
-
-export class GetProjectWorkflowsPageDataDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetProjectWorkflowsPageDataPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetProjectWorkflowsPageDataQueryParams;
-}
-
 
 export class GetProjectWorkflowsPageDataResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -235,8 +219,8 @@ export class GetProjectWorkflowsPageDataResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowsPageData200ApplicationJSONObject?: GetProjectWorkflowsPageData200ApplicationJson;
+  getProjectWorkflowsPageData200ApplicationJSONObject?: GetProjectWorkflowsPageData200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowsPageDataDefaultApplicationJSONObject?: GetProjectWorkflowsPageDataDefaultApplicationJson;
+  getProjectWorkflowsPageDataDefaultApplicationJSONObject?: GetProjectWorkflowsPageDataDefaultApplicationJSON;
 }

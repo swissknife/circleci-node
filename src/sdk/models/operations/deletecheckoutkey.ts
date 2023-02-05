@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class DeleteCheckoutKeyPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class DeleteCheckoutKeyPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class DeleteCheckoutKeyRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: DeleteCheckoutKeyPathParams;
+}
+
+export class DeleteCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // DeleteCheckoutKeyMessageResponse
 /** 
@@ -19,19 +27,6 @@ export class DeleteCheckoutKeyMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class DeleteCheckoutKeyDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class DeleteCheckoutKeyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteCheckoutKeyPathParams;
-}
-
 
 export class DeleteCheckoutKeyResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -44,5 +39,5 @@ export class DeleteCheckoutKeyResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteCheckoutKeyDefaultApplicationJSONObject?: DeleteCheckoutKeyDefaultApplicationJson;
+  deleteCheckoutKeyDefaultApplicationJSONObject?: DeleteCheckoutKeyDefaultApplicationJSON;
 }

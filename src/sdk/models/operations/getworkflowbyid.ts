@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetWorkflowByIdPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class GetWorkflowByIdPathParams extends SpeakeasyBase {
   id: string;
 }
 
+export class GetWorkflowByIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetWorkflowByIdPathParams;
+}
+
+export class GetWorkflowByIdDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum GetWorkflowByIdWorkflowStatusEnum {
     Success = "success",
     Running = "running",
@@ -18,11 +26,9 @@ export enum GetWorkflowByIdWorkflowStatusEnum {
     Canceled = "canceled",
     Unauthorized = "unauthorized"
 }
-
 export enum GetWorkflowByIdWorkflowTagEnum {
     Setup = "setup"
 }
-
 
 // GetWorkflowByIdWorkflow
 /** 
@@ -66,19 +72,6 @@ export class GetWorkflowByIdWorkflow extends SpeakeasyBase {
   tag?: GetWorkflowByIdWorkflowTagEnum;
 }
 
-
-export class GetWorkflowByIdDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetWorkflowByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetWorkflowByIdPathParams;
-}
-
-
 export class GetWorkflowByIdResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -90,5 +83,5 @@ export class GetWorkflowByIdResponse extends SpeakeasyBase {
   workflow?: GetWorkflowByIdWorkflow;
 
   @SpeakeasyMetadata()
-  getWorkflowByIdDefaultApplicationJSONObject?: GetWorkflowByIdDefaultApplicationJson;
+  getWorkflowByIdDefaultApplicationJSONObject?: GetWorkflowByIdDefaultApplicationJSON;
 }

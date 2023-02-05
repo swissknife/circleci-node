@@ -1,6 +1,10 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
+export class GetCurrentUserDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 export class GetCurrentUserUser extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=id" })
@@ -13,13 +17,6 @@ export class GetCurrentUserUser extends SpeakeasyBase {
   name: string;
 }
 
-
-export class GetCurrentUserDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
 export class GetCurrentUserResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -31,5 +28,5 @@ export class GetCurrentUserResponse extends SpeakeasyBase {
   user?: GetCurrentUserUser;
 
   @SpeakeasyMetadata()
-  getCurrentUserDefaultApplicationJSONObject?: GetCurrentUserDefaultApplicationJson;
+  getCurrentUserDefaultApplicationJSONObject?: GetCurrentUserDefaultApplicationJSON;
 }

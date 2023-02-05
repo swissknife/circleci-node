@@ -1,12 +1,10 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class RerunWorkflowPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
   id: string;
 }
-
 
 // RerunWorkflowRerunWorkflowParameters
 /** 
@@ -26,23 +24,6 @@ export class RerunWorkflowRerunWorkflowParameters extends SpeakeasyBase {
   sparseTree?: boolean;
 }
 
-
-// RerunWorkflow202ApplicationJson
-/** 
- * A response to rerunning a workflow
-**/
-export class RerunWorkflow202ApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=workflow_id" })
-  workflowId: string;
-}
-
-
-export class RerunWorkflowDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
 export class RerunWorkflowRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: RerunWorkflowPathParams;
@@ -51,6 +32,19 @@ export class RerunWorkflowRequest extends SpeakeasyBase {
   request?: RerunWorkflowRerunWorkflowParameters;
 }
 
+export class RerunWorkflowDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+// RerunWorkflow202ApplicationJSON
+/** 
+ * A response to rerunning a workflow
+**/
+export class RerunWorkflow202ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=workflow_id" })
+  workflowId: string;
+}
 
 export class RerunWorkflowResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -60,8 +54,8 @@ export class RerunWorkflowResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  rerunWorkflow202ApplicationJSONObject?: RerunWorkflow202ApplicationJson;
+  rerunWorkflow202ApplicationJSONObject?: RerunWorkflow202ApplicationJSON;
 
   @SpeakeasyMetadata()
-  rerunWorkflowDefaultApplicationJSONObject?: RerunWorkflowDefaultApplicationJson;
+  rerunWorkflowDefaultApplicationJSONObject?: RerunWorkflowDefaultApplicationJSON;
 }

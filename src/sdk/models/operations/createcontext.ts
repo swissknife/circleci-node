@@ -1,11 +1,20 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
+export enum CreateContextRequestBodyOwner2TypeEnum {
+    Organization = "organization"
+}
 
+export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=slug" })
+  slug: string;
+
+  @SpeakeasyMetadata({ data: "json, name=type" })
+  type?: CreateContextRequestBodyOwner2TypeEnum;
+}
 export enum CreateContextRequestBodyOwner1TypeEnum {
     Account = "account",
     Organization = "organization"
 }
-
 
 export class CreateContextRequestBodyOwner1 extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=id" })
@@ -15,20 +24,6 @@ export class CreateContextRequestBodyOwner1 extends SpeakeasyBase {
   type?: CreateContextRequestBodyOwner1TypeEnum;
 }
 
-export enum CreateContextRequestBodyOwner2TypeEnum {
-    Organization = "organization"
-}
-
-
-export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=slug" })
-  slug: string;
-
-  @SpeakeasyMetadata({ data: "json, name=type" })
-  type?: CreateContextRequestBodyOwner2TypeEnum;
-}
-
-
 export class CreateContextRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=name" })
   name: string;
@@ -37,6 +32,15 @@ export class CreateContextRequestBody extends SpeakeasyBase {
   owner: any;
 }
 
+export class CreateContextRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: CreateContextRequestBody;
+}
+
+export class CreateContextDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 export class CreateContextContext extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created_at" })
@@ -49,19 +53,6 @@ export class CreateContextContext extends SpeakeasyBase {
   name: string;
 }
 
-
-export class CreateContextDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class CreateContextRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateContextRequestBody;
-}
-
-
 export class CreateContextResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -73,5 +64,5 @@ export class CreateContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  createContextDefaultApplicationJSONObject?: CreateContextDefaultApplicationJson;
+  createContextDefaultApplicationJSONObject?: CreateContextDefaultApplicationJSON;
 }

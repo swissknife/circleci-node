@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetScheduleByIdPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class GetScheduleByIdPathParams extends SpeakeasyBase {
   scheduleId: string;
 }
 
+export class GetScheduleByIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetScheduleByIdPathParams;
+}
+
+export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // GetScheduleByIdScheduleUser
 /** 
@@ -22,50 +30,6 @@ export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=name" })
   name: string;
 }
-
-export enum GetScheduleByIdScheduleTimetable1DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
-}
-
-export enum GetScheduleByIdScheduleTimetable1MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
-}
-
-
-export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=days-of-month" })
-  daysOfMonth?: number[];
-
-  @SpeakeasyMetadata({ data: "json, name=days-of-week" })
-  daysOfWeek: GetScheduleByIdScheduleTimetable1DaysOfWeekEnum[];
-
-  @SpeakeasyMetadata({ data: "json, name=hours-of-day" })
-  hoursOfDay: number[];
-
-  @SpeakeasyMetadata({ data: "json, name=months" })
-  months?: GetScheduleByIdScheduleTimetable1MonthsEnum[];
-
-  @SpeakeasyMetadata({ data: "json, name=per-hour" })
-  perHour: number;
-}
-
 export enum GetScheduleByIdScheduleTimetable2DaysOfWeekEnum {
     Tue = "TUE",
     Sat = "SAT",
@@ -75,7 +39,6 @@ export enum GetScheduleByIdScheduleTimetable2DaysOfWeekEnum {
     Wed = "WED",
     Fri = "FRI"
 }
-
 export enum GetScheduleByIdScheduleTimetable2MonthsEnum {
     Mar = "MAR",
     Nov = "NOV",
@@ -90,7 +53,6 @@ export enum GetScheduleByIdScheduleTimetable2MonthsEnum {
     Jan = "JAN",
     Jul = "JUL"
 }
-
 
 export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=days-of-month" })
@@ -108,7 +70,46 @@ export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=per-hour" })
   perHour: number;
 }
+export enum GetScheduleByIdScheduleTimetable1DaysOfWeekEnum {
+    Tue = "TUE",
+    Sat = "SAT",
+    Sun = "SUN",
+    Mon = "MON",
+    Thu = "THU",
+    Wed = "WED",
+    Fri = "FRI"
+}
+export enum GetScheduleByIdScheduleTimetable1MonthsEnum {
+    Mar = "MAR",
+    Nov = "NOV",
+    Dec = "DEC",
+    Jun = "JUN",
+    May = "MAY",
+    Oct = "OCT",
+    Feb = "FEB",
+    Apr = "APR",
+    Sep = "SEP",
+    Aug = "AUG",
+    Jan = "JAN",
+    Jul = "JUL"
+}
 
+export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=days-of-month" })
+  daysOfMonth?: number[];
+
+  @SpeakeasyMetadata({ data: "json, name=days-of-week" })
+  daysOfWeek: GetScheduleByIdScheduleTimetable1DaysOfWeekEnum[];
+
+  @SpeakeasyMetadata({ data: "json, name=hours-of-day" })
+  hoursOfDay: number[];
+
+  @SpeakeasyMetadata({ data: "json, name=months" })
+  months?: GetScheduleByIdScheduleTimetable1MonthsEnum[];
+
+  @SpeakeasyMetadata({ data: "json, name=per-hour" })
+  perHour: number;
+}
 
 // GetScheduleByIdSchedule
 /** 
@@ -143,19 +144,6 @@ export class GetScheduleByIdSchedule extends SpeakeasyBase {
   updatedAt: Date;
 }
 
-
-export class GetScheduleByIdDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetScheduleByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetScheduleByIdPathParams;
-}
-
-
 export class GetScheduleByIdResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -167,5 +155,5 @@ export class GetScheduleByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getScheduleByIdDefaultApplicationJSONObject?: GetScheduleByIdDefaultApplicationJson;
+  getScheduleByIdDefaultApplicationJSONObject?: GetScheduleByIdDefaultApplicationJSON;
 }

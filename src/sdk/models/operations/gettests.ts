@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetTestsPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class GetTestsPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class GetTestsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetTestsPathParams;
+}
+
+export class GetTestsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 export class GetTestsTestsResponseItems extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=classname" })
@@ -34,7 +42,6 @@ export class GetTestsTestsResponseItems extends SpeakeasyBase {
   source: string;
 }
 
-
 export class GetTestsTestsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=items", elemType: GetTestsTestsResponseItems })
   items: GetTestsTestsResponseItems[];
@@ -42,19 +49,6 @@ export class GetTestsTestsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class GetTestsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetTestsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetTestsPathParams;
-}
-
 
 export class GetTestsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -67,5 +61,5 @@ export class GetTestsResponse extends SpeakeasyBase {
   testsResponse?: GetTestsTestsResponse;
 
   @SpeakeasyMetadata()
-  getTestsDefaultApplicationJSONObject?: GetTestsDefaultApplicationJson;
+  getTestsDefaultApplicationJSONObject?: GetTestsDefaultApplicationJSON;
 }

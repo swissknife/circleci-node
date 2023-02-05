@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ListMyPipelinesPathParams extends SpeakeasyBase {
@@ -7,12 +6,23 @@ export class ListMyPipelinesPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
-
 export class ListMyPipelinesQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
   pageToken?: string;
 }
 
+export class ListMyPipelinesRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ListMyPipelinesPathParams;
+
+  @SpeakeasyMetadata()
+  queryParams: ListMyPipelinesQueryParams;
+}
+
+export class ListMyPipelinesDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum ListMyPipelinesPipelineListResponsePipelineErrorsTypeEnum {
     Config = "config",
     ConfigFetch = "config-fetch",
@@ -21,7 +31,6 @@ export enum ListMyPipelinesPipelineListResponsePipelineErrorsTypeEnum {
     Other = "other",
     Plan = "plan"
 }
-
 
 // ListMyPipelinesPipelineListResponsePipelineErrors
 /** 
@@ -34,7 +43,6 @@ export class ListMyPipelinesPipelineListResponsePipelineErrors extends Speakeasy
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: ListMyPipelinesPipelineListResponsePipelineErrorsTypeEnum;
 }
-
 export enum ListMyPipelinesPipelineListResponsePipelineStateEnum {
     Created = "created",
     Errored = "errored",
@@ -42,7 +50,6 @@ export enum ListMyPipelinesPipelineListResponsePipelineStateEnum {
     Setup = "setup",
     Pending = "pending"
 }
-
 
 // ListMyPipelinesPipelineListResponsePipelineTriggerActor
 /** 
@@ -55,14 +62,12 @@ export class ListMyPipelinesPipelineListResponsePipelineTriggerActor extends Spe
   @SpeakeasyMetadata({ data: "json, name=login" })
   login: string;
 }
-
 export enum ListMyPipelinesPipelineListResponsePipelineTriggerTypeEnum {
     ScheduledPipeline = "scheduled_pipeline",
     Explicit = "explicit",
     Api = "api",
     Webhook = "webhook"
 }
-
 
 // ListMyPipelinesPipelineListResponsePipelineTrigger
 /** 
@@ -79,7 +84,6 @@ export class ListMyPipelinesPipelineListResponsePipelineTrigger extends Speakeas
   type: ListMyPipelinesPipelineListResponsePipelineTriggerTypeEnum;
 }
 
-
 // ListMyPipelinesPipelineListResponsePipelineVcsCommit
 /** 
  * The latest commit in the pipeline.
@@ -91,7 +95,6 @@ export class ListMyPipelinesPipelineListResponsePipelineVcsCommit extends Speake
   @SpeakeasyMetadata({ data: "json, name=subject" })
   subject: string;
 }
-
 
 // ListMyPipelinesPipelineListResponsePipelineVcs
 /** 
@@ -125,7 +128,6 @@ export class ListMyPipelinesPipelineListResponsePipelineVcs extends SpeakeasyBas
   @SpeakeasyMetadata({ data: "json, name=target_repository_url" })
   targetRepositoryUrl: string;
 }
-
 
 // ListMyPipelinesPipelineListResponsePipeline
 /** 
@@ -163,7 +165,6 @@ export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
   vcs?: ListMyPipelinesPipelineListResponsePipelineVcs;
 }
 
-
 // ListMyPipelinesPipelineListResponse
 /** 
  * List of pipelines
@@ -176,22 +177,6 @@ export class ListMyPipelinesPipelineListResponse extends SpeakeasyBase {
   nextPageToken: string;
 }
 
-
-export class ListMyPipelinesDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ListMyPipelinesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListMyPipelinesPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListMyPipelinesQueryParams;
-}
-
-
 export class ListMyPipelinesResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -203,5 +188,5 @@ export class ListMyPipelinesResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listMyPipelinesDefaultApplicationJSONObject?: ListMyPipelinesDefaultApplicationJson;
+  listMyPipelinesDefaultApplicationJSONObject?: ListMyPipelinesDefaultApplicationJSON;
 }

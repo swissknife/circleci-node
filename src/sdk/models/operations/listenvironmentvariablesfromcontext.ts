@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ListEnvironmentVariablesFromContextPathParams extends SpeakeasyBase {
@@ -7,14 +6,25 @@ export class ListEnvironmentVariablesFromContextPathParams extends SpeakeasyBase
   contextId: string;
 }
 
-
 export class ListEnvironmentVariablesFromContextQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
   pageToken?: string;
 }
 
+export class ListEnvironmentVariablesFromContextRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ListEnvironmentVariablesFromContextPathParams;
 
-export class ListEnvironmentVariablesFromContext200ApplicationJsonItems extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  queryParams: ListEnvironmentVariablesFromContextQueryParams;
+}
+
+export class ListEnvironmentVariablesFromContextDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+export class ListEnvironmentVariablesFromContext200ApplicationJSONItems extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=context_id" })
   contextId: string;
 
@@ -28,30 +38,13 @@ export class ListEnvironmentVariablesFromContext200ApplicationJsonItems extends 
   variable: string;
 }
 
-
-export class ListEnvironmentVariablesFromContext200ApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListEnvironmentVariablesFromContext200ApplicationJsonItems })
-  items: ListEnvironmentVariablesFromContext200ApplicationJsonItems[];
+export class ListEnvironmentVariablesFromContext200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems })
+  items: ListEnvironmentVariablesFromContext200ApplicationJSONItems[];
 
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class ListEnvironmentVariablesFromContextDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ListEnvironmentVariablesFromContextRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListEnvironmentVariablesFromContextPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListEnvironmentVariablesFromContextQueryParams;
-}
-
 
 export class ListEnvironmentVariablesFromContextResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -61,8 +54,8 @@ export class ListEnvironmentVariablesFromContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listEnvironmentVariablesFromContext200ApplicationJSONObject?: ListEnvironmentVariablesFromContext200ApplicationJson;
+  listEnvironmentVariablesFromContext200ApplicationJSONObject?: ListEnvironmentVariablesFromContext200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  listEnvironmentVariablesFromContextDefaultApplicationJSONObject?: ListEnvironmentVariablesFromContextDefaultApplicationJson;
+  listEnvironmentVariablesFromContextDefaultApplicationJSONObject?: ListEnvironmentVariablesFromContextDefaultApplicationJSON;
 }

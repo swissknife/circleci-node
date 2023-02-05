@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetWorkflowSummaryPathParams extends SpeakeasyBase {
@@ -10,7 +9,6 @@ export class GetWorkflowSummaryPathParams extends SpeakeasyBase {
   workflowName: string;
 }
 
-
 export class GetWorkflowSummaryQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=all-branches" })
   allBranches?: boolean;
@@ -19,12 +17,24 @@ export class GetWorkflowSummaryQueryParams extends SpeakeasyBase {
   branches?: Record<string, any>;
 }
 
+export class GetWorkflowSummaryRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetWorkflowSummaryPathParams;
 
-// GetWorkflowSummary200ApplicationJsonMetricsDurationMetrics
+  @SpeakeasyMetadata()
+  queryParams: GetWorkflowSummaryQueryParams;
+}
+
+export class GetWorkflowSummaryDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+// GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics
 /** 
  * Metrics relating to the duration of runs for a workflow.
 **/
-export class GetWorkflowSummary200ApplicationJsonMetricsDurationMetrics extends SpeakeasyBase {
+export class GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=max" })
   max: number;
 
@@ -44,14 +54,13 @@ export class GetWorkflowSummary200ApplicationJsonMetricsDurationMetrics extends 
   standardDeviation: number;
 }
 
-
-// GetWorkflowSummary200ApplicationJsonMetrics
+// GetWorkflowSummary200ApplicationJSONMetrics
 /** 
  * Metrics aggregated across a workflow for a given time window.
 **/
-export class GetWorkflowSummary200ApplicationJsonMetrics extends SpeakeasyBase {
+export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=duration_metrics" })
-  durationMetrics: GetWorkflowSummary200ApplicationJsonMetricsDurationMetrics;
+  durationMetrics: GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics;
 
   @SpeakeasyMetadata({ data: "json, name=failed_runs" })
   failedRuns: number;
@@ -81,12 +90,11 @@ export class GetWorkflowSummary200ApplicationJsonMetrics extends SpeakeasyBase {
   windowStart: Date;
 }
 
-
-// GetWorkflowSummary200ApplicationJsonTrends
+// GetWorkflowSummary200ApplicationJSONTrends
 /** 
  * Trends for aggregated metrics across a workflow for a given time window.
 **/
-export class GetWorkflowSummary200ApplicationJsonTrends extends SpeakeasyBase {
+export class GetWorkflowSummary200ApplicationJSONTrends extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=failed_runs" })
   failedRuns: number;
 
@@ -112,37 +120,20 @@ export class GetWorkflowSummary200ApplicationJsonTrends extends SpeakeasyBase {
   totalRuns: number;
 }
 
-
-// GetWorkflowSummary200ApplicationJson
+// GetWorkflowSummary200ApplicationJSON
 /** 
  * Workflow level aggregated metrics and trends response
 **/
-export class GetWorkflowSummary200ApplicationJson extends SpeakeasyBase {
+export class GetWorkflowSummary200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=metrics" })
-  metrics: GetWorkflowSummary200ApplicationJsonMetrics;
+  metrics: GetWorkflowSummary200ApplicationJSONMetrics;
 
   @SpeakeasyMetadata({ data: "json, name=trends" })
-  trends: GetWorkflowSummary200ApplicationJsonTrends;
+  trends: GetWorkflowSummary200ApplicationJSONTrends;
 
   @SpeakeasyMetadata({ data: "json, name=workflow_names" })
   workflowNames: string[];
 }
-
-
-export class GetWorkflowSummaryDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetWorkflowSummaryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetWorkflowSummaryPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetWorkflowSummaryQueryParams;
-}
-
 
 export class GetWorkflowSummaryResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -152,8 +143,8 @@ export class GetWorkflowSummaryResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getWorkflowSummary200ApplicationJSONObject?: GetWorkflowSummary200ApplicationJson;
+  getWorkflowSummary200ApplicationJSONObject?: GetWorkflowSummary200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  getWorkflowSummaryDefaultApplicationJSONObject?: GetWorkflowSummaryDefaultApplicationJson;
+  getWorkflowSummaryDefaultApplicationJSONObject?: GetWorkflowSummaryDefaultApplicationJSON;
 }

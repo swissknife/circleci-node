@@ -1,12 +1,10 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ListPipelinesForProjectPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
   projectSlug: string;
 }
-
 
 export class ListPipelinesForProjectQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
@@ -16,6 +14,18 @@ export class ListPipelinesForProjectQueryParams extends SpeakeasyBase {
   pageToken?: string;
 }
 
+export class ListPipelinesForProjectRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ListPipelinesForProjectPathParams;
+
+  @SpeakeasyMetadata()
+  queryParams: ListPipelinesForProjectQueryParams;
+}
+
+export class ListPipelinesForProjectDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum {
     Config = "config",
     ConfigFetch = "config-fetch",
@@ -24,7 +34,6 @@ export enum ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum {
     Other = "other",
     Plan = "plan"
 }
-
 
 // ListPipelinesForProjectPipelineListResponsePipelineErrors
 /** 
@@ -37,7 +46,6 @@ export class ListPipelinesForProjectPipelineListResponsePipelineErrors extends S
   @SpeakeasyMetadata({ data: "json, name=type" })
   type: ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum;
 }
-
 export enum ListPipelinesForProjectPipelineListResponsePipelineStateEnum {
     Created = "created",
     Errored = "errored",
@@ -45,7 +53,6 @@ export enum ListPipelinesForProjectPipelineListResponsePipelineStateEnum {
     Setup = "setup",
     Pending = "pending"
 }
-
 
 // ListPipelinesForProjectPipelineListResponsePipelineTriggerActor
 /** 
@@ -58,14 +65,12 @@ export class ListPipelinesForProjectPipelineListResponsePipelineTriggerActor ext
   @SpeakeasyMetadata({ data: "json, name=login" })
   login: string;
 }
-
 export enum ListPipelinesForProjectPipelineListResponsePipelineTriggerTypeEnum {
     ScheduledPipeline = "scheduled_pipeline",
     Explicit = "explicit",
     Api = "api",
     Webhook = "webhook"
 }
-
 
 // ListPipelinesForProjectPipelineListResponsePipelineTrigger
 /** 
@@ -82,7 +87,6 @@ export class ListPipelinesForProjectPipelineListResponsePipelineTrigger extends 
   type: ListPipelinesForProjectPipelineListResponsePipelineTriggerTypeEnum;
 }
 
-
 // ListPipelinesForProjectPipelineListResponsePipelineVcsCommit
 /** 
  * The latest commit in the pipeline.
@@ -94,7 +98,6 @@ export class ListPipelinesForProjectPipelineListResponsePipelineVcsCommit extend
   @SpeakeasyMetadata({ data: "json, name=subject" })
   subject: string;
 }
-
 
 // ListPipelinesForProjectPipelineListResponsePipelineVcs
 /** 
@@ -128,7 +131,6 @@ export class ListPipelinesForProjectPipelineListResponsePipelineVcs extends Spea
   @SpeakeasyMetadata({ data: "json, name=target_repository_url" })
   targetRepositoryUrl: string;
 }
-
 
 // ListPipelinesForProjectPipelineListResponsePipeline
 /** 
@@ -166,7 +168,6 @@ export class ListPipelinesForProjectPipelineListResponsePipeline extends Speakea
   vcs?: ListPipelinesForProjectPipelineListResponsePipelineVcs;
 }
 
-
 // ListPipelinesForProjectPipelineListResponse
 /** 
  * List of pipelines
@@ -179,22 +180,6 @@ export class ListPipelinesForProjectPipelineListResponse extends SpeakeasyBase {
   nextPageToken: string;
 }
 
-
-export class ListPipelinesForProjectDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ListPipelinesForProjectRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListPipelinesForProjectPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListPipelinesForProjectQueryParams;
-}
-
-
 export class ListPipelinesForProjectResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -206,5 +191,5 @@ export class ListPipelinesForProjectResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listPipelinesForProjectDefaultApplicationJSONObject?: ListPipelinesForProjectDefaultApplicationJson;
+  listPipelinesForProjectDefaultApplicationJSONObject?: ListPipelinesForProjectDefaultApplicationJSON;
 }

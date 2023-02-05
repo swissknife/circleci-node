@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetCheckoutKeyPathParams extends SpeakeasyBase {
@@ -10,11 +9,19 @@ export class GetCheckoutKeyPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class GetCheckoutKeyRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetCheckoutKeyPathParams;
+}
+
+export class GetCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum GetCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum {
     DeployKey = "deploy-key",
     GithubUserKey = "github-user-key"
 }
-
 
 export class GetCheckoutKeyCheckoutKey extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created-at" })
@@ -33,19 +40,6 @@ export class GetCheckoutKeyCheckoutKey extends SpeakeasyBase {
   type: GetCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum;
 }
 
-
-export class GetCheckoutKeyDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetCheckoutKeyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCheckoutKeyPathParams;
-}
-
-
 export class GetCheckoutKeyResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   checkoutKey?: GetCheckoutKeyCheckoutKey;
@@ -57,5 +51,5 @@ export class GetCheckoutKeyResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getCheckoutKeyDefaultApplicationJSONObject?: GetCheckoutKeyDefaultApplicationJson;
+  getCheckoutKeyDefaultApplicationJSONObject?: GetCheckoutKeyDefaultApplicationJSON;
 }

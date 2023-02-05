@@ -1,17 +1,14 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class UpdateSchedulePathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=schedule-id" })
   scheduleId: string;
 }
-
 export enum UpdateScheduleUpdateScheduleParametersAttributionActorEnum {
     Current = "current",
     System = "system"
 }
-
 export enum UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum {
     Tue = "TUE",
     Sat = "SAT",
@@ -21,7 +18,6 @@ export enum UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum {
     Wed = "WED",
     Fri = "FRI"
 }
-
 export enum UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum {
     Mar = "MAR",
     Nov = "NOV",
@@ -36,7 +32,6 @@ export enum UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum {
     Jan = "JAN",
     Jul = "JUL"
 }
-
 
 // UpdateScheduleUpdateScheduleParametersTimetable
 /** 
@@ -59,7 +54,6 @@ export class UpdateScheduleUpdateScheduleParametersTimetable extends SpeakeasyBa
   perHour?: number;
 }
 
-
 // UpdateScheduleUpdateScheduleParameters
 /** 
  * The parameters for an update schedule request
@@ -81,6 +75,18 @@ export class UpdateScheduleUpdateScheduleParameters extends SpeakeasyBase {
   timetable?: UpdateScheduleUpdateScheduleParametersTimetable;
 }
 
+export class UpdateScheduleRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: UpdateSchedulePathParams;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: UpdateScheduleUpdateScheduleParameters;
+}
+
+export class UpdateScheduleDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // UpdateScheduleScheduleUser
 /** 
@@ -96,50 +102,6 @@ export class UpdateScheduleScheduleUser extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=name" })
   name: string;
 }
-
-export enum UpdateScheduleScheduleTimetable1DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
-}
-
-export enum UpdateScheduleScheduleTimetable1MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
-}
-
-
-export class UpdateScheduleScheduleTimetable1 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=days-of-month" })
-  daysOfMonth?: number[];
-
-  @SpeakeasyMetadata({ data: "json, name=days-of-week" })
-  daysOfWeek: UpdateScheduleScheduleTimetable1DaysOfWeekEnum[];
-
-  @SpeakeasyMetadata({ data: "json, name=hours-of-day" })
-  hoursOfDay: number[];
-
-  @SpeakeasyMetadata({ data: "json, name=months" })
-  months?: UpdateScheduleScheduleTimetable1MonthsEnum[];
-
-  @SpeakeasyMetadata({ data: "json, name=per-hour" })
-  perHour: number;
-}
-
 export enum UpdateScheduleScheduleTimetable2DaysOfWeekEnum {
     Tue = "TUE",
     Sat = "SAT",
@@ -149,7 +111,6 @@ export enum UpdateScheduleScheduleTimetable2DaysOfWeekEnum {
     Wed = "WED",
     Fri = "FRI"
 }
-
 export enum UpdateScheduleScheduleTimetable2MonthsEnum {
     Mar = "MAR",
     Nov = "NOV",
@@ -164,7 +125,6 @@ export enum UpdateScheduleScheduleTimetable2MonthsEnum {
     Jan = "JAN",
     Jul = "JUL"
 }
-
 
 export class UpdateScheduleScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=days-of-month" })
@@ -182,7 +142,46 @@ export class UpdateScheduleScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=per-hour" })
   perHour: number;
 }
+export enum UpdateScheduleScheduleTimetable1DaysOfWeekEnum {
+    Tue = "TUE",
+    Sat = "SAT",
+    Sun = "SUN",
+    Mon = "MON",
+    Thu = "THU",
+    Wed = "WED",
+    Fri = "FRI"
+}
+export enum UpdateScheduleScheduleTimetable1MonthsEnum {
+    Mar = "MAR",
+    Nov = "NOV",
+    Dec = "DEC",
+    Jun = "JUN",
+    May = "MAY",
+    Oct = "OCT",
+    Feb = "FEB",
+    Apr = "APR",
+    Sep = "SEP",
+    Aug = "AUG",
+    Jan = "JAN",
+    Jul = "JUL"
+}
 
+export class UpdateScheduleScheduleTimetable1 extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=days-of-month" })
+  daysOfMonth?: number[];
+
+  @SpeakeasyMetadata({ data: "json, name=days-of-week" })
+  daysOfWeek: UpdateScheduleScheduleTimetable1DaysOfWeekEnum[];
+
+  @SpeakeasyMetadata({ data: "json, name=hours-of-day" })
+  hoursOfDay: number[];
+
+  @SpeakeasyMetadata({ data: "json, name=months" })
+  months?: UpdateScheduleScheduleTimetable1MonthsEnum[];
+
+  @SpeakeasyMetadata({ data: "json, name=per-hour" })
+  perHour: number;
+}
 
 // UpdateScheduleSchedule
 /** 
@@ -217,22 +216,6 @@ export class UpdateScheduleSchedule extends SpeakeasyBase {
   updatedAt: Date;
 }
 
-
-export class UpdateScheduleDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class UpdateScheduleRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateSchedulePathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateScheduleUpdateScheduleParameters;
-}
-
-
 export class UpdateScheduleResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -244,5 +227,5 @@ export class UpdateScheduleResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  updateScheduleDefaultApplicationJSONObject?: UpdateScheduleDefaultApplicationJson;
+  updateScheduleDefaultApplicationJSONObject?: UpdateScheduleDefaultApplicationJSON;
 }
