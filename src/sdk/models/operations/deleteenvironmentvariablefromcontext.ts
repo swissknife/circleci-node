@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class DeleteEnvironmentVariableFromContextPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class DeleteEnvironmentVariableFromContextPathParams extends SpeakeasyBas
   envVarName: string;
 }
 
+export class DeleteEnvironmentVariableFromContextRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: DeleteEnvironmentVariableFromContextPathParams;
+}
+
+export class DeleteEnvironmentVariableFromContextDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // DeleteEnvironmentVariableFromContextMessageResponse
 /** 
@@ -19,19 +27,6 @@ export class DeleteEnvironmentVariableFromContextMessageResponse extends Speakea
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class DeleteEnvironmentVariableFromContextDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class DeleteEnvironmentVariableFromContextRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteEnvironmentVariableFromContextPathParams;
-}
-
 
 export class DeleteEnvironmentVariableFromContextResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -44,5 +39,5 @@ export class DeleteEnvironmentVariableFromContextResponse extends SpeakeasyBase 
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteEnvironmentVariableFromContextDefaultApplicationJSONObject?: DeleteEnvironmentVariableFromContextDefaultApplicationJson;
+  deleteEnvironmentVariableFromContextDefaultApplicationJSONObject?: DeleteEnvironmentVariableFromContextDefaultApplicationJSON;
 }

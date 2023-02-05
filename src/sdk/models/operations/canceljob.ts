@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class CancelJobPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class CancelJobPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class CancelJobRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: CancelJobPathParams;
+}
+
+export class CancelJobDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // CancelJobMessageResponse
 /** 
@@ -19,19 +27,6 @@ export class CancelJobMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class CancelJobDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class CancelJobRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CancelJobPathParams;
-}
-
 
 export class CancelJobResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -44,5 +39,5 @@ export class CancelJobResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  cancelJobDefaultApplicationJSONObject?: CancelJobDefaultApplicationJson;
+  cancelJobDefaultApplicationJSONObject?: CancelJobDefaultApplicationJSON;
 }

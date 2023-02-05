@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetJobArtifactsPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class GetJobArtifactsPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class GetJobArtifactsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetJobArtifactsPathParams;
+}
+
+export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // GetJobArtifactsArtifactListResponseArtifact
 /** 
@@ -26,7 +34,6 @@ export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
   url: string;
 }
 
-
 export class GetJobArtifactsArtifactListResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=items", elemType: GetJobArtifactsArtifactListResponseArtifact })
   items: GetJobArtifactsArtifactListResponseArtifact[];
@@ -34,19 +41,6 @@ export class GetJobArtifactsArtifactListResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class GetJobArtifactsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetJobArtifactsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetJobArtifactsPathParams;
-}
-
 
 export class GetJobArtifactsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -59,5 +53,5 @@ export class GetJobArtifactsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getJobArtifactsDefaultApplicationJSONObject?: GetJobArtifactsDefaultApplicationJson;
+  getJobArtifactsDefaultApplicationJSONObject?: GetJobArtifactsDefaultApplicationJSON;
 }

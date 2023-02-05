@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetJobTimeseriesPathParams extends SpeakeasyBase {
@@ -9,12 +8,10 @@ export class GetJobTimeseriesPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=workflow-name" })
   workflowName: string;
 }
-
 export enum GetJobTimeseriesGranularityEnum {
     Daily = "daily",
     Hourly = "hourly"
 }
-
 
 export class GetJobTimeseriesQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
@@ -30,12 +27,24 @@ export class GetJobTimeseriesQueryParams extends SpeakeasyBase {
   startDate?: Date;
 }
 
+export class GetJobTimeseriesRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetJobTimeseriesPathParams;
 
-// GetJobTimeseries200ApplicationJsonItemsMetricsDurationMetrics
+  @SpeakeasyMetadata()
+  queryParams: GetJobTimeseriesQueryParams;
+}
+
+export class GetJobTimeseriesDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+// GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics
 /** 
  * Metrics relating to the duration of runs for a workflow.
 **/
-export class GetJobTimeseries200ApplicationJsonItemsMetricsDurationMetrics extends SpeakeasyBase {
+export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=max" })
   max: number;
 
@@ -52,14 +61,13 @@ export class GetJobTimeseries200ApplicationJsonItemsMetricsDurationMetrics exten
   total: number;
 }
 
-
-// GetJobTimeseries200ApplicationJsonItemsMetrics
+// GetJobTimeseries200ApplicationJSONItemsMetrics
 /** 
  * Metrics relating to a workflow's runs.
 **/
-export class GetJobTimeseries200ApplicationJsonItemsMetrics extends SpeakeasyBase {
+export class GetJobTimeseries200ApplicationJSONItemsMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=duration_metrics" })
-  durationMetrics: GetJobTimeseries200ApplicationJsonItemsMetricsDurationMetrics;
+  durationMetrics: GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics;
 
   @SpeakeasyMetadata({ data: "json, name=failed_runs" })
   failedRuns: number;
@@ -80,13 +88,12 @@ export class GetJobTimeseries200ApplicationJsonItemsMetrics extends SpeakeasyBas
   totalRuns: number;
 }
 
-
-export class GetJobTimeseries200ApplicationJsonItems extends SpeakeasyBase {
+export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=max_ended_at" })
   maxEndedAt: Date;
 
   @SpeakeasyMetadata({ data: "json, name=metrics" })
-  metrics: GetJobTimeseries200ApplicationJsonItemsMetrics;
+  metrics: GetJobTimeseries200ApplicationJSONItemsMetrics;
 
   @SpeakeasyMetadata({ data: "json, name=min_started_at" })
   minStartedAt: Date;
@@ -98,34 +105,17 @@ export class GetJobTimeseries200ApplicationJsonItems extends SpeakeasyBase {
   timestamp: Date;
 }
 
-
-// GetJobTimeseries200ApplicationJson
+// GetJobTimeseries200ApplicationJSON
 /** 
  * Project level timeseries metrics response
 **/
-export class GetJobTimeseries200ApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetJobTimeseries200ApplicationJsonItems })
-  items: GetJobTimeseries200ApplicationJsonItems[];
+export class GetJobTimeseries200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetJobTimeseries200ApplicationJSONItems })
+  items: GetJobTimeseries200ApplicationJSONItems[];
 
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class GetJobTimeseriesDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetJobTimeseriesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetJobTimeseriesPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetJobTimeseriesQueryParams;
-}
-
 
 export class GetJobTimeseriesResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -135,8 +125,8 @@ export class GetJobTimeseriesResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getJobTimeseries200ApplicationJSONObject?: GetJobTimeseries200ApplicationJson;
+  getJobTimeseries200ApplicationJSONObject?: GetJobTimeseries200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  getJobTimeseriesDefaultApplicationJSONObject?: GetJobTimeseriesDefaultApplicationJson;
+  getJobTimeseriesDefaultApplicationJSONObject?: GetJobTimeseriesDefaultApplicationJSON;
 }

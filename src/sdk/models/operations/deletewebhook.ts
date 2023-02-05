@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class DeleteWebhookPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class DeleteWebhookPathParams extends SpeakeasyBase {
   webhookId: string;
 }
 
+export class DeleteWebhookRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: DeleteWebhookPathParams;
+}
+
+export class DeleteWebhookDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // DeleteWebhookMessageResponse
 /** 
@@ -16,19 +24,6 @@ export class DeleteWebhookMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class DeleteWebhookDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class DeleteWebhookRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteWebhookPathParams;
-}
-
 
 export class DeleteWebhookResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -41,5 +36,5 @@ export class DeleteWebhookResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteWebhookDefaultApplicationJSONObject?: DeleteWebhookDefaultApplicationJson;
+  deleteWebhookDefaultApplicationJSONObject?: DeleteWebhookDefaultApplicationJSON;
 }

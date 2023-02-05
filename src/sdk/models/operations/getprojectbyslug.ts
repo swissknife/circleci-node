@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetProjectBySlugPathParams extends SpeakeasyBase {
@@ -7,12 +6,20 @@ export class GetProjectBySlugPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
-export enum GetProjectBySlugProjectVcsInfoProviderEnum {
-    Bitbucket = "Bitbucket",
-    CircleCi = "CircleCI",
-    GitHub = "GitHub"
+export class GetProjectBySlugRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetProjectBySlugPathParams;
 }
 
+export class GetProjectBySlugDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+export enum GetProjectBySlugProjectVcsInfoProviderEnum {
+    Bitbucket = "Bitbucket",
+    CircleCI = "CircleCI",
+    GitHub = "GitHub"
+}
 
 // GetProjectBySlugProjectVcsInfo
 /** 
@@ -28,7 +35,6 @@ export class GetProjectBySlugProjectVcsInfo extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=vcs_url" })
   vcsUrl: string;
 }
-
 
 // GetProjectBySlugProject
 /** 
@@ -57,19 +63,6 @@ export class GetProjectBySlugProject extends SpeakeasyBase {
   vcsInfo: GetProjectBySlugProjectVcsInfo;
 }
 
-
-export class GetProjectBySlugDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetProjectBySlugRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetProjectBySlugPathParams;
-}
-
-
 export class GetProjectBySlugResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -81,5 +74,5 @@ export class GetProjectBySlugResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectBySlugDefaultApplicationJSONObject?: GetProjectBySlugDefaultApplicationJson;
+  getProjectBySlugDefaultApplicationJSONObject?: GetProjectBySlugDefaultApplicationJSON;
 }

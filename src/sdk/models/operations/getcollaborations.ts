@@ -1,6 +1,10 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
+export class GetCollaborationsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 export class GetCollaborationsCollaboration extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=avatar_url" })
@@ -19,13 +23,6 @@ export class GetCollaborationsCollaboration extends SpeakeasyBase {
   vcsType: string;
 }
 
-
-export class GetCollaborationsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
 export class GetCollaborationsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetCollaborationsCollaboration })
   collaborations?: GetCollaborationsCollaboration[];
@@ -37,5 +34,5 @@ export class GetCollaborationsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getCollaborationsDefaultApplicationJSONObject?: GetCollaborationsDefaultApplicationJson;
+  getCollaborationsDefaultApplicationJSONObject?: GetCollaborationsDefaultApplicationJSON;
 }

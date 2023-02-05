@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ListWorkflowJobsPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class ListWorkflowJobsPathParams extends SpeakeasyBase {
   id: string;
 }
 
+export class ListWorkflowJobsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ListWorkflowJobsPathParams;
+}
+
+export class ListWorkflowJobsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum ListWorkflowJobsWorkflowJobListResponseJobStatusEnum {
     Success = "success",
     Running = "running",
@@ -23,12 +31,10 @@ export enum ListWorkflowJobsWorkflowJobListResponseJobStatusEnum {
     Canceled = "canceled",
     Unauthorized = "unauthorized"
 }
-
 export enum ListWorkflowJobsWorkflowJobListResponseJobTypeEnum {
     Build = "build",
     Approval = "approval"
 }
-
 
 // ListWorkflowJobsWorkflowJobListResponseJob
 /** 
@@ -72,7 +78,6 @@ export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
   type: ListWorkflowJobsWorkflowJobListResponseJobTypeEnum;
 }
 
-
 export class ListWorkflowJobsWorkflowJobListResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=items", elemType: ListWorkflowJobsWorkflowJobListResponseJob })
   items: ListWorkflowJobsWorkflowJobListResponseJob[];
@@ -80,19 +85,6 @@ export class ListWorkflowJobsWorkflowJobListResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class ListWorkflowJobsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ListWorkflowJobsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListWorkflowJobsPathParams;
-}
-
 
 export class ListWorkflowJobsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -105,5 +97,5 @@ export class ListWorkflowJobsResponse extends SpeakeasyBase {
   workflowJobListResponse?: ListWorkflowJobsWorkflowJobListResponse;
 
   @SpeakeasyMetadata()
-  listWorkflowJobsDefaultApplicationJSONObject?: ListWorkflowJobsDefaultApplicationJson;
+  listWorkflowJobsDefaultApplicationJSONObject?: ListWorkflowJobsDefaultApplicationJSON;
 }

@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetUserPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class GetUserPathParams extends SpeakeasyBase {
   id: string;
 }
 
+export class GetUserRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetUserPathParams;
+}
+
+export class GetUserDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 export class GetUserUser extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=id" })
@@ -19,19 +27,6 @@ export class GetUserUser extends SpeakeasyBase {
   name: string;
 }
 
-
-export class GetUserDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetUserRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetUserPathParams;
-}
-
-
 export class GetUserResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -43,5 +38,5 @@ export class GetUserResponse extends SpeakeasyBase {
   user?: GetUserUser;
 
   @SpeakeasyMetadata()
-  getUserDefaultApplicationJSONObject?: GetUserDefaultApplicationJson;
+  getUserDefaultApplicationJSONObject?: GetUserDefaultApplicationJSON;
 }

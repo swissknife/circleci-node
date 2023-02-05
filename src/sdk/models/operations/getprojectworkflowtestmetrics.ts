@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetProjectWorkflowTestMetricsPathParams extends SpeakeasyBase {
@@ -10,7 +9,6 @@ export class GetProjectWorkflowTestMetricsPathParams extends SpeakeasyBase {
   workflowName: string;
 }
 
-
 export class GetProjectWorkflowTestMetricsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=all-branches" })
   allBranches?: boolean;
@@ -19,8 +17,20 @@ export class GetProjectWorkflowTestMetricsQueryParams extends SpeakeasyBase {
   branch?: string;
 }
 
+export class GetProjectWorkflowTestMetricsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetProjectWorkflowTestMetricsPathParams;
 
-export class GetProjectWorkflowTestMetrics200ApplicationJsonMostFailedTests extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  queryParams: GetProjectWorkflowTestMetricsQueryParams;
+}
+
+export class GetProjectWorkflowTestMetricsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+export class GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=classname" })
   classname: string;
 
@@ -49,8 +59,7 @@ export class GetProjectWorkflowTestMetrics200ApplicationJsonMostFailedTests exte
   totalRuns: number;
 }
 
-
-export class GetProjectWorkflowTestMetrics200ApplicationJsonSlowestTests extends SpeakeasyBase {
+export class GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=classname" })
   classname: string;
 
@@ -79,12 +88,11 @@ export class GetProjectWorkflowTestMetrics200ApplicationJsonSlowestTests extends
   totalRuns: number;
 }
 
-
-// GetProjectWorkflowTestMetrics200ApplicationJsonTestRunsTestCounts
+// GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts
 /** 
  * Test counts for a given pipeline number
 **/
-export class GetProjectWorkflowTestMetrics200ApplicationJsonTestRunsTestCounts extends SpeakeasyBase {
+export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=error" })
   error: number;
 
@@ -101,8 +109,7 @@ export class GetProjectWorkflowTestMetrics200ApplicationJsonTestRunsTestCounts e
   total: number;
 }
 
-
-export class GetProjectWorkflowTestMetrics200ApplicationJsonTestRuns extends SpeakeasyBase {
+export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=pipeline_number" })
   pipelineNumber: number;
 
@@ -110,55 +117,38 @@ export class GetProjectWorkflowTestMetrics200ApplicationJsonTestRuns extends Spe
   successRate: number;
 
   @SpeakeasyMetadata({ data: "json, name=test_counts" })
-  testCounts: GetProjectWorkflowTestMetrics200ApplicationJsonTestRunsTestCounts;
+  testCounts: GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts;
 
   @SpeakeasyMetadata({ data: "json, name=workflow_id" })
   workflowId: any;
 }
 
-
-// GetProjectWorkflowTestMetrics200ApplicationJson
+// GetProjectWorkflowTestMetrics200ApplicationJSON
 /** 
  * Project level test metrics response
 **/
-export class GetProjectWorkflowTestMetrics200ApplicationJson extends SpeakeasyBase {
+export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=average_test_count" })
   averageTestCount: number;
 
-  @SpeakeasyMetadata({ data: "json, name=most_failed_tests", elemType: GetProjectWorkflowTestMetrics200ApplicationJsonMostFailedTests })
-  mostFailedTests: GetProjectWorkflowTestMetrics200ApplicationJsonMostFailedTests[];
+  @SpeakeasyMetadata({ data: "json, name=most_failed_tests", elemType: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests })
+  mostFailedTests: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests[];
 
   @SpeakeasyMetadata({ data: "json, name=most_failed_tests_extra" })
   mostFailedTestsExtra: number;
 
-  @SpeakeasyMetadata({ data: "json, name=slowest_tests", elemType: GetProjectWorkflowTestMetrics200ApplicationJsonSlowestTests })
-  slowestTests: GetProjectWorkflowTestMetrics200ApplicationJsonSlowestTests[];
+  @SpeakeasyMetadata({ data: "json, name=slowest_tests", elemType: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests })
+  slowestTests: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests[];
 
   @SpeakeasyMetadata({ data: "json, name=slowest_tests_extra" })
   slowestTestsExtra: number;
 
-  @SpeakeasyMetadata({ data: "json, name=test_runs", elemType: GetProjectWorkflowTestMetrics200ApplicationJsonTestRuns })
-  testRuns: GetProjectWorkflowTestMetrics200ApplicationJsonTestRuns[];
+  @SpeakeasyMetadata({ data: "json, name=test_runs", elemType: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns })
+  testRuns: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns[];
 
   @SpeakeasyMetadata({ data: "json, name=total_test_runs" })
   totalTestRuns: number;
 }
-
-
-export class GetProjectWorkflowTestMetricsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetProjectWorkflowTestMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetProjectWorkflowTestMetricsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetProjectWorkflowTestMetricsQueryParams;
-}
-
 
 export class GetProjectWorkflowTestMetricsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -168,8 +158,8 @@ export class GetProjectWorkflowTestMetricsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowTestMetrics200ApplicationJSONObject?: GetProjectWorkflowTestMetrics200ApplicationJson;
+  getProjectWorkflowTestMetrics200ApplicationJSONObject?: GetProjectWorkflowTestMetrics200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  getProjectWorkflowTestMetricsDefaultApplicationJSONObject?: GetProjectWorkflowTestMetricsDefaultApplicationJson;
+  getProjectWorkflowTestMetricsDefaultApplicationJSONObject?: GetProjectWorkflowTestMetricsDefaultApplicationJSON;
 }

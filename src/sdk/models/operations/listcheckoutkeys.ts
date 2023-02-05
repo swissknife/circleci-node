@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class ListCheckoutKeysPathParams extends SpeakeasyBase {
@@ -7,11 +6,19 @@ export class ListCheckoutKeysPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class ListCheckoutKeysRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ListCheckoutKeysPathParams;
+}
+
+export class ListCheckoutKeysDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnum {
     DeployKey = "deploy-key",
     GithubUserKey = "github-user-key"
 }
-
 
 export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created-at" })
@@ -30,7 +37,6 @@ export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends Speakeas
   type: ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnum;
 }
 
-
 export class ListCheckoutKeysCheckoutKeyListResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=items", elemType: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey })
   items: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey[];
@@ -38,19 +44,6 @@ export class ListCheckoutKeysCheckoutKeyListResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class ListCheckoutKeysDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ListCheckoutKeysRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListCheckoutKeysPathParams;
-}
-
 
 export class ListCheckoutKeysResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -63,5 +56,5 @@ export class ListCheckoutKeysResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listCheckoutKeysDefaultApplicationJSONObject?: ListCheckoutKeysDefaultApplicationJson;
+  listCheckoutKeysDefaultApplicationJSONObject?: ListCheckoutKeysDefaultApplicationJSON;
 }

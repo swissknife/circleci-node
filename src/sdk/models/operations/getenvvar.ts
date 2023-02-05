@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetEnvVarPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class GetEnvVarPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class GetEnvVarRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetEnvVarPathParams;
+}
+
+export class GetEnvVarDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 export class GetEnvVarEnvironmentVariablePair extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=name" })
@@ -18,19 +26,6 @@ export class GetEnvVarEnvironmentVariablePair extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=value" })
   value: string;
 }
-
-
-export class GetEnvVarDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetEnvVarRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetEnvVarPathParams;
-}
-
 
 export class GetEnvVarResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -43,5 +38,5 @@ export class GetEnvVarResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getEnvVarDefaultApplicationJSONObject?: GetEnvVarDefaultApplicationJson;
+  getEnvVarDefaultApplicationJSONObject?: GetEnvVarDefaultApplicationJSON;
 }

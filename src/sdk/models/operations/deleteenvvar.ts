@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class DeleteEnvVarPathParams extends SpeakeasyBase {
@@ -10,6 +9,15 @@ export class DeleteEnvVarPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class DeleteEnvVarRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: DeleteEnvVarPathParams;
+}
+
+export class DeleteEnvVarDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // DeleteEnvVarMessageResponse
 /** 
@@ -19,19 +27,6 @@ export class DeleteEnvVarMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class DeleteEnvVarDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class DeleteEnvVarRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteEnvVarPathParams;
-}
-
 
 export class DeleteEnvVarResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -44,5 +39,5 @@ export class DeleteEnvVarResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteEnvVarDefaultApplicationJSONObject?: DeleteEnvVarDefaultApplicationJson;
+  deleteEnvVarDefaultApplicationJSONObject?: DeleteEnvVarDefaultApplicationJSON;
 }

@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class DeleteContextPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class DeleteContextPathParams extends SpeakeasyBase {
   contextId: string;
 }
 
+export class DeleteContextRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: DeleteContextPathParams;
+}
+
+export class DeleteContextDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // DeleteContextMessageResponse
 /** 
@@ -16,19 +24,6 @@ export class DeleteContextMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=message" })
   message: string;
 }
-
-
-export class DeleteContextDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class DeleteContextRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteContextPathParams;
-}
-
 
 export class DeleteContextResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -41,5 +36,5 @@ export class DeleteContextResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  deleteContextDefaultApplicationJSONObject?: DeleteContextDefaultApplicationJson;
+  deleteContextDefaultApplicationJSONObject?: DeleteContextDefaultApplicationJSON;
 }

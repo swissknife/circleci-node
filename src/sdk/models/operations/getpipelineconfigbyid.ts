@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetPipelineConfigByIdPathParams extends SpeakeasyBase {
@@ -7,6 +6,15 @@ export class GetPipelineConfigByIdPathParams extends SpeakeasyBase {
   pipelineId: string;
 }
 
+export class GetPipelineConfigByIdRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetPipelineConfigByIdPathParams;
+}
+
+export class GetPipelineConfigByIdDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
 
 // GetPipelineConfigByIdPipelineConfig
 /** 
@@ -26,19 +34,6 @@ export class GetPipelineConfigByIdPipelineConfig extends SpeakeasyBase {
   source: string;
 }
 
-
-export class GetPipelineConfigByIdDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetPipelineConfigByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetPipelineConfigByIdPathParams;
-}
-
-
 export class GetPipelineConfigByIdResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -50,5 +45,5 @@ export class GetPipelineConfigByIdResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getPipelineConfigByIdDefaultApplicationJSONObject?: GetPipelineConfigByIdDefaultApplicationJson;
+  getPipelineConfigByIdDefaultApplicationJSONObject?: GetPipelineConfigByIdDefaultApplicationJSON;
 }

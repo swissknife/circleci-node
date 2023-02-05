@@ -1,11 +1,9 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export enum ListContextsOwnerTypeEnum {
     Account = "account",
     Organization = "organization"
 }
-
 
 export class ListContextsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-id" })
@@ -21,8 +19,17 @@ export class ListContextsQueryParams extends SpeakeasyBase {
   pageToken?: string;
 }
 
+export class ListContextsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  queryParams: ListContextsQueryParams;
+}
 
-export class ListContexts200ApplicationJsonContext extends SpeakeasyBase {
+export class ListContextsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+export class ListContexts200ApplicationJSONContext extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=created_at" })
   createdAt: Date;
 
@@ -33,27 +40,13 @@ export class ListContexts200ApplicationJsonContext extends SpeakeasyBase {
   name: string;
 }
 
-
-export class ListContexts200ApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListContexts200ApplicationJsonContext })
-  items: ListContexts200ApplicationJsonContext[];
+export class ListContexts200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListContexts200ApplicationJSONContext })
+  items: ListContexts200ApplicationJSONContext[];
 
   @SpeakeasyMetadata({ data: "json, name=next_page_token" })
   nextPageToken: string;
 }
-
-
-export class ListContextsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class ListContextsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  queryParams: ListContextsQueryParams;
-}
-
 
 export class ListContextsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -63,8 +56,8 @@ export class ListContextsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  listContexts200ApplicationJSONObject?: ListContexts200ApplicationJson;
+  listContexts200ApplicationJSONObject?: ListContexts200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  listContextsDefaultApplicationJSONObject?: ListContextsDefaultApplicationJson;
+  listContextsDefaultApplicationJSONObject?: ListContextsDefaultApplicationJSON;
 }

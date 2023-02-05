@@ -1,5 +1,4 @@
-import { SpeakeasyMetadata, SpeakeasyBase } from "../../../internal/utils";
-
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 
 export class GetFlakyTestsPathParams extends SpeakeasyBase {
@@ -7,8 +6,17 @@ export class GetFlakyTestsPathParams extends SpeakeasyBase {
   projectSlug: string;
 }
 
+export class GetFlakyTestsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetFlakyTestsPathParams;
+}
 
-export class GetFlakyTests200ApplicationJsonFlakyTests extends SpeakeasyBase {
+export class GetFlakyTestsDefaultApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+}
+
+export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "json, name=classname" })
   classname: string;
 
@@ -46,31 +54,17 @@ export class GetFlakyTests200ApplicationJsonFlakyTests extends SpeakeasyBase {
   workflowName: string;
 }
 
-
-// GetFlakyTests200ApplicationJson
+// GetFlakyTests200ApplicationJSON
 /** 
  * Flaky tests response
 **/
-export class GetFlakyTests200ApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=flaky-tests", elemType: GetFlakyTests200ApplicationJsonFlakyTests })
-  flakyTests: GetFlakyTests200ApplicationJsonFlakyTests[];
+export class GetFlakyTests200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=flaky-tests", elemType: GetFlakyTests200ApplicationJSONFlakyTests })
+  flakyTests: GetFlakyTests200ApplicationJSONFlakyTests[];
 
   @SpeakeasyMetadata({ data: "json, name=total-flaky-tests" })
   totalFlakyTests: number;
 }
-
-
-export class GetFlakyTestsDefaultApplicationJson extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
-  message?: string;
-}
-
-
-export class GetFlakyTestsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetFlakyTestsPathParams;
-}
-
 
 export class GetFlakyTestsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -80,8 +74,8 @@ export class GetFlakyTestsResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  getFlakyTests200ApplicationJSONObject?: GetFlakyTests200ApplicationJson;
+  getFlakyTests200ApplicationJSONObject?: GetFlakyTests200ApplicationJSON;
 
   @SpeakeasyMetadata()
-  getFlakyTestsDefaultApplicationJSONObject?: GetFlakyTestsDefaultApplicationJson;
+  getFlakyTestsDefaultApplicationJSONObject?: GetFlakyTestsDefaultApplicationJSON;
 }
