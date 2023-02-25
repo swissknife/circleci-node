@@ -20,17 +20,21 @@ yarn add circleci-v2-sdk
 
 <!-- Start SDK Example Usage -->
 ```typescript
-import { SDK, withSecurity} from "circleci-v2-sdk";
-import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/src/sdk/models/operations";
-import { AxiosError } from "axios";
+import {
+  AddEnvironmentVariableToContextRequest,
+  AddEnvironmentVariableToContextResponse 
+} from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new SDK(withSecurity(
+import { AxiosError } from "axios";
+import { SDK } from "circleci-v2-sdk";
+
+const sdk = new SDK({
   security: {
     apiKeyHeader: {
       apiKey: "YOUR_API_KEY_HERE",
     },
   }
-));
+});
     
 const req: AddEnvironmentVariableToContextRequest = {
   pathParams: {
