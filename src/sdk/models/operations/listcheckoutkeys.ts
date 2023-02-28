@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class ListCheckoutKeysPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class ListCheckoutKeysRequest extends SpeakeasyBase {
 }
 
 export class ListCheckoutKeysDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnum {
@@ -21,27 +23,36 @@ export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnu
 }
 
 export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=created-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=fingerprint" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "fingerprint" })
   fingerprint: string;
 
-  @SpeakeasyMetadata({ data: "json, name=preferred" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "preferred" })
   preferred: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=public-key" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "public-key" })
   publicKey: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnum;
 }
 
 export class ListCheckoutKeysCheckoutKeyListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey })
+  @SpeakeasyMetadata({ elemType: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey })
+  @Expose({ name: "items" })
+  @Type(() => ListCheckoutKeysCheckoutKeyListResponseCheckoutKey)
   items: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

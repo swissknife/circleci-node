@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Webhook {
   _defaultClient: AxiosInstance;
@@ -63,12 +64,20 @@ export class Webhook {
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.webhook = httpRes?.data;
+              res.webhook = plainToInstance(
+                operations.CreateWebhookWebhook,
+                httpRes?.data as operations.CreateWebhookWebhook,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createWebhookDefaultApplicationJSONObject = httpRes?.data;
+              res.createWebhookDefaultApplicationJSONObject = plainToInstance(
+                operations.CreateWebhookDefaultApplicationJSON,
+                httpRes?.data as operations.CreateWebhookDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -109,12 +118,20 @@ export class Webhook {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.DeleteWebhookMessageResponse,
+                httpRes?.data as operations.DeleteWebhookMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteWebhookDefaultApplicationJSONObject = httpRes?.data;
+              res.deleteWebhookDefaultApplicationJSONObject = plainToInstance(
+                operations.DeleteWebhookDefaultApplicationJSON,
+                httpRes?.data as operations.DeleteWebhookDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -157,12 +174,20 @@ export class Webhook {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.webhook = httpRes?.data;
+              res.webhook = plainToInstance(
+                operations.GetWebhookByIdWebhook,
+                httpRes?.data as operations.GetWebhookByIdWebhook,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWebhookByIdDefaultApplicationJSONObject = httpRes?.data;
+              res.getWebhookByIdDefaultApplicationJSONObject = plainToInstance(
+                operations.GetWebhookByIdDefaultApplicationJSON,
+                httpRes?.data as operations.GetWebhookByIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -190,19 +215,12 @@ export class Webhook {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -213,12 +231,20 @@ export class Webhook {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWebhooks200ApplicationJSONObject = httpRes?.data;
+              res.getWebhooks200ApplicationJSONObject = plainToInstance(
+                operations.GetWebhooks200ApplicationJSON,
+                httpRes?.data as operations.GetWebhooks200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWebhooksDefaultApplicationJSONObject = httpRes?.data;
+              res.getWebhooksDefaultApplicationJSONObject = plainToInstance(
+                operations.GetWebhooksDefaultApplicationJSON,
+                httpRes?.data as operations.GetWebhooksDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -272,12 +298,20 @@ export class Webhook {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.webhook = httpRes?.data;
+              res.webhook = plainToInstance(
+                operations.UpdateWebhookWebhook,
+                httpRes?.data as operations.UpdateWebhookWebhook,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.updateWebhookDefaultApplicationJSONObject = httpRes?.data;
+              res.updateWebhookDefaultApplicationJSONObject = plainToInstance(
+                operations.UpdateWebhookDefaultApplicationJSON,
+                httpRes?.data as operations.UpdateWebhookDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

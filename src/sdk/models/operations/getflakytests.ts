@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetFlakyTestsPathParams extends SpeakeasyBase {
@@ -12,45 +13,58 @@ export class GetFlakyTestsRequest extends SpeakeasyBase {
 }
 
 export class GetFlakyTestsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
 export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=classname" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "classname" })
   classname: string;
 
-  @SpeakeasyMetadata({ data: "json, name=file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "file" })
   file: string;
 
-  @SpeakeasyMetadata({ data: "json, name=job-name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "job-name" })
   jobName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=job-number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "job-number" })
   jobNumber: Record<string, any>;
 
-  @SpeakeasyMetadata({ data: "json, name=pipeline-number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "pipeline-number" })
   pipelineNumber: Record<string, any>;
 
-  @SpeakeasyMetadata({ data: "json, name=source" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "source" })
   source: string;
 
-  @SpeakeasyMetadata({ data: "json, name=test-name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "test-name" })
   testName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=time-wasted" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "time-wasted" })
   timeWasted?: Record<string, any>;
 
-  @SpeakeasyMetadata({ data: "json, name=times-flaked" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "times-flaked" })
   timesFlaked: number;
 
-  @SpeakeasyMetadata({ data: "json, name=workflow-created-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow-created-at" })
   workflowCreatedAt: any;
 
-  @SpeakeasyMetadata({ data: "json, name=workflow-id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow-id" })
   workflowId: any;
 
-  @SpeakeasyMetadata({ data: "json, name=workflow-name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow-name" })
   workflowName: string;
 }
 
@@ -59,10 +73,13 @@ export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
  * Flaky tests response
 **/
 export class GetFlakyTests200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=flaky-tests", elemType: GetFlakyTests200ApplicationJSONFlakyTests })
+  @SpeakeasyMetadata({ elemType: GetFlakyTests200ApplicationJSONFlakyTests })
+  @Expose({ name: "flaky-tests" })
+  @Type(() => GetFlakyTests200ApplicationJSONFlakyTests)
   flakyTests: GetFlakyTests200ApplicationJSONFlakyTests[];
 
-  @SpeakeasyMetadata({ data: "json, name=total-flaky-tests" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total-flaky-tests" })
   totalFlakyTests: number;
 }
 

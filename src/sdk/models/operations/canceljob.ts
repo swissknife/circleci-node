@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CancelJobPathParams extends SpeakeasyBase {
@@ -15,7 +16,8 @@ export class CancelJobRequest extends SpeakeasyBase {
 }
 
 export class CancelJobDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -24,7 +26,8 @@ export class CancelJobDefaultApplicationJSON extends SpeakeasyBase {
  * message response
 **/
 export class CancelJobMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

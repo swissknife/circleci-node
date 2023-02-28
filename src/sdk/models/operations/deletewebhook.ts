@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class DeleteWebhookPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class DeleteWebhookRequest extends SpeakeasyBase {
 }
 
 export class DeleteWebhookDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -21,7 +23,8 @@ export class DeleteWebhookDefaultApplicationJSON extends SpeakeasyBase {
  * message response
 **/
 export class DeleteWebhookMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

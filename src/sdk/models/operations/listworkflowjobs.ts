@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class ListWorkflowJobsPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class ListWorkflowJobsRequest extends SpeakeasyBase {
 }
 
 export class ListWorkflowJobsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum ListWorkflowJobsWorkflowJobListResponseJobStatusEnum {
@@ -41,48 +43,65 @@ export enum ListWorkflowJobsWorkflowJobListResponseJobTypeEnum {
  * Job
 **/
 export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=approval_request_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "approval_request_id" })
   approvalRequestId?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=approved_by" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "approved_by" })
   approvedBy?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=canceled_by" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "canceled_by" })
   canceledBy?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=dependencies" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "dependencies" })
   dependencies: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=job_number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "job_number" })
   jobNumber?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=project_slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project_slug" })
   projectSlug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=started_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "started_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   startedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=status" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "status" })
   status: ListWorkflowJobsWorkflowJobListResponseJobStatusEnum;
 
-  @SpeakeasyMetadata({ data: "json, name=stopped_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "stopped_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   stoppedAt?: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: ListWorkflowJobsWorkflowJobListResponseJobTypeEnum;
 }
 
 export class ListWorkflowJobsWorkflowJobListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListWorkflowJobsWorkflowJobListResponseJob })
+  @SpeakeasyMetadata({ elemType: ListWorkflowJobsWorkflowJobListResponseJob })
+  @Expose({ name: "items" })
+  @Type(() => ListWorkflowJobsWorkflowJobListResponseJob)
   items: ListWorkflowJobsWorkflowJobListResponseJob[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

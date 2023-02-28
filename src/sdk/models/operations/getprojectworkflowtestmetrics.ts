@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetProjectWorkflowTestMetricsPathParams extends SpeakeasyBase {
@@ -26,65 +27,84 @@ export class GetProjectWorkflowTestMetricsRequest extends SpeakeasyBase {
 }
 
 export class GetProjectWorkflowTestMetricsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
 export class GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=classname" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "classname" })
   classname: string;
 
-  @SpeakeasyMetadata({ data: "json, name=failed_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "failed_runs" })
   failedRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "file" })
   file: string;
 
-  @SpeakeasyMetadata({ data: "json, name=flaky" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "flaky" })
   flaky: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=job_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "job_name" })
   jobName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=p95_duration" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95_duration" })
   p95Duration: number;
 
-  @SpeakeasyMetadata({ data: "json, name=source" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "source" })
   source: string;
 
-  @SpeakeasyMetadata({ data: "json, name=test_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "test_name" })
   testName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
 export class GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=classname" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "classname" })
   classname: string;
 
-  @SpeakeasyMetadata({ data: "json, name=failed_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "failed_runs" })
   failedRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "file" })
   file: string;
 
-  @SpeakeasyMetadata({ data: "json, name=flaky" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "flaky" })
   flaky: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=job_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "job_name" })
   jobName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=p95_duration" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95_duration" })
   p95Duration: number;
 
-  @SpeakeasyMetadata({ data: "json, name=source" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "source" })
   source: string;
 
-  @SpeakeasyMetadata({ data: "json, name=test_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "test_name" })
   testName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -93,33 +113,43 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests extends
  * Test counts for a given pipeline number
 **/
 export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=error" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "error" })
   error: number;
 
-  @SpeakeasyMetadata({ data: "json, name=failure" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "failure" })
   failure: number;
 
-  @SpeakeasyMetadata({ data: "json, name=skipped" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "skipped" })
   skipped: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success" })
   success: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total" })
   total: number;
 }
 
 export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=pipeline_number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "pipeline_number" })
   pipelineNumber: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=test_counts" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "test_counts" })
+  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts)
   testCounts: GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts;
 
-  @SpeakeasyMetadata({ data: "json, name=workflow_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow_id" })
   workflowId: any;
 }
 
@@ -128,25 +158,35 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns extends Spe
  * Project level test metrics response
 **/
 export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=average_test_count" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "average_test_count" })
   averageTestCount: number;
 
-  @SpeakeasyMetadata({ data: "json, name=most_failed_tests", elemType: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests })
+  @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests })
+  @Expose({ name: "most_failed_tests" })
+  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests)
   mostFailedTests: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests[];
 
-  @SpeakeasyMetadata({ data: "json, name=most_failed_tests_extra" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "most_failed_tests_extra" })
   mostFailedTestsExtra: number;
 
-  @SpeakeasyMetadata({ data: "json, name=slowest_tests", elemType: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests })
+  @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests })
+  @Expose({ name: "slowest_tests" })
+  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests)
   slowestTests: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests[];
 
-  @SpeakeasyMetadata({ data: "json, name=slowest_tests_extra" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "slowest_tests_extra" })
   slowestTestsExtra: number;
 
-  @SpeakeasyMetadata({ data: "json, name=test_runs", elemType: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns })
+  @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns })
+  @Expose({ name: "test_runs" })
+  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns)
   testRuns: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns[];
 
-  @SpeakeasyMetadata({ data: "json, name=total_test_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_test_runs" })
   totalTestRuns: number;
 }
 

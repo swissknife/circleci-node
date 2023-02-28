@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class DeleteEnvironmentVariableFromContextPathParams extends SpeakeasyBase {
@@ -15,7 +16,8 @@ export class DeleteEnvironmentVariableFromContextRequest extends SpeakeasyBase {
 }
 
 export class DeleteEnvironmentVariableFromContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -24,7 +26,8 @@ export class DeleteEnvironmentVariableFromContextDefaultApplicationJSON extends 
  * message response
 **/
 export class DeleteEnvironmentVariableFromContextMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

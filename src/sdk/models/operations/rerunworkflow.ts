@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class RerunWorkflowPathParams extends SpeakeasyBase {
@@ -11,16 +12,20 @@ export class RerunWorkflowPathParams extends SpeakeasyBase {
  * The information you can supply when rerunning a workflow.
 **/
 export class RerunWorkflowRerunWorkflowParameters extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=enable_ssh" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "enable_ssh" })
   enableSsh?: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=from_failed" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "from_failed" })
   fromFailed?: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=jobs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "jobs" })
   jobs?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=sparse_tree" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "sparse_tree" })
   sparseTree?: boolean;
 }
 
@@ -33,7 +38,8 @@ export class RerunWorkflowRequest extends SpeakeasyBase {
 }
 
 export class RerunWorkflowDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -42,7 +48,8 @@ export class RerunWorkflowDefaultApplicationJSON extends SpeakeasyBase {
  * A response to rerunning a workflow
 **/
 export class RerunWorkflow202ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=workflow_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow_id" })
   workflowId: string;
 }
 

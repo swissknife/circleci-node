@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CancelWorkflowPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class CancelWorkflowRequest extends SpeakeasyBase {
 }
 
 export class CancelWorkflowDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -21,7 +23,8 @@ export class CancelWorkflowDefaultApplicationJSON extends SpeakeasyBase {
  * message response
 **/
 export class CancelWorkflowMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

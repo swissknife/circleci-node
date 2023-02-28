@@ -8,6 +8,7 @@ src/sdk/user.ts
 src/sdk/webhook.ts
 src/sdk/workflow.ts
 src/sdk/sdk.ts
+jest.config.js
 package-lock.json
 package.json
 src/index.ts

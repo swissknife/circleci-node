@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetPipelineConfigByIdPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class GetPipelineConfigByIdRequest extends SpeakeasyBase {
 }
 
 export class GetPipelineConfigByIdDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -21,16 +23,20 @@ export class GetPipelineConfigByIdDefaultApplicationJSON extends SpeakeasyBase {
  * The configuration strings for the pipeline.
 **/
 export class GetPipelineConfigByIdPipelineConfig extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=compiled" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "compiled" })
   compiled: string;
 
-  @SpeakeasyMetadata({ data: "json, name=compiled-setup-config" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "compiled-setup-config" })
   compiledSetupConfig?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=setup-config" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "setup-config" })
   setupConfig?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=source" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "source" })
   source: string;
 }
 

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetProjectBySlugPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class GetProjectBySlugRequest extends SpeakeasyBase {
 }
 
 export class GetProjectBySlugDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum GetProjectBySlugProjectVcsInfoProviderEnum {
@@ -26,13 +28,16 @@ export enum GetProjectBySlugProjectVcsInfoProviderEnum {
  * Information about the VCS that hosts the project source code.
 **/
 export class GetProjectBySlugProjectVcsInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=default_branch" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "default_branch" })
   defaultBranch: string;
 
-  @SpeakeasyMetadata({ data: "json, name=provider" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "provider" })
   provider: GetProjectBySlugProjectVcsInfoProviderEnum;
 
-  @SpeakeasyMetadata({ data: "json, name=vcs_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "vcs_url" })
   vcsUrl: string;
 }
 
@@ -41,25 +46,33 @@ export class GetProjectBySlugProjectVcsInfo extends SpeakeasyBase {
  * NOTE: The definition of Project is subject to change.
 **/
 export class GetProjectBySlugProject extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=organization_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "organization_id" })
   organizationId: string;
 
-  @SpeakeasyMetadata({ data: "json, name=organization_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "organization_name" })
   organizationName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=organization_slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "organization_slug" })
   organizationSlug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "slug" })
   slug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=vcs_info" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "vcs_info" })
+  @Type(() => GetProjectBySlugProjectVcsInfo)
   vcsInfo: GetProjectBySlugProjectVcsInfo;
 }
 

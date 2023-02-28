@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class GetJobDetailsPathParams extends SpeakeasyBase {
@@ -15,7 +16,8 @@ export class GetJobDetailsRequest extends SpeakeasyBase {
 }
 
 export class GetJobDetailsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -24,7 +26,8 @@ export class GetJobDetailsDefaultApplicationJSON extends SpeakeasyBase {
  * Information about the context.
 **/
 export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 }
 
@@ -33,10 +36,12 @@ export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
  * Information about executor used for a job.
 **/
 export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=resource_class" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "resource_class" })
   resourceClass: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type?: string;
 }
 
@@ -45,10 +50,12 @@ export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
  * Info about the latest workflow the job was a part of.
 **/
 export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 }
 
@@ -57,13 +64,16 @@ export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
  * Message from CircleCI execution platform.
 **/
 export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 
-  @SpeakeasyMetadata({ data: "json, name=reason" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "reason" })
   reason?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: string;
 }
 
@@ -72,7 +82,8 @@ export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
  * Information about an organization.
 **/
 export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 }
 
@@ -81,10 +92,12 @@ export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
  * Info about a status of the parallel run.
 **/
 export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=index" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "index" })
   index: number;
 
-  @SpeakeasyMetadata({ data: "json, name=status" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "status" })
   status: string;
 }
 
@@ -93,7 +106,8 @@ export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
  * Info about a pipeline the job is a part of.
 **/
 export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 }
 
@@ -102,16 +116,20 @@ export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
  * Information about a project.
 **/
 export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=external_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "external_url" })
   externalUrl: string;
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "slug" })
   slug: string;
 }
 export enum GetJobDetailsJobDetailsStatusEnum {
@@ -136,58 +154,88 @@ export enum GetJobDetailsJobDetailsStatusEnum {
  * Job Details
 **/
 export class GetJobDetailsJobDetails extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=contexts", elemType: GetJobDetailsJobDetailsContexts })
+  @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsContexts })
+  @Expose({ name: "contexts" })
+  @Type(() => GetJobDetailsJobDetailsContexts)
   contexts: GetJobDetailsJobDetailsContexts[];
 
-  @SpeakeasyMetadata({ data: "json, name=created_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=duration" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "duration" })
   duration: number;
 
-  @SpeakeasyMetadata({ data: "json, name=executor" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "executor" })
+  @Type(() => GetJobDetailsJobDetailsExecutor)
   executor: GetJobDetailsJobDetailsExecutor;
 
-  @SpeakeasyMetadata({ data: "json, name=latest_workflow" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "latest_workflow" })
+  @Type(() => GetJobDetailsJobDetailsLatestWorkflow)
   latestWorkflow: GetJobDetailsJobDetailsLatestWorkflow;
 
-  @SpeakeasyMetadata({ data: "json, name=messages", elemType: GetJobDetailsJobDetailsMessages })
+  @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsMessages })
+  @Expose({ name: "messages" })
+  @Type(() => GetJobDetailsJobDetailsMessages)
   messages: GetJobDetailsJobDetailsMessages[];
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "number" })
   number: number;
 
-  @SpeakeasyMetadata({ data: "json, name=organization" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "organization" })
+  @Type(() => GetJobDetailsJobDetailsOrganization)
   organization: GetJobDetailsJobDetailsOrganization;
 
-  @SpeakeasyMetadata({ data: "json, name=parallel_runs", elemType: GetJobDetailsJobDetailsParallelRuns })
+  @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsParallelRuns })
+  @Expose({ name: "parallel_runs" })
+  @Type(() => GetJobDetailsJobDetailsParallelRuns)
   parallelRuns: GetJobDetailsJobDetailsParallelRuns[];
 
-  @SpeakeasyMetadata({ data: "json, name=parallelism" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "parallelism" })
   parallelism: number;
 
-  @SpeakeasyMetadata({ data: "json, name=pipeline" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "pipeline" })
+  @Type(() => GetJobDetailsJobDetailsPipeline)
   pipeline: GetJobDetailsJobDetailsPipeline;
 
-  @SpeakeasyMetadata({ data: "json, name=project" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project" })
+  @Type(() => GetJobDetailsJobDetailsProject)
   project: GetJobDetailsJobDetailsProject;
 
-  @SpeakeasyMetadata({ data: "json, name=queued_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "queued_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   queuedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=started_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "started_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   startedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=status" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "status" })
   status: GetJobDetailsJobDetailsStatusEnum;
 
-  @SpeakeasyMetadata({ data: "json, name=stopped_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "stopped_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   stoppedAt?: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=web_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "web_url" })
   webUrl: string;
 }
 

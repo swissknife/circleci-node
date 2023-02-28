@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class ApprovePendingApprovalJobByIdPathParams extends SpeakeasyBase {
@@ -15,7 +16,8 @@ export class ApprovePendingApprovalJobByIdRequest extends SpeakeasyBase {
 }
 
 export class ApprovePendingApprovalJobByIdDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -24,7 +26,8 @@ export class ApprovePendingApprovalJobByIdDefaultApplicationJSON extends Speakea
  * message response
 **/
 export class ApprovePendingApprovalJobByIdMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

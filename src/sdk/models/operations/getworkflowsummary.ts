@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class GetWorkflowSummaryPathParams extends SpeakeasyBase {
@@ -26,7 +27,8 @@ export class GetWorkflowSummaryRequest extends SpeakeasyBase {
 }
 
 export class GetWorkflowSummaryDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -35,22 +37,28 @@ export class GetWorkflowSummaryDefaultApplicationJSON extends SpeakeasyBase {
  * Metrics relating to the duration of runs for a workflow.
 **/
 export class GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=max" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "max" })
   max: number;
 
-  @SpeakeasyMetadata({ data: "json, name=mean" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "mean" })
   mean: number;
 
-  @SpeakeasyMetadata({ data: "json, name=median" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "median" })
   median: number;
 
-  @SpeakeasyMetadata({ data: "json, name=min" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "min" })
   min: number;
 
-  @SpeakeasyMetadata({ data: "json, name=p95" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95" })
   p95: number;
 
-  @SpeakeasyMetadata({ data: "json, name=standard_deviation" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "standard_deviation" })
   standardDeviation: number;
 }
 
@@ -59,34 +67,47 @@ export class GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics extends 
  * Metrics aggregated across a workflow for a given time window.
 **/
 export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=duration_metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "duration_metrics" })
+  @Type(() => GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics)
   durationMetrics: GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=failed_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "failed_runs" })
   failedRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=mttr" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "mttr" })
   mttr: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=successful_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "successful_runs" })
   successfulRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=window_end" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "window_end" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   windowEnd: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=window_start" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "window_start" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   windowStart: Date;
 }
 
@@ -95,28 +116,36 @@ export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
  * Trends for aggregated metrics across a workflow for a given time window.
 **/
 export class GetWorkflowSummary200ApplicationJSONTrends extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=failed_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "failed_runs" })
   failedRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=median_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "median_duration_secs" })
   medianDurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=mttr" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "mttr" })
   mttr: number;
 
-  @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95_duration_secs" })
   p95DurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -125,13 +154,18 @@ export class GetWorkflowSummary200ApplicationJSONTrends extends SpeakeasyBase {
  * Workflow level aggregated metrics and trends response
 **/
 export class GetWorkflowSummary200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetWorkflowSummary200ApplicationJSONMetrics)
   metrics: GetWorkflowSummary200ApplicationJSONMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=trends" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trends" })
+  @Type(() => GetWorkflowSummary200ApplicationJSONTrends)
   trends: GetWorkflowSummary200ApplicationJSONTrends;
 
-  @SpeakeasyMetadata({ data: "json, name=workflow_names" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow_names" })
   workflowNames: string[];
 }
 

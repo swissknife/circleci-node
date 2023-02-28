@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class CreateCheckoutKeyPathParams extends SpeakeasyBase {
@@ -11,7 +12,8 @@ export enum CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum {
 }
 
 export class CreateCheckoutKeyCheckoutKeyInput extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum;
 }
 
@@ -24,7 +26,8 @@ export class CreateCheckoutKeyRequest extends SpeakeasyBase {
 }
 
 export class CreateCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum {
@@ -33,19 +36,25 @@ export enum CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum {
 }
 
 export class CreateCheckoutKeyCheckoutKey extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=created-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=fingerprint" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "fingerprint" })
   fingerprint: string;
 
-  @SpeakeasyMetadata({ data: "json, name=preferred" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "preferred" })
   preferred: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=public-key" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "public-key" })
   publicKey: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum;
 }
 

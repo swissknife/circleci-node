@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class ListEnvVarsPathParams extends SpeakeasyBase {
@@ -12,23 +13,29 @@ export class ListEnvVarsRequest extends SpeakeasyBase {
 }
 
 export class ListEnvVarsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
 export class ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=value" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "value" })
   value: string;
 }
 
 export class ListEnvVarsEnvironmentVariableListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair })
+  @SpeakeasyMetadata({ elemType: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair })
+  @Expose({ name: "items" })
+  @Type(() => ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair)
   items: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

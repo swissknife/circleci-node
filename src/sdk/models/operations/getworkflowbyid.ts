@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class GetWorkflowByIdPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class GetWorkflowByIdRequest extends SpeakeasyBase {
 }
 
 export class GetWorkflowByIdDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum GetWorkflowByIdWorkflowStatusEnum {
@@ -35,40 +37,54 @@ export enum GetWorkflowByIdWorkflowTagEnum {
  * A workflow
 **/
 export class GetWorkflowByIdWorkflow extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=canceled_by" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "canceled_by" })
   canceledBy?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=created_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=errored_by" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "errored_by" })
   erroredBy?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=pipeline_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "pipeline_id" })
   pipelineId: string;
 
-  @SpeakeasyMetadata({ data: "json, name=pipeline_number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "pipeline_number" })
   pipelineNumber: number;
 
-  @SpeakeasyMetadata({ data: "json, name=project_slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project_slug" })
   projectSlug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=started_by" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "started_by" })
   startedBy: string;
 
-  @SpeakeasyMetadata({ data: "json, name=status" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "status" })
   status: GetWorkflowByIdWorkflowStatusEnum;
 
-  @SpeakeasyMetadata({ data: "json, name=stopped_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "stopped_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   stoppedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=tag" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "tag" })
   tag?: GetWorkflowByIdWorkflowTagEnum;
 }
 

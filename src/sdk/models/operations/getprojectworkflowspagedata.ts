@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetProjectWorkflowsPageDataPathParams extends SpeakeasyBase {
@@ -33,7 +34,8 @@ export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
 }
 
 export class GetProjectWorkflowsPageDataDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -42,19 +44,24 @@ export class GetProjectWorkflowsPageDataDefaultApplicationJSON extends Speakeasy
  * Metrics aggregated across all workflows and branches for a project.
 **/
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_duration_secs" })
   totalDurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -63,19 +70,24 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics ext
  * Metric trends aggregated across all workflows and branches for a project.
 **/
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_duration_secs" })
   totalDurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -84,10 +96,14 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends exte
  * Metrics and trends data aggregated for a given project.
 **/
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectData extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics)
   metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=trends" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trends" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends)
   trends: GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends;
 }
 
@@ -96,16 +112,20 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectData extends Sp
  * Metrics aggregated across a workflow or branchfor a project.
 **/
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95_duration_secs" })
   p95DurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -114,30 +134,40 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchD
  * Trends aggregated across a workflow or branch for a project.
 **/
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95_duration_secs" })
   p95DurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=branch" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "branch" })
   branch: string;
 
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics)
   metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=trends" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trends" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends)
   trends: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends;
 
-  @SpeakeasyMetadata({ data: "json, name=workflow_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow_name" })
   workflowName: string;
 }
 
@@ -146,16 +176,20 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchD
  * Metrics aggregated across a workflow or branchfor a project.
 **/
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95_duration_secs" })
   p95DurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -164,50 +198,69 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMet
  * Trends aggregated across a workflow or branch for a project.
 **/
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=p95_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95_duration_secs" })
   p95DurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
 export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics)
   metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=trends" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trends" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends)
   trends: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends;
 
-  @SpeakeasyMetadata({ data: "json, name=workflow_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "workflow_name" })
   workflowName: string;
 }
 
 export class GetProjectWorkflowsPageData200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=all_branches" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "all_branches" })
   allBranches?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=all_workflows" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "all_workflows" })
   allWorkflows?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=org_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "org_id" })
   orgId?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=project_data" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project_data" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectData)
   projectData?: GetProjectWorkflowsPageData200ApplicationJSONProjectData;
 
-  @SpeakeasyMetadata({ data: "json, name=project_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project_id" })
   projectId?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=project_workflow_branch_data", elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData })
+  @SpeakeasyMetadata({ elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData })
+  @Expose({ name: "project_workflow_branch_data" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData)
   projectWorkflowBranchData?: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData[];
 
-  @SpeakeasyMetadata({ data: "json, name=project_workflow_data", elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData })
+  @SpeakeasyMetadata({ elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData })
+  @Expose({ name: "project_workflow_data" })
+  @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData)
   projectWorkflowData?: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData[];
 }
 

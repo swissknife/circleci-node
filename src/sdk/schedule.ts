@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Schedule {
   _defaultClient: AxiosInstance;
@@ -65,12 +66,20 @@ export class Schedule {
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.schedule = httpRes?.data;
+              res.schedule = plainToInstance(
+                operations.CreateScheduleSchedule,
+                httpRes?.data as operations.CreateScheduleSchedule,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createScheduleDefaultApplicationJSONObject = httpRes?.data;
+              res.createScheduleDefaultApplicationJSONObject = plainToInstance(
+                operations.CreateScheduleDefaultApplicationJSON,
+                httpRes?.data as operations.CreateScheduleDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -113,12 +122,20 @@ export class Schedule {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.DeleteScheduleByIdMessageResponse,
+                httpRes?.data as operations.DeleteScheduleByIdMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteScheduleByIdDefaultApplicationJSONObject = httpRes?.data;
+              res.deleteScheduleByIdDefaultApplicationJSONObject = plainToInstance(
+                operations.DeleteScheduleByIdDefaultApplicationJSON,
+                httpRes?.data as operations.DeleteScheduleByIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -161,12 +178,20 @@ export class Schedule {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.schedule = httpRes?.data;
+              res.schedule = plainToInstance(
+                operations.GetScheduleByIdSchedule,
+                httpRes?.data as operations.GetScheduleByIdSchedule,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getScheduleByIdDefaultApplicationJSONObject = httpRes?.data;
+              res.getScheduleByIdDefaultApplicationJSONObject = plainToInstance(
+                operations.GetScheduleByIdDefaultApplicationJSON,
+                httpRes?.data as operations.GetScheduleByIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -194,19 +219,12 @@ export class Schedule {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -217,12 +235,20 @@ export class Schedule {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listSchedulesForProject200ApplicationJSONObject = httpRes?.data;
+              res.listSchedulesForProject200ApplicationJSONObject = plainToInstance(
+                operations.ListSchedulesForProject200ApplicationJSON,
+                httpRes?.data as operations.ListSchedulesForProject200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listSchedulesForProjectDefaultApplicationJSONObject = httpRes?.data;
+              res.listSchedulesForProjectDefaultApplicationJSONObject = plainToInstance(
+                operations.ListSchedulesForProjectDefaultApplicationJSON,
+                httpRes?.data as operations.ListSchedulesForProjectDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -278,12 +304,20 @@ export class Schedule {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.schedule = httpRes?.data;
+              res.schedule = plainToInstance(
+                operations.UpdateScheduleSchedule,
+                httpRes?.data as operations.UpdateScheduleSchedule,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.updateScheduleDefaultApplicationJSONObject = httpRes?.data;
+              res.updateScheduleDefaultApplicationJSONObject = plainToInstance(
+                operations.UpdateScheduleDefaultApplicationJSON,
+                httpRes?.data as operations.UpdateScheduleDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
