@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Project {
   _defaultClient: AxiosInstance;
@@ -65,12 +66,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.checkoutKey = httpRes?.data;
+              res.checkoutKey = plainToInstance(
+                operations.CreateCheckoutKeyCheckoutKey,
+                httpRes?.data as operations.CreateCheckoutKeyCheckoutKey,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createCheckoutKeyDefaultApplicationJSONObject = httpRes?.data;
+              res.createCheckoutKeyDefaultApplicationJSONObject = plainToInstance(
+                operations.CreateCheckoutKeyDefaultApplicationJSON,
+                httpRes?.data as operations.CreateCheckoutKeyDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -126,12 +135,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.environmentVariablePair = httpRes?.data;
+              res.environmentVariablePair = plainToInstance(
+                operations.CreateEnvVarEnvironmentVariablePair,
+                httpRes?.data as operations.CreateEnvVarEnvironmentVariablePair,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createEnvVarDefaultApplicationJSONObject = httpRes?.data;
+              res.createEnvVarDefaultApplicationJSONObject = plainToInstance(
+                operations.CreateEnvVarDefaultApplicationJSON,
+                httpRes?.data as operations.CreateEnvVarDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -174,12 +191,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.DeleteCheckoutKeyMessageResponse,
+                httpRes?.data as operations.DeleteCheckoutKeyMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteCheckoutKeyDefaultApplicationJSONObject = httpRes?.data;
+              res.deleteCheckoutKeyDefaultApplicationJSONObject = plainToInstance(
+                operations.DeleteCheckoutKeyDefaultApplicationJSON,
+                httpRes?.data as operations.DeleteCheckoutKeyDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -222,12 +247,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.DeleteEnvVarMessageResponse,
+                httpRes?.data as operations.DeleteEnvVarMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteEnvVarDefaultApplicationJSONObject = httpRes?.data;
+              res.deleteEnvVarDefaultApplicationJSONObject = plainToInstance(
+                operations.DeleteEnvVarDefaultApplicationJSON,
+                httpRes?.data as operations.DeleteEnvVarDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -270,12 +303,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.checkoutKey = httpRes?.data;
+              res.checkoutKey = plainToInstance(
+                operations.GetCheckoutKeyCheckoutKey,
+                httpRes?.data as operations.GetCheckoutKeyCheckoutKey,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getCheckoutKeyDefaultApplicationJSONObject = httpRes?.data;
+              res.getCheckoutKeyDefaultApplicationJSONObject = plainToInstance(
+                operations.GetCheckoutKeyDefaultApplicationJSON,
+                httpRes?.data as operations.GetCheckoutKeyDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -318,12 +359,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.environmentVariablePair = httpRes?.data;
+              res.environmentVariablePair = plainToInstance(
+                operations.GetEnvVarEnvironmentVariablePair,
+                httpRes?.data as operations.GetEnvVarEnvironmentVariablePair,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getEnvVarDefaultApplicationJSONObject = httpRes?.data;
+              res.getEnvVarDefaultApplicationJSONObject = plainToInstance(
+                operations.GetEnvVarDefaultApplicationJSON,
+                httpRes?.data as operations.GetEnvVarDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -366,12 +415,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.project = httpRes?.data;
+              res.project = plainToInstance(
+                operations.GetProjectBySlugProject,
+                httpRes?.data as operations.GetProjectBySlugProject,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectBySlugDefaultApplicationJSONObject = httpRes?.data;
+              res.getProjectBySlugDefaultApplicationJSONObject = plainToInstance(
+                operations.GetProjectBySlugDefaultApplicationJSON,
+                httpRes?.data as operations.GetProjectBySlugDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -414,12 +471,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.checkoutKeyListResponse = httpRes?.data;
+              res.checkoutKeyListResponse = plainToInstance(
+                operations.ListCheckoutKeysCheckoutKeyListResponse,
+                httpRes?.data as operations.ListCheckoutKeysCheckoutKeyListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listCheckoutKeysDefaultApplicationJSONObject = httpRes?.data;
+              res.listCheckoutKeysDefaultApplicationJSONObject = plainToInstance(
+                operations.ListCheckoutKeysDefaultApplicationJSON,
+                httpRes?.data as operations.ListCheckoutKeysDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -462,12 +527,20 @@ export class Project {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.environmentVariableListResponse = httpRes?.data;
+              res.environmentVariableListResponse = plainToInstance(
+                operations.ListEnvVarsEnvironmentVariableListResponse,
+                httpRes?.data as operations.ListEnvVarsEnvironmentVariableListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listEnvVarsDefaultApplicationJSONObject = httpRes?.data;
+              res.listEnvVarsDefaultApplicationJSONObject = plainToInstance(
+                operations.ListEnvVarsDefaultApplicationJSON,
+                httpRes?.data as operations.ListEnvVarsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

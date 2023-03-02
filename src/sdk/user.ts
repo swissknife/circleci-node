@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class User {
   _defaultClient: AxiosInstance;
@@ -53,12 +54,16 @@ export class User {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.collaborations = httpRes?.data;
+              res.collaborations = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getCollaborationsDefaultApplicationJSONObject = httpRes?.data;
+              res.getCollaborationsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetCollaborationsDefaultApplicationJSON,
+                httpRes?.data as operations.GetCollaborationsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -96,12 +101,20 @@ export class User {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.user = httpRes?.data;
+              res.user = plainToInstance(
+                operations.GetCurrentUserUser,
+                httpRes?.data as operations.GetCurrentUserUser,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getCurrentUserDefaultApplicationJSONObject = httpRes?.data;
+              res.getCurrentUserDefaultApplicationJSONObject = plainToInstance(
+                operations.GetCurrentUserDefaultApplicationJSON,
+                httpRes?.data as operations.GetCurrentUserDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -144,12 +157,20 @@ export class User {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.user = httpRes?.data;
+              res.user = plainToInstance(
+                operations.GetUserUser,
+                httpRes?.data as operations.GetUserUser,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getUserDefaultApplicationJSONObject = httpRes?.data;
+              res.getUserDefaultApplicationJSONObject = plainToInstance(
+                operations.GetUserDefaultApplicationJSON,
+                httpRes?.data as operations.GetUserDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class TriggerPipelinePathParams extends SpeakeasyBase {
@@ -11,13 +12,16 @@ export class TriggerPipelinePathParams extends SpeakeasyBase {
  * The information you can supply when triggering a pipeline.
 **/
 export class TriggerPipelineTriggerPipelineParameters extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=branch" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "branch" })
   branch?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=parameters" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "parameters" })
   parameters?: Record<string, any>;
 
-  @SpeakeasyMetadata({ data: "json, name=tag" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "tag" })
   tag?: string;
 }
 
@@ -30,7 +34,8 @@ export class TriggerPipelineRequest extends SpeakeasyBase {
 }
 
 export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum TriggerPipelinePipelineCreationStateEnum {
@@ -46,16 +51,21 @@ export enum TriggerPipelinePipelineCreationStateEnum {
  * A pipeline creation response.
 **/
 export class TriggerPipelinePipelineCreation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=created_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "number" })
   number: number;
 
-  @SpeakeasyMetadata({ data: "json, name=state" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "state" })
   state: TriggerPipelinePipelineCreationStateEnum;
 }
 

@@ -1,25 +1,32 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetCollaborationsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
 export class GetCollaborationsCollaboration extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=avatar_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "avatar_url" })
   avatarUrl: string;
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "slug" })
   slug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=vcs-type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "vcs-type" })
   vcsType: string;
 }
 

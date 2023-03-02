@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class ListEnvironmentVariablesFromContextPathParams extends SpeakeasyBase {
@@ -20,29 +21,39 @@ export class ListEnvironmentVariablesFromContextRequest extends SpeakeasyBase {
 }
 
 export class ListEnvironmentVariablesFromContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
 export class ListEnvironmentVariablesFromContext200ApplicationJSONItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=context_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "context_id" })
   contextId: string;
 
-  @SpeakeasyMetadata({ data: "json, name=created_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=updated_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updated_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   updatedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=variable" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "variable" })
   variable: string;
 }
 
 export class ListEnvironmentVariablesFromContext200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems })
+  @SpeakeasyMetadata({ elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems })
+  @Expose({ name: "items" })
+  @Type(() => ListEnvironmentVariablesFromContext200ApplicationJSONItems)
   items: ListEnvironmentVariablesFromContext200ApplicationJSONItems[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

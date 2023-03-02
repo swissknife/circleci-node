@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class DeleteCheckoutKeyPathParams extends SpeakeasyBase {
@@ -15,7 +16,8 @@ export class DeleteCheckoutKeyRequest extends SpeakeasyBase {
 }
 
 export class DeleteCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -24,7 +26,8 @@ export class DeleteCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
  * message response
 **/
 export class DeleteCheckoutKeyMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class ListPipelinesForProjectPathParams extends SpeakeasyBase {
@@ -23,7 +24,8 @@ export class ListPipelinesForProjectRequest extends SpeakeasyBase {
 }
 
 export class ListPipelinesForProjectDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum {
@@ -40,10 +42,12 @@ export enum ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum {
  * An error with a type and message.
 **/
 export class ListPipelinesForProjectPipelineListResponsePipelineErrors extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum;
 }
 export enum ListPipelinesForProjectPipelineListResponsePipelineStateEnum {
@@ -59,10 +63,12 @@ export enum ListPipelinesForProjectPipelineListResponsePipelineStateEnum {
  * The user who triggered the Pipeline.
 **/
 export class ListPipelinesForProjectPipelineListResponsePipelineTriggerActor extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=avatar_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "avatar_url" })
   avatarUrl: string;
 
-  @SpeakeasyMetadata({ data: "json, name=login" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "login" })
   login: string;
 }
 export enum ListPipelinesForProjectPipelineListResponsePipelineTriggerTypeEnum {
@@ -77,13 +83,18 @@ export enum ListPipelinesForProjectPipelineListResponsePipelineTriggerTypeEnum {
  * A summary of the trigger.
 **/
 export class ListPipelinesForProjectPipelineListResponsePipelineTrigger extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=actor" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "actor" })
+  @Type(() => ListPipelinesForProjectPipelineListResponsePipelineTriggerActor)
   actor: ListPipelinesForProjectPipelineListResponsePipelineTriggerActor;
 
-  @SpeakeasyMetadata({ data: "json, name=received_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "received_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   receivedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: ListPipelinesForProjectPipelineListResponsePipelineTriggerTypeEnum;
 }
 
@@ -92,10 +103,12 @@ export class ListPipelinesForProjectPipelineListResponsePipelineTrigger extends 
  * The latest commit in the pipeline.
 **/
 export class ListPipelinesForProjectPipelineListResponsePipelineVcsCommit extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=body" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "body" })
   body: string;
 
-  @SpeakeasyMetadata({ data: "json, name=subject" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "subject" })
   subject: string;
 }
 
@@ -104,31 +117,41 @@ export class ListPipelinesForProjectPipelineListResponsePipelineVcsCommit extend
  * VCS information for the pipeline.
 **/
 export class ListPipelinesForProjectPipelineListResponsePipelineVcs extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=branch" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "branch" })
   branch?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=commit" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "commit" })
+  @Type(() => ListPipelinesForProjectPipelineListResponsePipelineVcsCommit)
   commit?: ListPipelinesForProjectPipelineListResponsePipelineVcsCommit;
 
-  @SpeakeasyMetadata({ data: "json, name=origin_repository_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "origin_repository_url" })
   originRepositoryUrl: string;
 
-  @SpeakeasyMetadata({ data: "json, name=provider_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "provider_name" })
   providerName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=review_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "review_id" })
   reviewId?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=review_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "review_url" })
   reviewUrl?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=revision" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "revision" })
   revision: string;
 
-  @SpeakeasyMetadata({ data: "json, name=tag" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "tag" })
   tag?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=target_repository_url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "target_repository_url" })
   targetRepositoryUrl: string;
 }
 
@@ -137,34 +160,49 @@ export class ListPipelinesForProjectPipelineListResponsePipelineVcs extends Spea
  * A pipeline response.
 **/
 export class ListPipelinesForProjectPipelineListResponsePipeline extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=created_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=errors", elemType: ListPipelinesForProjectPipelineListResponsePipelineErrors })
+  @SpeakeasyMetadata({ elemType: ListPipelinesForProjectPipelineListResponsePipelineErrors })
+  @Expose({ name: "errors" })
+  @Type(() => ListPipelinesForProjectPipelineListResponsePipelineErrors)
   errors: ListPipelinesForProjectPipelineListResponsePipelineErrors[];
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=number" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "number" })
   number: number;
 
-  @SpeakeasyMetadata({ data: "json, name=project_slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project_slug" })
   projectSlug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=state" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "state" })
   state: ListPipelinesForProjectPipelineListResponsePipelineStateEnum;
 
-  @SpeakeasyMetadata({ data: "json, name=trigger" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trigger" })
+  @Type(() => ListPipelinesForProjectPipelineListResponsePipelineTrigger)
   trigger: ListPipelinesForProjectPipelineListResponsePipelineTrigger;
 
-  @SpeakeasyMetadata({ data: "json, name=trigger_parameters" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trigger_parameters" })
   triggerParameters?: Record<string, any>;
 
-  @SpeakeasyMetadata({ data: "json, name=updated_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updated_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   updatedAt?: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=vcs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "vcs" })
+  @Type(() => ListPipelinesForProjectPipelineListResponsePipelineVcs)
   vcs?: ListPipelinesForProjectPipelineListResponsePipelineVcs;
 }
 
@@ -173,10 +211,13 @@ export class ListPipelinesForProjectPipelineListResponsePipeline extends Speakea
  * List of pipelines
 **/
 export class ListPipelinesForProjectPipelineListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: ListPipelinesForProjectPipelineListResponsePipeline })
+  @SpeakeasyMetadata({ elemType: ListPipelinesForProjectPipelineListResponsePipeline })
+  @Expose({ name: "items" })
+  @Type(() => ListPipelinesForProjectPipelineListResponsePipeline)
   items: ListPipelinesForProjectPipelineListResponsePipeline[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

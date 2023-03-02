@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Insights {
   _defaultClient: AxiosInstance;
@@ -37,19 +38,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -60,12 +54,16 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
+              res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getAllInsightsBranchesDefaultApplicationJSONObject = httpRes?.data;
+              res.getAllInsightsBranchesDefaultApplicationJSONObject = plainToInstance(
+                operations.GetAllInsightsBranchesDefaultApplicationJSON,
+                httpRes?.data as operations.GetAllInsightsBranchesDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -109,12 +107,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getFlakyTests200ApplicationJSONObject = httpRes?.data;
+              res.getFlakyTests200ApplicationJSONObject = plainToInstance(
+                operations.GetFlakyTests200ApplicationJSON,
+                httpRes?.data as operations.GetFlakyTests200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getFlakyTestsDefaultApplicationJSONObject = httpRes?.data;
+              res.getFlakyTestsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetFlakyTestsDefaultApplicationJSON,
+                httpRes?.data as operations.GetFlakyTestsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -142,19 +148,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -165,12 +164,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getJobTimeseries200ApplicationJSONObject = httpRes?.data;
+              res.getJobTimeseries200ApplicationJSONObject = plainToInstance(
+                operations.GetJobTimeseries200ApplicationJSON,
+                httpRes?.data as operations.GetJobTimeseries200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getJobTimeseriesDefaultApplicationJSONObject = httpRes?.data;
+              res.getJobTimeseriesDefaultApplicationJSONObject = plainToInstance(
+                operations.GetJobTimeseriesDefaultApplicationJSON,
+                httpRes?.data as operations.GetJobTimeseriesDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -199,19 +206,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -222,12 +222,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getOrgSummaryData200ApplicationJSONObject = httpRes?.data;
+              res.getOrgSummaryData200ApplicationJSONObject = plainToInstance(
+                operations.GetOrgSummaryData200ApplicationJSON,
+                httpRes?.data as operations.GetOrgSummaryData200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getOrgSummaryDataDefaultApplicationJSONObject = httpRes?.data;
+              res.getOrgSummaryDataDefaultApplicationJSONObject = plainToInstance(
+                operations.GetOrgSummaryDataDefaultApplicationJSON,
+                httpRes?.data as operations.GetOrgSummaryDataDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -255,19 +263,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -278,12 +279,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowJobMetrics200ApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowJobMetrics200ApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowJobMetrics200ApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowJobMetrics200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -311,19 +320,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -334,12 +336,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowMetrics200ApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowMetrics200ApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowMetrics200ApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowMetrics200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowMetricsDefaultApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowMetricsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowMetricsDefaultApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowMetricsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -367,19 +377,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -390,12 +393,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowRuns200ApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowRuns200ApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowRuns200ApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowRuns200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowRunsDefaultApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowRunsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowRunsDefaultApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowRunsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -423,19 +434,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -446,12 +450,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowTestMetrics200ApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowTestMetrics200ApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowTestMetrics200ApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowTestMetrics200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -484,19 +496,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -507,12 +512,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowsPageData200ApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowsPageData200ApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowsPageData200ApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowsPageData200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getProjectWorkflowsPageDataDefaultApplicationJSONObject = httpRes?.data;
+              res.getProjectWorkflowsPageDataDefaultApplicationJSONObject = plainToInstance(
+                operations.GetProjectWorkflowsPageDataDefaultApplicationJSON,
+                httpRes?.data as operations.GetProjectWorkflowsPageDataDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -540,19 +553,12 @@ export class Insights {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -563,12 +569,20 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWorkflowSummary200ApplicationJSONObject = httpRes?.data;
+              res.getWorkflowSummary200ApplicationJSONObject = plainToInstance(
+                operations.GetWorkflowSummary200ApplicationJSON,
+                httpRes?.data as operations.GetWorkflowSummary200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWorkflowSummaryDefaultApplicationJSONObject = httpRes?.data;
+              res.getWorkflowSummaryDefaultApplicationJSONObject = plainToInstance(
+                operations.GetWorkflowSummaryDefaultApplicationJSON,
+                httpRes?.data as operations.GetWorkflowSummaryDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class GetProjectWorkflowJobMetricsPathParams extends SpeakeasyBase {
@@ -39,7 +40,8 @@ export class GetProjectWorkflowJobMetricsRequest extends SpeakeasyBase {
 }
 
 export class GetProjectWorkflowJobMetricsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -48,22 +50,28 @@ export class GetProjectWorkflowJobMetricsDefaultApplicationJSON extends Speakeas
  * Metrics relating to the duration of runs for a workflow job.
 **/
 export class GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=max" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "max" })
   max: number;
 
-  @SpeakeasyMetadata({ data: "json, name=mean" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "mean" })
   mean: number;
 
-  @SpeakeasyMetadata({ data: "json, name=median" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "median" })
   median: number;
 
-  @SpeakeasyMetadata({ data: "json, name=min" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "min" })
   min: number;
 
-  @SpeakeasyMetadata({ data: "json, name=p95" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95" })
   p95: number;
 
-  @SpeakeasyMetadata({ data: "json, name=standard_deviation" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "standard_deviation" })
   standardDeviation: number;
 }
 
@@ -72,39 +80,54 @@ export class GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetricsDurationM
  * Metrics relating to a workflow job's runs.
 **/
 export class GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=duration_metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "duration_metrics" })
+  @Type(() => GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetricsDurationMetrics)
   durationMetrics: GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetricsDurationMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=failed_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "failed_runs" })
   failedRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=successful_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "successful_runs" })
   successfulRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
 export class GetProjectWorkflowJobMetrics200ApplicationJSONItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetrics)
   metrics: GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=window_end" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "window_end" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   windowEnd: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=window_start" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "window_start" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   windowStart: Date;
 }
 
@@ -113,10 +136,13 @@ export class GetProjectWorkflowJobMetrics200ApplicationJSONItems extends Speakea
  * Paginated workflow job summary metrics.
 **/
 export class GetProjectWorkflowJobMetrics200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetProjectWorkflowJobMetrics200ApplicationJSONItems })
+  @SpeakeasyMetadata({ elemType: GetProjectWorkflowJobMetrics200ApplicationJSONItems })
+  @Expose({ name: "items" })
+  @Type(() => GetProjectWorkflowJobMetrics200ApplicationJSONItems)
   items: GetProjectWorkflowJobMetrics200ApplicationJSONItems[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

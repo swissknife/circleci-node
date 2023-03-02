@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 export enum CreateWebhookRequestBodyEventsEnum {
     WorkflowCompleted = "workflow-completed",
@@ -13,10 +14,12 @@ export enum CreateWebhookRequestBodyScopeTypeEnum {
  * The scope in which the relevant events that will trigger webhooks
 **/
 export class CreateWebhookRequestBodyScope extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: CreateWebhookRequestBodyScopeTypeEnum;
 }
 
@@ -25,22 +28,29 @@ export class CreateWebhookRequestBodyScope extends SpeakeasyBase {
  * The parameters for a create webhook request
 **/
 export class CreateWebhookRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=events" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "events" })
   events: CreateWebhookRequestBodyEventsEnum[];
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=scope" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "scope" })
+  @Type(() => CreateWebhookRequestBodyScope)
   scope: CreateWebhookRequestBodyScope;
 
-  @SpeakeasyMetadata({ data: "json, name=signing-secret" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "signing-secret" })
   signingSecret: string;
 
-  @SpeakeasyMetadata({ data: "json, name=url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "url" })
   url: string;
 
-  @SpeakeasyMetadata({ data: "json, name=verify-tls" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "verify-tls" })
   verifyTls: boolean;
 }
 
@@ -50,7 +60,8 @@ export class CreateWebhookRequest extends SpeakeasyBase {
 }
 
 export class CreateWebhookDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum CreateWebhookWebhookEventsEnum {
@@ -63,39 +74,53 @@ export enum CreateWebhookWebhookEventsEnum {
  * The scope in which the relevant events that will trigger webhooks
 **/
 export class CreateWebhookWebhookScope extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: string;
 }
 
 export class CreateWebhookWebhook extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=created-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=events" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "events" })
   events: CreateWebhookWebhookEventsEnum[];
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=scope" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "scope" })
+  @Type(() => CreateWebhookWebhookScope)
   scope: CreateWebhookWebhookScope;
 
-  @SpeakeasyMetadata({ data: "json, name=signing-secret" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "signing-secret" })
   signingSecret: string;
 
-  @SpeakeasyMetadata({ data: "json, name=updated-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updated-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   updatedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "url" })
   url: string;
 
-  @SpeakeasyMetadata({ data: "json, name=verify-tls" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "verify-tls" })
   verifyTls: boolean;
 }
 

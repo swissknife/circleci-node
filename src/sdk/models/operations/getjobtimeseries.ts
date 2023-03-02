@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class GetJobTimeseriesPathParams extends SpeakeasyBase {
@@ -17,13 +18,13 @@ export class GetJobTimeseriesQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
   branch?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end-date" })
+  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ" })
   endDate?: Date;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=granularity" })
   granularity?: GetJobTimeseriesGranularityEnum;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start-date" })
+  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ" })
   startDate?: Date;
 }
 
@@ -36,7 +37,8 @@ export class GetJobTimeseriesRequest extends SpeakeasyBase {
 }
 
 export class GetJobTimeseriesDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -45,19 +47,24 @@ export class GetJobTimeseriesDefaultApplicationJSON extends SpeakeasyBase {
  * Metrics relating to the duration of runs for a workflow.
 **/
 export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=max" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "max" })
   max: number;
 
-  @SpeakeasyMetadata({ data: "json, name=median" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "median" })
   median: number;
 
-  @SpeakeasyMetadata({ data: "json, name=min" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "min" })
   min: number;
 
-  @SpeakeasyMetadata({ data: "json, name=p95" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "p95" })
   p95: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total" })
   total: number;
 }
 
@@ -66,42 +73,59 @@ export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics exten
  * Metrics relating to a workflow's runs.
 **/
 export class GetJobTimeseries200ApplicationJSONItemsMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=duration_metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "duration_metrics" })
+  @Type(() => GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics)
   durationMetrics: GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=failed_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "failed_runs" })
   failedRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=median_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "median_credits_used" })
   medianCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=successful_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "successful_runs" })
   successfulRuns: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
 export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=max_ended_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "max_ended_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   maxEndedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetJobTimeseries200ApplicationJSONItemsMetrics)
   metrics: GetJobTimeseries200ApplicationJSONItemsMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=min_started_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "min_started_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   minStartedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=timestamp" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "timestamp" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   timestamp: Date;
 }
 
@@ -110,10 +134,13 @@ export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
  * Project level timeseries metrics response
 **/
 export class GetJobTimeseries200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetJobTimeseries200ApplicationJSONItems })
+  @SpeakeasyMetadata({ elemType: GetJobTimeseries200ApplicationJSONItems })
+  @Expose({ name: "items" })
+  @Type(() => GetJobTimeseries200ApplicationJSONItems)
   items: GetJobTimeseries200ApplicationJSONItems[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

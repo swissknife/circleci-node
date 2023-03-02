@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Workflow {
   _defaultClient: AxiosInstance;
@@ -52,12 +53,20 @@ export class Workflow {
         switch (true) {
           case httpRes?.status == 202:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.ApprovePendingApprovalJobByIdMessageResponse,
+                httpRes?.data as operations.ApprovePendingApprovalJobByIdMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.approvePendingApprovalJobByIdDefaultApplicationJSONObject = httpRes?.data;
+              res.approvePendingApprovalJobByIdDefaultApplicationJSONObject = plainToInstance(
+                operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON,
+                httpRes?.data as operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -100,12 +109,20 @@ export class Workflow {
         switch (true) {
           case httpRes?.status == 202:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.CancelWorkflowMessageResponse,
+                httpRes?.data as operations.CancelWorkflowMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.cancelWorkflowDefaultApplicationJSONObject = httpRes?.data;
+              res.cancelWorkflowDefaultApplicationJSONObject = plainToInstance(
+                operations.CancelWorkflowDefaultApplicationJSON,
+                httpRes?.data as operations.CancelWorkflowDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -148,12 +165,20 @@ export class Workflow {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.workflow = httpRes?.data;
+              res.workflow = plainToInstance(
+                operations.GetWorkflowByIdWorkflow,
+                httpRes?.data as operations.GetWorkflowByIdWorkflow,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getWorkflowByIdDefaultApplicationJSONObject = httpRes?.data;
+              res.getWorkflowByIdDefaultApplicationJSONObject = plainToInstance(
+                operations.GetWorkflowByIdDefaultApplicationJSON,
+                httpRes?.data as operations.GetWorkflowByIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -196,12 +221,20 @@ export class Workflow {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.workflowJobListResponse = httpRes?.data;
+              res.workflowJobListResponse = plainToInstance(
+                operations.ListWorkflowJobsWorkflowJobListResponse,
+                httpRes?.data as operations.ListWorkflowJobsWorkflowJobListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listWorkflowJobsDefaultApplicationJSONObject = httpRes?.data;
+              res.listWorkflowJobsDefaultApplicationJSONObject = plainToInstance(
+                operations.ListWorkflowJobsDefaultApplicationJSON,
+                httpRes?.data as operations.ListWorkflowJobsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -257,12 +290,20 @@ export class Workflow {
         switch (true) {
           case httpRes?.status == 202:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.rerunWorkflow202ApplicationJSONObject = httpRes?.data;
+              res.rerunWorkflow202ApplicationJSONObject = plainToInstance(
+                operations.RerunWorkflow202ApplicationJSON,
+                httpRes?.data as operations.RerunWorkflow202ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.rerunWorkflowDefaultApplicationJSONObject = httpRes?.data;
+              res.rerunWorkflowDefaultApplicationJSONObject = plainToInstance(
+                operations.RerunWorkflowDefaultApplicationJSON,
+                httpRes?.data as operations.RerunWorkflowDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

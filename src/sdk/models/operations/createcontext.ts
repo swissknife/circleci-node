@@ -1,14 +1,17 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 export enum CreateContextRequestBodyOwner2TypeEnum {
     Organization = "organization"
 }
 
 export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "slug" })
   slug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type?: CreateContextRequestBodyOwner2TypeEnum;
 }
 export enum CreateContextRequestBodyOwner1TypeEnum {
@@ -17,18 +20,22 @@ export enum CreateContextRequestBodyOwner1TypeEnum {
 }
 
 export class CreateContextRequestBodyOwner1 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type?: CreateContextRequestBodyOwner1TypeEnum;
 }
 
 export class CreateContextRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=owner" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "owner" })
   owner: any;
 }
 
@@ -38,18 +45,23 @@ export class CreateContextRequest extends SpeakeasyBase {
 }
 
 export class CreateContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
 export class CreateContextContext extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=created_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 }
 

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetJobArtifactsPathParams extends SpeakeasyBase {
@@ -15,7 +16,8 @@ export class GetJobArtifactsRequest extends SpeakeasyBase {
 }
 
 export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -24,21 +26,27 @@ export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
  * An artifact
 **/
 export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=node_index" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "node_index" })
   nodeIndex: number;
 
-  @SpeakeasyMetadata({ data: "json, name=path" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "path" })
   path: string;
 
-  @SpeakeasyMetadata({ data: "json, name=url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "url" })
   url: string;
 }
 
 export class GetJobArtifactsArtifactListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetJobArtifactsArtifactListResponseArtifact })
+  @SpeakeasyMetadata({ elemType: GetJobArtifactsArtifactListResponseArtifact })
+  @Expose({ name: "items" })
+  @Type(() => GetJobArtifactsArtifactListResponseArtifact)
   items: GetJobArtifactsArtifactListResponseArtifact[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

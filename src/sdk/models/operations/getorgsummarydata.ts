@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetOrgSummaryDataPathParams extends SpeakeasyBase {
@@ -30,7 +31,8 @@ export class GetOrgSummaryDataRequest extends SpeakeasyBase {
 }
 
 export class GetOrgSummaryDataDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -39,19 +41,24 @@ export class GetOrgSummaryDataDefaultApplicationJSON extends SpeakeasyBase {
  * Metrics for a single org metrics.
 **/
 export class GetOrgSummaryData200ApplicationJSONOrgDataMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_duration_secs" })
   totalDurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -60,19 +67,24 @@ export class GetOrgSummaryData200ApplicationJSONOrgDataMetrics extends Speakeasy
  * Trends for a single org.
 **/
 export class GetOrgSummaryData200ApplicationJSONOrgDataTrends extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=throughput" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "throughput" })
   throughput: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_duration_secs" })
   totalDurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -81,10 +93,14 @@ export class GetOrgSummaryData200ApplicationJSONOrgDataTrends extends SpeakeasyB
  * Aggregated metrics for an org, with trends.
 **/
 export class GetOrgSummaryData200ApplicationJSONOrgData extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetOrgSummaryData200ApplicationJSONOrgDataMetrics)
   metrics: GetOrgSummaryData200ApplicationJSONOrgDataMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=trends" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trends" })
+  @Type(() => GetOrgSummaryData200ApplicationJSONOrgDataTrends)
   trends: GetOrgSummaryData200ApplicationJSONOrgDataTrends;
 }
 
@@ -93,16 +109,20 @@ export class GetOrgSummaryData200ApplicationJSONOrgData extends SpeakeasyBase {
  * Metrics for a single project, across all branches.
 **/
 export class GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_duration_secs" })
   totalDurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
@@ -111,27 +131,36 @@ export class GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics extends Sp
  * Trends for a single project, across all branches.
 **/
 export class GetOrgSummaryData200ApplicationJSONOrgProjectDataTrends extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=success_rate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "success_rate" })
   successRate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_credits_used" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_credits_used" })
   totalCreditsUsed: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_duration_secs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_duration_secs" })
   totalDurationSecs: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_runs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_runs" })
   totalRuns: number;
 }
 
 export class GetOrgSummaryData200ApplicationJSONOrgProjectData extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "metrics" })
+  @Type(() => GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics)
   metrics: GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics;
 
-  @SpeakeasyMetadata({ data: "json, name=project_name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project_name" })
   projectName: string;
 
-  @SpeakeasyMetadata({ data: "json, name=trends" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "trends" })
+  @Type(() => GetOrgSummaryData200ApplicationJSONOrgProjectDataTrends)
   trends: GetOrgSummaryData200ApplicationJSONOrgProjectDataTrends;
 }
 
@@ -140,13 +169,18 @@ export class GetOrgSummaryData200ApplicationJSONOrgProjectData extends Speakeasy
  * Summary metrics with trends for the entire org, and for each project.
 **/
 export class GetOrgSummaryData200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=all_projects" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "all_projects" })
   allProjects: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=org_data" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "org_data" })
+  @Type(() => GetOrgSummaryData200ApplicationJSONOrgData)
   orgData: GetOrgSummaryData200ApplicationJSONOrgData;
 
-  @SpeakeasyMetadata({ data: "json, name=org_project_data", elemType: GetOrgSummaryData200ApplicationJSONOrgProjectData })
+  @SpeakeasyMetadata({ elemType: GetOrgSummaryData200ApplicationJSONOrgProjectData })
+  @Expose({ name: "org_project_data" })
+  @Type(() => GetOrgSummaryData200ApplicationJSONOrgProjectData)
   orgProjectData: GetOrgSummaryData200ApplicationJSONOrgProjectData[];
 }
 

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class DeleteContextPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class DeleteContextRequest extends SpeakeasyBase {
 }
 
 export class DeleteContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -21,7 +23,8 @@ export class DeleteContextDefaultApplicationJSON extends SpeakeasyBase {
  * message response
 **/
 export class DeleteContextMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

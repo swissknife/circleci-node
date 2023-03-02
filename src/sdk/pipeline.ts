@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Pipeline {
   _defaultClient: AxiosInstance;
@@ -65,12 +66,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.ContinuePipelineMessageResponse,
+                httpRes?.data as operations.ContinuePipelineMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.continuePipelineDefaultApplicationJSONObject = httpRes?.data;
+              res.continuePipelineDefaultApplicationJSONObject = plainToInstance(
+                operations.ContinuePipelineDefaultApplicationJSON,
+                httpRes?.data as operations.ContinuePipelineDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -113,12 +122,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.pipeline = httpRes?.data;
+              res.pipeline = plainToInstance(
+                operations.GetPipelineByIdPipeline,
+                httpRes?.data as operations.GetPipelineByIdPipeline,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getPipelineByIdDefaultApplicationJSONObject = httpRes?.data;
+              res.getPipelineByIdDefaultApplicationJSONObject = plainToInstance(
+                operations.GetPipelineByIdDefaultApplicationJSON,
+                httpRes?.data as operations.GetPipelineByIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -161,12 +178,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.pipeline = httpRes?.data;
+              res.pipeline = plainToInstance(
+                operations.GetPipelineByNumberPipeline,
+                httpRes?.data as operations.GetPipelineByNumberPipeline,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getPipelineByNumberDefaultApplicationJSONObject = httpRes?.data;
+              res.getPipelineByNumberDefaultApplicationJSONObject = plainToInstance(
+                operations.GetPipelineByNumberDefaultApplicationJSON,
+                httpRes?.data as operations.GetPipelineByNumberDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -209,12 +234,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.pipelineConfig = httpRes?.data;
+              res.pipelineConfig = plainToInstance(
+                operations.GetPipelineConfigByIdPipelineConfig,
+                httpRes?.data as operations.GetPipelineConfigByIdPipelineConfig,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getPipelineConfigByIdDefaultApplicationJSONObject = httpRes?.data;
+              res.getPipelineConfigByIdDefaultApplicationJSONObject = plainToInstance(
+                operations.GetPipelineConfigByIdDefaultApplicationJSON,
+                httpRes?.data as operations.GetPipelineConfigByIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -242,19 +275,12 @@ export class Pipeline {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -265,12 +291,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.pipelineListResponse = httpRes?.data;
+              res.pipelineListResponse = plainToInstance(
+                operations.ListMyPipelinesPipelineListResponse,
+                httpRes?.data as operations.ListMyPipelinesPipelineListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listMyPipelinesDefaultApplicationJSONObject = httpRes?.data;
+              res.listMyPipelinesDefaultApplicationJSONObject = plainToInstance(
+                operations.ListMyPipelinesDefaultApplicationJSON,
+                httpRes?.data as operations.ListMyPipelinesDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -298,19 +332,12 @@ export class Pipeline {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -321,12 +348,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.pipelineListResponse = httpRes?.data;
+              res.pipelineListResponse = plainToInstance(
+                operations.ListPipelinesPipelineListResponse,
+                httpRes?.data as operations.ListPipelinesPipelineListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listPipelinesDefaultApplicationJSONObject = httpRes?.data;
+              res.listPipelinesDefaultApplicationJSONObject = plainToInstance(
+                operations.ListPipelinesDefaultApplicationJSON,
+                httpRes?.data as operations.ListPipelinesDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -354,19 +389,12 @@ export class Pipeline {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -377,12 +405,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.pipelineListResponse = httpRes?.data;
+              res.pipelineListResponse = plainToInstance(
+                operations.ListPipelinesForProjectPipelineListResponse,
+                httpRes?.data as operations.ListPipelinesForProjectPipelineListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listPipelinesForProjectDefaultApplicationJSONObject = httpRes?.data;
+              res.listPipelinesForProjectDefaultApplicationJSONObject = plainToInstance(
+                operations.ListPipelinesForProjectDefaultApplicationJSON,
+                httpRes?.data as operations.ListPipelinesForProjectDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -410,19 +446,12 @@ export class Pipeline {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -433,12 +462,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.workflowListResponse = httpRes?.data;
+              res.workflowListResponse = plainToInstance(
+                operations.ListWorkflowsByPipelineIdWorkflowListResponse,
+                httpRes?.data as operations.ListWorkflowsByPipelineIdWorkflowListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = httpRes?.data;
+              res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = plainToInstance(
+                operations.ListWorkflowsByPipelineIdDefaultApplicationJSON,
+                httpRes?.data as operations.ListWorkflowsByPipelineIdDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -494,12 +531,20 @@ export class Pipeline {
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.pipelineCreation = httpRes?.data;
+              res.pipelineCreation = plainToInstance(
+                operations.TriggerPipelinePipelineCreation,
+                httpRes?.data as operations.TriggerPipelinePipelineCreation,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.triggerPipelineDefaultApplicationJSONObject = httpRes?.data;
+              res.triggerPipelineDefaultApplicationJSONObject = plainToInstance(
+                operations.TriggerPipelineDefaultApplicationJSON,
+                httpRes?.data as operations.TriggerPipelineDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

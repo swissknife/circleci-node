@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CreateEnvVarPathParams extends SpeakeasyBase {
@@ -7,10 +8,12 @@ export class CreateEnvVarPathParams extends SpeakeasyBase {
 }
 
 export class CreateEnvVarEnvironmentVariablePair extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=value" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "value" })
   value: string;
 }
 
@@ -23,7 +26,8 @@ export class CreateEnvVarRequest extends SpeakeasyBase {
 }
 
 export class CreateEnvVarDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 

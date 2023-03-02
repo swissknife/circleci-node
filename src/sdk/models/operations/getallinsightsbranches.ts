@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetAllInsightsBranchesPathParams extends SpeakeasyBase {
@@ -20,7 +21,8 @@ export class GetAllInsightsBranchesRequest extends SpeakeasyBase {
 }
 
 export class GetAllInsightsBranchesDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 

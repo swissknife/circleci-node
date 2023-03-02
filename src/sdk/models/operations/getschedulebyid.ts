@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class GetScheduleByIdPathParams extends SpeakeasyBase {
@@ -12,7 +13,8 @@ export class GetScheduleByIdRequest extends SpeakeasyBase {
 }
 
 export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -21,13 +23,16 @@ export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
  * The attribution actor who will run the scheduled pipeline.
 **/
 export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=login" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "login" })
   login: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 }
 export enum GetScheduleByIdScheduleTimetable2DaysOfWeekEnum {
@@ -55,19 +60,24 @@ export enum GetScheduleByIdScheduleTimetable2MonthsEnum {
 }
 
 export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=days-of-month" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "days-of-month" })
   daysOfMonth: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=days-of-week" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "days-of-week" })
   daysOfWeek?: GetScheduleByIdScheduleTimetable2DaysOfWeekEnum[];
 
-  @SpeakeasyMetadata({ data: "json, name=hours-of-day" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "hours-of-day" })
   hoursOfDay: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=months" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "months" })
   months?: GetScheduleByIdScheduleTimetable2MonthsEnum[];
 
-  @SpeakeasyMetadata({ data: "json, name=per-hour" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "per-hour" })
   perHour: number;
 }
 export enum GetScheduleByIdScheduleTimetable1DaysOfWeekEnum {
@@ -95,19 +105,24 @@ export enum GetScheduleByIdScheduleTimetable1MonthsEnum {
 }
 
 export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=days-of-month" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "days-of-month" })
   daysOfMonth?: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=days-of-week" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "days-of-week" })
   daysOfWeek: GetScheduleByIdScheduleTimetable1DaysOfWeekEnum[];
 
-  @SpeakeasyMetadata({ data: "json, name=hours-of-day" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "hours-of-day" })
   hoursOfDay: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=months" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "months" })
   months?: GetScheduleByIdScheduleTimetable1MonthsEnum[];
 
-  @SpeakeasyMetadata({ data: "json, name=per-hour" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "per-hour" })
   perHour: number;
 }
 
@@ -116,31 +131,43 @@ export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
  * A schedule response
 **/
 export class GetScheduleByIdSchedule extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=actor" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "actor" })
+  @Type(() => GetScheduleByIdScheduleUser)
   actor: GetScheduleByIdScheduleUser;
 
-  @SpeakeasyMetadata({ data: "json, name=created-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=description" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "description" })
   description: string;
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=parameters" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "parameters" })
   parameters: Record<string, any>;
 
-  @SpeakeasyMetadata({ data: "json, name=project-slug" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "project-slug" })
   projectSlug: string;
 
-  @SpeakeasyMetadata({ data: "json, name=timetable" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "timetable" })
   timetable: any;
 
-  @SpeakeasyMetadata({ data: "json, name=updated-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updated-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   updatedAt: Date;
 }
 

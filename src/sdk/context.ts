@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Context {
   _defaultClient: AxiosInstance;
@@ -65,12 +66,16 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.addEnvironmentVariableToContext200ApplicationJSONAnyOf = httpRes?.data;
+              res.addEnvironmentVariableToContext200ApplicationJSONAnyOf = httpRes?.data;
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.addEnvironmentVariableToContextDefaultApplicationJSONObject = httpRes?.data;
+              res.addEnvironmentVariableToContextDefaultApplicationJSONObject = plainToInstance(
+                operations.AddEnvironmentVariableToContextDefaultApplicationJSON,
+                httpRes?.data as operations.AddEnvironmentVariableToContextDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -124,12 +129,20 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.context = httpRes?.data;
+              res.context = plainToInstance(
+                operations.CreateContextContext,
+                httpRes?.data as operations.CreateContextContext,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createContextDefaultApplicationJSONObject = httpRes?.data;
+              res.createContextDefaultApplicationJSONObject = plainToInstance(
+                operations.CreateContextDefaultApplicationJSON,
+                httpRes?.data as operations.CreateContextDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -170,12 +183,20 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.DeleteContextMessageResponse,
+                httpRes?.data as operations.DeleteContextMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteContextDefaultApplicationJSONObject = httpRes?.data;
+              res.deleteContextDefaultApplicationJSONObject = plainToInstance(
+                operations.DeleteContextDefaultApplicationJSON,
+                httpRes?.data as operations.DeleteContextDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -218,12 +239,20 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.DeleteEnvironmentVariableFromContextMessageResponse,
+                httpRes?.data as operations.DeleteEnvironmentVariableFromContextMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject = httpRes?.data;
+              res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject = plainToInstance(
+                operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON,
+                httpRes?.data as operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -266,12 +295,20 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.context = httpRes?.data;
+              res.context = plainToInstance(
+                operations.GetContextContext,
+                httpRes?.data as operations.GetContextContext,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getContextDefaultApplicationJSONObject = httpRes?.data;
+              res.getContextDefaultApplicationJSONObject = plainToInstance(
+                operations.GetContextDefaultApplicationJSON,
+                httpRes?.data as operations.GetContextDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -299,19 +336,12 @@ export class Context {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -322,12 +352,20 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listContexts200ApplicationJSONObject = httpRes?.data;
+              res.listContexts200ApplicationJSONObject = plainToInstance(
+                operations.ListContexts200ApplicationJSON,
+                httpRes?.data as operations.ListContexts200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listContextsDefaultApplicationJSONObject = httpRes?.data;
+              res.listContextsDefaultApplicationJSONObject = plainToInstance(
+                operations.ListContextsDefaultApplicationJSON,
+                httpRes?.data as operations.ListContextsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -355,19 +393,12 @@ export class Context {
     
     const client: AxiosInstance = this._securityClient!;
     
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
-    
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -378,12 +409,20 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listEnvironmentVariablesFromContext200ApplicationJSONObject = httpRes?.data;
+              res.listEnvironmentVariablesFromContext200ApplicationJSONObject = plainToInstance(
+                operations.ListEnvironmentVariablesFromContext200ApplicationJSON,
+                httpRes?.data as operations.ListEnvironmentVariablesFromContext200ApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject = httpRes?.data;
+              res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject = plainToInstance(
+                operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON,
+                httpRes?.data as operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

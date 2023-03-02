@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 
 export class AddEnvironmentVariableToContextPathParams extends SpeakeasyBase {
@@ -10,7 +11,8 @@ export class AddEnvironmentVariableToContextPathParams extends SpeakeasyBase {
 }
 
 export class AddEnvironmentVariableToContextRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=value" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "value" })
   value: string;
 }
 
@@ -23,7 +25,8 @@ export class AddEnvironmentVariableToContextRequest extends SpeakeasyBase {
 }
 
 export class AddEnvironmentVariableToContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -32,21 +35,28 @@ export class AddEnvironmentVariableToContextDefaultApplicationJSON extends Speak
  * message response
 **/
 export class AddEnvironmentVariableToContext200ApplicationJSONMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 
 export class AddEnvironmentVariableToContext200ApplicationJson1 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=context_id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "context_id" })
   contextId: string;
 
-  @SpeakeasyMetadata({ data: "json, name=created_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=updated_at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updated_at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   updatedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=variable" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "variable" })
   variable: string;
 }
 

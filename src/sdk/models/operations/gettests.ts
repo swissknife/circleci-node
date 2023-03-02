@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class GetTestsPathParams extends SpeakeasyBase {
@@ -15,38 +16,49 @@ export class GetTestsRequest extends SpeakeasyBase {
 }
 
 export class GetTestsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
 export class GetTestsTestsResponseItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=classname" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "classname" })
   classname: string;
 
-  @SpeakeasyMetadata({ data: "json, name=file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "file" })
   file: string;
 
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=result" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "result" })
   result: string;
 
-  @SpeakeasyMetadata({ data: "json, name=run_time" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "run_time" })
   runTime: number;
 
-  @SpeakeasyMetadata({ data: "json, name=source" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "source" })
   source: string;
 }
 
 export class GetTestsTestsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetTestsTestsResponseItems })
+  @SpeakeasyMetadata({ elemType: GetTestsTestsResponseItems })
+  @Expose({ name: "items" })
+  @Type(() => GetTestsTestsResponseItems)
   items: GetTestsTestsResponseItems[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

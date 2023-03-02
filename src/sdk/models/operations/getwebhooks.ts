@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Transform, Type } from "class-transformer";
 
 export enum GetWebhooksScopeTypeEnum {
     Project = "project"
@@ -18,7 +19,8 @@ export class GetWebhooksRequest extends SpeakeasyBase {
 }
 
 export class GetWebhooksDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 export enum GetWebhooks200ApplicationJSONWebhookEventsEnum {
@@ -31,39 +33,53 @@ export enum GetWebhooks200ApplicationJSONWebhookEventsEnum {
  * The scope in which the relevant events that will trigger webhooks
 **/
 export class GetWebhooks200ApplicationJSONWebhookScope extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=type" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
   type: string;
 }
 
 export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=created-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=events" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "events" })
   events: GetWebhooks200ApplicationJSONWebhookEventsEnum[];
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=name" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "name" })
   name: string;
 
-  @SpeakeasyMetadata({ data: "json, name=scope" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "scope" })
+  @Type(() => GetWebhooks200ApplicationJSONWebhookScope)
   scope: GetWebhooks200ApplicationJSONWebhookScope;
 
-  @SpeakeasyMetadata({ data: "json, name=signing-secret" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "signing-secret" })
   signingSecret: string;
 
-  @SpeakeasyMetadata({ data: "json, name=updated-at" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "updated-at" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   updatedAt: Date;
 
-  @SpeakeasyMetadata({ data: "json, name=url" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "url" })
   url: string;
 
-  @SpeakeasyMetadata({ data: "json, name=verify-tls" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "verify-tls" })
   verifyTls: boolean;
 }
 
@@ -72,10 +88,13 @@ export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
  * A list of webhooks
 **/
 export class GetWebhooks200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=items", elemType: GetWebhooks200ApplicationJSONWebhook })
+  @SpeakeasyMetadata({ elemType: GetWebhooks200ApplicationJSONWebhook })
+  @Expose({ name: "items" })
+  @Type(() => GetWebhooks200ApplicationJSONWebhook)
   items: GetWebhooks200ApplicationJSONWebhook[];
 
-  @SpeakeasyMetadata({ data: "json, name=next_page_token" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "next_page_token" })
   nextPageToken: string;
 }
 

@@ -1,14 +1,18 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class ContinuePipelineRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=configuration" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "configuration" })
   configuration: string;
 
-  @SpeakeasyMetadata({ data: "json, name=continuation-key" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "continuation-key" })
   continuationKey: string;
 
-  @SpeakeasyMetadata({ data: "json, name=parameters" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "parameters" })
   parameters?: Record<string, any>;
 }
 
@@ -18,7 +22,8 @@ export class ContinuePipelineRequest extends SpeakeasyBase {
 }
 
 export class ContinuePipelineDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message?: string;
 }
 
@@ -27,7 +32,8 @@ export class ContinuePipelineDefaultApplicationJSON extends SpeakeasyBase {
  * message response
 **/
 export class ContinuePipelineMessageResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=message" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "message" })
   message: string;
 }
 

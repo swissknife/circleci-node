@@ -1,6 +1,7 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class Job {
   _defaultClient: AxiosInstance;
@@ -52,12 +53,20 @@ export class Job {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.messageResponse = httpRes?.data;
+              res.messageResponse = plainToInstance(
+                operations.CancelJobMessageResponse,
+                httpRes?.data as operations.CancelJobMessageResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.cancelJobDefaultApplicationJSONObject = httpRes?.data;
+              res.cancelJobDefaultApplicationJSONObject = plainToInstance(
+                operations.CancelJobDefaultApplicationJSON,
+                httpRes?.data as operations.CancelJobDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -100,12 +109,20 @@ export class Job {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.artifactListResponse = httpRes?.data;
+              res.artifactListResponse = plainToInstance(
+                operations.GetJobArtifactsArtifactListResponse,
+                httpRes?.data as operations.GetJobArtifactsArtifactListResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getJobArtifactsDefaultApplicationJSONObject = httpRes?.data;
+              res.getJobArtifactsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetJobArtifactsDefaultApplicationJSON,
+                httpRes?.data as operations.GetJobArtifactsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -148,12 +165,20 @@ export class Job {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.jobDetails = httpRes?.data;
+              res.jobDetails = plainToInstance(
+                operations.GetJobDetailsJobDetails,
+                httpRes?.data as operations.GetJobDetailsJobDetails,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getJobDetailsDefaultApplicationJSONObject = httpRes?.data;
+              res.getJobDetailsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetJobDetailsDefaultApplicationJSON,
+                httpRes?.data as operations.GetJobDetailsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -196,12 +221,20 @@ export class Job {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.testsResponse = httpRes?.data;
+              res.testsResponse = plainToInstance(
+                operations.GetTestsTestsResponse,
+                httpRes?.data as operations.GetTestsTestsResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.getTestsDefaultApplicationJSONObject = httpRes?.data;
+              res.getTestsDefaultApplicationJSONObject = plainToInstance(
+                operations.GetTestsDefaultApplicationJSON,
+                httpRes?.data as operations.GetTestsDefaultApplicationJSON,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
