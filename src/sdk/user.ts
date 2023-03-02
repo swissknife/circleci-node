@@ -54,11 +54,7 @@ export class User {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.collaborations = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.collaborations = httpRes?.data;
             }
             break;
           default:

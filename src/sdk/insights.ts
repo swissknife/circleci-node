@@ -54,11 +54,7 @@ export class Insights {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getAllInsightsBranches200ApplicationJSONAny = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
             }
             break;
           default:

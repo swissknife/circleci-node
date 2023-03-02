@@ -66,11 +66,7 @@ export class Context {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.addEnvironmentVariableToContext200ApplicationJSONAnyOf = plainToInstance(
-                ,
-                httpRes?.data as ,
-                { excludeExtraneousValues: true }
-              );
+              res.addEnvironmentVariableToContext200ApplicationJSONAnyOf = httpRes?.data;
             }
             break;
           default:
