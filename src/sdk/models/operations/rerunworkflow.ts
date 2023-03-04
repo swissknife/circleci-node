@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 
@@ -59,6 +60,9 @@ export class RerunWorkflowResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   rerunWorkflow202ApplicationJSONObject?: RerunWorkflow202ApplicationJSON;

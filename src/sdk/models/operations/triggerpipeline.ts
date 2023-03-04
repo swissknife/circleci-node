@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -78,6 +79,9 @@ export class TriggerPipelineResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJSON;

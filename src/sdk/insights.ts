@@ -50,7 +50,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAllInsightsBranchesResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetAllInsightsBranchesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -103,7 +103,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetFlakyTestsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetFlakyTestsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -160,7 +160,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetJobTimeseriesResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetJobTimeseriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -218,7 +218,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetOrgSummaryDataResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetOrgSummaryDataResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -275,7 +275,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowJobMetricsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetProjectWorkflowJobMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -332,7 +332,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowMetricsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetProjectWorkflowMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -389,7 +389,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowRunsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetProjectWorkflowRunsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -446,7 +446,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowTestMetricsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetProjectWorkflowTestMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -508,7 +508,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowsPageDataResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetProjectWorkflowsPageDataResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -565,7 +565,7 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetWorkflowSummaryResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetWorkflowSummaryResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {

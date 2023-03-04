@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -67,6 +68,9 @@ export class CreateCheckoutKeyResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   createCheckoutKeyDefaultApplicationJSONObject?: CreateCheckoutKeyDefaultApplicationJSON;

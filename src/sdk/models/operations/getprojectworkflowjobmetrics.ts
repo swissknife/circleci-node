@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -152,6 +153,9 @@ export class GetProjectWorkflowJobMetricsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getProjectWorkflowJobMetrics200ApplicationJSONObject?: GetProjectWorkflowJobMetrics200ApplicationJSON;
