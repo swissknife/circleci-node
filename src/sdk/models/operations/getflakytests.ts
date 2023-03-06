@@ -34,11 +34,11 @@ export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "job-number" })
-  jobNumber: Record<string, any>;
+  jobNumber: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pipeline-number" })
-  pipelineNumber: Record<string, any>;
+  pipelineNumber: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "source" })
@@ -50,7 +50,7 @@ export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "time-wasted" })
-  timeWasted?: Record<string, any>;
+  timeWasted?: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "times-flaked" })

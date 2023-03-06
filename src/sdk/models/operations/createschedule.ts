@@ -35,6 +35,10 @@ export enum CreateScheduleCreateScheduleParametersTimetable2MonthsEnum {
     Jul = "JUL"
 }
 
+// CreateScheduleCreateScheduleParametersTimetable2
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class CreateScheduleCreateScheduleParametersTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -80,6 +84,10 @@ export enum CreateScheduleCreateScheduleParametersTimetable1MonthsEnum {
     Jul = "JUL"
 }
 
+// CreateScheduleCreateScheduleParametersTimetable1
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class CreateScheduleCreateScheduleParametersTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -183,6 +191,10 @@ export enum CreateScheduleScheduleTimetable2MonthsEnum {
     Jul = "JUL"
 }
 
+// CreateScheduleScheduleTimetable2
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class CreateScheduleScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -228,6 +240,10 @@ export enum CreateScheduleScheduleTimetable1MonthsEnum {
     Jul = "JUL"
 }
 
+// CreateScheduleScheduleTimetable1
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class CreateScheduleScheduleTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })

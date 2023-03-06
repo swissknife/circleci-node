@@ -68,6 +68,10 @@ export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2MonthsEnu
     Jul = "JUL"
 }
 
+// ListSchedulesForProject200ApplicationJSONScheduleTimetable2
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class ListSchedulesForProject200ApplicationJSONScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -113,6 +117,10 @@ export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1MonthsEnu
     Jul = "JUL"
 }
 
+// ListSchedulesForProject200ApplicationJSONScheduleTimetable1
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class ListSchedulesForProject200ApplicationJSONScheduleTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
