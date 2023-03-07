@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 
@@ -33,11 +34,11 @@ export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "job-number" })
-  jobNumber: Record<string, any>;
+  jobNumber: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pipeline-number" })
-  pipelineNumber: Record<string, any>;
+  pipelineNumber: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "source" })
@@ -49,7 +50,7 @@ export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "time-wasted" })
-  timeWasted?: Record<string, any>;
+  timeWasted?: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "times-flaked" })
@@ -89,6 +90,9 @@ export class GetFlakyTestsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getFlakyTests200ApplicationJSONObject?: GetFlakyTests200ApplicationJSON;

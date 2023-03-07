@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -59,6 +60,10 @@ export enum GetScheduleByIdScheduleTimetable2MonthsEnum {
     Jul = "JUL"
 }
 
+// GetScheduleByIdScheduleTimetable2
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -104,6 +109,10 @@ export enum GetScheduleByIdScheduleTimetable1MonthsEnum {
     Jul = "JUL"
 }
 
+// GetScheduleByIdScheduleTimetable1
+/** 
+ * Timetable that specifies when a schedule triggers.
+**/
 export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -180,6 +189,9 @@ export class GetScheduleByIdResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getScheduleByIdDefaultApplicationJSONObject?: GetScheduleByIdDefaultApplicationJSON;
