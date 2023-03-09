@@ -49,23 +49,26 @@ export class Job {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CancelJobResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CancelJobResponse =
+            new operations.CancelJobResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.messageResponse = plainToInstance(
+              res.messageResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CancelJobMessageResponse,
-                httpRes?.data as operations.CancelJobMessageResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.cancelJobDefaultApplicationJSONObject = plainToInstance(
+              res.cancelJobDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CancelJobDefaultApplicationJSON,
-                httpRes?.data as operations.CancelJobDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -105,23 +108,26 @@ export class Job {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetJobArtifactsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetJobArtifactsResponse =
+            new operations.GetJobArtifactsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.artifactListResponse = plainToInstance(
+              res.artifactListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetJobArtifactsArtifactListResponse,
-                httpRes?.data as operations.GetJobArtifactsArtifactListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getJobArtifactsDefaultApplicationJSONObject = plainToInstance(
+              res.getJobArtifactsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetJobArtifactsDefaultApplicationJSON,
-                httpRes?.data as operations.GetJobArtifactsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -161,23 +167,26 @@ export class Job {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetJobDetailsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetJobDetailsResponse =
+            new operations.GetJobDetailsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.jobDetails = plainToInstance(
+              res.jobDetails = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetJobDetailsJobDetails,
-                httpRes?.data as operations.GetJobDetailsJobDetails,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getJobDetailsDefaultApplicationJSONObject = plainToInstance(
+              res.getJobDetailsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetJobDetailsDefaultApplicationJSON,
-                httpRes?.data as operations.GetJobDetailsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -217,23 +226,26 @@ export class Job {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetTestsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetTestsResponse =
+            new operations.GetTestsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.testsResponse = plainToInstance(
+              res.testsResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetTestsTestsResponse,
-                httpRes?.data as operations.GetTestsTestsResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getTestsDefaultApplicationJSONObject = plainToInstance(
+              res.getTestsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetTestsDefaultApplicationJSON,
-                httpRes?.data as operations.GetTestsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

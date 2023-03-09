@@ -50,7 +50,12 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAllInsightsBranchesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAllInsightsBranchesResponse =
+            new operations.GetAllInsightsBranchesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -59,10 +64,9 @@ export class Insights {
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getAllInsightsBranchesDefaultApplicationJSONObject = plainToInstance(
+              res.getAllInsightsBranchesDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAllInsightsBranchesDefaultApplicationJSON,
-                httpRes?.data as operations.GetAllInsightsBranchesDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -103,23 +107,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetFlakyTestsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetFlakyTestsResponse =
+            new operations.GetFlakyTestsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getFlakyTests200ApplicationJSONObject = plainToInstance(
+              res.getFlakyTests200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetFlakyTests200ApplicationJSON,
-                httpRes?.data as operations.GetFlakyTests200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getFlakyTestsDefaultApplicationJSONObject = plainToInstance(
+              res.getFlakyTestsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetFlakyTestsDefaultApplicationJSON,
-                httpRes?.data as operations.GetFlakyTestsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -160,23 +167,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetJobTimeseriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetJobTimeseriesResponse =
+            new operations.GetJobTimeseriesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getJobTimeseries200ApplicationJSONObject = plainToInstance(
+              res.getJobTimeseries200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetJobTimeseries200ApplicationJSON,
-                httpRes?.data as operations.GetJobTimeseries200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getJobTimeseriesDefaultApplicationJSONObject = plainToInstance(
+              res.getJobTimeseriesDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetJobTimeseriesDefaultApplicationJSON,
-                httpRes?.data as operations.GetJobTimeseriesDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -218,23 +228,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetOrgSummaryDataResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetOrgSummaryDataResponse =
+            new operations.GetOrgSummaryDataResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getOrgSummaryData200ApplicationJSONObject = plainToInstance(
+              res.getOrgSummaryData200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetOrgSummaryData200ApplicationJSON,
-                httpRes?.data as operations.GetOrgSummaryData200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getOrgSummaryDataDefaultApplicationJSONObject = plainToInstance(
+              res.getOrgSummaryDataDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetOrgSummaryDataDefaultApplicationJSON,
-                httpRes?.data as operations.GetOrgSummaryDataDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -275,23 +288,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowJobMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProjectWorkflowJobMetricsResponse =
+            new operations.GetProjectWorkflowJobMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowJobMetrics200ApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowJobMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowJobMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowJobMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -332,23 +348,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProjectWorkflowMetricsResponse =
+            new operations.GetProjectWorkflowMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowMetrics200ApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowMetricsDefaultApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowMetricsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowMetricsDefaultApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowMetricsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -389,23 +408,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowRunsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProjectWorkflowRunsResponse =
+            new operations.GetProjectWorkflowRunsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowRuns200ApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowRuns200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowRuns200ApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowRuns200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowRunsDefaultApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowRunsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowRunsDefaultApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowRunsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -446,23 +468,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowTestMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProjectWorkflowTestMetricsResponse =
+            new operations.GetProjectWorkflowTestMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowTestMetrics200ApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowTestMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowTestMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowTestMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -508,23 +533,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectWorkflowsPageDataResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProjectWorkflowsPageDataResponse =
+            new operations.GetProjectWorkflowsPageDataResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowsPageData200ApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowsPageData200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowsPageData200ApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowsPageData200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectWorkflowsPageDataDefaultApplicationJSONObject = plainToInstance(
+              res.getProjectWorkflowsPageDataDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectWorkflowsPageDataDefaultApplicationJSON,
-                httpRes?.data as operations.GetProjectWorkflowsPageDataDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -565,23 +593,26 @@ export class Insights {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetWorkflowSummaryResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetWorkflowSummaryResponse =
+            new operations.GetWorkflowSummaryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getWorkflowSummary200ApplicationJSONObject = plainToInstance(
+              res.getWorkflowSummary200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetWorkflowSummary200ApplicationJSON,
-                httpRes?.data as operations.GetWorkflowSummary200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getWorkflowSummaryDefaultApplicationJSONObject = plainToInstance(
+              res.getWorkflowSummaryDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetWorkflowSummaryDefaultApplicationJSON,
-                httpRes?.data as operations.GetWorkflowSummaryDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

@@ -62,23 +62,26 @@ export class Schedule {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateScheduleResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateScheduleResponse =
+            new operations.CreateScheduleResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.schedule = plainToInstance(
+              res.schedule = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateScheduleSchedule,
-                httpRes?.data as operations.CreateScheduleSchedule,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createScheduleDefaultApplicationJSONObject = plainToInstance(
+              res.createScheduleDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateScheduleDefaultApplicationJSON,
-                httpRes?.data as operations.CreateScheduleDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -118,23 +121,26 @@ export class Schedule {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DeleteScheduleByIdResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DeleteScheduleByIdResponse =
+            new operations.DeleteScheduleByIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.messageResponse = plainToInstance(
+              res.messageResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.DeleteScheduleByIdMessageResponse,
-                httpRes?.data as operations.DeleteScheduleByIdMessageResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.deleteScheduleByIdDefaultApplicationJSONObject = plainToInstance(
+              res.deleteScheduleByIdDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.DeleteScheduleByIdDefaultApplicationJSON,
-                httpRes?.data as operations.DeleteScheduleByIdDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -174,23 +180,26 @@ export class Schedule {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetScheduleByIdResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetScheduleByIdResponse =
+            new operations.GetScheduleByIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.schedule = plainToInstance(
+              res.schedule = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetScheduleByIdSchedule,
-                httpRes?.data as operations.GetScheduleByIdSchedule,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getScheduleByIdDefaultApplicationJSONObject = plainToInstance(
+              res.getScheduleByIdDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetScheduleByIdDefaultApplicationJSON,
-                httpRes?.data as operations.GetScheduleByIdDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -231,23 +240,26 @@ export class Schedule {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListSchedulesForProjectResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListSchedulesForProjectResponse =
+            new operations.ListSchedulesForProjectResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listSchedulesForProject200ApplicationJSONObject = plainToInstance(
+              res.listSchedulesForProject200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListSchedulesForProject200ApplicationJSON,
-                httpRes?.data as operations.ListSchedulesForProject200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listSchedulesForProjectDefaultApplicationJSONObject = plainToInstance(
+              res.listSchedulesForProjectDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListSchedulesForProjectDefaultApplicationJSON,
-                httpRes?.data as operations.ListSchedulesForProjectDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -300,23 +312,26 @@ export class Schedule {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateScheduleResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateScheduleResponse =
+            new operations.UpdateScheduleResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.schedule = plainToInstance(
+              res.schedule = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateScheduleSchedule,
-                httpRes?.data as operations.UpdateScheduleSchedule,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.updateScheduleDefaultApplicationJSONObject = plainToInstance(
+              res.updateScheduleDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateScheduleDefaultApplicationJSON,
-                httpRes?.data as operations.UpdateScheduleDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

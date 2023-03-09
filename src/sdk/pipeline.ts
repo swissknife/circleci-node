@@ -62,23 +62,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ContinuePipelineResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ContinuePipelineResponse =
+            new operations.ContinuePipelineResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.messageResponse = plainToInstance(
+              res.messageResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ContinuePipelineMessageResponse,
-                httpRes?.data as operations.ContinuePipelineMessageResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.continuePipelineDefaultApplicationJSONObject = plainToInstance(
+              res.continuePipelineDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ContinuePipelineDefaultApplicationJSON,
-                httpRes?.data as operations.ContinuePipelineDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -118,23 +121,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetPipelineByIdResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetPipelineByIdResponse =
+            new operations.GetPipelineByIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pipeline = plainToInstance(
+              res.pipeline = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPipelineByIdPipeline,
-                httpRes?.data as operations.GetPipelineByIdPipeline,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getPipelineByIdDefaultApplicationJSONObject = plainToInstance(
+              res.getPipelineByIdDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPipelineByIdDefaultApplicationJSON,
-                httpRes?.data as operations.GetPipelineByIdDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -174,23 +180,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetPipelineByNumberResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetPipelineByNumberResponse =
+            new operations.GetPipelineByNumberResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pipeline = plainToInstance(
+              res.pipeline = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPipelineByNumberPipeline,
-                httpRes?.data as operations.GetPipelineByNumberPipeline,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getPipelineByNumberDefaultApplicationJSONObject = plainToInstance(
+              res.getPipelineByNumberDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPipelineByNumberDefaultApplicationJSON,
-                httpRes?.data as operations.GetPipelineByNumberDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -230,23 +239,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetPipelineConfigByIdResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetPipelineConfigByIdResponse =
+            new operations.GetPipelineConfigByIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pipelineConfig = plainToInstance(
+              res.pipelineConfig = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPipelineConfigByIdPipelineConfig,
-                httpRes?.data as operations.GetPipelineConfigByIdPipelineConfig,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getPipelineConfigByIdDefaultApplicationJSONObject = plainToInstance(
+              res.getPipelineConfigByIdDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPipelineConfigByIdDefaultApplicationJSON,
-                httpRes?.data as operations.GetPipelineConfigByIdDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -287,23 +299,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListMyPipelinesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListMyPipelinesResponse =
+            new operations.ListMyPipelinesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pipelineListResponse = plainToInstance(
+              res.pipelineListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListMyPipelinesPipelineListResponse,
-                httpRes?.data as operations.ListMyPipelinesPipelineListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listMyPipelinesDefaultApplicationJSONObject = plainToInstance(
+              res.listMyPipelinesDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListMyPipelinesDefaultApplicationJSON,
-                httpRes?.data as operations.ListMyPipelinesDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -344,23 +359,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListPipelinesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListPipelinesResponse =
+            new operations.ListPipelinesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pipelineListResponse = plainToInstance(
+              res.pipelineListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListPipelinesPipelineListResponse,
-                httpRes?.data as operations.ListPipelinesPipelineListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listPipelinesDefaultApplicationJSONObject = plainToInstance(
+              res.listPipelinesDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListPipelinesDefaultApplicationJSON,
-                httpRes?.data as operations.ListPipelinesDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -401,23 +419,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListPipelinesForProjectResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListPipelinesForProjectResponse =
+            new operations.ListPipelinesForProjectResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pipelineListResponse = plainToInstance(
+              res.pipelineListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListPipelinesForProjectPipelineListResponse,
-                httpRes?.data as operations.ListPipelinesForProjectPipelineListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listPipelinesForProjectDefaultApplicationJSONObject = plainToInstance(
+              res.listPipelinesForProjectDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListPipelinesForProjectDefaultApplicationJSON,
-                httpRes?.data as operations.ListPipelinesForProjectDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -458,23 +479,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListWorkflowsByPipelineIdResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListWorkflowsByPipelineIdResponse =
+            new operations.ListWorkflowsByPipelineIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.workflowListResponse = plainToInstance(
+              res.workflowListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListWorkflowsByPipelineIdWorkflowListResponse,
-                httpRes?.data as operations.ListWorkflowsByPipelineIdWorkflowListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = plainToInstance(
+              res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListWorkflowsByPipelineIdDefaultApplicationJSON,
-                httpRes?.data as operations.ListWorkflowsByPipelineIdDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -527,23 +551,26 @@ export class Pipeline {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.TriggerPipelineResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.TriggerPipelineResponse =
+            new operations.TriggerPipelineResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pipelineCreation = plainToInstance(
+              res.pipelineCreation = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.TriggerPipelinePipelineCreation,
-                httpRes?.data as operations.TriggerPipelinePipelineCreation,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.triggerPipelineDefaultApplicationJSONObject = plainToInstance(
+              res.triggerPipelineDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.TriggerPipelineDefaultApplicationJSON,
-                httpRes?.data as operations.TriggerPipelineDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

@@ -49,23 +49,26 @@ export class Workflow {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ApprovePendingApprovalJobByIdResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ApprovePendingApprovalJobByIdResponse =
+            new operations.ApprovePendingApprovalJobByIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 202:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.messageResponse = plainToInstance(
+              res.messageResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ApprovePendingApprovalJobByIdMessageResponse,
-                httpRes?.data as operations.ApprovePendingApprovalJobByIdMessageResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.approvePendingApprovalJobByIdDefaultApplicationJSONObject = plainToInstance(
+              res.approvePendingApprovalJobByIdDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON,
-                httpRes?.data as operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -105,23 +108,26 @@ export class Workflow {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CancelWorkflowResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CancelWorkflowResponse =
+            new operations.CancelWorkflowResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 202:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.messageResponse = plainToInstance(
+              res.messageResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CancelWorkflowMessageResponse,
-                httpRes?.data as operations.CancelWorkflowMessageResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.cancelWorkflowDefaultApplicationJSONObject = plainToInstance(
+              res.cancelWorkflowDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CancelWorkflowDefaultApplicationJSON,
-                httpRes?.data as operations.CancelWorkflowDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -161,23 +167,26 @@ export class Workflow {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetWorkflowByIdResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetWorkflowByIdResponse =
+            new operations.GetWorkflowByIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.workflow = plainToInstance(
+              res.workflow = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetWorkflowByIdWorkflow,
-                httpRes?.data as operations.GetWorkflowByIdWorkflow,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getWorkflowByIdDefaultApplicationJSONObject = plainToInstance(
+              res.getWorkflowByIdDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetWorkflowByIdDefaultApplicationJSON,
-                httpRes?.data as operations.GetWorkflowByIdDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -217,23 +226,26 @@ export class Workflow {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListWorkflowJobsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListWorkflowJobsResponse =
+            new operations.ListWorkflowJobsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.workflowJobListResponse = plainToInstance(
+              res.workflowJobListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListWorkflowJobsWorkflowJobListResponse,
-                httpRes?.data as operations.ListWorkflowJobsWorkflowJobListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listWorkflowJobsDefaultApplicationJSONObject = plainToInstance(
+              res.listWorkflowJobsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListWorkflowJobsDefaultApplicationJSON,
-                httpRes?.data as operations.ListWorkflowJobsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -286,23 +298,26 @@ export class Workflow {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RerunWorkflowResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.RerunWorkflowResponse =
+            new operations.RerunWorkflowResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 202:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.rerunWorkflow202ApplicationJSONObject = plainToInstance(
+              res.rerunWorkflow202ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.RerunWorkflow202ApplicationJSON,
-                httpRes?.data as operations.RerunWorkflow202ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.rerunWorkflowDefaultApplicationJSONObject = plainToInstance(
+              res.rerunWorkflowDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.RerunWorkflowDefaultApplicationJSON,
-                httpRes?.data as operations.RerunWorkflowDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

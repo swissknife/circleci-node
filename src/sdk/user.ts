@@ -50,19 +50,29 @@ export class User {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCollaborationsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCollaborationsResponse =
+            new operations.GetCollaborationsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.collaborations = httpRes?.data;
+              res.collaborations = [];
+              const resFieldDepth: number = utils.getResFieldDepth(res);
+              res.collaborations = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCollaborationsCollaboration,
+                resFieldDepth
+              );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCollaborationsDefaultApplicationJSONObject = plainToInstance(
+              res.getCollaborationsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCollaborationsDefaultApplicationJSON,
-                httpRes?.data as operations.GetCollaborationsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,23 +107,26 @@ export class User {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCurrentUserResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCurrentUserResponse =
+            new operations.GetCurrentUserResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.user = plainToInstance(
+              res.user = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCurrentUserUser,
-                httpRes?.data as operations.GetCurrentUserUser,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCurrentUserDefaultApplicationJSONObject = plainToInstance(
+              res.getCurrentUserDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCurrentUserDefaultApplicationJSON,
-                httpRes?.data as operations.GetCurrentUserDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -153,23 +166,26 @@ export class User {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetUserResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetUserResponse =
+            new operations.GetUserResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.user = plainToInstance(
+              res.user = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetUserUser,
-                httpRes?.data as operations.GetUserUser,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getUserDefaultApplicationJSONObject = plainToInstance(
+              res.getUserDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetUserDefaultApplicationJSON,
-                httpRes?.data as operations.GetUserDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

@@ -62,23 +62,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateCheckoutKeyResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateCheckoutKeyResponse =
+            new operations.CreateCheckoutKeyResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.checkoutKey = plainToInstance(
+              res.checkoutKey = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateCheckoutKeyCheckoutKey,
-                httpRes?.data as operations.CreateCheckoutKeyCheckoutKey,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createCheckoutKeyDefaultApplicationJSONObject = plainToInstance(
+              res.createCheckoutKeyDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateCheckoutKeyDefaultApplicationJSON,
-                httpRes?.data as operations.CreateCheckoutKeyDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -131,23 +134,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateEnvVarResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateEnvVarResponse =
+            new operations.CreateEnvVarResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 201:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.environmentVariablePair = plainToInstance(
+              res.environmentVariablePair = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateEnvVarEnvironmentVariablePair,
-                httpRes?.data as operations.CreateEnvVarEnvironmentVariablePair,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createEnvVarDefaultApplicationJSONObject = plainToInstance(
+              res.createEnvVarDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateEnvVarDefaultApplicationJSON,
-                httpRes?.data as operations.CreateEnvVarDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -187,23 +193,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DeleteCheckoutKeyResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DeleteCheckoutKeyResponse =
+            new operations.DeleteCheckoutKeyResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.messageResponse = plainToInstance(
+              res.messageResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.DeleteCheckoutKeyMessageResponse,
-                httpRes?.data as operations.DeleteCheckoutKeyMessageResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.deleteCheckoutKeyDefaultApplicationJSONObject = plainToInstance(
+              res.deleteCheckoutKeyDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.DeleteCheckoutKeyDefaultApplicationJSON,
-                httpRes?.data as operations.DeleteCheckoutKeyDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -243,23 +252,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DeleteEnvVarResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DeleteEnvVarResponse =
+            new operations.DeleteEnvVarResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.messageResponse = plainToInstance(
+              res.messageResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.DeleteEnvVarMessageResponse,
-                httpRes?.data as operations.DeleteEnvVarMessageResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.deleteEnvVarDefaultApplicationJSONObject = plainToInstance(
+              res.deleteEnvVarDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.DeleteEnvVarDefaultApplicationJSON,
-                httpRes?.data as operations.DeleteEnvVarDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -299,23 +311,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCheckoutKeyResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCheckoutKeyResponse =
+            new operations.GetCheckoutKeyResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.checkoutKey = plainToInstance(
+              res.checkoutKey = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCheckoutKeyCheckoutKey,
-                httpRes?.data as operations.GetCheckoutKeyCheckoutKey,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCheckoutKeyDefaultApplicationJSONObject = plainToInstance(
+              res.getCheckoutKeyDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCheckoutKeyDefaultApplicationJSON,
-                httpRes?.data as operations.GetCheckoutKeyDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -355,23 +370,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetEnvVarResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetEnvVarResponse =
+            new operations.GetEnvVarResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.environmentVariablePair = plainToInstance(
+              res.environmentVariablePair = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetEnvVarEnvironmentVariablePair,
-                httpRes?.data as operations.GetEnvVarEnvironmentVariablePair,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getEnvVarDefaultApplicationJSONObject = plainToInstance(
+              res.getEnvVarDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetEnvVarDefaultApplicationJSON,
-                httpRes?.data as operations.GetEnvVarDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -411,23 +429,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProjectBySlugResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProjectBySlugResponse =
+            new operations.GetProjectBySlugResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.project = plainToInstance(
+              res.project = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectBySlugProject,
-                httpRes?.data as operations.GetProjectBySlugProject,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProjectBySlugDefaultApplicationJSONObject = plainToInstance(
+              res.getProjectBySlugDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProjectBySlugDefaultApplicationJSON,
-                httpRes?.data as operations.GetProjectBySlugDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -467,23 +488,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListCheckoutKeysResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListCheckoutKeysResponse =
+            new operations.ListCheckoutKeysResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.checkoutKeyListResponse = plainToInstance(
+              res.checkoutKeyListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListCheckoutKeysCheckoutKeyListResponse,
-                httpRes?.data as operations.ListCheckoutKeysCheckoutKeyListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listCheckoutKeysDefaultApplicationJSONObject = plainToInstance(
+              res.listCheckoutKeysDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListCheckoutKeysDefaultApplicationJSON,
-                httpRes?.data as operations.ListCheckoutKeysDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -523,23 +547,26 @@ export class Project {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListEnvVarsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListEnvVarsResponse =
+            new operations.ListEnvVarsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.environmentVariableListResponse = plainToInstance(
+              res.environmentVariableListResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListEnvVarsEnvironmentVariableListResponse,
-                httpRes?.data as operations.ListEnvVarsEnvironmentVariableListResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           default:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listEnvVarsDefaultApplicationJSONObject = plainToInstance(
+              res.listEnvVarsDefaultApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListEnvVarsDefaultApplicationJSON,
-                httpRes?.data as operations.ListEnvVarsDefaultApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
