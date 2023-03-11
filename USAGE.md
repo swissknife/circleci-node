@@ -2,7 +2,7 @@
 ```typescript
 import {
   AddEnvironmentVariableToContextRequest,
-  AddEnvironmentVariableToContextResponse 
+  AddEnvironmentVariableToContextResponse
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
