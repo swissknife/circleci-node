@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetPipelineConfigByIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pipeline-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=pipeline-id",
+  })
   pipelineId: string;
 }
 
@@ -20,9 +21,9 @@ export class GetPipelineConfigByIdDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // GetPipelineConfigByIdPipelineConfig
-/** 
+/**
  * The configuration strings for the pipeline.
-**/
+ **/
 export class GetPipelineConfigByIdPipelineConfig extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "compiled" })

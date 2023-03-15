@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class ApprovePendingApprovalJobByIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=approval_request_id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=approval_request_id",
+  })
   approvalRequestId: string;
 
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
@@ -23,9 +24,9 @@ export class ApprovePendingApprovalJobByIdDefaultApplicationJSON extends Speakea
 }
 
 // ApprovePendingApprovalJobByIdMessageResponse
-/** 
+/**
  * message response
-**/
+ **/
 export class ApprovePendingApprovalJobByIdMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })

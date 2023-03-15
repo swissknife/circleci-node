@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class DeleteEnvVarPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=name" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=name",
+  })
   name: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -23,9 +26,9 @@ export class DeleteEnvVarDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // DeleteEnvVarMessageResponse
-/** 
+/**
  * message response
-**/
+ **/
 export class DeleteEnvVarMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })

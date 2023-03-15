@@ -1,7 +1,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Type } from "class-transformer";
 
-
 export class SchemeAPIKeyHeader extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "security, name=Circle-Token" })
   apiKey: string;
@@ -21,10 +20,14 @@ export class SchemeBasicAuth extends SpeakeasyBase {
 }
 
 export class Security extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header" })
+  @SpeakeasyMetadata({
+    data: "security, scheme=true;type=apiKey;subtype=header",
+  })
   apiKeyHeader?: SchemeAPIKeyHeader;
 
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=query" })
+  @SpeakeasyMetadata({
+    data: "security, scheme=true;type=apiKey;subtype=query",
+  })
   apiKeyQuery?: SchemeAPIKeyQuery;
 
   @SpeakeasyMetadata({ data: "security, scheme=true;type=http;subtype=basic" })

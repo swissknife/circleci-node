@@ -2,16 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class RerunWorkflowPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
   id: string;
 }
 
 // RerunWorkflowRerunWorkflowParameters
-/** 
+/**
  * The information you can supply when rerunning a workflow.
-**/
+ **/
 export class RerunWorkflowRerunWorkflowParameters extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "enable_ssh" })
@@ -45,9 +44,9 @@ export class RerunWorkflowDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // RerunWorkflow202ApplicationJSON
-/** 
+/**
  * A response to rerunning a workflow
-**/
+ **/
 export class RerunWorkflow202ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "workflow_id" })

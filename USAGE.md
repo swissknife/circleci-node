@@ -7,13 +7,12 @@ import {
 
 import { AxiosError } from "axios";
 import { SDK } from "circleci-v2-sdk";
-
 const sdk = new SDK({
   security: {
     apiKeyHeader: {
       apiKey: "YOUR_API_KEY_HERE",
     },
-  }
+  },
 });
     
 const req: AddEnvironmentVariableToContextRequest = {

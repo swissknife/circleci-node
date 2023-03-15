@@ -2,14 +2,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListMyPipelinesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
 export class ListMyPipelinesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=page-token",
+  })
   pageToken?: string;
 }
 
@@ -27,18 +30,18 @@ export class ListMyPipelinesDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum ListMyPipelinesPipelineListResponsePipelineErrorsTypeEnum {
-    Config = "config",
-    ConfigFetch = "config-fetch",
-    Timeout = "timeout",
-    Permission = "permission",
-    Other = "other",
-    Plan = "plan"
+  Config = "config",
+  ConfigFetch = "config-fetch",
+  Timeout = "timeout",
+  Permission = "permission",
+  Other = "other",
+  Plan = "plan",
 }
 
 // ListMyPipelinesPipelineListResponsePipelineErrors
-/** 
+/**
  * An error with a type and message.
-**/
+ **/
 export class ListMyPipelinesPipelineListResponsePipelineErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })
@@ -49,17 +52,17 @@ export class ListMyPipelinesPipelineListResponsePipelineErrors extends Speakeasy
   type: ListMyPipelinesPipelineListResponsePipelineErrorsTypeEnum;
 }
 export enum ListMyPipelinesPipelineListResponsePipelineStateEnum {
-    Created = "created",
-    Errored = "errored",
-    SetupPending = "setup-pending",
-    Setup = "setup",
-    Pending = "pending"
+  Created = "created",
+  Errored = "errored",
+  SetupPending = "setup-pending",
+  Setup = "setup",
+  Pending = "pending",
 }
 
 // ListMyPipelinesPipelineListResponsePipelineTriggerActor
-/** 
+/**
  * The user who triggered the Pipeline.
-**/
+ **/
 export class ListMyPipelinesPipelineListResponsePipelineTriggerActor extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "avatar_url" })
@@ -70,16 +73,16 @@ export class ListMyPipelinesPipelineListResponsePipelineTriggerActor extends Spe
   login: string;
 }
 export enum ListMyPipelinesPipelineListResponsePipelineTriggerTypeEnum {
-    ScheduledPipeline = "scheduled_pipeline",
-    Explicit = "explicit",
-    Api = "api",
-    Webhook = "webhook"
+  ScheduledPipeline = "scheduled_pipeline",
+  Explicit = "explicit",
+  Api = "api",
+  Webhook = "webhook",
 }
 
 // ListMyPipelinesPipelineListResponsePipelineTrigger
-/** 
+/**
  * A summary of the trigger.
-**/
+ **/
 export class ListMyPipelinesPipelineListResponsePipelineTrigger extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "actor" })
@@ -97,9 +100,9 @@ export class ListMyPipelinesPipelineListResponsePipelineTrigger extends Speakeas
 }
 
 // ListMyPipelinesPipelineListResponsePipelineVcsCommit
-/** 
+/**
  * The latest commit in the pipeline.
-**/
+ **/
 export class ListMyPipelinesPipelineListResponsePipelineVcsCommit extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "body" })
@@ -111,9 +114,9 @@ export class ListMyPipelinesPipelineListResponsePipelineVcsCommit extends Speake
 }
 
 // ListMyPipelinesPipelineListResponsePipelineVcs
-/** 
+/**
  * VCS information for the pipeline.
-**/
+ **/
 export class ListMyPipelinesPipelineListResponsePipelineVcs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })
@@ -154,16 +157,18 @@ export class ListMyPipelinesPipelineListResponsePipelineVcs extends SpeakeasyBas
 }
 
 // ListMyPipelinesPipelineListResponsePipeline
-/** 
+/**
  * A pipeline response.
-**/
+ **/
 export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created_at" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   createdAt: Date;
 
-  @SpeakeasyMetadata({ elemType: ListMyPipelinesPipelineListResponsePipelineErrors })
+  @SpeakeasyMetadata({
+    elemType: ListMyPipelinesPipelineListResponsePipelineErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => ListMyPipelinesPipelineListResponsePipelineErrors)
   errors: ListMyPipelinesPipelineListResponsePipelineErrors[];
@@ -205,9 +210,9 @@ export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
 }
 
 // ListMyPipelinesPipelineListResponse
-/** 
+/**
  * List of pipelines
-**/
+ **/
 export class ListMyPipelinesPipelineListResponse extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: ListMyPipelinesPipelineListResponsePipeline })
   @Expose({ name: "items" })

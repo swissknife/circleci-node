@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class ContinuePipelineRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "configuration" })
@@ -29,9 +28,9 @@ export class ContinuePipelineDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // ContinuePipelineMessageResponse
-/** 
+/**
  * message response
-**/
+ **/
 export class ContinuePipelineMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })

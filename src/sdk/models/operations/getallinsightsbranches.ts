@@ -2,14 +2,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetAllInsightsBranchesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
 export class GetAllInsightsBranchesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=workflow-name" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=workflow-name",
+  })
   workflowName?: string;
 }
 

@@ -3,14 +3,18 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum GetWebhooksScopeTypeEnum {
-    Project = "project"
+  Project = "project",
 }
 
 export class GetWebhooksQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=scope-id" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=scope-id",
+  })
   scopeId: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=scope-type" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=scope-type",
+  })
   scopeType: GetWebhooksScopeTypeEnum;
 }
 
@@ -25,14 +29,14 @@ export class GetWebhooksDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum GetWebhooks200ApplicationJSONWebhookEventsEnum {
-    WorkflowCompleted = "workflow-completed",
-    JobCompleted = "job-completed"
+  WorkflowCompleted = "workflow-completed",
+  JobCompleted = "job-completed",
 }
 
 // GetWebhooks200ApplicationJSONWebhookScope
-/** 
+/**
  * The scope in which the relevant events that will trigger webhooks
-**/
+ **/
 export class GetWebhooks200ApplicationJSONWebhookScope extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -85,9 +89,9 @@ export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
 }
 
 // GetWebhooks200ApplicationJSON
-/** 
+/**
  * A list of webhooks
-**/
+ **/
 export class GetWebhooks200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetWebhooks200ApplicationJSONWebhook })
   @Expose({ name: "items" })

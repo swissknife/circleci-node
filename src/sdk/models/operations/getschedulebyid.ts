@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetScheduleByIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=schedule-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=schedule-id",
+  })
   scheduleId: string;
 }
 
@@ -20,9 +21,9 @@ export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // GetScheduleByIdScheduleUser
-/** 
+/**
  * The attribution actor who will run the scheduled pipeline.
-**/
+ **/
 export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -37,33 +38,33 @@ export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
   name: string;
 }
 export enum GetScheduleByIdScheduleTimetable2DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum GetScheduleByIdScheduleTimetable2MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // GetScheduleByIdScheduleTimetable2
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -86,33 +87,33 @@ export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
   perHour: number;
 }
 export enum GetScheduleByIdScheduleTimetable1DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum GetScheduleByIdScheduleTimetable1MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // GetScheduleByIdScheduleTimetable1
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -136,9 +137,9 @@ export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
 }
 
 // GetScheduleByIdSchedule
-/** 
+/**
  * A schedule response
-**/
+ **/
 export class GetScheduleByIdSchedule extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "actor" })

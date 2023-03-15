@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class DeleteWebhookPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=webhook-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=webhook-id",
+  })
   webhookId: string;
 }
 
@@ -20,9 +21,9 @@ export class DeleteWebhookDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // DeleteWebhookMessageResponse
-/** 
+/**
  * message response
-**/
+ **/
 export class DeleteWebhookMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })

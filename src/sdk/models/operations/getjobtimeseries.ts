@@ -2,30 +2,41 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetJobTimeseriesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=workflow-name" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=workflow-name",
+  })
   workflowName: string;
 }
 export enum GetJobTimeseriesGranularityEnum {
-    Daily = "daily",
-    Hourly = "hourly"
+  Daily = "daily",
+  Hourly = "hourly",
 }
 
 export class GetJobTimeseriesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=branch",
+  })
   branch?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=end-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+  })
   endDate?: Date;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=granularity" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=granularity",
+  })
   granularity?: GetJobTimeseriesGranularityEnum;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=start-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+  })
   startDate?: Date;
 }
 
@@ -44,9 +55,9 @@ export class GetJobTimeseriesDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics
-/** 
+/**
  * Metrics relating to the duration of runs for a workflow.
-**/
+ **/
 export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "max" })
@@ -70,9 +81,9 @@ export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics exten
 }
 
 // GetJobTimeseries200ApplicationJSONItemsMetrics
-/** 
+/**
  * Metrics relating to a workflow's runs.
-**/
+ **/
 export class GetJobTimeseries200ApplicationJSONItemsMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "duration_metrics" })
@@ -131,9 +142,9 @@ export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
 }
 
 // GetJobTimeseries200ApplicationJSON
-/** 
+/**
  * Project level timeseries metrics response
-**/
+ **/
 export class GetJobTimeseries200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetJobTimeseries200ApplicationJSONItems })
   @Expose({ name: "items" })

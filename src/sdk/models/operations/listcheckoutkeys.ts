@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCheckoutKeysPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -19,8 +20,8 @@ export class ListCheckoutKeysDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnum {
-    DeployKey = "deploy-key",
-    GithubUserKey = "github-user-key"
+  DeployKey = "deploy-key",
+  GithubUserKey = "github-user-key",
 }
 
 export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends SpeakeasyBase {
@@ -47,7 +48,9 @@ export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends Speakeas
 }
 
 export class ListCheckoutKeysCheckoutKeyListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey })
+  @SpeakeasyMetadata({
+    elemType: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey,
+  })
   @Expose({ name: "items" })
   @Type(() => ListCheckoutKeysCheckoutKeyListResponseCheckoutKey)
   items: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey[];

@@ -3,21 +3,29 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum ListContextsOwnerTypeEnum {
-    Account = "account",
-    Organization = "organization"
+  Account = "account",
+  Organization = "organization",
 }
 
 export class ListContextsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-id" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=owner-id",
+  })
   ownerId?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-slug" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=owner-slug",
+  })
   ownerSlug?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-type" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=owner-type",
+  })
   ownerType?: ListContextsOwnerTypeEnum;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=page-token",
+  })
   pageToken?: string;
 }
 

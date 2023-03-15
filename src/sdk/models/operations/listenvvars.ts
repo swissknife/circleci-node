@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class ListEnvVarsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -30,7 +31,9 @@ export class ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair e
 }
 
 export class ListEnvVarsEnvironmentVariableListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair })
+  @SpeakeasyMetadata({
+    elemType: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair,
+  })
   @Expose({ name: "items" })
   @Type(() => ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair)
   items: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariablePair[];

@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetJobDetailsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=job-number" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=job-number",
+  })
   jobNumber: any;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -23,9 +26,9 @@ export class GetJobDetailsDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsContexts
-/** 
+/**
  * Information about the context.
-**/
+ **/
 export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -33,9 +36,9 @@ export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsExecutor
-/** 
+/**
  * Information about executor used for a job.
-**/
+ **/
 export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "resource_class" })
@@ -47,9 +50,9 @@ export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsLatestWorkflow
-/** 
+/**
  * Info about the latest workflow the job was a part of.
-**/
+ **/
 export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -61,9 +64,9 @@ export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsMessages
-/** 
+/**
  * Message from CircleCI execution platform.
-**/
+ **/
 export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })
@@ -79,9 +82,9 @@ export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsOrganization
-/** 
+/**
  * Information about an organization.
-**/
+ **/
 export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -89,9 +92,9 @@ export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsParallelRuns
-/** 
+/**
  * Info about a status of the parallel run.
-**/
+ **/
 export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "index" })
@@ -103,9 +106,9 @@ export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsPipeline
-/** 
+/**
  * Info about a pipeline the job is a part of.
-**/
+ **/
 export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -113,9 +116,9 @@ export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
 }
 
 // GetJobDetailsJobDetailsProject
-/** 
+/**
  * Information about a project.
-**/
+ **/
 export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "external_url" })
@@ -134,26 +137,26 @@ export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
   slug: string;
 }
 export enum GetJobDetailsJobDetailsStatusEnum {
-    Success = "success",
-    Running = "running",
-    NotRun = "not_run",
-    Failed = "failed",
-    Retried = "retried",
-    Queued = "queued",
-    NotRunning = "not_running",
-    InfrastructureFail = "infrastructure_fail",
-    Timedout = "timedout",
-    OnHold = "on_hold",
-    TerminatedUnknown = "terminated-unknown",
-    Blocked = "blocked",
-    Canceled = "canceled",
-    Unauthorized = "unauthorized"
+  Success = "success",
+  Running = "running",
+  NotRun = "not_run",
+  Failed = "failed",
+  Retried = "retried",
+  Queued = "queued",
+  NotRunning = "not_running",
+  InfrastructureFail = "infrastructure_fail",
+  Timedout = "timedout",
+  OnHold = "on_hold",
+  TerminatedUnknown = "terminated-unknown",
+  Blocked = "blocked",
+  Canceled = "canceled",
+  Unauthorized = "unauthorized",
 }
 
 // GetJobDetailsJobDetails
-/** 
+/**
  * Job Details
-**/
+ **/
 export class GetJobDetailsJobDetails extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsContexts })
   @Expose({ name: "contexts" })

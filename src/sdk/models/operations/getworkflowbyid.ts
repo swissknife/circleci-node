@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetWorkflowByIdPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
   id: string;
@@ -19,24 +18,24 @@ export class GetWorkflowByIdDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum GetWorkflowByIdWorkflowStatusEnum {
-    Success = "success",
-    Running = "running",
-    NotRun = "not_run",
-    Failed = "failed",
-    Error = "error",
-    Failing = "failing",
-    OnHold = "on_hold",
-    Canceled = "canceled",
-    Unauthorized = "unauthorized"
+  Success = "success",
+  Running = "running",
+  NotRun = "not_run",
+  Failed = "failed",
+  Error = "error",
+  Failing = "failing",
+  OnHold = "on_hold",
+  Canceled = "canceled",
+  Unauthorized = "unauthorized",
 }
 export enum GetWorkflowByIdWorkflowTagEnum {
-    Setup = "setup"
+  Setup = "setup",
 }
 
 // GetWorkflowByIdWorkflow
-/** 
+/**
  * A workflow
-**/
+ **/
 export class GetWorkflowByIdWorkflow extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canceled_by" })

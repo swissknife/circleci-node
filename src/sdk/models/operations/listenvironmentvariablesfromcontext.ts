@@ -2,14 +2,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListEnvironmentVariablesFromContextPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=context-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=context-id",
+  })
   contextId: string;
 }
 
 export class ListEnvironmentVariablesFromContextQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=page-token",
+  })
   pageToken?: string;
 }
 
@@ -48,7 +51,9 @@ export class ListEnvironmentVariablesFromContext200ApplicationJSONItems extends 
 }
 
 export class ListEnvironmentVariablesFromContext200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems })
+  @SpeakeasyMetadata({
+    elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems,
+  })
   @Expose({ name: "items" })
   @Type(() => ListEnvironmentVariablesFromContext200ApplicationJSONItems)
   items: ListEnvironmentVariablesFromContext200ApplicationJSONItems[];

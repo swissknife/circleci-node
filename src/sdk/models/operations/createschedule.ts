@@ -2,43 +2,44 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateSchedulePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 export enum CreateScheduleCreateScheduleParametersAttributionActorEnum {
-    Current = "current",
-    System = "system"
+  Current = "current",
+  System = "system",
 }
 export enum CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum CreateScheduleCreateScheduleParametersTimetable2MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // CreateScheduleCreateScheduleParametersTimetable2
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class CreateScheduleCreateScheduleParametersTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -61,33 +62,33 @@ export class CreateScheduleCreateScheduleParametersTimetable2 extends SpeakeasyB
   perHour: number;
 }
 export enum CreateScheduleCreateScheduleParametersTimetable1DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum CreateScheduleCreateScheduleParametersTimetable1MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // CreateScheduleCreateScheduleParametersTimetable1
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class CreateScheduleCreateScheduleParametersTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -111,9 +112,9 @@ export class CreateScheduleCreateScheduleParametersTimetable1 extends SpeakeasyB
 }
 
 // CreateScheduleCreateScheduleParameters
-/** 
+/**
  * The parameters for a create schedule request
-**/
+ **/
 export class CreateScheduleCreateScheduleParameters extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attribution-actor" })
@@ -151,9 +152,9 @@ export class CreateScheduleDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // CreateScheduleScheduleUser
-/** 
+/**
  * The attribution actor who will run the scheduled pipeline.
-**/
+ **/
 export class CreateScheduleScheduleUser extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -168,33 +169,33 @@ export class CreateScheduleScheduleUser extends SpeakeasyBase {
   name: string;
 }
 export enum CreateScheduleScheduleTimetable2DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum CreateScheduleScheduleTimetable2MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // CreateScheduleScheduleTimetable2
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class CreateScheduleScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -217,33 +218,33 @@ export class CreateScheduleScheduleTimetable2 extends SpeakeasyBase {
   perHour: number;
 }
 export enum CreateScheduleScheduleTimetable1DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum CreateScheduleScheduleTimetable1MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // CreateScheduleScheduleTimetable1
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class CreateScheduleScheduleTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -267,9 +268,9 @@ export class CreateScheduleScheduleTimetable1 extends SpeakeasyBase {
 }
 
 // CreateScheduleSchedule
-/** 
+/**
  * A schedule response
-**/
+ **/
 export class CreateScheduleSchedule extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "actor" })

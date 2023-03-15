@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum CreateContextRequestBodyOwner2TypeEnum {
-    Organization = "organization"
+  Organization = "organization",
 }
 
 export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
@@ -16,8 +16,8 @@ export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
   type?: CreateContextRequestBodyOwner2TypeEnum;
 }
 export enum CreateContextRequestBodyOwner1TypeEnum {
-    Account = "account",
-    Organization = "organization"
+  Account = "account",
+  Organization = "organization",
 }
 
 export class CreateContextRequestBodyOwner1 extends SpeakeasyBase {
