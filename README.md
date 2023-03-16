@@ -34,7 +34,7 @@ const sdk = new SDK({
     },
   },
 });
-    
+
 const req: AddEnvironmentVariableToContextRequest = {
   pathParams: {
     contextId: "unde",
