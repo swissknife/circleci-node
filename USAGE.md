@@ -17,11 +17,11 @@ const sdk = new SDK({
 
 const req: AddEnvironmentVariableToContextRequest = {
   pathParams: {
-    contextId: "unde",
-    envVarName: "deserunt",
+    contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+    envVarName: "est",
   },
   request: {
-    value: "porro",
+    value: "some-secret-value",
   },
 };
 
