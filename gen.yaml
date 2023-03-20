@@ -6,8 +6,8 @@ management:
 generation:
   baseServerUrl: https://circleci.com/api/v2/
   telemetryEnabled: false
-  sdkClassName: SDK
-  sdkFlattening: false
+  sdkClassName: circleci
+  sdkFlattening: true
 typescript:
   version: 3.8.2
   author: Speakeasy API
