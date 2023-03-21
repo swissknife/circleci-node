@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class DeleteCheckoutKeyPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=fingerprint" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=fingerprint",
+  })
   fingerprint: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -23,9 +26,9 @@ export class DeleteCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // DeleteCheckoutKeyMessageResponse
-/** 
+/**
  * message response
-**/
+ **/
 export class DeleteCheckoutKeyMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })

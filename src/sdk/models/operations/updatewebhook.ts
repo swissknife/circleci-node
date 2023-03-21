@@ -2,20 +2,21 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class UpdateWebhookPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=webhook-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=webhook-id",
+  })
   webhookId: string;
 }
 export enum UpdateWebhookRequestBodyEventsEnum {
-    WorkflowCompleted = "workflow-completed",
-    JobCompleted = "job-completed"
+  WorkflowCompleted = "workflow-completed",
+  JobCompleted = "job-completed",
 }
 
 // UpdateWebhookRequestBody
-/** 
+/**
  * The parameters for an update webhook request
-**/
+ **/
 export class UpdateWebhookRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "events" })
@@ -52,14 +53,14 @@ export class UpdateWebhookDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum UpdateWebhookWebhookEventsEnum {
-    WorkflowCompleted = "workflow-completed",
-    JobCompleted = "job-completed"
+  WorkflowCompleted = "workflow-completed",
+  JobCompleted = "job-completed",
 }
 
 // UpdateWebhookWebhookScope
-/** 
+/**
  * The scope in which the relevant events that will trigger webhooks
-**/
+ **/
 export class UpdateWebhookWebhookScope extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

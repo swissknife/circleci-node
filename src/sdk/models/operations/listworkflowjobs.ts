@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListWorkflowJobsPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
   id: string;
@@ -19,30 +18,30 @@ export class ListWorkflowJobsDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum ListWorkflowJobsWorkflowJobListResponseJobStatusEnum {
-    Success = "success",
-    Running = "running",
-    NotRun = "not_run",
-    Failed = "failed",
-    Retried = "retried",
-    Queued = "queued",
-    NotRunning = "not_running",
-    InfrastructureFail = "infrastructure_fail",
-    Timedout = "timedout",
-    OnHold = "on_hold",
-    TerminatedUnknown = "terminated-unknown",
-    Blocked = "blocked",
-    Canceled = "canceled",
-    Unauthorized = "unauthorized"
+  Success = "success",
+  Running = "running",
+  NotRun = "not_run",
+  Failed = "failed",
+  Retried = "retried",
+  Queued = "queued",
+  NotRunning = "not_running",
+  InfrastructureFail = "infrastructure_fail",
+  Timedout = "timedout",
+  OnHold = "on_hold",
+  TerminatedUnknown = "terminated-unknown",
+  Blocked = "blocked",
+  Canceled = "canceled",
+  Unauthorized = "unauthorized",
 }
 export enum ListWorkflowJobsWorkflowJobListResponseJobTypeEnum {
-    Build = "build",
-    Approval = "approval"
+  Build = "build",
+  Approval = "approval",
 }
 
 // ListWorkflowJobsWorkflowJobListResponseJob
-/** 
+/**
  * Job
-**/
+ **/
 export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "approval_request_id" })

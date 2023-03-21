@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetPipelineByIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pipeline-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=pipeline-id",
+  })
   pipelineId: string;
 }
 
@@ -19,18 +20,18 @@ export class GetPipelineByIdDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum GetPipelineByIdPipelineErrorsTypeEnum {
-    Config = "config",
-    ConfigFetch = "config-fetch",
-    Timeout = "timeout",
-    Permission = "permission",
-    Other = "other",
-    Plan = "plan"
+  Config = "config",
+  ConfigFetch = "config-fetch",
+  Timeout = "timeout",
+  Permission = "permission",
+  Other = "other",
+  Plan = "plan",
 }
 
 // GetPipelineByIdPipelineErrors
-/** 
+/**
  * An error with a type and message.
-**/
+ **/
 export class GetPipelineByIdPipelineErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })
@@ -41,17 +42,17 @@ export class GetPipelineByIdPipelineErrors extends SpeakeasyBase {
   type: GetPipelineByIdPipelineErrorsTypeEnum;
 }
 export enum GetPipelineByIdPipelineStateEnum {
-    Created = "created",
-    Errored = "errored",
-    SetupPending = "setup-pending",
-    Setup = "setup",
-    Pending = "pending"
+  Created = "created",
+  Errored = "errored",
+  SetupPending = "setup-pending",
+  Setup = "setup",
+  Pending = "pending",
 }
 
 // GetPipelineByIdPipelineTriggerActor
-/** 
+/**
  * The user who triggered the Pipeline.
-**/
+ **/
 export class GetPipelineByIdPipelineTriggerActor extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "avatar_url" })
@@ -62,16 +63,16 @@ export class GetPipelineByIdPipelineTriggerActor extends SpeakeasyBase {
   login: string;
 }
 export enum GetPipelineByIdPipelineTriggerTypeEnum {
-    ScheduledPipeline = "scheduled_pipeline",
-    Explicit = "explicit",
-    Api = "api",
-    Webhook = "webhook"
+  ScheduledPipeline = "scheduled_pipeline",
+  Explicit = "explicit",
+  Api = "api",
+  Webhook = "webhook",
 }
 
 // GetPipelineByIdPipelineTrigger
-/** 
+/**
  * A summary of the trigger.
-**/
+ **/
 export class GetPipelineByIdPipelineTrigger extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "actor" })
@@ -89,9 +90,9 @@ export class GetPipelineByIdPipelineTrigger extends SpeakeasyBase {
 }
 
 // GetPipelineByIdPipelineVcsCommit
-/** 
+/**
  * The latest commit in the pipeline.
-**/
+ **/
 export class GetPipelineByIdPipelineVcsCommit extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "body" })
@@ -103,9 +104,9 @@ export class GetPipelineByIdPipelineVcsCommit extends SpeakeasyBase {
 }
 
 // GetPipelineByIdPipelineVcs
-/** 
+/**
  * VCS information for the pipeline.
-**/
+ **/
 export class GetPipelineByIdPipelineVcs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })
@@ -146,9 +147,9 @@ export class GetPipelineByIdPipelineVcs extends SpeakeasyBase {
 }
 
 // GetPipelineByIdPipeline
-/** 
+/**
  * A pipeline response.
-**/
+ **/
 export class GetPipelineByIdPipeline extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created_at" })

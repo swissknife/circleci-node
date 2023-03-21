@@ -2,27 +2,26 @@
 ```typescript
 import {
   AddEnvironmentVariableToContextRequest,
-  AddEnvironmentVariableToContextResponse 
+  AddEnvironmentVariableToContextResponse
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
 import { SDK } from "circleci-v2-sdk";
-
 const sdk = new SDK({
   security: {
     apiKeyHeader: {
       apiKey: "YOUR_API_KEY_HERE",
     },
-  }
+  },
 });
-    
+
 const req: AddEnvironmentVariableToContextRequest = {
   pathParams: {
-    contextId: "unde",
-    envVarName: "deserunt",
+    contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+    envVarName: "est",
   },
   request: {
-    value: "porro",
+    value: "some-secret-value",
   },
 };
 

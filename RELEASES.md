@@ -143,3 +143,84 @@ Based on:
 - Speakeasy CLI 1.8.5 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v3.8.2] https://www.npmjs.com/package/circleci-v2-sdk/v/3.8.2 - .
+
+
+## 2023-03-08 00:55:45
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.8.6 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.8.3] https://www.npmjs.com/package/circleci-v2-sdk/v/3.8.3 - .
+
+## 2023-03-09 00:55:37
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.8.7 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.8.4] https://www.npmjs.com/package/circleci-v2-sdk/v/3.8.4 - .
+
+## 2023-03-10 00:54:30
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.9.1 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.9.0] https://www.npmjs.com/package/circleci-v2-sdk/v/3.9.0 - .
+
+## 2023-03-11 00:47:12
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.9.2 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.9.1] https://www.npmjs.com/package/circleci-v2-sdk/v/3.9.1 - .
+
+## 2023-03-14 00:43:38
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.9.2 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.9.2] https://www.npmjs.com/package/circleci-v2-sdk/v/3.9.2 - .
+
+## 2023-03-15 00:51:59
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.11.0 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.10.0] https://www.npmjs.com/package/circleci-v2-sdk/v/3.10.0 - .
+
+## 2023-03-16 00:53:36
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.12.0 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.11.0] https://www.npmjs.com/package/circleci-v2-sdk/v/3.11.0 - .
+
+## 2023-03-17 00:52:03
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.12.0 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.11.1] https://www.npmjs.com/package/circleci-v2-sdk/v/3.11.1 - .
+
+## 2023-03-18 00:50:30
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.12.3 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.11.2] https://www.npmjs.com/package/circleci-v2-sdk/v/3.11.2 - .
+
+## 2023-03-21 00:47:22
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.12.4 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.11.3] https://www.npmjs.com/package/circleci-v2-sdk/v/3.11.3 - .

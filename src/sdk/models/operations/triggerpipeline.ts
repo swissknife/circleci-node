@@ -2,16 +2,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class TriggerPipelinePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
 // TriggerPipelineTriggerPipelineParameters
-/** 
+/**
  * The information you can supply when triggering a pipeline.
-**/
+ **/
 export class TriggerPipelineTriggerPipelineParameters extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })
@@ -40,17 +41,17 @@ export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum TriggerPipelinePipelineCreationStateEnum {
-    Created = "created",
-    Errored = "errored",
-    SetupPending = "setup-pending",
-    Setup = "setup",
-    Pending = "pending"
+  Created = "created",
+  Errored = "errored",
+  SetupPending = "setup-pending",
+  Setup = "setup",
+  Pending = "pending",
 }
 
 // TriggerPipelinePipelineCreation
-/** 
+/**
  * A pipeline creation response.
-**/
+ **/
 export class TriggerPipelinePipelineCreation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created_at" })

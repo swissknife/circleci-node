@@ -2,14 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateCheckoutKeyPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 export enum CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum {
-    UserKey = "user-key",
-    DeployKey = "deploy-key"
+  UserKey = "user-key",
+  DeployKey = "deploy-key",
 }
 
 export class CreateCheckoutKeyCheckoutKeyInput extends SpeakeasyBase {
@@ -32,8 +33,8 @@ export class CreateCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum {
-    DeployKey = "deploy-key",
-    GithubUserKey = "github-user-key"
+  DeployKey = "deploy-key",
+  GithubUserKey = "github-user-key",
 }
 
 export class CreateCheckoutKeyCheckoutKey extends SpeakeasyBase {

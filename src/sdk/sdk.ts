@@ -11,21 +11,16 @@ import { Webhook } from "./webhook";
 import { Workflow } from "./workflow";
 import axios, { AxiosInstance } from "axios";
 
-export const ServerList = [
-	"https://circleci.com/api/v2",
-] as const;
-
-
+export const ServerList = ["https://circleci.com/api/v2"] as const;
 
 export type SDKProps = {
-  defaultClient?: AxiosInstance;
-
   security?: shared.Security;
-
+  defaultClient?: AxiosInstance;
   serverUrl?: string;
-}
+};
 
-/* SDK Documentation: This describes the resources that make up the CircleCI API v2.*/
+/* SDK Documentation: This describes the resources that make up the CircleCI API v2.
+ */
 export class SDK {
   public context: Context;
   public insights: Insights;
@@ -41,14 +36,16 @@ export class SDK {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "3.8.2";
-  private _genVersion = "1.8.5";
+  private _sdkVersion = "3.11.3";
+  private _genVersion = "1.12.4";
+  private _globals: any;
 
-  constructor(props: SDKProps) {
-    this._serverURL = props.serverUrl ?? ServerList[0];
+  constructor(props?: SDKProps) {
+    this._serverURL = props?.serverUrl ?? ServerList[0];
 
-    this._defaultClient = props.defaultClient ?? axios.create({ baseURL: this._serverURL });
-    if (props.security) {
+    this._defaultClient =
+      props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
+    if (props?.security) {
       let security: shared.Security = props.security;
       if (!(props.security instanceof utils.SpeakeasyBase))
         security = new shared.Security(props.security);
@@ -59,7 +56,7 @@ export class SDK {
     } else {
       this._securityClient = this._defaultClient;
     }
-    
+
     this.context = new Context(
       this._defaultClient,
       this._securityClient,
@@ -68,7 +65,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.insights = new Insights(
       this._defaultClient,
       this._securityClient,
@@ -77,7 +74,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.job = new Job(
       this._defaultClient,
       this._securityClient,
@@ -86,7 +83,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.pipeline = new Pipeline(
       this._defaultClient,
       this._securityClient,
@@ -95,7 +92,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.project = new Project(
       this._defaultClient,
       this._securityClient,
@@ -104,7 +101,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.schedule = new Schedule(
       this._defaultClient,
       this._securityClient,
@@ -113,7 +110,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.user = new User(
       this._defaultClient,
       this._securityClient,
@@ -122,7 +119,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.webhook = new Webhook(
       this._defaultClient,
       this._securityClient,
@@ -131,7 +128,7 @@ export class SDK {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.workflow = new Workflow(
       this._defaultClient,
       this._securityClient,
@@ -141,5 +138,4 @@ export class SDK {
       this._genVersion
     );
   }
-  
 }

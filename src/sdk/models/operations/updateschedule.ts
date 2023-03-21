@@ -2,43 +2,44 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class UpdateSchedulePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=schedule-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=schedule-id",
+  })
   scheduleId: string;
 }
 export enum UpdateScheduleUpdateScheduleParametersAttributionActorEnum {
-    Current = "current",
-    System = "system"
+  Current = "current",
+  System = "system",
 }
 export enum UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // UpdateScheduleUpdateScheduleParametersTimetable
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class UpdateScheduleUpdateScheduleParametersTimetable extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -62,9 +63,9 @@ export class UpdateScheduleUpdateScheduleParametersTimetable extends SpeakeasyBa
 }
 
 // UpdateScheduleUpdateScheduleParameters
-/** 
+/**
  * The parameters for an update schedule request
-**/
+ **/
 export class UpdateScheduleUpdateScheduleParameters extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attribution-actor" })
@@ -103,9 +104,9 @@ export class UpdateScheduleDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // UpdateScheduleScheduleUser
-/** 
+/**
  * The attribution actor who will run the scheduled pipeline.
-**/
+ **/
 export class UpdateScheduleScheduleUser extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -120,33 +121,33 @@ export class UpdateScheduleScheduleUser extends SpeakeasyBase {
   name: string;
 }
 export enum UpdateScheduleScheduleTimetable2DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum UpdateScheduleScheduleTimetable2MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // UpdateScheduleScheduleTimetable2
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class UpdateScheduleScheduleTimetable2 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -169,33 +170,33 @@ export class UpdateScheduleScheduleTimetable2 extends SpeakeasyBase {
   perHour: number;
 }
 export enum UpdateScheduleScheduleTimetable1DaysOfWeekEnum {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI"
+  Tue = "TUE",
+  Sat = "SAT",
+  Sun = "SUN",
+  Mon = "MON",
+  Thu = "THU",
+  Wed = "WED",
+  Fri = "FRI",
 }
 export enum UpdateScheduleScheduleTimetable1MonthsEnum {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL"
+  Mar = "MAR",
+  Nov = "NOV",
+  Dec = "DEC",
+  Jun = "JUN",
+  May = "MAY",
+  Oct = "OCT",
+  Feb = "FEB",
+  Apr = "APR",
+  Sep = "SEP",
+  Aug = "AUG",
+  Jan = "JAN",
+  Jul = "JUL",
 }
 
 // UpdateScheduleScheduleTimetable1
-/** 
+/**
  * Timetable that specifies when a schedule triggers.
-**/
+ **/
 export class UpdateScheduleScheduleTimetable1 extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-month" })
@@ -219,9 +220,9 @@ export class UpdateScheduleScheduleTimetable1 extends SpeakeasyBase {
 }
 
 // UpdateScheduleSchedule
-/** 
+/**
  * A schedule response
-**/
+ **/
 export class UpdateScheduleSchedule extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "actor" })

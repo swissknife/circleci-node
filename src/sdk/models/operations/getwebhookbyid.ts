@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetWebhookByIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=webhook-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=webhook-id",
+  })
   webhookId: string;
 }
 
@@ -19,14 +20,14 @@ export class GetWebhookByIdDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum GetWebhookByIdWebhookEventsEnum {
-    WorkflowCompleted = "workflow-completed",
-    JobCompleted = "job-completed"
+  WorkflowCompleted = "workflow-completed",
+  JobCompleted = "job-completed",
 }
 
 // GetWebhookByIdWebhookScope
-/** 
+/**
  * The scope in which the relevant events that will trigger webhooks
-**/
+ **/
 export class GetWebhookByIdWebhookScope extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

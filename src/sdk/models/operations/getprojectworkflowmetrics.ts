@@ -2,30 +2,39 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetProjectWorkflowMetricsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 export enum GetProjectWorkflowMetricsReportingWindowEnum {
-    Last7Days = "last-7-days",
-    Last90Days = "last-90-days",
-    Last24Hours = "last-24-hours",
-    Last30Days = "last-30-days",
-    Last60Days = "last-60-days"
+  Last7Days = "last-7-days",
+  Last90Days = "last-90-days",
+  Last24Hours = "last-24-hours",
+  Last30Days = "last-30-days",
+  Last60Days = "last-60-days",
 }
 
 export class GetProjectWorkflowMetricsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=all-branches" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=all-branches",
+  })
   allBranches?: boolean;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=branch",
+  })
   branch?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=page-token",
+  })
   pageToken?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=reporting-window",
+  })
   reportingWindow?: GetProjectWorkflowMetricsReportingWindowEnum;
 }
 
@@ -44,9 +53,9 @@ export class GetProjectWorkflowMetricsDefaultApplicationJSON extends SpeakeasyBa
 }
 
 // GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics
-/** 
+/**
  * Metrics relating to the duration of runs for a workflow.
-**/
+ **/
 export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "max" })
@@ -74,13 +83,15 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetr
 }
 
 // GetProjectWorkflowMetrics200ApplicationJSONItemsMetrics
-/** 
+/**
  * Metrics relating to a workflow's runs.
-**/
+ **/
 export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "duration_metrics" })
-  @Type(() => GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics)
+  @Type(
+    () => GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics
+  )
   durationMetrics: GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics;
 
   @SpeakeasyMetadata()
@@ -138,11 +149,13 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItems extends SpeakeasyB
 }
 
 // GetProjectWorkflowMetrics200ApplicationJSON
-/** 
+/**
  * Paginated workflow summary metrics.
-**/
+ **/
 export class GetProjectWorkflowMetrics200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetProjectWorkflowMetrics200ApplicationJSONItems })
+  @SpeakeasyMetadata({
+    elemType: GetProjectWorkflowMetrics200ApplicationJSONItems,
+  })
   @Expose({ name: "items" })
   @Type(() => GetProjectWorkflowMetrics200ApplicationJSONItems)
   items: GetProjectWorkflowMetrics200ApplicationJSONItems[];

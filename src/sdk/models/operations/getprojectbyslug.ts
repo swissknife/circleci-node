@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetProjectBySlugPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -19,15 +20,15 @@ export class GetProjectBySlugDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum GetProjectBySlugProjectVcsInfoProviderEnum {
-    Bitbucket = "Bitbucket",
-    CircleCI = "CircleCI",
-    GitHub = "GitHub"
+  Bitbucket = "Bitbucket",
+  CircleCI = "CircleCI",
+  GitHub = "GitHub",
 }
 
 // GetProjectBySlugProjectVcsInfo
-/** 
+/**
  * Information about the VCS that hosts the project source code.
-**/
+ **/
 export class GetProjectBySlugProjectVcsInfo extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "default_branch" })
@@ -43,9 +44,9 @@ export class GetProjectBySlugProjectVcsInfo extends SpeakeasyBase {
 }
 
 // GetProjectBySlugProject
-/** 
+/**
  * NOTE: The definition of Project is subject to change.
-**/
+ **/
 export class GetProjectBySlugProject extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

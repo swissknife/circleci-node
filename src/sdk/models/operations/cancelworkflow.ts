@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class CancelWorkflowPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
   id: string;
@@ -20,9 +19,9 @@ export class CancelWorkflowDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // CancelWorkflowMessageResponse
-/** 
+/**
  * message response
-**/
+ **/
 export class CancelWorkflowMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })

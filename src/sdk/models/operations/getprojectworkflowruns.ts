@@ -2,29 +2,42 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetProjectWorkflowRunsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=workflow-name" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=workflow-name",
+  })
   workflowName: string;
 }
 
 export class GetProjectWorkflowRunsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=all-branches" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=all-branches",
+  })
   allBranches?: boolean;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=branch",
+  })
   branch?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=end-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+  })
   endDate?: Date;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=page-token",
+  })
   pageToken?: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=start-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+  })
   startDate?: Date;
 }
 
@@ -42,11 +55,11 @@ export class GetProjectWorkflowRunsDefaultApplicationJSON extends SpeakeasyBase 
   message?: string;
 }
 export enum GetProjectWorkflowRuns200ApplicationJSONItemsStatusEnum {
-    Success = "success",
-    Failed = "failed",
-    Error = "error",
-    Canceled = "canceled",
-    Unauthorized = "unauthorized"
+  Success = "success",
+  Failed = "failed",
+  Error = "error",
+  Canceled = "canceled",
+  Unauthorized = "unauthorized",
 }
 
 export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase {
@@ -82,11 +95,13 @@ export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase
 }
 
 // GetProjectWorkflowRuns200ApplicationJSON
-/** 
+/**
  * Paginated recent workflow runs.
-**/
+ **/
 export class GetProjectWorkflowRuns200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetProjectWorkflowRuns200ApplicationJSONItems })
+  @SpeakeasyMetadata({
+    elemType: GetProjectWorkflowRuns200ApplicationJSONItems,
+  })
   @Expose({ name: "items" })
   @Type(() => GetProjectWorkflowRuns200ApplicationJSONItems)
   items: GetProjectWorkflowRuns200ApplicationJSONItems[];

@@ -2,14 +2,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListWorkflowsByPipelineIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pipeline-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=pipeline-id",
+  })
   pipelineId: string;
 }
 
 export class ListWorkflowsByPipelineIdQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=page-token",
+  })
   pageToken?: string;
 }
 
@@ -27,24 +30,24 @@ export class ListWorkflowsByPipelineIdDefaultApplicationJSON extends SpeakeasyBa
   message?: string;
 }
 export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum {
-    Success = "success",
-    Running = "running",
-    NotRun = "not_run",
-    Failed = "failed",
-    Error = "error",
-    Failing = "failing",
-    OnHold = "on_hold",
-    Canceled = "canceled",
-    Unauthorized = "unauthorized"
+  Success = "success",
+  Running = "running",
+  NotRun = "not_run",
+  Failed = "failed",
+  Error = "error",
+  Failing = "failing",
+  OnHold = "on_hold",
+  Canceled = "canceled",
+  Unauthorized = "unauthorized",
 }
 export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTagEnum {
-    Setup = "setup"
+  Setup = "setup",
 }
 
 // ListWorkflowsByPipelineIdWorkflowListResponseWorkflow
-/** 
+/**
  * A workflow
-**/
+ **/
 export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canceled_by" })
@@ -98,11 +101,13 @@ export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends Speak
 }
 
 // ListWorkflowsByPipelineIdWorkflowListResponse
-/** 
+/**
  * A list of workflows and associated pagination token.
-**/
+ **/
 export class ListWorkflowsByPipelineIdWorkflowListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListWorkflowsByPipelineIdWorkflowListResponseWorkflow })
+  @SpeakeasyMetadata({
+    elemType: ListWorkflowsByPipelineIdWorkflowListResponseWorkflow,
+  })
   @Expose({ name: "items" })
   @Type(() => ListWorkflowsByPipelineIdWorkflowListResponseWorkflow)
   items: ListWorkflowsByPipelineIdWorkflowListResponseWorkflow[];

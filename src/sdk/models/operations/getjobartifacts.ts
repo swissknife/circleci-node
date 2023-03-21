@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetJobArtifactsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=job-number" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=job-number",
+  })
   jobNumber: any;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -23,9 +26,9 @@ export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // GetJobArtifactsArtifactListResponseArtifact
-/** 
+/**
  * An artifact
-**/
+ **/
 export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "node_index" })

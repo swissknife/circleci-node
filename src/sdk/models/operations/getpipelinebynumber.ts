@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetPipelineByNumberPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pipeline-number" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=pipeline-number",
+  })
   pipelineNumber: any;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -22,18 +25,18 @@ export class GetPipelineByNumberDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 export enum GetPipelineByNumberPipelineErrorsTypeEnum {
-    Config = "config",
-    ConfigFetch = "config-fetch",
-    Timeout = "timeout",
-    Permission = "permission",
-    Other = "other",
-    Plan = "plan"
+  Config = "config",
+  ConfigFetch = "config-fetch",
+  Timeout = "timeout",
+  Permission = "permission",
+  Other = "other",
+  Plan = "plan",
 }
 
 // GetPipelineByNumberPipelineErrors
-/** 
+/**
  * An error with a type and message.
-**/
+ **/
 export class GetPipelineByNumberPipelineErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })
@@ -44,17 +47,17 @@ export class GetPipelineByNumberPipelineErrors extends SpeakeasyBase {
   type: GetPipelineByNumberPipelineErrorsTypeEnum;
 }
 export enum GetPipelineByNumberPipelineStateEnum {
-    Created = "created",
-    Errored = "errored",
-    SetupPending = "setup-pending",
-    Setup = "setup",
-    Pending = "pending"
+  Created = "created",
+  Errored = "errored",
+  SetupPending = "setup-pending",
+  Setup = "setup",
+  Pending = "pending",
 }
 
 // GetPipelineByNumberPipelineTriggerActor
-/** 
+/**
  * The user who triggered the Pipeline.
-**/
+ **/
 export class GetPipelineByNumberPipelineTriggerActor extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "avatar_url" })
@@ -65,16 +68,16 @@ export class GetPipelineByNumberPipelineTriggerActor extends SpeakeasyBase {
   login: string;
 }
 export enum GetPipelineByNumberPipelineTriggerTypeEnum {
-    ScheduledPipeline = "scheduled_pipeline",
-    Explicit = "explicit",
-    Api = "api",
-    Webhook = "webhook"
+  ScheduledPipeline = "scheduled_pipeline",
+  Explicit = "explicit",
+  Api = "api",
+  Webhook = "webhook",
 }
 
 // GetPipelineByNumberPipelineTrigger
-/** 
+/**
  * A summary of the trigger.
-**/
+ **/
 export class GetPipelineByNumberPipelineTrigger extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "actor" })
@@ -92,9 +95,9 @@ export class GetPipelineByNumberPipelineTrigger extends SpeakeasyBase {
 }
 
 // GetPipelineByNumberPipelineVcsCommit
-/** 
+/**
  * The latest commit in the pipeline.
-**/
+ **/
 export class GetPipelineByNumberPipelineVcsCommit extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "body" })
@@ -106,9 +109,9 @@ export class GetPipelineByNumberPipelineVcsCommit extends SpeakeasyBase {
 }
 
 // GetPipelineByNumberPipelineVcs
-/** 
+/**
  * VCS information for the pipeline.
-**/
+ **/
 export class GetPipelineByNumberPipelineVcs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "branch" })
@@ -149,9 +152,9 @@ export class GetPipelineByNumberPipelineVcs extends SpeakeasyBase {
 }
 
 // GetPipelineByNumberPipeline
-/** 
+/**
  * A pipeline response.
-**/
+ **/
 export class GetPipelineByNumberPipeline extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created_at" })

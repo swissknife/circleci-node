@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetFlakyTestsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 }
 
@@ -70,9 +71,9 @@ export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
 }
 
 // GetFlakyTests200ApplicationJSON
-/** 
+/**
  * Flaky tests response
-**/
+ **/
 export class GetFlakyTests200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetFlakyTests200ApplicationJSONFlakyTests })
   @Expose({ name: "flaky-tests" })

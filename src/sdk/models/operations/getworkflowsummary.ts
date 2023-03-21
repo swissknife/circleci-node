@@ -2,20 +2,27 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetWorkflowSummaryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=project-slug",
+  })
   projectSlug: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=workflow-name" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=workflow-name",
+  })
   workflowName: string;
 }
 
 export class GetWorkflowSummaryQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=all-branches" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=all-branches",
+  })
   allBranches?: boolean;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=branches",
+  })
   branches?: Record<string, any>;
 }
 
@@ -34,9 +41,9 @@ export class GetWorkflowSummaryDefaultApplicationJSON extends SpeakeasyBase {
 }
 
 // GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics
-/** 
+/**
  * Metrics relating to the duration of runs for a workflow.
-**/
+ **/
 export class GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "max" })
@@ -64,9 +71,9 @@ export class GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics extends 
 }
 
 // GetWorkflowSummary200ApplicationJSONMetrics
-/** 
+/**
  * Metrics aggregated across a workflow for a given time window.
-**/
+ **/
 export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "duration_metrics" })
@@ -113,9 +120,9 @@ export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
 }
 
 // GetWorkflowSummary200ApplicationJSONTrends
-/** 
+/**
  * Trends for aggregated metrics across a workflow for a given time window.
-**/
+ **/
 export class GetWorkflowSummary200ApplicationJSONTrends extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "failed_runs" })
@@ -151,9 +158,9 @@ export class GetWorkflowSummary200ApplicationJSONTrends extends SpeakeasyBase {
 }
 
 // GetWorkflowSummary200ApplicationJSON
-/** 
+/**
  * Workflow level aggregated metrics and trends response
-**/
+ **/
 export class GetWorkflowSummary200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "metrics" })

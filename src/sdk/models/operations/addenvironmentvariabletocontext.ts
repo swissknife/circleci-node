@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class AddEnvironmentVariableToContextPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=context-id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=context-id",
+  })
   contextId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=env-var-name" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=env-var-name",
+  })
   envVarName: string;
 }
 
@@ -32,9 +35,9 @@ export class AddEnvironmentVariableToContextDefaultApplicationJSON extends Speak
 }
 
 // AddEnvironmentVariableToContext200ApplicationJSONMessageResponse
-/** 
+/**
  * message response
-**/
+ **/
 export class AddEnvironmentVariableToContext200ApplicationJSONMessageResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "message" })
