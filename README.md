@@ -38,7 +38,7 @@ const req: AddEnvironmentVariableToContextRequest = {
     value: "some-secret-value",
   },
   contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
-  envVarName: "est",
+  envVarName: "deserunt",
 };
 
 sdk.context.addEnvironmentVariableToContext(req).then((res: AddEnvironmentVariableToContextResponse | AxiosError) => {
@@ -48,7 +48,7 @@ sdk.context.addEnvironmentVariableToContext(req).then((res: AddEnvironmentVariab
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### context
