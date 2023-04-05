@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: c66fd3097bd2aa1708a94e2ead4347f2
+  docChecksum: 794632fee4579b37962cc29d38b16472
   docVersion: v2
   speakeasyVersion: 1.19.3
 generation:
@@ -9,6 +9,6 @@ generation:
   sdkClassName: circleci
   sdkFlattening: true
 typescript:
-  version: 3.16.2
+  version: 3.16.3
   author: Speakeasy API
   packageName: circleci-v2-sdk
