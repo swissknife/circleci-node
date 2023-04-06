@@ -8,13 +8,13 @@ The CircleCI API Node SDK is a NPM library for accessing the resources that make
 ### NPM
 
 ```bash
-npm add circleci-v2-sdk
+npm add <UNSET>
 ```
 
 ### Yarn
 
 ```bash
-yarn add circleci-v2-sdk
+yarn add <UNSET>
 ```
 <!-- End SDK Installation -->
 
@@ -26,23 +26,19 @@ import {
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { SDK } from "circleci-v2-sdk";
-const sdk = new SDK({
+import { Circleci } from "circleci-v2-sdk";
+const sdk = new Circleci({
   security: {
-    apiKeyHeader: {
-      apiKey: "YOUR_API_KEY_HERE",
-    },
+    apiKeyHeader: "YOUR_API_KEY_HERE",
   },
 });
 
 const req: AddEnvironmentVariableToContextRequest = {
-  pathParams: {
-    contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
-    envVarName: "est",
-  },
-  request: {
+  requestBody: {
     value: "some-secret-value",
   },
+  contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+  envVarName: "deserunt",
 };
 
 sdk.context.addEnvironmentVariableToContext(req).then((res: AddEnvironmentVariableToContextResponse | AxiosError) => {
@@ -52,7 +48,7 @@ sdk.context.addEnvironmentVariableToContext(req).then((res: AddEnvironmentVariab
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### context
