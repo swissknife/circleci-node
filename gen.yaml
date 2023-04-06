@@ -2,13 +2,13 @@ configVersion: 1.0.0
 management:
   docChecksum: 794632fee4579b37962cc29d38b16472
   docVersion: v2
-  speakeasyVersion: 1.19.3
+  speakeasyVersion: 1.19.6
 generation:
   baseServerUrl: https://circleci.com/api/v2/
   telemetryEnabled: false
   sdkClassName: circleci
   sdkFlattening: true
 typescript:
-  version: 3.16.3
+  version: 3.16.4
   author: Speakeasy API
   packageName: circleci-v2-sdk
