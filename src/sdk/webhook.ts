@@ -84,7 +84,7 @@ export class Webhook {
       switch (true) {
         case httpRes?.status == 201:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.deserializeJSONResponse(
+            res.webhook = utils.objectToClass(
               httpRes?.data,
               operations.CreateWebhookWebhook
             );
@@ -92,11 +92,10 @@ export class Webhook {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createWebhookDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateWebhookDefaultApplicationJSON
-              );
+            res.createWebhookDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.CreateWebhookDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -145,7 +144,7 @@ export class Webhook {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.DeleteWebhookMessageResponse
             );
@@ -153,11 +152,10 @@ export class Webhook {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteWebhookDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteWebhookDefaultApplicationJSON
-              );
+            res.deleteWebhookDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.DeleteWebhookDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -209,7 +207,7 @@ export class Webhook {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.deserializeJSONResponse(
+            res.webhook = utils.objectToClass(
               httpRes?.data,
               operations.GetWebhookByIdWebhook
             );
@@ -218,7 +216,7 @@ export class Webhook {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getWebhookByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetWebhookByIdDefaultApplicationJSON
               );
@@ -271,20 +269,18 @@ export class Webhook {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWebhooks200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetWebhooks200ApplicationJSON
-              );
+            res.getWebhooks200ApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetWebhooks200ApplicationJSON
+            );
           }
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWebhooksDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetWebhooksDefaultApplicationJSON
-              );
+            res.getWebhooksDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetWebhooksDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -351,7 +347,7 @@ export class Webhook {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.deserializeJSONResponse(
+            res.webhook = utils.objectToClass(
               httpRes?.data,
               operations.UpdateWebhookWebhook
             );
@@ -359,11 +355,10 @@ export class Webhook {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateWebhookDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateWebhookDefaultApplicationJSON
-              );
+            res.updateWebhookDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.UpdateWebhookDefaultApplicationJSON
+            );
           }
           break;
       }

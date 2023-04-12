@@ -81,7 +81,7 @@ export class Insights {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getAllInsightsBranchesDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetAllInsightsBranchesDefaultApplicationJSON
               );
@@ -137,20 +137,18 @@ export class Insights {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getFlakyTests200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetFlakyTests200ApplicationJSON
-              );
+            res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetFlakyTests200ApplicationJSON
+            );
           }
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getFlakyTestsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetFlakyTestsDefaultApplicationJSON
-              );
+            res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetFlakyTestsDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -204,17 +202,16 @@ export class Insights {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getJobTimeseries200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetJobTimeseries200ApplicationJSON
-              );
+            res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetJobTimeseries200ApplicationJSON
+            );
           }
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getJobTimeseriesDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetJobTimeseriesDefaultApplicationJSON
               );
@@ -272,17 +269,16 @@ export class Insights {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getOrgSummaryData200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetOrgSummaryData200ApplicationJSON
-              );
+            res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetOrgSummaryData200ApplicationJSON
+            );
           }
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getOrgSummaryDataDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetOrgSummaryDataDefaultApplicationJSON
               );
@@ -340,7 +336,7 @@ export class Insights {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowJobMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowJobMetrics200ApplicationJSON
               );
@@ -349,7 +345,7 @@ export class Insights {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
               );
@@ -407,7 +403,7 @@ export class Insights {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowMetrics200ApplicationJSON
               );
@@ -416,7 +412,7 @@ export class Insights {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowMetricsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowMetricsDefaultApplicationJSON
               );
@@ -474,7 +470,7 @@ export class Insights {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowRuns200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowRuns200ApplicationJSON
               );
@@ -483,7 +479,7 @@ export class Insights {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowRunsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowRunsDefaultApplicationJSON
               );
@@ -541,7 +537,7 @@ export class Insights {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowTestMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowTestMetrics200ApplicationJSON
               );
@@ -550,7 +546,7 @@ export class Insights {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
               );
@@ -611,7 +607,7 @@ export class Insights {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowsPageData200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowsPageData200ApplicationJSON
               );
@@ -620,7 +616,7 @@ export class Insights {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
               );
@@ -678,7 +674,7 @@ export class Insights {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getWorkflowSummary200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetWorkflowSummary200ApplicationJSON
               );
@@ -687,7 +683,7 @@ export class Insights {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getWorkflowSummaryDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetWorkflowSummaryDefaultApplicationJSON
               );

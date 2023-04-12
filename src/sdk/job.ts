@@ -73,7 +73,7 @@ export class Job {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.CancelJobMessageResponse
             );
@@ -81,11 +81,10 @@ export class Job {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.cancelJobDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CancelJobDefaultApplicationJSON
-              );
+            res.cancelJobDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.CancelJobDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -137,7 +136,7 @@ export class Job {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.artifactListResponse = utils.deserializeJSONResponse(
+            res.artifactListResponse = utils.objectToClass(
               httpRes?.data,
               operations.GetJobArtifactsArtifactListResponse
             );
@@ -146,7 +145,7 @@ export class Job {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getJobArtifactsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetJobArtifactsDefaultApplicationJSON
               );
@@ -201,7 +200,7 @@ export class Job {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.jobDetails = utils.deserializeJSONResponse(
+            res.jobDetails = utils.objectToClass(
               httpRes?.data,
               operations.GetJobDetailsJobDetails
             );
@@ -209,11 +208,10 @@ export class Job {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getJobDetailsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetJobDetailsDefaultApplicationJSON
-              );
+            res.getJobDetailsDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetJobDetailsDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -264,7 +262,7 @@ export class Job {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.testsResponse = utils.deserializeJSONResponse(
+            res.testsResponse = utils.objectToClass(
               httpRes?.data,
               operations.GetTestsTestsResponse
             );
@@ -272,11 +270,10 @@ export class Job {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getTestsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetTestsDefaultApplicationJSON
-              );
+            res.getTestsDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetTestsDefaultApplicationJSON
+            );
           }
           break;
       }

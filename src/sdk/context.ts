@@ -98,7 +98,7 @@ export class Context {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.addEnvironmentVariableToContextDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.AddEnvironmentVariableToContextDefaultApplicationJSON
               );
@@ -164,7 +164,7 @@ export class Context {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.context = utils.deserializeJSONResponse(
+            res.context = utils.objectToClass(
               httpRes?.data,
               operations.CreateContextContext
             );
@@ -172,11 +172,10 @@ export class Context {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createContextDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateContextDefaultApplicationJSON
-              );
+            res.createContextDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.CreateContextDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -225,7 +224,7 @@ export class Context {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.DeleteContextMessageResponse
             );
@@ -233,11 +232,10 @@ export class Context {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteContextDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteContextDefaultApplicationJSON
-              );
+            res.deleteContextDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.DeleteContextDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -289,7 +287,7 @@ export class Context {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.DeleteEnvironmentVariableFromContextMessageResponse
             );
@@ -298,7 +296,7 @@ export class Context {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON
               );
@@ -353,7 +351,7 @@ export class Context {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.context = utils.deserializeJSONResponse(
+            res.context = utils.objectToClass(
               httpRes?.data,
               operations.GetContextContext
             );
@@ -361,11 +359,10 @@ export class Context {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getContextDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetContextDefaultApplicationJSON
-              );
+            res.getContextDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetContextDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -415,20 +412,18 @@ export class Context {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listContexts200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListContexts200ApplicationJSON
-              );
+            res.listContexts200ApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.ListContexts200ApplicationJSON
+            );
           }
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listContextsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListContextsDefaultApplicationJSON
-              );
+            res.listContextsDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.ListContextsDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -483,7 +478,7 @@ export class Context {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listEnvironmentVariablesFromContext200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListEnvironmentVariablesFromContext200ApplicationJSON
               );
@@ -492,7 +487,7 @@ export class Context {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON
               );

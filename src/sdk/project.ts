@@ -91,7 +91,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 201:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.checkoutKey = utils.deserializeJSONResponse(
+            res.checkoutKey = utils.objectToClass(
               httpRes?.data,
               operations.CreateCheckoutKeyCheckoutKey
             );
@@ -100,7 +100,7 @@ export class Project {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.createCheckoutKeyDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.CreateCheckoutKeyDefaultApplicationJSON
               );
@@ -173,7 +173,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 201:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.environmentVariablePair = utils.deserializeJSONResponse(
+            res.environmentVariablePair = utils.objectToClass(
               httpRes?.data,
               operations.CreateEnvVarEnvironmentVariablePair
             );
@@ -181,11 +181,10 @@ export class Project {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createEnvVarDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateEnvVarDefaultApplicationJSON
-              );
+            res.createEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.CreateEnvVarDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -237,7 +236,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.DeleteCheckoutKeyMessageResponse
             );
@@ -246,7 +245,7 @@ export class Project {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.deleteCheckoutKeyDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.DeleteCheckoutKeyDefaultApplicationJSON
               );
@@ -301,7 +300,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.DeleteEnvVarMessageResponse
             );
@@ -309,11 +308,10 @@ export class Project {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteEnvVarDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteEnvVarDefaultApplicationJSON
-              );
+            res.deleteEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.DeleteEnvVarDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -365,7 +363,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.checkoutKey = utils.deserializeJSONResponse(
+            res.checkoutKey = utils.objectToClass(
               httpRes?.data,
               operations.GetCheckoutKeyCheckoutKey
             );
@@ -374,7 +372,7 @@ export class Project {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getCheckoutKeyDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetCheckoutKeyDefaultApplicationJSON
               );
@@ -429,7 +427,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.environmentVariablePair = utils.deserializeJSONResponse(
+            res.environmentVariablePair = utils.objectToClass(
               httpRes?.data,
               operations.GetEnvVarEnvironmentVariablePair
             );
@@ -437,11 +435,10 @@ export class Project {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getEnvVarDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetEnvVarDefaultApplicationJSON
-              );
+            res.getEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetEnvVarDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -493,7 +490,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.project = utils.deserializeJSONResponse(
+            res.project = utils.objectToClass(
               httpRes?.data,
               operations.GetProjectBySlugProject
             );
@@ -502,7 +499,7 @@ export class Project {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getProjectBySlugDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetProjectBySlugDefaultApplicationJSON
               );
@@ -557,7 +554,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.checkoutKeyListResponse = utils.deserializeJSONResponse(
+            res.checkoutKeyListResponse = utils.objectToClass(
               httpRes?.data,
               operations.ListCheckoutKeysCheckoutKeyListResponse
             );
@@ -566,7 +563,7 @@ export class Project {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listCheckoutKeysDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListCheckoutKeysDefaultApplicationJSON
               );
@@ -621,7 +618,7 @@ export class Project {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.environmentVariableListResponse = utils.deserializeJSONResponse(
+            res.environmentVariableListResponse = utils.objectToClass(
               httpRes?.data,
               operations.ListEnvVarsEnvironmentVariableListResponse
             );
@@ -629,11 +626,10 @@ export class Project {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listEnvVarsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListEnvVarsDefaultApplicationJSON
-              );
+            res.listEnvVarsDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.ListEnvVarsDefaultApplicationJSON
+            );
           }
           break;
       }

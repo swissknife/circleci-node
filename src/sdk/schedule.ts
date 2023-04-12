@@ -91,7 +91,7 @@ export class Schedule {
       switch (true) {
         case httpRes?.status == 201:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.schedule = utils.deserializeJSONResponse(
+            res.schedule = utils.objectToClass(
               httpRes?.data,
               operations.CreateScheduleSchedule
             );
@@ -100,7 +100,7 @@ export class Schedule {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.createScheduleDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.CreateScheduleDefaultApplicationJSON
               );
@@ -155,7 +155,7 @@ export class Schedule {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.DeleteScheduleByIdMessageResponse
             );
@@ -164,7 +164,7 @@ export class Schedule {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.deleteScheduleByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.DeleteScheduleByIdDefaultApplicationJSON
               );
@@ -219,7 +219,7 @@ export class Schedule {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.schedule = utils.deserializeJSONResponse(
+            res.schedule = utils.objectToClass(
               httpRes?.data,
               operations.GetScheduleByIdSchedule
             );
@@ -228,7 +228,7 @@ export class Schedule {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getScheduleByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetScheduleByIdDefaultApplicationJSON
               );
@@ -286,7 +286,7 @@ export class Schedule {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listSchedulesForProject200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListSchedulesForProject200ApplicationJSON
               );
@@ -295,7 +295,7 @@ export class Schedule {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listSchedulesForProjectDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListSchedulesForProjectDefaultApplicationJSON
               );
@@ -368,7 +368,7 @@ export class Schedule {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.schedule = utils.deserializeJSONResponse(
+            res.schedule = utils.objectToClass(
               httpRes?.data,
               operations.UpdateScheduleSchedule
             );
@@ -377,7 +377,7 @@ export class Schedule {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.updateScheduleDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.UpdateScheduleDefaultApplicationJSON
               );

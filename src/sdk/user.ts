@@ -72,7 +72,7 @@ export class User {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.collaborations = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.collaborations = utils.deserializeJSONResponse(
+            res.collaborations = utils.objectToClass(
               httpRes?.data,
               operations.GetCollaborationsCollaboration,
               resFieldDepth
@@ -82,7 +82,7 @@ export class User {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getCollaborationsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetCollaborationsDefaultApplicationJSON
               );
@@ -128,7 +128,7 @@ export class User {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.user = utils.deserializeJSONResponse(
+            res.user = utils.objectToClass(
               httpRes?.data,
               operations.GetCurrentUserUser
             );
@@ -137,7 +137,7 @@ export class User {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getCurrentUserDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetCurrentUserDefaultApplicationJSON
               );
@@ -187,7 +187,7 @@ export class User {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.user = utils.deserializeJSONResponse(
+            res.user = utils.objectToClass(
               httpRes?.data,
               operations.GetUserUser
             );
@@ -195,11 +195,10 @@ export class User {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getUserDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetUserDefaultApplicationJSON
-              );
+            res.getUserDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.GetUserDefaultApplicationJSON
+            );
           }
           break;
       }

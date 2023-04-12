@@ -13,7 +13,8 @@ import { Schedule } from "./schedule";
 import { User } from "./user";
 import { Webhook } from "./webhook";
 import { Workflow } from "./workflow";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -56,8 +57,8 @@ export class Circleci {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "3.16.6";
-  private _genVersion = "2.17.8";
+  private _sdkVersion = "3.16.7";
+  private _genVersion = "2.17.9";
   private _globals: any;
 
   constructor(props?: SDKProps) {

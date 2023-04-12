@@ -87,7 +87,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.ContinuePipelineMessageResponse
             );
@@ -96,7 +96,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.continuePipelineDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ContinuePipelineDefaultApplicationJSON
               );
@@ -151,7 +151,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipeline = utils.deserializeJSONResponse(
+            res.pipeline = utils.objectToClass(
               httpRes?.data,
               operations.GetPipelineByIdPipeline
             );
@@ -160,7 +160,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getPipelineByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetPipelineByIdDefaultApplicationJSON
               );
@@ -215,7 +215,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipeline = utils.deserializeJSONResponse(
+            res.pipeline = utils.objectToClass(
               httpRes?.data,
               operations.GetPipelineByNumberPipeline
             );
@@ -224,7 +224,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getPipelineByNumberDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetPipelineByNumberDefaultApplicationJSON
               );
@@ -279,7 +279,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineConfig = utils.deserializeJSONResponse(
+            res.pipelineConfig = utils.objectToClass(
               httpRes?.data,
               operations.GetPipelineConfigByIdPipelineConfig
             );
@@ -288,7 +288,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getPipelineConfigByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetPipelineConfigByIdDefaultApplicationJSON
               );
@@ -345,7 +345,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineListResponse = utils.deserializeJSONResponse(
+            res.pipelineListResponse = utils.objectToClass(
               httpRes?.data,
               operations.ListMyPipelinesPipelineListResponse
             );
@@ -354,7 +354,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listMyPipelinesDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListMyPipelinesDefaultApplicationJSON
               );
@@ -407,7 +407,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineListResponse = utils.deserializeJSONResponse(
+            res.pipelineListResponse = utils.objectToClass(
               httpRes?.data,
               operations.ListPipelinesPipelineListResponse
             );
@@ -415,11 +415,10 @@ export class Pipeline {
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listPipelinesDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListPipelinesDefaultApplicationJSON
-              );
+            res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.ListPipelinesDefaultApplicationJSON
+            );
           }
           break;
       }
@@ -473,7 +472,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineListResponse = utils.deserializeJSONResponse(
+            res.pipelineListResponse = utils.objectToClass(
               httpRes?.data,
               operations.ListPipelinesForProjectPipelineListResponse
             );
@@ -482,7 +481,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listPipelinesForProjectDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListPipelinesForProjectDefaultApplicationJSON
               );
@@ -539,7 +538,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.workflowListResponse = utils.deserializeJSONResponse(
+            res.workflowListResponse = utils.objectToClass(
               httpRes?.data,
               operations.ListWorkflowsByPipelineIdWorkflowListResponse
             );
@@ -548,7 +547,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listWorkflowsByPipelineIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
               );
@@ -621,7 +620,7 @@ export class Pipeline {
       switch (true) {
         case httpRes?.status == 201:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineCreation = utils.deserializeJSONResponse(
+            res.pipelineCreation = utils.objectToClass(
               httpRes?.data,
               operations.TriggerPipelinePipelineCreation
             );
@@ -630,7 +629,7 @@ export class Pipeline {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.triggerPipelineDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.TriggerPipelineDefaultApplicationJSON
               );

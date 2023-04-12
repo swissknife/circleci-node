@@ -73,7 +73,7 @@ export class Workflow {
       switch (true) {
         case httpRes?.status == 202:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.ApprovePendingApprovalJobByIdMessageResponse
             );
@@ -82,7 +82,7 @@ export class Workflow {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.approvePendingApprovalJobByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON
               );
@@ -137,7 +137,7 @@ export class Workflow {
       switch (true) {
         case httpRes?.status == 202:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+            res.messageResponse = utils.objectToClass(
               httpRes?.data,
               operations.CancelWorkflowMessageResponse
             );
@@ -146,7 +146,7 @@ export class Workflow {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.cancelWorkflowDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.CancelWorkflowDefaultApplicationJSON
               );
@@ -197,7 +197,7 @@ export class Workflow {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.workflow = utils.deserializeJSONResponse(
+            res.workflow = utils.objectToClass(
               httpRes?.data,
               operations.GetWorkflowByIdWorkflow
             );
@@ -206,7 +206,7 @@ export class Workflow {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.getWorkflowByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.GetWorkflowByIdDefaultApplicationJSON
               );
@@ -257,7 +257,7 @@ export class Workflow {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.workflowJobListResponse = utils.deserializeJSONResponse(
+            res.workflowJobListResponse = utils.objectToClass(
               httpRes?.data,
               operations.ListWorkflowJobsWorkflowJobListResponse
             );
@@ -266,7 +266,7 @@ export class Workflow {
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
             res.listWorkflowJobsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
+              utils.objectToClass(
                 httpRes?.data,
                 operations.ListWorkflowJobsDefaultApplicationJSON
               );
@@ -335,20 +335,18 @@ export class Workflow {
       switch (true) {
         case httpRes?.status == 202:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rerunWorkflow202ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.RerunWorkflow202ApplicationJSON
-              );
+            res.rerunWorkflow202ApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.RerunWorkflow202ApplicationJSON
+            );
           }
           break;
         default:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rerunWorkflowDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.RerunWorkflowDefaultApplicationJSON
-              );
+            res.rerunWorkflowDefaultApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.RerunWorkflowDefaultApplicationJSON
+            );
           }
           break;
       }
