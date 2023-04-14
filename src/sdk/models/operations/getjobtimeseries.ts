@@ -27,7 +27,7 @@ export class GetJobTimeseriesRequest extends SpeakeasyBase {
    * Include only executions that started before this date. This date can be at most 90 days after the start-date.
    */
   @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=end-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+    data: "queryParam, style=form;explode=true;name=end-date",
   })
   endDate?: Date;
 
@@ -51,7 +51,7 @@ export class GetJobTimeseriesRequest extends SpeakeasyBase {
    * Include only executions that started at or after this date. This must be specified if an end-date is provided.
    */
   @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=start-date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+    data: "queryParam, style=form;explode=true;name=start-date",
   })
   startDate?: Date;
 
