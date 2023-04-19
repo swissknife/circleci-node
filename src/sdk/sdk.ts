@@ -57,8 +57,8 @@ export class Circleci {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "3.17.2";
-  private _genVersion = "2.18.1";
+  private _sdkVersion = "3.17.3";
+  private _genVersion = "2.18.2";
   private _globals: any;
 
   constructor(props?: SDKProps) {
