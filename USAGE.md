@@ -1,12 +1,9 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  AddEnvironmentVariableToContextRequest,
-  AddEnvironmentVariableToContextResponse
-} from "circleci-v2-sdk/dist/sdk/models/operations";
-
 import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
+import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+
 const sdk = new Circleci({
   security: {
     apiKeyHeader: "YOUR_API_KEY_HERE",
@@ -22,7 +19,9 @@ const req: AddEnvironmentVariableToContextRequest = {
 };
 
 sdk.context.addEnvironmentVariableToContext(req).then((res: AddEnvironmentVariableToContextResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->

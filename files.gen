@@ -86,4 +86,14 @@ src/sdk/models/operations/rerunworkflow.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+docs/circleci/README.md
+docs/context/README.md
+docs/insights/README.md
+docs/job/README.md
+docs/pipeline/README.md
+docs/project/README.md
+docs/schedule/README.md
+docs/user/README.md
+docs/webhook/README.md
+docs/workflow/README.md
 USAGE.md
