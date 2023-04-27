@@ -408,3 +408,11 @@ Based on:
 - Speakeasy CLI 1.23.1 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v3.20.0] https://www.npmjs.com/package/circleci-v2-sdk/v/3.20.0 - .
+
+## 2023-04-27 00:50:41
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.25.1 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v3.21.0] https://www.npmjs.com/package/circleci-v2-sdk/v/3.21.0 - .
