@@ -36,7 +36,7 @@ export class Context {
    * @remarks
    * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
    */
-  addEnvironmentVariableToContext(
+  async addEnvironmentVariableToContext(
     req: operations.AddEnvironmentVariableToContextRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.AddEnvironmentVariableToContextResponse> {
@@ -69,7 +69,8 @@ export class Context {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -77,43 +78,43 @@ export class Context {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.AddEnvironmentVariableToContextResponse =
-        new operations.AddEnvironmentVariableToContextResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.addEnvironmentVariableToContext200ApplicationJSONAnyOf =
-              httpRes?.data;
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.addEnvironmentVariableToContextDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.AddEnvironmentVariableToContextDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.AddEnvironmentVariableToContextResponse =
+      new operations.AddEnvironmentVariableToContextResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.addEnvironmentVariableToContext200ApplicationJSONAnyOf =
+            httpRes?.data;
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.addEnvironmentVariableToContextDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.AddEnvironmentVariableToContextDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Create a new context
    */
-  createContext(
+  async createContext(
     req: operations.CreateContextRequestBody,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateContextResponse> {
@@ -142,7 +143,8 @@ export class Context {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -150,44 +152,44 @@ export class Context {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateContextResponse =
-        new operations.CreateContextResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.context = utils.objectToClass(
-              httpRes?.data,
-              operations.CreateContextContext
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createContextDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.CreateContextDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateContextResponse =
+      new operations.CreateContextResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.context = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateContextContext
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createContextDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateContextDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Delete a context
    */
-  deleteContext(
+  async deleteContext(
     req: operations.DeleteContextRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteContextResponse> {
@@ -204,44 +206,45 @@ export class Context {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteContextResponse =
-        new operations.DeleteContextResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.objectToClass(
-              httpRes?.data,
-              operations.DeleteContextMessageResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteContextDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.DeleteContextDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteContextResponse =
+      new operations.DeleteContextResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteContextMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteContextDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteContextDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -250,7 +253,7 @@ export class Context {
    * @remarks
    * Delete an environment variable from a context.
    */
-  deleteEnvironmentVariableFromContext(
+  async deleteEnvironmentVariableFromContext(
     req: operations.DeleteEnvironmentVariableFromContextRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteEnvironmentVariableFromContextResponse> {
@@ -267,45 +270,46 @@ export class Context {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteEnvironmentVariableFromContextResponse =
-        new operations.DeleteEnvironmentVariableFromContextResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.DeleteEnvironmentVariableFromContextResponse =
+      new operations.DeleteEnvironmentVariableFromContextResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteEnvironmentVariableFromContextMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.DeleteEnvironmentVariableFromContextMessageResponse
+              operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -314,7 +318,7 @@ export class Context {
    * @remarks
    * Returns basic information about a context.
    */
-  getContext(
+  async getContext(
     req: operations.GetContextRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetContextResponse> {
@@ -331,44 +335,45 @@ export class Context {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetContextResponse =
-        new operations.GetContextResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.context = utils.objectToClass(
-              httpRes?.data,
-              operations.GetContextContext
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getContextDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.GetContextDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetContextResponse =
+      new operations.GetContextResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.context = utils.objectToClass(
+            httpRes?.data,
+            operations.GetContextContext
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getContextDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetContextDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -377,7 +382,7 @@ export class Context {
    * @remarks
    * List all contexts for an owner.
    */
-  listContexts(
+  async listContexts(
     req: operations.ListContextsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListContextsResponse> {
@@ -392,44 +397,45 @@ export class Context {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListContextsResponse =
-        new operations.ListContextsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listContexts200ApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.ListContexts200ApplicationJSON
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listContextsDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.ListContextsDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListContextsResponse =
+      new operations.ListContextsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listContexts200ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.ListContexts200ApplicationJSON
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listContextsDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.ListContextsDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -438,7 +444,7 @@ export class Context {
    * @remarks
    * List information about environment variables in a context, not including their values.
    */
-  listEnvironmentVariablesFromContext(
+  async listEnvironmentVariablesFromContext(
     req: operations.ListEnvironmentVariablesFromContextRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListEnvironmentVariablesFromContextResponse> {
@@ -457,45 +463,46 @@ export class Context {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListEnvironmentVariablesFromContextResponse =
-        new operations.ListEnvironmentVariablesFromContextResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listEnvironmentVariablesFromContext200ApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.ListEnvironmentVariablesFromContext200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListEnvironmentVariablesFromContextResponse =
+      new operations.ListEnvironmentVariablesFromContextResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listEnvironmentVariablesFromContext200ApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.ListEnvironmentVariablesFromContext200ApplicationJSON
+            );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 }

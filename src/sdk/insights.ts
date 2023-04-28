@@ -36,7 +36,7 @@ export class Insights {
    * @remarks
    * Get a list of all branches for a specified project. The list will only contain branches currently available within Insights. The maximum number of branches returned by this endpoint is 5,000.
    */
-  getAllInsightsBranches(
+  async getAllInsightsBranches(
     req: operations.GetAllInsightsBranchesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetAllInsightsBranchesResponse> {
@@ -55,42 +55,43 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetAllInsightsBranchesResponse =
-        new operations.GetAllInsightsBranchesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getAllInsightsBranchesDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetAllInsightsBranchesDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetAllInsightsBranchesResponse =
+      new operations.GetAllInsightsBranchesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getAllInsightsBranchesDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetAllInsightsBranchesDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -100,7 +101,7 @@ export class Insights {
    * Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
    *              A flaky test is a test that passed and failed in the same commit.
    */
-  getFlakyTests(
+  async getFlakyTests(
     req: operations.GetFlakyTestsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetFlakyTestsResponse> {
@@ -117,44 +118,45 @@ export class Insights {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetFlakyTestsResponse =
-        new operations.GetFlakyTestsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.GetFlakyTests200ApplicationJSON
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.GetFlakyTestsDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetFlakyTestsResponse =
+      new operations.GetFlakyTestsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetFlakyTests200ApplicationJSON
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetFlakyTestsDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -163,7 +165,7 @@ export class Insights {
    * @remarks
    * Get timeseries data for all jobs within a workflow.
    */
-  getJobTimeseries(
+  async getJobTimeseries(
     req: operations.GetJobTimeseriesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetJobTimeseriesResponse> {
@@ -182,45 +184,46 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetJobTimeseriesResponse =
-        new operations.GetJobTimeseriesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetJobTimeseriesResponse =
+      new operations.GetJobTimeseriesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetJobTimeseries200ApplicationJSON
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getJobTimeseriesDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.GetJobTimeseries200ApplicationJSON
+              operations.GetJobTimeseriesDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getJobTimeseriesDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetJobTimeseriesDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -230,7 +233,7 @@ export class Insights {
    * Gets aggregated summary metrics with trends for the entire org.
    *               Also gets aggregated metrics and trends for each project belonging to the org.
    */
-  getOrgSummaryData(
+  async getOrgSummaryData(
     req: operations.GetOrgSummaryDataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetOrgSummaryDataResponse> {
@@ -249,45 +252,46 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetOrgSummaryDataResponse =
-        new operations.GetOrgSummaryDataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetOrgSummaryDataResponse =
+      new operations.GetOrgSummaryDataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetOrgSummaryData200ApplicationJSON
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getOrgSummaryDataDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.GetOrgSummaryData200ApplicationJSON
+              operations.GetOrgSummaryDataDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getOrgSummaryDataDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetOrgSummaryDataDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -296,7 +300,7 @@ export class Insights {
    * @remarks
    * Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
    */
-  getProjectWorkflowJobMetrics(
+  async getProjectWorkflowJobMetrics(
     req: operations.GetProjectWorkflowJobMetricsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProjectWorkflowJobMetricsResponse> {
@@ -315,46 +319,47 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProjectWorkflowJobMetricsResponse =
-        new operations.GetProjectWorkflowJobMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowJobMetrics200ApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowJobMetrics200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetProjectWorkflowJobMetricsResponse =
+      new operations.GetProjectWorkflowJobMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowJobMetrics200ApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowJobMetrics200ApplicationJSON
+            );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -363,7 +368,7 @@ export class Insights {
    * @remarks
    * Get summary metrics for a project's workflows.  Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.  Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
    */
-  getProjectWorkflowMetrics(
+  async getProjectWorkflowMetrics(
     req: operations.GetProjectWorkflowMetricsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProjectWorkflowMetricsResponse> {
@@ -382,46 +387,47 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProjectWorkflowMetricsResponse =
-        new operations.GetProjectWorkflowMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowMetrics200ApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowMetrics200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowMetricsDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowMetricsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetProjectWorkflowMetricsResponse =
+      new operations.GetProjectWorkflowMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowMetrics200ApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowMetrics200ApplicationJSON
+            );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowMetricsDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowMetricsDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -430,7 +436,7 @@ export class Insights {
    * @remarks
    * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
    */
-  getProjectWorkflowRuns(
+  async getProjectWorkflowRuns(
     req: operations.GetProjectWorkflowRunsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProjectWorkflowRunsResponse> {
@@ -449,46 +455,47 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProjectWorkflowRunsResponse =
-        new operations.GetProjectWorkflowRunsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowRuns200ApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowRuns200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowRunsDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowRunsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetProjectWorkflowRunsResponse =
+      new operations.GetProjectWorkflowRunsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowRuns200ApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowRuns200ApplicationJSON
+            );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowRunsDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowRunsDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -497,7 +504,7 @@ export class Insights {
    * @remarks
    * Get test metrics for a project's workflows. Currently tests metrics are calculated based on 10 most recent workflow runs.
    */
-  getProjectWorkflowTestMetrics(
+  async getProjectWorkflowTestMetrics(
     req: operations.GetProjectWorkflowTestMetricsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProjectWorkflowTestMetricsResponse> {
@@ -516,46 +523,47 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProjectWorkflowTestMetricsResponse =
-        new operations.GetProjectWorkflowTestMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowTestMetrics200ApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowTestMetrics200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetProjectWorkflowTestMetricsResponse =
+      new operations.GetProjectWorkflowTestMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowTestMetrics200ApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowTestMetrics200ApplicationJSON
+            );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -567,7 +575,7 @@ export class Insights {
    *              Trends are only supported upto last 30 days.
    *              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
    */
-  getProjectWorkflowsPageData(
+  async getProjectWorkflowsPageData(
     req: operations.GetProjectWorkflowsPageDataRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProjectWorkflowsPageDataResponse> {
@@ -586,46 +594,47 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProjectWorkflowsPageDataResponse =
-        new operations.GetProjectWorkflowsPageDataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowsPageData200ApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowsPageData200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetProjectWorkflowsPageDataResponse =
+      new operations.GetProjectWorkflowsPageDataResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowsPageData200ApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowsPageData200ApplicationJSON
+            );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -634,7 +643,7 @@ export class Insights {
    * @remarks
    * Get the metrics and trends for a particular workflow on a single branch or all branches
    */
-  getWorkflowSummary(
+  async getWorkflowSummary(
     req: operations.GetWorkflowSummaryRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetWorkflowSummaryResponse> {
@@ -653,45 +662,45 @@ export class Insights {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetWorkflowSummaryResponse =
-        new operations.GetWorkflowSummaryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWorkflowSummary200ApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetWorkflowSummary200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWorkflowSummaryDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetWorkflowSummaryDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetWorkflowSummaryResponse =
+      new operations.GetWorkflowSummaryResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getWorkflowSummary200ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetWorkflowSummary200ApplicationJSON
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getWorkflowSummaryDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.GetWorkflowSummaryDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 }

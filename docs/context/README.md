@@ -17,9 +17,8 @@ Create or update an environment variable within a context. Returns information a
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -27,16 +26,14 @@ const sdk = new Circleci({
   },
 });
 
-const req: AddEnvironmentVariableToContextRequest = {
+sdk.context.addEnvironmentVariableToContext({
   requestBody: {
     value: "some-secret-value",
   },
   contextId: "05dfc2dd-f7cc-478c-a1ba-928fc816742c",
   envVarName: "cum",
-};
-
-sdk.context.addEnvironmentVariableToContext(req).then((res: AddEnvironmentVariableToContextResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: AddEnvironmentVariableToContextResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -49,10 +46,8 @@ Create a new context
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
-  CreateContextRequestBody,
   CreateContextRequestBodyOwner1TypeEnum,
   CreateContextRequestBodyOwner2TypeEnum,
   CreateContextResponse,
@@ -64,16 +59,14 @@ const sdk = new Circleci({
   },
 });
 
-const req: CreateContextRequestBody = {
+sdk.context.createContext({
   name: "Edna Mante II",
   owner: {
     slug: "sed",
     type: CreateContextRequestBodyOwner2TypeEnum.Organization,
   },
-};
-
-sdk.context.createContext(req).then((res: CreateContextResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateContextResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -86,9 +79,8 @@ Delete a context
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteContextRequest, DeleteContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DeleteContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -96,12 +88,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: DeleteContextRequest = {
+sdk.context.deleteContext({
   contextId: "9396fea7-596e-4b10-baaa-2352c5955907",
-};
-
-sdk.context.deleteContext(req).then((res: DeleteContextResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteContextResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -114,12 +104,8 @@ Delete an environment variable from a context.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  DeleteEnvironmentVariableFromContextRequest,
-  DeleteEnvironmentVariableFromContextResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DeleteEnvironmentVariableFromContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -127,13 +113,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: DeleteEnvironmentVariableFromContextRequest = {
+sdk.context.deleteEnvironmentVariableFromContext({
   contextId: "aff1a3a2-fa94-4677-b925-1aa52c3f5ad0",
   envVarName: "quasi",
-};
-
-sdk.context.deleteEnvironmentVariableFromContext(req).then((res: DeleteEnvironmentVariableFromContextResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteEnvironmentVariableFromContextResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -146,9 +130,8 @@ Returns basic information about a context.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetContextRequest, GetContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -156,12 +139,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetContextRequest = {
+sdk.context.getContext({
   contextId: "9da1ffe7-8f09-47b0-874f-15471b5e6e13",
-};
-
-sdk.context.getContext(req).then((res: GetContextResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetContextResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -174,9 +155,8 @@ List all contexts for an owner.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { ListContextsOwnerTypeEnum, ListContextsRequest, ListContextsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListContextsOwnerTypeEnum, ListContextsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -184,15 +164,13 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListContextsRequest = {
+sdk.context.listContexts({
   ownerId: "b99d488e-1e91-4e45-8ad2-abd44269802d",
   ownerSlug: "ipsam",
   ownerType: ListContextsOwnerTypeEnum.Account,
   pageToken: "fugit",
-};
-
-sdk.context.listContexts(req).then((res: ListContextsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListContextsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -205,12 +183,8 @@ List information about environment variables in a context, not including their v
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  ListEnvironmentVariablesFromContextRequest,
-  ListEnvironmentVariablesFromContextResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListEnvironmentVariablesFromContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -218,13 +192,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListEnvironmentVariablesFromContextRequest = {
+sdk.context.listEnvironmentVariablesFromContext({
   contextId: "a94bb4f6-3c96-49e9-a3ef-a77dfb14cd66",
   pageToken: "laborum",
-};
-
-sdk.context.listEnvironmentVariablesFromContext(req).then((res: ListEnvironmentVariablesFromContextResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListEnvironmentVariablesFromContextResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

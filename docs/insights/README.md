@@ -20,9 +20,8 @@ Get a list of all branches for a specified project. The list will only contain b
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetAllInsightsBranchesRequest, GetAllInsightsBranchesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetAllInsightsBranchesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -30,13 +29,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetAllInsightsBranchesRequest = {
+sdk.insights.getAllInsightsBranches({
   projectSlug: "accusamus",
   workflowName: "non",
-};
-
-sdk.insights.getAllInsightsBranches(req).then((res: GetAllInsightsBranchesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetAllInsightsBranchesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,9 +47,8 @@ Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetFlakyTestsRequest, GetFlakyTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetFlakyTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -60,12 +56,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetFlakyTestsRequest = {
+sdk.insights.getFlakyTests({
   projectSlug: "occaecati",
-};
-
-sdk.insights.getFlakyTests(req).then((res: GetFlakyTestsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetFlakyTestsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -78,13 +72,8 @@ Get timeseries data for all jobs within a workflow.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetJobTimeseriesGranularityEnum,
-  GetJobTimeseriesRequest,
-  GetJobTimeseriesResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetJobTimeseriesGranularityEnum, GetJobTimeseriesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -92,17 +81,15 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetJobTimeseriesRequest = {
+sdk.insights.getJobTimeseries({
   branch: "enim",
   endDate: new Date("2020-02-08T20:51:42.354Z"),
   granularity: GetJobTimeseriesGranularityEnum.Hourly,
   projectSlug: "provident",
   startDate: new Date("2021-09-06T10:36:33.442Z"),
   workflowName: "blanditiis",
-};
-
-sdk.insights.getJobTimeseries(req).then((res: GetJobTimeseriesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetJobTimeseriesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -116,13 +103,8 @@ Gets aggregated summary metrics with trends for the entire org.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetOrgSummaryDataReportingWindowEnum,
-  GetOrgSummaryDataRequest,
-  GetOrgSummaryDataResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetOrgSummaryDataReportingWindowEnum, GetOrgSummaryDataResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -130,7 +112,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetOrgSummaryDataRequest = {
+sdk.insights.getOrgSummaryData({
   orgSlug: "deleniti",
   projectNames: {
     "amet": "deserunt",
@@ -139,10 +121,8 @@ const req: GetOrgSummaryDataRequest = {
     "molestiae": "perferendis",
   },
   reportingWindow: GetOrgSummaryDataReportingWindowEnum.Last24Hours,
-};
-
-sdk.insights.getOrgSummaryData(req).then((res: GetOrgSummaryDataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetOrgSummaryDataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -155,11 +135,9 @@ Get summary metrics for a project workflow's jobs. Job runs going back at most 9
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   GetProjectWorkflowJobMetricsReportingWindowEnum,
-  GetProjectWorkflowJobMetricsRequest,
   GetProjectWorkflowJobMetricsResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -169,17 +147,15 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetProjectWorkflowJobMetricsRequest = {
+sdk.insights.getProjectWorkflowJobMetrics({
   allBranches: false,
   branch: "magnam",
   pageToken: "distinctio",
   projectSlug: "id",
   reportingWindow: GetProjectWorkflowJobMetricsReportingWindowEnum.Last90Days,
   workflowName: "labore",
-};
-
-sdk.insights.getProjectWorkflowJobMetrics(req).then((res: GetProjectWorkflowJobMetricsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetProjectWorkflowJobMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -192,13 +168,8 @@ Get summary metrics for a project's workflows.  Workflow runs going back at most
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetProjectWorkflowMetricsReportingWindowEnum,
-  GetProjectWorkflowMetricsRequest,
-  GetProjectWorkflowMetricsResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowMetricsReportingWindowEnum, GetProjectWorkflowMetricsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -206,16 +177,14 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetProjectWorkflowMetricsRequest = {
+sdk.insights.getProjectWorkflowMetrics({
   allBranches: false,
   branch: "suscipit",
   pageToken: "natus",
   projectSlug: "nobis",
   reportingWindow: GetProjectWorkflowMetricsReportingWindowEnum.Last24Hours,
-};
-
-sdk.insights.getProjectWorkflowMetrics(req).then((res: GetProjectWorkflowMetricsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetProjectWorkflowMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -228,11 +197,9 @@ Get recent runs of a workflow. Runs going back at most 90 days are returned. Ple
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   GetProjectWorkflowRuns200ApplicationJSONItemsStatusEnum,
-  GetProjectWorkflowRunsRequest,
   GetProjectWorkflowRunsResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -242,7 +209,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetProjectWorkflowRunsRequest = {
+sdk.insights.getProjectWorkflowRuns({
   allBranches: false,
   branch: "vero",
   endDate: new Date("2022-11-24T10:55:00.183Z"),
@@ -250,10 +217,8 @@ const req: GetProjectWorkflowRunsRequest = {
   projectSlug: "et",
   startDate: new Date("2022-04-17T13:06:08.135Z"),
   workflowName: "provident",
-};
-
-sdk.insights.getProjectWorkflowRuns(req).then((res: GetProjectWorkflowRunsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetProjectWorkflowRunsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -266,9 +231,8 @@ Get test metrics for a project's workflows. Currently tests metrics are calculat
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowTestMetricsRequest, GetProjectWorkflowTestMetricsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowTestMetricsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -276,15 +240,13 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetProjectWorkflowTestMetricsRequest = {
+sdk.insights.getProjectWorkflowTestMetrics({
   allBranches: false,
   branch: "quos",
   projectSlug: "sint",
   workflowName: "accusantium",
-};
-
-sdk.insights.getProjectWorkflowTestMetrics(req).then((res: GetProjectWorkflowTestMetricsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetProjectWorkflowTestMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -300,11 +262,9 @@ Get summary metrics and trends for a project at workflow and branch level.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   GetProjectWorkflowsPageDataReportingWindowEnum,
-  GetProjectWorkflowsPageDataRequest,
   GetProjectWorkflowsPageDataResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -314,7 +274,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetProjectWorkflowsPageDataRequest = {
+sdk.insights.getProjectWorkflowsPageData({
   branches: {
     "reiciendis": "mollitia",
     "ad": "eum",
@@ -325,10 +285,8 @@ const req: GetProjectWorkflowsPageDataRequest = {
   workflowNames: {
     "iure": "doloribus",
   },
-};
-
-sdk.insights.getProjectWorkflowsPageData(req).then((res: GetProjectWorkflowsPageDataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetProjectWorkflowsPageDataResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -341,9 +299,8 @@ Get the metrics and trends for a particular workflow on a single branch or all b
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetWorkflowSummaryRequest, GetWorkflowSummaryResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetWorkflowSummaryResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -351,7 +308,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetWorkflowSummaryRequest = {
+sdk.insights.getWorkflowSummary({
   allBranches: false,
   branches: {
     "eius": "maxime",
@@ -361,10 +318,8 @@ const req: GetWorkflowSummaryRequest = {
   },
   projectSlug: "ullam",
   workflowName: "expedita",
-};
-
-sdk.insights.getWorkflowSummary(req).then((res: GetWorkflowSummaryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetWorkflowSummaryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

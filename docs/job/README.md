@@ -14,9 +14,8 @@ Cancel job with a given job number.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { CancelJobRequest, CancelJobResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CancelJobResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -24,13 +23,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: CancelJobRequest = {
+sdk.job.cancelJob({
   jobNumber: "nihil",
   projectSlug: "repellat",
-};
-
-sdk.job.cancelJob(req).then((res: CancelJobResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CancelJobResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -43,9 +40,8 @@ Returns a job's artifacts.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobArtifactsRequest, GetJobArtifactsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetJobArtifactsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -53,13 +49,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetJobArtifactsRequest = {
+sdk.job.getJobArtifacts({
   jobNumber: "quibusdam",
   projectSlug: "sed",
-};
-
-sdk.job.getJobArtifacts(req).then((res: GetJobArtifactsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetJobArtifactsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -72,9 +66,8 @@ Returns job details.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobDetailsJobDetailsStatusEnum, GetJobDetailsRequest, GetJobDetailsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetJobDetailsJobDetailsStatusEnum, GetJobDetailsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -82,13 +75,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetJobDetailsRequest = {
+sdk.job.getJobDetails({
   jobNumber: "saepe",
   projectSlug: "pariatur",
-};
-
-sdk.job.getJobDetails(req).then((res: GetJobDetailsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetJobDetailsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -101,9 +92,8 @@ Get test metadata for a build. In the rare case where there is more than 250MB o
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetTestsRequest, GetTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -111,13 +101,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetTestsRequest = {
+sdk.job.getTests({
   jobNumber: "accusantium",
   projectSlug: "consequuntur",
-};
-
-sdk.job.getTests(req).then((res: GetTestsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetTestsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

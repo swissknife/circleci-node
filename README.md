@@ -20,9 +20,8 @@ yarn add <UNSET>
 
 <!-- Start SDK Example Usage -->
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { AddEnvironmentVariableToContextRequest, AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -30,16 +29,14 @@ const sdk = new Circleci({
   },
 });
 
-const req: AddEnvironmentVariableToContextRequest = {
+sdk.context.addEnvironmentVariableToContext({
   requestBody: {
     value: "some-secret-value",
   },
   contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
   envVarName: "deserunt",
-};
-
-sdk.context.addEnvironmentVariableToContext(req).then((res: AddEnvironmentVariableToContextResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: AddEnvironmentVariableToContextResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

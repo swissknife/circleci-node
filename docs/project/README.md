@@ -19,12 +19,10 @@ Creates a new checkout key. This API request is only usable with a user API toke
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum,
   CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum,
-  CreateCheckoutKeyRequest,
   CreateCheckoutKeyResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -34,15 +32,13 @@ const sdk = new Circleci({
   },
 });
 
-const req: CreateCheckoutKeyRequest = {
+sdk.project.createCheckoutKey({
   requestBody: {
     type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum.DeployKey,
   },
   projectSlug: "distinctio",
-};
-
-sdk.project.createCheckoutKey(req).then((res: CreateCheckoutKeyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCheckoutKeyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -55,9 +51,8 @@ Creates a new environment variable.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { CreateEnvVarRequest, CreateEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CreateEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -65,16 +60,14 @@ const sdk = new Circleci({
   },
 });
 
-const req: CreateEnvVarRequest = {
+sdk.project.createEnvVar({
   requestBody: {
     name: "foo",
     value: "xxxx1234",
   },
   projectSlug: "asperiores",
-};
-
-sdk.project.createEnvVar(req).then((res: CreateEnvVarResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateEnvVarResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -87,9 +80,8 @@ Deletes the checkout key.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteCheckoutKeyRequest, DeleteCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DeleteCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -97,13 +89,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: DeleteCheckoutKeyRequest = {
+sdk.project.deleteCheckoutKey({
   fingerprint: "nihil",
   projectSlug: "ipsum",
-};
-
-sdk.project.deleteCheckoutKey(req).then((res: DeleteCheckoutKeyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteCheckoutKeyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -116,9 +106,8 @@ Deletes the environment variable named :name.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteEnvVarRequest, DeleteEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DeleteEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -126,13 +115,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: DeleteEnvVarRequest = {
+sdk.project.deleteEnvVar({
   name: "Alberta Ullrich",
   projectSlug: "perferendis",
-};
-
-sdk.project.deleteEnvVar(req).then((res: DeleteEnvVarResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteEnvVarResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -145,13 +132,8 @@ Returns an individual checkout key.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum,
-  GetCheckoutKeyRequest,
-  GetCheckoutKeyResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum, GetCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -159,13 +141,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetCheckoutKeyRequest = {
+sdk.project.getCheckoutKey({
   fingerprint: "amet",
   projectSlug: "optio",
-};
-
-sdk.project.getCheckoutKey(req).then((res: GetCheckoutKeyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCheckoutKeyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -178,9 +158,8 @@ Returns the masked value of environment variable :name.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetEnvVarRequest, GetEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -188,13 +167,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetEnvVarRequest = {
+sdk.project.getEnvVar({
   name: "Tommy Turner",
   projectSlug: "provident",
-};
-
-sdk.project.getEnvVar(req).then((res: GetEnvVarResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetEnvVarResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -207,13 +184,8 @@ Retrieves a project by project slug.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetProjectBySlugProjectVcsInfoProviderEnum,
-  GetProjectBySlugRequest,
-  GetProjectBySlugResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectBySlugProjectVcsInfoProviderEnum, GetProjectBySlugResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -221,12 +193,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetProjectBySlugRequest = {
+sdk.project.getProjectBySlug({
   projectSlug: "minima",
-};
-
-sdk.project.getProjectBySlug(req).then((res: GetProjectBySlugResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetProjectBySlugResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -239,11 +209,9 @@ Returns a sequence of checkout keys for `:project`.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnum,
-  ListCheckoutKeysRequest,
   ListCheckoutKeysResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -253,12 +221,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListCheckoutKeysRequest = {
+sdk.project.listCheckoutKeys({
   projectSlug: "repellendus",
-};
-
-sdk.project.listCheckoutKeys(req).then((res: ListCheckoutKeysResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListCheckoutKeysResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -271,9 +237,8 @@ Returns four 'x' characters, in addition to the last four ASCII characters of th
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { ListEnvVarsRequest, ListEnvVarsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListEnvVarsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -281,12 +246,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListEnvVarsRequest = {
+sdk.project.listEnvVars({
   projectSlug: "totam",
-};
-
-sdk.project.listEnvVars(req).then((res: ListEnvVarsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListEnvVarsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

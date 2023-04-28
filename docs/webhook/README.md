@@ -15,10 +15,8 @@ Create a webhook
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
-  CreateWebhookRequestBody,
   CreateWebhookRequestBodyEventsEnum,
   CreateWebhookRequestBodyScopeTypeEnum,
   CreateWebhookResponse,
@@ -31,7 +29,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: CreateWebhookRequestBody = {
+sdk.webhook.createWebhook({
   events: [
     CreateWebhookRequestBodyEventsEnum.WorkflowCompleted,
   ],
@@ -43,10 +41,8 @@ const req: CreateWebhookRequestBody = {
   signingSecret: "quo",
   url: "illum",
   verifyTls: false,
-};
-
-sdk.webhook.createWebhook(req).then((res: CreateWebhookResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateWebhookResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -59,9 +55,8 @@ Delete a webhook
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteWebhookRequest, DeleteWebhookResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DeleteWebhookResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -69,12 +64,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: DeleteWebhookRequest = {
+sdk.webhook.deleteWebhook({
   webhookId: "ca425190-4e52-43c7-a0bc-7178e4796f2a",
-};
-
-sdk.webhook.deleteWebhook(req).then((res: DeleteWebhookResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteWebhookResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -87,9 +80,8 @@ Get a webhook by id.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetWebhookByIdRequest, GetWebhookByIdResponse, GetWebhookByIdWebhookEventsEnum } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetWebhookByIdResponse, GetWebhookByIdWebhookEventsEnum } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -97,12 +89,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetWebhookByIdRequest = {
+sdk.webhook.getWebhookById({
   webhookId: "70c68828-2aa4-4825-a2f2-22e9817ee17c",
-};
-
-sdk.webhook.getWebhookById(req).then((res: GetWebhookByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetWebhookByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -115,11 +105,9 @@ Get a list of webhook that match the given scope-type and scope-id
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   GetWebhooks200ApplicationJSONWebhookEventsEnum,
-  GetWebhooksRequest,
   GetWebhooksResponse,
   GetWebhooksScopeTypeEnum,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
@@ -130,13 +118,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetWebhooksRequest = {
+sdk.webhook.getWebhooks({
   scopeId: "be61e6b7-b95b-4c0a-b3c2-0c4f3789fd87",
   scopeType: GetWebhooksScopeTypeEnum.Project,
-};
-
-sdk.webhook.getWebhooks(req).then((res: GetWebhooksResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetWebhooksResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -149,10 +135,8 @@ Update a webhook
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
-  UpdateWebhookRequest,
   UpdateWebhookRequestBodyEventsEnum,
   UpdateWebhookResponse,
   UpdateWebhookWebhookEventsEnum,
@@ -164,7 +148,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: UpdateWebhookRequest = {
+sdk.webhook.updateWebhook({
   requestBody: {
     events: [
       UpdateWebhookRequestBodyEventsEnum.JobCompleted,
@@ -175,10 +159,8 @@ const req: UpdateWebhookRequest = {
     verifyTls: false,
   },
   webhookId: "d121aa6f-1e67-44bd-b04f-15756082d68e",
-};
-
-sdk.webhook.updateWebhook(req).then((res: UpdateWebhookResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateWebhookResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

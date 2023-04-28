@@ -33,7 +33,7 @@ export class Webhook {
   /**
    * Create a webhook
    */
-  createWebhook(
+  async createWebhook(
     req: operations.CreateWebhookRequestBody,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateWebhookResponse> {
@@ -62,7 +62,8 @@ export class Webhook {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -70,44 +71,44 @@ export class Webhook {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateWebhookResponse =
-        new operations.CreateWebhookResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 201:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.objectToClass(
-              httpRes?.data,
-              operations.CreateWebhookWebhook
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createWebhookDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.CreateWebhookDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateWebhookResponse =
+      new operations.CreateWebhookResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 201:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.webhook = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateWebhookWebhook
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createWebhookDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateWebhookDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Delete a webhook
    */
-  deleteWebhook(
+  async deleteWebhook(
     req: operations.DeleteWebhookRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteWebhookResponse> {
@@ -124,44 +125,45 @@ export class Webhook {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteWebhookResponse =
-        new operations.DeleteWebhookResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.objectToClass(
-              httpRes?.data,
-              operations.DeleteWebhookMessageResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteWebhookDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.DeleteWebhookDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteWebhookResponse =
+      new operations.DeleteWebhookResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteWebhookMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteWebhookDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteWebhookDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -170,7 +172,7 @@ export class Webhook {
    * @remarks
    * Get a webhook by id.
    */
-  getWebhookById(
+  async getWebhookById(
     req: operations.GetWebhookByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetWebhookByIdResponse> {
@@ -187,45 +189,45 @@ export class Webhook {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetWebhookByIdResponse =
-        new operations.GetWebhookByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.objectToClass(
-              httpRes?.data,
-              operations.GetWebhookByIdWebhook
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWebhookByIdDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetWebhookByIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetWebhookByIdResponse =
+      new operations.GetWebhookByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.webhook = utils.objectToClass(
+            httpRes?.data,
+            operations.GetWebhookByIdWebhook
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getWebhookByIdDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetWebhookByIdDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -234,7 +236,7 @@ export class Webhook {
    * @remarks
    * Get a list of webhook that match the given scope-type and scope-id
    */
-  getWebhooks(
+  async getWebhooks(
     req: operations.GetWebhooksRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetWebhooksResponse> {
@@ -249,50 +251,51 @@ export class Webhook {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetWebhooksResponse =
-        new operations.GetWebhooksResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWebhooks200ApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.GetWebhooks200ApplicationJSON
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWebhooksDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.GetWebhooksDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetWebhooksResponse =
+      new operations.GetWebhooksResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getWebhooks200ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetWebhooks200ApplicationJSON
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getWebhooksDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetWebhooksDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Update a webhook
    */
-  updateWebhook(
+  async updateWebhook(
     req: operations.UpdateWebhookRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateWebhookResponse> {
@@ -325,7 +328,8 @@ export class Webhook {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "put",
       headers: headers,
@@ -333,37 +337,37 @@ export class Webhook {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateWebhookResponse =
-        new operations.UpdateWebhookResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.objectToClass(
-              httpRes?.data,
-              operations.UpdateWebhookWebhook
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateWebhookDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.UpdateWebhookDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateWebhookResponse =
+      new operations.UpdateWebhookResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.webhook = utils.objectToClass(
+            httpRes?.data,
+            operations.UpdateWebhookWebhook
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.updateWebhookDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.UpdateWebhookDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

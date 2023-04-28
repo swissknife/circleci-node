@@ -15,7 +15,6 @@ Creates a schedule and returns the created schedule.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   CreateScheduleCreateScheduleParametersAttributionActorEnum,
@@ -23,7 +22,6 @@ import {
   CreateScheduleCreateScheduleParametersTimetable1MonthsEnum,
   CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum,
   CreateScheduleCreateScheduleParametersTimetable2MonthsEnum,
-  CreateScheduleRequest,
   CreateScheduleResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -33,7 +31,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: CreateScheduleRequest = {
+sdk.schedule.createSchedule({
   requestBody: {
     attributionActor: CreateScheduleCreateScheduleParametersAttributionActorEnum.Current,
     description: "similique",
@@ -67,10 +65,8 @@ const req: CreateScheduleRequest = {
     },
   },
   projectSlug: "libero",
-};
-
-sdk.schedule.createSchedule(req).then((res: CreateScheduleResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateScheduleResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -83,9 +79,8 @@ Deletes the schedule by id.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteScheduleByIdRequest, DeleteScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DeleteScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -93,12 +88,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: DeleteScheduleByIdRequest = {
+sdk.schedule.deleteScheduleById({
   scheduleId: "5a73429c-db1a-4842-abb6-79d2322715bf",
-};
-
-sdk.schedule.deleteScheduleById(req).then((res: DeleteScheduleByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteScheduleByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -111,9 +104,8 @@ Get a schedule by id.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetScheduleByIdRequest, GetScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -121,12 +113,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetScheduleByIdRequest = {
+sdk.schedule.getScheduleById({
   scheduleId: "0cbb1e31-b8b9-40f3-843a-1108e0adcf4b",
-};
-
-sdk.schedule.getScheduleById(req).then((res: GetScheduleByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetScheduleByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -139,9 +129,8 @@ Returns all schedules for this project.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { ListSchedulesForProjectRequest, ListSchedulesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListSchedulesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -149,13 +138,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListSchedulesForProjectRequest = {
+sdk.schedule.listSchedulesForProject({
   pageToken: "cupiditate",
   projectSlug: "qui",
-};
-
-sdk.schedule.listSchedulesForProject(req).then((res: ListSchedulesForProjectResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListSchedulesForProjectResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -168,10 +155,8 @@ Updates a schedule and returns the updated schedule.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
-  UpdateScheduleRequest,
   UpdateScheduleResponse,
   UpdateScheduleUpdateScheduleParametersAttributionActorEnum,
   UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum,
@@ -184,7 +169,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: UpdateScheduleRequest = {
+sdk.schedule.updateSchedule({
   requestBody: {
     attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActorEnum.Current,
     description: "quae",
@@ -220,10 +205,8 @@ const req: UpdateScheduleRequest = {
     },
   },
   scheduleId: "5d2cff7c-70a4-4562-ad43-6813f16d9f5f",
-};
-
-sdk.schedule.updateSchedule(req).then((res: UpdateScheduleResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateScheduleResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

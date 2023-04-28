@@ -19,9 +19,8 @@ Continue a pipeline from the setup phase.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { ContinuePipelineRequestBody, ContinuePipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ContinuePipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -29,16 +28,14 @@ const sdk = new Circleci({
   },
 });
 
-const req: ContinuePipelineRequestBody = {
+sdk.pipeline.continuePipeline({
   configuration: "praesentium",
   continuationKey: "natus",
   parameters: {
     "sunt": "quo",
   },
-};
-
-sdk.pipeline.continuePipeline(req).then((res: ContinuePipelineResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ContinuePipelineResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,13 +48,11 @@ Returns a pipeline by the pipeline ID.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   GetPipelineByIdPipelineErrorsTypeEnum,
   GetPipelineByIdPipelineStateEnum,
   GetPipelineByIdPipelineTriggerTypeEnum,
-  GetPipelineByIdRequest,
   GetPipelineByIdResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -67,12 +62,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetPipelineByIdRequest = {
+sdk.pipeline.getPipelineById({
   pipelineId: "ddc69260-1fb5-476b-8d5f-0d30c5fbb258",
-};
-
-sdk.pipeline.getPipelineById(req).then((res: GetPipelineByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetPipelineByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -85,13 +78,11 @@ Returns a pipeline by the pipeline number.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   GetPipelineByNumberPipelineErrorsTypeEnum,
   GetPipelineByNumberPipelineStateEnum,
   GetPipelineByNumberPipelineTriggerTypeEnum,
-  GetPipelineByNumberRequest,
   GetPipelineByNumberResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -101,13 +92,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetPipelineByNumberRequest = {
+sdk.pipeline.getPipelineByNumber({
   pipelineNumber: "dignissimos",
   projectSlug: "eaque",
-};
-
-sdk.pipeline.getPipelineByNumber(req).then((res: GetPipelineByNumberResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetPipelineByNumberResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -120,9 +109,8 @@ Returns a pipeline's configuration by ID.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetPipelineConfigByIdRequest, GetPipelineConfigByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetPipelineConfigByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -130,12 +118,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetPipelineConfigByIdRequest = {
+sdk.pipeline.getPipelineConfigById({
   pipelineId: "53202c73-d5fe-49b9-8c28-909b3fe49a8d",
-};
-
-sdk.pipeline.getPipelineConfigById(req).then((res: GetPipelineConfigByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetPipelineConfigByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -148,13 +134,11 @@ Returns a sequence of all pipelines for this project triggered by the user.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   ListMyPipelinesPipelineListResponsePipelineErrorsTypeEnum,
   ListMyPipelinesPipelineListResponsePipelineStateEnum,
   ListMyPipelinesPipelineListResponsePipelineTriggerTypeEnum,
-  ListMyPipelinesRequest,
   ListMyPipelinesResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -164,13 +148,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListMyPipelinesRequest = {
+sdk.pipeline.listMyPipelines({
   pageToken: "provident",
   projectSlug: "nobis",
-};
-
-sdk.pipeline.listMyPipelines(req).then((res: ListMyPipelinesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListMyPipelinesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -183,13 +165,11 @@ Returns all pipelines for the most recently built projects (max 250) you follow 
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   ListPipelinesPipelineListResponsePipelineErrorsTypeEnum,
   ListPipelinesPipelineListResponsePipelineStateEnum,
   ListPipelinesPipelineListResponsePipelineTriggerTypeEnum,
-  ListPipelinesRequest,
   ListPipelinesResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -199,14 +179,12 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListPipelinesRequest = {
+sdk.pipeline.listPipelines({
   mine: false,
   orgSlug: "libero",
   pageToken: "delectus",
-};
-
-sdk.pipeline.listPipelines(req).then((res: ListPipelinesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListPipelinesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -219,13 +197,11 @@ Returns all pipelines for this project.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
   ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum,
   ListPipelinesForProjectPipelineListResponsePipelineStateEnum,
   ListPipelinesForProjectPipelineListResponsePipelineTriggerTypeEnum,
-  ListPipelinesForProjectRequest,
   ListPipelinesForProjectResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -235,14 +211,12 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListPipelinesForProjectRequest = {
+sdk.pipeline.listPipelinesForProject({
   branch: "quaerat",
   pageToken: "quos",
   projectSlug: "aliquid",
-};
-
-sdk.pipeline.listPipelinesForProject(req).then((res: ListPipelinesForProjectResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListPipelinesForProjectResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -255,10 +229,8 @@ Returns a paginated list of workflows by pipeline ID.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import {
-  ListWorkflowsByPipelineIdRequest,
   ListWorkflowsByPipelineIdResponse,
   ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum,
   ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTagEnum,
@@ -270,13 +242,11 @@ const sdk = new Circleci({
   },
 });
 
-const req: ListWorkflowsByPipelineIdRequest = {
+sdk.pipeline.listWorkflowsByPipelineId({
   pageToken: "dolorem",
   pipelineId: "3323f9b7-7f3a-4410-8674-ebf69280d1ba",
-};
-
-sdk.pipeline.listWorkflowsByPipelineId(req).then((res: ListWorkflowsByPipelineIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListWorkflowsByPipelineIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -289,13 +259,8 @@ Triggers a new pipeline on the project.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import {
-  TriggerPipelinePipelineCreationStateEnum,
-  TriggerPipelineRequest,
-  TriggerPipelineResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { TriggerPipelinePipelineCreationStateEnum, TriggerPipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -303,7 +268,7 @@ const sdk = new Circleci({
   },
 });
 
-const req: TriggerPipelineRequest = {
+sdk.pipeline.triggerPipeline({
   requestBody: {
     branch: "feature/design-new-api",
     parameters: {
@@ -313,10 +278,8 @@ const req: TriggerPipelineRequest = {
     tag: "v3.1.4159",
   },
   projectSlug: "necessitatibus",
-};
-
-sdk.pipeline.triggerPipeline(req).then((res: TriggerPipelineResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: TriggerPipelineResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

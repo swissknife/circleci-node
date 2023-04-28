@@ -36,7 +36,7 @@ export class Project {
    * @remarks
    * Creates a new checkout key. This API request is only usable with a user API token.
    */
-  createCheckoutKey(
+  async createCheckoutKey(
     req: operations.CreateCheckoutKeyRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateCheckoutKeyResponse> {
@@ -69,7 +69,8 @@ export class Project {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -77,39 +78,39 @@ export class Project {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateCheckoutKeyResponse =
-        new operations.CreateCheckoutKeyResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 201:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.checkoutKey = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.CreateCheckoutKeyResponse =
+      new operations.CreateCheckoutKeyResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 201:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.checkoutKey = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateCheckoutKeyCheckoutKey
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createCheckoutKeyDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.CreateCheckoutKeyCheckoutKey
+              operations.CreateCheckoutKeyDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCheckoutKeyDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.CreateCheckoutKeyDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -118,7 +119,7 @@ export class Project {
    * @remarks
    * Creates a new environment variable.
    */
-  createEnvVar(
+  async createEnvVar(
     req: operations.CreateEnvVarRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateEnvVarResponse> {
@@ -151,7 +152,8 @@ export class Project {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -159,38 +161,38 @@ export class Project {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateEnvVarResponse =
-        new operations.CreateEnvVarResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 201:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.environmentVariablePair = utils.objectToClass(
-              httpRes?.data,
-              operations.CreateEnvVarEnvironmentVariablePair
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createEnvVarDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.CreateEnvVarDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateEnvVarResponse =
+      new operations.CreateEnvVarResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 201:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.environmentVariablePair = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateEnvVarEnvironmentVariablePair
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateEnvVarDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -199,7 +201,7 @@ export class Project {
    * @remarks
    * Deletes the checkout key.
    */
-  deleteCheckoutKey(
+  async deleteCheckoutKey(
     req: operations.DeleteCheckoutKeyRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteCheckoutKeyResponse> {
@@ -216,45 +218,46 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteCheckoutKeyResponse =
-        new operations.DeleteCheckoutKeyResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.DeleteCheckoutKeyResponse =
+      new operations.DeleteCheckoutKeyResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteCheckoutKeyMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteCheckoutKeyDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.DeleteCheckoutKeyMessageResponse
+              operations.DeleteCheckoutKeyDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteCheckoutKeyDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.DeleteCheckoutKeyDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -263,7 +266,7 @@ export class Project {
    * @remarks
    * Deletes the environment variable named :name.
    */
-  deleteEnvVar(
+  async deleteEnvVar(
     req: operations.DeleteEnvVarRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteEnvVarResponse> {
@@ -280,44 +283,45 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteEnvVarResponse =
-        new operations.DeleteEnvVarResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.objectToClass(
-              httpRes?.data,
-              operations.DeleteEnvVarMessageResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteEnvVarDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.DeleteEnvVarDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteEnvVarResponse =
+      new operations.DeleteEnvVarResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteEnvVarMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteEnvVarDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -326,7 +330,7 @@ export class Project {
    * @remarks
    * Returns an individual checkout key.
    */
-  getCheckoutKey(
+  async getCheckoutKey(
     req: operations.GetCheckoutKeyRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetCheckoutKeyResponse> {
@@ -343,45 +347,45 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCheckoutKeyResponse =
-        new operations.GetCheckoutKeyResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.checkoutKey = utils.objectToClass(
-              httpRes?.data,
-              operations.GetCheckoutKeyCheckoutKey
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCheckoutKeyDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetCheckoutKeyDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCheckoutKeyResponse =
+      new operations.GetCheckoutKeyResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.checkoutKey = utils.objectToClass(
+            httpRes?.data,
+            operations.GetCheckoutKeyCheckoutKey
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetCheckoutKeyDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -390,7 +394,7 @@ export class Project {
    * @remarks
    * Returns the masked value of environment variable :name.
    */
-  getEnvVar(
+  async getEnvVar(
     req: operations.GetEnvVarRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetEnvVarResponse> {
@@ -407,44 +411,44 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetEnvVarResponse =
-        new operations.GetEnvVarResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.environmentVariablePair = utils.objectToClass(
-              httpRes?.data,
-              operations.GetEnvVarEnvironmentVariablePair
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getEnvVarDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.GetEnvVarDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.GetEnvVarResponse = new operations.GetEnvVarResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.environmentVariablePair = utils.objectToClass(
+            httpRes?.data,
+            operations.GetEnvVarEnvironmentVariablePair
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetEnvVarDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -453,7 +457,7 @@ export class Project {
    * @remarks
    * Retrieves a project by project slug.
    */
-  getProjectBySlug(
+  async getProjectBySlug(
     req: operations.GetProjectBySlugRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProjectBySlugResponse> {
@@ -470,45 +474,46 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProjectBySlugResponse =
-        new operations.GetProjectBySlugResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.project = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetProjectBySlugResponse =
+      new operations.GetProjectBySlugResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.project = utils.objectToClass(
+            httpRes?.data,
+            operations.GetProjectBySlugProject
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getProjectBySlugDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.GetProjectBySlugProject
+              operations.GetProjectBySlugDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProjectBySlugDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetProjectBySlugDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -517,7 +522,7 @@ export class Project {
    * @remarks
    * Returns a sequence of checkout keys for `:project`.
    */
-  listCheckoutKeys(
+  async listCheckoutKeys(
     req: operations.ListCheckoutKeysRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListCheckoutKeysResponse> {
@@ -534,45 +539,46 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCheckoutKeysResponse =
-        new operations.ListCheckoutKeysResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.checkoutKeyListResponse = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ListCheckoutKeysResponse =
+      new operations.ListCheckoutKeysResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.checkoutKeyListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ListCheckoutKeysCheckoutKeyListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listCheckoutKeysDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.ListCheckoutKeysCheckoutKeyListResponse
+              operations.ListCheckoutKeysDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCheckoutKeysDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.ListCheckoutKeysDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -581,7 +587,7 @@ export class Project {
    * @remarks
    * Returns four 'x' characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
    */
-  listEnvVars(
+  async listEnvVars(
     req: operations.ListEnvVarsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListEnvVarsResponse> {
@@ -598,43 +604,44 @@ export class Project {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListEnvVarsResponse =
-        new operations.ListEnvVarsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.environmentVariableListResponse = utils.objectToClass(
-              httpRes?.data,
-              operations.ListEnvVarsEnvironmentVariableListResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listEnvVarsDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.ListEnvVarsDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListEnvVarsResponse =
+      new operations.ListEnvVarsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.environmentVariableListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ListEnvVarsEnvironmentVariableListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listEnvVarsDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.ListEnvVarsDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

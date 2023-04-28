@@ -36,7 +36,7 @@ export class Pipeline {
    * @remarks
    * Continue a pipeline from the setup phase.
    */
-  continuePipeline(
+  async continuePipeline(
     req: operations.ContinuePipelineRequestBody,
     config?: AxiosRequestConfig
   ): Promise<operations.ContinuePipelineResponse> {
@@ -65,7 +65,8 @@ export class Pipeline {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -73,39 +74,39 @@ export class Pipeline {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ContinuePipelineResponse =
-        new operations.ContinuePipelineResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ContinuePipelineResponse =
+      new operations.ContinuePipelineResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ContinuePipelineMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.continuePipelineDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.ContinuePipelineMessageResponse
+              operations.ContinuePipelineDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.continuePipelineDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.ContinuePipelineDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -114,7 +115,7 @@ export class Pipeline {
    * @remarks
    * Returns a pipeline by the pipeline ID.
    */
-  getPipelineById(
+  async getPipelineById(
     req: operations.GetPipelineByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetPipelineByIdResponse> {
@@ -131,45 +132,45 @@ export class Pipeline {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetPipelineByIdResponse =
-        new operations.GetPipelineByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipeline = utils.objectToClass(
-              httpRes?.data,
-              operations.GetPipelineByIdPipeline
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getPipelineByIdDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetPipelineByIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetPipelineByIdResponse =
+      new operations.GetPipelineByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pipeline = utils.objectToClass(
+            httpRes?.data,
+            operations.GetPipelineByIdPipeline
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getPipelineByIdDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetPipelineByIdDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -178,7 +179,7 @@ export class Pipeline {
    * @remarks
    * Returns a pipeline by the pipeline number.
    */
-  getPipelineByNumber(
+  async getPipelineByNumber(
     req: operations.GetPipelineByNumberRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetPipelineByNumberResponse> {
@@ -195,45 +196,46 @@ export class Pipeline {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetPipelineByNumberResponse =
-        new operations.GetPipelineByNumberResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipeline = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetPipelineByNumberResponse =
+      new operations.GetPipelineByNumberResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pipeline = utils.objectToClass(
+            httpRes?.data,
+            operations.GetPipelineByNumberPipeline
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getPipelineByNumberDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.GetPipelineByNumberPipeline
+              operations.GetPipelineByNumberDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getPipelineByNumberDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetPipelineByNumberDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -242,7 +244,7 @@ export class Pipeline {
    * @remarks
    * Returns a pipeline's configuration by ID.
    */
-  getPipelineConfigById(
+  async getPipelineConfigById(
     req: operations.GetPipelineConfigByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetPipelineConfigByIdResponse> {
@@ -259,45 +261,46 @@ export class Pipeline {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetPipelineConfigByIdResponse =
-        new operations.GetPipelineConfigByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineConfig = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetPipelineConfigByIdResponse =
+      new operations.GetPipelineConfigByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pipelineConfig = utils.objectToClass(
+            httpRes?.data,
+            operations.GetPipelineConfigByIdPipelineConfig
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getPipelineConfigByIdDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.GetPipelineConfigByIdPipelineConfig
+              operations.GetPipelineConfigByIdDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getPipelineConfigByIdDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.GetPipelineConfigByIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -306,7 +309,7 @@ export class Pipeline {
    * @remarks
    * Returns a sequence of all pipelines for this project triggered by the user.
    */
-  listMyPipelines(
+  async listMyPipelines(
     req: operations.ListMyPipelinesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListMyPipelinesResponse> {
@@ -325,45 +328,45 @@ export class Pipeline {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListMyPipelinesResponse =
-        new operations.ListMyPipelinesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineListResponse = utils.objectToClass(
-              httpRes?.data,
-              operations.ListMyPipelinesPipelineListResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listMyPipelinesDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.ListMyPipelinesDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListMyPipelinesResponse =
+      new operations.ListMyPipelinesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pipelineListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ListMyPipelinesPipelineListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listMyPipelinesDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.ListMyPipelinesDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -372,7 +375,7 @@ export class Pipeline {
    * @remarks
    * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
    */
-  listPipelines(
+  async listPipelines(
     req: operations.ListPipelinesRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListPipelinesResponse> {
@@ -387,44 +390,45 @@ export class Pipeline {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListPipelinesResponse =
-        new operations.ListPipelinesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineListResponse = utils.objectToClass(
-              httpRes?.data,
-              operations.ListPipelinesPipelineListResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
-              httpRes?.data,
-              operations.ListPipelinesDefaultApplicationJSON
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListPipelinesResponse =
+      new operations.ListPipelinesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pipelineListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ListPipelinesPipelineListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.ListPipelinesDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -433,7 +437,7 @@ export class Pipeline {
    * @remarks
    * Returns all pipelines for this project.
    */
-  listPipelinesForProject(
+  async listPipelinesForProject(
     req: operations.ListPipelinesForProjectRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListPipelinesForProjectResponse> {
@@ -452,45 +456,46 @@ export class Pipeline {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListPipelinesForProjectResponse =
-        new operations.ListPipelinesForProjectResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineListResponse = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ListPipelinesForProjectResponse =
+      new operations.ListPipelinesForProjectResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pipelineListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ListPipelinesForProjectPipelineListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listPipelinesForProjectDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.ListPipelinesForProjectPipelineListResponse
+              operations.ListPipelinesForProjectDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listPipelinesForProjectDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.ListPipelinesForProjectDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -499,7 +504,7 @@ export class Pipeline {
    * @remarks
    * Returns a paginated list of workflows by pipeline ID.
    */
-  listWorkflowsByPipelineId(
+  async listWorkflowsByPipelineId(
     req: operations.ListWorkflowsByPipelineIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListWorkflowsByPipelineIdResponse> {
@@ -518,45 +523,46 @@ export class Pipeline {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListWorkflowsByPipelineIdResponse =
-        new operations.ListWorkflowsByPipelineIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.workflowListResponse = utils.objectToClass(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ListWorkflowsByPipelineIdResponse =
+      new operations.ListWorkflowsByPipelineIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.workflowListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ListWorkflowsByPipelineIdWorkflowListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listWorkflowsByPipelineIdDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.ListWorkflowsByPipelineIdWorkflowListResponse
+              operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listWorkflowsByPipelineIdDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -565,7 +571,7 @@ export class Pipeline {
    * @remarks
    * Triggers a new pipeline on the project.
    */
-  triggerPipeline(
+  async triggerPipeline(
     req: operations.TriggerPipelineRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.TriggerPipelineResponse> {
@@ -598,7 +604,8 @@ export class Pipeline {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -606,38 +613,37 @@ export class Pipeline {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.TriggerPipelineResponse =
-        new operations.TriggerPipelineResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 201:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pipelineCreation = utils.objectToClass(
-              httpRes?.data,
-              operations.TriggerPipelinePipelineCreation
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.triggerPipelineDefaultApplicationJSONObject =
-              utils.objectToClass(
-                httpRes?.data,
-                operations.TriggerPipelineDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.TriggerPipelineResponse =
+      new operations.TriggerPipelineResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 201:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pipelineCreation = utils.objectToClass(
+            httpRes?.data,
+            operations.TriggerPipelinePipelineCreation
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.triggerPipelineDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.TriggerPipelineDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

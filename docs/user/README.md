@@ -19,7 +19,6 @@ The set of organizations that a user can collaborate on is composed of:
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import { GetCollaborationsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -29,8 +28,8 @@ const sdk = new Circleci({
   },
 });
 
-sdk.user.getCollaborations().then((res: GetCollaborationsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.user.getCollaborations().then((res: GetCollaborationsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -43,7 +42,6 @@ Provides information about the user that is currently signed in.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
 import { GetCurrentUserResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -53,8 +51,8 @@ const sdk = new Circleci({
   },
 });
 
-sdk.user.getCurrentUser().then((res: GetCurrentUserResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.user.getCurrentUser().then((res: GetCurrentUserResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -67,9 +65,8 @@ Provides information about the user with the given ID.
 ### Example Usage
 
 ```typescript
-import { AxiosError } from "axios";
 import { Circleci } from "circleci-v2-sdk";
-import { GetUserRequest, GetUserResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetUserResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -77,12 +74,10 @@ const sdk = new Circleci({
   },
 });
 
-const req: GetUserRequest = {
+sdk.user.getUser({
   id: "ce6c5561-46c3-4e25-8fb0-08c42e141aac",
-};
-
-sdk.user.getUser(req).then((res: GetUserResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetUserResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
