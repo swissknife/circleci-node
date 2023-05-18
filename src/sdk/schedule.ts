@@ -36,7 +36,7 @@ export class Schedule {
    * @remarks
    * Creates a schedule and returns the created schedule.
    */
-  createSchedule(
+  async createSchedule(
     req: operations.CreateScheduleRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateScheduleResponse> {
@@ -68,8 +68,12 @@ export class Schedule {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -77,39 +81,38 @@ export class Schedule {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateScheduleResponse =
-        new operations.CreateScheduleResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 201:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.schedule = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.CreateScheduleSchedule
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createScheduleDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateScheduleDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateScheduleResponse =
+      new operations.CreateScheduleResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 201:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.schedule = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateScheduleSchedule
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createScheduleDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.CreateScheduleDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -118,7 +121,7 @@ export class Schedule {
    * @remarks
    * Deletes the schedule by id.
    */
-  deleteScheduleById(
+  async deleteScheduleById(
     req: operations.DeleteScheduleByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteScheduleByIdResponse> {
@@ -135,45 +138,52 @@ export class Schedule {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteScheduleByIdResponse =
-        new operations.DeleteScheduleByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.DeleteScheduleByIdResponse =
+      new operations.DeleteScheduleByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.DeleteScheduleByIdMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteScheduleByIdDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.DeleteScheduleByIdMessageResponse
+              operations.DeleteScheduleByIdDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteScheduleByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteScheduleByIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -182,7 +192,7 @@ export class Schedule {
    * @remarks
    * Get a schedule by id.
    */
-  getScheduleById(
+  async getScheduleById(
     req: operations.GetScheduleByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetScheduleByIdResponse> {
@@ -199,45 +209,51 @@ export class Schedule {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetScheduleByIdResponse =
-        new operations.GetScheduleByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.schedule = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetScheduleByIdSchedule
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getScheduleByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetScheduleByIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetScheduleByIdResponse =
+      new operations.GetScheduleByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.schedule = utils.objectToClass(
+            httpRes?.data,
+            operations.GetScheduleByIdSchedule
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetScheduleByIdDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -246,7 +262,7 @@ export class Schedule {
    * @remarks
    * Returns all schedules for this project.
    */
-  listSchedulesForProject(
+  async listSchedulesForProject(
     req: operations.ListSchedulesForProjectRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListSchedulesForProjectResponse> {
@@ -263,48 +279,54 @@ export class Schedule {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListSchedulesForProjectResponse =
-        new operations.ListSchedulesForProjectResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listSchedulesForProject200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListSchedulesForProject200ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listSchedulesForProjectDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListSchedulesForProjectDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListSchedulesForProjectResponse =
+      new operations.ListSchedulesForProjectResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listSchedulesForProject200ApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.ListSchedulesForProject200ApplicationJSON
+            );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listSchedulesForProjectDefaultApplicationJSONObject =
+            utils.objectToClass(
+              httpRes?.data,
+              operations.ListSchedulesForProjectDefaultApplicationJSON
+            );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -313,7 +335,7 @@ export class Schedule {
    * @remarks
    * Updates a schedule and returns the updated schedule.
    */
-  updateSchedule(
+  async updateSchedule(
     req: operations.UpdateScheduleRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateScheduleResponse> {
@@ -345,8 +367,12 @@ export class Schedule {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "patch",
       headers: headers,
@@ -354,38 +380,37 @@ export class Schedule {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateScheduleResponse =
-        new operations.UpdateScheduleResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.schedule = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.UpdateScheduleSchedule
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateScheduleDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateScheduleDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateScheduleResponse =
+      new operations.UpdateScheduleResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.schedule = utils.objectToClass(
+            httpRes?.data,
+            operations.UpdateScheduleSchedule
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.updateScheduleDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.UpdateScheduleDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

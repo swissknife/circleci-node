@@ -36,7 +36,7 @@ export class Job {
    * @remarks
    * Cancel job with a given job number.
    */
-  cancelJob(
+  async cancelJob(
     req: operations.CancelJobRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CancelJobResponse> {
@@ -53,45 +53,50 @@ export class Job {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CancelJobResponse =
-        new operations.CancelJobResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.CancelJobMessageResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.cancelJobDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CancelJobDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.CancelJobResponse = new operations.CancelJobResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.CancelJobMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.cancelJobDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.CancelJobDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -100,7 +105,7 @@ export class Job {
    * @remarks
    * Returns a job's artifacts.
    */
-  getJobArtifacts(
+  async getJobArtifacts(
     req: operations.GetJobArtifactsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetJobArtifactsResponse> {
@@ -117,45 +122,51 @@ export class Job {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetJobArtifactsResponse =
-        new operations.GetJobArtifactsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.artifactListResponse = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetJobArtifactsArtifactListResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getJobArtifactsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetJobArtifactsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetJobArtifactsResponse =
+      new operations.GetJobArtifactsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.artifactListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.GetJobArtifactsArtifactListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getJobArtifactsDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetJobArtifactsDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -164,7 +175,7 @@ export class Job {
    * @remarks
    * Returns job details.
    */
-  getJobDetails(
+  async getJobDetails(
     req: operations.GetJobDetailsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetJobDetailsResponse> {
@@ -181,45 +192,51 @@ export class Job {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetJobDetailsResponse =
-        new operations.GetJobDetailsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.jobDetails = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetJobDetailsJobDetails
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getJobDetailsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetJobDetailsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetJobDetailsResponse =
+      new operations.GetJobDetailsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.jobDetails = utils.objectToClass(
+            httpRes?.data,
+            operations.GetJobDetailsJobDetails
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getJobDetailsDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetJobDetailsDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -228,7 +245,7 @@ export class Job {
    * @remarks
    * Get test metadata for a build. In the rare case where there is more than 250MB of test data on the job, no results will be returned.
    */
-  getTests(
+  async getTests(
     req: operations.GetTestsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetTestsResponse> {
@@ -245,43 +262,49 @@ export class Job {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetTestsResponse = new operations.GetTestsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.testsResponse = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetTestsTestsResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getTestsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetTestsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.GetTestsResponse = new operations.GetTestsResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.testsResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.GetTestsTestsResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getTestsDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetTestsDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

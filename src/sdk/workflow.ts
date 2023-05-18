@@ -36,7 +36,7 @@ export class Workflow {
    * @remarks
    * Approves a pending approval job in a workflow.
    */
-  approvePendingApprovalJobById(
+  async approvePendingApprovalJobById(
     req: operations.ApprovePendingApprovalJobByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ApprovePendingApprovalJobByIdResponse> {
@@ -53,45 +53,52 @@ export class Workflow {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ApprovePendingApprovalJobByIdResponse =
-        new operations.ApprovePendingApprovalJobByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 202:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ApprovePendingApprovalJobByIdResponse =
+      new operations.ApprovePendingApprovalJobByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 202:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ApprovePendingApprovalJobByIdMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.approvePendingApprovalJobByIdDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.ApprovePendingApprovalJobByIdMessageResponse
+              operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.approvePendingApprovalJobByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -100,7 +107,7 @@ export class Workflow {
    * @remarks
    * Cancels a running workflow.
    */
-  cancelWorkflow(
+  async cancelWorkflow(
     req: operations.CancelWorkflowRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CancelWorkflowResponse> {
@@ -117,45 +124,51 @@ export class Workflow {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CancelWorkflowResponse =
-        new operations.CancelWorkflowResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 202:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.messageResponse = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.CancelWorkflowMessageResponse
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.cancelWorkflowDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CancelWorkflowDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CancelWorkflowResponse =
+      new operations.CancelWorkflowResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 202:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.messageResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.CancelWorkflowMessageResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.cancelWorkflowDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.CancelWorkflowDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -164,7 +177,7 @@ export class Workflow {
    * @remarks
    * Returns summary fields of a workflow by ID.
    */
-  getWorkflowById(
+  async getWorkflowById(
     req: operations.GetWorkflowByIdRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.GetWorkflowByIdResponse> {
@@ -177,45 +190,51 @@ export class Workflow {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetWorkflowByIdResponse =
-        new operations.GetWorkflowByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.workflow = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetWorkflowByIdWorkflow
-            );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWorkflowByIdDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetWorkflowByIdDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetWorkflowByIdResponse =
+      new operations.GetWorkflowByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.workflow = utils.objectToClass(
+            httpRes?.data,
+            operations.GetWorkflowByIdWorkflow
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.getWorkflowByIdDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.GetWorkflowByIdDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -224,7 +243,7 @@ export class Workflow {
    * @remarks
    * Returns a sequence of jobs for a workflow.
    */
-  listWorkflowJobs(
+  async listWorkflowJobs(
     req: operations.ListWorkflowJobsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListWorkflowJobsResponse> {
@@ -237,45 +256,52 @@ export class Workflow {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
+    const headers = { ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
+      headers: headers,
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListWorkflowJobsResponse =
-        new operations.ListWorkflowJobsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.workflowJobListResponse = utils.deserializeJSONResponse(
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ListWorkflowJobsResponse =
+      new operations.ListWorkflowJobsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.workflowJobListResponse = utils.objectToClass(
+            httpRes?.data,
+            operations.ListWorkflowJobsWorkflowJobListResponse
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listWorkflowJobsDefaultApplicationJSONObject =
+            utils.objectToClass(
               httpRes?.data,
-              operations.ListWorkflowJobsWorkflowJobListResponse
+              operations.ListWorkflowJobsDefaultApplicationJSON
             );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listWorkflowJobsDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListWorkflowJobsDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+        }
+        break;
+    }
 
-      return res;
-    });
+    return res;
   }
 
   /**
@@ -284,7 +310,7 @@ export class Workflow {
    * @remarks
    * Reruns a workflow.
    */
-  rerunWorkflow(
+  async rerunWorkflow(
     req: operations.RerunWorkflowRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RerunWorkflowResponse> {
@@ -312,8 +338,12 @@ export class Workflow {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -321,39 +351,37 @@ export class Workflow {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RerunWorkflowResponse =
-        new operations.RerunWorkflowResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 202:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.rerunWorkflow202ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.RerunWorkflow202ApplicationJSON
-              );
-          }
-          break;
-        default:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.rerunWorkflowDefaultApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.RerunWorkflowDefaultApplicationJSON
-              );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RerunWorkflowResponse =
+      new operations.RerunWorkflowResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 202:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.rerunWorkflow202ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.RerunWorkflow202ApplicationJSON
+          );
+        }
+        break;
+      default:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.rerunWorkflowDefaultApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.RerunWorkflowDefaultApplicationJSON
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }
