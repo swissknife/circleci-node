@@ -28,7 +28,7 @@ export class GetPipelineByIdDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of error.
  */
-export enum GetPipelineByIdPipelineErrorsTypeEnum {
+export enum GetPipelineByIdPipelineErrorsType {
   Config = "config",
   ConfigFetch = "config-fetch",
   Timeout = "timeout",
@@ -53,13 +53,13 @@ export class GetPipelineByIdPipelineErrors extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetPipelineByIdPipelineErrorsTypeEnum;
+  type: GetPipelineByIdPipelineErrorsType;
 }
 
 /**
  * The current state of the pipeline.
  */
-export enum GetPipelineByIdPipelineStateEnum {
+export enum GetPipelineByIdPipelineState {
   Created = "created",
   Errored = "errored",
   SetupPending = "setup-pending",
@@ -89,7 +89,7 @@ export class GetPipelineByIdPipelineTriggerActor extends SpeakeasyBase {
 /**
  * The type of trigger.
  */
-export enum GetPipelineByIdPipelineTriggerTypeEnum {
+export enum GetPipelineByIdPipelineTriggerType {
   ScheduledPipeline = "scheduled_pipeline",
   Explicit = "explicit",
   Api = "api",
@@ -121,7 +121,7 @@ export class GetPipelineByIdPipelineTrigger extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetPipelineByIdPipelineTriggerTypeEnum;
+  type: GetPipelineByIdPipelineTriggerType;
 }
 
 /**
@@ -258,7 +258,7 @@ export class GetPipelineByIdPipeline extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "state" })
-  state: GetPipelineByIdPipelineStateEnum;
+  state: GetPipelineByIdPipelineState;
 
   /**
    * A summary of the trigger.

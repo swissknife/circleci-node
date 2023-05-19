@@ -62,7 +62,7 @@ export class ListSchedulesForProject200ApplicationJSONScheduleUser extends Speak
 /**
  * Day in a week, in three letters format
  */
-export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWeekEnum {
+export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -75,7 +75,7 @@ export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWee
 /**
  * Month, in three letters format.
  */
-export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2MonthsEnum {
+export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -106,7 +106,7 @@ export class ListSchedulesForProject200ApplicationJSONScheduleTimetable2 extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWeekEnum[];
+  daysOfWeek?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -120,7 +120,7 @@ export class ListSchedulesForProject200ApplicationJSONScheduleTimetable2 extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2MonthsEnum[];
+  months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
@@ -133,7 +133,7 @@ export class ListSchedulesForProject200ApplicationJSONScheduleTimetable2 extends
 /**
  * Day in a week, in three letters format
  */
-export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWeekEnum {
+export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -146,7 +146,7 @@ export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWee
 /**
  * Month, in three letters format.
  */
-export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1MonthsEnum {
+export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -177,7 +177,7 @@ export class ListSchedulesForProject200ApplicationJSONScheduleTimetable1 extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek: ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWeekEnum[];
+  daysOfWeek: ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -191,7 +191,7 @@ export class ListSchedulesForProject200ApplicationJSONScheduleTimetable1 extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable1MonthsEnum[];
+  months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable1Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60

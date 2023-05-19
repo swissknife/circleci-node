@@ -28,7 +28,7 @@ export class GetProjectBySlugDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The VCS provider
  */
-export enum GetProjectBySlugProjectVcsInfoProviderEnum {
+export enum GetProjectBySlugProjectVcsInfoProvider {
   Bitbucket = "Bitbucket",
   CircleCI = "CircleCI",
   GitHub = "GitHub",
@@ -47,7 +47,7 @@ export class GetProjectBySlugProjectVcsInfo extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "provider" })
-  provider: GetProjectBySlugProjectVcsInfoProviderEnum;
+  provider: GetProjectBySlugProjectVcsInfoProvider;
 
   /**
    * URL to the repository hosting the project's code

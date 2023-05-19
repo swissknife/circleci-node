@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The time window used to calculate summary metrics.
  */
-export enum GetProjectWorkflowMetricsReportingWindowEnum {
+export enum GetProjectWorkflowMetricsReportingWindow {
   Last7Days = "last-7-days",
   Last90Days = "last-90-days",
   Last24Hours = "last-24-hours",
@@ -56,7 +56,7 @@ export class GetProjectWorkflowMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=reporting-window",
   })
-  reportingWindow?: GetProjectWorkflowMetricsReportingWindowEnum;
+  reportingWindow?: GetProjectWorkflowMetricsReportingWindow;
 }
 
 /**

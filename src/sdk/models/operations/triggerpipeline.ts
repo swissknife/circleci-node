@@ -57,7 +57,7 @@ export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The current state of the pipeline.
  */
-export enum TriggerPipelinePipelineCreationStateEnum {
+export enum TriggerPipelinePipelineCreationState {
   Created = "created",
   Errored = "errored",
   SetupPending = "setup-pending",
@@ -96,7 +96,7 @@ export class TriggerPipelinePipelineCreation extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "state" })
-  state: TriggerPipelinePipelineCreationStateEnum;
+  state: TriggerPipelinePipelineCreationState;
 }
 
 export class TriggerPipelineResponse extends SpeakeasyBase {

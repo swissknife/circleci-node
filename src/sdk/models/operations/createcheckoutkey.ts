@@ -9,7 +9,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * The type of checkout key to create. This may be either `deploy-key` or `user-key`.
  */
-export enum CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum {
+export enum CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType {
   UserKey = "user-key",
   DeployKey = "deploy-key",
 }
@@ -20,7 +20,7 @@ export class CreateCheckoutKeyCheckoutKeyInput extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum;
+  type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType;
 }
 
 export class CreateCheckoutKeyRequest extends SpeakeasyBase {
@@ -48,7 +48,7 @@ export class CreateCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
  */
-export enum CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum {
+export enum CreateCheckoutKeyCheckoutKeyCheckoutKeyType {
   DeployKey = "deploy-key",
   GithubUserKey = "github-user-key",
 }
@@ -91,7 +91,7 @@ export class CreateCheckoutKeyCheckoutKey extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum;
+  type: CreateCheckoutKeyCheckoutKeyCheckoutKeyType;
 }
 
 export class CreateCheckoutKeyResponse extends SpeakeasyBase {

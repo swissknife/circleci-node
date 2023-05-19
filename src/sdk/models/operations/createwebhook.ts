@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export enum CreateWebhookRequestBodyEventsEnum {
+export enum CreateWebhookRequestBodyEvents {
   WorkflowCompleted = "workflow-completed",
   JobCompleted = "job-completed",
 }
@@ -14,7 +14,7 @@ export enum CreateWebhookRequestBodyEventsEnum {
 /**
  * Type of the scope being used
  */
-export enum CreateWebhookRequestBodyScopeTypeEnum {
+export enum CreateWebhookRequestBodyScopeType {
   Project = "project",
 }
 
@@ -34,7 +34,7 @@ export class CreateWebhookRequestBodyScope extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: CreateWebhookRequestBodyScopeTypeEnum;
+  type: CreateWebhookRequestBodyScopeType;
 }
 
 /**
@@ -46,7 +46,7 @@ export class CreateWebhookRequestBody extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "events" })
-  events: CreateWebhookRequestBodyEventsEnum[];
+  events: CreateWebhookRequestBodyEvents[];
 
   /**
    * Name of the webhook
@@ -94,7 +94,7 @@ export class CreateWebhookDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 
-export enum CreateWebhookWebhookEventsEnum {
+export enum CreateWebhookWebhookEvents {
   WorkflowCompleted = "workflow-completed",
   JobCompleted = "job-completed",
 }
@@ -135,7 +135,7 @@ export class CreateWebhookWebhook extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "events" })
-  events: CreateWebhookWebhookEventsEnum[];
+  events: CreateWebhookWebhookEvents[];
 
   /**
    * The unique ID of the webhook

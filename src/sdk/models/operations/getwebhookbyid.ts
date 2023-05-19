@@ -25,7 +25,7 @@ export class GetWebhookByIdDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 
-export enum GetWebhookByIdWebhookEventsEnum {
+export enum GetWebhookByIdWebhookEvents {
   WorkflowCompleted = "workflow-completed",
   JobCompleted = "job-completed",
 }
@@ -66,7 +66,7 @@ export class GetWebhookByIdWebhook extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "events" })
-  events: GetWebhookByIdWebhookEventsEnum[];
+  events: GetWebhookByIdWebhookEvents[];
 
   /**
    * The unique ID of the webhook

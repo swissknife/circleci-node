@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export enum UpdateWebhookRequestBodyEventsEnum {
+export enum UpdateWebhookRequestBodyEvents {
   WorkflowCompleted = "workflow-completed",
   JobCompleted = "job-completed",
 }
@@ -20,7 +20,7 @@ export class UpdateWebhookRequestBody extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "events" })
-  events?: UpdateWebhookRequestBodyEventsEnum[];
+  events?: UpdateWebhookRequestBodyEvents[];
 
   /**
    * Name of the webhook
@@ -73,7 +73,7 @@ export class UpdateWebhookDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 
-export enum UpdateWebhookWebhookEventsEnum {
+export enum UpdateWebhookWebhookEvents {
   WorkflowCompleted = "workflow-completed",
   JobCompleted = "job-completed",
 }
@@ -114,7 +114,7 @@ export class UpdateWebhookWebhook extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "events" })
-  events: UpdateWebhookWebhookEventsEnum[];
+  events: UpdateWebhookWebhookEvents[];
 
   /**
    * The unique ID of the webhook

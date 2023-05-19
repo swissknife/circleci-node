@@ -17,11 +17,11 @@ Creates a schedule and returns the created schedule.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  CreateScheduleCreateScheduleParametersAttributionActorEnum,
-  CreateScheduleCreateScheduleParametersTimetable1DaysOfWeekEnum,
-  CreateScheduleCreateScheduleParametersTimetable1MonthsEnum,
-  CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum,
-  CreateScheduleCreateScheduleParametersTimetable2MonthsEnum,
+  CreateScheduleCreateScheduleParametersAttributionActor,
+  CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek,
+  CreateScheduleCreateScheduleParametersTimetable1Months,
+  CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek,
+  CreateScheduleCreateScheduleParametersTimetable2Months,
   CreateScheduleResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -33,7 +33,7 @@ const sdk = new Circleci({
 
 sdk.schedule.createSchedule({
   requestBody: {
-    attributionActor: CreateScheduleCreateScheduleParametersAttributionActorEnum.Current,
+    attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
     description: "similique",
     name: "Cristina Hahn",
     parameters: {
@@ -50,8 +50,8 @@ sdk.schedule.createSchedule({
         253941,
       ],
       daysOfWeek: [
-        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum.Sat,
-        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum.Fri,
+        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek.Sat,
+        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek.Fri,
       ],
       hoursOfDay: [
         471752,
@@ -59,7 +59,7 @@ sdk.schedule.createSchedule({
         711584,
       ],
       months: [
-        CreateScheduleCreateScheduleParametersTimetable2MonthsEnum.Nov,
+        CreateScheduleCreateScheduleParametersTimetable2Months.Nov,
       ],
       perHour: 424685,
     },
@@ -158,9 +158,9 @@ Updates a schedule and returns the updated schedule.
 import { Circleci } from "circleci-v2-sdk";
 import {
   UpdateScheduleResponse,
-  UpdateScheduleUpdateScheduleParametersAttributionActorEnum,
-  UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum,
-  UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum,
+  UpdateScheduleUpdateScheduleParametersAttributionActor,
+  UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek,
+  UpdateScheduleUpdateScheduleParametersTimetableMonths,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
@@ -171,7 +171,7 @@ const sdk = new Circleci({
 
 sdk.schedule.updateSchedule({
   requestBody: {
-    attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActorEnum.Current,
+    attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
     description: "quae",
     name: "Darren McClure",
     parameters: {
@@ -186,20 +186,20 @@ sdk.schedule.updateSchedule({
         715561,
       ],
       daysOfWeek: [
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Mon,
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Thu,
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Thu,
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Fri,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Mon,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Thu,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Thu,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Fri,
       ],
       hoursOfDay: [
         293020,
         844550,
       ],
       months: [
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Dec,
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Apr,
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Aug,
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Mar,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Dec,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Apr,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Aug,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Mar,
       ],
       perHour: 974259,
     },

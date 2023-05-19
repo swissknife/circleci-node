@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
  */
-export enum ListContextsOwnerTypeEnum {
+export enum ListContextsOwnerType {
   Account = "account",
   Organization = "organization",
 }
@@ -37,7 +37,7 @@ export class ListContextsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=owner-type",
   })
-  ownerType?: ListContextsOwnerTypeEnum;
+  ownerType?: ListContextsOwnerType;
 
   /**
    * A token to retrieve the next page of results.

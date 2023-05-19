@@ -36,7 +36,7 @@ export class GetCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
  */
-export enum GetCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum {
+export enum GetCheckoutKeyCheckoutKeyCheckoutKeyType {
   DeployKey = "deploy-key",
   GithubUserKey = "github-user-key",
 }
@@ -79,7 +79,7 @@ export class GetCheckoutKeyCheckoutKey extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum;
+  type: GetCheckoutKeyCheckoutKeyCheckoutKeyType;
 }
 
 export class GetCheckoutKeyResponse extends SpeakeasyBase {

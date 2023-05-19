@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The granularity for which to query timeseries data.
  */
-export enum GetJobTimeseriesGranularityEnum {
+export enum GetJobTimeseriesGranularity {
   Daily = "daily",
   Hourly = "hourly",
 }
@@ -37,7 +37,7 @@ export class GetJobTimeseriesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=granularity",
   })
-  granularity?: GetJobTimeseriesGranularityEnum;
+  granularity?: GetJobTimeseriesGranularity;
 
   /**
    * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.

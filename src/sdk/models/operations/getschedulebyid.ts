@@ -54,7 +54,7 @@ export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
 /**
  * Day in a week, in three letters format
  */
-export enum GetScheduleByIdScheduleTimetable2DaysOfWeekEnum {
+export enum GetScheduleByIdScheduleTimetable2DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -67,7 +67,7 @@ export enum GetScheduleByIdScheduleTimetable2DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum GetScheduleByIdScheduleTimetable2MonthsEnum {
+export enum GetScheduleByIdScheduleTimetable2Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -98,7 +98,7 @@ export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek?: GetScheduleByIdScheduleTimetable2DaysOfWeekEnum[];
+  daysOfWeek?: GetScheduleByIdScheduleTimetable2DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -112,7 +112,7 @@ export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: GetScheduleByIdScheduleTimetable2MonthsEnum[];
+  months?: GetScheduleByIdScheduleTimetable2Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
@@ -125,7 +125,7 @@ export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
 /**
  * Day in a week, in three letters format
  */
-export enum GetScheduleByIdScheduleTimetable1DaysOfWeekEnum {
+export enum GetScheduleByIdScheduleTimetable1DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -138,7 +138,7 @@ export enum GetScheduleByIdScheduleTimetable1DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum GetScheduleByIdScheduleTimetable1MonthsEnum {
+export enum GetScheduleByIdScheduleTimetable1Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -169,7 +169,7 @@ export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek: GetScheduleByIdScheduleTimetable1DaysOfWeekEnum[];
+  daysOfWeek: GetScheduleByIdScheduleTimetable1DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -183,7 +183,7 @@ export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: GetScheduleByIdScheduleTimetable1MonthsEnum[];
+  months?: GetScheduleByIdScheduleTimetable1Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60

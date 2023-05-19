@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The attribution-actor of the scheduled pipeline.
  */
-export enum CreateScheduleCreateScheduleParametersAttributionActorEnum {
+export enum CreateScheduleCreateScheduleParametersAttributionActor {
   Current = "current",
   System = "system",
 }
@@ -17,7 +17,7 @@ export enum CreateScheduleCreateScheduleParametersAttributionActorEnum {
 /**
  * Day in a week, in three letters format
  */
-export enum CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum {
+export enum CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -30,7 +30,7 @@ export enum CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum CreateScheduleCreateScheduleParametersTimetable2MonthsEnum {
+export enum CreateScheduleCreateScheduleParametersTimetable2Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -61,7 +61,7 @@ export class CreateScheduleCreateScheduleParametersTimetable2 extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek?: CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum[];
+  daysOfWeek?: CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -75,7 +75,7 @@ export class CreateScheduleCreateScheduleParametersTimetable2 extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: CreateScheduleCreateScheduleParametersTimetable2MonthsEnum[];
+  months?: CreateScheduleCreateScheduleParametersTimetable2Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
@@ -88,7 +88,7 @@ export class CreateScheduleCreateScheduleParametersTimetable2 extends SpeakeasyB
 /**
  * Day in a week, in three letters format
  */
-export enum CreateScheduleCreateScheduleParametersTimetable1DaysOfWeekEnum {
+export enum CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -101,7 +101,7 @@ export enum CreateScheduleCreateScheduleParametersTimetable1DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum CreateScheduleCreateScheduleParametersTimetable1MonthsEnum {
+export enum CreateScheduleCreateScheduleParametersTimetable1Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -132,7 +132,7 @@ export class CreateScheduleCreateScheduleParametersTimetable1 extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek: CreateScheduleCreateScheduleParametersTimetable1DaysOfWeekEnum[];
+  daysOfWeek: CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -146,7 +146,7 @@ export class CreateScheduleCreateScheduleParametersTimetable1 extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: CreateScheduleCreateScheduleParametersTimetable1MonthsEnum[];
+  months?: CreateScheduleCreateScheduleParametersTimetable1Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
@@ -165,7 +165,7 @@ export class CreateScheduleCreateScheduleParameters extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "attribution-actor" })
-  attributionActor: CreateScheduleCreateScheduleParametersAttributionActorEnum;
+  attributionActor: CreateScheduleCreateScheduleParametersAttributionActor;
 
   /**
    * Description of the schedule.
@@ -247,7 +247,7 @@ export class CreateScheduleScheduleUser extends SpeakeasyBase {
 /**
  * Day in a week, in three letters format
  */
-export enum CreateScheduleScheduleTimetable2DaysOfWeekEnum {
+export enum CreateScheduleScheduleTimetable2DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -260,7 +260,7 @@ export enum CreateScheduleScheduleTimetable2DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum CreateScheduleScheduleTimetable2MonthsEnum {
+export enum CreateScheduleScheduleTimetable2Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -291,7 +291,7 @@ export class CreateScheduleScheduleTimetable2 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek?: CreateScheduleScheduleTimetable2DaysOfWeekEnum[];
+  daysOfWeek?: CreateScheduleScheduleTimetable2DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -305,7 +305,7 @@ export class CreateScheduleScheduleTimetable2 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: CreateScheduleScheduleTimetable2MonthsEnum[];
+  months?: CreateScheduleScheduleTimetable2Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
@@ -318,7 +318,7 @@ export class CreateScheduleScheduleTimetable2 extends SpeakeasyBase {
 /**
  * Day in a week, in three letters format
  */
-export enum CreateScheduleScheduleTimetable1DaysOfWeekEnum {
+export enum CreateScheduleScheduleTimetable1DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -331,7 +331,7 @@ export enum CreateScheduleScheduleTimetable1DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum CreateScheduleScheduleTimetable1MonthsEnum {
+export enum CreateScheduleScheduleTimetable1Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -362,7 +362,7 @@ export class CreateScheduleScheduleTimetable1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek: CreateScheduleScheduleTimetable1DaysOfWeekEnum[];
+  daysOfWeek: CreateScheduleScheduleTimetable1DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -376,7 +376,7 @@ export class CreateScheduleScheduleTimetable1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: CreateScheduleScheduleTimetable1MonthsEnum[];
+  months?: CreateScheduleScheduleTimetable1Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60

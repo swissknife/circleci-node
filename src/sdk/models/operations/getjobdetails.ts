@@ -185,7 +185,7 @@ export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
 /**
  * The current status of the job.
  */
-export enum GetJobDetailsJobDetailsStatusEnum {
+export enum GetJobDetailsJobDetailsStatus {
   Success = "success",
   Running = "running",
   NotRun = "not_run",
@@ -327,7 +327,7 @@ export class GetJobDetailsJobDetails extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetJobDetailsJobDetailsStatusEnum;
+  status: GetJobDetailsJobDetailsStatus;
 
   /**
    * The time when the job stopped.

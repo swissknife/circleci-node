@@ -9,7 +9,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
  */
-export enum CreateContextRequestBodyOwner2TypeEnum {
+export enum CreateContextRequestBodyOwner2Type {
   Organization = "organization",
 }
 
@@ -26,13 +26,13 @@ export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: CreateContextRequestBodyOwner2TypeEnum;
+  type?: CreateContextRequestBodyOwner2Type;
 }
 
 /**
  * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
  */
-export enum CreateContextRequestBodyOwner1TypeEnum {
+export enum CreateContextRequestBodyOwner1Type {
   Account = "account",
   Organization = "organization",
 }
@@ -50,7 +50,7 @@ export class CreateContextRequestBodyOwner1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: CreateContextRequestBodyOwner1TypeEnum;
+  type?: CreateContextRequestBodyOwner1Type;
 }
 
 export class CreateContextRequestBody extends SpeakeasyBase {

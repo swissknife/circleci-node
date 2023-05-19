@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of the scope being used
  */
-export enum GetWebhooksScopeTypeEnum {
+export enum GetWebhooksScopeType {
   Project = "project",
 }
 
@@ -28,7 +28,7 @@ export class GetWebhooksRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=scope-type",
   })
-  scopeType: GetWebhooksScopeTypeEnum;
+  scopeType: GetWebhooksScopeType;
 }
 
 /**
@@ -40,7 +40,7 @@ export class GetWebhooksDefaultApplicationJSON extends SpeakeasyBase {
   message?: string;
 }
 
-export enum GetWebhooks200ApplicationJSONWebhookEventsEnum {
+export enum GetWebhooks200ApplicationJSONWebhookEvents {
   WorkflowCompleted = "workflow-completed",
   JobCompleted = "job-completed",
 }
@@ -78,7 +78,7 @@ export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "events" })
-  events: GetWebhooks200ApplicationJSONWebhookEventsEnum[];
+  events: GetWebhooks200ApplicationJSONWebhookEvents[];
 
   /**
    * The unique ID of the webhook

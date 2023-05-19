@@ -26,7 +26,7 @@ export class GetWorkflowByIdDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The current status of the workflow.
  */
-export enum GetWorkflowByIdWorkflowStatusEnum {
+export enum GetWorkflowByIdWorkflowStatus {
   Success = "success",
   Running = "running",
   NotRun = "not_run",
@@ -41,7 +41,7 @@ export enum GetWorkflowByIdWorkflowStatusEnum {
 /**
  * Tag used for the workflow
  */
-export enum GetWorkflowByIdWorkflowTagEnum {
+export enum GetWorkflowByIdWorkflowTag {
   Setup = "setup",
 }
 
@@ -109,7 +109,7 @@ export class GetWorkflowByIdWorkflow extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetWorkflowByIdWorkflowStatusEnum;
+  status: GetWorkflowByIdWorkflowStatus;
 
   /**
    * The date and time the workflow stopped.
@@ -124,7 +124,7 @@ export class GetWorkflowByIdWorkflow extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "tag" })
-  tag?: GetWorkflowByIdWorkflowTagEnum;
+  tag?: GetWorkflowByIdWorkflowTag;
 }
 
 export class GetWorkflowByIdResponse extends SpeakeasyBase {

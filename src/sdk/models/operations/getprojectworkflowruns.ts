@@ -76,7 +76,7 @@ export class GetProjectWorkflowRunsDefaultApplicationJSON extends SpeakeasyBase 
 /**
  * Workflow status.
  */
-export enum GetProjectWorkflowRuns200ApplicationJSONItemsStatusEnum {
+export enum GetProjectWorkflowRuns200ApplicationJSONItemsStatus {
   Success = "success",
   Failed = "failed",
   Error = "error",
@@ -126,7 +126,7 @@ export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetProjectWorkflowRuns200ApplicationJSONItemsStatusEnum;
+  status: GetProjectWorkflowRuns200ApplicationJSONItemsStatus;
 
   /**
    * The date and time the workflow stopped.

@@ -36,7 +36,7 @@ export class ListWorkflowsByPipelineIdDefaultApplicationJSON extends SpeakeasyBa
 /**
  * The current status of the workflow.
  */
-export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum {
+export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatus {
   Success = "success",
   Running = "running",
   NotRun = "not_run",
@@ -51,7 +51,7 @@ export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum {
 /**
  * Tag used for the workflow
  */
-export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTagEnum {
+export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTag {
   Setup = "setup",
 }
 
@@ -119,7 +119,7 @@ export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends Speak
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum;
+  status: ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatus;
 
   /**
    * The date and time the workflow stopped.
@@ -134,7 +134,7 @@ export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends Speak
    */
   @SpeakeasyMetadata()
   @Expose({ name: "tag" })
-  tag?: ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTagEnum;
+  tag?: ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTag;
 }
 
 /**

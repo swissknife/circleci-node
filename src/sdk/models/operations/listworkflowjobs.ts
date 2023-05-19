@@ -26,7 +26,7 @@ export class ListWorkflowJobsDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The current status of the job.
  */
-export enum ListWorkflowJobsWorkflowJobListResponseJobStatusEnum {
+export enum ListWorkflowJobsWorkflowJobListResponseJobStatus {
   Success = "success",
   Running = "running",
   NotRun = "not_run",
@@ -46,7 +46,7 @@ export enum ListWorkflowJobsWorkflowJobListResponseJobStatusEnum {
 /**
  * The type of job.
  */
-export enum ListWorkflowJobsWorkflowJobListResponseJobTypeEnum {
+export enum ListWorkflowJobsWorkflowJobListResponseJobType {
   Build = "build",
   Approval = "approval",
 }
@@ -124,7 +124,7 @@ export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: ListWorkflowJobsWorkflowJobListResponseJobStatusEnum;
+  status: ListWorkflowJobsWorkflowJobListResponseJobStatus;
 
   /**
    * The time when the job stopped.
@@ -139,7 +139,7 @@ export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: ListWorkflowJobsWorkflowJobListResponseJobTypeEnum;
+  type: ListWorkflowJobsWorkflowJobListResponseJobType;
 }
 
 /**

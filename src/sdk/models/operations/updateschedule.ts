@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The attribution-actor of the scheduled pipeline.
  */
-export enum UpdateScheduleUpdateScheduleParametersAttributionActorEnum {
+export enum UpdateScheduleUpdateScheduleParametersAttributionActor {
   Current = "current",
   System = "system",
 }
@@ -17,7 +17,7 @@ export enum UpdateScheduleUpdateScheduleParametersAttributionActorEnum {
 /**
  * Day in a week, in three letters format
  */
-export enum UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum {
+export enum UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -30,7 +30,7 @@ export enum UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum {
+export enum UpdateScheduleUpdateScheduleParametersTimetableMonths {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -61,7 +61,7 @@ export class UpdateScheduleUpdateScheduleParametersTimetable extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek?: UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum[];
+  daysOfWeek?: UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -75,7 +75,7 @@ export class UpdateScheduleUpdateScheduleParametersTimetable extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum[];
+  months?: UpdateScheduleUpdateScheduleParametersTimetableMonths[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
@@ -94,7 +94,7 @@ export class UpdateScheduleUpdateScheduleParameters extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "attribution-actor" })
-  attributionActor?: UpdateScheduleUpdateScheduleParametersAttributionActorEnum;
+  attributionActor?: UpdateScheduleUpdateScheduleParametersAttributionActor;
 
   /**
    * Description of the schedule.
@@ -177,7 +177,7 @@ export class UpdateScheduleScheduleUser extends SpeakeasyBase {
 /**
  * Day in a week, in three letters format
  */
-export enum UpdateScheduleScheduleTimetable2DaysOfWeekEnum {
+export enum UpdateScheduleScheduleTimetable2DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -190,7 +190,7 @@ export enum UpdateScheduleScheduleTimetable2DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum UpdateScheduleScheduleTimetable2MonthsEnum {
+export enum UpdateScheduleScheduleTimetable2Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -221,7 +221,7 @@ export class UpdateScheduleScheduleTimetable2 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek?: UpdateScheduleScheduleTimetable2DaysOfWeekEnum[];
+  daysOfWeek?: UpdateScheduleScheduleTimetable2DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -235,7 +235,7 @@ export class UpdateScheduleScheduleTimetable2 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: UpdateScheduleScheduleTimetable2MonthsEnum[];
+  months?: UpdateScheduleScheduleTimetable2Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
@@ -248,7 +248,7 @@ export class UpdateScheduleScheduleTimetable2 extends SpeakeasyBase {
 /**
  * Day in a week, in three letters format
  */
-export enum UpdateScheduleScheduleTimetable1DaysOfWeekEnum {
+export enum UpdateScheduleScheduleTimetable1DaysOfWeek {
   Tue = "TUE",
   Sat = "SAT",
   Sun = "SUN",
@@ -261,7 +261,7 @@ export enum UpdateScheduleScheduleTimetable1DaysOfWeekEnum {
 /**
  * Month, in three letters format.
  */
-export enum UpdateScheduleScheduleTimetable1MonthsEnum {
+export enum UpdateScheduleScheduleTimetable1Months {
   Mar = "MAR",
   Nov = "NOV",
   Dec = "DEC",
@@ -292,7 +292,7 @@ export class UpdateScheduleScheduleTimetable1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "days-of-week" })
-  daysOfWeek: UpdateScheduleScheduleTimetable1DaysOfWeekEnum[];
+  daysOfWeek: UpdateScheduleScheduleTimetable1DaysOfWeek[];
 
   /**
    * Hours in a day in which the schedule triggers.
@@ -306,7 +306,7 @@ export class UpdateScheduleScheduleTimetable1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "months" })
-  months?: UpdateScheduleScheduleTimetable1MonthsEnum[];
+  months?: UpdateScheduleScheduleTimetable1Months[];
 
   /**
    * Number of times a schedule triggers per hour, value must be between 1 and 60
