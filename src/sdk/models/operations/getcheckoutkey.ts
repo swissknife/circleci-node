@@ -7,100 +7,96 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform } from "class-transformer";
 
 export class GetCheckoutKeyRequest extends SpeakeasyBase {
-  /**
-   * An SSH key fingerprint.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=fingerprint",
-  })
-  fingerprint: string;
+    /**
+     * An SSH key fingerprint.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=fingerprint" })
+    fingerprint: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class GetCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
  */
 export enum GetCheckoutKeyCheckoutKeyCheckoutKeyType {
-  DeployKey = "deploy-key",
-  GithubUserKey = "github-user-key",
+    DeployKey = "deploy-key",
+    GithubUserKey = "github-user-key",
 }
 
 /**
- * The checkout key.
+ * A checkout key
  */
 export class GetCheckoutKeyCheckoutKey extends SpeakeasyBase {
-  /**
-   * The date and time the checkout key was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created-at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the checkout key was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created-at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * An SSH key fingerprint.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "fingerprint" })
-  fingerprint: string;
+    /**
+     * An SSH key fingerprint.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "fingerprint" })
+    fingerprint: string;
 
-  /**
-   * A boolean value that indicates if this key is preferred.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "preferred" })
-  preferred: boolean;
+    /**
+     * A boolean value that indicates if this key is preferred.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "preferred" })
+    preferred: boolean;
 
-  /**
-   * A public SSH key.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "public-key" })
-  publicKey: string;
+    /**
+     * A public SSH key.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "public-key" })
+    publicKey: string;
 
-  /**
-   * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: GetCheckoutKeyCheckoutKeyCheckoutKeyType;
+    /**
+     * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: GetCheckoutKeyCheckoutKeyCheckoutKeyType;
 }
 
 export class GetCheckoutKeyResponse extends SpeakeasyBase {
-  /**
-   * The checkout key.
-   */
-  @SpeakeasyMetadata()
-  checkoutKey?: GetCheckoutKeyCheckoutKey;
+    /**
+     * The checkout key.
+     */
+    @SpeakeasyMetadata()
+    checkoutKey?: GetCheckoutKeyCheckoutKey;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getCheckoutKeyDefaultApplicationJSONObject?: GetCheckoutKeyDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getCheckoutKeyDefaultApplicationJSONObject?: GetCheckoutKeyDefaultApplicationJSON;
 }

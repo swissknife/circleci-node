@@ -7,207 +7,207 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum CreateWebhookRequestBodyEvents {
-  WorkflowCompleted = "workflow-completed",
-  JobCompleted = "job-completed",
+    WorkflowCompleted = "workflow-completed",
+    JobCompleted = "job-completed",
 }
 
 /**
  * Type of the scope being used
  */
 export enum CreateWebhookRequestBodyScopeType {
-  Project = "project",
+    Project = "project",
 }
 
 /**
  * The scope in which the relevant events that will trigger webhooks
  */
 export class CreateWebhookRequestBodyScope extends SpeakeasyBase {
-  /**
-   * ID of the scope being used (at the moment, only project ID is supported)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * ID of the scope being used (at the moment, only project ID is supported)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Type of the scope being used
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: CreateWebhookRequestBodyScopeType;
+    /**
+     * Type of the scope being used
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: CreateWebhookRequestBodyScopeType;
 }
 
 /**
  * The parameters for a create webhook request
  */
 export class CreateWebhookRequestBody extends SpeakeasyBase {
-  /**
-   * Events that will trigger the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "events" })
-  events: CreateWebhookRequestBodyEvents[];
+    /**
+     * Events that will trigger the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "events" })
+    events: CreateWebhookRequestBodyEvents[];
 
-  /**
-   * Name of the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * Name of the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The scope in which the relevant events that will trigger webhooks
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "scope" })
-  @Type(() => CreateWebhookRequestBodyScope)
-  scope: CreateWebhookRequestBodyScope;
+    /**
+     * The scope in which the relevant events that will trigger webhooks
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "scope" })
+    @Type(() => CreateWebhookRequestBodyScope)
+    scope: CreateWebhookRequestBodyScope;
 
-  /**
-   * Secret used to build an HMAC hash of the payload and passed as a header in the webhook request
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "signing-secret" })
-  signingSecret: string;
+    /**
+     * Secret used to build an HMAC hash of the payload and passed as a header in the webhook request
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "signing-secret" })
+    signingSecret: string;
 
-  /**
-   * URL to deliver the webhook to. Note: protocol must be included as well (only https is supported)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "url" })
-  url: string;
+    /**
+     * URL to deliver the webhook to. Note: protocol must be included as well (only https is supported)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "url" })
+    url: string;
 
-  /**
-   * Whether to enforce TLS certificate verification when delivering the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "verify-tls" })
-  verifyTls: boolean;
+    /**
+     * Whether to enforce TLS certificate verification when delivering the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "verify-tls" })
+    verifyTls: boolean;
 }
 
 /**
  * Error response.
  */
 export class CreateWebhookDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 export enum CreateWebhookWebhookEvents {
-  WorkflowCompleted = "workflow-completed",
-  JobCompleted = "job-completed",
+    WorkflowCompleted = "workflow-completed",
+    JobCompleted = "job-completed",
 }
 
 /**
  * The scope in which the relevant events that will trigger webhooks
  */
 export class CreateWebhookWebhookScope extends SpeakeasyBase {
-  /**
-   * ID of the scope being used (at the moment, only project ID is supported)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * ID of the scope being used (at the moment, only project ID is supported)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Type of the scope being used
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: string;
+    /**
+     * Type of the scope being used
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: string;
 }
 
 /**
  * A webhook
  */
 export class CreateWebhookWebhook extends SpeakeasyBase {
-  /**
-   * The date and time the webhook was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created-at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the webhook was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created-at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * Events that will trigger the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "events" })
-  events: CreateWebhookWebhookEvents[];
+    /**
+     * Events that will trigger the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "events" })
+    events: CreateWebhookWebhookEvents[];
 
-  /**
-   * The unique ID of the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * Name of the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The scope in which the relevant events that will trigger webhooks
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "scope" })
-  @Type(() => CreateWebhookWebhookScope)
-  scope: CreateWebhookWebhookScope;
+    /**
+     * The scope in which the relevant events that will trigger webhooks
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "scope" })
+    @Type(() => CreateWebhookWebhookScope)
+    scope: CreateWebhookWebhookScope;
 
-  /**
-   * Masked value of the secret used to build an HMAC hash of the payload and passed as a header in the webhook request
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "signing-secret" })
-  signingSecret: string;
+    /**
+     * Masked value of the secret used to build an HMAC hash of the payload and passed as a header in the webhook request
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "signing-secret" })
+    signingSecret: string;
 
-  /**
-   * The date and time the webhook was last updated.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated-at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedAt: Date;
+    /**
+     * The date and time the webhook was last updated.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated-at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    updatedAt: Date;
 
-  /**
-   * URL to deliver the webhook to. Note: protocol must be included as well (only https is supported)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "url" })
-  url: string;
+    /**
+     * URL to deliver the webhook to. Note: protocol must be included as well (only https is supported)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "url" })
+    url: string;
 
-  /**
-   * Whether to enforce TLS certificate verification when delivering the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "verify-tls" })
-  verifyTls: boolean;
+    /**
+     * Whether to enforce TLS certificate verification when delivering the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "verify-tls" })
+    verifyTls: boolean;
 }
 
 export class CreateWebhookResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A webhook
-   */
-  @SpeakeasyMetadata()
-  webhook?: CreateWebhookWebhook;
+    /**
+     * A webhook
+     */
+    @SpeakeasyMetadata()
+    webhook?: CreateWebhookWebhook;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  createWebhookDefaultApplicationJSONObject?: CreateWebhookDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    createWebhookDefaultApplicationJSONObject?: CreateWebhookDefaultApplicationJSON;
 }

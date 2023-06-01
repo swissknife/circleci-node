@@ -7,309 +7,303 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class ListSchedulesForProjectRequest extends SpeakeasyBase {
-  /**
-   * A token to retrieve the next page of results.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=page-token",
-  })
-  pageToken?: string;
+    /**
+     * A token to retrieve the next page of results.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+    pageToken?: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class ListSchedulesForProjectDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * The attribution actor who will run the scheduled pipeline.
  */
 export class ListSchedulesForProject200ApplicationJSONScheduleUser extends SpeakeasyBase {
-  /**
-   * The unique ID of the user.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the user.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The login information for the user on the VCS.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "login" })
-  login: string;
+    /**
+     * The login information for the user on the VCS.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "login" })
+    login: string;
 
-  /**
-   * The name of the user.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the user.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }
 
 /**
  * Day in a week, in three letters format
  */
 export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWeek {
-  Tue = "TUE",
-  Sat = "SAT",
-  Sun = "SUN",
-  Mon = "MON",
-  Thu = "THU",
-  Wed = "WED",
-  Fri = "FRI",
+    Tue = "TUE",
+    Sat = "SAT",
+    Sun = "SUN",
+    Mon = "MON",
+    Thu = "THU",
+    Wed = "WED",
+    Fri = "FRI",
 }
 
 /**
  * Month, in three letters format.
  */
 export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable2Months {
-  Mar = "MAR",
-  Nov = "NOV",
-  Dec = "DEC",
-  Jun = "JUN",
-  May = "MAY",
-  Oct = "OCT",
-  Feb = "FEB",
-  Apr = "APR",
-  Sep = "SEP",
-  Aug = "AUG",
-  Jan = "JAN",
-  Jul = "JUL",
+    Mar = "MAR",
+    Nov = "NOV",
+    Dec = "DEC",
+    Jun = "JUN",
+    May = "MAY",
+    Oct = "OCT",
+    Feb = "FEB",
+    Apr = "APR",
+    Sep = "SEP",
+    Aug = "AUG",
+    Jan = "JAN",
+    Jul = "JUL",
 }
 
 /**
  * Timetable that specifies when a schedule triggers.
  */
 export class ListSchedulesForProject200ApplicationJSONScheduleTimetable2 extends SpeakeasyBase {
-  /**
-   * Days in a month in which the schedule triggers. This is mutually exclusive with days in a week.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "days-of-month" })
-  daysOfMonth: number[];
+    /**
+     * Days in a month in which the schedule triggers. This is mutually exclusive with days in a week.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "days-of-month" })
+    daysOfMonth: number[];
 
-  /**
-   * Days in a week in which the schedule triggers.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "days-of-week" })
-  daysOfWeek?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWeek[];
+    /**
+     * Days in a week in which the schedule triggers.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "days-of-week" })
+    daysOfWeek?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2DaysOfWeek[];
 
-  /**
-   * Hours in a day in which the schedule triggers.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hours-of-day" })
-  hoursOfDay: number[];
+    /**
+     * Hours in a day in which the schedule triggers.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "hours-of-day" })
+    hoursOfDay: number[];
 
-  /**
-   * Months in which the schedule triggers.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "months" })
-  months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2Months[];
+    /**
+     * Months in which the schedule triggers.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "months" })
+    months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable2Months[];
 
-  /**
-   * Number of times a schedule triggers per hour, value must be between 1 and 60
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "per-hour" })
-  perHour: number;
+    /**
+     * Number of times a schedule triggers per hour, value must be between 1 and 60
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "per-hour" })
+    perHour: number;
 }
 
 /**
  * Day in a week, in three letters format
  */
 export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWeek {
-  Tue = "TUE",
-  Sat = "SAT",
-  Sun = "SUN",
-  Mon = "MON",
-  Thu = "THU",
-  Wed = "WED",
-  Fri = "FRI",
+    Tue = "TUE",
+    Sat = "SAT",
+    Sun = "SUN",
+    Mon = "MON",
+    Thu = "THU",
+    Wed = "WED",
+    Fri = "FRI",
 }
 
 /**
  * Month, in three letters format.
  */
 export enum ListSchedulesForProject200ApplicationJSONScheduleTimetable1Months {
-  Mar = "MAR",
-  Nov = "NOV",
-  Dec = "DEC",
-  Jun = "JUN",
-  May = "MAY",
-  Oct = "OCT",
-  Feb = "FEB",
-  Apr = "APR",
-  Sep = "SEP",
-  Aug = "AUG",
-  Jan = "JAN",
-  Jul = "JUL",
+    Mar = "MAR",
+    Nov = "NOV",
+    Dec = "DEC",
+    Jun = "JUN",
+    May = "MAY",
+    Oct = "OCT",
+    Feb = "FEB",
+    Apr = "APR",
+    Sep = "SEP",
+    Aug = "AUG",
+    Jan = "JAN",
+    Jul = "JUL",
 }
 
 /**
  * Timetable that specifies when a schedule triggers.
  */
 export class ListSchedulesForProject200ApplicationJSONScheduleTimetable1 extends SpeakeasyBase {
-  /**
-   * Days in a month in which the schedule triggers. This is mutually exclusive with days in a week.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "days-of-month" })
-  daysOfMonth?: number[];
+    /**
+     * Days in a month in which the schedule triggers. This is mutually exclusive with days in a week.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "days-of-month" })
+    daysOfMonth?: number[];
 
-  /**
-   * Days in a week in which the schedule triggers.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "days-of-week" })
-  daysOfWeek: ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWeek[];
+    /**
+     * Days in a week in which the schedule triggers.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "days-of-week" })
+    daysOfWeek: ListSchedulesForProject200ApplicationJSONScheduleTimetable1DaysOfWeek[];
 
-  /**
-   * Hours in a day in which the schedule triggers.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hours-of-day" })
-  hoursOfDay: number[];
+    /**
+     * Hours in a day in which the schedule triggers.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "hours-of-day" })
+    hoursOfDay: number[];
 
-  /**
-   * Months in which the schedule triggers.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "months" })
-  months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable1Months[];
+    /**
+     * Months in which the schedule triggers.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "months" })
+    months?: ListSchedulesForProject200ApplicationJSONScheduleTimetable1Months[];
 
-  /**
-   * Number of times a schedule triggers per hour, value must be between 1 and 60
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "per-hour" })
-  perHour: number;
+    /**
+     * Number of times a schedule triggers per hour, value must be between 1 and 60
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "per-hour" })
+    perHour: number;
 }
 
 /**
  * A schedule response
  */
 export class ListSchedulesForProject200ApplicationJSONSchedule extends SpeakeasyBase {
-  /**
-   * The attribution actor who will run the scheduled pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "actor" })
-  @Type(() => ListSchedulesForProject200ApplicationJSONScheduleUser)
-  actor: ListSchedulesForProject200ApplicationJSONScheduleUser;
+    /**
+     * The attribution actor who will run the scheduled pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "actor" })
+    @Type(() => ListSchedulesForProject200ApplicationJSONScheduleUser)
+    actor: ListSchedulesForProject200ApplicationJSONScheduleUser;
 
-  /**
-   * The date and time the pipeline was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created-at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the pipeline was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created-at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * Description of the schedule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description: string;
+    /**
+     * Description of the schedule.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description: string;
 
-  /**
-   * The unique ID of the schedule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the schedule.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the schedule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * Name of the schedule.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * Pipeline parameters represented as key-value pairs. Must contain branch or tag.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parameters" })
-  parameters: Record<string, any>;
+    /**
+     * Pipeline parameters represented as key-value pairs. Must contain branch or tag.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "parameters" })
+    parameters: Record<string, any>;
 
-  /**
-   * The project-slug for the schedule
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project-slug" })
-  projectSlug: string;
+    /**
+     * The project-slug for the schedule
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project-slug" })
+    projectSlug: string;
 
-  /**
-   * Timetable that specifies when a schedule triggers.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "timetable" })
-  timetable: any;
+    /**
+     * Timetable that specifies when a schedule triggers.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "timetable" })
+    timetable: any;
 
-  /**
-   * The date and time the pipeline was last updated.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated-at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedAt: Date;
+    /**
+     * The date and time the pipeline was last updated.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated-at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    updatedAt: Date;
 }
 
 /**
  * A sequence of schedules
  */
 export class ListSchedulesForProject200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    elemType: ListSchedulesForProject200ApplicationJSONSchedule,
-  })
-  @Expose({ name: "items" })
-  @Type(() => ListSchedulesForProject200ApplicationJSONSchedule)
-  items: ListSchedulesForProject200ApplicationJSONSchedule[];
+    @SpeakeasyMetadata({ elemType: ListSchedulesForProject200ApplicationJSONSchedule })
+    @Expose({ name: "items" })
+    @Type(() => ListSchedulesForProject200ApplicationJSONSchedule)
+    items: ListSchedulesForProject200ApplicationJSONSchedule[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class ListSchedulesForProjectResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A sequence of schedules.
-   */
-  @SpeakeasyMetadata()
-  listSchedulesForProject200ApplicationJSONObject?: ListSchedulesForProject200ApplicationJSON;
+    /**
+     * A sequence of schedules.
+     */
+    @SpeakeasyMetadata()
+    listSchedulesForProject200ApplicationJSONObject?: ListSchedulesForProject200ApplicationJSON;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  listSchedulesForProjectDefaultApplicationJSONObject?: ListSchedulesForProjectDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    listSchedulesForProjectDefaultApplicationJSONObject?: ListSchedulesForProjectDefaultApplicationJSON;
 }

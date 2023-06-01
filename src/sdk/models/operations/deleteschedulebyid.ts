@@ -7,55 +7,53 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class DeleteScheduleByIdRequest extends SpeakeasyBase {
-  /**
-   * The unique ID of the schedule.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=schedule-id",
-  })
-  scheduleId: string;
+    /**
+     * The unique ID of the schedule.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=schedule-id" })
+    scheduleId: string;
 }
 
 /**
  * Error response.
  */
 export class DeleteScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * message response
  */
 export class DeleteScheduleByIdMessageResponse extends SpeakeasyBase {
-  /**
-   * A human-readable message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * A human-readable message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 }
 
 export class DeleteScheduleByIdResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * A confirmation message.
-   */
-  @SpeakeasyMetadata()
-  messageResponse?: DeleteScheduleByIdMessageResponse;
+    /**
+     * A confirmation message.
+     */
+    @SpeakeasyMetadata()
+    messageResponse?: DeleteScheduleByIdMessageResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  deleteScheduleByIdDefaultApplicationJSONObject?: DeleteScheduleByIdDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    deleteScheduleByIdDefaultApplicationJSONObject?: DeleteScheduleByIdDefaultApplicationJSON;
 }

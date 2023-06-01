@@ -7,334 +7,328 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class ListMyPipelinesRequest extends SpeakeasyBase {
-  /**
-   * A token to retrieve the next page of results.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=page-token",
-  })
-  pageToken?: string;
+    /**
+     * A token to retrieve the next page of results.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+    pageToken?: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class ListMyPipelinesDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * The type of error.
  */
 export enum ListMyPipelinesPipelineListResponsePipelineErrorsType {
-  Config = "config",
-  ConfigFetch = "config-fetch",
-  Timeout = "timeout",
-  Permission = "permission",
-  Other = "other",
-  Plan = "plan",
+    Config = "config",
+    ConfigFetch = "config-fetch",
+    Timeout = "timeout",
+    Permission = "permission",
+    Other = "other",
+    Plan = "plan",
 }
 
 /**
  * An error with a type and message.
  */
 export class ListMyPipelinesPipelineListResponsePipelineErrors extends SpeakeasyBase {
-  /**
-   * A human-readable error message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * A human-readable error message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 
-  /**
-   * The type of error.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: ListMyPipelinesPipelineListResponsePipelineErrorsType;
+    /**
+     * The type of error.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: ListMyPipelinesPipelineListResponsePipelineErrorsType;
 }
 
 /**
  * The current state of the pipeline.
  */
 export enum ListMyPipelinesPipelineListResponsePipelineState {
-  Created = "created",
-  Errored = "errored",
-  SetupPending = "setup-pending",
-  Setup = "setup",
-  Pending = "pending",
+    Created = "created",
+    Errored = "errored",
+    SetupPending = "setup-pending",
+    Setup = "setup",
+    Pending = "pending",
 }
 
 /**
  * The user who triggered the Pipeline.
  */
 export class ListMyPipelinesPipelineListResponsePipelineTriggerActor extends SpeakeasyBase {
-  /**
-   * URL to the user's avatar on the VCS
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "avatar_url" })
-  avatarUrl: string;
+    /**
+     * URL to the user's avatar on the VCS
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "avatar_url" })
+    avatarUrl: string;
 
-  /**
-   * The login information for the user on the VCS.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "login" })
-  login: string;
+    /**
+     * The login information for the user on the VCS.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "login" })
+    login: string;
 }
 
 /**
  * The type of trigger.
  */
 export enum ListMyPipelinesPipelineListResponsePipelineTriggerType {
-  ScheduledPipeline = "scheduled_pipeline",
-  Explicit = "explicit",
-  Api = "api",
-  Webhook = "webhook",
+    ScheduledPipeline = "scheduled_pipeline",
+    Explicit = "explicit",
+    Api = "api",
+    Webhook = "webhook",
 }
 
 /**
  * A summary of the trigger.
  */
 export class ListMyPipelinesPipelineListResponsePipelineTrigger extends SpeakeasyBase {
-  /**
-   * The user who triggered the Pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "actor" })
-  @Type(() => ListMyPipelinesPipelineListResponsePipelineTriggerActor)
-  actor: ListMyPipelinesPipelineListResponsePipelineTriggerActor;
+    /**
+     * The user who triggered the Pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "actor" })
+    @Type(() => ListMyPipelinesPipelineListResponsePipelineTriggerActor)
+    actor: ListMyPipelinesPipelineListResponsePipelineTriggerActor;
 
-  /**
-   * The date and time the trigger was received.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "received_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  receivedAt: Date;
+    /**
+     * The date and time the trigger was received.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "received_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    receivedAt: Date;
 
-  /**
-   * The type of trigger.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: ListMyPipelinesPipelineListResponsePipelineTriggerType;
+    /**
+     * The type of trigger.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: ListMyPipelinesPipelineListResponsePipelineTriggerType;
 }
 
 /**
  * The latest commit in the pipeline.
  */
 export class ListMyPipelinesPipelineListResponsePipelineVcsCommit extends SpeakeasyBase {
-  /**
-   * The body of the commit message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "body" })
-  body: string;
+    /**
+     * The body of the commit message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "body" })
+    body: string;
 
-  /**
-   * The subject of the commit message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subject" })
-  subject: string;
+    /**
+     * The subject of the commit message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "subject" })
+    subject: string;
 }
 
 /**
  * VCS information for the pipeline.
  */
 export class ListMyPipelinesPipelineListResponsePipelineVcs extends SpeakeasyBase {
-  /**
-   * The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 
-  /**
-   * The latest commit in the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "commit" })
-  @Type(() => ListMyPipelinesPipelineListResponsePipelineVcsCommit)
-  commit?: ListMyPipelinesPipelineListResponsePipelineVcsCommit;
+    /**
+     * The latest commit in the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "commit" })
+    @Type(() => ListMyPipelinesPipelineListResponsePipelineVcsCommit)
+    commit?: ListMyPipelinesPipelineListResponsePipelineVcsCommit;
 
-  /**
-   * URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "origin_repository_url" })
-  originRepositoryUrl: string;
+    /**
+     * URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "origin_repository_url" })
+    originRepositoryUrl: string;
 
-  /**
-   * Name of the VCS provider (e.g. GitHub, Bitbucket).
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "provider_name" })
-  providerName: string;
+    /**
+     * Name of the VCS provider (e.g. GitHub, Bitbucket).
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "provider_name" })
+    providerName: string;
 
-  /**
-   * The code review id.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "review_id" })
-  reviewId?: string;
+    /**
+     * The code review id.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "review_id" })
+    reviewId?: string;
 
-  /**
-   * The code review URL.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "review_url" })
-  reviewUrl?: string;
+    /**
+     * The code review URL.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "review_url" })
+    reviewUrl?: string;
 
-  /**
-   * The code revision the pipeline ran.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "revision" })
-  revision: string;
+    /**
+     * The code revision the pipeline ran.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "revision" })
+    revision: string;
 
-  /**
-   * The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "tag" })
-  tag?: string;
+    /**
+     * The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "tag" })
+    tag?: string;
 
-  /**
-   * URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "target_repository_url" })
-  targetRepositoryUrl: string;
+    /**
+     * URL for the repository the trigger targets (i.e. the repository where the PR will be merged). For fork-PR pipelines, this is the URL to the parent repo. For other pipelines, the `origin_` and `target_repository_url`s will be the same.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "target_repository_url" })
+    targetRepositoryUrl: string;
 }
 
 /**
  * A pipeline response.
  */
 export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
-  /**
-   * The date and time the pipeline was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the pipeline was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * A sequence of errors that have occurred within the pipeline.
-   */
-  @SpeakeasyMetadata({
-    elemType: ListMyPipelinesPipelineListResponsePipelineErrors,
-  })
-  @Expose({ name: "errors" })
-  @Type(() => ListMyPipelinesPipelineListResponsePipelineErrors)
-  errors: ListMyPipelinesPipelineListResponsePipelineErrors[];
+    /**
+     * A sequence of errors that have occurred within the pipeline.
+     */
+    @SpeakeasyMetadata({ elemType: ListMyPipelinesPipelineListResponsePipelineErrors })
+    @Expose({ name: "errors" })
+    @Type(() => ListMyPipelinesPipelineListResponsePipelineErrors)
+    errors: ListMyPipelinesPipelineListResponsePipelineErrors[];
 
-  /**
-   * The unique ID of the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The number of the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "number" })
-  number: number;
+    /**
+     * The number of the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "number" })
+    number: number;
 
-  /**
-   * The project-slug for the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project_slug" })
-  projectSlug: string;
+    /**
+     * The project-slug for the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project_slug" })
+    projectSlug: string;
 
-  /**
-   * The current state of the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "state" })
-  state: ListMyPipelinesPipelineListResponsePipelineState;
+    /**
+     * The current state of the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "state" })
+    state: ListMyPipelinesPipelineListResponsePipelineState;
 
-  /**
-   * A summary of the trigger.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "trigger" })
-  @Type(() => ListMyPipelinesPipelineListResponsePipelineTrigger)
-  trigger: ListMyPipelinesPipelineListResponsePipelineTrigger;
+    /**
+     * A summary of the trigger.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "trigger" })
+    @Type(() => ListMyPipelinesPipelineListResponsePipelineTrigger)
+    trigger: ListMyPipelinesPipelineListResponsePipelineTrigger;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "trigger_parameters" })
-  triggerParameters?: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "trigger_parameters" })
+    triggerParameters?: Record<string, any>;
 
-  /**
-   * The date and time the pipeline was last updated.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedAt?: Date;
+    /**
+     * The date and time the pipeline was last updated.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    updatedAt?: Date;
 
-  /**
-   * VCS information for the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "vcs" })
-  @Type(() => ListMyPipelinesPipelineListResponsePipelineVcs)
-  vcs?: ListMyPipelinesPipelineListResponsePipelineVcs;
+    /**
+     * VCS information for the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "vcs" })
+    @Type(() => ListMyPipelinesPipelineListResponsePipelineVcs)
+    vcs?: ListMyPipelinesPipelineListResponsePipelineVcs;
 }
 
 /**
  * List of pipelines
  */
 export class ListMyPipelinesPipelineListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListMyPipelinesPipelineListResponsePipeline })
-  @Expose({ name: "items" })
-  @Type(() => ListMyPipelinesPipelineListResponsePipeline)
-  items: ListMyPipelinesPipelineListResponsePipeline[];
+    @SpeakeasyMetadata({ elemType: ListMyPipelinesPipelineListResponsePipeline })
+    @Expose({ name: "items" })
+    @Type(() => ListMyPipelinesPipelineListResponsePipeline)
+    items: ListMyPipelinesPipelineListResponsePipeline[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class ListMyPipelinesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * A sequence of pipelines.
-   */
-  @SpeakeasyMetadata()
-  pipelineListResponse?: ListMyPipelinesPipelineListResponse;
+    /**
+     * A sequence of pipelines.
+     */
+    @SpeakeasyMetadata()
+    pipelineListResponse?: ListMyPipelinesPipelineListResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  listMyPipelinesDefaultApplicationJSONObject?: ListMyPipelinesDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    listMyPipelinesDefaultApplicationJSONObject?: ListMyPipelinesDefaultApplicationJSON;
 }

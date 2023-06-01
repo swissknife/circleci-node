@@ -7,331 +7,317 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class GetProjectWorkflowTestMetricsRequest extends SpeakeasyBase {
-  /**
-   * Whether to retrieve data for all branches combined. Use either this parameter OR the branch name parameter.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=all-branches",
-  })
-  allBranches?: boolean;
+    /**
+     * Whether to retrieve data for all branches combined. Use either this parameter OR the branch name parameter.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=all-branches" })
+    allBranches?: boolean;
 
-  /**
-   * The name of a vcs branch. If not passed we will scope the API call to the default branch.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=branch",
-  })
-  branch?: string;
+    /**
+     * The name of a vcs branch. If not passed we will scope the API call to the default branch.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+    branch?: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 
-  /**
-   * The name of the workflow.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=workflow-name",
-  })
-  workflowName: string;
+    /**
+     * The name of the workflow.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=workflow-name" })
+    workflowName: string;
 }
 
 /**
  * Error response.
  */
 export class GetProjectWorkflowTestMetricsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 export class GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests extends SpeakeasyBase {
-  /**
-   * The class the test belongs to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "classname" })
-  classname: string;
+    /**
+     * The class the test belongs to.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "classname" })
+    classname: string;
 
-  /**
-   * The number of times the test failed
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "failed_runs" })
-  failedRuns: number;
+    /**
+     * The number of times the test failed
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "failed_runs" })
+    failedRuns: number;
 
-  /**
-   * The file the test belongs to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "file" })
-  file: string;
+    /**
+     * The file the test belongs to.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "file" })
+    file: string;
 
-  /**
-   * Whether the test is flaky.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "flaky" })
-  flaky: boolean;
+    /**
+     * Whether the test is flaky.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "flaky" })
+    flaky: boolean;
 
-  /**
-   * The name of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "job_name" })
-  jobName: string;
+    /**
+     * The name of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "job_name" })
+    jobName: string;
 
-  /**
-   * The 95th percentile duration, in seconds, among a group of test runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "p95_duration" })
-  p95Duration: number;
+    /**
+     * The 95th percentile duration, in seconds, among a group of test runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "p95_duration" })
+    p95Duration: number;
 
-  /**
-   * The source of the test.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "source" })
-  source: string;
+    /**
+     * The source of the test.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "source" })
+    source: string;
 
-  /**
-   * The name of the test.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "test_name" })
-  testName: string;
+    /**
+     * The name of the test.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "test_name" })
+    testName: string;
 
-  /**
-   * The total number of times the test was run.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_runs" })
-  totalRuns: number;
+    /**
+     * The total number of times the test was run.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_runs" })
+    totalRuns: number;
 }
 
 export class GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests extends SpeakeasyBase {
-  /**
-   * The class the test belongs to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "classname" })
-  classname: string;
+    /**
+     * The class the test belongs to.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "classname" })
+    classname: string;
 
-  /**
-   * The number of times the test failed
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "failed_runs" })
-  failedRuns: number;
+    /**
+     * The number of times the test failed
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "failed_runs" })
+    failedRuns: number;
 
-  /**
-   * The file the test belongs to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "file" })
-  file: string;
+    /**
+     * The file the test belongs to.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "file" })
+    file: string;
 
-  /**
-   * Whether the test is flaky.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "flaky" })
-  flaky: boolean;
+    /**
+     * Whether the test is flaky.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "flaky" })
+    flaky: boolean;
 
-  /**
-   * The name of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "job_name" })
-  jobName: string;
+    /**
+     * The name of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "job_name" })
+    jobName: string;
 
-  /**
-   * The 95th percentile duration, in seconds, among a group of test runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "p95_duration" })
-  p95Duration: number;
+    /**
+     * The 95th percentile duration, in seconds, among a group of test runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "p95_duration" })
+    p95Duration: number;
 
-  /**
-   * The source of the test.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "source" })
-  source: string;
+    /**
+     * The source of the test.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "source" })
+    source: string;
 
-  /**
-   * The name of the test.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "test_name" })
-  testName: string;
+    /**
+     * The name of the test.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "test_name" })
+    testName: string;
 
-  /**
-   * The total number of times the test was run.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_runs" })
-  totalRuns: number;
+    /**
+     * The total number of times the test was run.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_runs" })
+    totalRuns: number;
 }
 
 /**
  * Test counts for a given pipeline number
  */
 export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts extends SpeakeasyBase {
-  /**
-   * The number of tests with the error status
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error: number;
+    /**
+     * The number of tests with the error status
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    error: number;
 
-  /**
-   * The number of tests with the failure status
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "failure" })
-  failure: number;
+    /**
+     * The number of tests with the failure status
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "failure" })
+    failure: number;
 
-  /**
-   * The number of tests with the skipped status
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "skipped" })
-  skipped: number;
+    /**
+     * The number of tests with the skipped status
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "skipped" })
+    skipped: number;
 
-  /**
-   * The number of tests with the success status
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "success" })
-  success: number;
+    /**
+     * The number of tests with the success status
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "success" })
+    success: number;
 
-  /**
-   * The total number of tests
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total" })
-  total: number;
+    /**
+     * The total number of tests
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total" })
+    total: number;
 }
 
 export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns extends SpeakeasyBase {
-  /**
-   * The number of the pipeline associated with the provided test counts
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "pipeline_number" })
-  pipelineNumber: number;
+    /**
+     * The number of the pipeline associated with the provided test counts
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "pipeline_number" })
+    pipelineNumber: number;
 
-  /**
-   * The success rate calculated from test counts
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "success_rate" })
-  successRate: number;
+    /**
+     * The success rate calculated from test counts
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "success_rate" })
+    successRate: number;
 
-  /**
-   * Test counts for a given pipeline number
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "test_counts" })
-  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts)
-  testCounts: GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts;
+    /**
+     * Test counts for a given pipeline number
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "test_counts" })
+    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts)
+    testCounts: GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts;
 
-  /**
-   * The ID of the workflow associated with the provided test counts
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "workflow_id" })
-  workflowId: any;
+    /**
+     * The ID of the workflow associated with the provided test counts
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "workflow_id" })
+    workflowId: any;
 }
 
 /**
  * Project level test metrics response
  */
 export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBase {
-  /**
-   * The average number of tests executed per run
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "average_test_count" })
-  averageTestCount: number;
+    /**
+     * The average number of tests executed per run
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "average_test_count" })
+    averageTestCount: number;
 
-  /**
-   * Metrics for the most frequently failing tests
-   */
-  @SpeakeasyMetadata({
-    elemType: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests,
-  })
-  @Expose({ name: "most_failed_tests" })
-  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests)
-  mostFailedTests: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests[];
+    /**
+     * Metrics for the most frequently failing tests
+     */
+    @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests })
+    @Expose({ name: "most_failed_tests" })
+    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests)
+    mostFailedTests: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests[];
 
-  /**
-   * The number of tests with the same success rate being omitted from most_failed_tests
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "most_failed_tests_extra" })
-  mostFailedTestsExtra: number;
+    /**
+     * The number of tests with the same success rate being omitted from most_failed_tests
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "most_failed_tests_extra" })
+    mostFailedTestsExtra: number;
 
-  /**
-   * Metrics for the slowest running tests
-   */
-  @SpeakeasyMetadata({
-    elemType: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests,
-  })
-  @Expose({ name: "slowest_tests" })
-  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests)
-  slowestTests: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests[];
+    /**
+     * Metrics for the slowest running tests
+     */
+    @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests })
+    @Expose({ name: "slowest_tests" })
+    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests)
+    slowestTests: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests[];
 
-  /**
-   * The number of tests with the same duration rate being omitted from slowest_tests
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "slowest_tests_extra" })
-  slowestTestsExtra: number;
+    /**
+     * The number of tests with the same duration rate being omitted from slowest_tests
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "slowest_tests_extra" })
+    slowestTestsExtra: number;
 
-  /**
-   * Test counts grouped by pipeline number and workflow id
-   */
-  @SpeakeasyMetadata({
-    elemType: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns,
-  })
-  @Expose({ name: "test_runs" })
-  @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns)
-  testRuns: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns[];
+    /**
+     * Test counts grouped by pipeline number and workflow id
+     */
+    @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns })
+    @Expose({ name: "test_runs" })
+    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns)
+    testRuns: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns[];
 
-  /**
-   * The total number of test runs
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_test_runs" })
-  totalTestRuns: number;
+    /**
+     * The total number of test runs
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_test_runs" })
+    totalTestRuns: number;
 }
 
 export class GetProjectWorkflowTestMetricsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A list of test metrics by workflow
-   */
-  @SpeakeasyMetadata()
-  getProjectWorkflowTestMetrics200ApplicationJSONObject?: GetProjectWorkflowTestMetrics200ApplicationJSON;
+    /**
+     * A list of test metrics by workflow
+     */
+    @SpeakeasyMetadata()
+    getProjectWorkflowTestMetrics200ApplicationJSONObject?: GetProjectWorkflowTestMetrics200ApplicationJSON;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getProjectWorkflowTestMetricsDefaultApplicationJSONObject?: GetProjectWorkflowTestMetricsDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getProjectWorkflowTestMetricsDefaultApplicationJSONObject?: GetProjectWorkflowTestMetricsDefaultApplicationJSON;
 }

@@ -33,13 +33,13 @@ sdk.webhook.createWebhook({
   events: [
     CreateWebhookRequestBodyEvents.WorkflowCompleted,
   ],
-  name: "Vicky Lynch",
+  name: "Melody Cole",
   scope: {
-    id: "6b144290-7474-4778-a7bd-466d28c10ab3",
+    id: "16fe1f08-f429-44e3-a98f-447f603e8b44",
     type: CreateWebhookRequestBodyScopeType.Project,
   },
-  signingSecret: "quo",
-  url: "illum",
+  signingSecret: "ipsam",
+  url: "debitis",
   verifyTls: false,
 }).then((res: CreateWebhookResponse) => {
   if (res.statusCode == 200) {
@@ -65,7 +65,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.deleteWebhook({
-  webhookId: "ca425190-4e52-43c7-a0bc-7178e4796f2a",
+  webhookId: "80ca55ef-d20e-4457-a185-8b6a89fbe3a5",
 }).then((res: DeleteWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -90,7 +90,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhookById({
-  webhookId: "70c68828-2aa4-4825-a2f2-22e9817ee17c",
+  webhookId: "aa8e4824-d0ab-4407-9088-e51862065e90",
 }).then((res: GetWebhookByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -119,7 +119,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhooks({
-  scopeId: "be61e6b7-b95b-4c0a-b3c2-0c4f3789fd87",
+  scopeId: "4f3b1194-b8ab-4f60-ba79-f9dfe0ab7da8",
   scopeType: GetWebhooksScopeType.Project,
 }).then((res: GetWebhooksResponse) => {
   if (res.statusCode == 200) {
@@ -151,14 +151,16 @@ const sdk = new Circleci({
 sdk.webhook.updateWebhook({
   requestBody: {
     events: [
+      UpdateWebhookRequestBodyEvents.WorkflowCompleted,
+      UpdateWebhookRequestBodyEvents.WorkflowCompleted,
       UpdateWebhookRequestBodyEvents.JobCompleted,
     ],
-    name: "Kirk Stracke",
-    signingSecret: "eveniet",
-    url: "asperiores",
+    name: "Ryan Littel",
+    signingSecret: "totam",
+    url: "suscipit",
     verifyTls: false,
   },
-  webhookId: "d121aa6f-1e67-44bd-b04f-15756082d68e",
+  webhookId: "bc173d68-9eee-4952-af8d-986e881ead4f",
 }).then((res: UpdateWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response

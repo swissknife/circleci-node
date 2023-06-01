@@ -7,60 +7,56 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class CancelJobRequest extends SpeakeasyBase {
-  /**
-   * The number of the job.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=job-number",
-  })
-  jobNumber: any;
+    /**
+     * The number of the job.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=job-number" })
+    jobNumber: any;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class CancelJobDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * message response
  */
 export class CancelJobMessageResponse extends SpeakeasyBase {
-  /**
-   * A human-readable message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * A human-readable message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 }
 
 export class CancelJobResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  messageResponse?: CancelJobMessageResponse;
+    @SpeakeasyMetadata()
+    messageResponse?: CancelJobMessageResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  cancelJobDefaultApplicationJSONObject?: CancelJobDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    cancelJobDefaultApplicationJSONObject?: CancelJobDefaultApplicationJSON;
 }

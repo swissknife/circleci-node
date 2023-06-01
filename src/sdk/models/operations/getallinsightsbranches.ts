@@ -7,51 +7,47 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class GetAllInsightsBranchesRequest extends SpeakeasyBase {
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 
-  /**
-   * The name of a workflow. If not passed we will scope the API call to the project.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=workflow-name",
-  })
-  workflowName?: string;
+    /**
+     * The name of a workflow. If not passed we will scope the API call to the project.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=workflow-name" })
+    workflowName?: string;
 }
 
 /**
  * Error response.
  */
 export class GetAllInsightsBranchesDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 export class GetAllInsightsBranchesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A list of branches for a project
-   */
-  @SpeakeasyMetadata()
-  getAllInsightsBranches200ApplicationJSONAny?: any;
+    /**
+     * A list of branches for a project
+     */
+    @SpeakeasyMetadata()
+    getAllInsightsBranches200ApplicationJSONAny?: any;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getAllInsightsBranchesDefaultApplicationJSONObject?: GetAllInsightsBranchesDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getAllInsightsBranchesDefaultApplicationJSONObject?: GetAllInsightsBranchesDefaultApplicationJSON;
 }

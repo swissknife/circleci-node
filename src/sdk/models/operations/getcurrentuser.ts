@@ -10,56 +10,56 @@ import { Expose } from "class-transformer";
  * Error response.
  */
 export class GetCurrentUserDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * User login information.
  */
 export class GetCurrentUserUser extends SpeakeasyBase {
-  /**
-   * The unique ID of the user.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the user.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The login information for the user on the VCS.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "login" })
-  login: string;
+    /**
+     * The login information for the user on the VCS.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "login" })
+    login: string;
 
-  /**
-   * The name of the user.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the user.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }
 
 export class GetCurrentUserResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * User login information.
-   */
-  @SpeakeasyMetadata()
-  user?: GetCurrentUserUser;
+    /**
+     * User login information.
+     */
+    @SpeakeasyMetadata()
+    user?: GetCurrentUserUser;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getCurrentUserDefaultApplicationJSONObject?: GetCurrentUserDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getCurrentUserDefaultApplicationJSONObject?: GetCurrentUserDefaultApplicationJSON;
 }

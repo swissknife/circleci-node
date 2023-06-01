@@ -10,113 +10,105 @@ import { Expose, Transform, Type } from "class-transformer";
  * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
  */
 export enum ListContextsOwnerType {
-  Account = "account",
-  Organization = "organization",
+    Account = "account",
+    Organization = "organization",
 }
 
 export class ListContextsRequest extends SpeakeasyBase {
-  /**
-   * The unique ID of the owner of the context. Specify either this or owner-slug.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=owner-id",
-  })
-  ownerId?: string;
+    /**
+     * The unique ID of the owner of the context. Specify either this or owner-slug.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-id" })
+    ownerId?: string;
 
-  /**
-   * A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=owner-slug",
-  })
-  ownerSlug?: string;
+    /**
+     * A string that represents an organization. Specify either this or owner-id. Cannot be used for accounts.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-slug" })
+    ownerSlug?: string;
 
-  /**
-   * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=owner-type",
-  })
-  ownerType?: ListContextsOwnerType;
+    /**
+     * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-type" })
+    ownerType?: ListContextsOwnerType;
 
-  /**
-   * A token to retrieve the next page of results.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=page-token",
-  })
-  pageToken?: string;
+    /**
+     * A token to retrieve the next page of results.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+    pageToken?: string;
 }
 
 /**
  * Error response.
  */
 export class ListContextsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 export class ListContexts200ApplicationJSONContext extends SpeakeasyBase {
-  /**
-   * The date and time the context was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the context was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * The unique ID of the context.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the context.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The user defined name of the context.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The user defined name of the context.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }
 
 /**
  * A paginated list of contexts
  */
 export class ListContexts200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListContexts200ApplicationJSONContext })
-  @Expose({ name: "items" })
-  @Type(() => ListContexts200ApplicationJSONContext)
-  items: ListContexts200ApplicationJSONContext[];
+    @SpeakeasyMetadata({ elemType: ListContexts200ApplicationJSONContext })
+    @Expose({ name: "items" })
+    @Type(() => ListContexts200ApplicationJSONContext)
+    items: ListContexts200ApplicationJSONContext[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class ListContextsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A paginated list of contexts
-   */
-  @SpeakeasyMetadata()
-  listContexts200ApplicationJSONObject?: ListContexts200ApplicationJSON;
+    /**
+     * A paginated list of contexts
+     */
+    @SpeakeasyMetadata()
+    listContexts200ApplicationJSONObject?: ListContexts200ApplicationJSON;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  listContextsDefaultApplicationJSONObject?: ListContextsDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    listContextsDefaultApplicationJSONObject?: ListContextsDefaultApplicationJSON;
 }

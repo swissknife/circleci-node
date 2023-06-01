@@ -7,177 +7,177 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class ListWorkflowJobsRequest extends SpeakeasyBase {
-  /**
-   * The unique ID of the workflow.
-   */
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
-  id: string;
+    /**
+     * The unique ID of the workflow.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=id" })
+    id: string;
 }
 
 /**
  * Error response.
  */
 export class ListWorkflowJobsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * The current status of the job.
  */
 export enum ListWorkflowJobsWorkflowJobListResponseJobStatus {
-  Success = "success",
-  Running = "running",
-  NotRun = "not_run",
-  Failed = "failed",
-  Retried = "retried",
-  Queued = "queued",
-  NotRunning = "not_running",
-  InfrastructureFail = "infrastructure_fail",
-  Timedout = "timedout",
-  OnHold = "on_hold",
-  TerminatedUnknown = "terminated-unknown",
-  Blocked = "blocked",
-  Canceled = "canceled",
-  Unauthorized = "unauthorized",
+    Success = "success",
+    Running = "running",
+    NotRun = "not_run",
+    Failed = "failed",
+    Retried = "retried",
+    Queued = "queued",
+    NotRunning = "not_running",
+    InfrastructureFail = "infrastructure_fail",
+    Timedout = "timedout",
+    OnHold = "on_hold",
+    TerminatedUnknown = "terminated-unknown",
+    Blocked = "blocked",
+    Canceled = "canceled",
+    Unauthorized = "unauthorized",
 }
 
 /**
  * The type of job.
  */
 export enum ListWorkflowJobsWorkflowJobListResponseJobType {
-  Build = "build",
-  Approval = "approval",
+    Build = "build",
+    Approval = "approval",
 }
 
 /**
  * Job
  */
 export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
-  /**
-   * The unique ID of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "approval_request_id" })
-  approvalRequestId?: string;
+    /**
+     * The unique ID of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "approval_request_id" })
+    approvalRequestId?: string;
 
-  /**
-   * The unique ID of the user.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "approved_by" })
-  approvedBy?: string;
+    /**
+     * The unique ID of the user.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "approved_by" })
+    approvedBy?: string;
 
-  /**
-   * The unique ID of the user.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "canceled_by" })
-  canceledBy?: string;
+    /**
+     * The unique ID of the user.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "canceled_by" })
+    canceledBy?: string;
 
-  /**
-   * A sequence of the unique job IDs for the jobs that this job depends upon in the workflow.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dependencies" })
-  dependencies: string[];
+    /**
+     * A sequence of the unique job IDs for the jobs that this job depends upon in the workflow.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dependencies" })
+    dependencies: string[];
 
-  /**
-   * The unique ID of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The number of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "job_number" })
-  jobNumber?: number;
+    /**
+     * The number of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "job_number" })
+    jobNumber?: number;
 
-  /**
-   * The name of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The project-slug for the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project_slug" })
-  projectSlug: string;
+    /**
+     * The project-slug for the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project_slug" })
+    projectSlug: string;
 
-  /**
-   * The date and time the job started.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "started_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  startedAt: Date;
+    /**
+     * The date and time the job started.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "started_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    startedAt: Date;
 
-  /**
-   * The current status of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: ListWorkflowJobsWorkflowJobListResponseJobStatus;
+    /**
+     * The current status of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: ListWorkflowJobsWorkflowJobListResponseJobStatus;
 
-  /**
-   * The time when the job stopped.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "stopped_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  stoppedAt?: Date;
+    /**
+     * The time when the job stopped.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "stopped_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    stoppedAt?: Date;
 
-  /**
-   * The type of job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: ListWorkflowJobsWorkflowJobListResponseJobType;
+    /**
+     * The type of job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: ListWorkflowJobsWorkflowJobListResponseJobType;
 }
 
 /**
  * A paginated sequence of jobs.
  */
 export class ListWorkflowJobsWorkflowJobListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListWorkflowJobsWorkflowJobListResponseJob })
-  @Expose({ name: "items" })
-  @Type(() => ListWorkflowJobsWorkflowJobListResponseJob)
-  items: ListWorkflowJobsWorkflowJobListResponseJob[];
+    @SpeakeasyMetadata({ elemType: ListWorkflowJobsWorkflowJobListResponseJob })
+    @Expose({ name: "items" })
+    @Type(() => ListWorkflowJobsWorkflowJobListResponseJob)
+    items: ListWorkflowJobsWorkflowJobListResponseJob[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class ListWorkflowJobsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A paginated sequence of jobs.
-   */
-  @SpeakeasyMetadata()
-  workflowJobListResponse?: ListWorkflowJobsWorkflowJobListResponse;
+    /**
+     * A paginated sequence of jobs.
+     */
+    @SpeakeasyMetadata()
+    workflowJobListResponse?: ListWorkflowJobsWorkflowJobListResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  listWorkflowJobsDefaultApplicationJSONObject?: ListWorkflowJobsDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    listWorkflowJobsDefaultApplicationJSONObject?: ListWorkflowJobsDefaultApplicationJSON;
 }

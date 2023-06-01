@@ -10,114 +10,112 @@ import { Expose, Transform } from "class-transformer";
  * The information you can supply when triggering a pipeline.
  */
 export class TriggerPipelineTriggerPipelineParameters extends SpeakeasyBase {
-  /**
-   * The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "branch" })
-  branch?: string;
+    /**
+     * The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branch" })
+    branch?: string;
 
-  /**
-   * An object containing pipeline parameters and their values.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parameters" })
-  parameters?: Record<string, any>;
+    /**
+     * An object containing pipeline parameters and their values.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "parameters" })
+    parameters?: Record<string, any>;
 
-  /**
-   * The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "tag" })
-  tag?: string;
+    /**
+     * The tag used by the pipeline. The commit that this tag points to was used for the pipeline. Note that `branch` and `tag` are mutually exclusive.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "tag" })
+    tag?: string;
 }
 
 export class TriggerPipelineRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody?: TriggerPipelineTriggerPipelineParameters;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    requestBody?: TriggerPipelineTriggerPipelineParameters;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * The current state of the pipeline.
  */
 export enum TriggerPipelinePipelineCreationState {
-  Created = "created",
-  Errored = "errored",
-  SetupPending = "setup-pending",
-  Setup = "setup",
-  Pending = "pending",
+    Created = "created",
+    Errored = "errored",
+    SetupPending = "setup-pending",
+    Setup = "setup",
+    Pending = "pending",
 }
 
 /**
  * A pipeline creation response.
  */
 export class TriggerPipelinePipelineCreation extends SpeakeasyBase {
-  /**
-   * The date and time the pipeline was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the pipeline was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * The unique ID of the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The number of the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "number" })
-  number: number;
+    /**
+     * The number of the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "number" })
+    number: number;
 
-  /**
-   * The current state of the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "state" })
-  state: TriggerPipelinePipelineCreationState;
+    /**
+     * The current state of the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "state" })
+    state: TriggerPipelinePipelineCreationState;
 }
 
 export class TriggerPipelineResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * The created pipeline.
-   */
-  @SpeakeasyMetadata()
-  pipelineCreation?: TriggerPipelinePipelineCreation;
+    /**
+     * The created pipeline.
+     */
+    @SpeakeasyMetadata()
+    pipelineCreation?: TriggerPipelinePipelineCreation;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJSON;
 }

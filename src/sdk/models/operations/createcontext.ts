@@ -10,117 +10,117 @@ import { Expose, Transform } from "class-transformer";
  * The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
  */
 export enum CreateContextRequestBodyOwner2Type {
-  Organization = "organization",
+    Organization = "organization",
 }
 
 export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
-  /**
-   * A string that represents an organization. Specify either this or id. Cannot be used for accounts.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "slug" })
-  slug: string;
+    /**
+     * A string that represents an organization. Specify either this or id. Cannot be used for accounts.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "slug" })
+    slug: string;
 
-  /**
-   * The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: CreateContextRequestBodyOwner2Type;
+    /**
+     * The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: CreateContextRequestBodyOwner2Type;
 }
 
 /**
  * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
  */
 export enum CreateContextRequestBodyOwner1Type {
-  Account = "account",
-  Organization = "organization",
+    Account = "account",
+    Organization = "organization",
 }
 
 export class CreateContextRequestBodyOwner1 extends SpeakeasyBase {
-  /**
-   * The unique ID of the owner of the context. Specify either this or slug.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the owner of the context. Specify either this or slug.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: CreateContextRequestBodyOwner1Type;
+    /**
+     * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: CreateContextRequestBodyOwner1Type;
 }
 
 export class CreateContextRequestBody extends SpeakeasyBase {
-  /**
-   * The user defined name of the context.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The user defined name of the context.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "owner" })
-  owner: any;
+    @SpeakeasyMetadata()
+    @Expose({ name: "owner" })
+    owner: any;
 }
 
 /**
  * Error response.
  */
 export class CreateContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * The new context
  */
 export class CreateContextContext extends SpeakeasyBase {
-  /**
-   * The date and time the context was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the context was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * The unique ID of the context.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the context.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The user defined name of the context.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The user defined name of the context.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }
 
 export class CreateContextResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * The new context
-   */
-  @SpeakeasyMetadata()
-  context?: CreateContextContext;
+    /**
+     * The new context
+     */
+    @SpeakeasyMetadata()
+    context?: CreateContextContext;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  createContextDefaultApplicationJSONObject?: CreateContextDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    createContextDefaultApplicationJSONObject?: CreateContextDefaultApplicationJSON;
 }

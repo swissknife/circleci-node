@@ -10,244 +10,232 @@ import { Expose, Transform, Type } from "class-transformer";
  * The granularity for which to query timeseries data.
  */
 export enum GetJobTimeseriesGranularity {
-  Daily = "daily",
-  Hourly = "hourly",
+    Daily = "daily",
+    Hourly = "hourly",
 }
 
 export class GetJobTimeseriesRequest extends SpeakeasyBase {
-  /**
-   * The name of a vcs branch. If not passed we will scope the API call to the default branch.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=branch",
-  })
-  branch?: string;
+    /**
+     * The name of a vcs branch. If not passed we will scope the API call to the default branch.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+    branch?: string;
 
-  /**
-   * Include only executions that started before this date. This date can be at most 90 days after the start-date.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=end-date",
-  })
-  endDate?: Date;
+    /**
+     * Include only executions that started before this date. This date can be at most 90 days after the start-date.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=end-date" })
+    endDate?: Date;
 
-  /**
-   * The granularity for which to query timeseries data.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=granularity",
-  })
-  granularity?: GetJobTimeseriesGranularity;
+    /**
+     * The granularity for which to query timeseries data.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=granularity" })
+    granularity?: GetJobTimeseriesGranularity;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 
-  /**
-   * Include only executions that started at or after this date. This must be specified if an end-date is provided.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=start-date",
-  })
-  startDate?: Date;
+    /**
+     * Include only executions that started at or after this date. This must be specified if an end-date is provided.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=start-date" })
+    startDate?: Date;
 
-  /**
-   * The name of the workflow.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=workflow-name",
-  })
-  workflowName: string;
+    /**
+     * The name of the workflow.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=workflow-name" })
+    workflowName: string;
 }
 
 /**
  * Error response.
  */
 export class GetJobTimeseriesDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * Metrics relating to the duration of runs for a workflow.
  */
 export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
-  /**
-   * The max duration, in seconds, among a group of runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "max" })
-  max: number;
+    /**
+     * The max duration, in seconds, among a group of runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "max" })
+    max: number;
 
-  /**
-   * The median duration, in seconds, among a group of runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "median" })
-  median: number;
+    /**
+     * The median duration, in seconds, among a group of runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "median" })
+    median: number;
 
-  /**
-   * The minimum duration, in seconds, among a group of runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "min" })
-  min: number;
+    /**
+     * The minimum duration, in seconds, among a group of runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "min" })
+    min: number;
 
-  /**
-   * The 95th percentile duration, in seconds, among a group of runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "p95" })
-  p95: number;
+    /**
+     * The 95th percentile duration, in seconds, among a group of runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "p95" })
+    p95: number;
 
-  /**
-   * The total duration, in seconds, added across a group of runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total" })
-  total: number;
+    /**
+     * The total duration, in seconds, added across a group of runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total" })
+    total: number;
 }
 
 /**
  * Metrics relating to a workflow's runs.
  */
 export class GetJobTimeseries200ApplicationJSONItemsMetrics extends SpeakeasyBase {
-  /**
-   * Metrics relating to the duration of runs for a workflow.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "duration_metrics" })
-  @Type(() => GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics)
-  durationMetrics: GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics;
+    /**
+     * Metrics relating to the duration of runs for a workflow.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "duration_metrics" })
+    @Type(() => GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics)
+    durationMetrics: GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics;
 
-  /**
-   * The number of failed runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "failed_runs" })
-  failedRuns: number;
+    /**
+     * The number of failed runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "failed_runs" })
+    failedRuns: number;
 
-  /**
-   * The median credits consumed over the current timeseries interval.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "median_credits_used" })
-  medianCreditsUsed: number;
+    /**
+     * The median credits consumed over the current timeseries interval.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "median_credits_used" })
+    medianCreditsUsed: number;
 
-  /**
-   * The number of successful runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "successful_runs" })
-  successfulRuns: number;
+    /**
+     * The number of successful runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "successful_runs" })
+    successfulRuns: number;
 
-  /**
-   * The average number of runs per day.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "throughput" })
-  throughput: number;
+    /**
+     * The average number of runs per day.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "throughput" })
+    throughput: number;
 
-  /**
-   * The total credits consumed over the current timeseries interval.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_credits_used" })
-  totalCreditsUsed: number;
+    /**
+     * The total credits consumed over the current timeseries interval.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_credits_used" })
+    totalCreditsUsed: number;
 
-  /**
-   * The total number of runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_runs" })
-  totalRuns: number;
+    /**
+     * The total number of runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_runs" })
+    totalRuns: number;
 }
 
 export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
-  /**
-   * The end time of the last execution included in the metrics.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "max_ended_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  maxEndedAt: Date;
+    /**
+     * The end time of the last execution included in the metrics.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "max_ended_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    maxEndedAt: Date;
 
-  /**
-   * Metrics relating to a workflow's runs.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "metrics" })
-  @Type(() => GetJobTimeseries200ApplicationJSONItemsMetrics)
-  metrics: GetJobTimeseries200ApplicationJSONItemsMetrics;
+    /**
+     * Metrics relating to a workflow's runs.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "metrics" })
+    @Type(() => GetJobTimeseries200ApplicationJSONItemsMetrics)
+    metrics: GetJobTimeseries200ApplicationJSONItemsMetrics;
 
-  /**
-   * The start time for the earliest execution included in the metrics.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "min_started_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  minStartedAt: Date;
+    /**
+     * The start time for the earliest execution included in the metrics.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "min_started_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    minStartedAt: Date;
 
-  /**
-   * The name of the workflow.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the workflow.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The start of the interval for timeseries metrics.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "timestamp" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  timestamp: Date;
+    /**
+     * The start of the interval for timeseries metrics.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "timestamp" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    timestamp: Date;
 }
 
 /**
  * Project level timeseries metrics response
  */
 export class GetJobTimeseries200ApplicationJSON extends SpeakeasyBase {
-  /**
-   * Aggregate metrics for a workflow at a time granularity
-   */
-  @SpeakeasyMetadata({ elemType: GetJobTimeseries200ApplicationJSONItems })
-  @Expose({ name: "items" })
-  @Type(() => GetJobTimeseries200ApplicationJSONItems)
-  items: GetJobTimeseries200ApplicationJSONItems[];
+    /**
+     * Aggregate metrics for a workflow at a time granularity
+     */
+    @SpeakeasyMetadata({ elemType: GetJobTimeseries200ApplicationJSONItems })
+    @Expose({ name: "items" })
+    @Type(() => GetJobTimeseries200ApplicationJSONItems)
+    items: GetJobTimeseries200ApplicationJSONItems[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class GetJobTimeseriesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * An array of timeseries data, one entry per job.
-   */
-  @SpeakeasyMetadata()
-  getJobTimeseries200ApplicationJSONObject?: GetJobTimeseries200ApplicationJSON;
+    /**
+     * An array of timeseries data, one entry per job.
+     */
+    @SpeakeasyMetadata()
+    getJobTimeseries200ApplicationJSONObject?: GetJobTimeseries200ApplicationJSON;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getJobTimeseriesDefaultApplicationJSONObject?: GetJobTimeseriesDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getJobTimeseriesDefaultApplicationJSONObject?: GetJobTimeseriesDefaultApplicationJSON;
 }

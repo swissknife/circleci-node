@@ -7,543 +7,519 @@ import * as operations from "./models/operations";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 export class Context {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Add or update an environment variable
-   *
-   * @remarks
-   * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
-   */
-  async addEnvironmentVariableToContext(
-    req: operations.AddEnvironmentVariableToContextRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.AddEnvironmentVariableToContextResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.AddEnvironmentVariableToContextRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/context/{context-id}/environment-variable/{env-var-name}",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "requestBody",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "put",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.AddEnvironmentVariableToContextResponse =
-      new operations.AddEnvironmentVariableToContextResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.addEnvironmentVariableToContext200ApplicationJSONAnyOf =
-            httpRes?.data;
+    /**
+     * Add or update an environment variable
+     *
+     * @remarks
+     * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
+     */
+    async addEnvironmentVariableToContext(
+        req: operations.AddEnvironmentVariableToContextRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.AddEnvironmentVariableToContextResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.AddEnvironmentVariableToContextRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.addEnvironmentVariableToContextDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.AddEnvironmentVariableToContextDefaultApplicationJSON
-            );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/context/{context-id}/environment-variable/{env-var-name}",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * Create a new context
-   */
-  async createContext(
-    req: operations.CreateContextRequestBody,
-    config?: AxiosRequestConfig
-  ): Promise<operations.CreateContextResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateContextRequestBody(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/context";
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "put",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "request",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.CreateContextResponse =
-      new operations.CreateContextResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.context = utils.objectToClass(
-            httpRes?.data,
-            operations.CreateContextContext
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.createContextDefaultApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.CreateContextDefaultApplicationJSON
-          );
+
+        const res: operations.AddEnvironmentVariableToContextResponse =
+            new operations.AddEnvironmentVariableToContextResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.addEnvironmentVariableToContext200ApplicationJSONAnyOf = httpRes?.data;
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.addEnvironmentVariableToContextDefaultApplicationJSONObject =
+                        utils.objectToClass(
+                            httpRes?.data,
+                            operations.AddEnvironmentVariableToContextDefaultApplicationJSON
+                        );
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Delete a context
-   */
-  async deleteContext(
-    req: operations.DeleteContextRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.DeleteContextResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DeleteContextRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/context/{context-id}",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "delete",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.DeleteContextResponse =
-      new operations.DeleteContextResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.messageResponse = utils.objectToClass(
-            httpRes?.data,
-            operations.DeleteContextMessageResponse
-          );
+    /**
+     * Create a new context
+     */
+    async createContext(
+        req: operations.CreateContextRequestBody,
+        config?: AxiosRequestConfig
+    ): Promise<operations.CreateContextResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.CreateContextRequestBody(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.deleteContextDefaultApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.DeleteContextDefaultApplicationJSON
-          );
+
+        const baseURL: string = this._serverURL;
+        const url: string = baseURL.replace(/\/$/, "") + "/context";
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
-    }
 
-    return res;
-  }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-  /**
-   * Remove an environment variable
-   *
-   * @remarks
-   * Delete an environment variable from a context.
-   */
-  async deleteEnvironmentVariableFromContext(
-    req: operations.DeleteEnvironmentVariableFromContextRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.DeleteEnvironmentVariableFromContextResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DeleteEnvironmentVariableFromContextRequest(req);
-    }
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/context/{context-id}/environment-variable/{env-var-name}",
-      req
-    );
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            data: reqBody,
+            ...config,
+        });
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "delete",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.DeleteEnvironmentVariableFromContextResponse =
-      new operations.DeleteEnvironmentVariableFromContextResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.messageResponse = utils.objectToClass(
-            httpRes?.data,
-            operations.DeleteEnvironmentVariableFromContextMessageResponse
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON
-            );
+
+        const res: operations.CreateContextResponse = new operations.CreateContextResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.context = utils.objectToClass(
+                        httpRes?.data,
+                        operations.CreateContextContext
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.createContextDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.CreateContextDefaultApplicationJSON
+                    );
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get a context
-   *
-   * @remarks
-   * Returns basic information about a context.
-   */
-  async getContext(
-    req: operations.GetContextRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetContextResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetContextRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/context/{context-id}",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetContextResponse =
-      new operations.GetContextResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.context = utils.objectToClass(
-            httpRes?.data,
-            operations.GetContextContext
-          );
+    /**
+     * Delete a context
+     */
+    async deleteContext(
+        req: operations.DeleteContextRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.DeleteContextResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.DeleteContextRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getContextDefaultApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.GetContextDefaultApplicationJSON
-          );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/context/{context-id}", req);
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "delete",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * List contexts
-   *
-   * @remarks
-   * List all contexts for an owner.
-   */
-  async listContexts(
-    req: operations.ListContextsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListContextsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListContextsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/context";
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.ListContextsResponse =
-      new operations.ListContextsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.listContexts200ApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.ListContexts200ApplicationJSON
-          );
+        const res: operations.DeleteContextResponse = new operations.DeleteContextResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.messageResponse = utils.objectToClass(
+                        httpRes?.data,
+                        operations.DeleteContextMessageResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.deleteContextDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.DeleteContextDefaultApplicationJSON
+                    );
+                }
+                break;
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.listContextsDefaultApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.ListContextsDefaultApplicationJSON
-          );
+
+        return res;
+    }
+
+    /**
+     * Remove an environment variable
+     *
+     * @remarks
+     * Delete an environment variable from a context.
+     */
+    async deleteEnvironmentVariableFromContext(
+        req: operations.DeleteEnvironmentVariableFromContextRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.DeleteEnvironmentVariableFromContextResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.DeleteEnvironmentVariableFromContextRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/context/{context-id}/environment-variable/{env-var-name}",
+            req
+        );
 
-  /**
-   * List environment variables
-   *
-   * @remarks
-   * List information about environment variables in a context, not including their values.
-   */
-  async listEnvironmentVariablesFromContext(
-    req: operations.ListEnvironmentVariablesFromContextRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListEnvironmentVariablesFromContextResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListEnvironmentVariablesFromContextRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/context/{context-id}/environment-variable",
-      req
-    );
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "delete",
+            headers: headers,
+            ...config,
+        });
 
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.ListEnvironmentVariablesFromContextResponse =
-      new operations.ListEnvironmentVariablesFromContextResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.listEnvironmentVariablesFromContext200ApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.ListEnvironmentVariablesFromContext200ApplicationJSON
-            );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON
-            );
+
+        const res: operations.DeleteEnvironmentVariableFromContextResponse =
+            new operations.DeleteEnvironmentVariableFromContextResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.messageResponse = utils.objectToClass(
+                        httpRes?.data,
+                        operations.DeleteEnvironmentVariableFromContextMessageResponse
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject =
+                        utils.objectToClass(
+                            httpRes?.data,
+                            operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON
+                        );
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Get a context
+     *
+     * @remarks
+     * Returns basic information about a context.
+     */
+    async getContext(
+        req: operations.GetContextRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetContextResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetContextRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/context/{context-id}", req);
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetContextResponse = new operations.GetContextResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.context = utils.objectToClass(httpRes?.data, operations.GetContextContext);
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getContextDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetContextDefaultApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List contexts
+     *
+     * @remarks
+     * List all contexts for an owner.
+     */
+    async listContexts(
+        req: operations.ListContextsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListContextsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListContextsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = baseURL.replace(/\/$/, "") + "/context";
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListContextsResponse = new operations.ListContextsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listContexts200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.ListContexts200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listContextsDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.ListContextsDefaultApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List environment variables
+     *
+     * @remarks
+     * List information about environment variables in a context, not including their values.
+     */
+    async listEnvironmentVariablesFromContext(
+        req: operations.ListEnvironmentVariablesFromContextRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListEnvironmentVariablesFromContextResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListEnvironmentVariablesFromContextRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/context/{context-id}/environment-variable",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListEnvironmentVariablesFromContextResponse =
+            new operations.ListEnvironmentVariablesFromContextResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listEnvironmentVariablesFromContext200ApplicationJSONObject =
+                        utils.objectToClass(
+                            httpRes?.data,
+                            operations.ListEnvironmentVariablesFromContext200ApplicationJSON
+                        );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject =
+                        utils.objectToClass(
+                            httpRes?.data,
+                            operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON
+                        );
+                }
+                break;
+        }
+
+        return res;
+    }
 }

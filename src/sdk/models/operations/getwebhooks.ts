@@ -10,164 +10,160 @@ import { Expose, Transform, Type } from "class-transformer";
  * Type of the scope being used
  */
 export enum GetWebhooksScopeType {
-  Project = "project",
+    Project = "project",
 }
 
 export class GetWebhooksRequest extends SpeakeasyBase {
-  /**
-   * ID of the scope being used (at the moment, only project ID is supported)
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=scope-id",
-  })
-  scopeId: string;
+    /**
+     * ID of the scope being used (at the moment, only project ID is supported)
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=scope-id" })
+    scopeId: string;
 
-  /**
-   * Type of the scope being used
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=scope-type",
-  })
-  scopeType: GetWebhooksScopeType;
+    /**
+     * Type of the scope being used
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=scope-type" })
+    scopeType: GetWebhooksScopeType;
 }
 
 /**
  * Error response.
  */
 export class GetWebhooksDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 export enum GetWebhooks200ApplicationJSONWebhookEvents {
-  WorkflowCompleted = "workflow-completed",
-  JobCompleted = "job-completed",
+    WorkflowCompleted = "workflow-completed",
+    JobCompleted = "job-completed",
 }
 
 /**
  * The scope in which the relevant events that will trigger webhooks
  */
 export class GetWebhooks200ApplicationJSONWebhookScope extends SpeakeasyBase {
-  /**
-   * ID of the scope being used (at the moment, only project ID is supported)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * ID of the scope being used (at the moment, only project ID is supported)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Type of the scope being used
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: string;
+    /**
+     * Type of the scope being used
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: string;
 }
 
 export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
-  /**
-   * The date and time the webhook was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created-at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the webhook was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created-at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * Events that will trigger the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "events" })
-  events: GetWebhooks200ApplicationJSONWebhookEvents[];
+    /**
+     * Events that will trigger the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "events" })
+    events: GetWebhooks200ApplicationJSONWebhookEvents[];
 
-  /**
-   * The unique ID of the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * Name of the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The scope in which the relevant events that will trigger webhooks
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "scope" })
-  @Type(() => GetWebhooks200ApplicationJSONWebhookScope)
-  scope: GetWebhooks200ApplicationJSONWebhookScope;
+    /**
+     * The scope in which the relevant events that will trigger webhooks
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "scope" })
+    @Type(() => GetWebhooks200ApplicationJSONWebhookScope)
+    scope: GetWebhooks200ApplicationJSONWebhookScope;
 
-  /**
-   * Masked value of the secret used to build an HMAC hash of the payload and passed as a header in the webhook request
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "signing-secret" })
-  signingSecret: string;
+    /**
+     * Masked value of the secret used to build an HMAC hash of the payload and passed as a header in the webhook request
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "signing-secret" })
+    signingSecret: string;
 
-  /**
-   * The date and time the webhook was last updated.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated-at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedAt: Date;
+    /**
+     * The date and time the webhook was last updated.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated-at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    updatedAt: Date;
 
-  /**
-   * URL to deliver the webhook to. Note: protocol must be included as well (only https is supported)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "url" })
-  url: string;
+    /**
+     * URL to deliver the webhook to. Note: protocol must be included as well (only https is supported)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "url" })
+    url: string;
 
-  /**
-   * Whether to enforce TLS certificate verification when delivering the webhook
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "verify-tls" })
-  verifyTls: boolean;
+    /**
+     * Whether to enforce TLS certificate verification when delivering the webhook
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "verify-tls" })
+    verifyTls: boolean;
 }
 
 /**
  * A list of webhooks
  */
 export class GetWebhooks200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetWebhooks200ApplicationJSONWebhook })
-  @Expose({ name: "items" })
-  @Type(() => GetWebhooks200ApplicationJSONWebhook)
-  items: GetWebhooks200ApplicationJSONWebhook[];
+    @SpeakeasyMetadata({ elemType: GetWebhooks200ApplicationJSONWebhook })
+    @Expose({ name: "items" })
+    @Type(() => GetWebhooks200ApplicationJSONWebhook)
+    items: GetWebhooks200ApplicationJSONWebhook[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class GetWebhooksResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A list of webhooks
-   */
-  @SpeakeasyMetadata()
-  getWebhooks200ApplicationJSONObject?: GetWebhooks200ApplicationJSON;
+    /**
+     * A list of webhooks
+     */
+    @SpeakeasyMetadata()
+    getWebhooks200ApplicationJSONObject?: GetWebhooks200ApplicationJSON;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getWebhooksDefaultApplicationJSONObject?: GetWebhooksDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getWebhooksDefaultApplicationJSONObject?: GetWebhooksDefaultApplicationJSON;
 }

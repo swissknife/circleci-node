@@ -7,102 +7,96 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class ListEnvironmentVariablesFromContextRequest extends SpeakeasyBase {
-  /**
-   * ID of the context (UUID)
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=context-id",
-  })
-  contextId: string;
+    /**
+     * ID of the context (UUID)
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=context-id" })
+    contextId: string;
 
-  /**
-   * A token to retrieve the next page of results.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=page-token",
-  })
-  pageToken?: string;
+    /**
+     * A token to retrieve the next page of results.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page-token" })
+    pageToken?: string;
 }
 
 /**
  * Error response.
  */
 export class ListEnvironmentVariablesFromContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 export class ListEnvironmentVariablesFromContext200ApplicationJSONItems extends SpeakeasyBase {
-  /**
-   * ID of the context (UUID)
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "context_id" })
-  contextId: string;
+    /**
+     * ID of the context (UUID)
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "context_id" })
+    contextId: string;
 
-  /**
-   * The date and time the environment variable was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The date and time the environment variable was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * The date and time the environment variable was updated
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedAt: Date;
+    /**
+     * The date and time the environment variable was updated
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    updatedAt: Date;
 
-  /**
-   * The name of the environment variable
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "variable" })
-  variable: string;
+    /**
+     * The name of the environment variable
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "variable" })
+    variable: string;
 }
 
 /**
  * A paginated list of environment variables
  */
 export class ListEnvironmentVariablesFromContext200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems,
-  })
-  @Expose({ name: "items" })
-  @Type(() => ListEnvironmentVariablesFromContext200ApplicationJSONItems)
-  items: ListEnvironmentVariablesFromContext200ApplicationJSONItems[];
+    @SpeakeasyMetadata({ elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems })
+    @Expose({ name: "items" })
+    @Type(() => ListEnvironmentVariablesFromContext200ApplicationJSONItems)
+    items: ListEnvironmentVariablesFromContext200ApplicationJSONItems[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class ListEnvironmentVariablesFromContextResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * A paginated list of environment variables
-   */
-  @SpeakeasyMetadata()
-  listEnvironmentVariablesFromContext200ApplicationJSONObject?: ListEnvironmentVariablesFromContext200ApplicationJSON;
+    /**
+     * A paginated list of environment variables
+     */
+    @SpeakeasyMetadata()
+    listEnvironmentVariablesFromContext200ApplicationJSONObject?: ListEnvironmentVariablesFromContext200ApplicationJSON;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  listEnvironmentVariablesFromContextDefaultApplicationJSONObject?: ListEnvironmentVariablesFromContextDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    listEnvironmentVariablesFromContextDefaultApplicationJSONObject?: ListEnvironmentVariablesFromContextDefaultApplicationJSON;
 }

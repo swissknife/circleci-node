@@ -7,761 +7,731 @@ import * as operations from "./models/operations";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 export class Insights {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Get all branches for a project
-   *
-   * @remarks
-   * Get a list of all branches for a specified project. The list will only contain branches currently available within Insights. The maximum number of branches returned by this endpoint is 5,000.
-   */
-  async getAllInsightsBranches(
-    req: operations.GetAllInsightsBranchesRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetAllInsightsBranchesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetAllInsightsBranchesRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{project-slug}/branches",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetAllInsightsBranchesResponse =
-      new operations.GetAllInsightsBranchesResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
+    /**
+     * Get all branches for a project
+     *
+     * @remarks
+     * Get a list of all branches for a specified project. The list will only contain branches currently available within Insights. The maximum number of branches returned by this endpoint is 5,000.
+     */
+    async getAllInsightsBranches(
+        req: operations.GetAllInsightsBranchesRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetAllInsightsBranchesResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetAllInsightsBranchesRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getAllInsightsBranchesDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetAllInsightsBranchesDefaultApplicationJSON
-            );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/branches", req);
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Get flaky tests for a project
-   *
-   * @remarks
-   * Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
-   *              A flaky test is a test that passed and failed in the same commit.
-   */
-  async getFlakyTests(
-    req: operations.GetFlakyTestsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetFlakyTestsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetFlakyTestsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{project-slug}/flaky-tests",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetFlakyTestsResponse =
-      new operations.GetFlakyTestsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.GetFlakyTests200ApplicationJSON
-          );
+        const res: operations.GetAllInsightsBranchesResponse =
+            new operations.GetAllInsightsBranchesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getAllInsightsBranchesDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetAllInsightsBranchesDefaultApplicationJSON
+                    );
+                }
+                break;
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.GetFlakyTestsDefaultApplicationJSON
-          );
+
+        return res;
+    }
+
+    /**
+     * Get flaky tests for a project
+     *
+     * @remarks
+     * Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
+     *              A flaky test is a test that passed and failed in the same commit.
+     */
+    async getFlakyTests(
+        req: operations.GetFlakyTestsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetFlakyTestsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetFlakyTestsRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/flaky-tests", req);
 
-  /**
-   * Job timeseries data
-   *
-   * @remarks
-   * Get timeseries data for all jobs within a workflow.
-   */
-  async getJobTimeseries(
-    req: operations.GetJobTimeseriesRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetJobTimeseriesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetJobTimeseriesRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/time-series/{project-slug}/workflows/{workflow-name}/jobs",
-      req
-    );
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
 
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetJobTimeseriesResponse =
-      new operations.GetJobTimeseriesResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.GetJobTimeseries200ApplicationJSON
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getJobTimeseriesDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetJobTimeseriesDefaultApplicationJSON
-            );
+
+        const res: operations.GetFlakyTestsResponse = new operations.GetFlakyTestsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetFlakyTests200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetFlakyTestsDefaultApplicationJSON
+                    );
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get summary metrics with trends for the entire org, and for each project.
-   *
-   * @remarks
-   * Gets aggregated summary metrics with trends for the entire org.
-   *               Also gets aggregated metrics and trends for each project belonging to the org.
-   */
-  async getOrgSummaryData(
-    req: operations.GetOrgSummaryDataRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetOrgSummaryDataResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetOrgSummaryDataRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{org-slug}/summary",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetOrgSummaryDataResponse =
-      new operations.GetOrgSummaryDataResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.GetOrgSummaryData200ApplicationJSON
-          );
+    /**
+     * Job timeseries data
+     *
+     * @remarks
+     * Get timeseries data for all jobs within a workflow.
+     */
+    async getJobTimeseries(
+        req: operations.GetJobTimeseriesRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetJobTimeseriesResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetJobTimeseriesRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getOrgSummaryDataDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetOrgSummaryDataDefaultApplicationJSON
-            );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/insights/time-series/{project-slug}/workflows/{workflow-name}/jobs",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Get summary metrics for a project workflow's jobs.
-   *
-   * @remarks
-   * Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-   */
-  async getProjectWorkflowJobMetrics(
-    req: operations.GetProjectWorkflowJobMetricsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetProjectWorkflowJobMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetProjectWorkflowJobMetricsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{project-slug}/workflows/{workflow-name}/jobs",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetProjectWorkflowJobMetricsResponse =
-      new operations.GetProjectWorkflowJobMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowJobMetrics200ApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowJobMetrics200ApplicationJSON
-            );
+        const res: operations.GetJobTimeseriesResponse = new operations.GetJobTimeseriesResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetJobTimeseries200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getJobTimeseriesDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetJobTimeseriesDefaultApplicationJSON
+                    );
+                }
+                break;
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
-            );
+
+        return res;
+    }
+
+    /**
+     * Get summary metrics with trends for the entire org, and for each project.
+     *
+     * @remarks
+     * Gets aggregated summary metrics with trends for the entire org.
+     *               Also gets aggregated metrics and trends for each project belonging to the org.
+     */
+    async getOrgSummaryData(
+        req: operations.GetOrgSummaryDataRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetOrgSummaryDataResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetOrgSummaryDataRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/insights/{org-slug}/summary", req);
 
-  /**
-   * Get summary metrics for a project's workflows
-   *
-   * @remarks
-   * Get summary metrics for a project's workflows.  Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.  Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-   */
-  async getProjectWorkflowMetrics(
-    req: operations.GetProjectWorkflowMetricsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetProjectWorkflowMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetProjectWorkflowMetricsRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{project-slug}/workflows",
-      req
-    );
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
 
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetProjectWorkflowMetricsResponse =
-      new operations.GetProjectWorkflowMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowMetrics200ApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowMetrics200ApplicationJSON
-            );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowMetricsDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowMetricsDefaultApplicationJSON
-            );
+
+        const res: operations.GetOrgSummaryDataResponse = new operations.GetOrgSummaryDataResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetOrgSummaryData200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getOrgSummaryDataDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetOrgSummaryDataDefaultApplicationJSON
+                    );
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get recent runs of a workflow
-   *
-   * @remarks
-   * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-   */
-  async getProjectWorkflowRuns(
-    req: operations.GetProjectWorkflowRunsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetProjectWorkflowRunsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetProjectWorkflowRunsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{project-slug}/workflows/{workflow-name}",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetProjectWorkflowRunsResponse =
-      new operations.GetProjectWorkflowRunsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowRuns200ApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowRuns200ApplicationJSON
-            );
+    /**
+     * Get summary metrics for a project workflow's jobs.
+     *
+     * @remarks
+     * Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+     */
+    async getProjectWorkflowJobMetrics(
+        req: operations.GetProjectWorkflowJobMetricsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProjectWorkflowJobMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProjectWorkflowJobMetricsRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowRunsDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowRunsDefaultApplicationJSON
-            );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/insights/{project-slug}/workflows/{workflow-name}/jobs",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Get test metrics for a project's workflows
-   *
-   * @remarks
-   * Get test metrics for a project's workflows. Currently tests metrics are calculated based on 10 most recent workflow runs.
-   */
-  async getProjectWorkflowTestMetrics(
-    req: operations.GetProjectWorkflowTestMetricsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetProjectWorkflowTestMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetProjectWorkflowTestMetricsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{project-slug}/workflows/{workflow-name}/test-metrics",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetProjectWorkflowTestMetricsResponse =
-      new operations.GetProjectWorkflowTestMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowTestMetrics200ApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowTestMetrics200ApplicationJSON
-            );
+        const res: operations.GetProjectWorkflowJobMetricsResponse =
+            new operations.GetProjectWorkflowJobMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowJobMetrics200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProjectWorkflowJobMetrics200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
+                        utils.objectToClass(
+                            httpRes?.data,
+                            operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
+                        );
+                }
+                break;
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
-            );
+
+        return res;
+    }
+
+    /**
+     * Get summary metrics for a project's workflows
+     *
+     * @remarks
+     * Get summary metrics for a project's workflows.  Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.  Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+     */
+    async getProjectWorkflowMetrics(
+        req: operations.GetProjectWorkflowMetricsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProjectWorkflowMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProjectWorkflowMetricsRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/workflows", req);
 
-  /**
-   * Get summary metrics and trends for a project across it's workflows and branches
-   *
-   * @remarks
-   * Get summary metrics and trends for a project at workflow and branch level.
-   *              Workflow runs going back at most 90 days are included in the aggregation window.
-   *              Trends are only supported upto last 30 days.
-   *              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-   */
-  async getProjectWorkflowsPageData(
-    req: operations.GetProjectWorkflowsPageDataRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetProjectWorkflowsPageDataResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetProjectWorkflowsPageDataRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/pages/{project-slug}/summary",
-      req
-    );
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
 
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetProjectWorkflowsPageDataResponse =
-      new operations.GetProjectWorkflowsPageDataResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowsPageData200ApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowsPageData200ApplicationJSON
-            );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
-            );
+
+        const res: operations.GetProjectWorkflowMetricsResponse =
+            new operations.GetProjectWorkflowMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowMetrics200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProjectWorkflowMetrics200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowMetricsDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProjectWorkflowMetricsDefaultApplicationJSON
+                    );
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get metrics and trends for workflows
-   *
-   * @remarks
-   * Get the metrics and trends for a particular workflow on a single branch or all branches
-   */
-  async getWorkflowSummary(
-    req: operations.GetWorkflowSummaryRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetWorkflowSummaryResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetWorkflowSummaryRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/insights/{project-slug}/workflows/{workflow-name}/summary",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    const httpRes: AxiosResponse = await client.request({
-      validateStatus: () => true,
-      url: url + queryParams,
-      method: "get",
-      headers: headers,
-      ...config,
-    });
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetWorkflowSummaryResponse =
-      new operations.GetWorkflowSummaryResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getWorkflowSummary200ApplicationJSONObject = utils.objectToClass(
-            httpRes?.data,
-            operations.GetWorkflowSummary200ApplicationJSON
-          );
+    /**
+     * Get recent runs of a workflow
+     *
+     * @remarks
+     * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+     */
+    async getProjectWorkflowRuns(
+        req: operations.GetProjectWorkflowRunsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProjectWorkflowRunsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProjectWorkflowRunsRequest(req);
         }
-        break;
-      default:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.getWorkflowSummaryDefaultApplicationJSONObject =
-            utils.objectToClass(
-              httpRes?.data,
-              operations.GetWorkflowSummaryDefaultApplicationJSON
-            );
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/insights/{project-slug}/workflows/{workflow-name}",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
+
+        const res: operations.GetProjectWorkflowRunsResponse =
+            new operations.GetProjectWorkflowRunsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowRuns200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProjectWorkflowRuns200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowRunsDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProjectWorkflowRunsDefaultApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Get test metrics for a project's workflows
+     *
+     * @remarks
+     * Get test metrics for a project's workflows. Currently tests metrics are calculated based on 10 most recent workflow runs.
+     */
+    async getProjectWorkflowTestMetrics(
+        req: operations.GetProjectWorkflowTestMetricsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProjectWorkflowTestMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProjectWorkflowTestMetricsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/insights/{project-slug}/workflows/{workflow-name}/test-metrics",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetProjectWorkflowTestMetricsResponse =
+            new operations.GetProjectWorkflowTestMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowTestMetrics200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProjectWorkflowTestMetrics200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
+                        utils.objectToClass(
+                            httpRes?.data,
+                            operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
+                        );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get summary metrics and trends for a project across it's workflows and branches
+     *
+     * @remarks
+     * Get summary metrics and trends for a project at workflow and branch level.
+     *              Workflow runs going back at most 90 days are included in the aggregation window.
+     *              Trends are only supported upto last 30 days.
+     *              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+     */
+    async getProjectWorkflowsPageData(
+        req: operations.GetProjectWorkflowsPageDataRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProjectWorkflowsPageDataResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProjectWorkflowsPageDataRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/insights/pages/{project-slug}/summary",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetProjectWorkflowsPageDataResponse =
+            new operations.GetProjectWorkflowsPageDataResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowsPageData200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProjectWorkflowsPageData200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
+                        utils.objectToClass(
+                            httpRes?.data,
+                            operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
+                        );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get metrics and trends for workflows
+     *
+     * @remarks
+     * Get the metrics and trends for a particular workflow on a single branch or all branches
+     */
+    async getWorkflowSummary(
+        req: operations.GetWorkflowSummaryRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetWorkflowSummaryResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetWorkflowSummaryRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/insights/{project-slug}/workflows/{workflow-name}/summary",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetWorkflowSummaryResponse =
+            new operations.GetWorkflowSummaryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getWorkflowSummary200ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetWorkflowSummary200ApplicationJSON
+                    );
+                }
+                break;
+            default:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getWorkflowSummaryDefaultApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetWorkflowSummaryDefaultApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
 }

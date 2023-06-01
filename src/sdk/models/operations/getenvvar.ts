@@ -7,70 +7,73 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class GetEnvVarRequest extends SpeakeasyBase {
-  /**
-   * The name of the environment variable.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=name",
-  })
-  name: string;
+    /**
+     * The name of the environment variable.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=name" })
+    name: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class GetEnvVarDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
- * The environment variable.
+ * An environment variable is a map containing a value and an optional timestamp.
  */
-export class GetEnvVarEnvironmentVariablePair extends SpeakeasyBase {
-  /**
-   * The name of the environment variable.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+export class GetEnvVarEnvironmentVariable extends SpeakeasyBase {
+    /**
+     * The creation timestamp of the environment variable.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created-at" })
+    createdAt?: any;
 
-  /**
-   * The value of the environment variable.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value: string;
+    /**
+     * The name of the environment variable.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
+
+    /**
+     * The value of the environment variable.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value: string;
 }
 
 export class GetEnvVarResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * The environment variable.
-   */
-  @SpeakeasyMetadata()
-  environmentVariablePair?: GetEnvVarEnvironmentVariablePair;
+    /**
+     * The environment variable.
+     */
+    @SpeakeasyMetadata()
+    environmentVariable?: GetEnvVarEnvironmentVariable;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getEnvVarDefaultApplicationJSONObject?: GetEnvVarDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getEnvVarDefaultApplicationJSONObject?: GetEnvVarDefaultApplicationJSON;
 }

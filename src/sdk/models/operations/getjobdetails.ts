@@ -7,363 +7,359 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class GetJobDetailsRequest extends SpeakeasyBase {
-  /**
-   * The number of the job.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=job-number",
-  })
-  jobNumber: any;
+    /**
+     * The number of the job.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=job-number" })
+    jobNumber: any;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class GetJobDetailsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * Information about the context.
  */
 export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
-  /**
-   * The name of the context.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the context.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }
 
 /**
  * Information about executor used for a job.
  */
 export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
-  /**
-   * Resource class name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "resource_class" })
-  resourceClass: string;
+    /**
+     * Resource class name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "resource_class" })
+    resourceClass: string;
 
-  /**
-   * Executor type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
+    /**
+     * Executor type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: string;
 }
 
 /**
  * Info about the latest workflow the job was a part of.
  */
 export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
-  /**
-   * The unique ID of the workflow.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the workflow.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The name of the workflow.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the workflow.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }
 
 /**
  * Message from CircleCI execution platform.
  */
 export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
-  /**
-   * Information describing message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * Information describing message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 
-  /**
-   * Value describing the reason for message to be added to the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "reason" })
-  reason?: string;
+    /**
+     * Value describing the reason for message to be added to the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "reason" })
+    reason?: string;
 
-  /**
-   * Message type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: string;
+    /**
+     * Message type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: string;
 }
 
 /**
  * Information about an organization.
  */
 export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
-  /**
-   * The name of the organization.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the organization.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }
 
 /**
  * Info about a status of the parallel run.
  */
 export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
-  /**
-   * Index of the parallel run.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index: number;
+    /**
+     * Index of the parallel run.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index: number;
 
-  /**
-   * Status of the parallel run.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: string;
+    /**
+     * Status of the parallel run.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: string;
 }
 
 /**
  * Info about a pipeline the job is a part of.
  */
 export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
-  /**
-   * The unique ID of the pipeline.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique ID of the pipeline.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 }
 
 /**
  * Information about a project.
  */
 export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
-  /**
-   * URL to the repository hosting the project's code
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "external_url" })
-  externalUrl: string;
+    /**
+     * URL to the repository hosting the project's code
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "external_url" })
+    externalUrl: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The name of the project
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the project
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "slug" })
-  slug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "slug" })
+    slug: string;
 }
 
 /**
  * The current status of the job.
  */
 export enum GetJobDetailsJobDetailsStatus {
-  Success = "success",
-  Running = "running",
-  NotRun = "not_run",
-  Failed = "failed",
-  Retried = "retried",
-  Queued = "queued",
-  NotRunning = "not_running",
-  InfrastructureFail = "infrastructure_fail",
-  Timedout = "timedout",
-  OnHold = "on_hold",
-  TerminatedUnknown = "terminated-unknown",
-  Blocked = "blocked",
-  Canceled = "canceled",
-  Unauthorized = "unauthorized",
+    Success = "success",
+    Running = "running",
+    NotRun = "not_run",
+    Failed = "failed",
+    Retried = "retried",
+    Queued = "queued",
+    NotRunning = "not_running",
+    InfrastructureFail = "infrastructure_fail",
+    Timedout = "timedout",
+    OnHold = "on_hold",
+    TerminatedUnknown = "terminated-unknown",
+    Blocked = "blocked",
+    Canceled = "canceled",
+    Unauthorized = "unauthorized",
 }
 
 /**
  * Job Details
  */
 export class GetJobDetailsJobDetails extends SpeakeasyBase {
-  /**
-   * List of contexts used by the job.
-   */
-  @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsContexts })
-  @Expose({ name: "contexts" })
-  @Type(() => GetJobDetailsJobDetailsContexts)
-  contexts: GetJobDetailsJobDetailsContexts[];
+    /**
+     * List of contexts used by the job.
+     */
+    @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsContexts })
+    @Expose({ name: "contexts" })
+    @Type(() => GetJobDetailsJobDetailsContexts)
+    contexts: GetJobDetailsJobDetailsContexts[];
 
-  /**
-   * The time when the job was created.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdAt: Date;
+    /**
+     * The time when the job was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    createdAt: Date;
 
-  /**
-   * Duration of a job in milliseconds.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "duration" })
-  duration: number;
+    /**
+     * Duration of a job in milliseconds.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "duration" })
+    duration: number;
 
-  /**
-   * Information about executor used for a job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "executor" })
-  @Type(() => GetJobDetailsJobDetailsExecutor)
-  executor: GetJobDetailsJobDetailsExecutor;
+    /**
+     * Information about executor used for a job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "executor" })
+    @Type(() => GetJobDetailsJobDetailsExecutor)
+    executor: GetJobDetailsJobDetailsExecutor;
 
-  /**
-   * Info about the latest workflow the job was a part of.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "latest_workflow" })
-  @Type(() => GetJobDetailsJobDetailsLatestWorkflow)
-  latestWorkflow: GetJobDetailsJobDetailsLatestWorkflow;
+    /**
+     * Info about the latest workflow the job was a part of.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "latest_workflow" })
+    @Type(() => GetJobDetailsJobDetailsLatestWorkflow)
+    latestWorkflow: GetJobDetailsJobDetailsLatestWorkflow;
 
-  /**
-   * Messages from CircleCI execution platform.
-   */
-  @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsMessages })
-  @Expose({ name: "messages" })
-  @Type(() => GetJobDetailsJobDetailsMessages)
-  messages: GetJobDetailsJobDetailsMessages[];
+    /**
+     * Messages from CircleCI execution platform.
+     */
+    @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsMessages })
+    @Expose({ name: "messages" })
+    @Type(() => GetJobDetailsJobDetailsMessages)
+    messages: GetJobDetailsJobDetailsMessages[];
 
-  /**
-   * The name of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The number of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "number" })
-  number: number;
+    /**
+     * The number of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "number" })
+    number: number;
 
-  /**
-   * Information about an organization.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "organization" })
-  @Type(() => GetJobDetailsJobDetailsOrganization)
-  organization: GetJobDetailsJobDetailsOrganization;
+    /**
+     * Information about an organization.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "organization" })
+    @Type(() => GetJobDetailsJobDetailsOrganization)
+    organization: GetJobDetailsJobDetailsOrganization;
 
-  /**
-   * Info about parallels runs and their status.
-   */
-  @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsParallelRuns })
-  @Expose({ name: "parallel_runs" })
-  @Type(() => GetJobDetailsJobDetailsParallelRuns)
-  parallelRuns: GetJobDetailsJobDetailsParallelRuns[];
+    /**
+     * Info about parallels runs and their status.
+     */
+    @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsParallelRuns })
+    @Expose({ name: "parallel_runs" })
+    @Type(() => GetJobDetailsJobDetailsParallelRuns)
+    parallelRuns: GetJobDetailsJobDetailsParallelRuns[];
 
-  /**
-   * A number of parallel runs the job has.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parallelism" })
-  parallelism: number;
+    /**
+     * A number of parallel runs the job has.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "parallelism" })
+    parallelism: number;
 
-  /**
-   * Info about a pipeline the job is a part of.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "pipeline" })
-  @Type(() => GetJobDetailsJobDetailsPipeline)
-  pipeline: GetJobDetailsJobDetailsPipeline;
+    /**
+     * Info about a pipeline the job is a part of.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "pipeline" })
+    @Type(() => GetJobDetailsJobDetailsPipeline)
+    pipeline: GetJobDetailsJobDetailsPipeline;
 
-  /**
-   * Information about a project.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "project" })
-  @Type(() => GetJobDetailsJobDetailsProject)
-  project: GetJobDetailsJobDetailsProject;
+    /**
+     * Information about a project.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project" })
+    @Type(() => GetJobDetailsJobDetailsProject)
+    project: GetJobDetailsJobDetailsProject;
 
-  /**
-   * The time when the job was placed in a queue.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "queued_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  queuedAt: Date;
+    /**
+     * The time when the job was placed in a queue.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "queued_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    queuedAt: Date;
 
-  /**
-   * The date and time the job started.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "started_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  startedAt: Date;
+    /**
+     * The date and time the job started.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "started_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    startedAt: Date;
 
-  /**
-   * The current status of the job.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: GetJobDetailsJobDetailsStatus;
+    /**
+     * The current status of the job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: GetJobDetailsJobDetailsStatus;
 
-  /**
-   * The time when the job stopped.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "stopped_at" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  stoppedAt?: Date;
+    /**
+     * The time when the job stopped.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "stopped_at" })
+    @Transform(({ value }) => new Date(value), { toClassOnly: true })
+    stoppedAt?: Date;
 
-  /**
-   * URL of the job in CircleCI Web UI.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "web_url" })
-  webUrl: string;
+    /**
+     * URL of the job in CircleCI Web UI.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "web_url" })
+    webUrl: string;
 }
 
 export class GetJobDetailsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Job details.
-   */
-  @SpeakeasyMetadata()
-  jobDetails?: GetJobDetailsJobDetails;
+    /**
+     * Job details.
+     */
+    @SpeakeasyMetadata()
+    jobDetails?: GetJobDetailsJobDetails;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getJobDetailsDefaultApplicationJSONObject?: GetJobDetailsDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getJobDetailsDefaultApplicationJSONObject?: GetJobDetailsDefaultApplicationJSON;
 }
