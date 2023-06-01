@@ -7,55 +7,53 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class DeleteWebhookRequest extends SpeakeasyBase {
-  /**
-   * ID of the webhook (UUID)
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=webhook-id",
-  })
-  webhookId: string;
+    /**
+     * ID of the webhook (UUID)
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=webhook-id" })
+    webhookId: string;
 }
 
 /**
  * Error response.
  */
 export class DeleteWebhookDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * message response
  */
 export class DeleteWebhookMessageResponse extends SpeakeasyBase {
-  /**
-   * A human-readable message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * A human-readable message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 }
 
 export class DeleteWebhookResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * A confirmation message
-   */
-  @SpeakeasyMetadata()
-  messageResponse?: DeleteWebhookMessageResponse;
+    /**
+     * A confirmation message
+     */
+    @SpeakeasyMetadata()
+    messageResponse?: DeleteWebhookMessageResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  deleteWebhookDefaultApplicationJSONObject?: DeleteWebhookDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    deleteWebhookDefaultApplicationJSONObject?: DeleteWebhookDefaultApplicationJSON;
 }

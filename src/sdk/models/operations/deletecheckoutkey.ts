@@ -7,63 +7,59 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class DeleteCheckoutKeyRequest extends SpeakeasyBase {
-  /**
-   * An SSH key fingerprint.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=fingerprint",
-  })
-  fingerprint: string;
+    /**
+     * An SSH key fingerprint.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=fingerprint" })
+    fingerprint: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class DeleteCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * message response
  */
 export class DeleteCheckoutKeyMessageResponse extends SpeakeasyBase {
-  /**
-   * A human-readable message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * A human-readable message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 }
 
 export class DeleteCheckoutKeyResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * A confirmation message.
-   */
-  @SpeakeasyMetadata()
-  messageResponse?: DeleteCheckoutKeyMessageResponse;
+    /**
+     * A confirmation message.
+     */
+    @SpeakeasyMetadata()
+    messageResponse?: DeleteCheckoutKeyMessageResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  deleteCheckoutKeyDefaultApplicationJSONObject?: DeleteCheckoutKeyDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    deleteCheckoutKeyDefaultApplicationJSONObject?: DeleteCheckoutKeyDefaultApplicationJSON;
 }

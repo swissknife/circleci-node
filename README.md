@@ -77,6 +77,15 @@ sdk.context.addEnvironmentVariableToContext({
 * [getJobDetails](docs/job/README.md#getjobdetails) - Get job details
 * [getTests](docs/job/README.md#gettests) - Get test metadata
 
+### [oidcTokenManagement](docs/oidctokenmanagement/README.md)
+
+* [deleteOrgClaims](docs/oidctokenmanagement/README.md#deleteorgclaims) - Delete org-level claims
+* [deleteProjectClaims](docs/oidctokenmanagement/README.md#deleteprojectclaims) - Delete project-level claims
+* [getOrgClaims](docs/oidctokenmanagement/README.md#getorgclaims) - Get org-level claims
+* [getProjectClaims](docs/oidctokenmanagement/README.md#getprojectclaims) - Get project-level claims
+* [patchOrgClaims](docs/oidctokenmanagement/README.md#patchorgclaims) - Patch org-level claims
+* [patchProjectClaims](docs/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
+
 ### [pipeline](docs/pipeline/README.md)
 
 * [continuePipeline](docs/pipeline/README.md#continuepipeline) - Continue a pipeline
@@ -88,6 +97,18 @@ sdk.context.addEnvironmentVariableToContext({
 * [listPipelinesForProject](docs/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 * [listWorkflowsByPipelineId](docs/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
 * [triggerPipeline](docs/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
+
+### [policyManagement](docs/policymanagement/README.md)
+
+* [createPolicyBundle](docs/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
+* [getDecisionLog](docs/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
+* [getDecisionLogPolicyBundle](docs/policymanagement/README.md#getdecisionlogpolicybundle) - Retrieves Policy Bundle for a given decision log ID
+* [getDecisionLogs](docs/policymanagement/README.md#getdecisionlogs) - Retrieves the owner's decision audit logs.
+* [getDecisionSettings](docs/policymanagement/README.md#getdecisionsettings) - Get the decision settings
+* [getPolicyBundle](docs/policymanagement/README.md#getpolicybundle) - Retrieves Policy Bundle
+* [getPolicyDocument](docs/policymanagement/README.md#getpolicydocument) - Retrieves a policy document
+* [makeDecision](docs/policymanagement/README.md#makedecision) - Makes a decision
+* [setDecisionSettings](docs/policymanagement/README.md#setdecisionsettings) - Set the decision settings
 
 ### [project](docs/project/README.md)
 

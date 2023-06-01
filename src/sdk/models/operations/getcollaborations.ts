@@ -10,67 +10,67 @@ import { Expose } from "class-transformer";
  * Error response.
  */
 export class GetCollaborationsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 export class GetCollaborationsCollaboration extends SpeakeasyBase {
-  /**
-   * URL to the user's avatar on the VCS
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "avatar_url" })
-  avatarUrl: string;
+    /**
+     * URL to the user's avatar on the VCS
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "avatar_url" })
+    avatarUrl: string;
 
-  /**
-   * The UUID of the organization
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The UUID of the organization
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The name of the organization
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the organization
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The slug of the organization
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "slug" })
-  slug: string;
+    /**
+     * The slug of the organization
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "slug" })
+    slug: string;
 
-  /**
-   * The VCS provider
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "vcs-type" })
-  vcsType: string;
+    /**
+     * The VCS provider
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "vcs-type" })
+    vcsType: string;
 }
 
 export class GetCollaborationsResponse extends SpeakeasyBase {
-  /**
-   * Collaborations
-   */
-  @SpeakeasyMetadata({ elemType: GetCollaborationsCollaboration })
-  collaborations?: GetCollaborationsCollaboration[];
+    /**
+     * Collaborations
+     */
+    @SpeakeasyMetadata({ elemType: GetCollaborationsCollaboration })
+    collaborations?: GetCollaborationsCollaboration[];
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getCollaborationsDefaultApplicationJSONObject?: GetCollaborationsDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getCollaborationsDefaultApplicationJSONObject?: GetCollaborationsDefaultApplicationJSON;
 }

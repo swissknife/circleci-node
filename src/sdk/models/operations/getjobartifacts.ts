@@ -7,94 +7,90 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class GetJobArtifactsRequest extends SpeakeasyBase {
-  /**
-   * The number of the job.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=job-number",
-  })
-  jobNumber: any;
+    /**
+     * The number of the job.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=job-number" })
+    jobNumber: any;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * An artifact
  */
 export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
-  /**
-   * The index of the node that stored the artifact.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "node_index" })
-  nodeIndex: number;
+    /**
+     * The index of the node that stored the artifact.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "node_index" })
+    nodeIndex: number;
 
-  /**
-   * The artifact path.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "path" })
-  path: string;
+    /**
+     * The artifact path.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "path" })
+    path: string;
 
-  /**
-   * The URL to download the artifact contents.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "url" })
-  url: string;
+    /**
+     * The URL to download the artifact contents.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "url" })
+    url: string;
 }
 
 /**
  * A paginated list of the job's artifacts.
  */
 export class GetJobArtifactsArtifactListResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetJobArtifactsArtifactListResponseArtifact })
-  @Expose({ name: "items" })
-  @Type(() => GetJobArtifactsArtifactListResponseArtifact)
-  items: GetJobArtifactsArtifactListResponseArtifact[];
+    @SpeakeasyMetadata({ elemType: GetJobArtifactsArtifactListResponseArtifact })
+    @Expose({ name: "items" })
+    @Type(() => GetJobArtifactsArtifactListResponseArtifact)
+    items: GetJobArtifactsArtifactListResponseArtifact[];
 
-  /**
-   * A token to pass as a `page-token` query parameter to return the next page of results.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "next_page_token" })
-  nextPageToken: string;
+    /**
+     * A token to pass as a `page-token` query parameter to return the next page of results.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "next_page_token" })
+    nextPageToken: string;
 }
 
 export class GetJobArtifactsResponse extends SpeakeasyBase {
-  /**
-   * A paginated list of the job's artifacts.
-   */
-  @SpeakeasyMetadata()
-  artifactListResponse?: GetJobArtifactsArtifactListResponse;
+    /**
+     * A paginated list of the job's artifacts.
+     */
+    @SpeakeasyMetadata()
+    artifactListResponse?: GetJobArtifactsArtifactListResponse;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  getJobArtifactsDefaultApplicationJSONObject?: GetJobArtifactsDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    getJobArtifactsDefaultApplicationJSONObject?: GetJobArtifactsDefaultApplicationJSON;
 }

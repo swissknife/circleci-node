@@ -17,11 +17,11 @@ Creates a schedule and returns the created schedule.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  CreateScheduleCreateScheduleParametersAttributionActorEnum,
-  CreateScheduleCreateScheduleParametersTimetable1DaysOfWeekEnum,
-  CreateScheduleCreateScheduleParametersTimetable1MonthsEnum,
-  CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum,
-  CreateScheduleCreateScheduleParametersTimetable2MonthsEnum,
+  CreateScheduleCreateScheduleParametersAttributionActor,
+  CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek,
+  CreateScheduleCreateScheduleParametersTimetable1Months,
+  CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek,
+  CreateScheduleCreateScheduleParametersTimetable2Months,
   CreateScheduleResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -33,38 +33,35 @@ const sdk = new Circleci({
 
 sdk.schedule.createSchedule({
   requestBody: {
-    attributionActor: CreateScheduleCreateScheduleParametersAttributionActorEnum.Current,
-    description: "similique",
-    name: "Cristina Hahn",
+    attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
+    description: "in",
+    name: "Jeannette Stanton II",
     parameters: {
-      "officiis": "qui",
-      "dolorum": "a",
-      "esse": "harum",
-      "iusto": "ipsum",
+      "dicta": "ullam",
+      "reprehenderit": "ullam",
+      "nisi": "aut",
+      "voluptatum": "qui",
     },
     timetable: {
       daysOfMonth: [
-        229442,
-        730856,
-        880298,
-        253941,
+        536275,
+        929292,
       ],
       daysOfWeek: [
-        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum.Sat,
-        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeekEnum.Fri,
+        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek.Tue,
+        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek.Thu,
+        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek.Fri,
       ],
       hoursOfDay: [
-        471752,
-        25662,
-        711584,
+        869489,
       ],
       months: [
-        CreateScheduleCreateScheduleParametersTimetable2MonthsEnum.Nov,
+        CreateScheduleCreateScheduleParametersTimetable2Months.Oct,
       ],
-      perHour: 424685,
+      perHour: 55965,
     },
   },
-  projectSlug: "libero",
+  projectSlug: "minima",
 }).then((res: CreateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -89,7 +86,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.deleteScheduleById({
-  scheduleId: "5a73429c-db1a-4842-abb6-79d2322715bf",
+  scheduleId: "1339d080-86a1-4840-b94c-26071f93f5f0",
 }).then((res: DeleteScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -114,7 +111,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.getScheduleById({
-  scheduleId: "0cbb1e31-b8b9-40f3-843a-1108e0adcf4b",
+  scheduleId: "642dac7a-f515-4cc4-93aa-63aae8d67864",
 }).then((res: GetScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -139,8 +136,8 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.listSchedulesForProject({
-  pageToken: "cupiditate",
-  projectSlug: "qui",
+  pageToken: "possimus",
+  projectSlug: "facilis",
 }).then((res: ListSchedulesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -158,9 +155,9 @@ Updates a schedule and returns the updated schedule.
 import { Circleci } from "circleci-v2-sdk";
 import {
   UpdateScheduleResponse,
-  UpdateScheduleUpdateScheduleParametersAttributionActorEnum,
-  UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum,
-  UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum,
+  UpdateScheduleUpdateScheduleParametersAttributionActor,
+  UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek,
+  UpdateScheduleUpdateScheduleParametersTimetableMonths,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
@@ -171,40 +168,35 @@ const sdk = new Circleci({
 
 sdk.schedule.updateSchedule({
   requestBody: {
-    attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActorEnum.Current,
-    description: "quae",
-    name: "Darren McClure",
+    attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
+    description: "cum",
+    name: "Pearl Hessel",
     parameters: {
-      "omnis": "quis",
-      "ipsum": "delectus",
-      "voluptate": "consectetur",
-      "vero": "tenetur",
+      "recusandae": "aliquid",
+      "aperiam": "cum",
     },
     timetable: {
       daysOfMonth: [
-        941378,
-        715561,
+        449083,
       ],
       daysOfWeek: [
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Mon,
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Thu,
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Thu,
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeekEnum.Fri,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Fri,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Wed,
       ],
       hoursOfDay: [
-        293020,
-        844550,
+        985492,
+        381760,
       ],
       months: [
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Dec,
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Apr,
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Aug,
-        UpdateScheduleUpdateScheduleParametersTimetableMonthsEnum.Mar,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Sep,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Jan,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Jan,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Jun,
       ],
-      perHour: 974259,
+      perHour: 121059,
     },
   },
-  scheduleId: "5d2cff7c-70a4-4562-ad43-6813f16d9f5f",
+  scheduleId: "f33317fe-35b6-40eb-9ea4-26555ba3c287",
 }).then((res: UpdateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response

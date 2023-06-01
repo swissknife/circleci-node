@@ -25,8 +25,8 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.approvePendingApprovalJobById({
-  approvalRequestId: "a19f1d17-0513-439d-8808-6a1840394c26",
-  id: "071f93f5-f064-42da-87af-515cc413aa63",
+  approvalRequestId: "0e101256-3f94-4e29-a973-e922a57a15be",
+  id: "3e060807-e2b6-4e3a-b884-5f0597a60ff2",
 }).then((res: ApprovePendingApprovalJobByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -51,7 +51,7 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.cancelWorkflow({
-  id: "aae8d678-64db-4b67-9fd5-e60b375ed4f6",
+  id: "a54a31e9-4764-4a3e-865e-7956f9251a5a",
 }).then((res: CancelWorkflowResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -69,8 +69,8 @@ Returns summary fields of a workflow by ID.
 import { Circleci } from "circleci-v2-sdk";
 import {
   GetWorkflowByIdResponse,
-  GetWorkflowByIdWorkflowStatusEnum,
-  GetWorkflowByIdWorkflowTagEnum,
+  GetWorkflowByIdWorkflowStatus,
+  GetWorkflowByIdWorkflowTag,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
@@ -80,7 +80,7 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.getWorkflowById({
-  id: "fbee41f3-3317-4fe3-9b60-eb1ea426555b",
+  id: "9da660ff-57bf-4aad-8f9e-fc1b4512c103",
 }).then((res: GetWorkflowByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -98,8 +98,8 @@ Returns a sequence of jobs for a workflow.
 import { Circleci } from "circleci-v2-sdk";
 import {
   ListWorkflowJobsResponse,
-  ListWorkflowJobsWorkflowJobListResponseJobStatusEnum,
-  ListWorkflowJobsWorkflowJobListResponseJobTypeEnum,
+  ListWorkflowJobsWorkflowJobListResponseJobStatus,
+  ListWorkflowJobsWorkflowJobListResponseJobType,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
@@ -109,7 +109,7 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.listWorkflowJobs({
-  id: "a3c28744-ed53-4b88-b3a8-d8f5c0b2f2fb",
+  id: "2648dc2f-6151-499e-bfd0-e9fe6c632ca3",
 }).then((res: ListWorkflowJobsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -138,12 +138,13 @@ sdk.workflow.rerunWorkflow({
     enableSsh: false,
     fromFailed: false,
     jobs: [
-      "b194a276-b269-416f-a1f0-8f4294e3698f",
-      "447f603e-8b44-45e8-8ca5-5efd20e457e1",
+      "ed011799-6312-4fde-8477-1778ff61d017",
+      "476360a1-5db6-4a66-8659-a1adeaab5851",
+      "d6c645b0-8b61-4891-baa0-fe1ade008e6f",
     ],
     sparseTree: false,
   },
-  id: "858b6a89-fbe3-4a5a-a8e4-824d0ab40750",
+  id: "8c5f350d-8cdb-45a3-8181-43010421813d",
 }).then((res: RerunWorkflowResponse) => {
   if (res.statusCode == 200) {
     // handle response

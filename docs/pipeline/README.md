@@ -29,10 +29,13 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.continuePipeline({
-  configuration: "praesentium",
-  continuationKey: "natus",
+  configuration: "sapiente",
+  continuationKey: "quisquam",
   parameters: {
-    "sunt": "quo",
+    "ea": "impedit",
+    "corporis": "veniam",
+    "aliquid": "inventore",
+    "magnam": "ea",
   },
 }).then((res: ContinuePipelineResponse) => {
   if (res.statusCode == 200) {
@@ -50,9 +53,9 @@ Returns a pipeline by the pipeline ID.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  GetPipelineByIdPipelineErrorsTypeEnum,
-  GetPipelineByIdPipelineStateEnum,
-  GetPipelineByIdPipelineTriggerTypeEnum,
+  GetPipelineByIdPipelineErrorsType,
+  GetPipelineByIdPipelineState,
+  GetPipelineByIdPipelineTriggerType,
   GetPipelineByIdResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -63,7 +66,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineById({
-  pipelineId: "ddc69260-1fb5-476b-8d5f-0d30c5fbb258",
+  pipelineId: "c3e250fb-008c-442e-941a-ac366c8dd6b1",
 }).then((res: GetPipelineByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -80,9 +83,9 @@ Returns a pipeline by the pipeline number.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  GetPipelineByNumberPipelineErrorsTypeEnum,
-  GetPipelineByNumberPipelineStateEnum,
-  GetPipelineByNumberPipelineTriggerTypeEnum,
+  GetPipelineByNumberPipelineErrorsType,
+  GetPipelineByNumberPipelineState,
+  GetPipelineByNumberPipelineTriggerType,
   GetPipelineByNumberResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -93,8 +96,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineByNumber({
-  pipelineNumber: "dignissimos",
-  projectSlug: "eaque",
+  pipelineNumber: "tempora",
+  projectSlug: "numquam",
 }).then((res: GetPipelineByNumberResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -119,7 +122,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineConfigById({
-  pipelineId: "53202c73-d5fe-49b9-8c28-909b3fe49a8d",
+  pipelineId: "29074747-78a7-4bd4-a6d2-8c10ab3cdca4",
 }).then((res: GetPipelineConfigByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -136,9 +139,9 @@ Returns a sequence of all pipelines for this project triggered by the user.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  ListMyPipelinesPipelineListResponsePipelineErrorsTypeEnum,
-  ListMyPipelinesPipelineListResponsePipelineStateEnum,
-  ListMyPipelinesPipelineListResponsePipelineTriggerTypeEnum,
+  ListMyPipelinesPipelineListResponsePipelineErrorsType,
+  ListMyPipelinesPipelineListResponsePipelineState,
+  ListMyPipelinesPipelineListResponsePipelineTriggerType,
   ListMyPipelinesResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -149,8 +152,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listMyPipelines({
-  pageToken: "provident",
-  projectSlug: "nobis",
+  pageToken: "eos",
+  projectSlug: "voluptas",
 }).then((res: ListMyPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -167,9 +170,9 @@ Returns all pipelines for the most recently built projects (max 250) you follow 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  ListPipelinesPipelineListResponsePipelineErrorsTypeEnum,
-  ListPipelinesPipelineListResponsePipelineStateEnum,
-  ListPipelinesPipelineListResponsePipelineTriggerTypeEnum,
+  ListPipelinesPipelineListResponsePipelineErrorsType,
+  ListPipelinesPipelineListResponsePipelineState,
+  ListPipelinesPipelineListResponsePipelineTriggerType,
   ListPipelinesResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -181,8 +184,8 @@ const sdk = new Circleci({
 
 sdk.pipeline.listPipelines({
   mine: false,
-  orgSlug: "libero",
-  pageToken: "delectus",
+  orgSlug: "ab",
+  pageToken: "cupiditate",
 }).then((res: ListPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,9 +202,9 @@ Returns all pipelines for this project.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  ListPipelinesForProjectPipelineListResponsePipelineErrorsTypeEnum,
-  ListPipelinesForProjectPipelineListResponsePipelineStateEnum,
-  ListPipelinesForProjectPipelineListResponsePipelineTriggerTypeEnum,
+  ListPipelinesForProjectPipelineListResponsePipelineErrorsType,
+  ListPipelinesForProjectPipelineListResponsePipelineState,
+  ListPipelinesForProjectPipelineListResponsePipelineTriggerType,
   ListPipelinesForProjectResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -212,9 +215,9 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listPipelinesForProject({
-  branch: "quaerat",
-  pageToken: "quos",
-  projectSlug: "aliquid",
+  branch: "consequatur",
+  pageToken: "tempora",
+  projectSlug: "debitis",
 }).then((res: ListPipelinesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -232,8 +235,8 @@ Returns a paginated list of workflows by pipeline ID.
 import { Circleci } from "circleci-v2-sdk";
 import {
   ListWorkflowsByPipelineIdResponse,
-  ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatusEnum,
-  ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTagEnum,
+  ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatus,
+  ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTag,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
@@ -243,8 +246,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listWorkflowsByPipelineId({
-  pageToken: "dolorem",
-  pipelineId: "3323f9b7-7f3a-4410-8674-ebf69280d1ba",
+  pageToken: "ipsam",
+  pipelineId: "23c7e0bc-7178-4e47-96f2-a70c688282aa",
 }).then((res: ListWorkflowsByPipelineIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -260,7 +263,7 @@ Triggers a new pipeline on the project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { TriggerPipelinePipelineCreationStateEnum, TriggerPipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { TriggerPipelinePipelineCreationState, TriggerPipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -272,12 +275,12 @@ sdk.pipeline.triggerPipeline({
   requestBody: {
     branch: "feature/design-new-api",
     parameters: {
-      "voluptate": "dolorum",
-      "deleniti": "omnis",
+      "atque": "explicabo",
+      "minima": "nisi",
     },
     tag: "v3.1.4159",
   },
-  projectSlug: "necessitatibus",
+  projectSlug: "fugit",
 }).then((res: TriggerPipelineResponse) => {
   if (res.statusCode == 200) {
     // handle response

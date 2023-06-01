@@ -7,63 +7,59 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class DeleteEnvVarRequest extends SpeakeasyBase {
-  /**
-   * The name of the environment variable.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=name",
-  })
-  name: string;
+    /**
+     * The name of the environment variable.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=name" })
+    name: string;
 
-  /**
-   * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=project-slug",
-  })
-  projectSlug: string;
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
+    projectSlug: string;
 }
 
 /**
  * Error response.
  */
 export class DeleteEnvVarDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * message response
  */
 export class DeleteEnvVarMessageResponse extends SpeakeasyBase {
-  /**
-   * A human-readable message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * A human-readable message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 }
 
 export class DeleteEnvVarResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * A confirmation message.
-   */
-  @SpeakeasyMetadata()
-  messageResponse?: DeleteEnvVarMessageResponse;
+    /**
+     * A confirmation message.
+     */
+    @SpeakeasyMetadata()
+    messageResponse?: DeleteEnvVarMessageResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  deleteEnvVarDefaultApplicationJSONObject?: DeleteEnvVarDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    deleteEnvVarDefaultApplicationJSONObject?: DeleteEnvVarDefaultApplicationJSON;
 }

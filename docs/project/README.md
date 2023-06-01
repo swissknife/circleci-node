@@ -21,8 +21,8 @@ Creates a new checkout key. This API request is only usable with a user API toke
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  CreateCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum,
-  CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum,
+  CreateCheckoutKeyCheckoutKeyCheckoutKeyType,
+  CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType,
   CreateCheckoutKeyResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -34,9 +34,9 @@ const sdk = new Circleci({
 
 sdk.project.createCheckoutKey({
   requestBody: {
-    type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputTypeEnum.DeployKey,
+    type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
   },
-  projectSlug: "distinctio",
+  projectSlug: "esse",
 }).then((res: CreateCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -65,7 +65,7 @@ sdk.project.createEnvVar({
     name: "foo",
     value: "xxxx1234",
   },
-  projectSlug: "asperiores",
+  projectSlug: "quasi",
 }).then((res: CreateEnvVarResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -90,8 +90,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.deleteCheckoutKey({
-  fingerprint: "nihil",
-  projectSlug: "ipsum",
+  fingerprint: "a",
+  projectSlug: "error",
 }).then((res: DeleteCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,8 +116,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.deleteEnvVar({
-  name: "Alberta Ullrich",
-  projectSlug: "perferendis",
+  name: "Jody Schuster",
+  projectSlug: "asperiores",
 }).then((res: DeleteEnvVarResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -133,7 +133,7 @@ Returns an individual checkout key.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetCheckoutKeyCheckoutKeyCheckoutKeyTypeEnum, GetCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetCheckoutKeyCheckoutKeyCheckoutKeyType, GetCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -142,8 +142,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.getCheckoutKey({
-  fingerprint: "amet",
-  projectSlug: "optio",
+  fingerprint: "facere",
+  projectSlug: "veritatis",
 }).then((res: GetCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -168,8 +168,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.getEnvVar({
-  name: "Tommy Turner",
-  projectSlug: "provident",
+  name: "Ann Murphy",
+  projectSlug: "tenetur",
 }).then((res: GetEnvVarResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -185,7 +185,7 @@ Retrieves a project by project slug.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectBySlugProjectVcsInfoProviderEnum, GetProjectBySlugResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectBySlugProjectVcsInfoProvider, GetProjectBySlugResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -194,7 +194,7 @@ const sdk = new Circleci({
 });
 
 sdk.project.getProjectBySlug({
-  projectSlug: "minima",
+  projectSlug: "quae",
 }).then((res: GetProjectBySlugResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -211,7 +211,7 @@ Returns a sequence of checkout keys for `:project`.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyTypeEnum,
+  ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType,
   ListCheckoutKeysResponse,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
@@ -222,7 +222,7 @@ const sdk = new Circleci({
 });
 
 sdk.project.listCheckoutKeys({
-  projectSlug: "repellendus",
+  projectSlug: "earum",
 }).then((res: ListCheckoutKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -247,7 +247,7 @@ const sdk = new Circleci({
 });
 
 sdk.project.listEnvVars({
-  projectSlug: "totam",
+  projectSlug: "vel",
 }).then((res: ListEnvVarsResponse) => {
   if (res.statusCode == 200) {
     // handle response

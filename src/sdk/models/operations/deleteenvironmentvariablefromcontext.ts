@@ -7,63 +7,59 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class DeleteEnvironmentVariableFromContextRequest extends SpeakeasyBase {
-  /**
-   * ID of the context (UUID)
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=context-id",
-  })
-  contextId: string;
+    /**
+     * ID of the context (UUID)
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=context-id" })
+    contextId: string;
 
-  /**
-   * The name of the environment variable
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=env-var-name",
-  })
-  envVarName: string;
+    /**
+     * The name of the environment variable
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=env-var-name" })
+    envVarName: string;
 }
 
 /**
  * Error response.
  */
 export class DeleteEnvironmentVariableFromContextDefaultApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 }
 
 /**
  * message response
  */
 export class DeleteEnvironmentVariableFromContextMessageResponse extends SpeakeasyBase {
-  /**
-   * A human-readable message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    /**
+     * A human-readable message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 }
 
 export class DeleteEnvironmentVariableFromContextResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * A confirmation message
-   */
-  @SpeakeasyMetadata()
-  messageResponse?: DeleteEnvironmentVariableFromContextMessageResponse;
+    /**
+     * A confirmation message
+     */
+    @SpeakeasyMetadata()
+    messageResponse?: DeleteEnvironmentVariableFromContextMessageResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Error response.
-   */
-  @SpeakeasyMetadata()
-  deleteEnvironmentVariableFromContextDefaultApplicationJSONObject?: DeleteEnvironmentVariableFromContextDefaultApplicationJSON;
+    /**
+     * Error response.
+     */
+    @SpeakeasyMetadata()
+    deleteEnvironmentVariableFromContextDefaultApplicationJSONObject?: DeleteEnvironmentVariableFromContextDefaultApplicationJSON;
 }
