@@ -8,13 +8,13 @@ The CircleCI API Node SDK is a NPM library for accessing the resources that make
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add circleci-v2-sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET>
+yarn add circleci-v2-sdk
 ```
 <!-- End SDK Installation -->
 
