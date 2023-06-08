@@ -19,7 +19,7 @@ import { CancelJobResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -45,7 +45,7 @@ import { GetJobArtifactsResponse } from "circleci-v2-sdk/dist/sdk/models/operati
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -71,7 +71,7 @@ import { GetJobDetailsJobDetailsStatus, GetJobDetailsResponse } from "circleci-v
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -97,7 +97,7 @@ import { GetTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 

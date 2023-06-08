@@ -28,7 +28,7 @@ import { CreatePolicyBundleResponse } from "circleci-v2-sdk/dist/sdk/models/oper
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -63,7 +63,7 @@ import { GetDecisionLogResponse } from "circleci-v2-sdk/dist/sdk/models/operatio
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -90,7 +90,7 @@ import { GetDecisionLogPolicyBundleResponse } from "circleci-v2-sdk/dist/sdk/mod
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -117,7 +117,7 @@ import { GetDecisionLogsResponse } from "circleci-v2-sdk/dist/sdk/models/operati
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -149,7 +149,7 @@ import { GetDecisionSettingsResponse } from "circleci-v2-sdk/dist/sdk/models/ope
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -175,7 +175,7 @@ import { GetPolicyBundleResponse } from "circleci-v2-sdk/dist/sdk/models/operati
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -201,7 +201,7 @@ import { GetPolicyDocumentResponse } from "circleci-v2-sdk/dist/sdk/models/opera
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -228,7 +228,7 @@ import { MakeDecisionResponse } from "circleci-v2-sdk/dist/sdk/models/operations
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -261,7 +261,7 @@ import { SetDecisionSettingsResponse } from "circleci-v2-sdk/dist/sdk/models/ope
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 

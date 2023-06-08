@@ -24,7 +24,7 @@ import { GetCollaborationsResponse } from "circleci-v2-sdk/dist/sdk/models/opera
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -47,7 +47,7 @@ import { GetCurrentUserResponse } from "circleci-v2-sdk/dist/sdk/models/operatio
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -70,7 +70,7 @@ import { GetUserResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 

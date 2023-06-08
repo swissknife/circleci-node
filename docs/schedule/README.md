@@ -27,7 +27,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -81,7 +81,7 @@ import { DeleteScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/oper
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -106,7 +106,7 @@ import { GetScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operati
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -131,7 +131,7 @@ import { ListSchedulesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -162,7 +162,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 

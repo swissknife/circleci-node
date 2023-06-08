@@ -25,7 +25,7 @@ import { DeleteOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operati
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -51,7 +51,7 @@ import { DeleteProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/ope
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -78,7 +78,7 @@ import { GetOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -103,7 +103,7 @@ import { GetProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operat
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -129,7 +129,7 @@ import { PatchOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operatio
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -163,7 +163,7 @@ import { PatchProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/oper
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 

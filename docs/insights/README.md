@@ -25,7 +25,7 @@ import { GetAllInsightsBranchesResponse } from "circleci-v2-sdk/dist/sdk/models/
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -52,7 +52,7 @@ import { GetFlakyTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operation
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -77,7 +77,7 @@ import { GetJobTimeseriesGranularity, GetJobTimeseriesResponse } from "circleci-
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -108,7 +108,7 @@ import { GetOrgSummaryDataReportingWindow, GetOrgSummaryDataResponse } from "cir
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -143,7 +143,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -173,7 +173,7 @@ import { GetProjectWorkflowMetricsReportingWindow, GetProjectWorkflowMetricsResp
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -205,7 +205,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -236,7 +236,7 @@ import { GetProjectWorkflowTestMetricsResponse } from "circleci-v2-sdk/dist/sdk/
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -267,7 +267,7 @@ import { GetProjectWorkflowsPageDataReportingWindow, GetProjectWorkflowsPageData
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -301,7 +301,7 @@ import { GetWorkflowSummaryResponse } from "circleci-v2-sdk/dist/sdk/models/oper
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 

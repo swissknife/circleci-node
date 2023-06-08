@@ -28,7 +28,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -56,7 +56,7 @@ import { CreateEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -85,7 +85,7 @@ import { DeleteCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/opera
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -111,7 +111,7 @@ import { DeleteEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -137,7 +137,7 @@ import { GetCheckoutKeyCheckoutKeyCheckoutKeyType, GetCheckoutKeyResponse } from
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -163,7 +163,7 @@ import { GetEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -189,7 +189,7 @@ import { GetProjectBySlugProjectVcsInfoProvider, GetProjectBySlugResponse } from
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -217,7 +217,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -242,7 +242,7 @@ import { ListEnvVarsResponse } from "circleci-v2-sdk/dist/sdk/models/operations"
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 

@@ -20,7 +20,7 @@ import { ApprovePendingApprovalJobByIdResponse } from "circleci-v2-sdk/dist/sdk/
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -46,7 +46,7 @@ import { CancelWorkflowResponse } from "circleci-v2-sdk/dist/sdk/models/operatio
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -75,7 +75,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -104,7 +104,7 @@ import {
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
@@ -129,7 +129,7 @@ import { RerunWorkflowResponse } from "circleci-v2-sdk/dist/sdk/models/operation
 
 const sdk = new Circleci({
   security: {
-    apiKeyHeader: "YOUR_API_KEY_HERE",
+    apiKeyHeader: "",
   },
 });
 
