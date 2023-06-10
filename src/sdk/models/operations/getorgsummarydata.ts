@@ -7,6 +7,11 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * List of project names.
+ */
+export class GetOrgSummaryDataProjectNames extends SpeakeasyBase {}
+
+/**
  * The time window used to calculate summary metrics.
  */
 export enum GetOrgSummaryDataReportingWindow {
@@ -28,7 +33,7 @@ export class GetOrgSummaryDataRequest extends SpeakeasyBase {
      * List of project names.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=project-names" })
-    projectNames?: Record<string, any>;
+    projectNames?: GetOrgSummaryDataProjectNames;
 
     /**
      * The time window used to calculate summary metrics.

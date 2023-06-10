@@ -7,6 +7,11 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * The names of VCS branches to include in branch-level workflow metrics.
+ */
+export class GetProjectWorkflowsPageDataBranches extends SpeakeasyBase {}
+
+/**
  * The time window used to calculate summary metrics.
  */
 export enum GetProjectWorkflowsPageDataReportingWindow {
@@ -17,12 +22,17 @@ export enum GetProjectWorkflowsPageDataReportingWindow {
     Last60Days = "last-60-days",
 }
 
+/**
+ * The names of workflows to include in workflow-level metrics.
+ */
+export class GetProjectWorkflowsPageDataWorkflowNames extends SpeakeasyBase {}
+
 export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
     /**
      * The names of VCS branches to include in branch-level workflow metrics.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
-    branches?: Record<string, any>;
+    branches?: GetProjectWorkflowsPageDataBranches;
 
     /**
      * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
@@ -40,7 +50,7 @@ export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
      * The names of workflows to include in workflow-level metrics.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=workflow-names" })
-    workflowNames?: Record<string, any>;
+    workflowNames?: GetProjectWorkflowsPageDataWorkflowNames;
 }
 
 /**

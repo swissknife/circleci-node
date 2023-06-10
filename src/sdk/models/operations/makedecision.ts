@@ -5,7 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
+
+export class MakeDecisionRequestBodyMetadata extends SpeakeasyBase {}
 
 export class MakeDecisionRequestBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
@@ -14,7 +16,8 @@ export class MakeDecisionRequestBody extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    metadata?: Record<string, any>;
+    @Type(() => MakeDecisionRequestBodyMetadata)
+    metadata?: MakeDecisionRequestBodyMetadata;
 }
 
 export class MakeDecisionRequest extends SpeakeasyBase {

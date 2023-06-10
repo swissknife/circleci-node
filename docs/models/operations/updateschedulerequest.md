@@ -1,0 +1,9 @@
+# UpdateScheduleRequest
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `requestBody`                                                                                               | [UpdateScheduleUpdateScheduleParameters](../../models/operations/updatescheduleupdatescheduleparameters.md) | :heavy_minus_sign:                                                                                          | N/A                                                                                                         |
+| `scheduleId`                                                                                                | *string*                                                                                                    | :heavy_check_mark:                                                                                          | The unique ID of the schedule.                                                                              |

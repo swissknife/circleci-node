@@ -1,0 +1,11 @@
+# GetOrgSummaryData200ApplicationJSONOrgData
+
+Aggregated metrics for an org, with trends.
+
+
+## Fields
+
+| Field                                                                                                                             | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `metrics`                                                                                                                         | [GetOrgSummaryData200ApplicationJSONOrgDataMetrics](../../models/operations/getorgsummarydata200applicationjsonorgdatametrics.md) | :heavy_check_mark:                                                                                                                | Metrics for a single org metrics.                                                                                                 |
+| `trends`                                                                                                                          | [GetOrgSummaryData200ApplicationJSONOrgDataTrends](../../models/operations/getorgsummarydata200applicationjsonorgdatatrends.md)   | :heavy_check_mark:                                                                                                                | Trends for a single org.                                                                                                          |
