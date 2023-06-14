@@ -58,6 +58,7 @@ export class Pipeline {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -73,11 +74,12 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ContinuePipelineMessageResponse
                     );
                 }
@@ -85,7 +87,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.continuePipelineDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ContinuePipelineDefaultApplicationJSON
                     );
                 }
@@ -129,6 +131,7 @@ export class Pipeline {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -143,11 +146,12 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipeline = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByIdPipeline
                     );
                 }
@@ -155,7 +159,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPipelineByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByIdDefaultApplicationJSON
                     );
                 }
@@ -203,6 +207,7 @@ export class Pipeline {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -218,11 +223,12 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipeline = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByNumberPipeline
                     );
                 }
@@ -230,7 +236,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPipelineByNumberDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByNumberDefaultApplicationJSON
                     );
                 }
@@ -274,6 +280,7 @@ export class Pipeline {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -289,11 +296,12 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineConfig = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineConfigByIdPipelineConfig
                     );
                 }
@@ -301,7 +309,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPipelineConfigByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineConfigByIdDefaultApplicationJSON
                     );
                 }
@@ -350,6 +358,7 @@ export class Pipeline {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -364,11 +373,12 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListMyPipelinesPipelineListResponse
                     );
                 }
@@ -376,7 +386,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listMyPipelinesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListMyPipelinesDefaultApplicationJSON
                     );
                 }
@@ -421,6 +431,7 @@ export class Pipeline {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -435,11 +446,12 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesPipelineListResponse
                     );
                 }
@@ -447,7 +459,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesDefaultApplicationJSON
                     );
                 }
@@ -492,6 +504,7 @@ export class Pipeline {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -507,11 +520,12 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesForProjectPipelineListResponse
                     );
                 }
@@ -519,7 +533,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listPipelinesForProjectDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesForProjectDefaultApplicationJSON
                     );
                 }
@@ -564,6 +578,7 @@ export class Pipeline {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -579,11 +594,12 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.workflowListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListWorkflowsByPipelineIdWorkflowListResponse
                     );
                 }
@@ -591,7 +607,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
                     );
                 }
@@ -645,6 +661,7 @@ export class Pipeline {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -660,11 +677,12 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineCreation = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.TriggerPipelinePipelineCreation
                     );
                 }
@@ -672,7 +690,7 @@ export class Pipeline {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.triggerPipelineDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.TriggerPipelineDefaultApplicationJSON
                     );
                 }

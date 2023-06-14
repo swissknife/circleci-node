@@ -49,6 +49,7 @@ export class User {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -63,13 +64,14 @@ export class User {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.collaborations = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.collaborations = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCollaborationsCollaboration,
                         resFieldDepth
                     );
@@ -78,7 +80,7 @@ export class User {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getCollaborationsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCollaborationsDefaultApplicationJSON
                     );
                 }
@@ -115,6 +117,7 @@ export class User {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -129,16 +132,20 @@ export class User {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.user = utils.objectToClass(httpRes?.data, operations.GetCurrentUserUser);
+                    res.user = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetCurrentUserUser
+                    );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getCurrentUserDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCurrentUserDefaultApplicationJSON
                     );
                 }
@@ -182,6 +189,7 @@ export class User {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -196,16 +204,17 @@ export class User {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.user = utils.objectToClass(httpRes?.data, operations.GetUserUser);
+                    res.user = utils.objectToClass(JSON.parse(decodedRes), operations.GetUserUser);
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getUserDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetUserDefaultApplicationJSON
                     );
                 }

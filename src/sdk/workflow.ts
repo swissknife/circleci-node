@@ -52,6 +52,7 @@ export class Workflow {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -67,11 +68,12 @@ export class Workflow {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ApprovePendingApprovalJobByIdMessageResponse
                     );
                 }
@@ -80,7 +82,7 @@ export class Workflow {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.approvePendingApprovalJobByIdDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON
                         );
                 }
@@ -124,6 +126,7 @@ export class Workflow {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -138,11 +141,12 @@ export class Workflow {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CancelWorkflowMessageResponse
                     );
                 }
@@ -150,7 +154,7 @@ export class Workflow {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.cancelWorkflowDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CancelWorkflowDefaultApplicationJSON
                     );
                 }
@@ -194,6 +198,7 @@ export class Workflow {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -208,11 +213,12 @@ export class Workflow {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.workflow = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWorkflowByIdWorkflow
                     );
                 }
@@ -220,7 +226,7 @@ export class Workflow {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWorkflowByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWorkflowByIdDefaultApplicationJSON
                     );
                 }
@@ -264,6 +270,7 @@ export class Workflow {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -278,11 +285,12 @@ export class Workflow {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.workflowJobListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListWorkflowJobsWorkflowJobListResponse
                     );
                 }
@@ -290,7 +298,7 @@ export class Workflow {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listWorkflowJobsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListWorkflowJobsDefaultApplicationJSON
                     );
                 }
@@ -344,6 +352,7 @@ export class Workflow {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -359,11 +368,12 @@ export class Workflow {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.rerunWorkflow202ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.RerunWorkflow202ApplicationJSON
                     );
                 }
@@ -371,7 +381,7 @@ export class Workflow {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.rerunWorkflowDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.RerunWorkflowDefaultApplicationJSON
                     );
                 }

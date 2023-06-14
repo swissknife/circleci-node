@@ -68,6 +68,7 @@ export class PolicyManagement {
             url: url + queryParams,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -84,16 +85,17 @@ export class PolicyManagement {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case [200, 201].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bundleDiff = utils.objectToClass(httpRes?.data, shared.BundleDiff);
+                    res.bundleDiff = utils.objectToClass(JSON.parse(decodedRes), shared.BundleDiff);
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createPolicyBundle400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreatePolicyBundle400ApplicationJSON
                     );
                 }
@@ -101,7 +103,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createPolicyBundle401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreatePolicyBundle401ApplicationJSON
                     );
                 }
@@ -109,7 +111,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createPolicyBundle403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreatePolicyBundle403ApplicationJSON
                     );
                 }
@@ -117,7 +119,7 @@ export class PolicyManagement {
             case httpRes?.status == 413:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createPolicyBundle413ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreatePolicyBundle413ApplicationJSON
                     );
                 }
@@ -125,7 +127,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createPolicyBundle500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreatePolicyBundle500ApplicationJSON
                     );
                 }
@@ -174,6 +176,7 @@ export class PolicyManagement {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -188,16 +191,20 @@ export class PolicyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.decisionLog = utils.objectToClass(httpRes?.data, shared.DecisionLog);
+                    res.decisionLog = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.DecisionLog
+                    );
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLog400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLog400ApplicationJSON
                     );
                 }
@@ -205,7 +212,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLog401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLog401ApplicationJSON
                     );
                 }
@@ -213,7 +220,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLog403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLog403ApplicationJSON
                     );
                 }
@@ -221,7 +228,7 @@ export class PolicyManagement {
             case httpRes?.status == 404:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLog404ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLog404ApplicationJSON
                     );
                 }
@@ -229,7 +236,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLog500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLog500ApplicationJSON
                     );
                 }
@@ -278,6 +285,7 @@ export class PolicyManagement {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -293,16 +301,17 @@ export class PolicyManagement {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.policyBundle = utils.objectToClass(httpRes?.data);
+                    res.policyBundle = utils.objectToClass(JSON.parse(decodedRes));
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogPolicyBundle400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogPolicyBundle400ApplicationJSON
                     );
                 }
@@ -310,7 +319,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogPolicyBundle401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogPolicyBundle401ApplicationJSON
                     );
                 }
@@ -318,7 +327,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogPolicyBundle403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogPolicyBundle403ApplicationJSON
                     );
                 }
@@ -326,7 +335,7 @@ export class PolicyManagement {
             case httpRes?.status == 404:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogPolicyBundle404ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogPolicyBundle404ApplicationJSON
                     );
                 }
@@ -334,7 +343,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogPolicyBundle500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogPolicyBundle500ApplicationJSON
                     );
                 }
@@ -384,6 +393,7 @@ export class PolicyManagement {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -398,13 +408,14 @@ export class PolicyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.decisionLogs = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.decisionLogs = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DecisionLog,
                         resFieldDepth
                     );
@@ -413,7 +424,7 @@ export class PolicyManagement {
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogs400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogs400ApplicationJSON
                     );
                 }
@@ -421,7 +432,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogs401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogs401ApplicationJSON
                     );
                 }
@@ -429,7 +440,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogs403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogs403ApplicationJSON
                     );
                 }
@@ -437,7 +448,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionLogs500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionLogs500ApplicationJSON
                     );
                 }
@@ -486,6 +497,7 @@ export class PolicyManagement {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -501,11 +513,12 @@ export class PolicyManagement {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.decisionSettings = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DecisionSettings
                     );
                 }
@@ -513,7 +526,7 @@ export class PolicyManagement {
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionSettings400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionSettings400ApplicationJSON
                     );
                 }
@@ -521,7 +534,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionSettings401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionSettings401ApplicationJSON
                     );
                 }
@@ -529,7 +542,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionSettings403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionSettings403ApplicationJSON
                     );
                 }
@@ -537,7 +550,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getDecisionSettings500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetDecisionSettings500ApplicationJSON
                     );
                 }
@@ -586,6 +599,7 @@ export class PolicyManagement {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -600,16 +614,17 @@ export class PolicyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.policyBundle = utils.objectToClass(httpRes?.data);
+                    res.policyBundle = utils.objectToClass(JSON.parse(decodedRes));
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyBundle400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyBundle400ApplicationJSON
                     );
                 }
@@ -617,7 +632,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyBundle401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyBundle401ApplicationJSON
                     );
                 }
@@ -625,7 +640,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyBundle403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyBundle403ApplicationJSON
                     );
                 }
@@ -633,7 +648,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyBundle500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyBundle500ApplicationJSON
                     );
                 }
@@ -682,6 +697,7 @@ export class PolicyManagement {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -696,16 +712,17 @@ export class PolicyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.policy = utils.objectToClass(httpRes?.data, shared.Policy);
+                    res.policy = utils.objectToClass(JSON.parse(decodedRes), shared.Policy);
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyDocument400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyDocument400ApplicationJSON
                     );
                 }
@@ -713,7 +730,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyDocument401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyDocument401ApplicationJSON
                     );
                 }
@@ -721,7 +738,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyDocument403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyDocument403ApplicationJSON
                     );
                 }
@@ -729,7 +746,7 @@ export class PolicyManagement {
             case httpRes?.status == 404:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyDocument404ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyDocument404ApplicationJSON
                     );
                 }
@@ -737,7 +754,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPolicyDocument500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPolicyDocument500ApplicationJSON
                     );
                 }
@@ -796,6 +813,7 @@ export class PolicyManagement {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -811,16 +829,17 @@ export class PolicyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.decision = utils.objectToClass(httpRes?.data, shared.Decision);
+                    res.decision = utils.objectToClass(JSON.parse(decodedRes), shared.Decision);
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.makeDecision400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.MakeDecision400ApplicationJSON
                     );
                 }
@@ -828,7 +847,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.makeDecision401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.MakeDecision401ApplicationJSON
                     );
                 }
@@ -836,7 +855,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.makeDecision500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.MakeDecision500ApplicationJSON
                     );
                 }
@@ -895,6 +914,7 @@ export class PolicyManagement {
             url: url,
             method: "patch",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -911,11 +931,12 @@ export class PolicyManagement {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.decisionSettings = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DecisionSettings
                     );
                 }
@@ -923,7 +944,7 @@ export class PolicyManagement {
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.setDecisionSettings400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.SetDecisionSettings400ApplicationJSON
                     );
                 }
@@ -931,7 +952,7 @@ export class PolicyManagement {
             case httpRes?.status == 401:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.setDecisionSettings401ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.SetDecisionSettings401ApplicationJSON
                     );
                 }
@@ -939,7 +960,7 @@ export class PolicyManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.setDecisionSettings403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.SetDecisionSettings403ApplicationJSON
                     );
                 }
@@ -947,7 +968,7 @@ export class PolicyManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.setDecisionSettings500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.SetDecisionSettings500ApplicationJSON
                     );
                 }

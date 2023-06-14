@@ -58,6 +58,7 @@ export class Project {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -73,11 +74,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.checkoutKey = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateCheckoutKeyCheckoutKey
                     );
                 }
@@ -85,7 +87,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateCheckoutKeyDefaultApplicationJSON
                     );
                 }
@@ -139,6 +141,7 @@ export class Project {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -154,11 +157,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.environmentVariable = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateEnvVarEnvironmentVariable1
                     );
                 }
@@ -166,7 +170,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createEnvVarDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateEnvVarDefaultApplicationJSON
                     );
                 }
@@ -214,6 +218,7 @@ export class Project {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -228,11 +233,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteCheckoutKeyMessageResponse
                     );
                 }
@@ -240,7 +246,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteCheckoutKeyDefaultApplicationJSON
                     );
                 }
@@ -288,6 +294,7 @@ export class Project {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -302,11 +309,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteEnvVarMessageResponse
                     );
                 }
@@ -314,7 +322,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteEnvVarDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteEnvVarDefaultApplicationJSON
                     );
                 }
@@ -362,6 +370,7 @@ export class Project {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -376,11 +385,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.checkoutKey = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCheckoutKeyCheckoutKey
                     );
                 }
@@ -388,7 +398,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCheckoutKeyDefaultApplicationJSON
                     );
                 }
@@ -436,6 +446,7 @@ export class Project {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -450,11 +461,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.environmentVariable = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetEnvVarEnvironmentVariable
                     );
                 }
@@ -462,7 +474,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getEnvVarDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetEnvVarDefaultApplicationJSON
                     );
                 }
@@ -506,6 +518,7 @@ export class Project {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -520,11 +533,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.project = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectBySlugProject
                     );
                 }
@@ -532,7 +546,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectBySlugDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectBySlugDefaultApplicationJSON
                     );
                 }
@@ -576,6 +590,7 @@ export class Project {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -590,11 +605,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.checkoutKeyListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListCheckoutKeysCheckoutKeyListResponse
                     );
                 }
@@ -602,7 +618,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listCheckoutKeysDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListCheckoutKeysDefaultApplicationJSON
                     );
                 }
@@ -646,6 +662,7 @@ export class Project {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -660,11 +677,12 @@ export class Project {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.environmentVariableListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListEnvVarsEnvironmentVariableListResponse
                     );
                 }
@@ -672,7 +690,7 @@ export class Project {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listEnvVarsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListEnvVarsDefaultApplicationJSON
                     );
                 }

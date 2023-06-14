@@ -58,6 +58,7 @@ export class Schedule {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -73,11 +74,12 @@ export class Schedule {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schedule = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateScheduleSchedule
                     );
                 }
@@ -85,7 +87,7 @@ export class Schedule {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createScheduleDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateScheduleDefaultApplicationJSON
                     );
                 }
@@ -129,6 +131,7 @@ export class Schedule {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -144,11 +147,12 @@ export class Schedule {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteScheduleByIdMessageResponse
                     );
                 }
@@ -156,7 +160,7 @@ export class Schedule {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteScheduleByIdDefaultApplicationJSON
                     );
                 }
@@ -200,6 +204,7 @@ export class Schedule {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -214,11 +219,12 @@ export class Schedule {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schedule = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetScheduleByIdSchedule
                     );
                 }
@@ -226,7 +232,7 @@ export class Schedule {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetScheduleByIdDefaultApplicationJSON
                     );
                 }
@@ -271,6 +277,7 @@ export class Schedule {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -286,11 +293,12 @@ export class Schedule {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listSchedulesForProject200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListSchedulesForProject200ApplicationJSON
                     );
                 }
@@ -298,7 +306,7 @@ export class Schedule {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listSchedulesForProjectDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListSchedulesForProjectDefaultApplicationJSON
                     );
                 }
@@ -352,6 +360,7 @@ export class Schedule {
             url: url,
             method: "patch",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -367,11 +376,12 @@ export class Schedule {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schedule = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.UpdateScheduleSchedule
                     );
                 }
@@ -379,7 +389,7 @@ export class Schedule {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.updateScheduleDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.UpdateScheduleDefaultApplicationJSON
                     );
                 }

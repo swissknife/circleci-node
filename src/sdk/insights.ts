@@ -49,6 +49,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -64,16 +65,17 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
+                    res.getAllInsightsBranches200ApplicationJSONAny = JSON.parse(decodedRes);
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getAllInsightsBranchesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetAllInsightsBranchesDefaultApplicationJSON
                     );
                 }
@@ -118,6 +120,7 @@ export class Insights {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -132,11 +135,12 @@ export class Insights {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetFlakyTests200ApplicationJSON
                     );
                 }
@@ -144,7 +148,7 @@ export class Insights {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetFlakyTestsDefaultApplicationJSON
                     );
                 }
@@ -193,6 +197,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -207,11 +212,12 @@ export class Insights {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobTimeseries200ApplicationJSON
                     );
                 }
@@ -219,7 +225,7 @@ export class Insights {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobTimeseriesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobTimeseriesDefaultApplicationJSON
                     );
                 }
@@ -265,6 +271,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -279,11 +286,12 @@ export class Insights {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetOrgSummaryData200ApplicationJSON
                     );
                 }
@@ -291,7 +299,7 @@ export class Insights {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getOrgSummaryDataDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetOrgSummaryDataDefaultApplicationJSON
                     );
                 }
@@ -340,6 +348,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -355,11 +364,12 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowJobMetrics200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowJobMetrics200ApplicationJSON
                     );
                 }
@@ -368,7 +378,7 @@ export class Insights {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
                         );
                 }
@@ -413,6 +423,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -428,11 +439,12 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowMetrics200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowMetrics200ApplicationJSON
                     );
                 }
@@ -440,7 +452,7 @@ export class Insights {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowMetricsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowMetricsDefaultApplicationJSON
                     );
                 }
@@ -489,6 +501,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -504,11 +517,12 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowRuns200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowRuns200ApplicationJSON
                     );
                 }
@@ -516,7 +530,7 @@ export class Insights {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowRunsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowRunsDefaultApplicationJSON
                     );
                 }
@@ -565,6 +579,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -580,11 +595,12 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowTestMetrics200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowTestMetrics200ApplicationJSON
                     );
                 }
@@ -593,7 +609,7 @@ export class Insights {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
                         );
                 }
@@ -645,6 +661,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -660,11 +677,12 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowsPageData200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowsPageData200ApplicationJSON
                     );
                 }
@@ -673,7 +691,7 @@ export class Insights {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
                         );
                 }
@@ -722,6 +740,7 @@ export class Insights {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -737,11 +756,12 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWorkflowSummary200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWorkflowSummary200ApplicationJSON
                     );
                 }
@@ -749,7 +769,7 @@ export class Insights {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWorkflowSummaryDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWorkflowSummaryDefaultApplicationJSON
                     );
                 }

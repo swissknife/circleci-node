@@ -54,6 +54,7 @@ export class OIDCTokenManagement {
             url: url + queryParams,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -68,16 +69,20 @@ export class OIDCTokenManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.claimResponse = utils.objectToClass(httpRes?.data, shared.ClaimResponse);
+                    res.claimResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ClaimResponse
+                    );
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteOrgClaims400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteOrgClaims400ApplicationJSON
                     );
                 }
@@ -85,7 +90,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteOrgClaims403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteOrgClaims403ApplicationJSON
                     );
                 }
@@ -93,7 +98,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteOrgClaims500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteOrgClaims500ApplicationJSON
                     );
                 }
@@ -143,6 +148,7 @@ export class OIDCTokenManagement {
             url: url + queryParams,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -158,16 +164,20 @@ export class OIDCTokenManagement {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.claimResponse = utils.objectToClass(httpRes?.data, shared.ClaimResponse);
+                    res.claimResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ClaimResponse
+                    );
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteProjectClaims400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteProjectClaims400ApplicationJSON
                     );
                 }
@@ -175,7 +185,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteProjectClaims403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteProjectClaims403ApplicationJSON
                     );
                 }
@@ -183,7 +193,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteProjectClaims500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteProjectClaims500ApplicationJSON
                     );
                 }
@@ -228,6 +238,7 @@ export class OIDCTokenManagement {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -242,16 +253,20 @@ export class OIDCTokenManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.claimResponse = utils.objectToClass(httpRes?.data, shared.ClaimResponse);
+                    res.claimResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ClaimResponse
+                    );
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getOrgClaims400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetOrgClaims400ApplicationJSON
                     );
                 }
@@ -259,7 +274,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getOrgClaims403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetOrgClaims403ApplicationJSON
                     );
                 }
@@ -267,7 +282,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getOrgClaims500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetOrgClaims500ApplicationJSON
                     );
                 }
@@ -316,6 +331,7 @@ export class OIDCTokenManagement {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -330,16 +346,20 @@ export class OIDCTokenManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.claimResponse = utils.objectToClass(httpRes?.data, shared.ClaimResponse);
+                    res.claimResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ClaimResponse
+                    );
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectClaims400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectClaims400ApplicationJSON
                     );
                 }
@@ -347,7 +367,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectClaims403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectClaims403ApplicationJSON
                     );
                 }
@@ -355,7 +375,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectClaims500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectClaims500ApplicationJSON
                     );
                 }
@@ -414,6 +434,7 @@ export class OIDCTokenManagement {
             url: url,
             method: "patch",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -429,16 +450,20 @@ export class OIDCTokenManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.claimResponse = utils.objectToClass(httpRes?.data, shared.ClaimResponse);
+                    res.claimResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ClaimResponse
+                    );
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.patchOrgClaims400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.PatchOrgClaims400ApplicationJSON
                     );
                 }
@@ -446,7 +471,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.patchOrgClaims403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.PatchOrgClaims403ApplicationJSON
                     );
                 }
@@ -454,7 +479,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.patchOrgClaims500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.PatchOrgClaims500ApplicationJSON
                     );
                 }
@@ -517,6 +542,7 @@ export class OIDCTokenManagement {
             url: url,
             method: "patch",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -533,16 +559,20 @@ export class OIDCTokenManagement {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.claimResponse = utils.objectToClass(httpRes?.data, shared.ClaimResponse);
+                    res.claimResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ClaimResponse
+                    );
                 }
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.patchProjectClaims400ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.PatchProjectClaims400ApplicationJSON
                     );
                 }
@@ -550,7 +580,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.patchProjectClaims403ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.PatchProjectClaims403ApplicationJSON
                     );
                 }
@@ -558,7 +588,7 @@ export class OIDCTokenManagement {
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.patchProjectClaims500ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.PatchProjectClaims500ApplicationJSON
                     );
                 }

@@ -55,6 +55,7 @@ export class Webhook {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -70,11 +71,12 @@ export class Webhook {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.webhook = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateWebhookWebhook
                     );
                 }
@@ -82,7 +84,7 @@ export class Webhook {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createWebhookDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateWebhookDefaultApplicationJSON
                     );
                 }
@@ -123,6 +125,7 @@ export class Webhook {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -137,11 +140,12 @@ export class Webhook {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteWebhookMessageResponse
                     );
                 }
@@ -149,7 +153,7 @@ export class Webhook {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteWebhookDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteWebhookDefaultApplicationJSON
                     );
                 }
@@ -193,6 +197,7 @@ export class Webhook {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -207,11 +212,12 @@ export class Webhook {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.webhook = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWebhookByIdWebhook
                     );
                 }
@@ -219,7 +225,7 @@ export class Webhook {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWebhookByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWebhookByIdDefaultApplicationJSON
                     );
                 }
@@ -264,6 +270,7 @@ export class Webhook {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -278,11 +285,12 @@ export class Webhook {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWebhooks200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWebhooks200ApplicationJSON
                     );
                 }
@@ -290,7 +298,7 @@ export class Webhook {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWebhooksDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWebhooksDefaultApplicationJSON
                     );
                 }
@@ -341,6 +349,7 @@ export class Webhook {
             url: url,
             method: "put",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -356,11 +365,12 @@ export class Webhook {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.webhook = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.UpdateWebhookWebhook
                     );
                 }
@@ -368,7 +378,7 @@ export class Webhook {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.updateWebhookDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.UpdateWebhookDefaultApplicationJSON
                     );
                 }

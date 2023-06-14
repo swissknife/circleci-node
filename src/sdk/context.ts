@@ -62,6 +62,7 @@ export class Context {
             url: url,
             method: "put",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -78,17 +79,19 @@ export class Context {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.addEnvironmentVariableToContext200ApplicationJSONAnyOf = httpRes?.data;
+                    res.addEnvironmentVariableToContext200ApplicationJSONAnyOf =
+                        JSON.parse(decodedRes);
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.addEnvironmentVariableToContextDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.AddEnvironmentVariableToContextDefaultApplicationJSON
                         );
                 }
@@ -139,6 +142,7 @@ export class Context {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -154,11 +158,12 @@ export class Context {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.context = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateContextContext
                     );
                 }
@@ -166,7 +171,7 @@ export class Context {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createContextDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CreateContextDefaultApplicationJSON
                     );
                 }
@@ -207,6 +212,7 @@ export class Context {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -221,11 +227,12 @@ export class Context {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteContextMessageResponse
                     );
                 }
@@ -233,7 +240,7 @@ export class Context {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteContextDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteContextDefaultApplicationJSON
                     );
                 }
@@ -281,6 +288,7 @@ export class Context {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -296,11 +304,12 @@ export class Context {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.DeleteEnvironmentVariableFromContextMessageResponse
                     );
                 }
@@ -309,7 +318,7 @@ export class Context {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteEnvironmentVariableFromContextDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON
                         );
                 }
@@ -353,6 +362,7 @@ export class Context {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -367,16 +377,20 @@ export class Context {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.context = utils.objectToClass(httpRes?.data, operations.GetContextContext);
+                    res.context = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetContextContext
+                    );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getContextDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetContextDefaultApplicationJSON
                     );
                 }
@@ -421,6 +435,7 @@ export class Context {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -435,11 +450,12 @@ export class Context {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listContexts200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListContexts200ApplicationJSON
                     );
                 }
@@ -447,7 +463,7 @@ export class Context {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listContextsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListContextsDefaultApplicationJSON
                     );
                 }
@@ -496,6 +512,7 @@ export class Context {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -511,12 +528,13 @@ export class Context {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listEnvironmentVariablesFromContext200ApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.ListEnvironmentVariablesFromContext200ApplicationJSON
                         );
                 }
@@ -525,7 +543,7 @@ export class Context {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listEnvironmentVariablesFromContextDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON
                         );
                 }

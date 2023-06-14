@@ -52,6 +52,7 @@ export class Job {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -66,11 +67,12 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CancelJobMessageResponse
                     );
                 }
@@ -78,7 +80,7 @@ export class Job {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.cancelJobDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CancelJobDefaultApplicationJSON
                     );
                 }
@@ -126,6 +128,7 @@ export class Job {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -140,11 +143,12 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.artifactListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobArtifactsArtifactListResponse
                     );
                 }
@@ -152,7 +156,7 @@ export class Job {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobArtifactsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobArtifactsDefaultApplicationJSON
                     );
                 }
@@ -200,6 +204,7 @@ export class Job {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -214,11 +219,12 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.jobDetails = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobDetailsJobDetails
                     );
                 }
@@ -226,7 +232,7 @@ export class Job {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobDetailsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobDetailsDefaultApplicationJSON
                     );
                 }
@@ -274,6 +280,7 @@ export class Job {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -288,11 +295,12 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.testsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetTestsTestsResponse
                     );
                 }
@@ -300,7 +308,7 @@ export class Job {
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getTestsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetTestsDefaultApplicationJSON
                     );
                 }
