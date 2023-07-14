@@ -20,7 +20,6 @@ import {
   CreateWebhookRequestBodyEvents,
   CreateWebhookRequestBodyScopeType,
   CreateWebhookResponse,
-  CreateWebhookWebhookEvents,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
@@ -108,7 +107,7 @@ Get a webhook by id.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWebhookByIdResponse, GetWebhookByIdWebhookEvents } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetWebhookByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -146,11 +145,7 @@ Get a list of webhook that match the given scope-type and scope-id
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetWebhooks200ApplicationJSONWebhookEvents,
-  GetWebhooksResponse,
-  GetWebhooksScopeType,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetWebhooksResponse, GetWebhooksScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -189,11 +184,7 @@ Update a webhook
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  UpdateWebhookRequestBodyEvents,
-  UpdateWebhookResponse,
-  UpdateWebhookWebhookEvents,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { UpdateWebhookRequestBodyEvents, UpdateWebhookResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {

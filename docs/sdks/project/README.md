@@ -20,11 +20,7 @@ Creates a new checkout key. This API request is only usable with a user API toke
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  CreateCheckoutKeyCheckoutKeyCheckoutKeyType,
-  CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType,
-  CreateCheckoutKeyResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType, CreateCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -185,7 +181,7 @@ Returns an individual checkout key.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetCheckoutKeyCheckoutKeyCheckoutKeyType, GetCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -263,7 +259,7 @@ Retrieves a project by project slug.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectBySlugProjectVcsInfoProvider, GetProjectBySlugResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectBySlugResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -301,10 +297,7 @@ Returns a sequence of checkout keys for `:project`.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType,
-  ListCheckoutKeysResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListCheckoutKeysResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {

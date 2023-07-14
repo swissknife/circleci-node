@@ -93,7 +93,7 @@ Returns job details.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobDetailsJobDetailsStatus, GetJobDetailsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetJobDetailsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {

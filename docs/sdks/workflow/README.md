@@ -93,11 +93,7 @@ Returns summary fields of a workflow by ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetWorkflowByIdResponse,
-  GetWorkflowByIdWorkflowStatus,
-  GetWorkflowByIdWorkflowTag,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetWorkflowByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -135,11 +131,7 @@ Returns a sequence of jobs for a workflow.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  ListWorkflowJobsResponse,
-  ListWorkflowJobsWorkflowJobListResponseJobStatus,
-  ListWorkflowJobsWorkflowJobListResponseJobType,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListWorkflowJobsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {

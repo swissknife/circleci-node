@@ -63,12 +63,7 @@ Returns a pipeline by the pipeline ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetPipelineByIdPipelineErrorsType,
-  GetPipelineByIdPipelineState,
-  GetPipelineByIdPipelineTriggerType,
-  GetPipelineByIdResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetPipelineByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -106,12 +101,7 @@ Returns a pipeline by the pipeline number.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetPipelineByNumberPipelineErrorsType,
-  GetPipelineByNumberPipelineState,
-  GetPipelineByNumberPipelineTriggerType,
-  GetPipelineByNumberResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetPipelineByNumberResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -188,12 +178,7 @@ Returns a sequence of all pipelines for this project triggered by the user.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  ListMyPipelinesPipelineListResponsePipelineErrorsType,
-  ListMyPipelinesPipelineListResponsePipelineState,
-  ListMyPipelinesPipelineListResponsePipelineTriggerType,
-  ListMyPipelinesResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListMyPipelinesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -232,12 +217,7 @@ Returns all pipelines for the most recently built projects (max 250) you follow 
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  ListPipelinesPipelineListResponsePipelineErrorsType,
-  ListPipelinesPipelineListResponsePipelineState,
-  ListPipelinesPipelineListResponsePipelineTriggerType,
-  ListPipelinesResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListPipelinesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -277,12 +257,7 @@ Returns all pipelines for this project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  ListPipelinesForProjectPipelineListResponsePipelineErrorsType,
-  ListPipelinesForProjectPipelineListResponsePipelineState,
-  ListPipelinesForProjectPipelineListResponsePipelineTriggerType,
-  ListPipelinesForProjectResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListPipelinesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -322,11 +297,7 @@ Returns a paginated list of workflows by pipeline ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  ListWorkflowsByPipelineIdResponse,
-  ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatus,
-  ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTag,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListWorkflowsByPipelineIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
@@ -365,7 +336,7 @@ Triggers a new pipeline on the project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { TriggerPipelinePipelineCreationState, TriggerPipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { TriggerPipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {

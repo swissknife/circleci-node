@@ -271,10 +271,7 @@ Get recent runs of a workflow. Runs going back at most 90 days are returned. Ple
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetProjectWorkflowRuns200ApplicationJSONItemsStatus,
-  GetProjectWorkflowRunsResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowRunsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 const sdk = new Circleci({
   security: {
