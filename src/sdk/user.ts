@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
@@ -75,6 +76,13 @@ export class User {
                         operations.GetCollaborationsCollaboration,
                         resFieldDepth
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -82,6 +90,13 @@ export class User {
                     res.getCollaborationsDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetCollaborationsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -140,6 +155,13 @@ export class User {
                         JSON.parse(decodedRes),
                         operations.GetCurrentUserUser
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -147,6 +169,13 @@ export class User {
                     res.getCurrentUserDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetCurrentUserDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -209,6 +238,13 @@ export class User {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.user = utils.objectToClass(JSON.parse(decodedRes), operations.GetUserUser);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -216,6 +252,13 @@ export class User {
                     res.getUserDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetUserDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

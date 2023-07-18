@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
@@ -82,6 +83,13 @@ export class Schedule {
                         JSON.parse(decodedRes),
                         operations.CreateScheduleSchedule
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -89,6 +97,13 @@ export class Schedule {
                     res.createScheduleDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateScheduleDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -155,6 +170,13 @@ export class Schedule {
                         JSON.parse(decodedRes),
                         operations.DeleteScheduleByIdMessageResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -162,6 +184,13 @@ export class Schedule {
                     res.deleteScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteScheduleByIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -227,6 +256,13 @@ export class Schedule {
                         JSON.parse(decodedRes),
                         operations.GetScheduleByIdSchedule
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -234,6 +270,13 @@ export class Schedule {
                     res.getScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetScheduleByIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -301,6 +344,13 @@ export class Schedule {
                         JSON.parse(decodedRes),
                         operations.ListSchedulesForProject200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -308,6 +358,13 @@ export class Schedule {
                     res.listSchedulesForProjectDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListSchedulesForProjectDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -384,6 +441,13 @@ export class Schedule {
                         JSON.parse(decodedRes),
                         operations.UpdateScheduleSchedule
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -391,6 +455,13 @@ export class Schedule {
                     res.updateScheduleDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateScheduleDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

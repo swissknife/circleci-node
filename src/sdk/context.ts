@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
@@ -85,6 +86,13 @@ export class Context {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.addEnvironmentVariableToContext200ApplicationJSONAnyOf =
                         JSON.parse(decodedRes);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -94,6 +102,13 @@ export class Context {
                             JSON.parse(decodedRes),
                             operations.AddEnvironmentVariableToContextDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -166,6 +181,13 @@ export class Context {
                         JSON.parse(decodedRes),
                         operations.CreateContextContext
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -173,6 +195,13 @@ export class Context {
                     res.createContextDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateContextDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -235,6 +264,13 @@ export class Context {
                         JSON.parse(decodedRes),
                         operations.DeleteContextMessageResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -242,6 +278,13 @@ export class Context {
                     res.deleteContextDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteContextDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -312,6 +355,13 @@ export class Context {
                         JSON.parse(decodedRes),
                         operations.DeleteEnvironmentVariableFromContextMessageResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -321,6 +371,13 @@ export class Context {
                             JSON.parse(decodedRes),
                             operations.DeleteEnvironmentVariableFromContextDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -385,6 +442,13 @@ export class Context {
                         JSON.parse(decodedRes),
                         operations.GetContextContext
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -392,6 +456,13 @@ export class Context {
                     res.getContextDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetContextDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -458,6 +529,13 @@ export class Context {
                         JSON.parse(decodedRes),
                         operations.ListContexts200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -465,6 +543,13 @@ export class Context {
                     res.listContextsDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListContextsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -537,6 +622,13 @@ export class Context {
                             JSON.parse(decodedRes),
                             operations.ListEnvironmentVariablesFromContext200ApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -546,6 +638,13 @@ export class Context {
                             JSON.parse(decodedRes),
                             operations.ListEnvironmentVariablesFromContextDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }

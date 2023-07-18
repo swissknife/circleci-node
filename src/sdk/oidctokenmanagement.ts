@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -77,6 +78,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -84,6 +92,13 @@ export class OIDCTokenManagement {
                     res.deleteOrgClaims400ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteOrgClaims400ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -93,6 +108,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         operations.DeleteOrgClaims403ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 500:
@@ -100,6 +122,13 @@ export class OIDCTokenManagement {
                     res.deleteOrgClaims500ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteOrgClaims500ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -172,6 +201,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -179,6 +215,13 @@ export class OIDCTokenManagement {
                     res.deleteProjectClaims400ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteProjectClaims400ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -188,6 +231,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         operations.DeleteProjectClaims403ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 500:
@@ -195,6 +245,13 @@ export class OIDCTokenManagement {
                     res.deleteProjectClaims500ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteProjectClaims500ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -261,6 +318,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -268,6 +332,13 @@ export class OIDCTokenManagement {
                     res.getOrgClaims400ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetOrgClaims400ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -277,6 +348,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         operations.GetOrgClaims403ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 500:
@@ -284,6 +362,13 @@ export class OIDCTokenManagement {
                     res.getOrgClaims500ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetOrgClaims500ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -354,6 +439,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -361,6 +453,13 @@ export class OIDCTokenManagement {
                     res.getProjectClaims400ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetProjectClaims400ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -370,6 +469,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         operations.GetProjectClaims403ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 500:
@@ -377,6 +483,13 @@ export class OIDCTokenManagement {
                     res.getProjectClaims500ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetProjectClaims500ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -458,6 +571,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -465,6 +585,13 @@ export class OIDCTokenManagement {
                     res.patchOrgClaims400ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PatchOrgClaims400ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -474,6 +601,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         operations.PatchOrgClaims403ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 500:
@@ -481,6 +615,13 @@ export class OIDCTokenManagement {
                     res.patchOrgClaims500ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PatchOrgClaims500ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -567,6 +708,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 400:
@@ -574,6 +722,13 @@ export class OIDCTokenManagement {
                     res.patchProjectClaims400ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PatchProjectClaims400ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -583,6 +738,13 @@ export class OIDCTokenManagement {
                         JSON.parse(decodedRes),
                         operations.PatchProjectClaims403ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case httpRes?.status == 500:
@@ -590,6 +752,13 @@ export class OIDCTokenManagement {
                     res.patchProjectClaims500ApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PatchProjectClaims500ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

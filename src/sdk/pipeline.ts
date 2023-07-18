@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
@@ -82,6 +83,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.ContinuePipelineMessageResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -89,6 +97,13 @@ export class Pipeline {
                     res.continuePipelineDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ContinuePipelineDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -154,6 +169,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.GetPipelineByIdPipeline
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -161,6 +183,13 @@ export class Pipeline {
                     res.getPipelineByIdDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetPipelineByIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -231,6 +260,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.GetPipelineByNumberPipeline
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -238,6 +274,13 @@ export class Pipeline {
                     res.getPipelineByNumberDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetPipelineByNumberDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -304,6 +347,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.GetPipelineConfigByIdPipelineConfig
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -311,6 +361,13 @@ export class Pipeline {
                     res.getPipelineConfigByIdDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetPipelineConfigByIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -381,6 +438,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.ListMyPipelinesPipelineListResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -388,6 +452,13 @@ export class Pipeline {
                     res.listMyPipelinesDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListMyPipelinesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -454,6 +525,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.ListPipelinesPipelineListResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -461,6 +539,13 @@ export class Pipeline {
                     res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListPipelinesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -528,6 +613,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.ListPipelinesForProjectPipelineListResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -535,6 +627,13 @@ export class Pipeline {
                     res.listPipelinesForProjectDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListPipelinesForProjectDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -602,6 +701,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.ListWorkflowsByPipelineIdWorkflowListResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -609,6 +715,13 @@ export class Pipeline {
                     res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -685,6 +798,13 @@ export class Pipeline {
                         JSON.parse(decodedRes),
                         operations.TriggerPipelinePipelineCreation
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -692,6 +812,13 @@ export class Pipeline {
                     res.triggerPipelineDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.TriggerPipelineDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

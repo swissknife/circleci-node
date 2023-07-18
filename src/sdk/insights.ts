@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
@@ -70,6 +71,13 @@ export class Insights {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getAllInsightsBranches200ApplicationJSONAny = JSON.parse(decodedRes);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -77,6 +85,13 @@ export class Insights {
                     res.getAllInsightsBranchesDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetAllInsightsBranchesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -143,6 +158,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetFlakyTests200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -150,6 +172,13 @@ export class Insights {
                     res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetFlakyTestsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -220,6 +249,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetJobTimeseries200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -227,6 +263,13 @@ export class Insights {
                     res.getJobTimeseriesDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetJobTimeseriesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -294,6 +337,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetOrgSummaryData200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -301,6 +351,13 @@ export class Insights {
                     res.getOrgSummaryDataDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetOrgSummaryDataDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -372,6 +429,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetProjectWorkflowJobMetrics200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -381,6 +445,13 @@ export class Insights {
                             JSON.parse(decodedRes),
                             operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -447,6 +518,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetProjectWorkflowMetrics200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -454,6 +532,13 @@ export class Insights {
                     res.getProjectWorkflowMetricsDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetProjectWorkflowMetricsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -525,6 +610,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetProjectWorkflowRuns200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -532,6 +624,13 @@ export class Insights {
                     res.getProjectWorkflowRunsDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetProjectWorkflowRunsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -603,6 +702,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetProjectWorkflowTestMetrics200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -612,6 +718,13 @@ export class Insights {
                             JSON.parse(decodedRes),
                             operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -685,6 +798,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetProjectWorkflowsPageData200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -694,6 +814,13 @@ export class Insights {
                             JSON.parse(decodedRes),
                             operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -764,6 +891,13 @@ export class Insights {
                         JSON.parse(decodedRes),
                         operations.GetWorkflowSummary200ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
@@ -771,6 +905,13 @@ export class Insights {
                     res.getWorkflowSummaryDefaultApplicationJSONObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetWorkflowSummaryDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
