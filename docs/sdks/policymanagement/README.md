@@ -162,11 +162,12 @@ sdk.policyManagement.getDecisionLogs({
   after: new Date("2022-01-15T19:21:50.024Z"),
   before: new Date("2022-05-10T08:48:16.521Z"),
   branch: "molestiae",
-  context: "accusantium",
-  offset: 783648,
-  ownerID: "eum",
-  projectId: "quas",
-  status: "praesentium",
+  buildNumber: "accusantium",
+  context: "porro",
+  offset: 430402,
+  ownerID: "quas",
+  projectId: "praesentium",
+  status: "consequuntur",
 }).then((res: GetDecisionLogsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -204,8 +205,8 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionSettings({
-  context: "consequuntur",
-  ownerID: "deleniti",
+  context: "deleniti",
+  ownerID: "fugit",
 }).then((res: GetDecisionSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -243,8 +244,8 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getPolicyBundle({
-  context: "fugit",
-  ownerID: "fuga",
+  context: "fuga",
+  ownerID: "mollitia",
 }).then((res: GetPolicyBundleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -282,9 +283,9 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getPolicyDocument({
-  context: "mollitia",
-  ownerID: "incidunt",
-  policyName: "atque",
+  context: "incidunt",
+  ownerID: "atque",
+  policyName: "explicabo",
 }).then((res: GetPolicyDocumentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -323,11 +324,11 @@ const sdk = new Circleci({
 
 sdk.policyManagement.makeDecision({
   requestBody: {
-    input: "explicabo",
+    input: "minima",
     metadata: {},
   },
-  context: "minima",
-  ownerID: "nisi",
+  context: "nisi",
+  ownerID: "fugit",
 }).then((res: MakeDecisionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -368,8 +369,8 @@ sdk.policyManagement.setDecisionSettings({
   decisionSettings: {
     enabled: false,
   },
-  context: "fugit",
-  ownerID: "sapiente",
+  context: "sapiente",
+  ownerID: "consequuntur",
 }).then((res: SetDecisionSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response

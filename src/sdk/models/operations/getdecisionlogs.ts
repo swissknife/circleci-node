@@ -26,6 +26,12 @@ export class GetDecisionLogsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
     branch?: string;
 
+    /**
+     * Return decisions made for this build number.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=build_number" })
+    buildNumber?: string;
+
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=context" })
     context: string;
 

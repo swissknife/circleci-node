@@ -34,8 +34,8 @@ const sdk = new Circleci({
 sdk.schedule.createSchedule({
   requestBody: {
     attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-    description: "occaecati",
-    name: "Miss Verna Roob",
+    description: "minima",
+    name: "Guillermo Balistreri",
     parameters: {
       "cumque": "consequuntur",
     },
