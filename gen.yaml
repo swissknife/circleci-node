@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 64e31e11e3938b87e6ffb98cf355ce42
+  docChecksum: 1687e393db09564fd83daf8253048226
   docVersion: v2
-  speakeasyVersion: 1.65.2
-  generationVersion: 2.75.1
+  speakeasyVersion: 1.66.1
+  generationVersion: 2.75.2
 generation:
   baseServerUrl: https://circleci.com/api/v2/
   sdkClassName: circleci
@@ -11,7 +11,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: false
 typescript:
-  version: 3.48.1
+  version: 3.48.2
   author: Speakeasy API
   maxMethodParams: 0
   packageName: circleci-v2-sdk
