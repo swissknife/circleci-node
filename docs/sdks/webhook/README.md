@@ -31,15 +31,14 @@ const sdk = new Circleci({
 sdk.webhook.createWebhook({
   events: [
     CreateWebhookRequestBodyEvents.JobCompleted,
-    CreateWebhookRequestBodyEvents.JobCompleted,
   ],
-  name: "Bethany D'Amore",
+  name: "Miss Sophie Jacobi",
   scope: {
-    id: "44ed53b8-8f3a-48d8-b5c0-b2f2fb7b194a",
+    id: "75ed4f6f-bee4-41f3-b317-fe35b60eb1ea",
     type: CreateWebhookRequestBodyScopeType.Project,
   },
-  signingSecret: "sed",
-  url: "in",
+  signingSecret: "tempora",
+  url: "aspernatur",
   verifyTls: false,
 }).then((res: CreateWebhookResponse) => {
   if (res.statusCode == 200) {
@@ -78,7 +77,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.deleteWebhook({
-  webhookId: "6b26916f-e1f0-48f4-a94e-3698f447f603",
+  webhookId: "6555ba3c-2874-44ed-93b8-8f3a8d8f5c0b",
 }).then((res: DeleteWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,7 +115,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhookById({
-  webhookId: "e8b445e8-0ca5-45ef-920e-457e1858b6a8",
+  webhookId: "2f2fb7b1-94a2-476b-a691-6fe1f08f4294",
 }).then((res: GetWebhookByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +153,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhooks({
-  scopeId: "9fbe3a5a-a8e4-4824-90ab-4075088e5186",
+  scopeId: "e3698f44-7f60-43e8-b445-e80ca55efd20",
   scopeType: GetWebhooksScopeType.Project,
 }).then((res: GetWebhooksResponse) => {
   if (res.statusCode == 200) {
@@ -195,14 +194,14 @@ const sdk = new Circleci({
 sdk.webhook.updateWebhook({
   requestBody: {
     events: [
-      UpdateWebhookRequestBodyEvents.WorkflowCompleted,
+      UpdateWebhookRequestBodyEvents.JobCompleted,
     ],
-    name: "Bernice Ullrich II",
-    signingSecret: "reiciendis",
-    url: "dolorem",
+    name: "Lorraine King IV",
+    signingSecret: "exercitationem",
+    url: "praesentium",
     verifyTls: false,
   },
-  webhookId: "b1194b8a-bf60-43a7-9f9d-fe0ab7da8a50",
+  webhookId: "b6a89fbe-3a5a-4a8e-8824-d0ab4075088e",
 }).then((res: UpdateWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response

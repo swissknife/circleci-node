@@ -25,8 +25,8 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.approvePendingApprovalJobById({
-  approvalRequestId: "ce187f86-bc17-43d6-89ee-e9526f8d986e",
-  id: "881ead4f-0e10-4125-a3f9-4e29e973e922",
+  approvalRequestId: "51862065-e904-4f3b-9194-b8abf603a79f",
+  id: "9dfe0ab7-da8a-450c-a187-f86bc173d689",
 }).then((res: ApprovePendingApprovalJobByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -64,7 +64,7 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.cancelWorkflow({
-  id: "a57a15be-3e06-4080-be2b-6e3ab8845f05",
+  id: "eee9526f-8d98-46e8-81ea-d4f0e1012563",
 }).then((res: CancelWorkflowResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +102,7 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.getWorkflowById({
-  id: "97a60ff2-a54a-431e-9476-4a3e865e7956",
+  id: "f94e29e9-73e9-422a-97a1-5be3e060807e",
 }).then((res: GetWorkflowByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -140,7 +140,7 @@ const sdk = new Circleci({
 });
 
 sdk.workflow.listWorkflowJobs({
-  id: "f9251a5a-9da6-460f-b57b-faad4f9efc1b",
+  id: "2b6e3ab8-845f-4059-ba60-ff2a54a31e94",
 }).then((res: ListWorkflowJobsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -182,12 +182,11 @@ sdk.workflow.rerunWorkflow({
     enableSsh: false,
     fromFailed: false,
     jobs: [
-      "512c1032-648d-4c2f-a151-99ebfd0e9fe6",
-      "c632ca3a-ed01-4179-9631-2fde04771778",
+      "764a3e86-5e79-456f-9251-a5a9da660ff5",
     ],
     sparseTree: false,
   },
-  id: "ff61d017-4763-460a-95db-6a660659a1ad",
+  id: "7bfaad4f-9efc-41b4-912c-1032648dc2f6",
 }).then((res: RerunWorkflowResponse) => {
   if (res.statusCode == 200) {
     // handle response

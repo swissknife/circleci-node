@@ -29,11 +29,10 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.continuePipeline({
-  configuration: "aut",
-  continuationKey: "voluptatibus",
+  configuration: "illum",
+  continuationKey: "sequi",
   parameters: {
-    "nulla": "fugit",
-    "porro": "maiores",
+    "natus": "impedit",
   },
 }).then((res: ContinuePipelineResponse) => {
   if (res.statusCode == 200) {
@@ -72,7 +71,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineById({
-  pipelineId: "f7c70a45-626d-4436-813f-16d9f5fce6c5",
+  pipelineId: "0f5d2cff-7c70-4a45-a26d-436813f16d9f",
 }).then((res: GetPipelineByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -110,8 +109,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineByNumber({
-  pipelineNumber: "veniam",
-  projectSlug: "aliquid",
+  pipelineNumber: "nostrum",
+  projectSlug: "sapiente",
 }).then((res: GetPipelineByNumberResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,7 +148,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineConfigById({
-  pipelineId: "146c3e25-0fb0-408c-82e1-41aac366c8dd",
+  pipelineId: "ce6c5561-46c3-4e25-8fb0-08c42e141aac",
 }).then((res: GetPipelineConfigByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -187,8 +186,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listMyPipelines({
-  pageToken: "voluptas",
-  projectSlug: "libero",
+  pageToken: "velit",
+  projectSlug: "eum",
 }).then((res: ListMyPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -227,8 +226,8 @@ const sdk = new Circleci({
 
 sdk.pipeline.listPipelines({
   mine: false,
-  orgSlug: "quasi",
-  pageToken: "tempora",
+  orgSlug: "autem",
+  pageToken: "nobis",
 }).then((res: ListPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -266,9 +265,9 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listPipelinesForProject({
-  branch: "numquam",
-  pageToken: "explicabo",
-  projectSlug: "provident",
+  branch: "quas",
+  pageToken: "assumenda",
+  projectSlug: "nulla",
 }).then((res: ListPipelinesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -306,8 +305,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listWorkflowsByPipelineId({
-  pageToken: "ipsa",
-  pipelineId: "7474778a-7bd4-466d-a8c1-0ab3cdca4251",
+  pageToken: "voluptas",
+  pipelineId: "b1442907-4747-478a-bbd4-66d28c10ab3c",
 }).then((res: ListWorkflowsByPipelineIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -348,13 +347,11 @@ sdk.pipeline.triggerPipeline({
   requestBody: {
     branch: "feature/design-new-api",
     parameters: {
-      "consequatur": "tempora",
-      "debitis": "ipsam",
-      "aspernatur": "sequi",
+      "illum": "quo",
     },
     tag: "v3.1.4159",
   },
-  projectSlug: "quo",
+  projectSlug: "fuga",
 }).then((res: TriggerPipelineResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -34,37 +34,28 @@ const sdk = new Circleci({
 sdk.schedule.createSchedule({
   requestBody: {
     attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-    description: "minima",
-    name: "Guillermo Balistreri",
+    description: "esse",
+    name: "Sheldon Boehm",
     parameters: {
-      "cumque": "consequuntur",
+      "nam": "vero",
     },
     timetable: {
       daysOfMonth: [
-        308286,
-        959167,
-        232865,
-        458139,
+        93459,
       ],
       daysOfWeek: [
-        CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek.Thu,
-        CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek.Fri,
         CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek.Fri,
       ],
       hoursOfDay: [
-        457223,
-        97468,
-        951875,
+        426306,
       ],
       months: [
-        CreateScheduleCreateScheduleParametersTimetable1Months.Feb,
-        CreateScheduleCreateScheduleParametersTimetable1Months.Jan,
-        CreateScheduleCreateScheduleParametersTimetable1Months.Aug,
+        CreateScheduleCreateScheduleParametersTimetable1Months.Sep,
       ],
-      perHour: 157632,
+      perHour: 473221,
     },
   },
-  projectSlug: "eveniet",
+  projectSlug: "rerum",
 }).then((res: CreateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +93,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.deleteScheduleById({
-  scheduleId: "fd121aa6-f1e6-474b-9b04-f15756082d68",
+  scheduleId: "95bc0ab3-c20c-44f3-b89f-d871f99dd2ef",
 }).then((res: DeleteScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -140,7 +131,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.getScheduleById({
-  scheduleId: "ea19f1d1-7051-4339-9080-86a1840394c2",
+  scheduleId: "d121aa6f-1e67-44bd-b04f-15756082d68e",
 }).then((res: GetScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -178,8 +169,8 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.listSchedulesForProject({
-  pageToken: "voluptas",
-  projectSlug: "aut",
+  pageToken: "dolorum",
+  projectSlug: "architecto",
 }).then((res: ListSchedulesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -224,37 +215,28 @@ const sdk = new Circleci({
 sdk.schedule.updateSchedule({
   requestBody: {
     attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
-    description: "dignissimos",
-    name: "Elisa Mosciski",
+    description: "omnis",
+    name: "Ms. Roger Strosin II",
     parameters: {
-      "asperiores": "aperiam",
-      "ea": "quaerat",
+      "veritatis": "consectetur",
     },
     timetable: {
       daysOfMonth: [
-        831520,
+        237173,
       ],
       daysOfWeek: [
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Wed,
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Mon,
         UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Thu,
       ],
       hoursOfDay: [
-        368102,
-        65304,
-        312753,
-        783235,
+        839513,
       ],
       months: [
-        UpdateScheduleUpdateScheduleParametersTimetableMonths.Jun,
         UpdateScheduleUpdateScheduleParametersTimetableMonths.Mar,
-        UpdateScheduleUpdateScheduleParametersTimetableMonths.Dec,
-        UpdateScheduleUpdateScheduleParametersTimetableMonths.Sep,
       ],
-      perHour: 662505,
+      perHour: 522371,
     },
   },
-  scheduleId: "63aae8d6-7864-4dbb-a75f-d5e60b375ed4",
+  scheduleId: "086a1840-394c-4260-b1f9-3f5f0642dac7",
 }).then((res: UpdateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response

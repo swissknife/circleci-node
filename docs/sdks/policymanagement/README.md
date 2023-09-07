@@ -35,13 +35,12 @@ const sdk = new Circleci({
 sdk.policyManagement.createPolicyBundle({
   bundlePayload: {
     policies: {
-      "recusandae": "aperiam",
-      "distinctio": "quod",
+      "eius": "eos",
     },
   },
-  context: "dignissimos",
+  context: "voluptas",
   dry: false,
-  ownerID: "inventore",
+  ownerID: "ab",
 }).then((res: CreatePolicyBundleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -79,9 +78,9 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionLog({
-  context: "nihil",
-  decisionID: "totam",
-  ownerID: "accusamus",
+  context: "cupiditate",
+  decisionID: "consequatur",
+  ownerID: "tempora",
 }).then((res: GetDecisionLogResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -119,9 +118,9 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionLogPolicyBundle({
-  context: "aliquam",
-  decisionID: "odio",
-  ownerID: "occaecati",
+  context: "debitis",
+  decisionID: "ipsam",
+  ownerID: "aspernatur",
 }).then((res: GetDecisionLogPolicyBundleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -159,15 +158,15 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionLogs({
-  after: new Date("2022-01-15T19:21:50.024Z"),
-  before: new Date("2022-05-10T08:48:16.521Z"),
-  branch: "molestiae",
-  buildNumber: "accusantium",
-  context: "porro",
-  offset: 430402,
-  ownerID: "quas",
-  projectId: "praesentium",
-  status: "consequuntur",
+  after: new Date("2022-03-22T14:16:41.787Z"),
+  before: new Date("2022-01-28T07:34:05.998Z"),
+  branch: "aperiam",
+  buildNumber: "distinctio",
+  context: "quod",
+  offset: 490819,
+  ownerID: "inventore",
+  projectId: "nihil",
+  status: "totam",
 }).then((res: GetDecisionLogsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -205,8 +204,8 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionSettings({
-  context: "deleniti",
-  ownerID: "fugit",
+  context: "accusamus",
+  ownerID: "aliquam",
 }).then((res: GetDecisionSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -244,8 +243,8 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getPolicyBundle({
-  context: "fuga",
-  ownerID: "mollitia",
+  context: "odio",
+  ownerID: "occaecati",
 }).then((res: GetPolicyBundleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -283,9 +282,9 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getPolicyDocument({
-  context: "incidunt",
-  ownerID: "atque",
-  policyName: "explicabo",
+  context: "commodi",
+  ownerID: "sapiente",
+  policyName: "dolores",
 }).then((res: GetPolicyDocumentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -324,11 +323,11 @@ const sdk = new Circleci({
 
 sdk.policyManagement.makeDecision({
   requestBody: {
-    input: "minima",
+    input: "deserunt",
     metadata: {},
   },
-  context: "nisi",
-  ownerID: "fugit",
+  context: "molestiae",
+  ownerID: "accusantium",
 }).then((res: MakeDecisionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -369,8 +368,8 @@ sdk.policyManagement.setDecisionSettings({
   decisionSettings: {
     enabled: false,
   },
-  context: "sapiente",
-  ownerID: "consequuntur",
+  context: "porro",
+  ownerID: "eum",
 }).then((res: SetDecisionSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response

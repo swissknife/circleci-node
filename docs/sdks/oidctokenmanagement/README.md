@@ -188,12 +188,11 @@ const sdk = new Circleci({
 sdk.oidcTokenManagement.patchOrgClaims({
   patchClaimsRequest: {
     audience: [
-      "sit",
-      "expedita",
+      "nihil",
     ],
-    ttl: "neque",
+    ttl: "sit",
   },
-  orgID: "26b5a734-29cd-4b1a-8422-bb679d232271",
+  orgID: "b326b5a7-3429-4cdb-9a84-22bb679d2322",
 }).then((res: PatchOrgClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -233,13 +232,12 @@ const sdk = new Circleci({
 sdk.oidcTokenManagement.patchProjectClaims({
   patchClaimsRequest: {
     audience: [
-      "nam",
-      "hic",
+      "odio",
     ],
-    ttl: "voluptatem",
+    ttl: "sunt",
   },
-  orgID: "cbb1e31b-8b90-4f34-83a1-108e0adcf4b9",
-  projectID: "21879fce-953f-473e-b7fb-c7abd74dd39c",
+  orgID: "5bf0cbb1-e31b-48b9-8f34-43a1108e0adc",
+  projectID: "f4b92187-9fce-4953-b73e-f7fbc7abd74d",
 }).then((res: PatchProjectClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
