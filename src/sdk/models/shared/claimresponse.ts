@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
-/**
- * Claims successfully deleted.
- */
 export class ClaimResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "audience" })

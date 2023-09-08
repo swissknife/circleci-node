@@ -1,7 +1,5 @@
 # BundleDiff
 
-Policy-Bundle diff successfully returned.
-
 
 ## Fields
 

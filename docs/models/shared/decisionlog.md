@@ -1,7 +1,5 @@
 # DecisionLog
 
-Decision log successfully retrieved.
-
 
 ## Fields
 

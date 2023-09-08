@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Transform } from "class-transformer";
 
-/**
- * Policy retrieved successfully.
- */
 export class Policy extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "content" })

@@ -1,7 +1,5 @@
 # Decision
 
-Decision rendered by applying the policy against the provided data. Response will be modeled by the data and rego processed.
-
 
 ## Fields
 

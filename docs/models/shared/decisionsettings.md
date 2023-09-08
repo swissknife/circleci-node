@@ -1,7 +1,5 @@
 # DecisionSettings
 
-Decision settings successfully retrieved.
-
 
 ## Fields
 

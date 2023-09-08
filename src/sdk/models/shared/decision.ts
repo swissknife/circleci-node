@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Violation } from "./violation";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Decision rendered by applying the policy against the provided data. Response will be modeled by the data and rego processed.
- */
 export class Decision extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "enabled_rules" })

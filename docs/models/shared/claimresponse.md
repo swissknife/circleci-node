@@ -1,7 +1,5 @@
 # ClaimResponse
 
-Claims successfully deleted.
-
 
 ## Fields
 

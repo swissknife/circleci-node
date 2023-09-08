@@ -44,6 +44,10 @@ export type SDKProps = {
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
+    /**
+     * Allows overriding the default retry config used by the SDK
+     */
+    retryConfig?: utils.RetryConfig;
 };
 
 export class SDKConfiguration {
@@ -53,9 +57,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "v2";
-    sdkVersion = "3.56.1";
-    genVersion = "2.101.0";
-
+    sdkVersion = "3.56.2";
+    genVersion = "2.107.0";
+    retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
     }
@@ -98,6 +102,7 @@ export class Circleci {
             defaultClient: defaultClient,
             security: props?.security,
             serverURL: serverURL,
+            retryConfig: props?.retryConfig,
         });
 
         this.context = new Context(this.sdkConfiguration);
