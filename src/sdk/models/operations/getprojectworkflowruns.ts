@@ -108,6 +108,13 @@ export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase
     id: string;
 
     /**
+     * Describes if the job is an approval job or not. Approval jobs are intermediary jobs that are created to pause the workflow until approved.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "is_approval" })
+    isApproval: boolean;
+
+    /**
      * Workflow status.
      */
     @SpeakeasyMetadata()

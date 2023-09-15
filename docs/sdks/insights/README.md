@@ -93,7 +93,7 @@ sdk.insights.getFlakyTests({
 
 ## getJobTimeseries
 
-Get timeseries data for all jobs within a workflow.
+Get timeseries data for all jobs within a workflow. Hourly granularity data is only retained for 48 hours while daily granularity data is retained for 90 days.
 
 ### Example Usage
 

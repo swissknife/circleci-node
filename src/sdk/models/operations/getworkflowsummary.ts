@@ -152,7 +152,7 @@ export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
     totalRuns: number;
 
     /**
-     * The end of the aggregation window for workflow metrics.
+     * The timestamp of the last build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_end" })
@@ -160,7 +160,7 @@ export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
     windowEnd: Date;
 
     /**
-     * The start of the aggregation window for workflow metrics.
+     * The timestamp of the first build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_start" })

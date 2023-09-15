@@ -188,7 +188,14 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItems extends SpeakeasyB
     name: string;
 
     /**
-     * The end of the aggregation window for workflow metrics.
+     * The unique ID of the project
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project_id" })
+    projectId: any;
+
+    /**
+     * The timestamp of the last build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_end" })
@@ -196,7 +203,7 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItems extends SpeakeasyB
     windowEnd: Date;
 
     /**
-     * The start of the aggregation window for workflow metrics.
+     * The timestamp of the first build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_start" })
