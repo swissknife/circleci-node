@@ -1,4 +1,4 @@
-# schedule
+# Schedule
 
 ### Available Operations
 

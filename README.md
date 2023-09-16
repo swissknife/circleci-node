@@ -49,7 +49,7 @@ sdk.context.addEnvironmentVariableToContext({
 ## Available Resources and Operations
 
 
-### [context](docs/sdks/context/README.md)
+### [Context](docs/sdks/context/README.md)
 
 * [addEnvironmentVariableToContext](docs/sdks/context/README.md#addenvironmentvariabletocontext) - Add or update an environment variable
 * [createContext](docs/sdks/context/README.md#createcontext) - Create a new context
@@ -59,7 +59,7 @@ sdk.context.addEnvironmentVariableToContext({
 * [listContexts](docs/sdks/context/README.md#listcontexts) - List contexts
 * [listEnvironmentVariablesFromContext](docs/sdks/context/README.md#listenvironmentvariablesfromcontext) - List environment variables
 
-### [insights](docs/sdks/insights/README.md)
+### [Insights](docs/sdks/insights/README.md)
 
 * [getAllInsightsBranches](docs/sdks/insights/README.md#getallinsightsbranches) - Get all branches for a project
 * [getFlakyTests](docs/sdks/insights/README.md#getflakytests) - Get flaky tests for a project
@@ -72,14 +72,14 @@ sdk.context.addEnvironmentVariableToContext({
 * [getProjectWorkflowsPageData](docs/sdks/insights/README.md#getprojectworkflowspagedata) - Get summary metrics and trends for a project across it's workflows and branches
 * [getWorkflowSummary](docs/sdks/insights/README.md#getworkflowsummary) - Get metrics and trends for workflows
 
-### [job](docs/sdks/job/README.md)
+### [Job](docs/sdks/job/README.md)
 
 * [cancelJob](docs/sdks/job/README.md#canceljob) - Cancel job
 * [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
 * [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
 * [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
 
-### [oidcTokenManagement](docs/sdks/oidctokenmanagement/README.md)
+### [OIDCTokenManagement](docs/sdks/oidctokenmanagement/README.md)
 
 * [deleteOrgClaims](docs/sdks/oidctokenmanagement/README.md#deleteorgclaims) - Delete org-level claims
 * [deleteProjectClaims](docs/sdks/oidctokenmanagement/README.md#deleteprojectclaims) - Delete project-level claims
@@ -88,7 +88,7 @@ sdk.context.addEnvironmentVariableToContext({
 * [patchOrgClaims](docs/sdks/oidctokenmanagement/README.md#patchorgclaims) - Patch org-level claims
 * [patchProjectClaims](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
 
-### [pipeline](docs/sdks/pipeline/README.md)
+### [Pipeline](docs/sdks/pipeline/README.md)
 
 * [continuePipeline](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
 * [getPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
@@ -100,7 +100,7 @@ sdk.context.addEnvironmentVariableToContext({
 * [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
 * [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
 
-### [policyManagement](docs/sdks/policymanagement/README.md)
+### [PolicyManagement](docs/sdks/policymanagement/README.md)
 
 * [createPolicyBundle](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
 * [getDecisionLog](docs/sdks/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
@@ -112,7 +112,7 @@ sdk.context.addEnvironmentVariableToContext({
 * [makeDecision](docs/sdks/policymanagement/README.md#makedecision) - Makes a decision
 * [setDecisionSettings](docs/sdks/policymanagement/README.md#setdecisionsettings) - Set the decision settings
 
-### [project](docs/sdks/project/README.md)
+### [Project](docs/sdks/project/README.md)
 
 * [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
 * [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
@@ -124,7 +124,7 @@ sdk.context.addEnvironmentVariableToContext({
 * [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
 * [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
 
-### [schedule](docs/sdks/schedule/README.md)
+### [Schedule](docs/sdks/schedule/README.md)
 
 * [createSchedule](docs/sdks/schedule/README.md#createschedule) - Create a schedule
 * [deleteScheduleById](docs/sdks/schedule/README.md#deleteschedulebyid) - Delete a schedule
@@ -132,13 +132,13 @@ sdk.context.addEnvironmentVariableToContext({
 * [listSchedulesForProject](docs/sdks/schedule/README.md#listschedulesforproject) - Get all schedules
 * [updateSchedule](docs/sdks/schedule/README.md#updateschedule) - Update a schedule
 
-### [user](docs/sdks/user/README.md)
+### [User](docs/sdks/user/README.md)
 
 * [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
 * [getCurrentUser](docs/sdks/user/README.md#getcurrentuser) - User Information
 * [getUser](docs/sdks/user/README.md#getuser) - User Information
 
-### [webhook](docs/sdks/webhook/README.md)
+### [Webhook](docs/sdks/webhook/README.md)
 
 * [createWebhook](docs/sdks/webhook/README.md#createwebhook) - Create a webhook
 * [deleteWebhook](docs/sdks/webhook/README.md#deletewebhook) - Delete a webhook
@@ -146,7 +146,7 @@ sdk.context.addEnvironmentVariableToContext({
 * [getWebhooks](docs/sdks/webhook/README.md#getwebhooks) - List webhooks
 * [updateWebhook](docs/sdks/webhook/README.md#updatewebhook) - Update a webhook
 
-### [workflow](docs/sdks/workflow/README.md)
+### [Workflow](docs/sdks/workflow/README.md)
 
 * [approvePendingApprovalJobById](docs/sdks/workflow/README.md#approvependingapprovaljobbyid) - Approve a job
 * [cancelWorkflow](docs/sdks/workflow/README.md#cancelworkflow) - Cancel a workflow
