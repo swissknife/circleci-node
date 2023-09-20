@@ -36,7 +36,7 @@ export class Schedule {
         );
         const url: string = utils.generateURL(baseURL, "/project/{project-slug}/schedule", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
@@ -418,7 +418,7 @@ export class Schedule {
         );
         const url: string = utils.generateURL(baseURL, "/schedule/{schedule-id}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");

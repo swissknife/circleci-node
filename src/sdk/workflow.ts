@@ -410,7 +410,7 @@ export class Workflow {
         );
         const url: string = utils.generateURL(baseURL, "/workflow/{id}/rerun", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");

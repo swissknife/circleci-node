@@ -36,7 +36,7 @@ export class Pipeline {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/pipeline/continue";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -799,7 +799,7 @@ export class Pipeline {
         );
         const url: string = utils.generateURL(baseURL, "/project/{project-slug}/pipeline", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");

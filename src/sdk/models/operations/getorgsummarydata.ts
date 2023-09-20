@@ -81,7 +81,7 @@ export class GetOrgSummaryData200ApplicationJSONOrgDataMetrics extends Speakeasy
     totalDurationSecs: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })
@@ -172,7 +172,7 @@ export class GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics extends Sp
     totalDurationSecs: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })

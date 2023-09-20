@@ -98,6 +98,13 @@ export class GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics extends 
  */
 export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
     /**
+     * The number of runs that ran to completion within the aggregation window
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "completed_runs" })
+    completedRuns: number;
+
+    /**
      * Metrics relating to the duration of runs for a workflow.
      */
     @SpeakeasyMetadata()
@@ -145,7 +152,7 @@ export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
     totalCreditsUsed: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })

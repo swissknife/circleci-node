@@ -92,7 +92,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics ext
     totalDurationSecs: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })
@@ -183,7 +183,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchD
     totalCreditsUsed: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })
@@ -278,7 +278,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMet
     totalCreditsUsed: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })

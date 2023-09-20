@@ -164,7 +164,7 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetrics extends Spe
     totalRecoveries: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })

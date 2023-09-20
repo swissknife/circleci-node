@@ -36,7 +36,7 @@ export class Project {
         );
         const url: string = utils.generateURL(baseURL, "/project/{project-slug}/checkout-key", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
@@ -139,7 +139,7 @@ export class Project {
         );
         const url: string = utils.generateURL(baseURL, "/project/{project-slug}/envvar", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
