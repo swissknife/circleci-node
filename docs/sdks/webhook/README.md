@@ -30,15 +30,15 @@ const sdk = new Circleci({
 
 sdk.webhook.createWebhook({
   events: [
-    CreateWebhookRequestBodyEvents.JobCompleted,
+    CreateWebhookRequestBodyEvents.WorkflowCompleted,
   ],
-  name: "Miss Sophie Jacobi",
+  name: "Byron Stroman",
   scope: {
-    id: "75ed4f6f-bee4-41f3-b317-fe35b60eb1ea",
+    id: "5c0b2f2f-b7b1-494a-a76b-26916fe1f08f",
     type: CreateWebhookRequestBodyScopeType.Project,
   },
-  signingSecret: "tempora",
-  url: "aspernatur",
+  signingSecret: "incidunt",
+  url: "sed",
   verifyTls: false,
 }).then((res: CreateWebhookResponse) => {
   if (res.statusCode == 200) {
@@ -77,7 +77,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.deleteWebhook({
-  webhookId: "6555ba3c-2874-44ed-93b8-8f3a8d8f5c0b",
+  webhookId: "94e3698f-447f-4603-a8b4-45e80ca55efd",
 }).then((res: DeleteWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -115,7 +115,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhookById({
-  webhookId: "2f2fb7b1-94a2-476b-a691-6fe1f08f4294",
+  webhookId: "20e457e1-858b-46a8-9fbe-3a5aa8e4824d",
 }).then((res: GetWebhookByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -153,7 +153,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhooks({
-  scopeId: "e3698f44-7f60-43e8-b445-e80ca55efd20",
+  scopeId: "0ab40750-88e5-4186-a065-e904f3b1194b",
   scopeType: GetWebhooksScopeType.Project,
 }).then((res: GetWebhooksResponse) => {
   if (res.statusCode == 200) {
@@ -196,12 +196,12 @@ sdk.webhook.updateWebhook({
     events: [
       UpdateWebhookRequestBodyEvents.JobCompleted,
     ],
-    name: "Lorraine King IV",
-    signingSecret: "exercitationem",
-    url: "praesentium",
+    name: "Marco White I",
+    signingSecret: "deserunt",
+    url: "voluptate",
     verifyTls: false,
   },
-  webhookId: "b6a89fbe-3a5a-4a8e-8824-d0ab4075088e",
+  webhookId: "9f9dfe0a-b7da-48a5-8ce1-87f86bc173d6",
 }).then((res: UpdateWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response

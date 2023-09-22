@@ -95,7 +95,7 @@ export class Context {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.addEnvironmentVariableToContext200ApplicationJSONAnyOf =
+                    res.addEnvironmentVariableToContext200ApplicationJSONOneOf =
                         JSON.parse(decodedRes);
                 } else {
                     throw new errors.SDKError(

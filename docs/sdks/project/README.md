@@ -32,7 +32,7 @@ sdk.project.createCheckoutKey({
   requestBody: {
     type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
   },
-  projectSlug: "quas",
+  projectSlug: "sint",
 }).then((res: CreateCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -74,7 +74,7 @@ sdk.project.createEnvVar({
     name: "foo",
     value: "xxxx1234",
   },
-  projectSlug: "praesentium",
+  projectSlug: "pariatur",
 }).then((res: CreateEnvVarResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,8 +112,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.deleteCheckoutKey({
-  fingerprint: "consequuntur",
-  projectSlug: "deleniti",
+  fingerprint: "possimus",
+  projectSlug: "quia",
 }).then((res: DeleteCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -151,8 +151,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.deleteEnvVar({
-  name: "Lee O'Conner",
-  projectSlug: "explicabo",
+  name: "Mr. Marlon Schultz V",
+  projectSlug: "culpa",
 }).then((res: DeleteEnvVarResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -190,8 +190,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.getCheckoutKey({
-  fingerprint: "minima",
-  projectSlug: "nisi",
+  fingerprint: "aliquid",
+  projectSlug: "tenetur",
 }).then((res: GetCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -229,8 +229,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.getEnvVar({
-  name: "Jeannie Cronin",
-  projectSlug: "saepe",
+  name: "Lila Kassulke",
+  projectSlug: "libero",
 }).then((res: GetEnvVarResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -268,7 +268,7 @@ const sdk = new Circleci({
 });
 
 sdk.project.getProjectBySlug({
-  projectSlug: "occaecati",
+  projectSlug: "illum",
 }).then((res: GetProjectBySlugResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -306,7 +306,7 @@ const sdk = new Circleci({
 });
 
 sdk.project.listCheckoutKeys({
-  projectSlug: "atque",
+  projectSlug: "soluta",
 }).then((res: ListCheckoutKeysResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -344,7 +344,7 @@ const sdk = new Circleci({
 });
 
 sdk.project.listEnvVars({
-  projectSlug: "et",
+  projectSlug: "accusantium",
 }).then((res: ListEnvVarsResponse) => {
   if (res.statusCode == 200) {
     // handle response

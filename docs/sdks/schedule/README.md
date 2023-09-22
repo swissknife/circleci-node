@@ -34,28 +34,28 @@ const sdk = new Circleci({
 sdk.schedule.createSchedule({
   requestBody: {
     attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-    description: "esse",
-    name: "Sheldon Boehm",
+    description: "aliquam",
+    name: "Samuel Hermiston",
     parameters: {
-      "nam": "vero",
+      "nisi": "aut",
     },
     timetable: {
       daysOfMonth: [
-        93459,
+        185232,
       ],
       daysOfWeek: [
-        CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek.Fri,
+        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek.Wed,
       ],
       hoursOfDay: [
-        426306,
+        401259,
       ],
       months: [
-        CreateScheduleCreateScheduleParametersTimetable1Months.Sep,
+        CreateScheduleCreateScheduleParametersTimetable2Months.Feb,
       ],
-      perHour: 473221,
+      perHour: 929292,
     },
   },
-  projectSlug: "rerum",
+  projectSlug: "dolorum",
 }).then((res: CreateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -93,7 +93,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.deleteScheduleById({
-  scheduleId: "95bc0ab3-c20c-44f3-b89f-d871f99dd2ef",
+  scheduleId: "19f1d170-5133-49d0-8086-a1840394c260",
 }).then((res: DeleteScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -131,7 +131,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.getScheduleById({
-  scheduleId: "d121aa6f-1e67-44bd-b04f-15756082d68e",
+  scheduleId: "71f93f5f-0642-4dac-baf5-15cc413aa63a",
 }).then((res: GetScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -169,8 +169,8 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.listSchedulesForProject({
-  pageToken: "dolorum",
-  projectSlug: "architecto",
+  pageToken: "est",
+  projectSlug: "recusandae",
 }).then((res: ListSchedulesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -215,28 +215,28 @@ const sdk = new Circleci({
 sdk.schedule.updateSchedule({
   requestBody: {
     attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
-    description: "omnis",
-    name: "Ms. Roger Strosin II",
+    description: "totam",
+    name: "Chester Kuphal",
     parameters: {
-      "veritatis": "consectetur",
+      "labore": "possimus",
     },
     timetable: {
       daysOfMonth: [
-        237173,
+        706575,
       ],
       daysOfWeek: [
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Thu,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Wed,
       ],
       hoursOfDay: [
-        839513,
+        414857,
       ],
       months: [
-        UpdateScheduleUpdateScheduleParametersTimetableMonths.Mar,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Oct,
       ],
-      perHour: 522371,
+      perHour: 360545,
     },
   },
-  scheduleId: "086a1840-394c-4260-b1f9-3f5f0642dac7",
+  scheduleId: "fd5e60b3-75ed-44f6-bbee-41f33317fe35",
 }).then((res: UpdateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response

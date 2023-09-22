@@ -99,7 +99,7 @@ export class AddEnvironmentVariableToContextResponse extends SpeakeasyBase {
      * The new environment variable
      */
     @SpeakeasyMetadata()
-    addEnvironmentVariableToContext200ApplicationJSONAnyOf?: any;
+    addEnvironmentVariableToContext200ApplicationJSONOneOf?: any;
 
     /**
      * Error response.

@@ -24,8 +24,8 @@ const sdk = new Circleci({
 });
 
 sdk.job.cancelJob({
-  jobNumber: "ullam",
-  projectSlug: "provident",
+  jobNumber: "fugiat",
+  projectSlug: "amet",
 }).then((res: CancelJobResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -63,8 +63,8 @@ const sdk = new Circleci({
 });
 
 sdk.job.getJobArtifacts({
-  jobNumber: "quos",
-  projectSlug: "sint",
+  jobNumber: "aut",
+  projectSlug: "cumque",
 }).then((res: GetJobArtifactsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,8 +102,8 @@ const sdk = new Circleci({
 });
 
 sdk.job.getJobDetails({
-  jobNumber: "accusantium",
-  projectSlug: "mollitia",
+  jobNumber: "corporis",
+  projectSlug: "hic",
 }).then((res: GetJobDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -141,8 +141,8 @@ const sdk = new Circleci({
 });
 
 sdk.job.getTests({
-  jobNumber: "reiciendis",
-  projectSlug: "mollitia",
+  jobNumber: "libero",
+  projectSlug: "nobis",
 }).then((res: GetTestsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -30,8 +30,8 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getAllInsightsBranches({
-  projectSlug: "accusamus",
-  workflowName: "non",
+  projectSlug: "architecto",
+  workflowName: "repudiandae",
 }).then((res: GetAllInsightsBranchesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,7 +70,7 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getFlakyTests({
-  projectSlug: "occaecati",
+  projectSlug: "ullam",
 }).then((res: GetFlakyTestsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -108,12 +108,12 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getJobTimeseries({
-  branch: "enim",
-  endDate: new Date("2020-02-08T20:51:42.354Z"),
+  branch: "expedita",
+  endDate: new Date("2022-01-01T10:06:00.916Z"),
   granularity: GetJobTimeseriesGranularity.Hourly,
-  projectSlug: "provident",
-  startDate: new Date("2021-09-06T10:36:33.442Z"),
-  workflowName: "blanditiis",
+  projectSlug: "sed",
+  startDate: new Date("2020-05-25T09:38:49.528Z"),
+  workflowName: "accusantium",
 }).then((res: GetJobTimeseriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -152,9 +152,9 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getOrgSummaryData({
-  orgSlug: "deleniti",
+  orgSlug: "consequuntur",
   projectNames: {},
-  reportingWindow: GetOrgSummaryDataReportingWindow.Last60Days,
+  reportingWindow: GetOrgSummaryDataReportingWindow.Last24Hours,
 }).then((res: GetOrgSummaryDataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -196,11 +196,11 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowJobMetrics({
   allBranches: false,
-  branch: "amet",
-  pageToken: "deserunt",
-  projectSlug: "nisi",
-  reportingWindow: GetProjectWorkflowJobMetricsReportingWindow.Last24Hours,
-  workflowName: "natus",
+  branch: "natus",
+  pageToken: "magni",
+  projectSlug: "sunt",
+  reportingWindow: GetProjectWorkflowJobMetricsReportingWindow.Last30Days,
+  workflowName: "illum",
 }).then((res: GetProjectWorkflowJobMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -239,9 +239,9 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowMetrics({
   allBranches: false,
-  branch: "omnis",
-  pageToken: "molestiae",
-  projectSlug: "perferendis",
+  branch: "pariatur",
+  pageToken: "maxime",
+  projectSlug: "ea",
   reportingWindow: GetProjectWorkflowMetricsReportingWindow.Last24Hours,
 }).then((res: GetProjectWorkflowMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -281,12 +281,12 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowRuns({
   allBranches: false,
-  branch: "magnam",
-  endDate: new Date("2021-09-06T01:45:34.248Z"),
-  pageToken: "labore",
-  projectSlug: "labore",
-  startDate: new Date("2022-05-20T10:11:05.115Z"),
-  workflowName: "nobis",
+  branch: "odit",
+  endDate: new Date("2022-12-19T20:58:17.857Z"),
+  pageToken: "ab",
+  projectSlug: "maiores",
+  startDate: new Date("2022-04-03T11:56:45.015Z"),
+  workflowName: "voluptate",
 }).then((res: GetProjectWorkflowRunsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -325,9 +325,9 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowTestMetrics({
   allBranches: false,
-  branch: "eum",
-  projectSlug: "vero",
-  workflowName: "aspernatur",
+  branch: "autem",
+  projectSlug: "nam",
+  workflowName: "eaque",
 }).then((res: GetProjectWorkflowTestMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -369,7 +369,7 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowsPageData({
   branches: {},
-  projectSlug: "architecto",
+  projectSlug: "pariatur",
   reportingWindow: GetProjectWorkflowsPageDataReportingWindow.Last90Days,
   workflowNames: {},
 }).then((res: GetProjectWorkflowsPageDataResponse) => {
@@ -411,8 +411,8 @@ const sdk = new Circleci({
 sdk.insights.getWorkflowSummary({
   allBranches: false,
   branches: {},
-  projectSlug: "et",
-  workflowName: "excepturi",
+  projectSlug: "voluptatibus",
+  workflowName: "perferendis",
 }).then((res: GetWorkflowSummaryResponse) => {
   if (res.statusCode == 200) {
     // handle response

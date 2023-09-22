@@ -99,7 +99,7 @@ const sdk = new Circleci({
 });
 
 sdk.user.getUser({
-  id: "af515cc4-13aa-463a-ae8d-67864dbb675f",
+  id: "b60eb1ea-4265-455b-a3c2-8744ed53b88f",
 }).then((res: GetUserResponse) => {
   if (res.statusCode == 200) {
     // handle response
