@@ -1,4 +1,5 @@
 # Insights
+(*insights*)
 
 ### Available Operations
 
