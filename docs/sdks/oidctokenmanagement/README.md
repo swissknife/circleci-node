@@ -31,8 +31,8 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.deleteOrgClaims({
-  claims: "dolores",
-  orgID: "58705320-2c73-4d5f-a9b9-0c28909b3fe4",
+  claims: "quis",
+  orgID: "87053202-c73d-45fe-9b90-c28909b3fe49",
 }).then((res: DeleteOrgClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,9 +70,9 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.deleteProjectClaims({
-  claims: "iste",
-  orgID: "a8d9cbf4-8633-4323-b9b7-7f3a4100674e",
-  projectID: "bf69280d-1ba7-47a8-9ebf-737ae4203ce5",
+  claims: "dolorum",
+  orgID: "8d9cbf48-6333-423f-9b77-f3a4100674eb",
+  projectID: "f69280d1-ba77-4a89-abf7-37ae4203ce5e",
 }).then((res: DeleteProjectClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -110,7 +110,7 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.getOrgClaims({
-  orgID: "e6a95d8a-0d44-46ce-aaf7-a73cf3be453f",
+  orgID: "6a95d8a0-d446-4ce2-af7a-73cf3be453f8",
 }).then((res: GetOrgClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,8 +148,8 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.getProjectClaims({
-  orgID: "870b326b-5a73-4429-8db1-a8422bb679d2",
-  projectID: "322715bf-0cbb-41e3-9b8b-90f3443a1108",
+  orgID: "70b326b5-a734-429c-9b1a-8422bb679d23",
+  projectID: "22715bf0-cbb1-4e31-b8b9-0f3443a1108e",
 }).then((res: GetProjectClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,11 +189,11 @@ const sdk = new Circleci({
 sdk.oidcTokenManagement.patchOrgClaims({
   patchClaimsRequest: {
     audience: [
-      "itaque",
+      "consequatur",
     ],
-    ttl: "consequatur",
+    ttl: "est",
   },
-  orgID: "adcf4b92-1879-4fce-953f-73ef7fbc7abd",
+  orgID: "dcf4b921-879f-4ce9-93f7-3ef7fbc7abd7",
 }).then((res: PatchOrgClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -233,12 +233,12 @@ const sdk = new Circleci({
 sdk.oidcTokenManagement.patchProjectClaims({
   patchClaimsRequest: {
     audience: [
-      "ducimus",
+      "dolore",
     ],
-    ttl: "dolore",
+    ttl: "quibusdam",
   },
-  orgID: "dd39c0f5-d2cf-4f7c-b0a4-5626d436813f",
-  projectID: "16d9f5fc-e6c5-4561-86c3-e250fb008c42",
+  orgID: "d39c0f5d-2cff-47c7-8a45-626d436813f1",
+  projectID: "6d9f5fce-6c55-4614-ac3e-250fb008c42e",
 }).then((res: PatchProjectClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response

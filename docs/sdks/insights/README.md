@@ -411,9 +411,9 @@ const sdk = new Circleci({
 
 sdk.insights.getWorkflowSummary({
   allBranches: false,
-  branches: {},
-  projectSlug: "voluptatibus",
-  workflowName: "perferendis",
+  branch: "voluptatibus",
+  projectSlug: "perferendis",
+  workflowName: "fugiat",
 }).then((res: GetWorkflowSummaryResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -6,11 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-/**
- * The names of VCS branches to include in branch-level workflow metrics.
- */
-export class GetWorkflowSummaryBranches extends SpeakeasyBase {}
-
 export class GetWorkflowSummaryRequest extends SpeakeasyBase {
     /**
      * Whether to retrieve data for all branches combined. Use either this parameter OR the branch name parameter.
@@ -19,10 +14,10 @@ export class GetWorkflowSummaryRequest extends SpeakeasyBase {
     allBranches?: boolean;
 
     /**
-     * The names of VCS branches to include in branch-level workflow metrics.
+     * The name of a vcs branch. If not passed we will scope the API call to the default branch.
      */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
-    branches?: GetWorkflowSummaryBranches;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+    branch?: string;
 
     /**
      * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.

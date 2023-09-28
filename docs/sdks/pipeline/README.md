@@ -30,10 +30,10 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.continuePipeline({
-  configuration: "accusamus",
-  continuationKey: "inventore",
+  configuration: "inventore",
+  continuationKey: "non",
   parameters: {
-    "non": "et",
+    "et": "dolorum",
   },
 }).then((res: ContinuePipelineResponse) => {
   if (res.statusCode == 200) {
@@ -72,7 +72,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineById({
-  pipelineId: "aac366c8-dd6b-4144-a907-474778a7bd46",
+  pipelineId: "ac366c8d-d6b1-4442-9074-74778a7bd466",
 }).then((res: GetPipelineByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -110,8 +110,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineByNumber({
-  pipelineNumber: "suscipit",
-  projectSlug: "assumenda",
+  pipelineNumber: "assumenda",
+  projectSlug: "eos",
 }).then((res: GetPipelineByNumberResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,7 +149,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineConfigById({
-  pipelineId: "28c10ab3-cdca-4425-9904-e523c7e0bc71",
+  pipelineId: "8c10ab3c-dca4-4251-904e-523c7e0bc717",
 }).then((res: GetPipelineConfigByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -187,8 +187,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listMyPipelines({
-  pageToken: "nihil",
-  projectSlug: "totam",
+  pageToken: "totam",
+  projectSlug: "accusamus",
 }).then((res: ListMyPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -227,8 +227,8 @@ const sdk = new Circleci({
 
 sdk.pipeline.listPipelines({
   mine: false,
-  orgSlug: "accusamus",
-  pageToken: "aliquam",
+  orgSlug: "aliquam",
+  pageToken: "odio",
 }).then((res: ListPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -266,9 +266,9 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listPipelinesForProject({
-  branch: "odio",
-  pageToken: "occaecati",
-  projectSlug: "commodi",
+  branch: "occaecati",
+  pageToken: "commodi",
+  projectSlug: "sapiente",
 }).then((res: ListPipelinesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -306,8 +306,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listWorkflowsByPipelineId({
-  pageToken: "sapiente",
-  pipelineId: "2a70c688-282a-4a48-a562-f222e9817ee1",
+  pageToken: "dolores",
+  pipelineId: "a70c6882-82aa-4482-962f-222e9817ee17",
 }).then((res: ListWorkflowsByPipelineIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -348,11 +348,11 @@ sdk.pipeline.triggerPipeline({
   requestBody: {
     branch: "feature/design-new-api",
     parameters: {
-      "esse": "quod",
+      "quod": "nam",
     },
     tag: "v3.1.4159",
   },
-  projectSlug: "nam",
+  projectSlug: "vero",
 }).then((res: TriggerPipelineResponse) => {
   if (res.statusCode == 200) {
     // handle response

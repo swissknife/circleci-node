@@ -33,7 +33,7 @@ sdk.project.createCheckoutKey({
   requestBody: {
     type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
   },
-  projectSlug: "sint",
+  projectSlug: "pariatur",
 }).then((res: CreateCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -75,7 +75,7 @@ sdk.project.createEnvVar({
     name: "foo",
     value: "xxxx1234",
   },
-  projectSlug: "pariatur",
+  projectSlug: "possimus",
 }).then((res: CreateEnvVarResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -113,8 +113,8 @@ const sdk = new Circleci({
 });
 
 sdk.project.deleteCheckoutKey({
-  fingerprint: "possimus",
-  projectSlug: "quia",
+  fingerprint: "quia",
+  projectSlug: "eveniet",
 }).then((res: DeleteCheckoutKeyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -152,7 +152,7 @@ const sdk = new Circleci({
 });
 
 sdk.project.deleteEnvVar({
-  name: "Mr. Marlon Schultz V",
+  name: "Carroll Bogan V",
   projectSlug: "culpa",
 }).then((res: DeleteEnvVarResponse) => {
   if (res.statusCode == 200) {
