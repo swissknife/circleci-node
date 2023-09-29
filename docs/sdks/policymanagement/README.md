@@ -36,12 +36,12 @@ const sdk = new Circleci({
 sdk.policyManagement.createPolicyBundle({
   bundlePayload: {
     policies: {
-      "aliquid": "quasi",
+      "voluptates": "Cruiser",
     },
   },
-  context: "saepe",
+  context: "out Stevie Reggae",
   dry: false,
-  ownerID: "vel",
+  ownerID: "Diesel",
 }).then((res: CreatePolicyBundleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -79,9 +79,9 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionLog({
-  context: "harum",
-  decisionID: "molestiae",
-  ownerID: "rerum",
+  context: "Web Account Wagon",
+  decisionID: "Berkshire Soft quisquam",
+  ownerID: "Branding",
 }).then((res: GetDecisionLogResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -119,9 +119,9 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionLogPolicyBundle({
-  context: "occaecati",
-  decisionID: "minima",
-  ownerID: "distinctio",
+  context: "but Bhutanese vertical",
+  decisionID: "South Organic",
+  ownerID: "North Northeast Glenview",
 }).then((res: GetDecisionLogPolicyBundleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -159,15 +159,15 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionLogs({
-  after: new Date("2022-12-02T08:37:36.325Z"),
-  before: new Date("2021-07-16T01:55:06.595Z"),
-  branch: "adipisci",
-  buildNumber: "cumque",
-  context: "consequuntur",
-  offset: 9766,
-  ownerID: "minus",
-  projectId: "quaerat",
-  status: "sapiente",
+  after: new Date("2021-08-18T01:39:23.459Z"),
+  before: new Date("2022-06-06T09:41:55.748Z"),
+  branch: "maximize Georgia Woman",
+  buildNumber: "East Salad eardrum",
+  context: "systems payment overriding",
+  offset: 922666,
+  ownerID: "Practical Ways",
+  projectId: "female Northeast",
+  status: "capacitor Account City",
 }).then((res: GetDecisionLogsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -205,8 +205,8 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getDecisionSettings({
-  context: "consectetur",
-  ownerID: "esse",
+  context: "West application",
+  ownerID: "pitching Account",
 }).then((res: GetDecisionSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -244,8 +244,8 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getPolicyBundle({
-  context: "blanditiis",
-  ownerID: "provident",
+  context: "South",
+  ownerID: "Kia Mountain Inverse",
 }).then((res: GetPolicyBundleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -283,9 +283,9 @@ const sdk = new Circleci({
 });
 
 sdk.policyManagement.getPolicyDocument({
-  context: "a",
-  ownerID: "nulla",
-  policyName: "quas",
+  context: "Dinar PNG",
+  ownerID: "Idaho mmm",
+  policyName: "Officer Wooden Facilitator",
 }).then((res: GetPolicyDocumentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -324,11 +324,11 @@ const sdk = new Circleci({
 
 sdk.policyManagement.makeDecision({
   requestBody: {
-    input: "esse",
+    input: "Southwest enthusiastically",
     metadata: {},
   },
-  context: "quasi",
-  ownerID: "a",
+  context: "killer",
+  ownerID: "East volt array",
 }).then((res: MakeDecisionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -369,8 +369,8 @@ sdk.policyManagement.setDecisionSettings({
   decisionSettings: {
     enabled: false,
   },
-  context: "error",
-  ownerID: "sint",
+  context: "tan Managed",
+  ownerID: "Agender",
 }).then((res: SetDecisionSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -31,8 +31,8 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.deleteOrgClaims({
-  claims: "quis",
-  orgID: "87053202-c73d-45fe-9b90-c28909b3fe49",
+  claims: "Loan Mini",
+  orgID: "21f3544d-2ca5-43d8-b02d-62f07cecddec",
 }).then((res: DeleteOrgClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,9 +70,9 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.deleteProjectClaims({
-  claims: "dolorum",
-  orgID: "8d9cbf48-6333-423f-9b77-f3a4100674eb",
-  projectID: "f69280d1-ba77-4a89-abf7-37ae4203ce5e",
+  claims: "different Bedfordshire",
+  orgID: "66e45c66-7d61-42f4-9793-f4014a8568d1",
+  projectID: "acf09ef1-b125-42a9-b672-e4182b2819bd",
 }).then((res: DeleteProjectClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -110,7 +110,7 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.getOrgClaims({
-  orgID: "6a95d8a0-d446-4ce2-af7a-73cf3be453f8",
+  orgID: "faa87345-442f-4070-a007-ecf098342349",
 }).then((res: GetOrgClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,8 +148,8 @@ const sdk = new Circleci({
 });
 
 sdk.oidcTokenManagement.getProjectClaims({
-  orgID: "70b326b5-a734-429c-9b1a-8422bb679d23",
-  projectID: "22715bf0-cbb1-4e31-b8b9-0f3443a1108e",
+  orgID: "01345488-5416-440e-9811-7333cda41eee",
+  projectID: "17124405-51b9-4707-91e2-d3024606dad9",
 }).then((res: GetProjectClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,11 +189,11 @@ const sdk = new Circleci({
 sdk.oidcTokenManagement.patchOrgClaims({
   patchClaimsRequest: {
     audience: [
-      "consequatur",
+      "Cadmium",
     ],
-    ttl: "est",
+    ttl: "North Iowa Steel",
   },
-  orgID: "dcf4b921-879f-4ce9-93f7-3ef7fbc7abd7",
+  orgID: "8db81de9-39b2-4ebc-ba7e-f13a592ac772",
 }).then((res: PatchOrgClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -233,12 +233,12 @@ const sdk = new Circleci({
 sdk.oidcTokenManagement.patchProjectClaims({
   patchClaimsRequest: {
     audience: [
-      "dolore",
+      "Hybrid",
     ],
-    ttl: "quibusdam",
+    ttl: "Moses South terrapin",
   },
-  orgID: "d39c0f5d-2cff-47c7-8a45-626d436813f1",
-  projectID: "6d9f5fce-6c55-4614-ac3e-250fb008c42e",
+  orgID: "16f2ace9-e528-43bd-9197-32a9151836aa",
+  projectID: "863235ad-82ba-4634-8011-32a6f00f82fc",
 }).then((res: PatchProjectClaimsResponse) => {
   if (res.statusCode == 200) {
     // handle response

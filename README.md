@@ -33,8 +33,8 @@ sdk.context.addEnvironmentVariableToContext({
   requestBody: {
     value: "some-secret-value",
   },
-  contextId: "05dfc2dd-f7cc-478c-a1ba-928fc816742c",
-  envVarName: "cum",
+  contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+  envVarName: "Pants reproachfully",
 }).then((res: AddEnvironmentVariableToContextResponse) => {
   if (res.statusCode == 200) {
     // handle response

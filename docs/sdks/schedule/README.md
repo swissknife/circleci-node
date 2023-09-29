@@ -35,28 +35,28 @@ const sdk = new Circleci({
 sdk.schedule.createSchedule({
   requestBody: {
     attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-    description: "aliquam",
-    name: "Samuel Hermiston",
+    description: "Reactive actuating knowledge user",
+    name: "fuchsia SMTP Agent",
     parameters: {
-      "nisi": "aut",
+      "ipsam": "animi",
     },
     timetable: {
       daysOfMonth: [
-        185232,
+        608569,
       ],
       daysOfWeek: [
-        CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek.Wed,
+        CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek.Thu,
       ],
       hoursOfDay: [
-        401259,
+        20568,
       ],
       months: [
-        CreateScheduleCreateScheduleParametersTimetable2Months.Feb,
+        CreateScheduleCreateScheduleParametersTimetable1Months.May,
       ],
-      perHour: 929292,
+      perHour: 950659,
     },
   },
-  projectSlug: "dolorum",
+  projectSlug: "National copying",
 }).then((res: CreateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -94,7 +94,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.deleteScheduleById({
-  scheduleId: "19f1d170-5133-49d0-8086-a1840394c260",
+  scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
 }).then((res: DeleteScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -132,7 +132,7 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.getScheduleById({
-  scheduleId: "71f93f5f-0642-4dac-baf5-15cc413aa63a",
+  scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
 }).then((res: GetScheduleByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -170,8 +170,8 @@ const sdk = new Circleci({
 });
 
 sdk.schedule.listSchedulesForProject({
-  pageToken: "est",
-  projectSlug: "recusandae",
+  pageToken: "Missouri southeast transparent",
+  projectSlug: "array",
 }).then((res: ListSchedulesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -216,28 +216,28 @@ const sdk = new Circleci({
 sdk.schedule.updateSchedule({
   requestBody: {
     attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
-    description: "totam",
-    name: "Chester Kuphal",
+    description: "Managed secondary knowledge base",
+    name: "Northwest instead Alto",
     parameters: {
-      "labore": "possimus",
+      "ducimus": "kindly",
     },
     timetable: {
       daysOfMonth: [
-        706575,
+        296760,
       ],
       daysOfWeek: [
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Wed,
+        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Tue,
       ],
       hoursOfDay: [
-        414857,
+        582612,
       ],
       months: [
-        UpdateScheduleUpdateScheduleParametersTimetableMonths.Oct,
+        UpdateScheduleUpdateScheduleParametersTimetableMonths.Jun,
       ],
-      perHour: 360545,
+      perHour: 842366,
     },
   },
-  scheduleId: "fd5e60b3-75ed-44f6-bbee-41f33317fe35",
+  scheduleId: "3e9ab9ea-99c1-4416-a521-017015725a23",
 }).then((res: UpdateScheduleResponse) => {
   if (res.statusCode == 200) {
     // handle response

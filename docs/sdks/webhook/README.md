@@ -31,15 +31,15 @@ const sdk = new Circleci({
 
 sdk.webhook.createWebhook({
   events: [
-    CreateWebhookRequestBodyEvents.WorkflowCompleted,
+    CreateWebhookRequestBodyEvents.JobCompleted,
   ],
-  name: "Byron Stroman",
+  name: "like garage Fresh",
   scope: {
-    id: "5c0b2f2f-b7b1-494a-a76b-26916fe1f08f",
+    id: "3b7d2240-08ac-44c5-9d30-daac81ad9fab",
     type: CreateWebhookRequestBodyScopeType.Project,
   },
-  signingSecret: "incidunt",
-  url: "sed",
+  signingSecret: "navigate outside",
+  url: "http://old-adapter.info",
   verifyTls: false,
 }).then((res: CreateWebhookResponse) => {
   if (res.statusCode == 200) {
@@ -78,7 +78,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.deleteWebhook({
-  webhookId: "94e3698f-447f-4603-a8b4-45e80ca55efd",
+  webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
 }).then((res: DeleteWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,7 +116,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhookById({
-  webhookId: "20e457e1-858b-46a8-9fbe-3a5aa8e4824d",
+  webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
 }).then((res: GetWebhookByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +154,7 @@ const sdk = new Circleci({
 });
 
 sdk.webhook.getWebhooks({
-  scopeId: "0ab40750-88e5-4186-a065-e904f3b1194b",
+  scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
   scopeType: GetWebhooksScopeType.Project,
 }).then((res: GetWebhooksResponse) => {
   if (res.statusCode == 200) {
@@ -197,12 +197,12 @@ sdk.webhook.updateWebhook({
     events: [
       UpdateWebhookRequestBodyEvents.JobCompleted,
     ],
-    name: "Marco White I",
-    signingSecret: "deserunt",
-    url: "voluptate",
+    name: "Cruiser platforms",
+    signingSecret: "synthesize",
+    url: "http://pricey-sorghum.biz",
     verifyTls: false,
   },
-  webhookId: "9f9dfe0a-b7da-48a5-8ce1-87f86bc173d6",
+  webhookId: "36100ab1-98d2-4970-b889-dc7808cca31d",
 }).then((res: UpdateWebhookResponse) => {
   if (res.statusCode == 200) {
     // handle response

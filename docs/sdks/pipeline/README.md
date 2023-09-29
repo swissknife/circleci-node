@@ -30,10 +30,10 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.continuePipeline({
-  configuration: "inventore",
-  continuationKey: "non",
+  configuration: "pink Corporate Hayes",
+  continuationKey: "Upgradable Orchestrator",
   parameters: {
-    "et": "dolorum",
+    "magnam": "Southwest",
   },
 }).then((res: ContinuePipelineResponse) => {
   if (res.statusCode == 200) {
@@ -72,7 +72,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineById({
-  pipelineId: "ac366c8d-d6b1-4442-9074-74778a7bd466",
+  pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
 }).then((res: GetPipelineByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -110,8 +110,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineByNumber({
-  pipelineNumber: "assumenda",
-  projectSlug: "eos",
+  pipelineNumber: "parsing",
+  projectSlug: "Table",
 }).then((res: GetPipelineByNumberResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,7 +149,7 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.getPipelineConfigById({
-  pipelineId: "8c10ab3c-dca4-4251-904e-523c7e0bc717",
+  pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
 }).then((res: GetPipelineConfigByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -187,8 +187,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listMyPipelines({
-  pageToken: "totam",
-  projectSlug: "accusamus",
+  pageToken: "excess",
+  projectSlug: "Bacon",
 }).then((res: ListMyPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -227,8 +227,8 @@ const sdk = new Circleci({
 
 sdk.pipeline.listPipelines({
   mine: false,
-  orgSlug: "aliquam",
-  pageToken: "odio",
+  orgSlug: "wireless transmitter",
+  pageToken: "Buckinghamshire Chicopee joule",
 }).then((res: ListPipelinesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -266,9 +266,9 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listPipelinesForProject({
-  branch: "occaecati",
-  pageToken: "commodi",
-  projectSlug: "sapiente",
+  branch: "Soap blue Cyclocross",
+  pageToken: "Bronze Stone",
+  projectSlug: "South Franc",
 }).then((res: ListPipelinesForProjectResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -306,8 +306,8 @@ const sdk = new Circleci({
 });
 
 sdk.pipeline.listWorkflowsByPipelineId({
-  pageToken: "dolores",
-  pipelineId: "a70c6882-82aa-4482-962f-222e9817ee17",
+  pageToken: "Texas amuse Technician",
+  pipelineId: "dcb87b7e-0fb0-4aa2-a8dd-26b59d8568fc",
 }).then((res: ListWorkflowsByPipelineIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -348,11 +348,11 @@ sdk.pipeline.triggerPipeline({
   requestBody: {
     branch: "feature/design-new-api",
     parameters: {
-      "quod": "nam",
+      "minus": "La",
     },
     tag: "v3.1.4159",
   },
-  projectSlug: "vero",
+  projectSlug: "unde Ukraine Operative",
 }).then((res: TriggerPipelineResponse) => {
   if (res.statusCode == 200) {
     // handle response

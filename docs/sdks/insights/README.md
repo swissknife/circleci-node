@@ -31,8 +31,8 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getAllInsightsBranches({
-  projectSlug: "architecto",
-  workflowName: "repudiandae",
+  projectSlug: "optimize fast",
+  workflowName: "Handmade",
 }).then((res: GetAllInsightsBranchesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -71,7 +71,7 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getFlakyTests({
-  projectSlug: "ullam",
+  projectSlug: "Non Diesel workforce",
 }).then((res: GetFlakyTestsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -109,12 +109,12 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getJobTimeseries({
-  branch: "expedita",
-  endDate: new Date("2022-01-01T10:06:00.916Z"),
-  granularity: GetJobTimeseriesGranularity.Hourly,
-  projectSlug: "sed",
-  startDate: new Date("2020-05-25T09:38:49.528Z"),
-  workflowName: "accusantium",
+  branch: "male",
+  endDate: new Date("2023-08-08T22:52:48.977Z"),
+  granularity: GetJobTimeseriesGranularity.Daily,
+  projectSlug: "HTTP",
+  startDate: new Date("2022-12-12T00:20:19.001Z"),
+  workflowName: "Northwest until extend",
 }).then((res: GetJobTimeseriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -153,9 +153,9 @@ const sdk = new Circleci({
 });
 
 sdk.insights.getOrgSummaryData({
-  orgSlug: "consequuntur",
+  orgSlug: "Buckinghamshire",
   projectNames: {},
-  reportingWindow: GetOrgSummaryDataReportingWindow.Last24Hours,
+  reportingWindow: GetOrgSummaryDataReportingWindow.Last90Days,
 }).then((res: GetOrgSummaryDataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -197,11 +197,11 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowJobMetrics({
   allBranches: false,
-  branch: "natus",
-  pageToken: "magni",
-  projectSlug: "sunt",
-  reportingWindow: GetProjectWorkflowJobMetricsReportingWindow.Last30Days,
-  workflowName: "illum",
+  branch: "female",
+  pageToken: "violet Parks",
+  projectSlug: "navigating",
+  reportingWindow: GetProjectWorkflowJobMetricsReportingWindow.Last60Days,
+  workflowName: "vaguely overlooked",
 }).then((res: GetProjectWorkflowJobMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -240,10 +240,10 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowMetrics({
   allBranches: false,
-  branch: "pariatur",
-  pageToken: "maxime",
-  projectSlug: "ea",
-  reportingWindow: GetProjectWorkflowMetricsReportingWindow.Last24Hours,
+  branch: "Convertible mindshare deliverables",
+  pageToken: "so",
+  projectSlug: "Fresh",
+  reportingWindow: GetProjectWorkflowMetricsReportingWindow.Last7Days,
 }).then((res: GetProjectWorkflowMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -282,12 +282,12 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowRuns({
   allBranches: false,
-  branch: "odit",
-  endDate: new Date("2022-12-19T20:58:17.857Z"),
-  pageToken: "ab",
-  projectSlug: "maiores",
-  startDate: new Date("2022-04-03T11:56:45.015Z"),
-  workflowName: "voluptate",
+  branch: "Shoes",
+  endDate: new Date("2022-08-03T04:14:45.339Z"),
+  pageToken: "IP",
+  projectSlug: "channels till",
+  startDate: new Date("2022-03-17T08:38:16.828Z"),
+  workflowName: "systems Sports pariatur",
 }).then((res: GetProjectWorkflowRunsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -326,9 +326,9 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowTestMetrics({
   allBranches: false,
-  branch: "autem",
-  projectSlug: "nam",
-  workflowName: "eaque",
+  branch: "gold Chair Diesel",
+  projectSlug: "South maximize program",
+  workflowName: "Kids",
 }).then((res: GetProjectWorkflowTestMetricsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -370,7 +370,7 @@ const sdk = new Circleci({
 
 sdk.insights.getProjectWorkflowsPageData({
   branches: {},
-  projectSlug: "pariatur",
+  projectSlug: "strategic Mouse cheap",
   reportingWindow: GetProjectWorkflowsPageDataReportingWindow.Last90Days,
   workflowNames: {},
 }).then((res: GetProjectWorkflowsPageDataResponse) => {
@@ -411,9 +411,9 @@ const sdk = new Circleci({
 
 sdk.insights.getWorkflowSummary({
   allBranches: false,
-  branch: "voluptatibus",
-  projectSlug: "perferendis",
-  workflowName: "fugiat",
+  branch: "Northwest atop",
+  projectSlug: "azure Southeast",
+  workflowName: "HTTP Northeast microchip",
 }).then((res: GetWorkflowSummaryResponse) => {
   if (res.statusCode == 200) {
     // handle response

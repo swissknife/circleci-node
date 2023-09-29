@@ -31,8 +31,8 @@ sdk.context.addEnvironmentVariableToContext({
   requestBody: {
     value: "some-secret-value",
   },
-  contextId: "73920592-9396-4fea-b596-eb10faaa2352",
-  envVarName: "nobis",
+  contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+  envVarName: "Pants reproachfully",
 }).then((res: AddEnvironmentVariableToContextResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -74,9 +74,9 @@ const sdk = new Circleci({
 });
 
 sdk.context.createContext({
-  name: "Guadalupe Hickle",
+  name: "unsteady optical Administrator",
   owner: {
-    id: "7aff1a3a-2fa9-4467-b392-51aa52c3f5ad",
+    id: "ff37ae73-d51a-4d1d-86e3-3428d8359669",
     type: CreateContextRequestBodyOwner1Type.Organization,
   },
 }).then((res: CreateContextResponse) => {
@@ -116,7 +116,7 @@ const sdk = new Circleci({
 });
 
 sdk.context.deleteContext({
-  contextId: "019da1ff-e78f-4097-b007-4f15471b5e6e",
+  contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
 }).then((res: DeleteContextResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,8 +154,8 @@ const sdk = new Circleci({
 });
 
 sdk.context.deleteEnvironmentVariableFromContext({
-  contextId: "13b99d48-8e1e-491e-850a-d2abd4426980",
-  envVarName: "magni",
+  contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
+  envVarName: "driver",
 }).then((res: DeleteEnvironmentVariableFromContextResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -193,7 +193,7 @@ const sdk = new Circleci({
 });
 
 sdk.context.getContext({
-  contextId: "d502a94b-b4f6-43c9-a9e9-a3efa77dfb14",
+  contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
 }).then((res: GetContextResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -231,10 +231,10 @@ const sdk = new Circleci({
 });
 
 sdk.context.listContexts({
-  ownerId: "cd66ae39-5efb-49ba-88f3-a66997074ba4",
-  ownerSlug: "labore",
-  ownerType: ListContextsOwnerType.Account,
-  pageToken: "natus",
+  ownerId: "51287e4e-8191-4eec-b08d-4eefb5da22d0",
+  ownerSlug: "Central",
+  ownerType: ListContextsOwnerType.Organization,
+  pageToken: "Fontana",
 }).then((res: ListContextsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -272,8 +272,8 @@ const sdk = new Circleci({
 });
 
 sdk.context.listEnvironmentVariablesFromContext({
-  contextId: "b6e21419-5989-40af-a563-e2516fe4c8b7",
-  pageToken: "architecto",
+  contextId: "bd93f37e-8737-476a-be63-944592b835e7",
+  pageToken: "deliver male Convertible",
 }).then((res: ListEnvironmentVariablesFromContextResponse) => {
   if (res.statusCode == 200) {
     // handle response
