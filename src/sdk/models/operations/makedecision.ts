@@ -5,7 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
+
+export class MakeDecisionRequestBodyMetadata extends SpeakeasyBase {}
 
 export class MakeDecisionRequestBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
@@ -14,7 +16,8 @@ export class MakeDecisionRequestBody extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    metadata?: Record<string, any>;
+    @Type(() => MakeDecisionRequestBodyMetadata)
+    metadata?: MakeDecisionRequestBodyMetadata;
 }
 
 export class MakeDecisionRequest extends SpeakeasyBase {
@@ -62,6 +65,9 @@ export class MakeDecision400ApplicationJSON extends SpeakeasyBase {
 }
 
 export class MakeDecisionResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -95,9 +101,15 @@ export class MakeDecisionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     makeDecision500ApplicationJSONObject?: MakeDecision500ApplicationJSON;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

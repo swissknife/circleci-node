@@ -3,31 +3,17 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import * as shared from "./models/shared";
+import { SDKConfiguration } from "./sdk";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 export class Pipeline {
-    _defaultClient: AxiosInstance;
-    _securityClient: AxiosInstance;
-    _serverURL: string;
-    _language: string;
-    _sdkVersion: string;
-    _genVersion: string;
+    private sdkConfiguration: SDKConfiguration;
 
-    constructor(
-        defaultClient: AxiosInstance,
-        securityClient: AxiosInstance,
-        serverURL: string,
-        language: string,
-        sdkVersion: string,
-        genVersion: string
-    ) {
-        this._defaultClient = defaultClient;
-        this._securityClient = securityClient;
-        this._serverURL = serverURL;
-        this._language = language;
-        this._sdkVersion = sdkVersion;
-        this._genVersion = genVersion;
+    constructor(sdkConfig: SDKConfiguration) {
+        this.sdkConfiguration = sdkConfig;
     }
 
     /**
@@ -44,10 +30,13 @@ export class Pipeline {
             req = new operations.ContinuePipelineRequestBody(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/pipeline/continue";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -56,20 +45,30 @@ export class Pipeline {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -85,20 +84,35 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ContinuePipelineMessageResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.continuePipelineDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ContinuePipelineDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -121,22 +135,31 @@ export class Pipeline {
             req = new operations.GetPipelineByIdRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/pipeline/{pipeline-id}", req);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -151,20 +174,35 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipeline = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByIdPipeline
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPipelineByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -187,26 +225,35 @@ export class Pipeline {
             req = new operations.GetPipelineByNumberRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/pipeline/{pipeline-number}",
             req
         );
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -222,20 +269,35 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipeline = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByNumberPipeline
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPipelineByNumberDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineByNumberDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -258,22 +320,31 @@ export class Pipeline {
             req = new operations.GetPipelineConfigByIdRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/pipeline/{pipeline-id}/config", req);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -289,20 +360,35 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineConfig = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineConfigByIdPipelineConfig
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPipelineConfigByIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPipelineConfigByIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -325,27 +411,36 @@ export class Pipeline {
             req = new operations.ListMyPipelinesRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/pipeline/mine",
             req
         );
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -360,20 +455,35 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListMyPipelinesPipelineListResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listMyPipelinesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListMyPipelinesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -396,23 +506,32 @@ export class Pipeline {
             req = new operations.ListPipelinesRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/pipeline";
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -427,20 +546,35 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesPipelineListResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -463,23 +597,32 @@ export class Pipeline {
             req = new operations.ListPipelinesForProjectRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/project/{project-slug}/pipeline", req);
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -495,20 +638,35 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesForProjectPipelineListResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listPipelinesForProjectDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPipelinesForProjectDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -531,23 +689,32 @@ export class Pipeline {
             req = new operations.ListWorkflowsByPipelineIdRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/pipeline/{pipeline-id}/workflow", req);
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -563,20 +730,35 @@ export class Pipeline {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.workflowListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListWorkflowsByPipelineIdWorkflowListResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -599,10 +781,13 @@ export class Pipeline {
             req = new operations.TriggerPipelineRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/project/{project-slug}/pipeline", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
@@ -611,20 +796,30 @@ export class Pipeline {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -640,20 +835,35 @@ export class Pipeline {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pipelineCreation = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.TriggerPipelinePipelineCreation
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.triggerPipelineDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.TriggerPipelineDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

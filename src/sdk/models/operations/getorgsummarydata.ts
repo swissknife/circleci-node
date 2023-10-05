@@ -7,6 +7,11 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * List of project names.
+ */
+export class GetOrgSummaryDataProjectNames extends SpeakeasyBase {}
+
+/**
  * The time window used to calculate summary metrics.
  */
 export enum GetOrgSummaryDataReportingWindow {
@@ -28,7 +33,7 @@ export class GetOrgSummaryDataRequest extends SpeakeasyBase {
      * List of project names.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=project-names" })
-    projectNames?: Record<string, any>;
+    projectNames?: GetOrgSummaryDataProjectNames;
 
     /**
      * The time window used to calculate summary metrics.
@@ -76,7 +81,7 @@ export class GetOrgSummaryData200ApplicationJSONOrgDataMetrics extends Speakeasy
     totalDurationSecs: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })
@@ -167,7 +172,7 @@ export class GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics extends Sp
     totalDurationSecs: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })
@@ -261,12 +266,21 @@ export class GetOrgSummaryData200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetOrgSummaryDataResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

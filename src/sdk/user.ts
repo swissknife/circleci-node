@@ -3,31 +3,17 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import * as shared from "./models/shared";
+import { SDKConfiguration } from "./sdk";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 export class User {
-    _defaultClient: AxiosInstance;
-    _securityClient: AxiosInstance;
-    _serverURL: string;
-    _language: string;
-    _sdkVersion: string;
-    _genVersion: string;
+    private sdkConfiguration: SDKConfiguration;
 
-    constructor(
-        defaultClient: AxiosInstance,
-        securityClient: AxiosInstance,
-        serverURL: string,
-        language: string,
-        sdkVersion: string,
-        genVersion: string
-    ) {
-        this._defaultClient = defaultClient;
-        this._securityClient = securityClient;
-        this._serverURL = serverURL;
-        this._language = language;
-        this._sdkVersion = sdkVersion;
-        this._genVersion = genVersion;
+    constructor(sdkConfig: SDKConfiguration) {
+        this.sdkConfiguration = sdkConfig;
     }
 
     /**
@@ -45,22 +31,31 @@ export class User {
     async getCollaborations(
         config?: AxiosRequestConfig
     ): Promise<operations.GetCollaborationsResponse> {
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/me/collaborations";
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -75,23 +70,38 @@ export class User {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.collaborations = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.collaborations = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCollaborationsCollaboration,
                         resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getCollaborationsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCollaborationsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -107,22 +117,31 @@ export class User {
      * Provides information about the user that is currently signed in.
      */
     async getCurrentUser(config?: AxiosRequestConfig): Promise<operations.GetCurrentUserResponse> {
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/me";
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -137,17 +156,35 @@ export class User {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.user = utils.objectToClass(httpRes?.data, operations.GetCurrentUserUser);
+                    res.user = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetCurrentUserUser
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getCurrentUserDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetCurrentUserDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -170,22 +207,31 @@ export class User {
             req = new operations.GetUserRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/user/{id}", req);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -200,17 +246,32 @@ export class User {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.user = utils.objectToClass(httpRes?.data, operations.GetUserUser);
+                    res.user = utils.objectToClass(JSON.parse(decodedRes), operations.GetUserUser);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getUserDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetUserDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

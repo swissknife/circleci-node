@@ -43,9 +43,6 @@ export class DecisionLogMetadata extends SpeakeasyBase {
     vcs?: DecisionLogMetadataVcs;
 }
 
-/**
- * Decision log successfully retrieved.
- */
 export class DecisionLog extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })

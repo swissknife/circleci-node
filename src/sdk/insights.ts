@@ -3,31 +3,17 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import * as shared from "./models/shared";
+import { SDKConfiguration } from "./sdk";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 export class Insights {
-    _defaultClient: AxiosInstance;
-    _securityClient: AxiosInstance;
-    _serverURL: string;
-    _language: string;
-    _sdkVersion: string;
-    _genVersion: string;
+    private sdkConfiguration: SDKConfiguration;
 
-    constructor(
-        defaultClient: AxiosInstance,
-        securityClient: AxiosInstance,
-        serverURL: string,
-        language: string,
-        sdkVersion: string,
-        genVersion: string
-    ) {
-        this._defaultClient = defaultClient;
-        this._securityClient = securityClient;
-        this._serverURL = serverURL;
-        this._language = language;
-        this._sdkVersion = sdkVersion;
-        this._genVersion = genVersion;
+    constructor(sdkConfig: SDKConfiguration) {
+        this.sdkConfiguration = sdkConfig;
     }
 
     /**
@@ -44,23 +30,32 @@ export class Insights {
             req = new operations.GetAllInsightsBranchesRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/branches", req);
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -76,17 +71,32 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAllInsightsBranches200ApplicationJSONAny = httpRes?.data;
+                    res.getAllInsightsBranches200ApplicationJSONAny = JSON.parse(decodedRes);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getAllInsightsBranchesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetAllInsightsBranchesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -110,22 +120,31 @@ export class Insights {
             req = new operations.GetFlakyTestsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/flaky-tests", req);
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -140,20 +159,35 @@ export class Insights {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetFlakyTests200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetFlakyTestsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -166,7 +200,7 @@ export class Insights {
      * Job timeseries data
      *
      * @remarks
-     * Get timeseries data for all jobs within a workflow.
+     * Get timeseries data for all jobs within a workflow. Hourly granularity data is only retained for 48 hours while daily granularity data is retained for 90 days.
      */
     async getJobTimeseries(
         req: operations.GetJobTimeseriesRequest,
@@ -176,27 +210,36 @@ export class Insights {
             req = new operations.GetJobTimeseriesRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/insights/time-series/{project-slug}/workflows/{workflow-name}/jobs",
             req
         );
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -211,20 +254,35 @@ export class Insights {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobTimeseries200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobTimeseriesDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobTimeseriesDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -248,23 +306,32 @@ export class Insights {
             req = new operations.GetOrgSummaryDataRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/insights/{org-slug}/summary", req);
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -279,20 +346,35 @@ export class Insights {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetOrgSummaryData200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getOrgSummaryDataDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetOrgSummaryDataDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -315,27 +397,36 @@ export class Insights {
             req = new operations.GetProjectWorkflowJobMetricsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}/jobs",
             req
         );
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -351,12 +442,20 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowJobMetrics200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowJobMetrics200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -364,9 +463,16 @@ export class Insights {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -388,23 +494,32 @@ export class Insights {
             req = new operations.GetProjectWorkflowMetricsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/workflows", req);
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -420,20 +535,35 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowMetrics200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowMetrics200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowMetricsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowMetricsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -456,27 +586,36 @@ export class Insights {
             req = new operations.GetProjectWorkflowRunsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}",
             req
         );
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -492,20 +631,35 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowRuns200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowRuns200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowRunsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowRunsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -528,27 +682,36 @@ export class Insights {
             req = new operations.GetProjectWorkflowTestMetricsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}/test-metrics",
             req
         );
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -564,12 +727,20 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowTestMetrics200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowTestMetrics200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -577,9 +748,16 @@ export class Insights {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -604,27 +782,36 @@ export class Insights {
             req = new operations.GetProjectWorkflowsPageDataRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/insights/pages/{project-slug}/summary",
             req
         );
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -640,12 +827,20 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowsPageData200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetProjectWorkflowsPageData200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -653,9 +848,16 @@ export class Insights {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
                         utils.objectToClass(
-                            httpRes?.data,
+                            JSON.parse(decodedRes),
                             operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
                         );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -677,27 +879,36 @@ export class Insights {
             req = new operations.GetWorkflowSummaryRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}/summary",
             req
         );
-
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -713,20 +924,35 @@ export class Insights {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWorkflowSummary200ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWorkflowSummary200ApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getWorkflowSummaryDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetWorkflowSummaryDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

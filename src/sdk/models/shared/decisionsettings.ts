@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * Decision settings successfully retrieved.
- */
 export class DecisionSettings extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "enabled" })

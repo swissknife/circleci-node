@@ -456,6 +456,9 @@ export class CreateScheduleSchedule extends SpeakeasyBase {
 }
 
 export class CreateScheduleResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -465,9 +468,15 @@ export class CreateScheduleResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     schedule?: CreateScheduleSchedule;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

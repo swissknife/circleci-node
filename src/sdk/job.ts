@@ -3,31 +3,17 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import * as shared from "./models/shared";
+import { SDKConfiguration } from "./sdk";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 export class Job {
-    _defaultClient: AxiosInstance;
-    _securityClient: AxiosInstance;
-    _serverURL: string;
-    _language: string;
-    _sdkVersion: string;
-    _genVersion: string;
+    private sdkConfiguration: SDKConfiguration;
 
-    constructor(
-        defaultClient: AxiosInstance,
-        securityClient: AxiosInstance,
-        serverURL: string,
-        language: string,
-        sdkVersion: string,
-        genVersion: string
-    ) {
-        this._defaultClient = defaultClient;
-        this._securityClient = securityClient;
-        this._serverURL = serverURL;
-        this._language = language;
-        this._sdkVersion = sdkVersion;
-        this._genVersion = genVersion;
+    constructor(sdkConfig: SDKConfiguration) {
+        this.sdkConfiguration = sdkConfig;
     }
 
     /**
@@ -44,26 +30,35 @@ export class Job {
             req = new operations.CancelJobRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/job/{job-number}/cancel",
             req
         );
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -78,20 +73,35 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CancelJobMessageResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.cancelJobDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.CancelJobDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -114,26 +124,35 @@ export class Job {
             req = new operations.GetJobArtifactsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/{job-number}/artifacts",
             req
         );
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -148,20 +167,35 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.artifactListResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobArtifactsArtifactListResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobArtifactsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobArtifactsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -184,26 +218,35 @@ export class Job {
             req = new operations.GetJobDetailsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/job/{job-number}",
             req
         );
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -218,20 +261,35 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.jobDetails = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobDetailsJobDetails
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getJobDetailsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetJobDetailsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -254,26 +312,35 @@ export class Job {
             req = new operations.GetTestsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/{job-number}/tests",
             req
         );
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -288,20 +355,35 @@ export class Job {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.testsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetTestsTestsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getTestsDefaultApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetTestsDefaultApplicationJSON
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

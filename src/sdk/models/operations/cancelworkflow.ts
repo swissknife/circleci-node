@@ -36,6 +36,9 @@ export class CancelWorkflowMessageResponse extends SpeakeasyBase {
 }
 
 export class CancelWorkflowResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -45,9 +48,15 @@ export class CancelWorkflowResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     messageResponse?: CancelWorkflowMessageResponse;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

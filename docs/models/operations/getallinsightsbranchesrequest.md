@@ -1,0 +1,9 @@
+# GetAllInsightsBranchesRequest
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `projectSlug`                                                                                  | *string*                                                                                       | :heavy_check_mark:                                                                             | Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. |
+| `workflowName`                                                                                 | *string*                                                                                       | :heavy_minus_sign:                                                                             | The name of a workflow. If not passed we will scope the API call to the project.               |

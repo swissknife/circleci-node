@@ -14,10 +14,10 @@ export class GetWorkflowSummaryRequest extends SpeakeasyBase {
     allBranches?: boolean;
 
     /**
-     * The names of VCS branches to include in branch-level workflow metrics.
+     * The name of a vcs branch. If not passed we will scope the API call to the default branch.
      */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
-    branches?: Record<string, any>;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branch" })
+    branch?: string;
 
     /**
      * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
@@ -93,6 +93,13 @@ export class GetWorkflowSummary200ApplicationJSONMetricsDurationMetrics extends 
  */
 export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
     /**
+     * The number of runs that ran to completion within the aggregation window
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "completed_runs" })
+    completedRuns: number;
+
+    /**
      * Metrics relating to the duration of runs for a workflow.
      */
     @SpeakeasyMetadata()
@@ -140,14 +147,14 @@ export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
     totalCreditsUsed: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })
     totalRuns: number;
 
     /**
-     * The end of the aggregation window for workflow metrics.
+     * The timestamp of the last build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_end" })
@@ -155,7 +162,7 @@ export class GetWorkflowSummary200ApplicationJSONMetrics extends SpeakeasyBase {
     windowEnd: Date;
 
     /**
-     * The start of the aggregation window for workflow metrics.
+     * The timestamp of the first build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_start" })
@@ -253,12 +260,21 @@ export class GetWorkflowSummary200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetWorkflowSummaryResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

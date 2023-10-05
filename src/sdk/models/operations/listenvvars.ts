@@ -67,6 +67,9 @@ export class ListEnvVarsEnvironmentVariableListResponse extends SpeakeasyBase {
 }
 
 export class ListEnvVarsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -76,9 +79,15 @@ export class ListEnvVarsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     environmentVariableListResponse?: ListEnvVarsEnvironmentVariableListResponse;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

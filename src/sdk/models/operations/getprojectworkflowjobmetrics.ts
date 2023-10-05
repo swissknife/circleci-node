@@ -156,7 +156,7 @@ export class GetProjectWorkflowJobMetrics200ApplicationJSONItemsMetrics extends 
     totalCreditsUsed: number;
 
     /**
-     * The total number of runs.
+     * The total number of runs, including runs that are still on-hold or running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "total_runs" })
@@ -180,7 +180,7 @@ export class GetProjectWorkflowJobMetrics200ApplicationJSONItems extends Speakea
     name: string;
 
     /**
-     * The end of the aggregation window for job metrics.
+     * The timestamp of the last build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_end" })
@@ -188,7 +188,7 @@ export class GetProjectWorkflowJobMetrics200ApplicationJSONItems extends Speakea
     windowEnd: Date;
 
     /**
-     * The start of the aggregation window for job metrics.
+     * The timestamp of the first build within the requested reporting window.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "window_start" })
@@ -217,12 +217,21 @@ export class GetProjectWorkflowJobMetrics200ApplicationJSON extends SpeakeasyBas
 }
 
 export class GetProjectWorkflowJobMetricsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

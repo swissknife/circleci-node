@@ -61,6 +61,9 @@ export class GetDecisionSettings400ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetDecisionSettingsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -103,9 +106,15 @@ export class GetDecisionSettingsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     getDecisionSettings500ApplicationJSONObject?: GetDecisionSettings500ApplicationJSON;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
