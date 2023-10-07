@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -126,8 +127,8 @@ export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
     /**
      * Policy-Bundle retrieved successfully for given decision log ID
      */
-    @SpeakeasyMetadata()
-    policyBundle?: Record<string, any>;
+    @SpeakeasyMetadata({ elemType: shared.Policy, elemDepth: 2 })
+    policyBundle?: Record<string, shared.Policy[]>;
 
     /**
      * HTTP response status code for this operation

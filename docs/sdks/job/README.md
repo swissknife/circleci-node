@@ -16,22 +16,23 @@ Cancel job with a given job number.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CancelJobResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.job.cancelJob({
-  jobNumber: "Electric",
-  projectSlug: "West",
-}).then((res: CancelJobResponse) => {
+  const res = await sdk.job.cancelJob({
+    jobNumber: "Electric",
+    projectSlug: "West",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -55,22 +56,23 @@ Returns a job's artifacts.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobArtifactsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.job.getJobArtifacts({
-  jobNumber: "generating",
-  projectSlug: "Markets",
-}).then((res: GetJobArtifactsResponse) => {
+  const res = await sdk.job.getJobArtifacts({
+    jobNumber: "generating",
+    projectSlug: "Markets",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -94,22 +96,23 @@ Returns job details.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobDetailsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.job.getJobDetails({
-  jobNumber: "North",
-  projectSlug: "aggregate",
-}).then((res: GetJobDetailsResponse) => {
+  const res = await sdk.job.getJobDetails({
+    jobNumber: "North",
+    projectSlug: "aggregate",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -133,22 +136,23 @@ Get test metadata for a build. In the rare case where there is more than 250MB o
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.job.getTests({
-  jobNumber: "eyeballs",
-  projectSlug: "Leone Account ASCII",
-}).then((res: GetTestsResponse) => {
+  const res = await sdk.job.getTests({
+    jobNumber: "eyeballs",
+    projectSlug: "Leone Account ASCII",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

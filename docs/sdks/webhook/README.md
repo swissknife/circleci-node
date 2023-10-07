@@ -17,35 +17,33 @@ Create a webhook
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  CreateWebhookRequestBodyEvents,
-  CreateWebhookRequestBodyScopeType,
-  CreateWebhookResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CreateWebhookRequestBodyEvents, CreateWebhookRequestBodyScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.webhook.createWebhook({
-  events: [
-    CreateWebhookRequestBodyEvents.JobCompleted,
-  ],
-  name: "like garage Fresh",
-  scope: {
-    id: "3b7d2240-08ac-44c5-9d30-daac81ad9fab",
-    type: CreateWebhookRequestBodyScopeType.Project,
-  },
-  signingSecret: "navigate outside",
-  url: "http://old-adapter.info",
-  verifyTls: false,
-}).then((res: CreateWebhookResponse) => {
+  const res = await sdk.webhook.createWebhook({
+    events: [
+      CreateWebhookRequestBodyEvents.JobCompleted,
+    ],
+    name: "like garage Fresh",
+    scope: {
+      id: "3b7d2240-08ac-44c5-9d30-daac81ad9fab",
+      type: CreateWebhookRequestBodyScopeType.Project,
+    },
+    signingSecret: "navigate outside",
+    url: "http://old-adapter.info",
+    verifyTls: false,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -69,21 +67,22 @@ Delete a webhook
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteWebhookResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.webhook.deleteWebhook({
-  webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
-}).then((res: DeleteWebhookResponse) => {
+  const res = await sdk.webhook.deleteWebhook({
+    webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -107,21 +106,22 @@ Get a webhook by id.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWebhookByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.webhook.getWebhookById({
-  webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
-}).then((res: GetWebhookByIdResponse) => {
+  const res = await sdk.webhook.getWebhookById({
+    webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -145,22 +145,24 @@ Get a list of webhook that match the given scope-type and scope-id
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWebhooksResponse, GetWebhooksScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetWebhooksScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.webhook.getWebhooks({
-  scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
-  scopeType: GetWebhooksScopeType.Project,
-}).then((res: GetWebhooksResponse) => {
+  const res = await sdk.webhook.getWebhooks({
+    scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
+    scopeType: GetWebhooksScopeType.Project,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,30 +186,28 @@ Update a webhook
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { UpdateWebhookRequestBodyEvents, UpdateWebhookResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { UpdateWebhookRequestBodyEvents } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.webhook.updateWebhook({
-  requestBody: {
-    events: [
-      UpdateWebhookRequestBodyEvents.JobCompleted,
-    ],
-    name: "Cruiser platforms",
-    signingSecret: "synthesize",
-    url: "http://pricey-sorghum.biz",
-    verifyTls: false,
-  },
-  webhookId: "36100ab1-98d2-4970-b889-dc7808cca31d",
-}).then((res: UpdateWebhookResponse) => {
+  const res = await sdk.webhook.updateWebhook({
+    requestBody: {
+      events: [
+        UpdateWebhookRequestBodyEvents.JobCompleted,
+      ],
+    },
+    webhookId: "ac255204-82ad-4436-900a-b198d2970788",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

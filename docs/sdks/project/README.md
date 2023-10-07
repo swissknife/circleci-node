@@ -16,29 +16,34 @@
 ## createCheckoutKey
 
 Creates a new checkout key. This API request is only usable with a user API token.
+                           Please ensure that you have authorized your account with GitHub before creating user keys.
+                           This is necessary to give CircleCI the permission to create a user key associated with
+                           your GitHub user account. You can find this page by visiting Project Settings > Checkout SSH Keys
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType, CreateCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.createCheckoutKey({
-  requestBody: {
-    type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
-  },
-  projectSlug: "payment grow",
-}).then((res: CreateCheckoutKeyResponse) => {
+  const res = await sdk.project.createCheckoutKey({
+    requestBody: {
+      type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
+    },
+    projectSlug: "payment grow",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,25 +67,26 @@ Creates a new environment variable.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreateEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.createEnvVar({
-  requestBody: {
-    name: "foo",
-    value: "xxxx1234",
-  },
-  projectSlug: "Alaska",
-}).then((res: CreateEnvVarResponse) => {
+  const res = await sdk.project.createEnvVar({
+    requestBody: {
+      name: "foo",
+      value: "xxxx1234",
+    },
+    projectSlug: "Alaska",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,22 +110,23 @@ Deletes the checkout key.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.deleteCheckoutKey({
-  fingerprint: "Wooden since",
-  projectSlug: "Configuration",
-}).then((res: DeleteCheckoutKeyResponse) => {
+  const res = await sdk.project.deleteCheckoutKey({
+    fingerprint: "Wooden since",
+    projectSlug: "Configuration",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -143,22 +150,23 @@ Deletes the environment variable named :name.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.deleteEnvVar({
-  name: "Terbium Soap Volkswagen",
-  projectSlug: "Convertible Omnigender Fish",
-}).then((res: DeleteEnvVarResponse) => {
+  const res = await sdk.project.deleteEnvVar({
+    name: "Terbium Soap Volkswagen",
+    projectSlug: "Convertible Omnigender Fish",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -182,22 +190,23 @@ Returns an individual checkout key.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.getCheckoutKey({
-  fingerprint: "Guernsey",
-  projectSlug: "extend compressing",
-}).then((res: GetCheckoutKeyResponse) => {
+  const res = await sdk.project.getCheckoutKey({
+    fingerprint: "Guernsey",
+    projectSlug: "extend compressing",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -221,22 +230,23 @@ Returns the masked value of environment variable :name.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.getEnvVar({
-  name: "pascal",
-  projectSlug: "Metrics Engineer",
-}).then((res: GetEnvVarResponse) => {
+  const res = await sdk.project.getEnvVar({
+    name: "pascal",
+    projectSlug: "Metrics Engineer",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -260,21 +270,22 @@ Retrieves a project by project slug.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectBySlugResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.getProjectBySlug({
-  projectSlug: "reboot",
-}).then((res: GetProjectBySlugResponse) => {
+  const res = await sdk.project.getProjectBySlug({
+    projectSlug: "reboot",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -298,21 +309,22 @@ Returns a sequence of checkout keys for `:project`.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListCheckoutKeysResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.listCheckoutKeys({
-  projectSlug: "Pataca",
-}).then((res: ListCheckoutKeysResponse) => {
+  const res = await sdk.project.listCheckoutKeys({
+    projectSlug: "Pataca",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -336,21 +348,22 @@ Returns four 'x' characters, in addition to the last four ASCII characters of th
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListEnvVarsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.project.listEnvVars({
-  projectSlug: "Southeast Books Austin",
-}).then((res: ListEnvVarsResponse) => {
+  const res = await sdk.project.listEnvVars({
+    projectSlug: "Southeast Books Austin",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

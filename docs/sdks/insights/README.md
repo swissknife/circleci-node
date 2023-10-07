@@ -22,22 +22,22 @@ Get a list of all branches for a specified project. The list will only contain b
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetAllInsightsBranchesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getAllInsightsBranches({
-  projectSlug: "optimize fast",
-  workflowName: "Handmade",
-}).then((res: GetAllInsightsBranchesResponse) => {
+  const res = await sdk.insights.getAllInsightsBranches({
+    projectSlug: "optimize fast",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,21 +62,22 @@ Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetFlakyTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getFlakyTests({
-  projectSlug: "Non Diesel workforce",
-}).then((res: GetFlakyTestsResponse) => {
+  const res = await sdk.insights.getFlakyTests({
+    projectSlug: "Non Diesel workforce",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -100,26 +101,24 @@ Get timeseries data for all jobs within a workflow. Hourly granularity data is o
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobTimeseriesGranularity, GetJobTimeseriesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetJobTimeseriesGranularity } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getJobTimeseries({
-  branch: "male",
-  endDate: new Date("2023-08-08T22:52:48.977Z"),
-  granularity: GetJobTimeseriesGranularity.Daily,
-  projectSlug: "HTTP",
-  startDate: new Date("2022-12-12T00:20:19.001Z"),
-  workflowName: "Northwest until extend",
-}).then((res: GetJobTimeseriesResponse) => {
+  const res = await sdk.insights.getJobTimeseries({
+    projectSlug: "male",
+    workflowName: "North HTTP International",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -144,23 +143,24 @@ Gets aggregated summary metrics with trends for the entire org.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetOrgSummaryDataReportingWindow, GetOrgSummaryDataResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetOrgSummaryDataReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getOrgSummaryData({
-  orgSlug: "Buckinghamshire",
-  projectNames: {},
-  reportingWindow: GetOrgSummaryDataReportingWindow.Last90Days,
-}).then((res: GetOrgSummaryDataResponse) => {
+  const res = await sdk.insights.getOrgSummaryData({
+    orgSlug: "Buckinghamshire",
+    projectNames: {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,29 +184,24 @@ Get summary metrics for a project workflow's jobs. Job runs going back at most 9
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetProjectWorkflowJobMetricsReportingWindow,
-  GetProjectWorkflowJobMetricsResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowJobMetricsReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getProjectWorkflowJobMetrics({
-  allBranches: false,
-  branch: "female",
-  pageToken: "violet Parks",
-  projectSlug: "navigating",
-  reportingWindow: GetProjectWorkflowJobMetricsReportingWindow.Last60Days,
-  workflowName: "vaguely overlooked",
-}).then((res: GetProjectWorkflowJobMetricsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowJobMetrics({
+    projectSlug: "female",
+    workflowName: "violet Parks",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -230,25 +225,23 @@ Get summary metrics for a project's workflows.  Workflow runs going back at most
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowMetricsReportingWindow, GetProjectWorkflowMetricsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowMetricsReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getProjectWorkflowMetrics({
-  allBranches: false,
-  branch: "Convertible mindshare deliverables",
-  pageToken: "so",
-  projectSlug: "Fresh",
-  reportingWindow: GetProjectWorkflowMetricsReportingWindow.Last7Days,
-}).then((res: GetProjectWorkflowMetricsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowMetrics({
+    projectSlug: "Convertible mindshare deliverables",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -272,27 +265,23 @@ Get recent runs of a workflow. Runs going back at most 90 days are returned. Ple
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowRunsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getProjectWorkflowRuns({
-  allBranches: false,
-  branch: "Shoes",
-  endDate: new Date("2022-08-03T04:14:45.339Z"),
-  pageToken: "IP",
-  projectSlug: "channels till",
-  startDate: new Date("2022-03-17T08:38:16.828Z"),
-  workflowName: "systems Sports pariatur",
-}).then((res: GetProjectWorkflowRunsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowRuns({
+    projectSlug: "Shoes",
+    workflowName: "Kiribati Investment",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -316,24 +305,23 @@ Get test metrics for a project's workflows. Currently tests metrics are calculat
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowTestMetricsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getProjectWorkflowTestMetrics({
-  allBranches: false,
-  branch: "gold Chair Diesel",
-  projectSlug: "South maximize program",
-  workflowName: "Kids",
-}).then((res: GetProjectWorkflowTestMetricsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowTestMetrics({
+    projectSlug: "gold Chair Diesel",
+    workflowName: "South maximize program",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -360,24 +348,25 @@ Get summary metrics and trends for a project at workflow and branch level.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowsPageDataReportingWindow, GetProjectWorkflowsPageDataResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowsPageDataReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getProjectWorkflowsPageData({
-  branches: {},
-  projectSlug: "strategic Mouse cheap",
-  reportingWindow: GetProjectWorkflowsPageDataReportingWindow.Last90Days,
-  workflowNames: {},
-}).then((res: GetProjectWorkflowsPageDataResponse) => {
+  const res = await sdk.insights.getProjectWorkflowsPageData({
+    branches: {},
+    projectSlug: "strategic Mouse cheap",
+    workflowNames: {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -401,24 +390,23 @@ Get the metrics and trends for a particular workflow on a single branch or all b
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWorkflowSummaryResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.insights.getWorkflowSummary({
-  allBranches: false,
-  branch: "Northwest atop",
-  projectSlug: "azure Southeast",
-  workflowName: "HTTP Northeast microchip",
-}).then((res: GetWorkflowSummaryResponse) => {
+  const res = await sdk.insights.getWorkflowSummary({
+    projectSlug: "Northwest atop",
+    workflowName: "azure Southeast",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

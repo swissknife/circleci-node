@@ -21,19 +21,20 @@ The set of organizations that a user can collaborate on is composed of:
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetCollaborationsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.user.getCollaborations().then((res: GetCollaborationsResponse) => {
+  const res = await sdk.user.getCollaborations();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -56,19 +57,20 @@ Provides information about the user that is currently signed in.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetCurrentUserResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.user.getCurrentUser().then((res: GetCurrentUserResponse) => {
+  const res = await sdk.user.getCurrentUser();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -91,21 +93,22 @@ Provides information about the user with the given ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetUserResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.user.getUser({
-  id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
-}).then((res: GetUserResponse) => {
+  const res = await sdk.user.getUser({
+    id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -25,28 +25,28 @@ This endpoint replaces the current policy bundle with the provided policy bundle
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreatePolicyBundleResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
-
-sdk.policyManagement.createPolicyBundle({
-  bundlePayload: {
-    policies: {
-      "voluptates": "Cruiser",
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
     },
-  },
-  context: "out Stevie Reggae",
-  dry: false,
-  ownerID: "Diesel",
-}).then((res: CreatePolicyBundleResponse) => {
+  });
+
+  const res = await sdk.policyManagement.createPolicyBundle({
+    bundlePayload: {
+      policies: {
+        "whenever": "Shirt",
+      },
+    },
+    context: "out Stevie Reggae",
+    ownerID: "Diesel",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,23 +70,24 @@ This endpoint will retrieve a decision for a given decision log ID
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetDecisionLogResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.getDecisionLog({
-  context: "Web Account Wagon",
-  decisionID: "Berkshire Soft quisquam",
-  ownerID: "Branding",
-}).then((res: GetDecisionLogResponse) => {
+  const res = await sdk.policyManagement.getDecisionLog({
+    context: "Web Account Wagon",
+    decisionID: "Berkshire Soft quisquam",
+    ownerID: "Branding",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -110,23 +111,24 @@ This endpoint will retrieve a policy bundle for a given decision log ID
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetDecisionLogPolicyBundleResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.getDecisionLogPolicyBundle({
-  context: "but Bhutanese vertical",
-  decisionID: "South Organic",
-  ownerID: "North Northeast Glenview",
-}).then((res: GetDecisionLogPolicyBundleResponse) => {
+  const res = await sdk.policyManagement.getDecisionLogPolicyBundle({
+    context: "but Bhutanese vertical",
+    decisionID: "South Organic",
+    ownerID: "North Northeast Glenview",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,29 +152,23 @@ This endpoint will return a list of decision audit logs that were made using thi
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetDecisionLogsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.getDecisionLogs({
-  after: new Date("2021-08-18T01:39:23.459Z"),
-  before: new Date("2022-06-06T09:41:55.748Z"),
-  branch: "maximize Georgia Woman",
-  buildNumber: "East Salad eardrum",
-  context: "systems payment overriding",
-  offset: 922666,
-  ownerID: "Practical Ways",
-  projectId: "female Northeast",
-  status: "capacitor Account City",
-}).then((res: GetDecisionLogsResponse) => {
+  const res = await sdk.policyManagement.getDecisionLogs({
+    context: "SMS",
+    ownerID: "Bigender",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -196,22 +192,23 @@ This endpoint retrieves the current decision settings (eg enable/disable policy 
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetDecisionSettingsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.getDecisionSettings({
-  context: "West application",
-  ownerID: "pitching Account",
-}).then((res: GetDecisionSettingsResponse) => {
+  const res = await sdk.policyManagement.getDecisionSettings({
+    context: "West application",
+    ownerID: "pitching Account",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -235,22 +232,23 @@ This endpoint will retrieve a policy bundle
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPolicyBundleResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.getPolicyBundle({
-  context: "South",
-  ownerID: "Kia Mountain Inverse",
-}).then((res: GetPolicyBundleResponse) => {
+  const res = await sdk.policyManagement.getPolicyBundle({
+    context: "South",
+    ownerID: "Kia Mountain Inverse",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -274,23 +272,24 @@ This endpoint will retrieve a policy document.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPolicyDocumentResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.getPolicyDocument({
-  context: "Dinar PNG",
-  ownerID: "Idaho mmm",
-  policyName: "Officer Wooden Facilitator",
-}).then((res: GetPolicyDocumentResponse) => {
+  const res = await sdk.policyManagement.getPolicyDocument({
+    context: "Dinar PNG",
+    ownerID: "Idaho mmm",
+    policyName: "Officer Wooden Facilitator",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -314,26 +313,27 @@ This endpoint will evaluate input data (config+metadata) against owner's stored 
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { MakeDecisionResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.makeDecision({
-  requestBody: {
-    input: "Southwest enthusiastically",
-    metadata: {},
-  },
-  context: "killer",
-  ownerID: "East volt array",
-}).then((res: MakeDecisionResponse) => {
+  const res = await sdk.policyManagement.makeDecision({
+    requestBody: {
+      input: "Southwest enthusiastically",
+      metadata: {},
+    },
+    context: "killer",
+    ownerID: "East volt array",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -357,25 +357,24 @@ This endpoint allows modifying decision settings (eg enable/disable policy evalu
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { SetDecisionSettingsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.policyManagement.setDecisionSettings({
-  decisionSettings: {
-    enabled: false,
-  },
-  context: "tan Managed",
-  ownerID: "Agender",
-}).then((res: SetDecisionSettingsResponse) => {
+  const res = await sdk.policyManagement.setDecisionSettings({
+    decisionSettings: {},
+    context: "tan Managed",
+    ownerID: "Agender",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

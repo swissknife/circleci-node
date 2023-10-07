@@ -17,51 +17,32 @@ Creates a schedule and returns the created schedule.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  CreateScheduleCreateScheduleParametersAttributionActor,
-  CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek,
-  CreateScheduleCreateScheduleParametersTimetable1Months,
-  CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek,
-  CreateScheduleCreateScheduleParametersTimetable2Months,
-  CreateScheduleResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.schedule.createSchedule({
-  requestBody: {
-    attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-    description: "Reactive actuating knowledge user",
-    name: "fuchsia SMTP Agent",
-    parameters: {
-      "ipsam": "animi",
+  const res = await sdk.schedule.createSchedule({
+    requestBody: {
+      attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
+      name: "Borders delightfully Hatchback",
+      parameters: {
+        "deploy_prod": "Developer",
+        "branch": "indeed",
+      },
+      timetable: "animi",
     },
-    timetable: {
-      daysOfMonth: [
-        608569,
-      ],
-      daysOfWeek: [
-        CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek.Thu,
-      ],
-      hoursOfDay: [
-        20568,
-      ],
-      months: [
-        CreateScheduleCreateScheduleParametersTimetable1Months.May,
-      ],
-      perHour: 950659,
-    },
-  },
-  projectSlug: "National copying",
-}).then((res: CreateScheduleResponse) => {
+    projectSlug: "Omnigender",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -85,21 +66,22 @@ Deletes the schedule by id.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.schedule.deleteScheduleById({
-  scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
-}).then((res: DeleteScheduleByIdResponse) => {
+  const res = await sdk.schedule.deleteScheduleById({
+    scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -123,21 +105,22 @@ Get a schedule by id.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.schedule.getScheduleById({
-  scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
-}).then((res: GetScheduleByIdResponse) => {
+  const res = await sdk.schedule.getScheduleById({
+    scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -161,22 +144,22 @@ Returns all schedules for this project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListSchedulesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.schedule.listSchedulesForProject({
-  pageToken: "Missouri southeast transparent",
-  projectSlug: "array",
-}).then((res: ListSchedulesForProjectResponse) => {
+  const res = await sdk.schedule.listSchedulesForProject({
+    projectSlug: "Missouri southeast transparent",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -201,48 +184,47 @@ Updates a schedule and returns the updated schedule.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 import {
-  UpdateScheduleResponse,
   UpdateScheduleUpdateScheduleParametersAttributionActor,
   UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek,
   UpdateScheduleUpdateScheduleParametersTimetableMonths,
 } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.schedule.updateSchedule({
-  requestBody: {
-    attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
-    description: "Managed secondary knowledge base",
-    name: "Northwest instead Alto",
-    parameters: {
-      "ducimus": "kindly",
+  const res = await sdk.schedule.updateSchedule({
+    requestBody: {
+      attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
+      parameters: {
+        "deploy_prod": "Taiwan",
+        "branch": "yellow",
+      },
+      timetable: {
+        daysOfMonth: [
+          362246,
+        ],
+        daysOfWeek: [
+          UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Fri,
+        ],
+        hoursOfDay: [
+          387275,
+        ],
+        months: [
+          UpdateScheduleUpdateScheduleParametersTimetableMonths.Mar,
+        ],
+      },
     },
-    timetable: {
-      daysOfMonth: [
-        296760,
-      ],
-      daysOfWeek: [
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Tue,
-      ],
-      hoursOfDay: [
-        582612,
-      ],
-      months: [
-        UpdateScheduleUpdateScheduleParametersTimetableMonths.Jun,
-      ],
-      perHour: 842366,
-    },
-  },
-  scheduleId: "3e9ab9ea-99c1-4416-a521-017015725a23",
-}).then((res: UpdateScheduleResponse) => {
+    scheduleId: "e97e6409-4d3e-49ab-9ea9-9c1416e52101",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
