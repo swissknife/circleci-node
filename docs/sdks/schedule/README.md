@@ -31,8 +31,8 @@ import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci
       attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
       name: "Borders delightfully Hatchback",
       parameters: {
-        "branch": "Developer",
-        "deploy_prod": "indeed",
+        "deploy_prod": "Developer",
+        "branch": "indeed",
       },
       timetable: "animi",
     },
