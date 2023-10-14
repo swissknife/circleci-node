@@ -12,7 +12,7 @@ import { Expose, Type } from "class-transformer";
 export class GetProjectWorkflowsPageDataBranches extends SpeakeasyBase {}
 
 /**
- * The time window used to calculate summary metrics.
+ * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
  */
 export enum GetProjectWorkflowsPageDataReportingWindow {
     Last7Days = "last-7-days",
@@ -41,7 +41,7 @@ export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
     projectSlug: string;
 
     /**
-     * The time window used to calculate summary metrics.
+     * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
     reportingWindow?: GetProjectWorkflowsPageDataReportingWindow;

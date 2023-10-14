@@ -7,7 +7,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 /**
- * The time window used to calculate summary metrics.
+ * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
  */
 export enum GetProjectWorkflowMetricsReportingWindow {
     Last7Days = "last-7-days",
@@ -43,7 +43,7 @@ export class GetProjectWorkflowMetricsRequest extends SpeakeasyBase {
     projectSlug: string;
 
     /**
-     * The time window used to calculate summary metrics.
+     * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
     reportingWindow?: GetProjectWorkflowMetricsReportingWindow;

@@ -12,7 +12,7 @@ import { Expose, Type } from "class-transformer";
 export class GetOrgSummaryDataProjectNames extends SpeakeasyBase {}
 
 /**
- * The time window used to calculate summary metrics.
+ * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
  */
 export enum GetOrgSummaryDataReportingWindow {
     Last7Days = "last-7-days",
@@ -36,7 +36,7 @@ export class GetOrgSummaryDataRequest extends SpeakeasyBase {
     projectNames?: GetOrgSummaryDataProjectNames;
 
     /**
-     * The time window used to calculate summary metrics.
+     * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
     reportingWindow?: GetOrgSummaryDataReportingWindow;
