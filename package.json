@@ -1,6 +1,6 @@
 {
   "name": "circleci-v2-sdk",
-  "version": "3.60.4",
+  "version": "3.60.5",
   "author": "Speakeasy API",
   "scripts": {
     "prepare": "tsc --build",
