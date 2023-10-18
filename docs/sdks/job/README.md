@@ -26,7 +26,7 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.job.cancelJob({
     jobNumber: "Electric",
-    projectSlug: "West",
+    projectSlug: "Small",
   });
 
   if (res.statusCode == 200) {
@@ -66,7 +66,7 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.job.getJobArtifacts({
     jobNumber: "generating",
-    projectSlug: "Markets",
+    projectSlug: "Ogden",
   });
 
   if (res.statusCode == 200) {
@@ -106,7 +106,7 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.job.getJobDetails({
     jobNumber: "North",
-    projectSlug: "aggregate",
+    projectSlug: "Elegant",
   });
 
   if (res.statusCode == 200) {
@@ -146,7 +146,7 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.job.getTests({
     jobNumber: "eyeballs",
-    projectSlug: "Leone Account ASCII",
+    projectSlug: "Jaguar",
   });
 
   if (res.statusCode == 200) {

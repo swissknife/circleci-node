@@ -39,8 +39,8 @@ import { Circleci } from "circleci-v2-sdk";
         "whenever": "Shirt",
       },
     },
-    context: "out Stevie Reggae",
-    ownerID: "Diesel",
+    context: "woefully",
+    ownerID: "Solutions",
   });
 
   if (res.statusCode == 200) {
@@ -79,9 +79,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionLog({
-    context: "Web Account Wagon",
-    decisionID: "Berkshire Soft quisquam",
-    ownerID: "Branding",
+    context: "raid",
+    decisionID: "pirouette",
+    ownerID: "online",
   });
 
   if (res.statusCode == 200) {
@@ -120,9 +120,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionLogPolicyBundle({
-    context: "but Bhutanese vertical",
-    decisionID: "South Organic",
-    ownerID: "North Northeast Glenview",
+    context: "male",
+    decisionID: "Mandatory",
+    ownerID: "foreground",
   });
 
   if (res.statusCode == 200) {
@@ -161,8 +161,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionLogs({
-    context: "SMS",
-    ownerID: "Bigender",
+    context: "Shoes",
+    ownerID: "Product",
   });
 
   if (res.statusCode == 200) {
@@ -201,8 +201,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionSettings({
-    context: "West application",
-    ownerID: "pitching Account",
+    context: "Androgyne",
+    ownerID: "Hatchback",
   });
 
   if (res.statusCode == 200) {
@@ -241,8 +241,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getPolicyBundle({
-    context: "South",
-    ownerID: "Kia Mountain Inverse",
+    context: "utilize",
+    ownerID: "Consultant",
   });
 
   if (res.statusCode == 200) {
@@ -281,9 +281,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getPolicyDocument({
-    context: "Dinar PNG",
-    ownerID: "Idaho mmm",
-    policyName: "Officer Wooden Facilitator",
+    context: "Group",
+    ownerID: "payment",
+    policyName: "PNG",
   });
 
   if (res.statusCode == 200) {
@@ -323,11 +323,11 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.policyManagement.makeDecision({
     requestBody: {
-      input: "Southwest enthusiastically",
+      input: "partnerships",
       metadata: {},
     },
-    context: "killer",
-    ownerID: "East volt array",
+    context: "Hybrid",
+    ownerID: "Electronics",
   });
 
   if (res.statusCode == 200) {
@@ -367,8 +367,8 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.policyManagement.setDecisionSettings({
     decisionSettings: {},
-    context: "tan Managed",
-    ownerID: "Agender",
+    context: "quod",
+    ownerID: "copying",
   });
 
   if (res.statusCode == 200) {

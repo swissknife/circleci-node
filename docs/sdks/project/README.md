@@ -37,7 +37,7 @@ import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType } from "circleci-
     requestBody: {
       type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
     },
-    projectSlug: "payment grow",
+    projectSlug: "District",
   });
 
   if (res.statusCode == 200) {
@@ -80,7 +80,7 @@ import { Circleci } from "circleci-v2-sdk";
       name: "foo",
       value: "xxxx1234",
     },
-    projectSlug: "Alaska",
+    projectSlug: "Bronze",
   });
 
   if (res.statusCode == 200) {
@@ -119,8 +119,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.deleteCheckoutKey({
-    fingerprint: "Wooden since",
-    projectSlug: "Configuration",
+    fingerprint: "Sausages",
+    projectSlug: "perferendis",
   });
 
   if (res.statusCode == 200) {
@@ -159,8 +159,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.deleteEnvVar({
-    name: "Terbium Soap Volkswagen",
-    projectSlug: "Convertible Omnigender Fish",
+    name: "plus",
+    projectSlug: "compress",
   });
 
   if (res.statusCode == 200) {
@@ -199,8 +199,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.getCheckoutKey({
-    fingerprint: "Guernsey",
-    projectSlug: "extend compressing",
+    fingerprint: "Steel",
+    projectSlug: "extend",
   });
 
   if (res.statusCode == 200) {
@@ -239,8 +239,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.getEnvVar({
-    name: "pascal",
-    projectSlug: "Metrics Engineer",
+    name: "users",
+    projectSlug: "Metrics",
   });
 
   if (res.statusCode == 200) {
@@ -279,7 +279,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.getProjectBySlug({
-    projectSlug: "reboot",
+    projectSlug: "interfaces",
   });
 
   if (res.statusCode == 200) {
@@ -318,7 +318,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.listCheckoutKeys({
-    projectSlug: "Pataca",
+    projectSlug: "Grocery",
   });
 
   if (res.statusCode == 200) {
@@ -357,7 +357,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.listEnvVars({
-    projectSlug: "Southeast Books Austin",
+    projectSlug: "Convertible",
   });
 
   if (res.statusCode == 200) {

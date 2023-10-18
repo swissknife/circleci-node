@@ -31,7 +31,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getAllInsightsBranches({
-    projectSlug: "optimize fast",
+    projectSlug: "Female",
   });
 
   if (res.statusCode == 200) {
@@ -71,7 +71,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getFlakyTests({
-    projectSlug: "Non Diesel workforce",
+    projectSlug: "noodle",
   });
 
   if (res.statusCode == 200) {
@@ -111,8 +111,8 @@ import { GetJobTimeseriesGranularity } from "circleci-v2-sdk/dist/sdk/models/ope
   });
 
   const res = await sdk.insights.getJobTimeseries({
-    projectSlug: "male",
-    workflowName: "North HTTP International",
+    projectSlug: "South",
+    workflowName: "towards",
   });
 
   if (res.statusCode == 200) {
@@ -153,7 +153,7 @@ import { GetOrgSummaryDataReportingWindow } from "circleci-v2-sdk/dist/sdk/model
   });
 
   const res = await sdk.insights.getOrgSummaryData({
-    orgSlug: "Buckinghamshire",
+    orgSlug: "Arkansas",
     projectNames: {},
   });
 
@@ -194,8 +194,8 @@ import { GetProjectWorkflowJobMetricsReportingWindow } from "circleci-v2-sdk/dis
   });
 
   const res = await sdk.insights.getProjectWorkflowJobMetrics({
-    projectSlug: "female",
-    workflowName: "violet Parks",
+    projectSlug: "Clothing",
+    workflowName: "Northeast",
   });
 
   if (res.statusCode == 200) {
@@ -235,7 +235,7 @@ import { GetProjectWorkflowMetricsReportingWindow } from "circleci-v2-sdk/dist/s
   });
 
   const res = await sdk.insights.getProjectWorkflowMetrics({
-    projectSlug: "Convertible mindshare deliverables",
+    projectSlug: "male",
   });
 
   if (res.statusCode == 200) {
@@ -274,8 +274,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getProjectWorkflowRuns({
-    projectSlug: "Shoes",
-    workflowName: "Kiribati Investment",
+    projectSlug: "Northeast",
+    workflowName: "haptic",
   });
 
   if (res.statusCode == 200) {
@@ -314,8 +314,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getProjectWorkflowTestMetrics({
-    projectSlug: "gold Chair Diesel",
-    workflowName: "South maximize program",
+    projectSlug: "SUV",
+    workflowName: "Electric",
   });
 
   if (res.statusCode == 200) {
@@ -359,7 +359,7 @@ import { GetProjectWorkflowsPageDataReportingWindow } from "circleci-v2-sdk/dist
 
   const res = await sdk.insights.getProjectWorkflowsPageData({
     branches: {},
-    projectSlug: "strategic Mouse cheap",
+    projectSlug: "ah",
     workflowNames: {},
   });
 
@@ -399,8 +399,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getWorkflowSummary({
-    projectSlug: "Northwest atop",
-    workflowName: "azure Southeast",
+    projectSlug: "primary",
+    workflowName: "Tasty",
   });
 
   if (res.statusCode == 200) {

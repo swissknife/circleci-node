@@ -29,14 +29,14 @@ import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci
   const res = await sdk.schedule.createSchedule({
     requestBody: {
       attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-      name: "Borders delightfully Hatchback",
+      name: "female",
       parameters: {
-        "deploy_prod": "Developer",
-        "branch": "indeed",
+        "deploy_prod": "reboot",
+        "branch": "fuchsia",
       },
-      timetable: "animi",
+      timetable: "SMTP",
     },
-    projectSlug: "Omnigender",
+    projectSlug: "Agent",
   });
 
   if (res.statusCode == 200) {
@@ -153,7 +153,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.schedule.listSchedulesForProject({
-    projectSlug: "Missouri southeast transparent",
+    projectSlug: "ampere",
   });
 
   if (res.statusCode == 200) {

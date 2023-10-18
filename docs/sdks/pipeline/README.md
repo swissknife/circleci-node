@@ -30,10 +30,10 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.continuePipeline({
-    configuration: "pink Corporate Hayes",
-    continuationKey: "Upgradable Orchestrator",
+    configuration: "female",
+    continuationKey: "bandwidth",
     parameters: {
-      "deploy_prod": "transform",
+      "deploy_prod": "Health",
     },
   });
 
@@ -113,7 +113,7 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.pipeline.getPipelineByNumber({
     pipelineNumber: "parsing",
-    projectSlug: "Table",
+    projectSlug: "North",
   });
 
   if (res.statusCode == 200) {
@@ -191,7 +191,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.listMyPipelines({
-    projectSlug: "excess",
+    projectSlug: "West",
   });
 
   if (res.statusCode == 200) {
@@ -267,7 +267,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.listPipelinesForProject({
-    projectSlug: "Soap blue Cyclocross",
+    projectSlug: "teal",
   });
 
   if (res.statusCode == 200) {
@@ -352,7 +352,7 @@ import { Circleci } from "circleci-v2-sdk";
       },
       tag: "v3.1.4159",
     },
-    projectSlug: "and Bigender",
+    projectSlug: "deposit",
   });
 
   if (res.statusCode == 200) {

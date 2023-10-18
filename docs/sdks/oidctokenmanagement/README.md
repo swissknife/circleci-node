@@ -31,8 +31,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.oidcTokenManagement.deleteOrgClaims({
-    claims: "Loan Mini",
-    orgID: "21f3544d-2ca5-43d8-b02d-62f07cecddec",
+    claims: "technologies",
+    orgID: "c7db21f3-544d-42ca-93d8-b02d62f07cec",
   });
 
   if (res.statusCode == 200) {
@@ -71,9 +71,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.oidcTokenManagement.deleteProjectClaims({
-    claims: "different Bedfordshire",
-    orgID: "66e45c66-7d61-42f4-9793-f4014a8568d1",
-    projectID: "acf09ef1-b125-42a9-b672-e4182b2819bd",
+    claims: "program",
+    orgID: "31466e45-c667-4d61-af45-793f4014a856",
+    projectID: "8d1acf09-ef1b-4125-aa93-672e4182b281",
   });
 
   if (res.statusCode == 200) {

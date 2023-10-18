@@ -30,13 +30,13 @@ import { CreateWebhookRequestBodyEvents, CreateWebhookRequestBodyScopeType } fro
     events: [
       CreateWebhookRequestBodyEvents.JobCompleted,
     ],
-    name: "like garage Fresh",
+    name: "worriedly",
     scope: {
-      id: "3b7d2240-08ac-44c5-9d30-daac81ad9fab",
+      id: "8f63e3b7-d224-4008-ac4c-59d30daac81a",
       type: CreateWebhookRequestBodyScopeType.Project,
     },
-    signingSecret: "navigate outside",
-    url: "http://old-adapter.info",
+    signingSecret: "pastel",
+    url: "https://quarrelsome-rest.name",
     verifyTls: false,
   });
 
