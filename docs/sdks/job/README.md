@@ -25,8 +25,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.job.cancelJob({
-    jobNumber: "Electric",
-    projectSlug: "Small",
+    jobNumber: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -65,8 +65,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.job.getJobArtifacts({
-    jobNumber: "generating",
-    projectSlug: "Ogden",
+    jobNumber: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -105,8 +105,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.job.getJobDetails({
-    jobNumber: "North",
-    projectSlug: "Elegant",
+    jobNumber: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -145,8 +145,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.job.getTests({
-    jobNumber: "eyeballs",
-    projectSlug: "Jaguar",
+    jobNumber: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {

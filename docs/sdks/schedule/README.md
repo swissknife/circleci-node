@@ -29,14 +29,14 @@ import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci
   const res = await sdk.schedule.createSchedule({
     requestBody: {
       attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-      name: "female",
+      name: "string",
       parameters: {
-        "deploy_prod": "reboot",
-        "branch": "fuchsia",
+        "deploy_prod": "string",
+        "branch": "string",
       },
-      timetable: "SMTP",
+      timetable: "string",
     },
-    projectSlug: "Agent",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -153,7 +153,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.schedule.listSchedulesForProject({
-    projectSlug: "ampere",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -200,25 +200,25 @@ import {
     requestBody: {
       attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
       parameters: {
-        "deploy_prod": "Taiwan",
-        "branch": "yellow",
+        "deploy_prod": "string",
+        "branch": "string",
       },
       timetable: {
         daysOfMonth: [
-          362246,
+          422422,
         ],
         daysOfWeek: [
-          UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Fri,
+          UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Wed,
         ],
         hoursOfDay: [
-          387275,
+          565089,
         ],
         months: [
-          UpdateScheduleUpdateScheduleParametersTimetableMonths.Mar,
+          UpdateScheduleUpdateScheduleParametersTimetableMonths.Aug,
         ],
       },
     },
-    scheduleId: "e97e6409-4d3e-49ab-9ea9-9c1416e52101",
+    scheduleId: "15e60e97-e640-494d-be9a-b9ea99c1416e",
   });
 
   if (res.statusCode == 200) {

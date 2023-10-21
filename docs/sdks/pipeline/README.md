@@ -30,10 +30,10 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.continuePipeline({
-    configuration: "female",
-    continuationKey: "bandwidth",
+    configuration: "string",
+    continuationKey: "string",
     parameters: {
-      "deploy_prod": "Health",
+      "deploy_prod": "string",
     },
   });
 
@@ -112,8 +112,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.getPipelineByNumber({
-    pipelineNumber: "parsing",
-    projectSlug: "North",
+    pipelineNumber: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -191,7 +191,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.listMyPipelines({
-    projectSlug: "West",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -267,7 +267,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.listPipelinesForProject({
-    projectSlug: "teal",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -348,11 +348,11 @@ import { Circleci } from "circleci-v2-sdk";
     requestBody: {
       branch: "feature/design-new-api",
       parameters: {
-        "deploy_prod": "red",
+        "deploy_prod": "string",
       },
       tag: "v3.1.4159",
     },
-    projectSlug: "deposit",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {

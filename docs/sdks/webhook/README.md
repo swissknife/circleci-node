@@ -30,13 +30,13 @@ import { CreateWebhookRequestBodyEvents, CreateWebhookRequestBodyScopeType } fro
     events: [
       CreateWebhookRequestBodyEvents.JobCompleted,
     ],
-    name: "worriedly",
+    name: "string",
     scope: {
-      id: "8f63e3b7-d224-4008-ac4c-59d30daac81a",
+      id: "ef8f63e3-b7d2-4240-88ac-4c59d30daac8",
       type: CreateWebhookRequestBodyScopeType.Project,
     },
-    signingSecret: "pastel",
-    url: "https://quarrelsome-rest.name",
+    signingSecret: "string",
+    url: "http://ragged-suppression.name",
     verifyTls: false,
   });
 

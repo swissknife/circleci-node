@@ -31,8 +31,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.oidcTokenManagement.deleteOrgClaims({
-    claims: "technologies",
-    orgID: "c7db21f3-544d-42ca-93d8-b02d62f07cec",
+    claims: "string",
+    orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
   });
 
   if (res.statusCode == 200) {
@@ -71,9 +71,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.oidcTokenManagement.deleteProjectClaims({
-    claims: "program",
-    orgID: "31466e45-c667-4d61-af45-793f4014a856",
-    projectID: "8d1acf09-ef1b-4125-aa93-672e4182b281",
+    claims: "string",
+    orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
+    projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
   });
 
   if (res.statusCode == 200) {
@@ -193,10 +193,10 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.oidcTokenManagement.patchOrgClaims({
     patchClaimsRequest: {
       audience: [
-        "Cadmium",
+        "string",
       ],
     },
-    orgID: "c0324308-db81-4de9-b9b2-ebcfa7ef13a5",
+    orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
   });
 
   if (res.statusCode == 200) {
@@ -237,11 +237,11 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.oidcTokenManagement.patchProjectClaims({
     patchClaimsRequest: {
       audience: [
-        "Hybrid",
+        "string",
       ],
     },
-    orgID: "f25b4258-14fe-416f-aace-9e5283bd1197",
-    projectID: "32a91518-36aa-4863-a35a-d82ba6348011",
+    orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
+    projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
   });
 
   if (res.statusCode == 200) {

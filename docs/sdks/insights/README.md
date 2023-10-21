@@ -31,7 +31,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getAllInsightsBranches({
-    projectSlug: "Female",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -71,7 +71,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getFlakyTests({
-    projectSlug: "noodle",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -111,8 +111,8 @@ import { GetJobTimeseriesGranularity } from "circleci-v2-sdk/dist/sdk/models/ope
   });
 
   const res = await sdk.insights.getJobTimeseries({
-    projectSlug: "South",
-    workflowName: "towards",
+    projectSlug: "string",
+    workflowName: "string",
   });
 
   if (res.statusCode == 200) {
@@ -153,7 +153,7 @@ import { GetOrgSummaryDataReportingWindow } from "circleci-v2-sdk/dist/sdk/model
   });
 
   const res = await sdk.insights.getOrgSummaryData({
-    orgSlug: "Arkansas",
+    orgSlug: "string",
     projectNames: {},
   });
 
@@ -194,8 +194,8 @@ import { GetProjectWorkflowJobMetricsReportingWindow } from "circleci-v2-sdk/dis
   });
 
   const res = await sdk.insights.getProjectWorkflowJobMetrics({
-    projectSlug: "Clothing",
-    workflowName: "Northeast",
+    projectSlug: "string",
+    workflowName: "string",
   });
 
   if (res.statusCode == 200) {
@@ -235,7 +235,7 @@ import { GetProjectWorkflowMetricsReportingWindow } from "circleci-v2-sdk/dist/s
   });
 
   const res = await sdk.insights.getProjectWorkflowMetrics({
-    projectSlug: "male",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -274,8 +274,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getProjectWorkflowRuns({
-    projectSlug: "Northeast",
-    workflowName: "haptic",
+    projectSlug: "string",
+    workflowName: "string",
   });
 
   if (res.statusCode == 200) {
@@ -314,8 +314,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getProjectWorkflowTestMetrics({
-    projectSlug: "SUV",
-    workflowName: "Electric",
+    projectSlug: "string",
+    workflowName: "string",
   });
 
   if (res.statusCode == 200) {
@@ -359,7 +359,7 @@ import { GetProjectWorkflowsPageDataReportingWindow } from "circleci-v2-sdk/dist
 
   const res = await sdk.insights.getProjectWorkflowsPageData({
     branches: {},
-    projectSlug: "ah",
+    projectSlug: "string",
     workflowNames: {},
   });
 
@@ -399,8 +399,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.insights.getWorkflowSummary({
-    projectSlug: "primary",
-    workflowName: "Tasty",
+    projectSlug: "string",
+    workflowName: "string",
   });
 
   if (res.statusCode == 200) {

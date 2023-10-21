@@ -32,7 +32,7 @@ import { Circleci } from "circleci-v2-sdk";
       value: "some-secret-value",
     },
     contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-    envVarName: "Diverse",
+    envVarName: "string",
   });
 
   if (res.statusCode == 200) {
@@ -71,8 +71,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.context.createContext({
-    name: "now",
-    owner: "regularly",
+    name: "string",
+    owner: "string",
   });
 
   if (res.statusCode == 200) {
@@ -151,7 +151,7 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.context.deleteEnvironmentVariableFromContext({
     contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
-    envVarName: "Nebraska",
+    envVarName: "string",
   });
 
   if (res.statusCode == 200) {

@@ -36,11 +36,11 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.policyManagement.createPolicyBundle({
     bundlePayload: {
       policies: {
-        "whenever": "Shirt",
+        "key": "string",
       },
     },
-    context: "woefully",
-    ownerID: "Solutions",
+    context: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {
@@ -79,9 +79,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionLog({
-    context: "raid",
-    decisionID: "pirouette",
-    ownerID: "online",
+    context: "string",
+    decisionID: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {
@@ -120,9 +120,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionLogPolicyBundle({
-    context: "male",
-    decisionID: "Mandatory",
-    ownerID: "foreground",
+    context: "string",
+    decisionID: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {
@@ -161,8 +161,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionLogs({
-    context: "Shoes",
-    ownerID: "Product",
+    context: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {
@@ -201,8 +201,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getDecisionSettings({
-    context: "Androgyne",
-    ownerID: "Hatchback",
+    context: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {
@@ -241,8 +241,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getPolicyBundle({
-    context: "utilize",
-    ownerID: "Consultant",
+    context: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {
@@ -281,9 +281,9 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.policyManagement.getPolicyDocument({
-    context: "Group",
-    ownerID: "payment",
-    policyName: "PNG",
+    context: "string",
+    ownerID: "string",
+    policyName: "string",
   });
 
   if (res.statusCode == 200) {
@@ -323,11 +323,11 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.policyManagement.makeDecision({
     requestBody: {
-      input: "partnerships",
+      input: "string",
       metadata: {},
     },
-    context: "Hybrid",
-    ownerID: "Electronics",
+    context: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {
@@ -367,8 +367,8 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.policyManagement.setDecisionSettings({
     decisionSettings: {},
-    context: "quod",
-    ownerID: "copying",
+    context: "string",
+    ownerID: "string",
   });
 
   if (res.statusCode == 200) {

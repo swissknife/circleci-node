@@ -37,7 +37,7 @@ import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType } from "circleci-
     requestBody: {
       type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
     },
-    projectSlug: "District",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -80,7 +80,7 @@ import { Circleci } from "circleci-v2-sdk";
       name: "foo",
       value: "xxxx1234",
     },
-    projectSlug: "Bronze",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -119,8 +119,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.deleteCheckoutKey({
-    fingerprint: "Sausages",
-    projectSlug: "perferendis",
+    fingerprint: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -159,8 +159,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.deleteEnvVar({
-    name: "plus",
-    projectSlug: "compress",
+    name: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -199,8 +199,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.getCheckoutKey({
-    fingerprint: "Steel",
-    projectSlug: "extend",
+    fingerprint: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -239,8 +239,8 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.getEnvVar({
-    name: "users",
-    projectSlug: "Metrics",
+    name: "string",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -279,7 +279,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.getProjectBySlug({
-    projectSlug: "interfaces",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -318,7 +318,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.listCheckoutKeys({
-    projectSlug: "Grocery",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
@@ -357,7 +357,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.project.listEnvVars({
-    projectSlug: "Convertible",
+    projectSlug: "string",
   });
 
   if (res.statusCode == 200) {
