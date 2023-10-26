@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 50a00bef844b7e7894703b1bc577974c
+  docChecksum: 70db2fa090ec76c4b903221398603afb
   docVersion: v2
   speakeasyVersion: 1.107.0
   generationVersion: 2.171.0
@@ -17,7 +17,7 @@ features:
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
 typescript:
-  version: 3.62.0
+  version: 3.62.1
   author: Speakeasy API
   flattenGlobalSecurity: false
   installationURL: https://github.com/swissknife/circleci-node

@@ -31,8 +31,8 @@ import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci
       attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
       name: "string",
       parameters: {
-        "deploy_prod": "string",
         "branch": "string",
+        "deploy_prod": "string",
       },
       timetable: "string",
     },
