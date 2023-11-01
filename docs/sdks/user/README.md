@@ -31,6 +31,7 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.user.getCollaborations();
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -66,6 +67,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.user.getCurrentUser();
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -104,6 +106,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.user.getUser({
     id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

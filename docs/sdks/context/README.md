@@ -35,6 +35,7 @@ import { Circleci } from "circleci-v2-sdk";
     envVarName: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -75,6 +76,7 @@ import { Circleci } from "circleci-v2-sdk";
     owner: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -113,6 +115,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.context.deleteContext({
     contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -154,6 +157,7 @@ import { Circleci } from "circleci-v2-sdk";
     envVarName: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -193,6 +197,7 @@ import { Circleci } from "circleci-v2-sdk";
     contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -230,6 +235,7 @@ import { ListContextsOwnerType } from "circleci-v2-sdk/dist/sdk/models/operation
   });
 
   const res = await sdk.context.listContexts({});
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -269,6 +275,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.context.listEnvironmentVariablesFromContext({
     contextId: "bd93f37e-8737-476a-be63-944592b835e7",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

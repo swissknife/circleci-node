@@ -37,6 +37,7 @@ import { Circleci } from "circleci-v2-sdk";
     },
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -75,6 +76,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.pipeline.getPipelineById({
     pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -116,6 +118,7 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -154,6 +157,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.pipeline.getPipelineConfigById({
     pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -194,6 +198,7 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -230,6 +235,7 @@ import { Circleci } from "circleci-v2-sdk";
   });
 
   const res = await sdk.pipeline.listPipelines({});
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -270,6 +276,7 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -308,6 +315,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.pipeline.listWorkflowsByPipelineId({
     pipelineId: "c0e3f0ba-dcb8-47b7-a0fb-0aa2a8dd26b5",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -354,6 +362,7 @@ import { Circleci } from "circleci-v2-sdk";
     },
     projectSlug: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

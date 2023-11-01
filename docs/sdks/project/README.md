@@ -40,6 +40,7 @@ import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType } from "circleci-
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -83,6 +84,7 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -122,6 +124,7 @@ import { Circleci } from "circleci-v2-sdk";
     fingerprint: "string",
     projectSlug: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -163,6 +166,7 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -202,6 +206,7 @@ import { Circleci } from "circleci-v2-sdk";
     fingerprint: "string",
     projectSlug: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -243,6 +248,7 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -281,6 +287,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.project.getProjectBySlug({
     projectSlug: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -321,6 +328,7 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -359,6 +367,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.project.listEnvVars({
     projectSlug: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

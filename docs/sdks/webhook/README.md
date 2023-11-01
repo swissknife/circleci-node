@@ -40,6 +40,7 @@ import { CreateWebhookRequestBodyEvents, CreateWebhookRequestBodyScopeType } fro
     verifyTls: false,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -79,6 +80,7 @@ import { Circleci } from "circleci-v2-sdk";
     webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -117,6 +119,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.webhook.getWebhookById({
     webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -158,6 +161,7 @@ import { GetWebhooksScopeType } from "circleci-v2-sdk/dist/sdk/models/operations
     scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
     scopeType: GetWebhooksScopeType.Project,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -203,6 +207,7 @@ import { UpdateWebhookRequestBodyEvents } from "circleci-v2-sdk/dist/sdk/models/
     },
     webhookId: "ac255204-82ad-4436-900a-b198d2970788",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

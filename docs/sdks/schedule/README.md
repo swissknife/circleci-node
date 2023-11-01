@@ -31,13 +31,14 @@ import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci
       attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
       name: "string",
       parameters: {
-        "branch": "string",
         "deploy_prod": "string",
+        "branch": "string",
       },
       timetable: "string",
     },
     projectSlug: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -78,6 +79,7 @@ import { Circleci } from "circleci-v2-sdk";
     scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -117,6 +119,7 @@ import { Circleci } from "circleci-v2-sdk";
     scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -155,6 +158,7 @@ import { Circleci } from "circleci-v2-sdk";
   const res = await sdk.schedule.listSchedulesForProject({
     projectSlug: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -220,6 +224,7 @@ import {
     },
     scheduleId: "15e60e97-e640-494d-be9a-b9ea99c1416e",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
