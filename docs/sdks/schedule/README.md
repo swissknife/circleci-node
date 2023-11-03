@@ -204,8 +204,8 @@ import {
     requestBody: {
       attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
       parameters: {
-        "deploy_prod": "string",
         "branch": "string",
+        "deploy_prod": "string",
       },
       timetable: {
         daysOfMonth: [
