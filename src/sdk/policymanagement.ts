@@ -404,7 +404,13 @@ export class PolicyManagement {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.policyBundle = utils.objectToClass(JSON.parse(decodedRes));
+                    res.policyBundle = {};
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.policyBundle = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.Policy,
+                        resFieldDepth
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -838,7 +844,13 @@ export class PolicyManagement {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.policyBundle = utils.objectToClass(JSON.parse(decodedRes));
+                    res.policyBundle = {};
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.policyBundle = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.Policy,
+                        resFieldDepth
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

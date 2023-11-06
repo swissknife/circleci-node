@@ -22,22 +22,24 @@ Deletes org-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.oidcTokenManagement.deleteOrgClaims({
-  claims: "Loan Mini",
-  orgID: "21f3544d-2ca5-43d8-b02d-62f07cecddec",
-}).then((res: DeleteOrgClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.deleteOrgClaims({
+    claims: "string",
+    orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,23 +63,25 @@ Deletes project-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.oidcTokenManagement.deleteProjectClaims({
-  claims: "different Bedfordshire",
-  orgID: "66e45c66-7d61-42f4-9793-f4014a8568d1",
-  projectID: "acf09ef1-b125-42a9-b672-e4182b2819bd",
-}).then((res: DeleteProjectClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.deleteProjectClaims({
+    claims: "string",
+    orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
+    projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -101,21 +105,23 @@ Fetches org-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.oidcTokenManagement.getOrgClaims({
-  orgID: "faa87345-442f-4070-a007-ecf098342349",
-}).then((res: GetOrgClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.getOrgClaims({
+    orgID: "faa87345-442f-4070-a007-ecf098342349",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -139,22 +145,24 @@ Fetches project-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.oidcTokenManagement.getProjectClaims({
-  orgID: "01345488-5416-440e-9811-7333cda41eee",
-  projectID: "17124405-51b9-4707-91e2-d3024606dad9",
-}).then((res: GetProjectClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.getProjectClaims({
+    orgID: "01345488-5416-440e-9811-7333cda41eee",
+    projectID: "17124405-51b9-4707-91e2-d3024606dad9",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -178,27 +186,28 @@ Creates/Updates org-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { PatchOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.oidcTokenManagement.patchOrgClaims({
-  patchClaimsRequest: {
-    audience: [
-      "Cadmium",
-    ],
-    ttl: "North Iowa Steel",
-  },
-  orgID: "8db81de9-39b2-4ebc-ba7e-f13a592ac772",
-}).then((res: PatchOrgClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.patchOrgClaims({
+    patchClaimsRequest: {
+      audience: [
+        "string",
+      ],
+    },
+    orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -222,28 +231,29 @@ Creates/Updates project-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { PatchProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.oidcTokenManagement.patchProjectClaims({
-  patchClaimsRequest: {
-    audience: [
-      "Hybrid",
-    ],
-    ttl: "Moses South terrapin",
-  },
-  orgID: "16f2ace9-e528-43bd-9197-32a9151836aa",
-  projectID: "863235ad-82ba-4634-8011-32a6f00f82fc",
-}).then((res: PatchProjectClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.patchProjectClaims({
+    patchClaimsRequest: {
+      audience: [
+        "string",
+      ],
+    },
+    orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
+    projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

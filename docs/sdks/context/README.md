@@ -19,25 +19,27 @@ Create or update an environment variable within a context. Returns information a
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.context.addEnvironmentVariableToContext({
-  requestBody: {
-    value: "some-secret-value",
-  },
-  contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-  envVarName: "Pants reproachfully",
-}).then((res: AddEnvironmentVariableToContextResponse) => {
+  const res = await sdk.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    envVarName: "string",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,29 +63,24 @@ Create a new context
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  CreateContextRequestBodyOwner1Type,
-  CreateContextRequestBodyOwner2Type,
-  CreateContextResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.context.createContext({
-  name: "unsteady optical Administrator",
-  owner: {
-    id: "ff37ae73-d51a-4d1d-86e3-3428d8359669",
-    type: CreateContextRequestBodyOwner1Type.Organization,
-  },
-}).then((res: CreateContextResponse) => {
+  const res = await sdk.context.createContext({
+    name: "string",
+    owner: "string",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -107,21 +104,23 @@ Delete a context
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.context.deleteContext({
-  contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
-}).then((res: DeleteContextResponse) => {
+  const res = await sdk.context.deleteContext({
+    contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -145,22 +144,24 @@ Delete an environment variable from a context.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteEnvironmentVariableFromContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.context.deleteEnvironmentVariableFromContext({
-  contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
-  envVarName: "driver",
-}).then((res: DeleteEnvironmentVariableFromContextResponse) => {
+  const res = await sdk.context.deleteEnvironmentVariableFromContext({
+    contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
+    envVarName: "string",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,21 +185,23 @@ Returns basic information about a context.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.context.getContext({
-  contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
-}).then((res: GetContextResponse) => {
+  const res = await sdk.context.getContext({
+    contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -222,24 +225,22 @@ List all contexts for an owner.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListContextsOwnerType, ListContextsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ListContextsOwnerType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.context.listContexts({
-  ownerId: "51287e4e-8191-4eec-b08d-4eefb5da22d0",
-  ownerSlug: "Central",
-  ownerType: ListContextsOwnerType.Organization,
-  pageToken: "Fontana",
-}).then((res: ListContextsResponse) => {
+  const res = await sdk.context.listContexts({});
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -263,22 +264,23 @@ List information about environment variables in a context, not including their v
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListEnvironmentVariablesFromContextResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.context.listEnvironmentVariablesFromContext({
-  contextId: "bd93f37e-8737-476a-be63-944592b835e7",
-  pageToken: "deliver male Convertible",
-}).then((res: ListEnvironmentVariablesFromContextResponse) => {
+  const res = await sdk.context.listEnvironmentVariablesFromContext({
+    contextId: "bd93f37e-8737-476a-be63-944592b835e7",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -21,25 +21,27 @@ Continue a pipeline from the setup phase.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ContinuePipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.continuePipeline({
-  configuration: "pink Corporate Hayes",
-  continuationKey: "Upgradable Orchestrator",
-  parameters: {
-    "magnam": "Southwest",
-  },
-}).then((res: ContinuePipelineResponse) => {
+  const res = await sdk.pipeline.continuePipeline({
+    configuration: "string",
+    continuationKey: "string",
+    parameters: {
+      "deploy_prod": "string",
+    },
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -63,21 +65,23 @@ Returns a pipeline by the pipeline ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPipelineByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.getPipelineById({
-  pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
-}).then((res: GetPipelineByIdResponse) => {
+  const res = await sdk.pipeline.getPipelineById({
+    pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -101,22 +105,24 @@ Returns a pipeline by the pipeline number.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPipelineByNumberResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.getPipelineByNumber({
-  pipelineNumber: "parsing",
-  projectSlug: "Table",
-}).then((res: GetPipelineByNumberResponse) => {
+  const res = await sdk.pipeline.getPipelineByNumber({
+    pipelineNumber: "string",
+    projectSlug: "string",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -140,21 +146,23 @@ Returns a pipeline's configuration by ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPipelineConfigByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.getPipelineConfigById({
-  pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
-}).then((res: GetPipelineConfigByIdResponse) => {
+  const res = await sdk.pipeline.getPipelineConfigById({
+    pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -178,22 +186,23 @@ Returns a sequence of all pipelines for this project triggered by the user.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListMyPipelinesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.listMyPipelines({
-  pageToken: "excess",
-  projectSlug: "Bacon",
-}).then((res: ListMyPipelinesResponse) => {
+  const res = await sdk.pipeline.listMyPipelines({
+    projectSlug: "string",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -217,23 +226,21 @@ Returns all pipelines for the most recently built projects (max 250) you follow 
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListPipelinesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.listPipelines({
-  mine: false,
-  orgSlug: "wireless transmitter",
-  pageToken: "Buckinghamshire Chicopee joule",
-}).then((res: ListPipelinesResponse) => {
+  const res = await sdk.pipeline.listPipelines({});
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -257,23 +264,23 @@ Returns all pipelines for this project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListPipelinesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.listPipelinesForProject({
-  branch: "Soap blue Cyclocross",
-  pageToken: "Bronze Stone",
-  projectSlug: "South Franc",
-}).then((res: ListPipelinesForProjectResponse) => {
+  const res = await sdk.pipeline.listPipelinesForProject({
+    projectSlug: "string",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -297,22 +304,23 @@ Returns a paginated list of workflows by pipeline ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListWorkflowsByPipelineIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
+    },
+  });
 
-sdk.pipeline.listWorkflowsByPipelineId({
-  pageToken: "Texas amuse Technician",
-  pipelineId: "dcb87b7e-0fb0-4aa2-a8dd-26b59d8568fc",
-}).then((res: ListWorkflowsByPipelineIdResponse) => {
+  const res = await sdk.pipeline.listWorkflowsByPipelineId({
+    pipelineId: "c0e3f0ba-dcb8-47b7-a0fb-0aa2a8dd26b5",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -336,28 +344,30 @@ Triggers a new pipeline on the project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { TriggerPipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
-
-sdk.pipeline.triggerPipeline({
-  requestBody: {
-    branch: "feature/design-new-api",
-    parameters: {
-      "minus": "La",
+(async() => {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "",
     },
-    tag: "v3.1.4159",
-  },
-  projectSlug: "unde Ukraine Operative",
-}).then((res: TriggerPipelineResponse) => {
+  });
+
+  const res = await sdk.pipeline.triggerPipeline({
+    requestBody: {
+      branch: "feature/design-new-api",
+      parameters: {
+        "deploy_prod": "string",
+      },
+      tag: "v3.1.4159",
+    },
+    projectSlug: "string",
+  });
+
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
