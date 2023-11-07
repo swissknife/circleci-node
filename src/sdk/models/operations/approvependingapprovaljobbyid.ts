@@ -23,7 +23,7 @@ export class ApprovePendingApprovalJobByIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ApprovePendingApprovalJobByIdDefaultApplicationJSON extends SpeakeasyBase {
+export class ApprovePendingApprovalJobByIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -70,5 +70,5 @@ export class ApprovePendingApprovalJobByIdResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    approvePendingApprovalJobByIdDefaultApplicationJSONObject?: ApprovePendingApprovalJobByIdDefaultApplicationJSON;
+    object?: ApprovePendingApprovalJobByIdResponseBody;
 }

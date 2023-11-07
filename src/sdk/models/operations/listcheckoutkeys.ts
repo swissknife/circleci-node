@@ -17,7 +17,7 @@ export class ListCheckoutKeysRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListCheckoutKeysDefaultApplicationJSON extends SpeakeasyBase {
+export class ListCheckoutKeysResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +26,7 @@ export class ListCheckoutKeysDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
  */
-export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType {
+export enum ListCheckoutKeysCheckoutKeyType {
     DeployKey = "deploy-key",
     GithubUserKey = "github-user-key",
 }
@@ -34,7 +34,7 @@ export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType {
 /**
  * A checkout key
  */
-export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends SpeakeasyBase {
+export class CheckoutKey extends SpeakeasyBase {
     /**
      * The date and time the checkout key was created.
      */
@@ -69,17 +69,17 @@ export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends Speakeas
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType;
+    type: ListCheckoutKeysCheckoutKeyType;
 }
 
 /**
  * A sequence of checkout keys.
  */
 export class ListCheckoutKeysCheckoutKeyListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey })
+    @SpeakeasyMetadata({ elemType: CheckoutKey })
     @Expose({ name: "items" })
-    @Type(() => ListCheckoutKeysCheckoutKeyListResponseCheckoutKey)
-    items: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey[];
+    @Type(() => CheckoutKey)
+    items: CheckoutKey[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -118,5 +118,5 @@ export class ListCheckoutKeysResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    listCheckoutKeysDefaultApplicationJSONObject?: ListCheckoutKeysDefaultApplicationJSON;
+    object?: ListCheckoutKeysResponseBody;
 }

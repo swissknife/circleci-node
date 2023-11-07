@@ -1,5 +1,5 @@
 # Context
-(*context*)
+(*.context*)
 
 ### Available Operations
 
@@ -225,7 +225,7 @@ List all contexts for an owner.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListContextsOwnerType } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { OwnerType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({

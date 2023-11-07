@@ -17,7 +17,7 @@ export class GetUserRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetUserDefaultApplicationJSON extends SpeakeasyBase {
+export class GetUserResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -78,5 +78,5 @@ export class GetUserResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getUserDefaultApplicationJSONObject?: GetUserDefaultApplicationJSON;
+    object?: GetUserResponseBody;
 }

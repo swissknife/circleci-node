@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
  */
-export enum ListContextsOwnerType {
+export enum OwnerType {
     Account = "account",
     Organization = "organization",
 }
@@ -31,7 +31,7 @@ export class ListContextsRequest extends SpeakeasyBase {
      * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=owner-type" })
-    ownerType?: ListContextsOwnerType;
+    ownerType?: OwnerType;
 
     /**
      * A token to retrieve the next page of results.
@@ -43,13 +43,13 @@ export class ListContextsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListContextsDefaultApplicationJSON extends SpeakeasyBase {
+export class ListContextsContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export class ListContexts200ApplicationJSONContext extends SpeakeasyBase {
+export class Context extends SpeakeasyBase {
     /**
      * The date and time the context was created.
      */
@@ -76,11 +76,11 @@ export class ListContexts200ApplicationJSONContext extends SpeakeasyBase {
 /**
  * A paginated list of contexts
  */
-export class ListContexts200ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListContexts200ApplicationJSONContext })
+export class ListContextsResponseBody extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: Context })
     @Expose({ name: "items" })
-    @Type(() => ListContexts200ApplicationJSONContext)
-    items: ListContexts200ApplicationJSONContext[];
+    @Type(() => Context)
+    items: Context[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -91,6 +91,12 @@ export class ListContexts200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class ListContextsResponse extends SpeakeasyBase {
+    /**
+     * A paginated list of contexts
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: ListContextsResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -110,14 +116,8 @@ export class ListContextsResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * A paginated list of contexts
-     */
-    @SpeakeasyMetadata()
-    listContexts200ApplicationJSONObject?: ListContexts200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    listContextsDefaultApplicationJSONObject?: ListContextsDefaultApplicationJSON;
+    defaultApplicationJsonObject?: ListContextsContextResponseBody;
 }

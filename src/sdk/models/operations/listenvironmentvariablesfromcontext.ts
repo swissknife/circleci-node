@@ -23,13 +23,13 @@ export class ListEnvironmentVariablesFromContextRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListEnvironmentVariablesFromContextDefaultApplicationJSON extends SpeakeasyBase {
+export class ListEnvironmentVariablesFromContextContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export class ListEnvironmentVariablesFromContext200ApplicationJSONItems extends SpeakeasyBase {
+export class Items extends SpeakeasyBase {
     /**
      * ID of the context (UUID)
      */
@@ -64,11 +64,11 @@ export class ListEnvironmentVariablesFromContext200ApplicationJSONItems extends 
 /**
  * A paginated list of environment variables
  */
-export class ListEnvironmentVariablesFromContext200ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListEnvironmentVariablesFromContext200ApplicationJSONItems })
+export class ListEnvironmentVariablesFromContextResponseBody extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: Items })
     @Expose({ name: "items" })
-    @Type(() => ListEnvironmentVariablesFromContext200ApplicationJSONItems)
-    items: ListEnvironmentVariablesFromContext200ApplicationJSONItems[];
+    @Type(() => Items)
+    items: Items[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -79,6 +79,12 @@ export class ListEnvironmentVariablesFromContext200ApplicationJSON extends Speak
 }
 
 export class ListEnvironmentVariablesFromContextResponse extends SpeakeasyBase {
+    /**
+     * A paginated list of environment variables
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: ListEnvironmentVariablesFromContextResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -98,14 +104,8 @@ export class ListEnvironmentVariablesFromContextResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * A paginated list of environment variables
-     */
-    @SpeakeasyMetadata()
-    listEnvironmentVariablesFromContext200ApplicationJSONObject?: ListEnvironmentVariablesFromContext200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    listEnvironmentVariablesFromContextDefaultApplicationJSONObject?: ListEnvironmentVariablesFromContextDefaultApplicationJSON;
+    defaultApplicationJsonObject?: ListEnvironmentVariablesFromContextContextResponseBody;
 }

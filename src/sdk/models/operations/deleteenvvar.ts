@@ -23,7 +23,7 @@ export class DeleteEnvVarRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class DeleteEnvVarDefaultApplicationJSON extends SpeakeasyBase {
+export class DeleteEnvVarResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -70,5 +70,5 @@ export class DeleteEnvVarResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    deleteEnvVarDefaultApplicationJSONObject?: DeleteEnvVarDefaultApplicationJSON;
+    object?: DeleteEnvVarResponseBody;
 }

@@ -23,7 +23,7 @@ export class CancelJobRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CancelJobDefaultApplicationJSON extends SpeakeasyBase {
+export class CancelJobResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -67,5 +67,5 @@ export class CancelJobResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    cancelJobDefaultApplicationJSONObject?: CancelJobDefaultApplicationJSON;
+    object?: CancelJobResponseBody;
 }

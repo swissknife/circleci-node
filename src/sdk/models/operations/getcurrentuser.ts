@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 /**
  * Error response.
  */
-export class GetCurrentUserDefaultApplicationJSON extends SpeakeasyBase {
+export class GetCurrentUserResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -70,5 +70,5 @@ export class GetCurrentUserResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getCurrentUserDefaultApplicationJSONObject?: GetCurrentUserDefaultApplicationJSON;
+    object?: GetCurrentUserResponseBody;
 }

@@ -32,7 +32,7 @@ export class ContinuePipelineRequestBody extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ContinuePipelineDefaultApplicationJSON extends SpeakeasyBase {
+export class ContinuePipelineResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -79,5 +79,5 @@ export class ContinuePipelineResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    continuePipelineDefaultApplicationJSONObject?: ContinuePipelineDefaultApplicationJSON;
+    object?: ContinuePipelineResponseBody;
 }

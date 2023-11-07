@@ -1,5 +1,5 @@
 # Project
-(*project*)
+(*.project*)
 
 ### Available Operations
 
@@ -24,7 +24,7 @@ Creates a new checkout key. This API request is only usable with a user API toke
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CheckoutKeyInputType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -35,7 +35,7 @@ import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType } from "circleci-
 
   const res = await sdk.project.createCheckoutKey({
     requestBody: {
-      type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
+      type: CheckoutKeyInputType.DeployKey,
     },
     projectSlug: "string",
   });

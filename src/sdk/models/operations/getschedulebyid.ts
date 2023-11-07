@@ -17,7 +17,7 @@ export class GetScheduleByIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
+export class GetScheduleByIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +26,7 @@ export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The attribution actor who will run the scheduled pipeline.
  */
-export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
+export class GetScheduleByIdUser extends SpeakeasyBase {
     /**
      * The unique ID of the user.
      */
@@ -58,8 +58,8 @@ export class GetScheduleByIdSchedule extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "actor" })
-    @Type(() => GetScheduleByIdScheduleUser)
-    actor: GetScheduleByIdScheduleUser;
+    @Type(() => GetScheduleByIdUser)
+    actor: GetScheduleByIdUser;
 
     /**
      * The date and time the pipeline was created.
@@ -149,5 +149,5 @@ export class GetScheduleByIdResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getScheduleByIdDefaultApplicationJSONObject?: GetScheduleByIdDefaultApplicationJSON;
+    object?: GetScheduleByIdResponseBody;
 }

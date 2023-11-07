@@ -49,7 +49,7 @@ import { Circleci } from "circleci-v2-sdk";
 ## Available Resources and Operations
 
 
-### [context](docs/sdks/context/README.md)
+### [.context](docs/sdks/context/README.md)
 
 * [addEnvironmentVariableToContext](docs/sdks/context/README.md#addenvironmentvariabletocontext) - Add or update an environment variable
 * [createContext](docs/sdks/context/README.md#createcontext) - Create a new context
@@ -59,7 +59,7 @@ import { Circleci } from "circleci-v2-sdk";
 * [listContexts](docs/sdks/context/README.md#listcontexts) - List contexts
 * [listEnvironmentVariablesFromContext](docs/sdks/context/README.md#listenvironmentvariablesfromcontext) - List environment variables
 
-### [insights](docs/sdks/insights/README.md)
+### [.insights](docs/sdks/insights/README.md)
 
 * [getAllInsightsBranches](docs/sdks/insights/README.md#getallinsightsbranches) - Get all branches for a project
 * [getFlakyTests](docs/sdks/insights/README.md#getflakytests) - Get flaky tests for a project
@@ -72,14 +72,13 @@ import { Circleci } from "circleci-v2-sdk";
 * [getProjectWorkflowsPageData](docs/sdks/insights/README.md#getprojectworkflowspagedata) - Get summary metrics and trends for a project across it's workflows and branches
 * [getWorkflowSummary](docs/sdks/insights/README.md#getworkflowsummary) - Get metrics and trends for workflows
 
-### [job](docs/sdks/job/README.md)
+### [.user](docs/sdks/user/README.md)
 
-* [cancelJob](docs/sdks/job/README.md#canceljob) - Cancel job
-* [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
-* [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
-* [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
+* [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
+* [getCurrentUser](docs/sdks/user/README.md#getcurrentuser) - User Information
+* [getUser](docs/sdks/user/README.md#getuser) - User Information
 
-### [oidcTokenManagement](docs/sdks/oidctokenmanagement/README.md)
+### [.oidcTokenManagement](docs/sdks/oidctokenmanagement/README.md)
 
 * [deleteOrgClaims](docs/sdks/oidctokenmanagement/README.md#deleteorgclaims) - Delete org-level claims
 * [deleteProjectClaims](docs/sdks/oidctokenmanagement/README.md#deleteprojectclaims) - Delete project-level claims
@@ -88,19 +87,7 @@ import { Circleci } from "circleci-v2-sdk";
 * [patchOrgClaims](docs/sdks/oidctokenmanagement/README.md#patchorgclaims) - Patch org-level claims
 * [patchProjectClaims](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
 
-### [pipeline](docs/sdks/pipeline/README.md)
-
-* [continuePipeline](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
-* [getPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
-* [getPipelineByNumber](docs/sdks/pipeline/README.md#getpipelinebynumber) - Get a pipeline by pipeline number
-* [getPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
-* [listMyPipelines](docs/sdks/pipeline/README.md#listmypipelines) - Get your pipelines
-* [listPipelines](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
-* [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
-* [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
-* [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
-
-### [policyManagement](docs/sdks/policymanagement/README.md)
+### [.policyManagement](docs/sdks/policymanagement/README.md)
 
 * [createPolicyBundle](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
 * [getDecisionLog](docs/sdks/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
@@ -112,7 +99,19 @@ import { Circleci } from "circleci-v2-sdk";
 * [makeDecision](docs/sdks/policymanagement/README.md#makedecision) - Makes a decision
 * [setDecisionSettings](docs/sdks/policymanagement/README.md#setdecisionsettings) - Set the decision settings
 
-### [project](docs/sdks/project/README.md)
+### [.pipeline](docs/sdks/pipeline/README.md)
+
+* [continuePipeline](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
+* [getPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
+* [getPipelineByNumber](docs/sdks/pipeline/README.md#getpipelinebynumber) - Get a pipeline by pipeline number
+* [getPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
+* [listMyPipelines](docs/sdks/pipeline/README.md#listmypipelines) - Get your pipelines
+* [listPipelines](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
+* [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
+* [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
+* [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
+
+### [.project](docs/sdks/project/README.md)
 
 * [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
 * [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
@@ -124,7 +123,14 @@ import { Circleci } from "circleci-v2-sdk";
 * [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
 * [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
 
-### [schedule](docs/sdks/schedule/README.md)
+### [.job](docs/sdks/job/README.md)
+
+* [cancelJob](docs/sdks/job/README.md#canceljob) - Cancel job
+* [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
+* [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
+* [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
+
+### [.schedule](docs/sdks/schedule/README.md)
 
 * [createSchedule](docs/sdks/schedule/README.md#createschedule) - Create a schedule
 * [deleteScheduleById](docs/sdks/schedule/README.md#deleteschedulebyid) - Delete a schedule
@@ -132,13 +138,7 @@ import { Circleci } from "circleci-v2-sdk";
 * [listSchedulesForProject](docs/sdks/schedule/README.md#listschedulesforproject) - Get all schedules
 * [updateSchedule](docs/sdks/schedule/README.md#updateschedule) - Update a schedule
 
-### [user](docs/sdks/user/README.md)
-
-* [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
-* [getCurrentUser](docs/sdks/user/README.md#getcurrentuser) - User Information
-* [getUser](docs/sdks/user/README.md#getuser) - User Information
-
-### [webhook](docs/sdks/webhook/README.md)
+### [.webhook](docs/sdks/webhook/README.md)
 
 * [createWebhook](docs/sdks/webhook/README.md#createwebhook) - Create a webhook
 * [deleteWebhook](docs/sdks/webhook/README.md#deletewebhook) - Delete a webhook
@@ -146,7 +146,7 @@ import { Circleci } from "circleci-v2-sdk";
 * [getWebhooks](docs/sdks/webhook/README.md#getwebhooks) - List webhooks
 * [updateWebhook](docs/sdks/webhook/README.md#updatewebhook) - Update a webhook
 
-### [workflow](docs/sdks/workflow/README.md)
+### [.workflow](docs/sdks/workflow/README.md)
 
 * [approvePendingApprovalJobById](docs/sdks/workflow/README.md#approvependingapprovaljobbyid) - Approve a job
 * [cancelWorkflow](docs/sdks/workflow/README.md#cancelworkflow) - Cancel a workflow
@@ -179,8 +179,6 @@ Here's an example of one such pagination call:
 # Error Handling
 
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
-
-
 <!-- End Error Handling -->
 
 
@@ -198,16 +196,15 @@ You can override the default server globally by passing a server index to the `s
 
 For example:
 
-
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
 (async () => {
     const sdk = new Circleci({
+        serverIdx: 0,
         security: {
             apiKeyHeader: "",
         },
-        serverIdx: 0,
     });
 
     const res = await sdk.context.addEnvironmentVariableToContext({
@@ -230,16 +227,15 @@ import { Circleci } from "circleci-v2-sdk";
 
 The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
 
-
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
 (async () => {
     const sdk = new Circleci({
+        serverURL: "https://circleci.com/api/v2",
         security: {
             apiKeyHeader: "",
         },
-        serverURL: "https://circleci.com/api/v2",
     });
 
     const res = await sdk.context.addEnvironmentVariableToContext({
@@ -279,9 +275,51 @@ const httpClient = axios.create({
 
 const sdk = new Circleci({defaultClient: httpClient});
 ```
-
-
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security schemes globally:
+
+| Name           | Type           | Scheme         |
+| -------------- | -------------- | -------------- |
+| `apiKeyHeader` | apiKey         | API key        |
+| `apiKeyQuery`  | apiKey         | API key        |
+| `basicAuth`    | http           | HTTP Basic     |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+(async () => {
+    const sdk = new Circleci({
+        security: {
+            apiKeyHeader: "",
+        },
+    });
+
+    const res = await sdk.context.addEnvironmentVariableToContext({
+        requestBody: {
+            value: "some-secret-value",
+        },
+        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+        envVarName: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

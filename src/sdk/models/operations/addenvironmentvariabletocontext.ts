@@ -35,7 +35,7 @@ export class AddEnvironmentVariableToContextRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class AddEnvironmentVariableToContextDefaultApplicationJSON extends SpeakeasyBase {
+export class AddEnvironmentVariableToContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -61,14 +61,14 @@ export class AddEnvironmentVariableToContextResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * The new environment variable
-     */
-    @SpeakeasyMetadata()
-    addEnvironmentVariableToContext200ApplicationJSONOneOf?: any;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    addEnvironmentVariableToContextDefaultApplicationJSONObject?: AddEnvironmentVariableToContextDefaultApplicationJSON;
+    object?: AddEnvironmentVariableToContextResponseBody;
+
+    /**
+     * The new environment variable
+     */
+    @SpeakeasyMetadata()
+    oneOf?: any;
 }

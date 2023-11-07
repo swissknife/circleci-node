@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export enum CreateWebhookRequestBodyEvents {
+export enum Events {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed",
 }
@@ -14,14 +14,14 @@ export enum CreateWebhookRequestBodyEvents {
 /**
  * Type of the scope being used
  */
-export enum CreateWebhookRequestBodyScopeType {
+export enum TypeT {
     Project = "project",
 }
 
 /**
  * The scope in which the relevant events that will trigger webhooks
  */
-export class CreateWebhookRequestBodyScope extends SpeakeasyBase {
+export class Scope extends SpeakeasyBase {
     /**
      * ID of the scope being used (at the moment, only project ID is supported)
      */
@@ -34,7 +34,7 @@ export class CreateWebhookRequestBodyScope extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: CreateWebhookRequestBodyScopeType;
+    type: TypeT;
 }
 
 /**
@@ -46,7 +46,7 @@ export class CreateWebhookRequestBody extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "events" })
-    events: CreateWebhookRequestBodyEvents[];
+    events: Events[];
 
     /**
      * Name of the webhook
@@ -60,8 +60,8 @@ export class CreateWebhookRequestBody extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "scope" })
-    @Type(() => CreateWebhookRequestBodyScope)
-    scope: CreateWebhookRequestBodyScope;
+    @Type(() => Scope)
+    scope: Scope;
 
     /**
      * Secret used to build an HMAC hash of the payload and passed as a header in the webhook request
@@ -88,13 +88,13 @@ export class CreateWebhookRequestBody extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CreateWebhookDefaultApplicationJSON extends SpeakeasyBase {
+export class CreateWebhookResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export enum CreateWebhookWebhookEvents {
+export enum CreateWebhookEvents {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed",
 }
@@ -102,7 +102,7 @@ export enum CreateWebhookWebhookEvents {
 /**
  * The scope in which the relevant events that will trigger webhooks
  */
-export class CreateWebhookWebhookScope extends SpeakeasyBase {
+export class CreateWebhookScope extends SpeakeasyBase {
     /**
      * ID of the scope being used (at the moment, only project ID is supported)
      */
@@ -135,7 +135,7 @@ export class CreateWebhookWebhook extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "events" })
-    events: CreateWebhookWebhookEvents[];
+    events: CreateWebhookEvents[];
 
     /**
      * The unique ID of the webhook
@@ -156,8 +156,8 @@ export class CreateWebhookWebhook extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "scope" })
-    @Type(() => CreateWebhookWebhookScope)
-    scope: CreateWebhookWebhookScope;
+    @Type(() => CreateWebhookScope)
+    scope: CreateWebhookScope;
 
     /**
      * Masked value of the secret used to build an HMAC hash of the payload and passed as a header in the webhook request
@@ -218,5 +218,5 @@ export class CreateWebhookResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    createWebhookDefaultApplicationJSONObject?: CreateWebhookDefaultApplicationJSON;
+    object?: CreateWebhookResponseBody;
 }

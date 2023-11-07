@@ -23,7 +23,7 @@ export class ListWorkflowsByPipelineIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListWorkflowsByPipelineIdDefaultApplicationJSON extends SpeakeasyBase {
+export class ListWorkflowsByPipelineIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class ListWorkflowsByPipelineIdDefaultApplicationJSON extends SpeakeasyBa
 /**
  * The current status of the workflow.
  */
-export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatus {
+export enum ListWorkflowsByPipelineIdStatus {
     Success = "success",
     Running = "running",
     NotRun = "not_run",
@@ -47,14 +47,14 @@ export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatus {
 /**
  * Tag used for the workflow
  */
-export enum ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTag {
+export enum ListWorkflowsByPipelineIdTag {
     Setup = "setup",
 }
 
 /**
  * A workflow
  */
-export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends SpeakeasyBase {
+export class Workflow extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "canceled_by" })
     canceledBy?: string;
@@ -115,7 +115,7 @@ export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends Speak
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: ListWorkflowsByPipelineIdWorkflowListResponseWorkflowStatus;
+    status: ListWorkflowsByPipelineIdStatus;
 
     /**
      * The date and time the workflow stopped.
@@ -130,7 +130,7 @@ export class ListWorkflowsByPipelineIdWorkflowListResponseWorkflow extends Speak
      */
     @SpeakeasyMetadata()
     @Expose({ name: "tag" })
-    tag?: ListWorkflowsByPipelineIdWorkflowListResponseWorkflowTag;
+    tag?: ListWorkflowsByPipelineIdTag;
 }
 
 /**
@@ -140,10 +140,10 @@ export class ListWorkflowsByPipelineIdWorkflowListResponse extends SpeakeasyBase
     /**
      * A list of workflows.
      */
-    @SpeakeasyMetadata({ elemType: ListWorkflowsByPipelineIdWorkflowListResponseWorkflow })
+    @SpeakeasyMetadata({ elemType: Workflow })
     @Expose({ name: "items" })
-    @Type(() => ListWorkflowsByPipelineIdWorkflowListResponseWorkflow)
-    items: ListWorkflowsByPipelineIdWorkflowListResponseWorkflow[];
+    @Type(() => Workflow)
+    items: Workflow[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -182,5 +182,5 @@ export class ListWorkflowsByPipelineIdResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    listWorkflowsByPipelineIdDefaultApplicationJSONObject?: ListWorkflowsByPipelineIdDefaultApplicationJSON;
+    object?: ListWorkflowsByPipelineIdResponseBody;
 }

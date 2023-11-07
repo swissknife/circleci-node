@@ -9,7 +9,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * The type of checkout key to create. This may be either `deploy-key` or `user-key`.
  */
-export enum CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType {
+export enum CheckoutKeyInputType {
     UserKey = "user-key",
     DeployKey = "deploy-key",
 }
@@ -20,7 +20,7 @@ export class CreateCheckoutKeyCheckoutKeyInput extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType;
+    type: CheckoutKeyInputType;
 }
 
 export class CreateCheckoutKeyRequest extends SpeakeasyBase {
@@ -37,7 +37,7 @@ export class CreateCheckoutKeyRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CreateCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
+export class CreateCheckoutKeyResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -46,7 +46,7 @@ export class CreateCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
  */
-export enum CreateCheckoutKeyCheckoutKeyCheckoutKeyType {
+export enum CheckoutKeyType {
     DeployKey = "deploy-key",
     GithubUserKey = "github-user-key",
 }
@@ -89,7 +89,7 @@ export class CreateCheckoutKeyCheckoutKey extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: CreateCheckoutKeyCheckoutKeyCheckoutKeyType;
+    type: CheckoutKeyType;
 }
 
 export class CreateCheckoutKeyResponse extends SpeakeasyBase {
@@ -121,5 +121,5 @@ export class CreateCheckoutKeyResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    createCheckoutKeyDefaultApplicationJSONObject?: CreateCheckoutKeyDefaultApplicationJSON;
+    object?: CreateCheckoutKeyResponseBody;
 }

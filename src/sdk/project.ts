@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -106,9 +106,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateCheckoutKeyDefaultApplicationJSON
+                        operations.CreateCheckoutKeyResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -198,7 +198,7 @@ export class Project {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.environmentVariable = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateEnvVarEnvironmentVariable1
+                        operations.CreateEnvVarProjectEnvironmentVariable
                     );
                 } else {
                     throw new errors.SDKError(
@@ -211,9 +211,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateEnvVarDefaultApplicationJSON
+                        operations.CreateEnvVarResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -305,9 +305,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteCheckoutKeyDefaultApplicationJSON
+                        operations.DeleteCheckoutKeyResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -399,9 +399,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteEnvVarDefaultApplicationJSON
+                        operations.DeleteEnvVarResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -493,9 +493,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetCheckoutKeyDefaultApplicationJSON
+                        operations.GetCheckoutKeyResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -587,9 +587,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetEnvVarDefaultApplicationJSON
+                        operations.GetEnvVarResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -677,9 +677,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectBySlugDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectBySlugDefaultApplicationJSON
+                        operations.GetProjectBySlugResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -767,9 +767,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listCheckoutKeysDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListCheckoutKeysDefaultApplicationJSON
+                        operations.ListCheckoutKeysResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -857,9 +857,9 @@ export class Project {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listEnvVarsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListEnvVarsDefaultApplicationJSON
+                        operations.ListEnvVarsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

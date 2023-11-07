@@ -23,7 +23,7 @@ export class GetAllInsightsBranchesRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetAllInsightsBranchesDefaultApplicationJSON extends SpeakeasyBase {
+export class GetAllInsightsBranchesResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -52,11 +52,11 @@ export class GetAllInsightsBranchesResponse extends SpeakeasyBase {
      * A list of branches for a project
      */
     @SpeakeasyMetadata()
-    getAllInsightsBranches200ApplicationJSONAny?: any;
+    any?: any;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getAllInsightsBranchesDefaultApplicationJSONObject?: GetAllInsightsBranchesDefaultApplicationJSON;
+    object?: GetAllInsightsBranchesResponseBody;
 }

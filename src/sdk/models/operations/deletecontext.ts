@@ -17,7 +17,7 @@ export class DeleteContextRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class DeleteContextDefaultApplicationJSON extends SpeakeasyBase {
+export class DeleteContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -64,5 +64,5 @@ export class DeleteContextResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    deleteContextDefaultApplicationJSONObject?: DeleteContextDefaultApplicationJSON;
+    object?: DeleteContextResponseBody;
 }

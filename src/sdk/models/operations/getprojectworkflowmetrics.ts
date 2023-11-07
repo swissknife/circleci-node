@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
  */
-export enum GetProjectWorkflowMetricsReportingWindow {
+export enum GetProjectWorkflowMetricsQueryParamReportingWindow {
     Last7Days = "last-7-days",
     Last90Days = "last-90-days",
     Last24Hours = "last-24-hours",
@@ -46,13 +46,13 @@ export class GetProjectWorkflowMetricsRequest extends SpeakeasyBase {
      * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
-    reportingWindow?: GetProjectWorkflowMetricsReportingWindow;
+    reportingWindow?: GetProjectWorkflowMetricsQueryParamReportingWindow;
 }
 
 /**
  * Error response.
  */
-export class GetProjectWorkflowMetricsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowMetricsInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -61,7 +61,7 @@ export class GetProjectWorkflowMetricsDefaultApplicationJSON extends SpeakeasyBa
 /**
  * Metrics relating to the duration of runs for a workflow.
  */
-export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowMetricsDurationMetrics extends SpeakeasyBase {
     /**
      * The max duration, in seconds, among a group of runs.
      */
@@ -108,14 +108,14 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetr
 /**
  * Metrics relating to a workflow's runs.
  */
-export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowMetricsMetrics extends SpeakeasyBase {
     /**
      * Metrics relating to the duration of runs for a workflow.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "duration_metrics" })
-    @Type(() => GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics)
-    durationMetrics: GetProjectWorkflowMetrics200ApplicationJSONItemsMetricsDurationMetrics;
+    @Type(() => GetProjectWorkflowMetricsDurationMetrics)
+    durationMetrics: GetProjectWorkflowMetricsDurationMetrics;
 
     /**
      * The number of failed runs.
@@ -171,14 +171,14 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItemsMetrics extends Spe
     totalRuns: number;
 }
 
-export class GetProjectWorkflowMetrics200ApplicationJSONItems extends SpeakeasyBase {
+export class GetProjectWorkflowMetricsItems extends SpeakeasyBase {
     /**
      * Metrics relating to a workflow's runs.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metrics" })
-    @Type(() => GetProjectWorkflowMetrics200ApplicationJSONItemsMetrics)
-    metrics: GetProjectWorkflowMetrics200ApplicationJSONItemsMetrics;
+    @Type(() => GetProjectWorkflowMetricsMetrics)
+    metrics: GetProjectWorkflowMetricsMetrics;
 
     /**
      * The name of the workflow.
@@ -214,14 +214,14 @@ export class GetProjectWorkflowMetrics200ApplicationJSONItems extends SpeakeasyB
 /**
  * Paginated workflow summary metrics.
  */
-export class GetProjectWorkflowMetrics200ApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowMetricsResponseBody extends SpeakeasyBase {
     /**
      * Workflow summary metrics.
      */
-    @SpeakeasyMetadata({ elemType: GetProjectWorkflowMetrics200ApplicationJSONItems })
+    @SpeakeasyMetadata({ elemType: GetProjectWorkflowMetricsItems })
     @Expose({ name: "items" })
-    @Type(() => GetProjectWorkflowMetrics200ApplicationJSONItems)
-    items: GetProjectWorkflowMetrics200ApplicationJSONItems[];
+    @Type(() => GetProjectWorkflowMetricsItems)
+    items: GetProjectWorkflowMetricsItems[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -232,6 +232,12 @@ export class GetProjectWorkflowMetrics200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetProjectWorkflowMetricsResponse extends SpeakeasyBase {
+    /**
+     * A paginated list of summary metrics by workflow
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetProjectWorkflowMetricsResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -251,14 +257,8 @@ export class GetProjectWorkflowMetricsResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * A paginated list of summary metrics by workflow
-     */
-    @SpeakeasyMetadata()
-    getProjectWorkflowMetrics200ApplicationJSONObject?: GetProjectWorkflowMetrics200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getProjectWorkflowMetricsDefaultApplicationJSONObject?: GetProjectWorkflowMetricsDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetProjectWorkflowMetricsInsightsResponseBody;
 }

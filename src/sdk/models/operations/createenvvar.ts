@@ -39,7 +39,7 @@ export class CreateEnvVarRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CreateEnvVarDefaultApplicationJSON extends SpeakeasyBase {
+export class CreateEnvVarResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -48,7 +48,7 @@ export class CreateEnvVarDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * An environment variable is a map containing a value and an optional timestamp.
  */
-export class CreateEnvVarEnvironmentVariable1 extends SpeakeasyBase {
+export class CreateEnvVarProjectEnvironmentVariable extends SpeakeasyBase {
     /**
      * The creation timestamp of the environment variable.
      */
@@ -82,7 +82,7 @@ export class CreateEnvVarResponse extends SpeakeasyBase {
      * The environment variable.
      */
     @SpeakeasyMetadata()
-    environmentVariable?: CreateEnvVarEnvironmentVariable1;
+    environmentVariable?: CreateEnvVarProjectEnvironmentVariable;
 
     /**
      * HTTP response status code for this operation
@@ -100,5 +100,5 @@ export class CreateEnvVarResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    createEnvVarDefaultApplicationJSONObject?: CreateEnvVarDefaultApplicationJSON;
+    object?: CreateEnvVarResponseBody;
 }

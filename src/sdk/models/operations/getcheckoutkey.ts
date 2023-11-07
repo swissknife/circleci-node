@@ -23,7 +23,7 @@ export class GetCheckoutKeyRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
+export class GetCheckoutKeyResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class GetCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
  */
-export enum GetCheckoutKeyCheckoutKeyCheckoutKeyType {
+export enum GetCheckoutKeyCheckoutKeyType {
     DeployKey = "deploy-key",
     GithubUserKey = "github-user-key",
 }
@@ -75,7 +75,7 @@ export class GetCheckoutKeyCheckoutKey extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: GetCheckoutKeyCheckoutKeyCheckoutKeyType;
+    type: GetCheckoutKeyCheckoutKeyType;
 }
 
 export class GetCheckoutKeyResponse extends SpeakeasyBase {
@@ -107,5 +107,5 @@ export class GetCheckoutKeyResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getCheckoutKeyDefaultApplicationJSONObject?: GetCheckoutKeyDefaultApplicationJSON;
+    object?: GetCheckoutKeyResponseBody;
 }

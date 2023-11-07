@@ -1,5 +1,5 @@
 # OIDCTokenManagement
-(*oidcTokenManagement*)
+(*.oidcTokenManagement*)
 
 ## Overview
 

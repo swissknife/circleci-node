@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The attribution-actor of the scheduled pipeline.
  */
-export enum CreateScheduleCreateScheduleParametersAttributionActor {
+export enum AttributionActor {
     Current = "current",
     System = "system",
 }
@@ -23,7 +23,7 @@ export class CreateScheduleCreateScheduleParameters extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "attribution-actor" })
-    attributionActor: CreateScheduleCreateScheduleParametersAttributionActor;
+    attributionActor: AttributionActor;
 
     /**
      * Description of the schedule.
@@ -68,7 +68,7 @@ export class CreateScheduleRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CreateScheduleDefaultApplicationJSON extends SpeakeasyBase {
+export class CreateScheduleResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -77,7 +77,7 @@ export class CreateScheduleDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The attribution actor who will run the scheduled pipeline.
  */
-export class CreateScheduleScheduleUser extends SpeakeasyBase {
+export class User extends SpeakeasyBase {
     /**
      * The unique ID of the user.
      */
@@ -109,8 +109,8 @@ export class CreateScheduleSchedule extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "actor" })
-    @Type(() => CreateScheduleScheduleUser)
-    actor: CreateScheduleScheduleUser;
+    @Type(() => User)
+    actor: User;
 
     /**
      * The date and time the pipeline was created.
@@ -200,5 +200,5 @@ export class CreateScheduleResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    createScheduleDefaultApplicationJSONObject?: CreateScheduleDefaultApplicationJSON;
+    object?: CreateScheduleResponseBody;
 }

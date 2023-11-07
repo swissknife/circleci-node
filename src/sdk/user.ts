@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -74,11 +74,11 @@ export class User {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.collaborations = [];
+                    res.classes = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.collaborations = utils.objectToClass(
+                    res.classes = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetCollaborationsCollaboration,
+                        operations.Collaboration,
                         resFieldDepth
                     );
                 } else {
@@ -92,9 +92,9 @@ export class User {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getCollaborationsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetCollaborationsDefaultApplicationJSON
+                        operations.GetCollaborationsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -175,9 +175,9 @@ export class User {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getCurrentUserDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetCurrentUserDefaultApplicationJSON
+                        operations.GetCurrentUserResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -262,9 +262,9 @@ export class User {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getUserDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetUserDefaultApplicationJSON
+                        operations.GetUserResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

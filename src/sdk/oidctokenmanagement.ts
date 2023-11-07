@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -93,9 +93,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteOrgClaims400ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteOrgClaims400ApplicationJSON
+                        operations.DeleteOrgClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -108,9 +108,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteOrgClaims403ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteOrgClaims403ApplicationJSON
+                        operations.DeleteOrgClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -123,9 +123,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteOrgClaims500ApplicationJSONObject = utils.objectToClass(
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteOrgClaims500ApplicationJSON
+                        operations.DeleteOrgClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -219,9 +219,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteProjectClaims400ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteProjectClaims400ApplicationJSON
+                        operations.DeleteProjectClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -234,9 +234,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteProjectClaims403ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteProjectClaims403ApplicationJSON
+                        operations.DeleteProjectClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -249,9 +249,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteProjectClaims500ApplicationJSONObject = utils.objectToClass(
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteProjectClaims500ApplicationJSON
+                        operations.DeleteProjectClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -339,9 +339,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgClaims400ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgClaims400ApplicationJSON
+                        operations.GetOrgClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -354,9 +354,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgClaims403ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgClaims403ApplicationJSON
+                        operations.GetOrgClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -369,9 +369,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgClaims500ApplicationJSONObject = utils.objectToClass(
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgClaims500ApplicationJSON
+                        operations.GetOrgClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -463,9 +463,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectClaims400ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectClaims400ApplicationJSON
+                        operations.GetProjectClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -478,9 +478,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectClaims403ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectClaims403ApplicationJSON
+                        operations.GetProjectClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -493,9 +493,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectClaims500ApplicationJSONObject = utils.objectToClass(
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectClaims500ApplicationJSON
+                        operations.GetProjectClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -602,9 +602,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchOrgClaims400ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchOrgClaims400ApplicationJSON
+                        operations.PatchOrgClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -617,9 +617,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchOrgClaims403ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchOrgClaims403ApplicationJSON
+                        operations.PatchOrgClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -632,9 +632,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchOrgClaims500ApplicationJSONObject = utils.objectToClass(
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchOrgClaims500ApplicationJSON
+                        operations.PatchOrgClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -746,9 +746,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchProjectClaims400ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchProjectClaims400ApplicationJSON
+                        operations.PatchProjectClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -761,9 +761,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchProjectClaims403ApplicationJSONObject = utils.objectToClass(
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchProjectClaims403ApplicationJSON
+                        operations.PatchProjectClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -776,9 +776,9 @@ export class OIDCTokenManagement {
                 break;
             case httpRes?.status == 500:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchProjectClaims500ApplicationJSONObject = utils.objectToClass(
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchProjectClaims500ApplicationJSON
+                        operations.PatchProjectClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

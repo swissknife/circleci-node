@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -24,7 +24,7 @@ export class CreatePolicyBundleRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class CreatePolicyBundle500ApplicationJSON extends SpeakeasyBase {
+export class CreatePolicyBundlePolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -36,7 +36,7 @@ export class CreatePolicyBundle500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class CreatePolicyBundle413ApplicationJSON extends SpeakeasyBase {
+export class CreatePolicyBundlePolicyManagementResponse413ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -48,7 +48,7 @@ export class CreatePolicyBundle413ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class CreatePolicyBundle403ApplicationJSON extends SpeakeasyBase {
+export class CreatePolicyBundlePolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -60,7 +60,7 @@ export class CreatePolicyBundle403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class CreatePolicyBundle401ApplicationJSON extends SpeakeasyBase {
+export class CreatePolicyBundlePolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -72,13 +72,55 @@ export class CreatePolicyBundle401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class CreatePolicyBundle400ApplicationJSON extends SpeakeasyBase {
+export class CreatePolicyBundleResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class CreatePolicyBundleResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: CreatePolicyBundleResponseBody;
+
+    /**
+     * The request is unauthorized
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndOneApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponseBody;
+
+    /**
+     * The user is forbidden from making this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThreeApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponseResponseBody;
+
+    /**
+     * The request exceeds the maximum payload size for policy bundles ~2.5Mib
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThirteenApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponse413ResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponse500ResponseBody;
+
     /**
      * Policy-Bundle diff successfully returned.
      */
@@ -90,48 +132,6 @@ export class CreatePolicyBundleResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    createPolicyBundle400ApplicationJSONObject?: CreatePolicyBundle400ApplicationJSON;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    createPolicyBundle401ApplicationJSONObject?: CreatePolicyBundle401ApplicationJSON;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    createPolicyBundle403ApplicationJSONObject?: CreatePolicyBundle403ApplicationJSON;
-
-    /**
-     * The request exceeds the maximum payload size for policy bundles ~2.5Mib
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    createPolicyBundle413ApplicationJSONObject?: CreatePolicyBundle413ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    createPolicyBundle500ApplicationJSONObject?: CreatePolicyBundle500ApplicationJSON;
 
     /**
      * HTTP response status code for this operation

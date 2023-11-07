@@ -35,13 +35,13 @@ export class GetProjectWorkflowTestMetricsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetProjectWorkflowTestMetricsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowTestMetricsInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export class GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests extends SpeakeasyBase {
+export class MostFailedTests extends SpeakeasyBase {
     /**
      * The class the test belongs to.
      */
@@ -106,7 +106,7 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests exte
     totalRuns: number;
 }
 
-export class GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests extends SpeakeasyBase {
+export class SlowestTests extends SpeakeasyBase {
     /**
      * The class the test belongs to.
      */
@@ -174,7 +174,7 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests extends
 /**
  * Test counts for a given pipeline number
  */
-export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts extends SpeakeasyBase {
+export class TestCounts extends SpeakeasyBase {
     /**
      * The number of tests with the error status
      */
@@ -211,7 +211,7 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts e
     total: number;
 }
 
-export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns extends SpeakeasyBase {
+export class TestRuns extends SpeakeasyBase {
     /**
      * The number of the pipeline associated with the provided test counts
      */
@@ -231,8 +231,8 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns extends Spe
      */
     @SpeakeasyMetadata()
     @Expose({ name: "test_counts" })
-    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts)
-    testCounts: GetProjectWorkflowTestMetrics200ApplicationJSONTestRunsTestCounts;
+    @Type(() => TestCounts)
+    testCounts: TestCounts;
 
     /**
      * The ID of the workflow associated with the provided test counts
@@ -245,7 +245,7 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns extends Spe
 /**
  * Project level test metrics response
  */
-export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowTestMetricsResponseBody extends SpeakeasyBase {
     /**
      * The average number of tests executed per run
      */
@@ -256,10 +256,10 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBa
     /**
      * Metrics for the most frequently failing tests
      */
-    @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests })
+    @SpeakeasyMetadata({ elemType: MostFailedTests })
     @Expose({ name: "most_failed_tests" })
-    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests)
-    mostFailedTests: GetProjectWorkflowTestMetrics200ApplicationJSONMostFailedTests[];
+    @Type(() => MostFailedTests)
+    mostFailedTests: MostFailedTests[];
 
     /**
      * The number of tests with the same success rate being omitted from most_failed_tests
@@ -271,10 +271,10 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBa
     /**
      * Metrics for the slowest running tests
      */
-    @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests })
+    @SpeakeasyMetadata({ elemType: SlowestTests })
     @Expose({ name: "slowest_tests" })
-    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests)
-    slowestTests: GetProjectWorkflowTestMetrics200ApplicationJSONSlowestTests[];
+    @Type(() => SlowestTests)
+    slowestTests: SlowestTests[];
 
     /**
      * The number of tests with the same duration rate being omitted from slowest_tests
@@ -286,10 +286,10 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBa
     /**
      * Test counts grouped by pipeline number and workflow id
      */
-    @SpeakeasyMetadata({ elemType: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns })
+    @SpeakeasyMetadata({ elemType: TestRuns })
     @Expose({ name: "test_runs" })
-    @Type(() => GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns)
-    testRuns: GetProjectWorkflowTestMetrics200ApplicationJSONTestRuns[];
+    @Type(() => TestRuns)
+    testRuns: TestRuns[];
 
     /**
      * The total number of test runs
@@ -300,6 +300,12 @@ export class GetProjectWorkflowTestMetrics200ApplicationJSON extends SpeakeasyBa
 }
 
 export class GetProjectWorkflowTestMetricsResponse extends SpeakeasyBase {
+    /**
+     * A list of test metrics by workflow
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetProjectWorkflowTestMetricsResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -319,14 +325,8 @@ export class GetProjectWorkflowTestMetricsResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * A list of test metrics by workflow
-     */
-    @SpeakeasyMetadata()
-    getProjectWorkflowTestMetrics200ApplicationJSONObject?: GetProjectWorkflowTestMetrics200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getProjectWorkflowTestMetricsDefaultApplicationJSONObject?: GetProjectWorkflowTestMetricsDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetProjectWorkflowTestMetricsInsightsResponseBody;
 }

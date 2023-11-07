@@ -1,0 +1,16 @@
+# GetProjectWorkflowTestMetricsResponseBody
+
+Project level test metrics response
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `averageTestCount`                                                                  | *number*                                                                            | :heavy_check_mark:                                                                  | The average number of tests executed per run                                        |
+| `mostFailedTests`                                                                   | [operations.MostFailedTests](../../models/operations/mostfailedtests.md)[]          | :heavy_check_mark:                                                                  | Metrics for the most frequently failing tests                                       |
+| `mostFailedTestsExtra`                                                              | *number*                                                                            | :heavy_check_mark:                                                                  | The number of tests with the same success rate being omitted from most_failed_tests |
+| `slowestTests`                                                                      | [operations.SlowestTests](../../models/operations/slowesttests.md)[]                | :heavy_check_mark:                                                                  | Metrics for the slowest running tests                                               |
+| `slowestTestsExtra`                                                                 | *number*                                                                            | :heavy_check_mark:                                                                  | The number of tests with the same duration rate being omitted from slowest_tests    |
+| `testRuns`                                                                          | [operations.TestRuns](../../models/operations/testruns.md)[]                        | :heavy_check_mark:                                                                  | Test counts grouped by pipeline number and workflow id                              |
+| `totalTestRuns`                                                                     | *number*                                                                            | :heavy_check_mark:                                                                  | The total number of test runs                                                       |

@@ -1,5 +1,5 @@
 # PolicyManagement
-(*policyManagement*)
+(*.policyManagement*)
 
 ## Overview
 

@@ -9,12 +9,12 @@ import { Expose, Type } from "class-transformer";
 /**
  * List of project names.
  */
-export class GetOrgSummaryDataProjectNames extends SpeakeasyBase {}
+export class ProjectNames extends SpeakeasyBase {}
 
 /**
  * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
  */
-export enum GetOrgSummaryDataReportingWindow {
+export enum ReportingWindow {
     Last7Days = "last-7-days",
     Last90Days = "last-90-days",
     Last24Hours = "last-24-hours",
@@ -33,19 +33,19 @@ export class GetOrgSummaryDataRequest extends SpeakeasyBase {
      * List of project names.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=project-names" })
-    projectNames?: GetOrgSummaryDataProjectNames;
+    projectNames?: ProjectNames;
 
     /**
      * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
-    reportingWindow?: GetOrgSummaryDataReportingWindow;
+    reportingWindow?: ReportingWindow;
 }
 
 /**
  * Error response.
  */
-export class GetOrgSummaryDataDefaultApplicationJSON extends SpeakeasyBase {
+export class GetOrgSummaryDataInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -54,7 +54,7 @@ export class GetOrgSummaryDataDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * Metrics for a single org metrics.
  */
-export class GetOrgSummaryData200ApplicationJSONOrgDataMetrics extends SpeakeasyBase {
+export class GetOrgSummaryDataMetrics extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "success_rate" })
     successRate: number;
@@ -91,7 +91,7 @@ export class GetOrgSummaryData200ApplicationJSONOrgDataMetrics extends Speakeasy
 /**
  * Trends for a single org.
  */
-export class GetOrgSummaryData200ApplicationJSONOrgDataTrends extends SpeakeasyBase {
+export class GetOrgSummaryDataInsightsTrends extends SpeakeasyBase {
     /**
      * The trend value for the success rate.
      */
@@ -131,28 +131,28 @@ export class GetOrgSummaryData200ApplicationJSONOrgDataTrends extends SpeakeasyB
 /**
  * Aggregated metrics for an org, with trends.
  */
-export class GetOrgSummaryData200ApplicationJSONOrgData extends SpeakeasyBase {
+export class OrgData extends SpeakeasyBase {
     /**
      * Metrics for a single org metrics.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metrics" })
-    @Type(() => GetOrgSummaryData200ApplicationJSONOrgDataMetrics)
-    metrics: GetOrgSummaryData200ApplicationJSONOrgDataMetrics;
+    @Type(() => GetOrgSummaryDataMetrics)
+    metrics: GetOrgSummaryDataMetrics;
 
     /**
      * Trends for a single org.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trends" })
-    @Type(() => GetOrgSummaryData200ApplicationJSONOrgDataTrends)
-    trends: GetOrgSummaryData200ApplicationJSONOrgDataTrends;
+    @Type(() => GetOrgSummaryDataInsightsTrends)
+    trends: GetOrgSummaryDataInsightsTrends;
 }
 
 /**
  * Metrics for a single project, across all branches.
  */
-export class GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics extends SpeakeasyBase {
+export class GetOrgSummaryDataInsightsMetrics extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "success_rate" })
     successRate: number;
@@ -182,7 +182,7 @@ export class GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics extends Sp
 /**
  * Trends for a single project, across all branches.
  */
-export class GetOrgSummaryData200ApplicationJSONOrgProjectDataTrends extends SpeakeasyBase {
+export class GetOrgSummaryDataTrends extends SpeakeasyBase {
     /**
      * The trend value for the success rate.
      */
@@ -212,14 +212,14 @@ export class GetOrgSummaryData200ApplicationJSONOrgProjectDataTrends extends Spe
     totalRuns: number;
 }
 
-export class GetOrgSummaryData200ApplicationJSONOrgProjectData extends SpeakeasyBase {
+export class OrgProjectData extends SpeakeasyBase {
     /**
      * Metrics for a single project, across all branches.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metrics" })
-    @Type(() => GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics)
-    metrics: GetOrgSummaryData200ApplicationJSONOrgProjectDataMetrics;
+    @Type(() => GetOrgSummaryDataInsightsMetrics)
+    metrics: GetOrgSummaryDataInsightsMetrics;
 
     /**
      * The name of the project.
@@ -233,14 +233,14 @@ export class GetOrgSummaryData200ApplicationJSONOrgProjectData extends Speakeasy
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trends" })
-    @Type(() => GetOrgSummaryData200ApplicationJSONOrgProjectDataTrends)
-    trends: GetOrgSummaryData200ApplicationJSONOrgProjectDataTrends;
+    @Type(() => GetOrgSummaryDataTrends)
+    trends: GetOrgSummaryDataTrends;
 }
 
 /**
  * Summary metrics with trends for the entire org, and for each project.
  */
-export class GetOrgSummaryData200ApplicationJSON extends SpeakeasyBase {
+export class GetOrgSummaryDataResponseBody extends SpeakeasyBase {
     /**
      * A list of all the project names in the organization.
      */
@@ -253,19 +253,25 @@ export class GetOrgSummaryData200ApplicationJSON extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "org_data" })
-    @Type(() => GetOrgSummaryData200ApplicationJSONOrgData)
-    orgData: GetOrgSummaryData200ApplicationJSONOrgData;
+    @Type(() => OrgData)
+    orgData: OrgData;
 
     /**
      * Metrics for a single project, across all branches
      */
-    @SpeakeasyMetadata({ elemType: GetOrgSummaryData200ApplicationJSONOrgProjectData })
+    @SpeakeasyMetadata({ elemType: OrgProjectData })
     @Expose({ name: "org_project_data" })
-    @Type(() => GetOrgSummaryData200ApplicationJSONOrgProjectData)
-    orgProjectData: GetOrgSummaryData200ApplicationJSONOrgProjectData[];
+    @Type(() => OrgProjectData)
+    orgProjectData: OrgProjectData[];
 }
 
 export class GetOrgSummaryDataResponse extends SpeakeasyBase {
+    /**
+     * summary metrics with trends for an entire org and it's projects.
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetOrgSummaryDataResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -285,14 +291,8 @@ export class GetOrgSummaryDataResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * summary metrics with trends for an entire org and it's projects.
-     */
-    @SpeakeasyMetadata()
-    getOrgSummaryData200ApplicationJSONObject?: GetOrgSummaryData200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getOrgSummaryDataDefaultApplicationJSONObject?: GetOrgSummaryDataDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetOrgSummaryDataInsightsResponseBody;
 }

@@ -17,7 +17,7 @@ export class DeleteWebhookRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class DeleteWebhookDefaultApplicationJSON extends SpeakeasyBase {
+export class DeleteWebhookResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -64,5 +64,5 @@ export class DeleteWebhookResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    deleteWebhookDefaultApplicationJSONObject?: DeleteWebhookDefaultApplicationJSON;
+    object?: DeleteWebhookResponseBody;
 }

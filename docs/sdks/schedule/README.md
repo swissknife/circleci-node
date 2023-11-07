@@ -1,5 +1,5 @@
 # Schedule
-(*schedule*)
+(*.schedule*)
 
 ### Available Operations
 
@@ -17,7 +17,7 @@ Creates a schedule and returns the created schedule.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -28,7 +28,7 @@ import { CreateScheduleCreateScheduleParametersAttributionActor } from "circleci
 
   const res = await sdk.schedule.createSchedule({
     requestBody: {
-      attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
+      attributionActor: AttributionActor.Current,
       name: "string",
       parameters: {
         "deploy_prod": "string",
@@ -187,11 +187,7 @@ Updates a schedule and returns the updated schedule.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  UpdateScheduleUpdateScheduleParametersAttributionActor,
-  UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek,
-  UpdateScheduleUpdateScheduleParametersTimetableMonths,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -202,23 +198,23 @@ import {
 
   const res = await sdk.schedule.updateSchedule({
     requestBody: {
-      attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
+      attributionActor: UpdateScheduleAttributionActor.Current,
       parameters: {
-        "branch": "string",
         "deploy_prod": "string",
+        "branch": "string",
       },
       timetable: {
         daysOfMonth: [
           422422,
         ],
         daysOfWeek: [
-          UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Wed,
+          DaysOfWeek.Wed,
         ],
         hoursOfDay: [
           565089,
         ],
         months: [
-          UpdateScheduleUpdateScheduleParametersTimetableMonths.Aug,
+          Months.Aug,
         ],
       },
     },

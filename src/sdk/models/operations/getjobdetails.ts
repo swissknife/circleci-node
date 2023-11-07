@@ -23,7 +23,7 @@ export class GetJobDetailsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetJobDetailsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetJobDetailsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class GetJobDetailsDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * Information about the context.
  */
-export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
+export class Contexts extends SpeakeasyBase {
     /**
      * The name of the context.
      */
@@ -44,7 +44,7 @@ export class GetJobDetailsJobDetailsContexts extends SpeakeasyBase {
 /**
  * Information about executor used for a job.
  */
-export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
+export class Executor extends SpeakeasyBase {
     /**
      * Resource class name.
      */
@@ -63,7 +63,7 @@ export class GetJobDetailsJobDetailsExecutor extends SpeakeasyBase {
 /**
  * Info about the latest workflow the job was a part of.
  */
-export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
+export class LatestWorkflow extends SpeakeasyBase {
     /**
      * The unique ID of the workflow.
      */
@@ -82,7 +82,7 @@ export class GetJobDetailsJobDetailsLatestWorkflow extends SpeakeasyBase {
 /**
  * Message from CircleCI execution platform.
  */
-export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
+export class Messages extends SpeakeasyBase {
     /**
      * Information describing message.
      */
@@ -108,7 +108,7 @@ export class GetJobDetailsJobDetailsMessages extends SpeakeasyBase {
 /**
  * Information about an organization.
  */
-export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
+export class Organization extends SpeakeasyBase {
     /**
      * The name of the organization.
      */
@@ -120,7 +120,7 @@ export class GetJobDetailsJobDetailsOrganization extends SpeakeasyBase {
 /**
  * Info about a status of the parallel run.
  */
-export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
+export class ParallelRuns extends SpeakeasyBase {
     /**
      * Index of the parallel run.
      */
@@ -139,7 +139,7 @@ export class GetJobDetailsJobDetailsParallelRuns extends SpeakeasyBase {
 /**
  * Info about a pipeline the job is a part of.
  */
-export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
+export class Pipeline extends SpeakeasyBase {
     /**
      * The unique ID of the pipeline.
      */
@@ -151,7 +151,7 @@ export class GetJobDetailsJobDetailsPipeline extends SpeakeasyBase {
 /**
  * Information about a project.
  */
-export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
+export class Project extends SpeakeasyBase {
     /**
      * URL to the repository hosting the project's code
      */
@@ -181,7 +181,7 @@ export class GetJobDetailsJobDetailsProject extends SpeakeasyBase {
 /**
  * The current status of the job.
  */
-export enum GetJobDetailsJobDetailsStatus {
+export enum Status {
     Success = "success",
     Running = "running",
     NotRun = "not_run",
@@ -205,10 +205,10 @@ export class GetJobDetailsJobDetails extends SpeakeasyBase {
     /**
      * List of contexts used by the job.
      */
-    @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsContexts })
+    @SpeakeasyMetadata({ elemType: Contexts })
     @Expose({ name: "contexts" })
-    @Type(() => GetJobDetailsJobDetailsContexts)
-    contexts: GetJobDetailsJobDetailsContexts[];
+    @Type(() => Contexts)
+    contexts: Contexts[];
 
     /**
      * The time when the job was created.
@@ -230,24 +230,24 @@ export class GetJobDetailsJobDetails extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "executor" })
-    @Type(() => GetJobDetailsJobDetailsExecutor)
-    executor: GetJobDetailsJobDetailsExecutor;
+    @Type(() => Executor)
+    executor: Executor;
 
     /**
      * Info about the latest workflow the job was a part of.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "latest_workflow" })
-    @Type(() => GetJobDetailsJobDetailsLatestWorkflow)
-    latestWorkflow: GetJobDetailsJobDetailsLatestWorkflow;
+    @Type(() => LatestWorkflow)
+    latestWorkflow: LatestWorkflow;
 
     /**
      * Messages from CircleCI execution platform.
      */
-    @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsMessages })
+    @SpeakeasyMetadata({ elemType: Messages })
     @Expose({ name: "messages" })
-    @Type(() => GetJobDetailsJobDetailsMessages)
-    messages: GetJobDetailsJobDetailsMessages[];
+    @Type(() => Messages)
+    messages: Messages[];
 
     /**
      * The name of the job.
@@ -268,16 +268,16 @@ export class GetJobDetailsJobDetails extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "organization" })
-    @Type(() => GetJobDetailsJobDetailsOrganization)
-    organization: GetJobDetailsJobDetailsOrganization;
+    @Type(() => Organization)
+    organization: Organization;
 
     /**
      * Info about parallels runs and their status.
      */
-    @SpeakeasyMetadata({ elemType: GetJobDetailsJobDetailsParallelRuns })
+    @SpeakeasyMetadata({ elemType: ParallelRuns })
     @Expose({ name: "parallel_runs" })
-    @Type(() => GetJobDetailsJobDetailsParallelRuns)
-    parallelRuns: GetJobDetailsJobDetailsParallelRuns[];
+    @Type(() => ParallelRuns)
+    parallelRuns: ParallelRuns[];
 
     /**
      * A number of parallel runs the job has.
@@ -291,16 +291,16 @@ export class GetJobDetailsJobDetails extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "pipeline" })
-    @Type(() => GetJobDetailsJobDetailsPipeline)
-    pipeline: GetJobDetailsJobDetailsPipeline;
+    @Type(() => Pipeline)
+    pipeline: Pipeline;
 
     /**
      * Information about a project.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "project" })
-    @Type(() => GetJobDetailsJobDetailsProject)
-    project: GetJobDetailsJobDetailsProject;
+    @Type(() => Project)
+    project: Project;
 
     /**
      * The time when the job was placed in a queue.
@@ -323,7 +323,7 @@ export class GetJobDetailsJobDetails extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: GetJobDetailsJobDetailsStatus;
+    status: Status;
 
     /**
      * The time when the job stopped.
@@ -370,5 +370,5 @@ export class GetJobDetailsResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getJobDetailsDefaultApplicationJSONObject?: GetJobDetailsDefaultApplicationJSON;
+    object?: GetJobDetailsResponseBody;
 }

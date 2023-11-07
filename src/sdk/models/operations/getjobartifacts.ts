@@ -23,7 +23,7 @@ export class GetJobArtifactsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetJobArtifactsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * An artifact
  */
-export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
+export class Artifact extends SpeakeasyBase {
     /**
      * The index of the node that stored the artifact.
      */
@@ -59,10 +59,10 @@ export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
  * A paginated list of the job's artifacts.
  */
 export class GetJobArtifactsArtifactListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: GetJobArtifactsArtifactListResponseArtifact })
+    @SpeakeasyMetadata({ elemType: Artifact })
     @Expose({ name: "items" })
-    @Type(() => GetJobArtifactsArtifactListResponseArtifact)
-    items: GetJobArtifactsArtifactListResponseArtifact[];
+    @Type(() => Artifact)
+    items: Artifact[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -101,5 +101,5 @@ export class GetJobArtifactsResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getJobArtifactsDefaultApplicationJSONObject?: GetJobArtifactsDefaultApplicationJSON;
+    object?: GetJobArtifactsResponseBody;
 }

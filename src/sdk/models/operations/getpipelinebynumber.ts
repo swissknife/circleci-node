@@ -23,7 +23,7 @@ export class GetPipelineByNumberRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetPipelineByNumberDefaultApplicationJSON extends SpeakeasyBase {
+export class GetPipelineByNumberResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class GetPipelineByNumberDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of error.
  */
-export enum GetPipelineByNumberPipelineErrorsType {
+export enum GetPipelineByNumberType {
     Config = "config",
     ConfigFetch = "config-fetch",
     Timeout = "timeout",
@@ -44,7 +44,7 @@ export enum GetPipelineByNumberPipelineErrorsType {
 /**
  * An error with a type and message.
  */
-export class GetPipelineByNumberPipelineErrors extends SpeakeasyBase {
+export class GetPipelineByNumberErrors extends SpeakeasyBase {
     /**
      * A human-readable error message.
      */
@@ -57,13 +57,13 @@ export class GetPipelineByNumberPipelineErrors extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: GetPipelineByNumberPipelineErrorsType;
+    type: GetPipelineByNumberType;
 }
 
 /**
  * The current state of the pipeline.
  */
-export enum GetPipelineByNumberPipelineState {
+export enum GetPipelineByNumberState {
     Created = "created",
     Errored = "errored",
     SetupPending = "setup-pending",
@@ -74,7 +74,7 @@ export enum GetPipelineByNumberPipelineState {
 /**
  * The user who triggered the Pipeline.
  */
-export class GetPipelineByNumberPipelineTriggerActor extends SpeakeasyBase {
+export class GetPipelineByNumberActor extends SpeakeasyBase {
     /**
      * URL to the user's avatar on the VCS
      */
@@ -93,7 +93,7 @@ export class GetPipelineByNumberPipelineTriggerActor extends SpeakeasyBase {
 /**
  * The type of trigger.
  */
-export enum GetPipelineByNumberPipelineTriggerType {
+export enum GetPipelineByNumberPipelineType {
     ScheduledPipeline = "scheduled_pipeline",
     Explicit = "explicit",
     Api = "api",
@@ -103,14 +103,14 @@ export enum GetPipelineByNumberPipelineTriggerType {
 /**
  * A summary of the trigger.
  */
-export class GetPipelineByNumberPipelineTrigger extends SpeakeasyBase {
+export class GetPipelineByNumberTrigger extends SpeakeasyBase {
     /**
      * The user who triggered the Pipeline.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "actor" })
-    @Type(() => GetPipelineByNumberPipelineTriggerActor)
-    actor: GetPipelineByNumberPipelineTriggerActor;
+    @Type(() => GetPipelineByNumberActor)
+    actor: GetPipelineByNumberActor;
 
     /**
      * The date and time the trigger was received.
@@ -125,13 +125,13 @@ export class GetPipelineByNumberPipelineTrigger extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: GetPipelineByNumberPipelineTriggerType;
+    type: GetPipelineByNumberPipelineType;
 }
 
 /**
  * The latest commit in the pipeline.
  */
-export class GetPipelineByNumberPipelineVcsCommit extends SpeakeasyBase {
+export class GetPipelineByNumberCommit extends SpeakeasyBase {
     /**
      * The body of the commit message.
      */
@@ -150,7 +150,7 @@ export class GetPipelineByNumberPipelineVcsCommit extends SpeakeasyBase {
 /**
  * VCS information for the pipeline.
  */
-export class GetPipelineByNumberPipelineVcs extends SpeakeasyBase {
+export class GetPipelineByNumberVcs extends SpeakeasyBase {
     /**
      * The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
      */
@@ -163,8 +163,8 @@ export class GetPipelineByNumberPipelineVcs extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "commit" })
-    @Type(() => GetPipelineByNumberPipelineVcsCommit)
-    commit?: GetPipelineByNumberPipelineVcsCommit;
+    @Type(() => GetPipelineByNumberCommit)
+    commit?: GetPipelineByNumberCommit;
 
     /**
      * URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
@@ -231,10 +231,10 @@ export class GetPipelineByNumberPipeline extends SpeakeasyBase {
     /**
      * A sequence of errors that have occurred within the pipeline.
      */
-    @SpeakeasyMetadata({ elemType: GetPipelineByNumberPipelineErrors })
+    @SpeakeasyMetadata({ elemType: GetPipelineByNumberErrors })
     @Expose({ name: "errors" })
-    @Type(() => GetPipelineByNumberPipelineErrors)
-    errors: GetPipelineByNumberPipelineErrors[];
+    @Type(() => GetPipelineByNumberErrors)
+    errors: GetPipelineByNumberErrors[];
 
     /**
      * The unique ID of the pipeline.
@@ -262,15 +262,15 @@ export class GetPipelineByNumberPipeline extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "state" })
-    state: GetPipelineByNumberPipelineState;
+    state: GetPipelineByNumberState;
 
     /**
      * A summary of the trigger.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trigger" })
-    @Type(() => GetPipelineByNumberPipelineTrigger)
-    trigger: GetPipelineByNumberPipelineTrigger;
+    @Type(() => GetPipelineByNumberTrigger)
+    trigger: GetPipelineByNumberTrigger;
 
     @SpeakeasyMetadata()
     @Expose({ name: "trigger_parameters" })
@@ -289,8 +289,8 @@ export class GetPipelineByNumberPipeline extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "vcs" })
-    @Type(() => GetPipelineByNumberPipelineVcs)
-    vcs?: GetPipelineByNumberPipelineVcs;
+    @Type(() => GetPipelineByNumberVcs)
+    vcs?: GetPipelineByNumberVcs;
 }
 
 export class GetPipelineByNumberResponse extends SpeakeasyBase {
@@ -322,5 +322,5 @@ export class GetPipelineByNumberResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getPipelineByNumberDefaultApplicationJSONObject?: GetPipelineByNumberDefaultApplicationJSON;
+    object?: GetPipelineByNumberResponseBody;
 }

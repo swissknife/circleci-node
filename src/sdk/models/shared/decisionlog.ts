@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Decision } from "./decision";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class DecisionLogMetadataVcs extends SpeakeasyBase {
+export class Vcs extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "branch" })
     branch?: string;
@@ -24,7 +24,7 @@ export class DecisionLogMetadataVcs extends SpeakeasyBase {
     targetRepositoryUrl?: string;
 }
 
-export class DecisionLogMetadata extends SpeakeasyBase {
+export class Metadata extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "build_number" })
     buildNumber?: number;
@@ -39,8 +39,8 @@ export class DecisionLogMetadata extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "vcs" })
-    @Type(() => DecisionLogMetadataVcs)
-    vcs?: DecisionLogMetadataVcs;
+    @Type(() => Vcs)
+    vcs?: Vcs;
 }
 
 export class DecisionLog extends SpeakeasyBase {
@@ -60,8 +60,8 @@ export class DecisionLog extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    @Type(() => DecisionLogMetadata)
-    metadata?: DecisionLogMetadata;
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
     /**
      * policy-name-to-hash-map

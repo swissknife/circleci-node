@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -75,7 +75,7 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAllInsightsBranches200ApplicationJSONAny = JSON.parse(decodedRes);
+                    res.any = JSON.parse(decodedRes);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -87,9 +87,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAllInsightsBranchesDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAllInsightsBranchesDefaultApplicationJSON
+                        operations.GetAllInsightsBranchesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -163,9 +163,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetFlakyTests200ApplicationJSON
+                        operations.GetFlakyTestsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -178,9 +178,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetFlakyTestsDefaultApplicationJSON
+                        operations.GetFlakyTestsInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -258,9 +258,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetJobTimeseries200ApplicationJSON
+                        operations.GetJobTimeseriesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -273,9 +273,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getJobTimeseriesDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetJobTimeseriesDefaultApplicationJSON
+                        operations.GetJobTimeseriesInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -350,9 +350,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgSummaryData200ApplicationJSON
+                        operations.GetOrgSummaryDataResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -365,9 +365,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgSummaryDataDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgSummaryDataDefaultApplicationJSON
+                        operations.GetOrgSummaryDataInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -446,9 +446,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowJobMetrics200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowJobMetrics200ApplicationJSON
+                        operations.GetProjectWorkflowJobMetricsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -461,11 +461,10 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
-                        );
+                    res.defaultApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectWorkflowJobMetricsInsightsResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -539,9 +538,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowMetrics200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowMetrics200ApplicationJSON
+                        operations.GetProjectWorkflowMetricsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -554,9 +553,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowMetricsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowMetricsDefaultApplicationJSON
+                        operations.GetProjectWorkflowMetricsInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -635,9 +634,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowRuns200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowRuns200ApplicationJSON
+                        operations.GetProjectWorkflowRunsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -650,9 +649,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowRunsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowRunsDefaultApplicationJSON
+                        operations.GetProjectWorkflowRunsInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -731,9 +730,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowTestMetrics200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowTestMetrics200ApplicationJSON
+                        operations.GetProjectWorkflowTestMetricsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -746,11 +745,10 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
-                        );
+                    res.defaultApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectWorkflowTestMetricsInsightsResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -831,9 +829,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowsPageData200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowsPageData200ApplicationJSON
+                        operations.GetProjectWorkflowsPageDataResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -846,11 +844,10 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
-                        );
+                    res.defaultApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectWorkflowsPageDataInsightsResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -928,9 +925,9 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getWorkflowSummary200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetWorkflowSummary200ApplicationJSON
+                        operations.GetWorkflowSummaryResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -943,9 +940,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getWorkflowSummaryDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetWorkflowSummaryDefaultApplicationJSON
+                        operations.GetWorkflowSummaryInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

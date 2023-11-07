@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -18,7 +18,7 @@ export class GetDecisionSettingsRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class GetDecisionSettings500ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionSettingsPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -30,7 +30,7 @@ export class GetDecisionSettings500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionSettings403ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionSettingsPolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -42,7 +42,7 @@ export class GetDecisionSettings403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionSettings401ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionSettingsPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -54,13 +54,46 @@ export class GetDecisionSettings401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionSettings400ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionSettingsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class GetDecisionSettingsResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: GetDecisionSettingsResponseBody;
+
+    /**
+     * The request is unauthorized
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndOneApplicationJsonObject?: GetDecisionSettingsPolicyManagementResponseBody;
+
+    /**
+     * The user is forbidden from making this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThreeApplicationJsonObject?: GetDecisionSettingsPolicyManagementResponseResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: GetDecisionSettingsPolicyManagementResponse500ResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -72,39 +105,6 @@ export class GetDecisionSettingsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     decisionSettings?: shared.DecisionSettings;
-
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getDecisionSettings400ApplicationJSONObject?: GetDecisionSettings400ApplicationJSON;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getDecisionSettings401ApplicationJSONObject?: GetDecisionSettings401ApplicationJSON;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getDecisionSettings403ApplicationJSONObject?: GetDecisionSettings403ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    getDecisionSettings500ApplicationJSONObject?: GetDecisionSettings500ApplicationJSON;
 
     /**
      * HTTP response status code for this operation

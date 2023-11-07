@@ -17,13 +17,13 @@ export class GetFlakyTestsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetFlakyTestsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetFlakyTestsInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
+export class FlakyTests extends SpeakeasyBase {
     /**
      * The class the test belongs to.
      */
@@ -109,14 +109,14 @@ export class GetFlakyTests200ApplicationJSONFlakyTests extends SpeakeasyBase {
 /**
  * Flaky tests response
  */
-export class GetFlakyTests200ApplicationJSON extends SpeakeasyBase {
+export class GetFlakyTestsResponseBody extends SpeakeasyBase {
     /**
      * A list of all instances of flakes. Note that a test is no longer considered flaky after 2 weeks have passed without a flake. Each flake resets this timer.
      */
-    @SpeakeasyMetadata({ elemType: GetFlakyTests200ApplicationJSONFlakyTests })
+    @SpeakeasyMetadata({ elemType: FlakyTests })
     @Expose({ name: "flaky-tests" })
-    @Type(() => GetFlakyTests200ApplicationJSONFlakyTests)
-    flakyTests: GetFlakyTests200ApplicationJSONFlakyTests[];
+    @Type(() => FlakyTests)
+    flakyTests: FlakyTests[];
 
     /**
      * A count of unique tests that have failed. If your project has N tests that have flaked multiple times each, this will be equal to N.
@@ -127,6 +127,12 @@ export class GetFlakyTests200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetFlakyTestsResponse extends SpeakeasyBase {
+    /**
+     * A list of flaky tests for a project
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetFlakyTestsResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -146,14 +152,8 @@ export class GetFlakyTestsResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * A list of flaky tests for a project
-     */
-    @SpeakeasyMetadata()
-    getFlakyTests200ApplicationJSONObject?: GetFlakyTests200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getFlakyTestsDefaultApplicationJSONObject?: GetFlakyTestsDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetFlakyTestsInsightsResponseBody;
 }

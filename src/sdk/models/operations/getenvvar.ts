@@ -23,7 +23,7 @@ export class GetEnvVarRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetEnvVarDefaultApplicationJSON extends SpeakeasyBase {
+export class GetEnvVarResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -84,5 +84,5 @@ export class GetEnvVarResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getEnvVarDefaultApplicationJSONObject?: GetEnvVarDefaultApplicationJSON;
+    object?: GetEnvVarResponseBody;
 }

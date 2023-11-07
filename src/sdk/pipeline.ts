@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -103,9 +103,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.continuePipelineDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ContinuePipelineDefaultApplicationJSON
+                        operations.ContinuePipelineResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -193,9 +193,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPipelineByIdDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPipelineByIdDefaultApplicationJSON
+                        operations.GetPipelineByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -288,9 +288,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPipelineByNumberDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPipelineByNumberDefaultApplicationJSON
+                        operations.GetPipelineByNumberResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -379,9 +379,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPipelineConfigByIdDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPipelineConfigByIdDefaultApplicationJSON
+                        operations.GetPipelineConfigByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -474,9 +474,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listMyPipelinesDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListMyPipelinesDefaultApplicationJSON
+                        operations.ListMyPipelinesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -565,9 +565,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListPipelinesDefaultApplicationJSON
+                        operations.ListPipelinesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -657,9 +657,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listPipelinesForProjectDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListPipelinesForProjectDefaultApplicationJSON
+                        operations.ListPipelinesForProjectResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -749,9 +749,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
+                        operations.ListWorkflowsByPipelineIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -854,9 +854,9 @@ export class Pipeline {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.triggerPipelineDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.TriggerPipelineDefaultApplicationJSON
+                        operations.TriggerPipelineResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

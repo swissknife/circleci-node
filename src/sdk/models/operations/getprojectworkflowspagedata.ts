@@ -9,12 +9,12 @@ import { Expose, Type } from "class-transformer";
 /**
  * The names of VCS branches to include in branch-level workflow metrics.
  */
-export class GetProjectWorkflowsPageDataBranches extends SpeakeasyBase {}
+export class Branches extends SpeakeasyBase {}
 
 /**
  * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
  */
-export enum GetProjectWorkflowsPageDataReportingWindow {
+export enum GetProjectWorkflowsPageDataQueryParamReportingWindow {
     Last7Days = "last-7-days",
     Last90Days = "last-90-days",
     Last24Hours = "last-24-hours",
@@ -25,14 +25,14 @@ export enum GetProjectWorkflowsPageDataReportingWindow {
 /**
  * The names of workflows to include in workflow-level metrics.
  */
-export class GetProjectWorkflowsPageDataWorkflowNames extends SpeakeasyBase {}
+export class WorkflowNames extends SpeakeasyBase {}
 
 export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
     /**
      * The names of VCS branches to include in branch-level workflow metrics.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=branches" })
-    branches?: GetProjectWorkflowsPageDataBranches;
+    branches?: Branches;
 
     /**
      * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
@@ -44,19 +44,19 @@ export class GetProjectWorkflowsPageDataRequest extends SpeakeasyBase {
      * The time window used to calculate summary metrics. If not provided, defaults to last-90-days
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reporting-window" })
-    reportingWindow?: GetProjectWorkflowsPageDataReportingWindow;
+    reportingWindow?: GetProjectWorkflowsPageDataQueryParamReportingWindow;
 
     /**
      * The names of workflows to include in workflow-level metrics.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=workflow-names" })
-    workflowNames?: GetProjectWorkflowsPageDataWorkflowNames;
+    workflowNames?: WorkflowNames;
 }
 
 /**
  * Error response.
  */
-export class GetProjectWorkflowsPageDataDefaultApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -65,7 +65,7 @@ export class GetProjectWorkflowsPageDataDefaultApplicationJSON extends Speakeasy
 /**
  * Metrics aggregated across all workflows and branches for a project.
  */
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataMetrics extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "success_rate" })
     successRate: number;
@@ -102,7 +102,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics ext
 /**
  * Metric trends aggregated across all workflows and branches for a project.
  */
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataTrends extends SpeakeasyBase {
     /**
      * The trend value for the success rate.
      */
@@ -142,28 +142,28 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends exte
 /**
  * Metrics and trends data aggregated for a given project.
  */
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectData extends SpeakeasyBase {
+export class ProjectData extends SpeakeasyBase {
     /**
      * Metrics aggregated across all workflows and branches for a project.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metrics" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics)
-    metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectDataMetrics;
+    @Type(() => GetProjectWorkflowsPageDataMetrics)
+    metrics: GetProjectWorkflowsPageDataMetrics;
 
     /**
      * Metric trends aggregated across all workflows and branches for a project.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trends" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends)
-    trends: GetProjectWorkflowsPageData200ApplicationJSONProjectDataTrends;
+    @Type(() => GetProjectWorkflowsPageDataTrends)
+    trends: GetProjectWorkflowsPageDataTrends;
 }
 
 /**
  * Metrics aggregated across a workflow or branchfor a project.
  */
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataInsightsMetrics extends SpeakeasyBase {
     /**
      * The 95th percentile duration among a group of workflow runs.
      */
@@ -193,7 +193,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchD
 /**
  * Trends aggregated across a workflow or branch for a project.
  */
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataInsightsTrends extends SpeakeasyBase {
     /**
      * The 95th percentile duration among a group of workflow runs.
      */
@@ -223,7 +223,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchD
     totalRuns: number;
 }
 
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData extends SpeakeasyBase {
+export class ProjectWorkflowBranchData extends SpeakeasyBase {
     /**
      * The VCS branch of a workflow's trigger.
      */
@@ -236,16 +236,16 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchD
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metrics" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics)
-    metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataMetrics;
+    @Type(() => GetProjectWorkflowsPageDataInsightsMetrics)
+    metrics: GetProjectWorkflowsPageDataInsightsMetrics;
 
     /**
      * Trends aggregated across a workflow or branch for a project.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trends" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends)
-    trends: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchDataTrends;
+    @Type(() => GetProjectWorkflowsPageDataInsightsTrends)
+    trends: GetProjectWorkflowsPageDataInsightsTrends;
 
     /**
      * The name of the workflow.
@@ -258,7 +258,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchD
 /**
  * Metrics aggregated across a workflow or branchfor a project.
  */
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataInsightsResponseMetrics extends SpeakeasyBase {
     /**
      * The 95th percentile duration among a group of workflow runs.
      */
@@ -288,7 +288,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMet
 /**
  * Trends aggregated across a workflow or branch for a project.
  */
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataInsightsResponseTrends extends SpeakeasyBase {
     /**
      * The 95th percentile duration among a group of workflow runs.
      */
@@ -318,22 +318,22 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTre
     totalRuns: number;
 }
 
-export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData extends SpeakeasyBase {
+export class ProjectWorkflowData extends SpeakeasyBase {
     /**
      * Metrics aggregated across a workflow or branchfor a project.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metrics" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics)
-    metrics: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataMetrics;
+    @Type(() => GetProjectWorkflowsPageDataInsightsResponseMetrics)
+    metrics: GetProjectWorkflowsPageDataInsightsResponseMetrics;
 
     /**
      * Trends aggregated across a workflow or branch for a project.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trends" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends)
-    trends: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowDataTrends;
+    @Type(() => GetProjectWorkflowsPageDataInsightsResponseTrends)
+    trends: GetProjectWorkflowsPageDataInsightsResponseTrends;
 
     /**
      * The name of the workflow.
@@ -346,7 +346,7 @@ export class GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData ex
 /**
  * Aggregated summary metrics and trends by workflow and branches
  */
-export class GetProjectWorkflowsPageData200ApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowsPageDataResponseBody extends SpeakeasyBase {
     /**
      * A list of all the branches for a given project.
      */
@@ -373,8 +373,8 @@ export class GetProjectWorkflowsPageData200ApplicationJSON extends SpeakeasyBase
      */
     @SpeakeasyMetadata()
     @Expose({ name: "project_data" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectData)
-    projectData?: GetProjectWorkflowsPageData200ApplicationJSONProjectData;
+    @Type(() => ProjectData)
+    projectData?: ProjectData;
 
     /**
      * The unique ID of the project
@@ -386,25 +386,27 @@ export class GetProjectWorkflowsPageData200ApplicationJSON extends SpeakeasyBase
     /**
      * A list of metrics and trends data for branches for a given project.
      */
-    @SpeakeasyMetadata({
-        elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData,
-    })
+    @SpeakeasyMetadata({ elemType: ProjectWorkflowBranchData })
     @Expose({ name: "project_workflow_branch_data" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData)
-    projectWorkflowBranchData?: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowBranchData[];
+    @Type(() => ProjectWorkflowBranchData)
+    projectWorkflowBranchData?: ProjectWorkflowBranchData[];
 
     /**
      * A list of metrics and trends data for workflows for a given project.
      */
-    @SpeakeasyMetadata({
-        elemType: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData,
-    })
+    @SpeakeasyMetadata({ elemType: ProjectWorkflowData })
     @Expose({ name: "project_workflow_data" })
-    @Type(() => GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData)
-    projectWorkflowData?: GetProjectWorkflowsPageData200ApplicationJSONProjectWorkflowData[];
+    @Type(() => ProjectWorkflowData)
+    projectWorkflowData?: ProjectWorkflowData[];
 }
 
 export class GetProjectWorkflowsPageDataResponse extends SpeakeasyBase {
+    /**
+     * Aggregated summary metrics and trends by workflow and branches
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetProjectWorkflowsPageDataResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -424,14 +426,8 @@ export class GetProjectWorkflowsPageDataResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * Aggregated summary metrics and trends by workflow and branches
-     */
-    @SpeakeasyMetadata()
-    getProjectWorkflowsPageData200ApplicationJSONObject?: GetProjectWorkflowsPageData200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getProjectWorkflowsPageDataDefaultApplicationJSONObject?: GetProjectWorkflowsPageDataDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetProjectWorkflowsPageDataInsightsResponseBody;
 }

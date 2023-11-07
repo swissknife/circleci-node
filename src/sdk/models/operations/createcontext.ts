@@ -22,7 +22,7 @@ export class CreateContextRequestBody extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CreateContextDefaultApplicationJSON extends SpeakeasyBase {
+export class CreateContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -84,5 +84,5 @@ export class CreateContextResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    createContextDefaultApplicationJSONObject?: CreateContextDefaultApplicationJSON;
+    object?: CreateContextResponseBody;
 }

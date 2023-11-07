@@ -53,7 +53,7 @@ export class GetProjectWorkflowRunsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetProjectWorkflowRunsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowRunsInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -62,7 +62,7 @@ export class GetProjectWorkflowRunsDefaultApplicationJSON extends SpeakeasyBase 
 /**
  * Workflow status.
  */
-export enum GetProjectWorkflowRuns200ApplicationJSONItemsStatus {
+export enum GetProjectWorkflowRunsStatus {
     Success = "success",
     Failed = "failed",
     Error = "error",
@@ -70,7 +70,7 @@ export enum GetProjectWorkflowRuns200ApplicationJSONItemsStatus {
     Unauthorized = "unauthorized",
 }
 
-export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase {
+export class GetProjectWorkflowRunsItems extends SpeakeasyBase {
     /**
      * The VCS branch of a Workflow's trigger.
      */
@@ -119,7 +119,7 @@ export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: GetProjectWorkflowRuns200ApplicationJSONItemsStatus;
+    status: GetProjectWorkflowRunsStatus;
 
     /**
      * The date and time the workflow stopped.
@@ -133,14 +133,14 @@ export class GetProjectWorkflowRuns200ApplicationJSONItems extends SpeakeasyBase
 /**
  * Paginated recent workflow runs.
  */
-export class GetProjectWorkflowRuns200ApplicationJSON extends SpeakeasyBase {
+export class GetProjectWorkflowRunsResponseBody extends SpeakeasyBase {
     /**
      * Recent workflow runs.
      */
-    @SpeakeasyMetadata({ elemType: GetProjectWorkflowRuns200ApplicationJSONItems })
+    @SpeakeasyMetadata({ elemType: GetProjectWorkflowRunsItems })
     @Expose({ name: "items" })
-    @Type(() => GetProjectWorkflowRuns200ApplicationJSONItems)
-    items: GetProjectWorkflowRuns200ApplicationJSONItems[];
+    @Type(() => GetProjectWorkflowRunsItems)
+    items: GetProjectWorkflowRunsItems[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -151,6 +151,12 @@ export class GetProjectWorkflowRuns200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetProjectWorkflowRunsResponse extends SpeakeasyBase {
+    /**
+     * A paginated list of recent workflow runs
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetProjectWorkflowRunsResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -170,14 +176,8 @@ export class GetProjectWorkflowRunsResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * A paginated list of recent workflow runs
-     */
-    @SpeakeasyMetadata()
-    getProjectWorkflowRuns200ApplicationJSONObject?: GetProjectWorkflowRuns200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getProjectWorkflowRunsDefaultApplicationJSONObject?: GetProjectWorkflowRunsDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetProjectWorkflowRunsInsightsResponseBody;
 }

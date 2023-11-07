@@ -23,7 +23,7 @@ export class DeleteCheckoutKeyRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class DeleteCheckoutKeyDefaultApplicationJSON extends SpeakeasyBase {
+export class DeleteCheckoutKeyResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -70,5 +70,5 @@ export class DeleteCheckoutKeyResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    deleteCheckoutKeyDefaultApplicationJSONObject?: DeleteCheckoutKeyDefaultApplicationJSON;
+    object?: DeleteCheckoutKeyResponseBody;
 }

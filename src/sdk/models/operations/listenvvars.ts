@@ -17,7 +17,7 @@ export class ListEnvVarsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListEnvVarsDefaultApplicationJSON extends SpeakeasyBase {
+export class ListEnvVarsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +26,7 @@ export class ListEnvVarsDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * An environment variable is a map containing a value and an optional timestamp.
  */
-export class ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable extends SpeakeasyBase {
+export class EnvironmentVariable extends SpeakeasyBase {
     /**
      * The creation timestamp of the environment variable.
      */
@@ -53,10 +53,10 @@ export class ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable exten
  * A sequence of environment variables.
  */
 export class ListEnvVarsEnvironmentVariableListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable })
+    @SpeakeasyMetadata({ elemType: EnvironmentVariable })
     @Expose({ name: "items" })
-    @Type(() => ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable)
-    items: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable[];
+    @Type(() => EnvironmentVariable)
+    items: EnvironmentVariable[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -95,5 +95,5 @@ export class ListEnvVarsResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    listEnvVarsDefaultApplicationJSONObject?: ListEnvVarsDefaultApplicationJSON;
+    object?: ListEnvVarsResponseBody;
 }

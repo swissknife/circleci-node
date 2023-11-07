@@ -46,7 +46,7 @@ export class TriggerPipelineRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
+export class TriggerPipelineResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -55,7 +55,7 @@ export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The current state of the pipeline.
  */
-export enum TriggerPipelinePipelineCreationState {
+export enum TriggerPipelineState {
     Created = "created",
     Errored = "errored",
     SetupPending = "setup-pending",
@@ -94,7 +94,7 @@ export class TriggerPipelinePipelineCreation extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "state" })
-    state: TriggerPipelinePipelineCreationState;
+    state: TriggerPipelineState;
 }
 
 export class TriggerPipelineResponse extends SpeakeasyBase {
@@ -126,5 +126,5 @@ export class TriggerPipelineResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJSON;
+    object?: TriggerPipelineResponseBody;
 }

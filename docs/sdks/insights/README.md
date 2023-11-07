@@ -1,5 +1,5 @@
 # Insights
-(*insights*)
+(*.insights*)
 
 ### Available Operations
 
@@ -103,7 +103,7 @@ Get timeseries data for all jobs within a workflow. Hourly granularity data is o
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobTimeseriesGranularity } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { Granularity } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -146,7 +146,7 @@ Gets aggregated summary metrics with trends for the entire org.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetOrgSummaryDataReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -188,7 +188,7 @@ Get summary metrics for a project workflow's jobs. Job runs going back at most 9
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowJobMetricsReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { QueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -230,7 +230,7 @@ Get summary metrics for a project's workflows.  Workflow runs going back at most
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowMetricsReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowMetricsQueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -356,7 +356,7 @@ Get summary metrics and trends for a project at workflow and branch level.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowsPageDataReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowsPageDataQueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({

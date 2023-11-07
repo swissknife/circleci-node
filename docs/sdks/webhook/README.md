@@ -1,5 +1,5 @@
 # Webhook
-(*webhook*)
+(*.webhook*)
 
 ### Available Operations
 
@@ -17,7 +17,7 @@ Create a webhook
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreateWebhookRequestBodyEvents, CreateWebhookRequestBodyScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { Events, TypeT } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -28,12 +28,12 @@ import { CreateWebhookRequestBodyEvents, CreateWebhookRequestBodyScopeType } fro
 
   const res = await sdk.webhook.createWebhook({
     events: [
-      CreateWebhookRequestBodyEvents.JobCompleted,
+      Events.JobCompleted,
     ],
     name: "string",
     scope: {
       id: "ef8f63e3-b7d2-4240-88ac-4c59d30daac8",
-      type: CreateWebhookRequestBodyScopeType.Project,
+      type: TypeT.Project,
     },
     signingSecret: "string",
     url: "http://ragged-suppression.name",
@@ -148,7 +148,7 @@ Get a list of webhook that match the given scope-type and scope-id
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWebhooksScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -159,7 +159,7 @@ import { GetWebhooksScopeType } from "circleci-v2-sdk/dist/sdk/models/operations
 
   const res = await sdk.webhook.getWebhooks({
     scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
-    scopeType: GetWebhooksScopeType.Project,
+    scopeType: ScopeType.Project,
   });
 
 
@@ -190,7 +190,7 @@ Update a webhook
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { UpdateWebhookRequestBodyEvents } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { UpdateWebhookEvents } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new Circleci({
@@ -202,7 +202,7 @@ import { UpdateWebhookRequestBodyEvents } from "circleci-v2-sdk/dist/sdk/models/
   const res = await sdk.webhook.updateWebhook({
     requestBody: {
       events: [
-        UpdateWebhookRequestBodyEvents.JobCompleted,
+        UpdateWebhookEvents.JobCompleted,
       ],
     },
     webhookId: "ac255204-82ad-4436-900a-b198d2970788",

@@ -23,7 +23,7 @@ export class ListMyPipelinesRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListMyPipelinesDefaultApplicationJSON extends SpeakeasyBase {
+export class ListMyPipelinesResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class ListMyPipelinesDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of error.
  */
-export enum ListMyPipelinesPipelineListResponsePipelineErrorsType {
+export enum ListMyPipelinesType {
     Config = "config",
     ConfigFetch = "config-fetch",
     Timeout = "timeout",
@@ -44,7 +44,7 @@ export enum ListMyPipelinesPipelineListResponsePipelineErrorsType {
 /**
  * An error with a type and message.
  */
-export class ListMyPipelinesPipelineListResponsePipelineErrors extends SpeakeasyBase {
+export class ListMyPipelinesErrors extends SpeakeasyBase {
     /**
      * A human-readable error message.
      */
@@ -57,13 +57,13 @@ export class ListMyPipelinesPipelineListResponsePipelineErrors extends Speakeasy
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: ListMyPipelinesPipelineListResponsePipelineErrorsType;
+    type: ListMyPipelinesType;
 }
 
 /**
  * The current state of the pipeline.
  */
-export enum ListMyPipelinesPipelineListResponsePipelineState {
+export enum ListMyPipelinesState {
     Created = "created",
     Errored = "errored",
     SetupPending = "setup-pending",
@@ -74,7 +74,7 @@ export enum ListMyPipelinesPipelineListResponsePipelineState {
 /**
  * The user who triggered the Pipeline.
  */
-export class ListMyPipelinesPipelineListResponsePipelineTriggerActor extends SpeakeasyBase {
+export class ListMyPipelinesActor extends SpeakeasyBase {
     /**
      * URL to the user's avatar on the VCS
      */
@@ -93,7 +93,7 @@ export class ListMyPipelinesPipelineListResponsePipelineTriggerActor extends Spe
 /**
  * The type of trigger.
  */
-export enum ListMyPipelinesPipelineListResponsePipelineTriggerType {
+export enum ListMyPipelinesPipelineType {
     ScheduledPipeline = "scheduled_pipeline",
     Explicit = "explicit",
     Api = "api",
@@ -103,14 +103,14 @@ export enum ListMyPipelinesPipelineListResponsePipelineTriggerType {
 /**
  * A summary of the trigger.
  */
-export class ListMyPipelinesPipelineListResponsePipelineTrigger extends SpeakeasyBase {
+export class ListMyPipelinesTrigger extends SpeakeasyBase {
     /**
      * The user who triggered the Pipeline.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "actor" })
-    @Type(() => ListMyPipelinesPipelineListResponsePipelineTriggerActor)
-    actor: ListMyPipelinesPipelineListResponsePipelineTriggerActor;
+    @Type(() => ListMyPipelinesActor)
+    actor: ListMyPipelinesActor;
 
     /**
      * The date and time the trigger was received.
@@ -125,13 +125,13 @@ export class ListMyPipelinesPipelineListResponsePipelineTrigger extends Speakeas
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: ListMyPipelinesPipelineListResponsePipelineTriggerType;
+    type: ListMyPipelinesPipelineType;
 }
 
 /**
  * The latest commit in the pipeline.
  */
-export class ListMyPipelinesPipelineListResponsePipelineVcsCommit extends SpeakeasyBase {
+export class ListMyPipelinesCommit extends SpeakeasyBase {
     /**
      * The body of the commit message.
      */
@@ -150,7 +150,7 @@ export class ListMyPipelinesPipelineListResponsePipelineVcsCommit extends Speake
 /**
  * VCS information for the pipeline.
  */
-export class ListMyPipelinesPipelineListResponsePipelineVcs extends SpeakeasyBase {
+export class ListMyPipelinesVcs extends SpeakeasyBase {
     /**
      * The branch where the pipeline ran. The HEAD commit on this branch was used for the pipeline. Note that `branch` and `tag` are mutually exclusive. To trigger a pipeline for a PR by number use `pull/<number>/head` for the PR ref or `pull/<number>/merge` for the merge ref (GitHub only).
      */
@@ -163,8 +163,8 @@ export class ListMyPipelinesPipelineListResponsePipelineVcs extends SpeakeasyBas
      */
     @SpeakeasyMetadata()
     @Expose({ name: "commit" })
-    @Type(() => ListMyPipelinesPipelineListResponsePipelineVcsCommit)
-    commit?: ListMyPipelinesPipelineListResponsePipelineVcsCommit;
+    @Type(() => ListMyPipelinesCommit)
+    commit?: ListMyPipelinesCommit;
 
     /**
      * URL for the repository where the trigger originated. For fork-PR pipelines, this is the URL to the fork. For other pipelines the `origin_` and `target_repository_url`s will be the same.
@@ -219,7 +219,7 @@ export class ListMyPipelinesPipelineListResponsePipelineVcs extends SpeakeasyBas
 /**
  * A pipeline response.
  */
-export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
+export class ListMyPipelinesPipeline extends SpeakeasyBase {
     /**
      * The date and time the pipeline was created.
      */
@@ -231,10 +231,10 @@ export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
     /**
      * A sequence of errors that have occurred within the pipeline.
      */
-    @SpeakeasyMetadata({ elemType: ListMyPipelinesPipelineListResponsePipelineErrors })
+    @SpeakeasyMetadata({ elemType: ListMyPipelinesErrors })
     @Expose({ name: "errors" })
-    @Type(() => ListMyPipelinesPipelineListResponsePipelineErrors)
-    errors: ListMyPipelinesPipelineListResponsePipelineErrors[];
+    @Type(() => ListMyPipelinesErrors)
+    errors: ListMyPipelinesErrors[];
 
     /**
      * The unique ID of the pipeline.
@@ -262,15 +262,15 @@ export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "state" })
-    state: ListMyPipelinesPipelineListResponsePipelineState;
+    state: ListMyPipelinesState;
 
     /**
      * A summary of the trigger.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trigger" })
-    @Type(() => ListMyPipelinesPipelineListResponsePipelineTrigger)
-    trigger: ListMyPipelinesPipelineListResponsePipelineTrigger;
+    @Type(() => ListMyPipelinesTrigger)
+    trigger: ListMyPipelinesTrigger;
 
     @SpeakeasyMetadata()
     @Expose({ name: "trigger_parameters" })
@@ -289,18 +289,18 @@ export class ListMyPipelinesPipelineListResponsePipeline extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "vcs" })
-    @Type(() => ListMyPipelinesPipelineListResponsePipelineVcs)
-    vcs?: ListMyPipelinesPipelineListResponsePipelineVcs;
+    @Type(() => ListMyPipelinesVcs)
+    vcs?: ListMyPipelinesVcs;
 }
 
 /**
  * List of pipelines
  */
 export class ListMyPipelinesPipelineListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListMyPipelinesPipelineListResponsePipeline })
+    @SpeakeasyMetadata({ elemType: ListMyPipelinesPipeline })
     @Expose({ name: "items" })
-    @Type(() => ListMyPipelinesPipelineListResponsePipeline)
-    items: ListMyPipelinesPipelineListResponsePipeline[];
+    @Type(() => ListMyPipelinesPipeline)
+    items: ListMyPipelinesPipeline[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -339,5 +339,5 @@ export class ListMyPipelinesResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    listMyPipelinesDefaultApplicationJSONObject?: ListMyPipelinesDefaultApplicationJSON;
+    object?: ListMyPipelinesResponseBody;
 }

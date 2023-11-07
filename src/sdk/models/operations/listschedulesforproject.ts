@@ -23,7 +23,7 @@ export class ListSchedulesForProjectRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListSchedulesForProjectDefaultApplicationJSON extends SpeakeasyBase {
+export class ListSchedulesForProjectScheduleResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class ListSchedulesForProjectDefaultApplicationJSON extends SpeakeasyBase
 /**
  * The attribution actor who will run the scheduled pipeline.
  */
-export class ListSchedulesForProject200ApplicationJSONScheduleUser extends SpeakeasyBase {
+export class ListSchedulesForProjectUser extends SpeakeasyBase {
     /**
      * The unique ID of the user.
      */
@@ -58,14 +58,14 @@ export class ListSchedulesForProject200ApplicationJSONScheduleUser extends Speak
 /**
  * A schedule response
  */
-export class ListSchedulesForProject200ApplicationJSONSchedule extends SpeakeasyBase {
+export class Schedule extends SpeakeasyBase {
     /**
      * The attribution actor who will run the scheduled pipeline.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "actor" })
-    @Type(() => ListSchedulesForProject200ApplicationJSONScheduleUser)
-    actor: ListSchedulesForProject200ApplicationJSONScheduleUser;
+    @Type(() => ListSchedulesForProjectUser)
+    actor: ListSchedulesForProjectUser;
 
     /**
      * The date and time the pipeline was created.
@@ -129,11 +129,11 @@ export class ListSchedulesForProject200ApplicationJSONSchedule extends Speakeasy
 /**
  * A sequence of schedules
  */
-export class ListSchedulesForProject200ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListSchedulesForProject200ApplicationJSONSchedule })
+export class ListSchedulesForProjectResponseBody extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: Schedule })
     @Expose({ name: "items" })
-    @Type(() => ListSchedulesForProject200ApplicationJSONSchedule)
-    items: ListSchedulesForProject200ApplicationJSONSchedule[];
+    @Type(() => Schedule)
+    items: Schedule[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -144,6 +144,12 @@ export class ListSchedulesForProject200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class ListSchedulesForProjectResponse extends SpeakeasyBase {
+    /**
+     * A sequence of schedules.
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: ListSchedulesForProjectResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -163,14 +169,8 @@ export class ListSchedulesForProjectResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * A sequence of schedules.
-     */
-    @SpeakeasyMetadata()
-    listSchedulesForProject200ApplicationJSONObject?: ListSchedulesForProject200ApplicationJSON;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    listSchedulesForProjectDefaultApplicationJSONObject?: ListSchedulesForProjectDefaultApplicationJSON;
+    defaultApplicationJsonObject?: ListSchedulesForProjectScheduleResponseBody;
 }

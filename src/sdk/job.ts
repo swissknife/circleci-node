@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -92,9 +92,9 @@ export class Job {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.cancelJobDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CancelJobDefaultApplicationJSON
+                        operations.CancelJobResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -186,9 +186,9 @@ export class Job {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getJobArtifactsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetJobArtifactsDefaultApplicationJSON
+                        operations.GetJobArtifactsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -280,9 +280,9 @@ export class Job {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getJobDetailsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetJobDetailsDefaultApplicationJSON
+                        operations.GetJobDetailsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -374,9 +374,9 @@ export class Job {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getTestsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetTestsDefaultApplicationJSON
+                        operations.GetTestsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

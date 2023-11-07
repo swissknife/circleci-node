@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -93,11 +93,10 @@ export class Workflow {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.approvePendingApprovalJobByIdDefaultApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.ApprovePendingApprovalJobByIdDefaultApplicationJSON
-                        );
+                    res.object = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.ApprovePendingApprovalJobByIdResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -184,9 +183,9 @@ export class Workflow {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.cancelWorkflowDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CancelWorkflowDefaultApplicationJSON
+                        operations.CancelWorkflowResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -274,9 +273,9 @@ export class Workflow {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getWorkflowByIdDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetWorkflowByIdDefaultApplicationJSON
+                        operations.GetWorkflowByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -364,9 +363,9 @@ export class Workflow {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listWorkflowJobsDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListWorkflowJobsDefaultApplicationJSON
+                        operations.ListWorkflowJobsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -454,9 +453,9 @@ export class Workflow {
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.rerunWorkflow202ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredAndTwoApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.RerunWorkflow202ApplicationJSON
+                        operations.RerunWorkflowResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -469,9 +468,9 @@ export class Workflow {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.rerunWorkflowDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.RerunWorkflowDefaultApplicationJSON
+                        operations.RerunWorkflowWorkflowResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

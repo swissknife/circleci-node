@@ -23,13 +23,13 @@ export class GetTestsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetTestsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetTestsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export class GetTestsTestsResponseItems extends SpeakeasyBase {
+export class GetTestsItems extends SpeakeasyBase {
     /**
      * The programmatic location of the test.
      */
@@ -84,10 +84,10 @@ export class GetTestsTestsResponseItems extends SpeakeasyBase {
  * A paginated list of test results.
  */
 export class GetTestsTestsResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: GetTestsTestsResponseItems })
+    @SpeakeasyMetadata({ elemType: GetTestsItems })
     @Expose({ name: "items" })
-    @Type(() => GetTestsTestsResponseItems)
-    items: GetTestsTestsResponseItems[];
+    @Type(() => GetTestsItems)
+    items: GetTestsItems[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -126,5 +126,5 @@ export class GetTestsResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getTestsDefaultApplicationJSONObject?: GetTestsDefaultApplicationJSON;
+    object?: GetTestsResponseBody;
 }

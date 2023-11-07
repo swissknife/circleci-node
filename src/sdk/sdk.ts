@@ -3,10 +3,10 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Context } from "./context";
 import { Insights } from "./insights";
 import { Job } from "./job";
-import * as shared from "./models/shared";
 import { OIDCTokenManagement } from "./oidctokenmanagement";
 import { Pipeline } from "./pipeline";
 import { PolicyManagement } from "./policymanagement";
@@ -59,9 +59,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "v2";
-    sdkVersion = "3.60.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 3.60.0 2.173.0 v2 circleci-v2-sdk";
+    sdkVersion = "4.0.0";
+    genVersion = "2.181.1";
+    userAgent = "speakeasy-sdk/typescript 4.0.0 2.181.1 v2 circleci-v2-sdk";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -74,19 +74,19 @@ export class SDKConfiguration {
 export class Circleci {
     public context: Context;
     public insights: Insights;
-    public job: Job;
+    public user: User;
     /**
      * Endpoints related to manage oidc identity tokens
      */
     public oidcTokenManagement: OIDCTokenManagement;
-    public pipeline: Pipeline;
     /**
      * Endpoints related to managing policies and making policy decisions
      */
     public policyManagement: PolicyManagement;
+    public pipeline: Pipeline;
     public project: Project;
+    public job: Job;
     public schedule: Schedule;
-    public user: User;
     public webhook: Webhook;
     public workflow: Workflow;
 
@@ -110,13 +110,13 @@ export class Circleci {
 
         this.context = new Context(this.sdkConfiguration);
         this.insights = new Insights(this.sdkConfiguration);
-        this.job = new Job(this.sdkConfiguration);
-        this.oidcTokenManagement = new OIDCTokenManagement(this.sdkConfiguration);
-        this.pipeline = new Pipeline(this.sdkConfiguration);
-        this.policyManagement = new PolicyManagement(this.sdkConfiguration);
-        this.project = new Project(this.sdkConfiguration);
-        this.schedule = new Schedule(this.sdkConfiguration);
         this.user = new User(this.sdkConfiguration);
+        this.oidcTokenManagement = new OIDCTokenManagement(this.sdkConfiguration);
+        this.policyManagement = new PolicyManagement(this.sdkConfiguration);
+        this.pipeline = new Pipeline(this.sdkConfiguration);
+        this.project = new Project(this.sdkConfiguration);
+        this.job = new Job(this.sdkConfiguration);
+        this.schedule = new Schedule(this.sdkConfiguration);
         this.webhook = new Webhook(this.sdkConfiguration);
         this.workflow = new Workflow(this.sdkConfiguration);
     }

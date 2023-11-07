@@ -9,13 +9,13 @@ import { Expose } from "class-transformer";
 /**
  * Error response.
  */
-export class GetCollaborationsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetCollaborationsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export class GetCollaborationsCollaboration extends SpeakeasyBase {
+export class Collaboration extends SpeakeasyBase {
     /**
      * URL to the user's avatar on the VCS
      */
@@ -54,12 +54,6 @@ export class GetCollaborationsCollaboration extends SpeakeasyBase {
 
 export class GetCollaborationsResponse extends SpeakeasyBase {
     /**
-     * Collaborations
-     */
-    @SpeakeasyMetadata({ elemType: GetCollaborationsCollaboration })
-    collaborations?: GetCollaborationsCollaboration[];
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -78,8 +72,14 @@ export class GetCollaborationsResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
+     * Collaborations
+     */
+    @SpeakeasyMetadata({ elemType: Collaboration })
+    classes?: Collaboration[];
+
+    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getCollaborationsDefaultApplicationJSONObject?: GetCollaborationsDefaultApplicationJSON;
+    object?: GetCollaborationsResponseBody;
 }

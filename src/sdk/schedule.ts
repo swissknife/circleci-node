@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -103,9 +103,9 @@ export class Schedule {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createScheduleDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateScheduleDefaultApplicationJSON
+                        operations.CreateScheduleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -194,9 +194,9 @@ export class Schedule {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteScheduleByIdDefaultApplicationJSON
+                        operations.DeleteScheduleByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -284,9 +284,9 @@ export class Schedule {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetScheduleByIdDefaultApplicationJSON
+                        operations.GetScheduleByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -361,9 +361,9 @@ export class Schedule {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listSchedulesForProject200ApplicationJSONObject = utils.objectToClass(
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListSchedulesForProject200ApplicationJSON
+                        operations.ListSchedulesForProjectResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -376,9 +376,9 @@ export class Schedule {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listSchedulesForProjectDefaultApplicationJSONObject = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListSchedulesForProjectDefaultApplicationJSON
+                        operations.ListSchedulesForProjectScheduleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -481,9 +481,9 @@ export class Schedule {
                 break;
             default:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateScheduleDefaultApplicationJSONObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateScheduleDefaultApplicationJSON
+                        operations.UpdateScheduleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

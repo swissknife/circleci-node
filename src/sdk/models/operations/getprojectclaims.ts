@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -18,7 +18,7 @@ export class GetProjectClaimsRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class GetProjectClaims500ApplicationJSON extends SpeakeasyBase {
+export class GetProjectClaimsOIDCTokenManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -30,7 +30,7 @@ export class GetProjectClaims500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetProjectClaims403ApplicationJSON extends SpeakeasyBase {
+export class GetProjectClaimsOIDCTokenManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -42,13 +42,37 @@ export class GetProjectClaims403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetProjectClaims400ApplicationJSON extends SpeakeasyBase {
+export class GetProjectClaimsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class GetProjectClaimsResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: GetProjectClaimsResponseBody;
+
+    /**
+     * The user is forbidden from making this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThreeApplicationJsonObject?: GetProjectClaimsOIDCTokenManagementResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: GetProjectClaimsOIDCTokenManagementResponseResponseBody;
+
     /**
      * Claims successfully fetched.
      */
@@ -60,30 +84,6 @@ export class GetProjectClaimsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getProjectClaims400ApplicationJSONObject?: GetProjectClaims400ApplicationJSON;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getProjectClaims403ApplicationJSONObject?: GetProjectClaims403ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    getProjectClaims500ApplicationJSONObject?: GetProjectClaims500ApplicationJSON;
 
     /**
      * HTTP response status code for this operation
