@@ -40,7 +40,6 @@ import { CheckoutKeyInputType } from "circleci-v2-sdk/dist/sdk/models/operations
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -58,7 +57,11 @@ import { CheckoutKeyInputType } from "circleci-v2-sdk/dist/sdk/models/operations
 ### Response
 
 **Promise<[operations.CreateCheckoutKeyResponse](../../models/operations/createcheckoutkeyresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createEnvVar
 
@@ -84,7 +87,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,7 +104,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.CreateEnvVarResponse](../../models/operations/createenvvarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteCheckoutKey
 
@@ -125,7 +131,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -143,7 +148,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.DeleteCheckoutKeyResponse](../../models/operations/deletecheckoutkeyresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteEnvVar
 
@@ -166,7 +175,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,7 +192,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.DeleteEnvVarResponse](../../models/operations/deleteenvvarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCheckoutKey
 
@@ -207,7 +219,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -225,7 +236,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetCheckoutKeyResponse](../../models/operations/getcheckoutkeyresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getEnvVar
 
@@ -248,7 +263,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -266,7 +280,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetEnvVarResponse](../../models/operations/getenvvarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getProjectBySlug
 
@@ -288,7 +306,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -306,7 +323,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetProjectBySlugResponse](../../models/operations/getprojectbyslugresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listCheckoutKeys
 
@@ -328,7 +349,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -346,7 +366,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListCheckoutKeysResponse](../../models/operations/listcheckoutkeysresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listEnvVars
 
@@ -368,7 +392,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -386,4 +409,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListEnvVarsResponse](../../models/operations/listenvvarsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

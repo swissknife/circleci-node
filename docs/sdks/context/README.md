@@ -35,7 +35,6 @@ import { Circleci } from "circleci-v2-sdk";
     envVarName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -53,7 +52,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.AddEnvironmentVariableToContextResponse](../../models/operations/addenvironmentvariabletocontextresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createContext
 
@@ -76,7 +79,6 @@ import { Circleci } from "circleci-v2-sdk";
     owner: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,7 +96,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.CreateContextResponse](../../models/operations/createcontextresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteContext
 
@@ -116,7 +122,6 @@ import { Circleci } from "circleci-v2-sdk";
     contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -134,7 +139,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.DeleteContextResponse](../../models/operations/deletecontextresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteEnvironmentVariableFromContext
 
@@ -157,7 +166,6 @@ import { Circleci } from "circleci-v2-sdk";
     envVarName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -175,7 +183,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.DeleteEnvironmentVariableFromContextResponse](../../models/operations/deleteenvironmentvariablefromcontextresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getContext
 
@@ -197,7 +209,6 @@ import { Circleci } from "circleci-v2-sdk";
     contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -215,7 +226,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetContextResponse](../../models/operations/getcontextresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listContexts
 
@@ -236,7 +251,6 @@ import { OwnerType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
   const res = await sdk.context.listContexts({});
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -254,7 +268,11 @@ import { OwnerType } from "circleci-v2-sdk/dist/sdk/models/operations";
 ### Response
 
 **Promise<[operations.ListContextsResponse](../../models/operations/listcontextsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listEnvironmentVariablesFromContext
 
@@ -276,7 +294,6 @@ import { Circleci } from "circleci-v2-sdk";
     contextId: "bd93f37e-8737-476a-be63-944592b835e7",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -294,4 +311,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListEnvironmentVariablesFromContextResponse](../../models/operations/listenvironmentvariablesfromcontextresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

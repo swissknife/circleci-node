@@ -35,7 +35,6 @@ import { Circleci } from "circleci-v2-sdk";
     orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -53,7 +52,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.DeleteOrgClaimsResponse](../../models/operations/deleteorgclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteProjectClaims
 
@@ -77,7 +80,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,7 +97,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.DeleteProjectClaimsResponse](../../models/operations/deleteprojectclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getOrgClaims
 
@@ -117,7 +123,6 @@ import { Circleci } from "circleci-v2-sdk";
     orgID: "faa87345-442f-4070-a007-ecf098342349",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -135,7 +140,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetOrgClaimsResponse](../../models/operations/getorgclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getProjectClaims
 
@@ -158,7 +167,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectID: "17124405-51b9-4707-91e2-d3024606dad9",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -176,7 +184,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetProjectClaimsResponse](../../models/operations/getprojectclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## patchOrgClaims
 
@@ -203,7 +215,6 @@ import { Circleci } from "circleci-v2-sdk";
     orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -221,7 +232,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.PatchOrgClaimsResponse](../../models/operations/patchorgclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## patchProjectClaims
 
@@ -249,7 +264,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -267,4 +281,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.PatchProjectClaimsResponse](../../models/operations/patchprojectclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

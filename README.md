@@ -179,6 +179,41 @@ Here's an example of one such pagination call:
 # Error Handling
 
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
+
+
+## Example
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+(async () => {
+    const sdk = new Circleci({
+        security: {
+            apiKeyHeader: "",
+        },
+    });
+
+    let res;
+    try {
+        res = await sdk.context.addEnvironmentVariableToContext({
+            requestBody: {
+                value: "some-secret-value",
+            },
+            contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+            envVarName: "string",
+        });
+    } catch (e) {}
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
 <!-- End Error Handling -->
 
 
@@ -280,7 +315,6 @@ const sdk = new Circleci({defaultClient: httpClient});
 
 
 <!-- Start Authentication -->
-
 # Authentication
 
 ## Per-Client Security Schemes

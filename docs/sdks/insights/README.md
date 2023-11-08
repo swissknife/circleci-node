@@ -34,7 +34,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -52,7 +51,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetAllInsightsBranchesResponse](../../models/operations/getallinsightsbranchesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getFlakyTests
 
@@ -75,7 +78,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -93,7 +95,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetFlakyTestsResponse](../../models/operations/getflakytestsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getJobTimeseries
 
@@ -117,7 +123,6 @@ import { Granularity } from "circleci-v2-sdk/dist/sdk/models/operations";
     workflowName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -135,7 +140,11 @@ import { Granularity } from "circleci-v2-sdk/dist/sdk/models/operations";
 ### Response
 
 **Promise<[operations.GetJobTimeseriesResponse](../../models/operations/getjobtimeseriesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getOrgSummaryData
 
@@ -160,7 +169,6 @@ import { ReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
     projectNames: {},
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -178,7 +186,11 @@ import { ReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 ### Response
 
 **Promise<[operations.GetOrgSummaryDataResponse](../../models/operations/getorgsummarydataresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getProjectWorkflowJobMetrics
 
@@ -202,7 +214,6 @@ import { QueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/opera
     workflowName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -220,7 +231,11 @@ import { QueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/opera
 ### Response
 
 **Promise<[operations.GetProjectWorkflowJobMetricsResponse](../../models/operations/getprojectworkflowjobmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getProjectWorkflowMetrics
 
@@ -243,7 +258,6 @@ import { GetProjectWorkflowMetricsQueryParamReportingWindow } from "circleci-v2-
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -261,7 +275,11 @@ import { GetProjectWorkflowMetricsQueryParamReportingWindow } from "circleci-v2-
 ### Response
 
 **Promise<[operations.GetProjectWorkflowMetricsResponse](../../models/operations/getprojectworkflowmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getProjectWorkflowRuns
 
@@ -284,7 +302,6 @@ import { Circleci } from "circleci-v2-sdk";
     workflowName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -302,7 +319,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetProjectWorkflowRunsResponse](../../models/operations/getprojectworkflowrunsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getProjectWorkflowTestMetrics
 
@@ -325,7 +346,6 @@ import { Circleci } from "circleci-v2-sdk";
     workflowName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -343,7 +363,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetProjectWorkflowTestMetricsResponse](../../models/operations/getprojectworkflowtestmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getProjectWorkflowsPageData
 
@@ -371,7 +395,6 @@ import { GetProjectWorkflowsPageDataQueryParamReportingWindow } from "circleci-v
     workflowNames: {},
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -389,7 +412,11 @@ import { GetProjectWorkflowsPageDataQueryParamReportingWindow } from "circleci-v
 ### Response
 
 **Promise<[operations.GetProjectWorkflowsPageDataResponse](../../models/operations/getprojectworkflowspagedataresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getWorkflowSummary
 
@@ -412,7 +439,6 @@ import { Circleci } from "circleci-v2-sdk";
     workflowName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -430,4 +456,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetWorkflowSummaryResponse](../../models/operations/getworkflowsummaryresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

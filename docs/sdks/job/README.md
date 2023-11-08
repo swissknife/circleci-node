@@ -29,7 +29,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -47,7 +46,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.CancelJobResponse](../../models/operations/canceljobresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getJobArtifacts
 
@@ -70,7 +73,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -88,7 +90,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetJobArtifactsResponse](../../models/operations/getjobartifactsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getJobDetails
 
@@ -111,7 +117,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -129,7 +134,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetJobDetailsResponse](../../models/operations/getjobdetailsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getTests
 
@@ -152,7 +161,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -170,4 +178,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetTestsResponse](../../models/operations/gettestsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

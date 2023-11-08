@@ -30,7 +30,6 @@ import { Circleci } from "circleci-v2-sdk";
     id: "e96a2274-8cfb-42ea-a2f3-af572e6d17e2",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -48,7 +47,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ApprovePendingApprovalJobByIdResponse](../../models/operations/approvependingapprovaljobbyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## cancelWorkflow
 
@@ -70,7 +73,6 @@ import { Circleci } from "circleci-v2-sdk";
     id: "bd1cc4a6-2f45-4453-98c5-6f84c2afb654",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -88,7 +90,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.CancelWorkflowResponse](../../models/operations/cancelworkflowresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getWorkflowById
 
@@ -110,7 +116,6 @@ import { Circleci } from "circleci-v2-sdk";
     id: "9471ae6d-5ba0-4e9c-bb5d-c99815c6257a",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -128,7 +133,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetWorkflowByIdResponse](../../models/operations/getworkflowbyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listWorkflowJobs
 
@@ -150,7 +159,6 @@ import { Circleci } from "circleci-v2-sdk";
     id: "d4ad492c-ef34-47c2-a4b5-e4d0fd15ab40",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -168,7 +176,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListWorkflowJobsResponse](../../models/operations/listworkflowjobsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## rerunWorkflow
 
@@ -199,7 +211,6 @@ import { Circleci } from "circleci-v2-sdk";
     id: "0038409e-102a-4ccf-8dd8-307fb89c2413",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -217,4 +228,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.RerunWorkflowResponse](../../models/operations/rerunworkflowresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

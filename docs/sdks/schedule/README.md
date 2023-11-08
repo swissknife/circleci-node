@@ -39,7 +39,6 @@ import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -57,7 +56,11 @@ import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 ### Response
 
 **Promise<[operations.CreateScheduleResponse](../../models/operations/createscheduleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteScheduleById
 
@@ -79,7 +82,6 @@ import { Circleci } from "circleci-v2-sdk";
     scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -97,7 +99,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.DeleteScheduleByIdResponse](../../models/operations/deleteschedulebyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getScheduleById
 
@@ -119,7 +125,6 @@ import { Circleci } from "circleci-v2-sdk";
     scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -137,7 +142,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetScheduleByIdResponse](../../models/operations/getschedulebyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listSchedulesForProject
 
@@ -159,7 +168,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -177,7 +185,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListSchedulesForProjectResponse](../../models/operations/listschedulesforprojectresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## updateSchedule
 
@@ -221,7 +233,6 @@ import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-
     scheduleId: "15e60e97-e640-494d-be9a-b9ea99c1416e",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -239,4 +250,8 @@ import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-
 ### Response
 
 **Promise<[operations.UpdateScheduleResponse](../../models/operations/updatescheduleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

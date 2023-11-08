@@ -37,7 +37,6 @@ import { Circleci } from "circleci-v2-sdk";
     },
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -55,7 +54,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ContinuePipelineResponse](../../models/operations/continuepipelineresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getPipelineById
 
@@ -77,7 +80,6 @@ import { Circleci } from "circleci-v2-sdk";
     pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,7 +97,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetPipelineByIdResponse](../../models/operations/getpipelinebyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getPipelineByNumber
 
@@ -118,7 +124,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -136,7 +141,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetPipelineByNumberResponse](../../models/operations/getpipelinebynumberresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getPipelineConfigById
 
@@ -158,7 +167,6 @@ import { Circleci } from "circleci-v2-sdk";
     pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -176,7 +184,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetPipelineConfigByIdResponse](../../models/operations/getpipelineconfigbyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listMyPipelines
 
@@ -198,7 +210,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -216,7 +227,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListMyPipelinesResponse](../../models/operations/listmypipelinesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listPipelines
 
@@ -236,7 +251,6 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.pipeline.listPipelines({});
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -254,7 +268,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListPipelinesResponse](../../models/operations/listpipelinesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listPipelinesForProject
 
@@ -276,7 +294,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -294,7 +311,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListPipelinesForProjectResponse](../../models/operations/listpipelinesforprojectresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listWorkflowsByPipelineId
 
@@ -316,7 +337,6 @@ import { Circleci } from "circleci-v2-sdk";
     pipelineId: "c0e3f0ba-dcb8-47b7-a0fb-0aa2a8dd26b5",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -334,7 +354,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.ListWorkflowsByPipelineIdResponse](../../models/operations/listworkflowsbypipelineidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## triggerPipeline
 
@@ -363,7 +387,6 @@ import { Circleci } from "circleci-v2-sdk";
     projectSlug: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -381,4 +404,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.TriggerPipelineResponse](../../models/operations/triggerpipelineresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

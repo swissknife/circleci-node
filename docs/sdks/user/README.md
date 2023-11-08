@@ -31,7 +31,6 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.user.getCollaborations();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -48,7 +47,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetCollaborationsResponse](../../models/operations/getcollaborationsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCurrentUser
 
@@ -68,7 +71,6 @@ import { Circleci } from "circleci-v2-sdk";
 
   const res = await sdk.user.getCurrentUser();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,7 +87,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetCurrentUserResponse](../../models/operations/getcurrentuserresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getUser
 
@@ -107,7 +113,6 @@ import { Circleci } from "circleci-v2-sdk";
     id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -125,4 +130,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetUserResponse](../../models/operations/getuserresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

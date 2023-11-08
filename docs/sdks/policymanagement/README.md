@@ -43,7 +43,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -61,7 +60,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.CreatePolicyBundleResponse](../../models/operations/createpolicybundleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getDecisionLog
 
@@ -85,7 +88,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -103,7 +105,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetDecisionLogResponse](../../models/operations/getdecisionlogresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getDecisionLogPolicyBundle
 
@@ -127,7 +133,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -145,7 +150,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetDecisionLogPolicyBundleResponse](../../models/operations/getdecisionlogpolicybundleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getDecisionLogs
 
@@ -168,7 +177,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -186,7 +194,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetDecisionLogsResponse](../../models/operations/getdecisionlogsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getDecisionSettings
 
@@ -209,7 +221,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -227,7 +238,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetDecisionSettingsResponse](../../models/operations/getdecisionsettingsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getPolicyBundle
 
@@ -250,7 +265,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -268,7 +282,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetPolicyBundleResponse](../../models/operations/getpolicybundleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getPolicyDocument
 
@@ -292,7 +310,6 @@ import { Circleci } from "circleci-v2-sdk";
     policyName: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -310,7 +327,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.GetPolicyDocumentResponse](../../models/operations/getpolicydocumentresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## makeDecision
 
@@ -337,7 +358,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -355,7 +375,11 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.MakeDecisionResponse](../../models/operations/makedecisionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## setDecisionSettings
 
@@ -379,7 +403,6 @@ import { Circleci } from "circleci-v2-sdk";
     ownerID: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -397,4 +420,8 @@ import { Circleci } from "circleci-v2-sdk";
 ### Response
 
 **Promise<[operations.SetDecisionSettingsResponse](../../models/operations/setdecisionsettingsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
