@@ -34,7 +34,7 @@ export class Workflow {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/workflow/{id}/approve/{approval_request_id}",
             req
@@ -55,7 +55,7 @@ export class Workflow {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -129,7 +129,7 @@ export class Workflow {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/workflow/{id}/cancel", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/workflow/{id}/cancel", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -146,7 +146,7 @@ export class Workflow {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -219,7 +219,7 @@ export class Workflow {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/workflow/{id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/workflow/{id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -236,7 +236,7 @@ export class Workflow {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -309,7 +309,7 @@ export class Workflow {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/workflow/{id}/job", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/workflow/{id}/job", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -326,7 +326,7 @@ export class Workflow {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -399,7 +399,7 @@ export class Workflow {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/workflow/{id}/rerun", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/workflow/{id}/rerun", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -430,7 +430,7 @@ export class Workflow {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

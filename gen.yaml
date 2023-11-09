@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 0835004bb534fa23e46dce4b341655eb
+  docChecksum: e671794e81f760739fb316fef511f413
   docVersion: v2
-  speakeasyVersion: 1.115.0
-  generationVersion: 2.183.0
+  speakeasyVersion: 1.116.0
+  generationVersion: 2.185.0
 generation:
   comments: {}
   baseServerUrl: https://circleci.com/api/v2/
@@ -11,11 +11,11 @@ generation:
   repoURL: https://github.com/swissknife/circleci-node.git
 features:
   typescript:
-    core: 3.1.0
+    core: 3.1.2
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
 typescript:
-  version: 4.0.1
+  version: 4.0.2
   author: Speakeasy API
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false
@@ -27,8 +27,10 @@ typescript:
       operations: sdk/models/operations
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
+  inputModelSuffix: input
   installationURL: https://github.com/swissknife/circleci-node
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: circleci-v2-sdk
   published: true
   repoSubDirectory: .

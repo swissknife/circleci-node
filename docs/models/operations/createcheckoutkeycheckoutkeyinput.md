@@ -1,8 +1,0 @@
-# CreateCheckoutKeyCheckoutKeyInput
-
-
-## Fields
-
-| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        | Example                                                                            |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `type`                                                                             | [operations.CheckoutKeyInputType](../../models/operations/checkoutkeyinputtype.md) | :heavy_check_mark:                                                                 | The type of checkout key to create. This may be either `deploy-key` or `user-key`. | deploy-key                                                                         |

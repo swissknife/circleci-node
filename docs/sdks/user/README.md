@@ -1,5 +1,5 @@
 # User
-(*.user*)
+(*user*)
 
 ### Available Operations
 
@@ -46,7 +46,7 @@ import { Circleci } from "circleci-v2-sdk";
 
 ### Response
 
-**Promise<[operations.GetCollaborationsResponse](../../models/operations/getcollaborationsresponse.md)>**
+**Promise<[operations.GetCollaborationsResponse](../../sdk/models/operations/getcollaborationsresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -86,7 +86,7 @@ import { Circleci } from "circleci-v2-sdk";
 
 ### Response
 
-**Promise<[operations.GetCurrentUserResponse](../../models/operations/getcurrentuserresponse.md)>**
+**Promise<[operations.GetCurrentUserResponse](../../sdk/models/operations/getcurrentuserresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -121,15 +121,15 @@ import { Circleci } from "circleci-v2-sdk";
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [operations.GetUserRequest](../../models/operations/getuserrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.GetUserRequest](../../sdk/models/operations/getuserrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
 
-**Promise<[operations.GetUserResponse](../../models/operations/getuserresponse.md)>**
+**Promise<[operations.GetUserResponse](../../sdk/models/operations/getuserresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

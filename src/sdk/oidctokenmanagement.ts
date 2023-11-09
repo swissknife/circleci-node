@@ -38,7 +38,11 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/org/{orgID}/oidc-custom-claims", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/org/{orgID}/oidc-custom-claims",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -56,7 +60,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -159,7 +163,7 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/org/{orgID}/project/{projectID}/oidc-custom-claims",
             req
@@ -181,7 +185,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -285,7 +289,11 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/org/{orgID}/oidc-custom-claims", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/org/{orgID}/oidc-custom-claims",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -302,7 +310,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -405,7 +413,7 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/org/{orgID}/project/{projectID}/oidc-custom-claims",
             req
@@ -426,7 +434,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -529,7 +537,11 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/org/{orgID}/oidc-custom-claims", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/org/{orgID}/oidc-custom-claims",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -564,7 +576,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -668,7 +680,7 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/org/{orgID}/project/{projectID}/oidc-custom-claims",
             req
@@ -707,7 +719,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",

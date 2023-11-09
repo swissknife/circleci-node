@@ -10,5 +10,6 @@ export * from "./decisionlog";
 export * from "./decisionsettings";
 export * from "./patchclaimsrequest";
 export * from "./policy";
+export * from "./schemebasicauth";
 export * from "./security";
 export * from "./violation";
