@@ -1,21 +1,23 @@
 configVersion: 1.0.0
 management:
-  docChecksum: e671794e81f760739fb316fef511f413
+  docChecksum: fbd1ce7a238dc84c659eef285293dd3f
   docVersion: v2
-  speakeasyVersion: 1.116.0
-  generationVersion: 2.185.0
+  speakeasyVersion: 1.118.3
+  generationVersion: 2.187.7
 generation:
   comments: {}
   baseServerUrl: https://circleci.com/api/v2/
   sdkClassName: circleci
   repoURL: https://github.com/swissknife/circleci-node.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   typescript:
-    core: 3.1.2
+    core: 3.1.3
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
 typescript:
-  version: 4.0.2
+  version: 4.0.3
   author: Speakeasy API
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false
