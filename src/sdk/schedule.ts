@@ -20,7 +20,7 @@ export class Schedule {
      * Create a schedule
      *
      * @remarks
-     * Creates a schedule and returns the created schedule.
+     * Not yet available to projects that use GitLab or GitHub App. Creates a schedule and returns the created schedule.
      */
     async createSchedule(
         req: operations.CreateScheduleRequest,
@@ -129,7 +129,7 @@ export class Schedule {
      * Delete a schedule
      *
      * @remarks
-     * Deletes the schedule by id.
+     * Not yet available to projects that use GitLab or GitHub App. Deletes the schedule by id.
      */
     async deleteScheduleById(
         req: operations.DeleteScheduleByIdRequest,
@@ -406,7 +406,7 @@ export class Schedule {
      * Update a schedule
      *
      * @remarks
-     * Updates a schedule and returns the updated schedule.
+     * Not yet available to projects that use GitLab or GitHub App. Updates a schedule and returns the updated schedule.
      */
     async updateSchedule(
         req: operations.UpdateScheduleRequest,

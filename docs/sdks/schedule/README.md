@@ -11,7 +11,7 @@
 
 ## createSchedule
 
-Creates a schedule and returns the created schedule.
+Not yet available to projects that use GitLab or GitHub App. Creates a schedule and returns the created schedule.
 
 ### Example Usage
 
@@ -64,7 +64,7 @@ import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 ## deleteScheduleById
 
-Deletes the schedule by id.
+Not yet available to projects that use GitLab or GitHub App. Deletes the schedule by id.
 
 ### Example Usage
 
@@ -193,7 +193,7 @@ import { Circleci } from "circleci-v2-sdk";
 
 ## updateSchedule
 
-Updates a schedule and returns the updated schedule.
+Not yet available to projects that use GitLab or GitHub App. Updates a schedule and returns the updated schedule.
 
 ### Example Usage
 

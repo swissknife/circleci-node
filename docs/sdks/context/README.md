@@ -60,7 +60,7 @@ import { Circleci } from "circleci-v2-sdk";
 
 ## createContext
 
-Create a new context
+Creates a new context.
 
 ### Example Usage
 

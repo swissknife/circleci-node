@@ -32,7 +32,7 @@ export class GetProjectWorkflowRunsRequest extends SpeakeasyBase {
     pageToken?: string;
 
     /**
-     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
     projectSlug: string;
@@ -173,7 +173,7 @@ export class GetProjectWorkflowRunsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.

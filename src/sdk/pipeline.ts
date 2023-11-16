@@ -783,7 +783,7 @@ export class Pipeline {
      * Trigger a new pipeline
      *
      * @remarks
-     * Triggers a new pipeline on the project.
+     * Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
      */
     async triggerPipeline(
         req: operations.TriggerPipelineRequest,

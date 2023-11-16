@@ -142,11 +142,11 @@ import { Circleci } from "circleci-v2-sdk";
 
 ### [webhook](docs/sdks/webhook/README.md)
 
-* [createWebhook](docs/sdks/webhook/README.md#createwebhook) - Create a webhook
-* [deleteWebhook](docs/sdks/webhook/README.md#deletewebhook) - Delete a webhook
+* [createWebhook](docs/sdks/webhook/README.md#createwebhook) - Create an outbound webhook
+* [deleteWebhook](docs/sdks/webhook/README.md#deletewebhook) - Delete an outbound webhook
 * [getWebhookById](docs/sdks/webhook/README.md#getwebhookbyid) - Get a webhook
 * [getWebhooks](docs/sdks/webhook/README.md#getwebhooks) - List webhooks
-* [updateWebhook](docs/sdks/webhook/README.md#updatewebhook) - Update a webhook
+* [updateWebhook](docs/sdks/webhook/README.md#updatewebhook) - Update an outbound webhook
 
 ### [workflow](docs/sdks/workflow/README.md)
 

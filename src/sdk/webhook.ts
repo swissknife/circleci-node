@@ -17,7 +17,10 @@ export class Webhook {
     }
 
     /**
-     * Create a webhook
+     * Create an outbound webhook
+     *
+     * @remarks
+     * Creates an outbound webhook.
      */
     async createWebhook(
         req: operations.CreateWebhookRequestBody,
@@ -119,7 +122,10 @@ export class Webhook {
     }
 
     /**
-     * Delete a webhook
+     * Delete an outbound webhook
+     *
+     * @remarks
+     * Deletes an outbound webhook
      */
     async deleteWebhook(
         req: operations.DeleteWebhookRequest,
@@ -209,7 +215,7 @@ export class Webhook {
      * Get a webhook
      *
      * @remarks
-     * Get a webhook by id.
+     * Get an outbound webhook by id.
      */
     async getWebhookById(
         req: operations.GetWebhookByIdRequest,
@@ -299,7 +305,7 @@ export class Webhook {
      * List webhooks
      *
      * @remarks
-     * Get a list of webhook that match the given scope-type and scope-id
+     * Get a list of outbound webhooks that match the given scope-type and scope-id
      */
     async getWebhooks(
         req: operations.GetWebhooksRequest,
@@ -387,7 +393,10 @@ export class Webhook {
     }
 
     /**
-     * Update a webhook
+     * Update an outbound webhook
+     *
+     * @remarks
+     * Updates an outbound webhook.
      */
     async updateWebhook(
         req: operations.UpdateWebhookRequest,

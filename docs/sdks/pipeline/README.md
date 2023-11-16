@@ -362,7 +362,7 @@ import { Circleci } from "circleci-v2-sdk";
 
 ## triggerPipeline
 
-Triggers a new pipeline on the project.
+Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
 
 ### Example Usage
 

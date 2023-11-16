@@ -176,7 +176,7 @@ export class ListWorkflowJobsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * A paginated sequence of jobs.

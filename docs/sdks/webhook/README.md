@@ -3,15 +3,15 @@
 
 ### Available Operations
 
-* [createWebhook](#createwebhook) - Create a webhook
-* [deleteWebhook](#deletewebhook) - Delete a webhook
+* [createWebhook](#createwebhook) - Create an outbound webhook
+* [deleteWebhook](#deletewebhook) - Delete an outbound webhook
 * [getWebhookById](#getwebhookbyid) - Get a webhook
 * [getWebhooks](#getwebhooks) - List webhooks
-* [updateWebhook](#updatewebhook) - Update a webhook
+* [updateWebhook](#updatewebhook) - Update an outbound webhook
 
 ## createWebhook
 
-Create a webhook
+Creates an outbound webhook.
 
 ### Example Usage
 
@@ -65,7 +65,7 @@ import { Events, TypeT } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 ## deleteWebhook
 
-Delete a webhook
+Deletes an outbound webhook
 
 ### Example Usage
 
@@ -108,7 +108,7 @@ import { Circleci } from "circleci-v2-sdk";
 
 ## getWebhookById
 
-Get a webhook by id.
+Get an outbound webhook by id.
 
 ### Example Usage
 
@@ -151,7 +151,7 @@ import { Circleci } from "circleci-v2-sdk";
 
 ## getWebhooks
 
-Get a list of webhook that match the given scope-type and scope-id
+Get a list of outbound webhooks that match the given scope-type and scope-id
 
 ### Example Usage
 
@@ -196,7 +196,7 @@ import { ScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 ## updateWebhook
 
-Update a webhook
+Updates an outbound webhook.
 
 ### Example Usage
 

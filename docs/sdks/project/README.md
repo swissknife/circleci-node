@@ -15,7 +15,7 @@
 
 ## createCheckoutKey
 
-Creates a new checkout key. This API request is only usable with a user API token.
+Not available to projects that use GitLab or GitHub App. Creates a new checkout key. This API request is only usable with a user API token.
                            Please ensure that you have authorized your account with GitHub before creating user keys.
                            This is necessary to give CircleCI the permission to create a user key associated with
                            your GitHub user account. You can find this page by visiting Project Settings > Checkout SSH Keys

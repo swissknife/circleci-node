@@ -125,6 +125,9 @@ export class Context {
 
     /**
      * Create a new context
+     *
+     * @remarks
+     * Creates a new context.
      */
     async createContext(
         req: operations.CreateContextRequestBody,

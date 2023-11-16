@@ -14,7 +14,7 @@ export class ListPipelinesRequest extends SpeakeasyBase {
     mine?: boolean;
 
     /**
-     * Org slug in the form `vcs-slug/org-name`
+     * Org slug in the form `vcs-slug/org-name`. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug` and replace the `org-name` with the organization ID (found in Organization Settings).
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=org-slug" })
     orgSlug?: string;
@@ -339,7 +339,7 @@ export class ListPipelinesResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
