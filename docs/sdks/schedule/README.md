@@ -212,8 +212,8 @@ import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-
     requestBody: {
       attributionActor: UpdateScheduleAttributionActor.Current,
       parameters: {
-        "branch": "string",
         "deploy_prod": "string",
+        "branch": "string",
       },
       timetable: {
         daysOfMonth: [
