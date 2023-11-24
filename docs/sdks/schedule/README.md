@@ -31,8 +31,8 @@ import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
       attributionActor: AttributionActor.Current,
       name: "string",
       parameters: {
-        "branch": "string",
         "deploy_prod": "string",
+        "branch": "string",
       },
       timetable: "string",
     },
