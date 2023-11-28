@@ -1,4 +1,4 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
@@ -23,4 +23,4 @@ import { Circleci } from "circleci-v2-sdk";
 })();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

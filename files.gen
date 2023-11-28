@@ -115,7 +115,6 @@ src/sdk/models/shared/schemebasicauth.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
-USAGE.md
 docs/sdk/models/operations/addenvironmentvariabletocontextrequestbody.md
 docs/sdk/models/operations/addenvironmentvariabletocontextrequest.md
 docs/sdk/models/operations/addenvironmentvariabletocontextresponsebody.md
@@ -602,4 +601,5 @@ docs/sdks/job/README.md
 docs/sdks/schedule/README.md
 docs/sdks/webhook/README.md
 docs/sdks/workflow/README.md
+USAGE.md
 .gitattributes

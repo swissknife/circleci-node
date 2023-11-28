@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: e3b5b106034698d6cd8eb39d6169292f
+  docChecksum: d5354424df4a24bc0208b34b329ec39f
   docVersion: v2
-  speakeasyVersion: 1.122.0
-  generationVersion: 2.195.2
+  speakeasyVersion: 1.123.0
+  generationVersion: 2.202.2
 generation:
   comments: {}
   baseServerUrl: https://circleci.com/api/v2/
@@ -17,7 +17,7 @@ features:
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.1
 typescript:
-  version: 4.0.11
+  version: 4.0.12
   author: Speakeasy API
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false
