@@ -19,7 +19,7 @@ Creates an outbound webhook.
 import { Circleci } from "circleci-v2-sdk";
 import { Events, TypeT } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -43,7 +43,9 @@ import { Events, TypeT } from "circleci-v2-sdk/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ Deletes an outbound webhook
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -86,7 +88,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,7 +119,7 @@ Get an outbound webhook by id.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -129,7 +133,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -159,7 +165,7 @@ Get a list of outbound webhooks that match the given scope-type and scope-id
 import { Circleci } from "circleci-v2-sdk";
 import { ScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -174,7 +180,9 @@ import { ScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -204,7 +212,7 @@ Updates an outbound webhook.
 import { Circleci } from "circleci-v2-sdk";
 import { UpdateWebhookEvents } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -223,7 +231,9 @@ import { UpdateWebhookEvents } from "circleci-v2-sdk/dist/sdk/models/operations"
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

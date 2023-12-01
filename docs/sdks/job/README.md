@@ -17,7 +17,7 @@ Cancel job with a given job number.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -32,7 +32,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -61,7 +63,7 @@ Returns a job's artifacts.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -76,7 +78,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -105,7 +109,7 @@ Returns job details.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -120,7 +124,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -149,7 +155,7 @@ Get test metadata for a build. In the rare case where there is more than 250MB o
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -164,7 +170,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

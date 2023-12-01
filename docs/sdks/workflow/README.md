@@ -18,7 +18,7 @@ Approves a pending approval job in a workflow.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -33,7 +33,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -62,7 +64,7 @@ Cancels a running workflow.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -76,7 +78,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -105,7 +109,7 @@ Returns summary fields of a workflow by ID.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -119,7 +123,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -148,7 +154,7 @@ Returns a sequence of jobs for a workflow.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -162,7 +168,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -191,7 +199,7 @@ Reruns a workflow.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -214,7 +222,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -19,7 +19,7 @@ Not yet available to projects that use GitLab or GitHub App. Creates a schedule 
 import { Circleci } from "circleci-v2-sdk";
 import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -42,7 +42,9 @@ import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -71,7 +73,7 @@ Not yet available to projects that use GitLab or GitHub App. Deletes the schedul
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -85,7 +87,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -114,7 +118,7 @@ Get a schedule by id.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -128,7 +132,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -157,7 +163,7 @@ Returns all schedules for this project.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -171,7 +177,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -201,7 +209,7 @@ Not yet available to projects that use GitLab or GitHub App. Updates a schedule 
 import { Circleci } from "circleci-v2-sdk";
 import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -236,7 +244,9 @@ import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

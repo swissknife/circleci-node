@@ -26,7 +26,7 @@ This endpoint replaces the current policy bundle with the provided policy bundle
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -46,7 +46,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -75,7 +77,7 @@ This endpoint will retrieve a decision for a given decision log ID
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -91,7 +93,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -120,7 +124,7 @@ This endpoint will retrieve a policy bundle for a given decision log ID
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -136,7 +140,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -165,7 +171,7 @@ This endpoint will return a list of decision audit logs that were made using thi
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -180,7 +186,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -209,7 +217,7 @@ This endpoint retrieves the current decision settings (eg enable/disable policy 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -224,7 +232,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -253,7 +263,7 @@ This endpoint will retrieve a policy bundle
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -268,7 +278,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -297,7 +309,7 @@ This endpoint will retrieve a policy document.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -313,7 +325,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -342,7 +356,7 @@ This endpoint will evaluate input data (config+metadata) against owner's stored 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -361,7 +375,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -390,7 +406,7 @@ This endpoint allows modifying decision settings (eg enable/disable policy evalu
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -406,7 +422,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

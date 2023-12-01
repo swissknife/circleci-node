@@ -23,7 +23,7 @@ Get a list of all branches for a specified project. The list will only contain b
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -37,7 +37,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -67,7 +69,7 @@ Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -81,7 +83,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -111,7 +115,7 @@ Get timeseries data for all jobs within a workflow. Hourly granularity data is o
 import { Circleci } from "circleci-v2-sdk";
 import { Granularity } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -126,7 +130,9 @@ import { Granularity } from "circleci-v2-sdk/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -157,7 +163,7 @@ Gets aggregated summary metrics with trends for the entire org.
 import { Circleci } from "circleci-v2-sdk";
 import { ReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -172,7 +178,9 @@ import { ReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -202,7 +210,7 @@ Get summary metrics for a project workflow's jobs. Job runs going back at most 9
 import { Circleci } from "circleci-v2-sdk";
 import { QueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -217,7 +225,9 @@ import { QueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/opera
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -247,7 +257,7 @@ Get summary metrics for a project's workflows.  Workflow runs going back at most
 import { Circleci } from "circleci-v2-sdk";
 import { GetProjectWorkflowMetricsQueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -261,7 +271,9 @@ import { GetProjectWorkflowMetricsQueryParamReportingWindow } from "circleci-v2-
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -290,7 +302,7 @@ Get recent runs of a workflow. Runs going back at most 90 days are returned. Ple
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -305,7 +317,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -334,7 +348,7 @@ Get test metrics for a project's workflows. Currently tests metrics are calculat
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -349,7 +363,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -382,7 +398,7 @@ Get summary metrics and trends for a project at workflow and branch level.
 import { Circleci } from "circleci-v2-sdk";
 import { GetProjectWorkflowsPageDataQueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -398,7 +414,9 @@ import { GetProjectWorkflowsPageDataQueryParamReportingWindow } from "circleci-v
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -427,7 +445,7 @@ Get the metrics and trends for a particular workflow on a single branch or all b
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async() => {
+async function run() {
   const sdk = new Circleci({
     security: {
       apiKeyHeader: "",
@@ -442,7 +460,9 @@ import { Circleci } from "circleci-v2-sdk";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

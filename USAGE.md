@@ -2,7 +2,7 @@
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-(async () => {
+async function run() {
     const sdk = new Circleci({
         security: {
             apiKeyHeader: "",
@@ -20,7 +20,9 @@ import { Circleci } from "circleci-v2-sdk";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 <!-- End SDK Example Usage [usage] -->
