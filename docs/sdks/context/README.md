@@ -23,7 +23,7 @@ import { Circleci } from "circleci-v2-sdk";
 async function run() {
   const sdk = new Circleci({
     security: {
-      apiKeyHeader: "",
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -72,7 +72,7 @@ import { Circleci } from "circleci-v2-sdk";
 async function run() {
   const sdk = new Circleci({
     security: {
-      apiKeyHeader: "",
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -118,7 +118,7 @@ import { Circleci } from "circleci-v2-sdk";
 async function run() {
   const sdk = new Circleci({
     security: {
-      apiKeyHeader: "",
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -163,7 +163,7 @@ import { Circleci } from "circleci-v2-sdk";
 async function run() {
   const sdk = new Circleci({
     security: {
-      apiKeyHeader: "",
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -209,7 +209,7 @@ import { Circleci } from "circleci-v2-sdk";
 async function run() {
   const sdk = new Circleci({
     security: {
-      apiKeyHeader: "",
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -255,7 +255,7 @@ import { OwnerType } from "circleci-v2-sdk/dist/sdk/models/operations";
 async function run() {
   const sdk = new Circleci({
     security: {
-      apiKeyHeader: "",
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
   });
 
@@ -298,7 +298,7 @@ import { Circleci } from "circleci-v2-sdk";
 async function run() {
   const sdk = new Circleci({
     security: {
-      apiKeyHeader: "",
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
   });
 
