@@ -89,7 +89,7 @@ export class FlakyTests extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "workflow-created-at" })
-    workflowCreatedAt: any;
+    workflowCreatedAt: string;
 
     /**
      * The ID of the workflow associated with the provided test counts
