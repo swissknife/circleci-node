@@ -241,7 +241,7 @@ export class Project {
      * Delete a checkout key
      *
      * @remarks
-     * Deletes the checkout key.
+     * Deletes the checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
      */
     async deleteCheckoutKey(
         req: operations.DeleteCheckoutKeyRequest,
@@ -429,7 +429,7 @@ export class Project {
      * Get a checkout key
      *
      * @remarks
-     * Returns an individual checkout key.
+     * Returns an individual checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
      */
     async getCheckoutKey(
         req: operations.GetCheckoutKeyRequest,
@@ -736,13 +736,14 @@ export class Project {
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: operationUrl,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",

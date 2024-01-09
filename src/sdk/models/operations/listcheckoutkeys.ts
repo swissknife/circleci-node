@@ -6,7 +6,21 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
+/**
+ * The fingerprint digest type to return. This may be either `md5` or `sha256`. If not passed, defaults to `md5`.
+ */
+export enum Digest {
+    Sha256 = "sha256",
+    Md5 = "md5",
+}
+
 export class ListCheckoutKeysRequest extends SpeakeasyBase {
+    /**
+     * The fingerprint digest type to return. This may be either `md5` or `sha256`. If not passed, defaults to `md5`.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=digest" })
+    digest?: Digest;
+
     /**
      * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */

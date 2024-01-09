@@ -61,7 +61,7 @@ run();
 
 ## getFlakyTests
 
-Get a list of flaky tests for a given project. Flaky tests are branch agnostic. 
+Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
              A flaky test is a test that passed and failed in the same commit.
 
 ### Example Usage
@@ -154,7 +154,7 @@ run();
 
 ## getOrgSummaryData
 
-Gets aggregated summary metrics with trends for the entire org. 
+Gets aggregated summary metrics with trends for the entire org.
               Also gets aggregated metrics and trends for each project belonging to the org.
 
 ### Example Usage
@@ -387,9 +387,9 @@ run();
 
 ## getProjectWorkflowsPageData
 
-Get summary metrics and trends for a project at workflow and branch level. 
-             Workflow runs going back at most 90 days are included in the aggregation window. 
-             Trends are only supported upto last 30 days. 
+Get summary metrics and trends for a project at workflow and branch level.
+             Workflow runs going back at most 90 days are included in the aggregation window.
+             Trends are only supported upto last 30 days.
              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
 
 ### Example Usage

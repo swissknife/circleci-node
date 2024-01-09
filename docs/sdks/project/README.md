@@ -116,7 +116,7 @@ run();
 
 ## deleteCheckoutKey
 
-Deletes the checkout key.
+Deletes the checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
 
 ### Example Usage
 
@@ -208,7 +208,7 @@ run();
 
 ## getCheckoutKey
 
-Returns an individual checkout key.
+Returns an individual checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
 
 ### Example Usage
 
@@ -351,6 +351,7 @@ Returns a sequence of checkout keys for `:project`.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
+import { Digest } from "circleci-v2-sdk/dist/sdk/models/operations";
 
 async function run() {
   const sdk = new Circleci({
