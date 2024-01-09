@@ -3,11 +3,11 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class MakeDecisionRequestBodyMetadata extends SpeakeasyBase {}
+export class Metadata extends SpeakeasyBase {}
 
 export class MakeDecisionRequestBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
@@ -16,8 +16,8 @@ export class MakeDecisionRequestBody extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
-    @Type(() => MakeDecisionRequestBodyMetadata)
-    metadata?: MakeDecisionRequestBodyMetadata;
+    @Type(() => Metadata)
+    metadata?: Metadata;
 }
 
 export class MakeDecisionRequest extends SpeakeasyBase {
@@ -34,7 +34,7 @@ export class MakeDecisionRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class MakeDecision500ApplicationJSON extends SpeakeasyBase {
+export class MakeDecisionPolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -46,7 +46,7 @@ export class MakeDecision500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class MakeDecision401ApplicationJSON extends SpeakeasyBase {
+export class MakeDecisionPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -58,13 +58,37 @@ export class MakeDecision401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class MakeDecision400ApplicationJSON extends SpeakeasyBase {
+export class MakeDecisionResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class MakeDecisionResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: MakeDecisionResponseBody;
+
+    /**
+     * The request is unauthorized
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndOneApplicationJsonObject?: MakeDecisionPolicyManagementResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: MakeDecisionPolicyManagementResponseResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -78,30 +102,6 @@ export class MakeDecisionResponse extends SpeakeasyBase {
     decision?: shared.Decision;
 
     /**
-     * The request is malformed
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    makeDecision400ApplicationJSONObject?: MakeDecision400ApplicationJSON;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    makeDecision401ApplicationJSONObject?: MakeDecision401ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    makeDecision500ApplicationJSONObject?: MakeDecision500ApplicationJSON;
-
-    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -111,5 +111,5 @@ export class MakeDecisionResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

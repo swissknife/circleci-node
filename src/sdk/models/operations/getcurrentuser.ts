@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 /**
  * Error response.
  */
-export class GetCurrentUserDefaultApplicationJSON extends SpeakeasyBase {
+export class GetCurrentUserResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -58,7 +58,7 @@ export class GetCurrentUserResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * User login information.
@@ -70,5 +70,5 @@ export class GetCurrentUserResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getCurrentUserDefaultApplicationJSONObject?: GetCurrentUserDefaultApplicationJSON;
+    object?: GetCurrentUserResponseBody;
 }

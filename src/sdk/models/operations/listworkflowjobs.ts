@@ -17,7 +17,7 @@ export class ListWorkflowJobsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListWorkflowJobsDefaultApplicationJSON extends SpeakeasyBase {
+export class ListWorkflowJobsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +26,7 @@ export class ListWorkflowJobsDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The current status of the job.
  */
-export enum ListWorkflowJobsWorkflowJobListResponseJobStatus {
+export enum ListWorkflowJobsStatus {
     Success = "success",
     Running = "running",
     NotRun = "not_run",
@@ -46,7 +46,7 @@ export enum ListWorkflowJobsWorkflowJobListResponseJobStatus {
 /**
  * The type of job.
  */
-export enum ListWorkflowJobsWorkflowJobListResponseJobType {
+export enum ListWorkflowJobsType {
     Build = "build",
     Approval = "approval",
 }
@@ -54,7 +54,7 @@ export enum ListWorkflowJobsWorkflowJobListResponseJobType {
 /**
  * Job
  */
-export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
+export class Job extends SpeakeasyBase {
     /**
      * The unique ID of the job.
      */
@@ -124,7 +124,7 @@ export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: ListWorkflowJobsWorkflowJobListResponseJobStatus;
+    status: ListWorkflowJobsStatus;
 
     /**
      * The time when the job stopped.
@@ -139,17 +139,17 @@ export class ListWorkflowJobsWorkflowJobListResponseJob extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: ListWorkflowJobsWorkflowJobListResponseJobType;
+    type: ListWorkflowJobsType;
 }
 
 /**
  * A paginated sequence of jobs.
  */
 export class ListWorkflowJobsWorkflowJobListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListWorkflowJobsWorkflowJobListResponseJob })
+    @SpeakeasyMetadata({ elemType: Job })
     @Expose({ name: "items" })
-    @Type(() => ListWorkflowJobsWorkflowJobListResponseJob)
-    items: ListWorkflowJobsWorkflowJobListResponseJob[];
+    @Type(() => Job)
+    items: Job[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -176,7 +176,7 @@ export class ListWorkflowJobsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * A paginated sequence of jobs.
@@ -188,5 +188,5 @@ export class ListWorkflowJobsResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    listWorkflowJobsDefaultApplicationJSONObject?: ListWorkflowJobsDefaultApplicationJSON;
+    object?: ListWorkflowJobsResponseBody;
 }

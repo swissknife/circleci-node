@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -20,7 +21,7 @@ export class GetDecisionLogPolicyBundleRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class GetDecisionLogPolicyBundle500ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyBundlePolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -32,7 +33,7 @@ export class GetDecisionLogPolicyBundle500ApplicationJSON extends SpeakeasyBase 
  * @remarks
  *
  */
-export class GetDecisionLogPolicyBundle404ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -44,7 +45,7 @@ export class GetDecisionLogPolicyBundle404ApplicationJSON extends SpeakeasyBase 
  * @remarks
  *
  */
-export class GetDecisionLogPolicyBundle403ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyBundlePolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -56,7 +57,7 @@ export class GetDecisionLogPolicyBundle403ApplicationJSON extends SpeakeasyBase 
  * @remarks
  *
  */
-export class GetDecisionLogPolicyBundle401ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyBundlePolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -68,7 +69,7 @@ export class GetDecisionLogPolicyBundle401ApplicationJSON extends SpeakeasyBase 
  * @remarks
  *
  */
-export class GetDecisionLogPolicyBundle400ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyBundleResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -76,10 +77,10 @@ export class GetDecisionLogPolicyBundle400ApplicationJSON extends SpeakeasyBase 
 
 export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
     /**
-     * HTTP response content type for this operation
+     * Policy-Bundle retrieved successfully for given decision log ID
      */
-    @SpeakeasyMetadata()
-    contentType: string;
+    @SpeakeasyMetadata({ elemType: shared.Policy, elemDepth: 2 })
+    twoHundredApplicationJsonPolicyBundle?: Record<string, shared.Policy[]>;
 
     /**
      * The request is malformed (e.g, a given path parameter is invalid)
@@ -88,7 +89,7 @@ export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getDecisionLogPolicyBundle400ApplicationJSONObject?: GetDecisionLogPolicyBundle400ApplicationJSON;
+    fourHundredApplicationJsonObject?: GetDecisionLogPolicyBundleResponseBody;
 
     /**
      * The request is unauthorized
@@ -97,7 +98,7 @@ export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getDecisionLogPolicyBundle401ApplicationJSONObject?: GetDecisionLogPolicyBundle401ApplicationJSON;
+    fourHundredAndOneApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponseBody;
 
     /**
      * The user is forbidden from making this request
@@ -106,7 +107,7 @@ export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getDecisionLogPolicyBundle403ApplicationJSONObject?: GetDecisionLogPolicyBundle403ApplicationJSON;
+    fourHundredAndThreeApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponseResponseBody;
 
     /**
      * There was no decision log found for given decision_id, and owner_id.
@@ -115,19 +116,19 @@ export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getDecisionLogPolicyBundle404ApplicationJSONObject?: GetDecisionLogPolicyBundle404ApplicationJSON;
+    fourHundredAndFourApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody;
 
     /**
      * Something unexpected happened on the server.
      */
     @SpeakeasyMetadata()
-    getDecisionLogPolicyBundle500ApplicationJSONObject?: GetDecisionLogPolicyBundle500ApplicationJSON;
+    fiveHundredApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponse500ResponseBody;
 
     /**
-     * Policy-Bundle retrieved successfully for given decision log ID
+     * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
-    policyBundle?: Record<string, any>;
+    contentType: string;
 
     /**
      * HTTP response status code for this operation
@@ -139,5 +140,5 @@ export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

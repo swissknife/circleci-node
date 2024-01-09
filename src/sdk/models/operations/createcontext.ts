@@ -6,53 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform } from "class-transformer";
 
-/**
- * The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
- */
-export enum CreateContextRequestBodyOwner2Type {
-    Organization = "organization",
-}
-
-export class CreateContextRequestBodyOwner2 extends SpeakeasyBase {
-    /**
-     * A string that represents an organization. Specify either this or id. Cannot be used for accounts.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "slug" })
-    slug: string;
-
-    /**
-     * The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: CreateContextRequestBodyOwner2Type;
-}
-
-/**
- * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
- */
-export enum CreateContextRequestBodyOwner1Type {
-    Account = "account",
-    Organization = "organization",
-}
-
-export class CreateContextRequestBodyOwner1 extends SpeakeasyBase {
-    /**
-     * The unique ID of the owner of the context. Specify either this or slug.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id: string;
-
-    /**
-     * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: CreateContextRequestBodyOwner1Type;
-}
-
 export class CreateContextRequestBody extends SpeakeasyBase {
     /**
      * The user defined name of the context.
@@ -69,7 +22,7 @@ export class CreateContextRequestBody extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CreateContextDefaultApplicationJSON extends SpeakeasyBase {
+export class CreateContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -125,11 +78,11 @@ export class CreateContextResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    createContextDefaultApplicationJSONObject?: CreateContextDefaultApplicationJSON;
+    object?: CreateContextResponseBody;
 }

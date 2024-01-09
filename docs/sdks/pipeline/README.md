@@ -21,39 +21,46 @@ Continue a pipeline from the setup phase.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ContinuePipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.continuePipeline({
-  configuration: "pink Corporate Hayes",
-  continuationKey: "Upgradable Orchestrator",
-  parameters: {
-    "magnam": "Southwest",
-  },
-}).then((res: ContinuePipelineResponse) => {
+  const res = await sdk.pipeline.continuePipeline({
+    configuration: "string",
+    continuationKey: "string",
+    parameters: {
+      "deploy_prod": "string",
+    },
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ContinuePipelineRequestBody](../../models/operations/continuepipelinerequestbody.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.ContinuePipelineRequestBody](../../sdk/models/operations/continuepipelinerequestbody.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
 
-**Promise<[operations.ContinuePipelineResponse](../../models/operations/continuepipelineresponse.md)>**
+**Promise<[operations.ContinuePipelineResponse](../../sdk/models/operations/continuepipelineresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getPipelineById
 
@@ -63,35 +70,42 @@ Returns a pipeline by the pipeline ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPipelineByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.getPipelineById({
-  pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
-}).then((res: GetPipelineByIdResponse) => {
+  const res = await sdk.pipeline.getPipelineById({
+    pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetPipelineByIdRequest](../../models/operations/getpipelinebyidrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetPipelineByIdRequest](../../sdk/models/operations/getpipelinebyidrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.GetPipelineByIdResponse](../../models/operations/getpipelinebyidresponse.md)>**
+**Promise<[operations.GetPipelineByIdResponse](../../sdk/models/operations/getpipelinebyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getPipelineByNumber
 
@@ -101,36 +115,43 @@ Returns a pipeline by the pipeline number.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPipelineByNumberResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.getPipelineByNumber({
-  pipelineNumber: "parsing",
-  projectSlug: "Table",
-}).then((res: GetPipelineByNumberResponse) => {
+  const res = await sdk.pipeline.getPipelineByNumber({
+    pipelineNumber: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GetPipelineByNumberRequest](../../models/operations/getpipelinebynumberrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetPipelineByNumberRequest](../../sdk/models/operations/getpipelinebynumberrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.GetPipelineByNumberResponse](../../models/operations/getpipelinebynumberresponse.md)>**
+**Promise<[operations.GetPipelineByNumberResponse](../../sdk/models/operations/getpipelinebynumberresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getPipelineConfigById
 
@@ -140,35 +161,42 @@ Returns a pipeline's configuration by ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetPipelineConfigByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.getPipelineConfigById({
-  pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
-}).then((res: GetPipelineConfigByIdResponse) => {
+  const res = await sdk.pipeline.getPipelineConfigById({
+    pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.GetPipelineConfigByIdRequest](../../models/operations/getpipelineconfigbyidrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.GetPipelineConfigByIdRequest](../../sdk/models/operations/getpipelineconfigbyidrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
 
-**Promise<[operations.GetPipelineConfigByIdResponse](../../models/operations/getpipelineconfigbyidresponse.md)>**
+**Promise<[operations.GetPipelineConfigByIdResponse](../../sdk/models/operations/getpipelineconfigbyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listMyPipelines
 
@@ -178,36 +206,42 @@ Returns a sequence of all pipelines for this project triggered by the user.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListMyPipelinesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.listMyPipelines({
-  pageToken: "excess",
-  projectSlug: "Bacon",
-}).then((res: ListMyPipelinesResponse) => {
+  const res = await sdk.pipeline.listMyPipelines({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListMyPipelinesRequest](../../models/operations/listmypipelinesrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.ListMyPipelinesRequest](../../sdk/models/operations/listmypipelinesrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.ListMyPipelinesResponse](../../models/operations/listmypipelinesresponse.md)>**
+**Promise<[operations.ListMyPipelinesResponse](../../sdk/models/operations/listmypipelinesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listPipelines
 
@@ -217,37 +251,40 @@ Returns all pipelines for the most recently built projects (max 250) you follow 
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListPipelinesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.listPipelines({
-  mine: false,
-  orgSlug: "wireless transmitter",
-  pageToken: "Buckinghamshire Chicopee joule",
-}).then((res: ListPipelinesResponse) => {
+  const res = await sdk.pipeline.listPipelines({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListPipelinesRequest](../../models/operations/listpipelinesrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.ListPipelinesRequest](../../sdk/models/operations/listpipelinesrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.ListPipelinesResponse](../../models/operations/listpipelinesresponse.md)>**
+**Promise<[operations.ListPipelinesResponse](../../sdk/models/operations/listpipelinesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listPipelinesForProject
 
@@ -257,37 +294,42 @@ Returns all pipelines for this project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListPipelinesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.listPipelinesForProject({
-  branch: "Soap blue Cyclocross",
-  pageToken: "Bronze Stone",
-  projectSlug: "South Franc",
-}).then((res: ListPipelinesForProjectResponse) => {
+  const res = await sdk.pipeline.listPipelinesForProject({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.ListPipelinesForProjectRequest](../../models/operations/listpipelinesforprojectrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.ListPipelinesForProjectRequest](../../sdk/models/operations/listpipelinesforprojectrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
 
-**Promise<[operations.ListPipelinesForProjectResponse](../../models/operations/listpipelinesforprojectresponse.md)>**
+**Promise<[operations.ListPipelinesForProjectResponse](../../sdk/models/operations/listpipelinesforprojectresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listWorkflowsByPipelineId
 
@@ -297,78 +339,91 @@ Returns a paginated list of workflows by pipeline ID.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListWorkflowsByPipelineIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.pipeline.listWorkflowsByPipelineId({
-  pageToken: "Texas amuse Technician",
-  pipelineId: "dcb87b7e-0fb0-4aa2-a8dd-26b59d8568fc",
-}).then((res: ListWorkflowsByPipelineIdResponse) => {
+  const res = await sdk.pipeline.listWorkflowsByPipelineId({
+    pipelineId: "c0e3f0ba-dcb8-47b7-a0fb-0aa2a8dd26b5",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.ListWorkflowsByPipelineIdRequest](../../models/operations/listworkflowsbypipelineidrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.ListWorkflowsByPipelineIdRequest](../../sdk/models/operations/listworkflowsbypipelineidrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
 
 
 ### Response
 
-**Promise<[operations.ListWorkflowsByPipelineIdResponse](../../models/operations/listworkflowsbypipelineidresponse.md)>**
+**Promise<[operations.ListWorkflowsByPipelineIdResponse](../../sdk/models/operations/listworkflowsbypipelineidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## triggerPipeline
 
-Triggers a new pipeline on the project.
+Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { TriggerPipelineResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
-
-sdk.pipeline.triggerPipeline({
-  requestBody: {
-    branch: "feature/design-new-api",
-    parameters: {
-      "minus": "La",
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
     },
-    tag: "v3.1.4159",
-  },
-  projectSlug: "unde Ukraine Operative",
-}).then((res: TriggerPipelineResponse) => {
+  });
+
+  const res = await sdk.pipeline.triggerPipeline({
+    requestBody: {
+      branch: "feature/design-new-api",
+      parameters: {
+        "deploy_prod": "string",
+      },
+      tag: "v3.1.4159",
+    },
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.TriggerPipelineRequest](../../models/operations/triggerpipelinerequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.TriggerPipelineRequest](../../sdk/models/operations/triggerpipelinerequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.TriggerPipelineResponse](../../models/operations/triggerpipelineresponse.md)>**
+**Promise<[operations.TriggerPipelineResponse](../../sdk/models/operations/triggerpipelineresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

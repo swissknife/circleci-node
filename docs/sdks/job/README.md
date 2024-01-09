@@ -16,36 +16,43 @@ Cancel job with a given job number.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CancelJobResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.job.cancelJob({
-  jobNumber: "Electric",
-  projectSlug: "West",
-}).then((res: CancelJobResponse) => {
+  const res = await sdk.job.cancelJob({
+    jobNumber: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.CancelJobRequest](../../models/operations/canceljobrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.CancelJobRequest](../../sdk/models/operations/canceljobrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
 
-**Promise<[operations.CancelJobResponse](../../models/operations/canceljobresponse.md)>**
+**Promise<[operations.CancelJobResponse](../../sdk/models/operations/canceljobresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getJobArtifacts
 
@@ -55,36 +62,43 @@ Returns a job's artifacts.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobArtifactsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.job.getJobArtifacts({
-  jobNumber: "generating",
-  projectSlug: "Markets",
-}).then((res: GetJobArtifactsResponse) => {
+  const res = await sdk.job.getJobArtifacts({
+    jobNumber: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetJobArtifactsRequest](../../models/operations/getjobartifactsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetJobArtifactsRequest](../../sdk/models/operations/getjobartifactsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.GetJobArtifactsResponse](../../models/operations/getjobartifactsresponse.md)>**
+**Promise<[operations.GetJobArtifactsResponse](../../sdk/models/operations/getjobartifactsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getJobDetails
 
@@ -94,36 +108,43 @@ Returns job details.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobDetailsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.job.getJobDetails({
-  jobNumber: "North",
-  projectSlug: "aggregate",
-}).then((res: GetJobDetailsResponse) => {
+  const res = await sdk.job.getJobDetails({
+    jobNumber: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetJobDetailsRequest](../../models/operations/getjobdetailsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetJobDetailsRequest](../../sdk/models/operations/getjobdetailsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.GetJobDetailsResponse](../../models/operations/getjobdetailsresponse.md)>**
+**Promise<[operations.GetJobDetailsResponse](../../sdk/models/operations/getjobdetailsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getTests
 
@@ -133,33 +154,40 @@ Get test metadata for a build. In the rare case where there is more than 250MB o
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.job.getTests({
-  jobNumber: "eyeballs",
-  projectSlug: "Leone Account ASCII",
-}).then((res: GetTestsResponse) => {
+  const res = await sdk.job.getTests({
+    jobNumber: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.GetTestsRequest](../../models/operations/gettestsrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.GetTestsRequest](../../sdk/models/operations/gettestsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
 
-**Promise<[operations.GetTestsResponse](../../models/operations/gettestsresponse.md)>**
+**Promise<[operations.GetTestsResponse](../../sdk/models/operations/gettestsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

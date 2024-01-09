@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -34,7 +34,7 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/pipeline/continue";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/pipeline/continue";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -65,7 +65,7 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -73,7 +73,7 @@ export class Pipeline {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -81,20 +81,20 @@ export class Pipeline {
 
         const res: operations.ContinuePipelineResponse = new operations.ContinuePipelineResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ContinuePipelineMessageResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -102,14 +102,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.continuePipelineDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ContinuePipelineDefaultApplicationJSON
+                        operations.ContinuePipelineResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -139,7 +139,7 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/pipeline/{pipeline-id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/pipeline/{pipeline-id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -156,14 +156,14 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -171,20 +171,20 @@ export class Pipeline {
 
         const res: operations.GetPipelineByIdResponse = new operations.GetPipelineByIdResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.pipeline = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetPipelineByIdPipeline
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -192,14 +192,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPipelineByIdDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPipelineByIdDefaultApplicationJSON
+                        operations.GetPipelineByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -229,7 +229,7 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/pipeline/{pipeline-number}",
             req
@@ -250,14 +250,14 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -266,20 +266,20 @@ export class Pipeline {
         const res: operations.GetPipelineByNumberResponse =
             new operations.GetPipelineByNumberResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.pipeline = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetPipelineByNumberPipeline
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -287,14 +287,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPipelineByNumberDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPipelineByNumberDefaultApplicationJSON
+                        operations.GetPipelineByNumberResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -324,7 +324,11 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/pipeline/{pipeline-id}/config", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/pipeline/{pipeline-id}/config",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -341,14 +345,14 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -357,20 +361,20 @@ export class Pipeline {
         const res: operations.GetPipelineConfigByIdResponse =
             new operations.GetPipelineConfigByIdResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.pipelineConfig = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetPipelineConfigByIdPipelineConfig
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -378,14 +382,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPipelineConfigByIdDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPipelineConfigByIdDefaultApplicationJSON
+                        operations.GetPipelineConfigByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -415,7 +419,7 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/pipeline/mine",
             req
@@ -437,14 +441,14 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -452,20 +456,20 @@ export class Pipeline {
 
         const res: operations.ListMyPipelinesResponse = new operations.ListMyPipelinesResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListMyPipelinesPipelineListResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -473,14 +477,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listMyPipelinesDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListMyPipelinesDefaultApplicationJSON
+                        operations.ListMyPipelinesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -510,7 +514,7 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/pipeline";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/pipeline";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -528,14 +532,14 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -543,20 +547,20 @@ export class Pipeline {
 
         const res: operations.ListPipelinesResponse = new operations.ListPipelinesResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListPipelinesPipelineListResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -564,14 +568,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listPipelinesDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListPipelinesDefaultApplicationJSON
+                        operations.ListPipelinesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -601,7 +605,11 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/pipeline", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/pipeline",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -619,14 +627,14 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -635,20 +643,20 @@ export class Pipeline {
         const res: operations.ListPipelinesForProjectResponse =
             new operations.ListPipelinesForProjectResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.pipelineListResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListPipelinesForProjectPipelineListResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -656,14 +664,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listPipelinesForProjectDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListPipelinesForProjectDefaultApplicationJSON
+                        operations.ListPipelinesForProjectResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -693,7 +701,11 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/pipeline/{pipeline-id}/workflow", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/pipeline/{pipeline-id}/workflow",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -711,14 +723,14 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -727,20 +739,20 @@ export class Pipeline {
         const res: operations.ListWorkflowsByPipelineIdResponse =
             new operations.ListWorkflowsByPipelineIdResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.workflowListResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListWorkflowsByPipelineIdWorkflowListResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -748,14 +760,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listWorkflowsByPipelineIdDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListWorkflowsByPipelineIdDefaultApplicationJSON
+                        operations.ListWorkflowsByPipelineIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -771,7 +783,7 @@ export class Pipeline {
      * Trigger a new pipeline
      *
      * @remarks
-     * Triggers a new pipeline on the project.
+     * Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
      */
     async triggerPipeline(
         req: operations.TriggerPipelineRequest,
@@ -785,7 +797,11 @@ export class Pipeline {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/pipeline", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/pipeline",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -816,7 +832,7 @@ export class Pipeline {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -824,7 +840,7 @@ export class Pipeline {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -832,20 +848,20 @@ export class Pipeline {
 
         const res: operations.TriggerPipelineResponse = new operations.TriggerPipelineResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.pipelineCreation = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.TriggerPipelinePipelineCreation
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -853,14 +869,14 @@ export class Pipeline {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.triggerPipelineDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.TriggerPipelineDefaultApplicationJSON
+                        operations.TriggerPipelineResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

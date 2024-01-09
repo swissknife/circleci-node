@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Type of the scope being used
  */
-export enum GetWebhooksScopeType {
+export enum ScopeType {
     Project = "project",
 }
 
@@ -24,19 +24,19 @@ export class GetWebhooksRequest extends SpeakeasyBase {
      * Type of the scope being used
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=scope-type" })
-    scopeType: GetWebhooksScopeType;
+    scopeType: ScopeType;
 }
 
 /**
  * Error response.
  */
-export class GetWebhooksDefaultApplicationJSON extends SpeakeasyBase {
+export class GetWebhooksWebhookResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export enum GetWebhooks200ApplicationJSONWebhookEvents {
+export enum GetWebhooksEvents {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed",
 }
@@ -44,7 +44,7 @@ export enum GetWebhooks200ApplicationJSONWebhookEvents {
 /**
  * The scope in which the relevant events that will trigger webhooks
  */
-export class GetWebhooks200ApplicationJSONWebhookScope extends SpeakeasyBase {
+export class GetWebhooksScope extends SpeakeasyBase {
     /**
      * ID of the scope being used (at the moment, only project ID is supported)
      */
@@ -60,7 +60,7 @@ export class GetWebhooks200ApplicationJSONWebhookScope extends SpeakeasyBase {
     type: string;
 }
 
-export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
+export class Webhook extends SpeakeasyBase {
     /**
      * The date and time the webhook was created.
      */
@@ -74,7 +74,7 @@ export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "events" })
-    events: GetWebhooks200ApplicationJSONWebhookEvents[];
+    events: GetWebhooksEvents[];
 
     /**
      * The unique ID of the webhook
@@ -95,8 +95,8 @@ export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "scope" })
-    @Type(() => GetWebhooks200ApplicationJSONWebhookScope)
-    scope: GetWebhooks200ApplicationJSONWebhookScope;
+    @Type(() => GetWebhooksScope)
+    scope: GetWebhooksScope;
 
     /**
      * Masked value of the secret used to build an HMAC hash of the payload and passed as a header in the webhook request
@@ -131,11 +131,11 @@ export class GetWebhooks200ApplicationJSONWebhook extends SpeakeasyBase {
 /**
  * A list of webhooks
  */
-export class GetWebhooks200ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: GetWebhooks200ApplicationJSONWebhook })
+export class GetWebhooksResponseBody extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: Webhook })
     @Expose({ name: "items" })
-    @Type(() => GetWebhooks200ApplicationJSONWebhook)
-    items: GetWebhooks200ApplicationJSONWebhook[];
+    @Type(() => Webhook)
+    items: Webhook[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -146,6 +146,12 @@ export class GetWebhooks200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetWebhooksResponse extends SpeakeasyBase {
+    /**
+     * A list of webhooks
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetWebhooksResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -162,17 +168,11 @@ export class GetWebhooksResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
-
-    /**
-     * A list of webhooks
-     */
-    @SpeakeasyMetadata()
-    getWebhooks200ApplicationJSONObject?: GetWebhooks200ApplicationJSON;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getWebhooksDefaultApplicationJSONObject?: GetWebhooksDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetWebhooksWebhookResponseBody;
 }

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -60,7 +60,7 @@ export class GetDecisionLogsRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class GetDecisionLogs500ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogsPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -72,7 +72,7 @@ export class GetDecisionLogs500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionLogs403ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogsPolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -84,7 +84,7 @@ export class GetDecisionLogs403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionLogs401ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogsPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -96,7 +96,7 @@ export class GetDecisionLogs401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionLogs400ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -104,16 +104,10 @@ export class GetDecisionLogs400ApplicationJSON extends SpeakeasyBase {
 
 export class GetDecisionLogsResponse extends SpeakeasyBase {
     /**
-     * HTTP response content type for this operation
-     */
-    @SpeakeasyMetadata()
-    contentType: string;
-
-    /**
      * Decision logs successfully retrieved.
      */
     @SpeakeasyMetadata({ elemType: shared.DecisionLog })
-    decisionLogs?: shared.DecisionLog[];
+    twoHundredApplicationJsonClasses?: shared.DecisionLog[];
 
     /**
      * The request is malformed (e.g, a given path parameter is invalid)
@@ -122,7 +116,7 @@ export class GetDecisionLogsResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getDecisionLogs400ApplicationJSONObject?: GetDecisionLogs400ApplicationJSON;
+    fourHundredApplicationJsonObject?: GetDecisionLogsResponseBody;
 
     /**
      * The request is unauthorized
@@ -131,7 +125,7 @@ export class GetDecisionLogsResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getDecisionLogs401ApplicationJSONObject?: GetDecisionLogs401ApplicationJSON;
+    fourHundredAndOneApplicationJsonObject?: GetDecisionLogsPolicyManagementResponseBody;
 
     /**
      * The user is forbidden from making this request
@@ -140,13 +134,19 @@ export class GetDecisionLogsResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getDecisionLogs403ApplicationJSONObject?: GetDecisionLogs403ApplicationJSON;
+    fourHundredAndThreeApplicationJsonObject?: GetDecisionLogsPolicyManagementResponseResponseBody;
 
     /**
      * Something unexpected happened on the server.
      */
     @SpeakeasyMetadata()
-    getDecisionLogs500ApplicationJSONObject?: GetDecisionLogs500ApplicationJSON;
+    fiveHundredApplicationJsonObject?: GetDecisionLogsPolicyManagementResponse500ResponseBody;
+
+    /**
+     * HTTP response content type for this operation
+     */
+    @SpeakeasyMetadata()
+    contentType: string;
 
     /**
      * HTTP response status code for this operation
@@ -158,5 +158,5 @@ export class GetDecisionLogsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

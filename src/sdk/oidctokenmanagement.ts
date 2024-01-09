@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -38,7 +38,11 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/org/{orgID}/oidc-custom-claims", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/org/{orgID}/oidc-custom-claims",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -56,14 +60,14 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -71,20 +75,20 @@ export class OIDCTokenManagement {
 
         const res: operations.DeleteOrgClaimsResponse = new operations.DeleteOrgClaimsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.claimResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -92,14 +96,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteOrgClaims400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteOrgClaims400ApplicationJSON
+                        operations.DeleteOrgClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -107,14 +111,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteOrgClaims403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteOrgClaims403ApplicationJSON
+                        operations.DeleteOrgClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -122,14 +126,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteOrgClaims500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteOrgClaims500ApplicationJSON
+                        operations.DeleteOrgClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -159,7 +163,7 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/org/{orgID}/project/{projectID}/oidc-custom-claims",
             req
@@ -181,14 +185,14 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -197,20 +201,20 @@ export class OIDCTokenManagement {
         const res: operations.DeleteProjectClaimsResponse =
             new operations.DeleteProjectClaimsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.claimResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -218,14 +222,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteProjectClaims400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteProjectClaims400ApplicationJSON
+                        operations.DeleteProjectClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -233,14 +237,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteProjectClaims403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteProjectClaims403ApplicationJSON
+                        operations.DeleteProjectClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -248,14 +252,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteProjectClaims500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteProjectClaims500ApplicationJSON
+                        operations.DeleteProjectClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -285,7 +289,11 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/org/{orgID}/oidc-custom-claims", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/org/{orgID}/oidc-custom-claims",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -302,14 +310,14 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -317,20 +325,20 @@ export class OIDCTokenManagement {
 
         const res: operations.GetOrgClaimsResponse = new operations.GetOrgClaimsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.claimResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -338,14 +346,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgClaims400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgClaims400ApplicationJSON
+                        operations.GetOrgClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -353,14 +361,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgClaims403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgClaims403ApplicationJSON
+                        operations.GetOrgClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -368,14 +376,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgClaims500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgClaims500ApplicationJSON
+                        operations.GetOrgClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -405,7 +413,7 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/org/{orgID}/project/{projectID}/oidc-custom-claims",
             req
@@ -426,14 +434,14 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -441,20 +449,20 @@ export class OIDCTokenManagement {
 
         const res: operations.GetProjectClaimsResponse = new operations.GetProjectClaimsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.claimResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -462,14 +470,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectClaims400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectClaims400ApplicationJSON
+                        operations.GetProjectClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -477,14 +485,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectClaims403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectClaims403ApplicationJSON
+                        operations.GetProjectClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -492,14 +500,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectClaims500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectClaims500ApplicationJSON
+                        operations.GetProjectClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -529,7 +537,11 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/org/{orgID}/oidc-custom-claims", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/org/{orgID}/oidc-custom-claims",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -564,7 +576,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -572,7 +584,7 @@ export class OIDCTokenManagement {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -580,20 +592,20 @@ export class OIDCTokenManagement {
 
         const res: operations.PatchOrgClaimsResponse = new operations.PatchOrgClaimsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.claimResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -601,14 +613,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchOrgClaims400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchOrgClaims400ApplicationJSON
+                        operations.PatchOrgClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -616,14 +628,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchOrgClaims403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchOrgClaims403ApplicationJSON
+                        operations.PatchOrgClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -631,14 +643,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchOrgClaims500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchOrgClaims500ApplicationJSON
+                        operations.PatchOrgClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -668,7 +680,7 @@ export class OIDCTokenManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/org/{orgID}/project/{projectID}/oidc-custom-claims",
             req
@@ -707,7 +719,7 @@ export class OIDCTokenManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -715,7 +727,7 @@ export class OIDCTokenManagement {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -724,20 +736,20 @@ export class OIDCTokenManagement {
         const res: operations.PatchProjectClaimsResponse =
             new operations.PatchProjectClaimsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.claimResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ClaimResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -745,14 +757,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchProjectClaims400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchProjectClaims400ApplicationJSON
+                        operations.PatchProjectClaimsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -760,14 +772,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchProjectClaims403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchProjectClaims403ApplicationJSON
+                        operations.PatchProjectClaimsOIDCTokenManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -775,14 +787,14 @@ export class OIDCTokenManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.patchProjectClaims500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.PatchProjectClaims500ApplicationJSON
+                        operations.PatchProjectClaimsOIDCTokenManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -20,7 +20,7 @@ export class Schedule {
      * Create a schedule
      *
      * @remarks
-     * Creates a schedule and returns the created schedule.
+     * Not yet available to projects that use GitLab or GitHub App. Creates a schedule and returns the created schedule.
      */
     async createSchedule(
         req: operations.CreateScheduleRequest,
@@ -34,7 +34,11 @@ export class Schedule {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/schedule", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/schedule",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -65,7 +69,7 @@ export class Schedule {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -73,7 +77,7 @@ export class Schedule {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -81,20 +85,20 @@ export class Schedule {
 
         const res: operations.CreateScheduleResponse = new operations.CreateScheduleResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.schedule = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateScheduleSchedule
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -102,14 +106,14 @@ export class Schedule {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createScheduleDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateScheduleDefaultApplicationJSON
+                        operations.CreateScheduleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -125,7 +129,7 @@ export class Schedule {
      * Delete a schedule
      *
      * @remarks
-     * Deletes the schedule by id.
+     * Not yet available to projects that use GitLab or GitHub App. Deletes the schedule by id.
      */
     async deleteScheduleById(
         req: operations.DeleteScheduleByIdRequest,
@@ -139,7 +143,7 @@ export class Schedule {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/schedule/{schedule-id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/schedule/{schedule-id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -156,14 +160,14 @@ export class Schedule {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -172,20 +176,20 @@ export class Schedule {
         const res: operations.DeleteScheduleByIdResponse =
             new operations.DeleteScheduleByIdResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteScheduleByIdMessageResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -193,14 +197,14 @@ export class Schedule {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteScheduleByIdDefaultApplicationJSON
+                        operations.DeleteScheduleByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -230,7 +234,7 @@ export class Schedule {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/schedule/{schedule-id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/schedule/{schedule-id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -247,14 +251,14 @@ export class Schedule {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -262,20 +266,20 @@ export class Schedule {
 
         const res: operations.GetScheduleByIdResponse = new operations.GetScheduleByIdResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.schedule = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetScheduleByIdSchedule
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -283,14 +287,14 @@ export class Schedule {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getScheduleByIdDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetScheduleByIdDefaultApplicationJSON
+                        operations.GetScheduleByIdResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -320,7 +324,11 @@ export class Schedule {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/schedule", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/schedule",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -338,14 +346,14 @@ export class Schedule {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -354,20 +362,20 @@ export class Schedule {
         const res: operations.ListSchedulesForProjectResponse =
             new operations.ListSchedulesForProjectResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listSchedulesForProject200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListSchedulesForProject200ApplicationJSON
+                        operations.ListSchedulesForProjectResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -375,14 +383,14 @@ export class Schedule {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listSchedulesForProjectDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListSchedulesForProjectDefaultApplicationJSON
+                        operations.ListSchedulesForProjectScheduleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -398,7 +406,7 @@ export class Schedule {
      * Update a schedule
      *
      * @remarks
-     * Updates a schedule and returns the updated schedule.
+     * Not yet available to projects that use GitLab or GitHub App. Updates a schedule and returns the updated schedule.
      */
     async updateSchedule(
         req: operations.UpdateScheduleRequest,
@@ -412,7 +420,7 @@ export class Schedule {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/schedule/{schedule-id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/schedule/{schedule-id}", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -443,7 +451,7 @@ export class Schedule {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -451,7 +459,7 @@ export class Schedule {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -459,20 +467,20 @@ export class Schedule {
 
         const res: operations.UpdateScheduleResponse = new operations.UpdateScheduleResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.schedule = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.UpdateScheduleSchedule
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -480,14 +488,14 @@ export class Schedule {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateScheduleDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateScheduleDefaultApplicationJSON
+                        operations.UpdateScheduleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

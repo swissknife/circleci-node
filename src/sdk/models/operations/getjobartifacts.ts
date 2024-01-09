@@ -14,7 +14,7 @@ export class GetJobArtifactsRequest extends SpeakeasyBase {
     jobNumber: any;
 
     /**
-     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
     projectSlug: string;
@@ -23,7 +23,7 @@ export class GetJobArtifactsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
+export class GetJobArtifactsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class GetJobArtifactsDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * An artifact
  */
-export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
+export class Artifact extends SpeakeasyBase {
     /**
      * The index of the node that stored the artifact.
      */
@@ -59,10 +59,10 @@ export class GetJobArtifactsArtifactListResponseArtifact extends SpeakeasyBase {
  * A paginated list of the job's artifacts.
  */
 export class GetJobArtifactsArtifactListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: GetJobArtifactsArtifactListResponseArtifact })
+    @SpeakeasyMetadata({ elemType: Artifact })
     @Expose({ name: "items" })
-    @Type(() => GetJobArtifactsArtifactListResponseArtifact)
-    items: GetJobArtifactsArtifactListResponseArtifact[];
+    @Type(() => Artifact)
+    items: Artifact[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -95,11 +95,11 @@ export class GetJobArtifactsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getJobArtifactsDefaultApplicationJSONObject?: GetJobArtifactsDefaultApplicationJSON;
+    object?: GetJobArtifactsResponseBody;
 }

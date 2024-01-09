@@ -37,7 +37,7 @@ export class TriggerPipelineRequest extends SpeakeasyBase {
     requestBody?: TriggerPipelineTriggerPipelineParameters;
 
     /**
-     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
     projectSlug: string;
@@ -46,7 +46,7 @@ export class TriggerPipelineRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
+export class TriggerPipelineResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -55,7 +55,7 @@ export class TriggerPipelineDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The current state of the pipeline.
  */
-export enum TriggerPipelinePipelineCreationState {
+export enum TriggerPipelineState {
     Created = "created",
     Errored = "errored",
     SetupPending = "setup-pending",
@@ -94,7 +94,7 @@ export class TriggerPipelinePipelineCreation extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "state" })
-    state: TriggerPipelinePipelineCreationState;
+    state: TriggerPipelineState;
 }
 
 export class TriggerPipelineResponse extends SpeakeasyBase {
@@ -120,11 +120,11 @@ export class TriggerPipelineResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    triggerPipelineDefaultApplicationJSONObject?: TriggerPipelineDefaultApplicationJSON;
+    object?: TriggerPipelineResponseBody;
 }

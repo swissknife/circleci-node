@@ -22,36 +22,43 @@ Deletes org-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.oidcTokenManagement.deleteOrgClaims({
-  claims: "Loan Mini",
-  orgID: "21f3544d-2ca5-43d8-b02d-62f07cecddec",
-}).then((res: DeleteOrgClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.deleteOrgClaims({
+    claims: "string",
+    orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteOrgClaimsRequest](../../models/operations/deleteorgclaimsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.DeleteOrgClaimsRequest](../../sdk/models/operations/deleteorgclaimsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.DeleteOrgClaimsResponse](../../models/operations/deleteorgclaimsresponse.md)>**
+**Promise<[operations.DeleteOrgClaimsResponse](../../sdk/models/operations/deleteorgclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## deleteProjectClaims
 
@@ -61,37 +68,44 @@ Deletes project-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.oidcTokenManagement.deleteProjectClaims({
-  claims: "different Bedfordshire",
-  orgID: "66e45c66-7d61-42f4-9793-f4014a8568d1",
-  projectID: "acf09ef1-b125-42a9-b672-e4182b2819bd",
-}).then((res: DeleteProjectClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.deleteProjectClaims({
+    claims: "string",
+    orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
+    projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.DeleteProjectClaimsRequest](../../models/operations/deleteprojectclaimsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.DeleteProjectClaimsRequest](../../sdk/models/operations/deleteprojectclaimsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.DeleteProjectClaimsResponse](../../models/operations/deleteprojectclaimsresponse.md)>**
+**Promise<[operations.DeleteProjectClaimsResponse](../../sdk/models/operations/deleteprojectclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getOrgClaims
 
@@ -101,35 +115,42 @@ Fetches org-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.oidcTokenManagement.getOrgClaims({
-  orgID: "faa87345-442f-4070-a007-ecf098342349",
-}).then((res: GetOrgClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.getOrgClaims({
+    orgID: "faa87345-442f-4070-a007-ecf098342349",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetOrgClaimsRequest](../../models/operations/getorgclaimsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetOrgClaimsRequest](../../sdk/models/operations/getorgclaimsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.GetOrgClaimsResponse](../../models/operations/getorgclaimsresponse.md)>**
+**Promise<[operations.GetOrgClaimsResponse](../../sdk/models/operations/getorgclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getProjectClaims
 
@@ -139,36 +160,43 @@ Fetches project-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.oidcTokenManagement.getProjectClaims({
-  orgID: "01345488-5416-440e-9811-7333cda41eee",
-  projectID: "17124405-51b9-4707-91e2-d3024606dad9",
-}).then((res: GetProjectClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.getProjectClaims({
+    orgID: "01345488-5416-440e-9811-7333cda41eee",
+    projectID: "17124405-51b9-4707-91e2-d3024606dad9",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetProjectClaimsRequest](../../models/operations/getprojectclaimsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetProjectClaimsRequest](../../sdk/models/operations/getprojectclaimsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.GetProjectClaimsResponse](../../models/operations/getprojectclaimsresponse.md)>**
+**Promise<[operations.GetProjectClaimsResponse](../../sdk/models/operations/getprojectclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## patchOrgClaims
 
@@ -178,41 +206,47 @@ Creates/Updates org-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { PatchOrgClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.oidcTokenManagement.patchOrgClaims({
-  patchClaimsRequest: {
-    audience: [
-      "Cadmium",
-    ],
-    ttl: "North Iowa Steel",
-  },
-  orgID: "8db81de9-39b2-4ebc-ba7e-f13a592ac772",
-}).then((res: PatchOrgClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.patchOrgClaims({
+    patchClaimsRequest: {
+      audience: [
+        "string",
+      ],
+    },
+    orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.PatchOrgClaimsRequest](../../models/operations/patchorgclaimsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.PatchOrgClaimsRequest](../../sdk/models/operations/patchorgclaimsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.PatchOrgClaimsResponse](../../models/operations/patchorgclaimsresponse.md)>**
+**Promise<[operations.PatchOrgClaimsResponse](../../sdk/models/operations/patchorgclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## patchProjectClaims
 
@@ -222,39 +256,45 @@ Creates/Updates project-level custom claims of OIDC identity tokens
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { PatchProjectClaimsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.oidcTokenManagement.patchProjectClaims({
-  patchClaimsRequest: {
-    audience: [
-      "Hybrid",
-    ],
-    ttl: "Moses South terrapin",
-  },
-  orgID: "16f2ace9-e528-43bd-9197-32a9151836aa",
-  projectID: "863235ad-82ba-4634-8011-32a6f00f82fc",
-}).then((res: PatchProjectClaimsResponse) => {
+  const res = await sdk.oidcTokenManagement.patchProjectClaims({
+    patchClaimsRequest: {
+      audience: [
+        "string",
+      ],
+    },
+    orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
+    projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.PatchProjectClaimsRequest](../../models/operations/patchprojectclaimsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.PatchProjectClaimsRequest](../../sdk/models/operations/patchprojectclaimsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.PatchProjectClaimsResponse](../../models/operations/patchprojectclaimsresponse.md)>**
+**Promise<[operations.PatchProjectClaimsResponse](../../sdk/models/operations/patchprojectclaimsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

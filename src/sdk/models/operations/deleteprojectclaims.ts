@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -24,7 +24,7 @@ export class DeleteProjectClaimsRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class DeleteProjectClaims500ApplicationJSON extends SpeakeasyBase {
+export class DeleteProjectClaimsOIDCTokenManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -36,7 +36,7 @@ export class DeleteProjectClaims500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class DeleteProjectClaims403ApplicationJSON extends SpeakeasyBase {
+export class DeleteProjectClaimsOIDCTokenManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -48,13 +48,37 @@ export class DeleteProjectClaims403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class DeleteProjectClaims400ApplicationJSON extends SpeakeasyBase {
+export class DeleteProjectClaimsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class DeleteProjectClaimsResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: DeleteProjectClaimsResponseBody;
+
+    /**
+     * The user is forbidden from making this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThreeApplicationJsonObject?: DeleteProjectClaimsOIDCTokenManagementResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: DeleteProjectClaimsOIDCTokenManagementResponseResponseBody;
+
     /**
      * Claims successfully deleted.
      */
@@ -68,30 +92,6 @@ export class DeleteProjectClaimsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    deleteProjectClaims400ApplicationJSONObject?: DeleteProjectClaims400ApplicationJSON;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    deleteProjectClaims403ApplicationJSONObject?: DeleteProjectClaims403ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    deleteProjectClaims500ApplicationJSONObject?: DeleteProjectClaims500ApplicationJSON;
-
-    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -101,5 +101,5 @@ export class DeleteProjectClaimsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

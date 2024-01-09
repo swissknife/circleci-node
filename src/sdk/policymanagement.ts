@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -38,7 +38,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/policy-bundle",
             req
@@ -74,7 +74,7 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -82,7 +82,7 @@ export class PolicyManagement {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -91,17 +91,17 @@ export class PolicyManagement {
         const res: operations.CreatePolicyBundleResponse =
             new operations.CreatePolicyBundleResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case [200, 201].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.bundleDiff = utils.objectToClass(JSON.parse(decodedRes), shared.BundleDiff);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -109,14 +109,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createPolicyBundle400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreatePolicyBundle400ApplicationJSON
+                        operations.CreatePolicyBundleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -124,14 +124,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createPolicyBundle401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreatePolicyBundle401ApplicationJSON
+                        operations.CreatePolicyBundlePolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -139,14 +139,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createPolicyBundle403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreatePolicyBundle403ApplicationJSON
+                        operations.CreatePolicyBundlePolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -154,14 +154,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 413:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createPolicyBundle413ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThirteenApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreatePolicyBundle413ApplicationJSON
+                        operations.CreatePolicyBundlePolicyManagementResponse413ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -169,14 +169,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createPolicyBundle500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreatePolicyBundle500ApplicationJSON
+                        operations.CreatePolicyBundlePolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -206,7 +206,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/decision/{decisionID}",
             req
@@ -227,14 +227,14 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -242,20 +242,20 @@ export class PolicyManagement {
 
         const res: operations.GetDecisionLogResponse = new operations.GetDecisionLogResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.decisionLog = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DecisionLog
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -263,14 +263,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLog400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLog400ApplicationJSON
+                        operations.GetDecisionLogResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -278,14 +278,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLog401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLog401ApplicationJSON
+                        operations.GetDecisionLogPolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -293,14 +293,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLog403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLog403ApplicationJSON
+                        operations.GetDecisionLogPolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -308,14 +308,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLog404ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLog404ApplicationJSON
+                        operations.GetDecisionLogPolicyManagementResponse404ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -323,14 +323,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLog500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLog500ApplicationJSON
+                        operations.GetDecisionLogPolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -360,7 +360,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/decision/{decisionID}/policy-bundle",
             req
@@ -381,14 +381,14 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -397,17 +397,23 @@ export class PolicyManagement {
         const res: operations.GetDecisionLogPolicyBundleResponse =
             new operations.GetDecisionLogPolicyBundleResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.policyBundle = utils.objectToClass(JSON.parse(decodedRes));
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonPolicyBundle = {};
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.twoHundredApplicationJsonPolicyBundle = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.Policy,
+                        resFieldDepth
+                    );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -415,14 +421,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogPolicyBundle400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogPolicyBundle400ApplicationJSON
+                        operations.GetDecisionLogPolicyBundleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -430,14 +436,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogPolicyBundle401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogPolicyBundle401ApplicationJSON
+                        operations.GetDecisionLogPolicyBundlePolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -445,14 +451,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogPolicyBundle403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogPolicyBundle403ApplicationJSON
+                        operations.GetDecisionLogPolicyBundlePolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -460,14 +466,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogPolicyBundle404ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogPolicyBundle404ApplicationJSON
+                        operations.GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -475,14 +481,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogPolicyBundle500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogPolicyBundle500ApplicationJSON
+                        operations.GetDecisionLogPolicyBundlePolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -512,7 +518,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/decision",
             req
@@ -534,14 +540,14 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -549,23 +555,23 @@ export class PolicyManagement {
 
         const res: operations.GetDecisionLogsResponse = new operations.GetDecisionLogsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.decisionLogs = [];
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonClasses = [];
                     const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.decisionLogs = utils.objectToClass(
+                    res.twoHundredApplicationJsonClasses = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DecisionLog,
                         resFieldDepth
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -573,14 +579,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogs400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogs400ApplicationJSON
+                        operations.GetDecisionLogsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -588,14 +594,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogs401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogs401ApplicationJSON
+                        operations.GetDecisionLogsPolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -603,14 +609,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogs403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogs403ApplicationJSON
+                        operations.GetDecisionLogsPolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -618,14 +624,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionLogs500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionLogs500ApplicationJSON
+                        operations.GetDecisionLogsPolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -655,7 +661,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/decision/settings",
             req
@@ -676,14 +682,14 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -692,20 +698,20 @@ export class PolicyManagement {
         const res: operations.GetDecisionSettingsResponse =
             new operations.GetDecisionSettingsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.decisionSettings = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DecisionSettings
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -713,14 +719,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionSettings400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionSettings400ApplicationJSON
+                        operations.GetDecisionSettingsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -728,14 +734,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionSettings401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionSettings401ApplicationJSON
+                        operations.GetDecisionSettingsPolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -743,14 +749,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionSettings403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionSettings403ApplicationJSON
+                        operations.GetDecisionSettingsPolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -758,14 +764,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getDecisionSettings500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetDecisionSettings500ApplicationJSON
+                        operations.GetDecisionSettingsPolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -795,7 +801,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/policy-bundle",
             req
@@ -816,14 +822,14 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -831,17 +837,23 @@ export class PolicyManagement {
 
         const res: operations.GetPolicyBundleResponse = new operations.GetPolicyBundleResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.policyBundle = utils.objectToClass(JSON.parse(decodedRes));
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonPolicyBundle = {};
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.twoHundredApplicationJsonPolicyBundle = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.Policy,
+                        resFieldDepth
+                    );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -849,14 +861,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyBundle400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyBundle400ApplicationJSON
+                        operations.GetPolicyBundleResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -864,14 +876,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyBundle401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyBundle401ApplicationJSON
+                        operations.GetPolicyBundlePolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -879,14 +891,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyBundle403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyBundle403ApplicationJSON
+                        operations.GetPolicyBundlePolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -894,14 +906,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyBundle500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyBundle500ApplicationJSON
+                        operations.GetPolicyBundlePolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -931,7 +943,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/policy-bundle/{policyName}",
             req
@@ -952,14 +964,14 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -967,17 +979,17 @@ export class PolicyManagement {
 
         const res: operations.GetPolicyDocumentResponse = new operations.GetPolicyDocumentResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.policy = utils.objectToClass(JSON.parse(decodedRes), shared.Policy);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -985,14 +997,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyDocument400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyDocument400ApplicationJSON
+                        operations.GetPolicyDocumentResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1000,14 +1012,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyDocument401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyDocument401ApplicationJSON
+                        operations.GetPolicyDocumentPolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1015,14 +1027,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyDocument403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyDocument403ApplicationJSON
+                        operations.GetPolicyDocumentPolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1030,14 +1042,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyDocument404ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyDocument404ApplicationJSON
+                        operations.GetPolicyDocumentPolicyManagementResponse404ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1045,14 +1057,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPolicyDocument500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPolicyDocument500ApplicationJSON
+                        operations.GetPolicyDocumentPolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1082,7 +1094,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/decision",
             req
@@ -1117,7 +1129,7 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -1125,7 +1137,7 @@ export class PolicyManagement {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1133,17 +1145,17 @@ export class PolicyManagement {
 
         const res: operations.MakeDecisionResponse = new operations.MakeDecisionResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.decision = utils.objectToClass(JSON.parse(decodedRes), shared.Decision);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1151,14 +1163,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.makeDecision400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.MakeDecision400ApplicationJSON
+                        operations.MakeDecisionResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1166,14 +1178,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.makeDecision401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.MakeDecision401ApplicationJSON
+                        operations.MakeDecisionPolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1181,14 +1193,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.makeDecision500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.MakeDecision500ApplicationJSON
+                        operations.MakeDecisionPolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1218,7 +1230,7 @@ export class PolicyManagement {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/owner/{ownerID}/context/{context}/decision/settings",
             req
@@ -1253,7 +1265,7 @@ export class PolicyManagement {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "patch",
             headers: headers,
             responseType: "arraybuffer",
@@ -1261,7 +1273,7 @@ export class PolicyManagement {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -1270,20 +1282,20 @@ export class PolicyManagement {
         const res: operations.SetDecisionSettingsResponse =
             new operations.SetDecisionSettingsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.decisionSettings = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DecisionSettings
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1291,14 +1303,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 400:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.setDecisionSettings400ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.SetDecisionSettings400ApplicationJSON
+                        operations.SetDecisionSettingsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1306,14 +1318,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 401:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.setDecisionSettings401ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.SetDecisionSettings401ApplicationJSON
+                        operations.SetDecisionSettingsPolicyManagementResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1321,14 +1333,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 403:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.setDecisionSettings403ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.SetDecisionSettings403ApplicationJSON
+                        operations.SetDecisionSettingsPolicyManagementResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -1336,14 +1348,14 @@ export class PolicyManagement {
                 }
                 break;
             case httpRes?.status == 500:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.setDecisionSettings500ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.SetDecisionSettings500ApplicationJSON
+                        operations.SetDecisionSettingsPolicyManagementResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

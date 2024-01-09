@@ -3,222 +3,252 @@
 
 ### Available Operations
 
-* [createWebhook](#createwebhook) - Create a webhook
-* [deleteWebhook](#deletewebhook) - Delete a webhook
+* [createWebhook](#createwebhook) - Create an outbound webhook
+* [deleteWebhook](#deletewebhook) - Delete an outbound webhook
 * [getWebhookById](#getwebhookbyid) - Get a webhook
 * [getWebhooks](#getwebhooks) - List webhooks
-* [updateWebhook](#updatewebhook) - Update a webhook
+* [updateWebhook](#updatewebhook) - Update an outbound webhook
 
 ## createWebhook
 
-Create a webhook
+Creates an outbound webhook.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  CreateWebhookRequestBodyEvents,
-  CreateWebhookRequestBodyScopeType,
-  CreateWebhookResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { Events, TypeT } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.webhook.createWebhook({
-  events: [
-    CreateWebhookRequestBodyEvents.JobCompleted,
-  ],
-  name: "like garage Fresh",
-  scope: {
-    id: "3b7d2240-08ac-44c5-9d30-daac81ad9fab",
-    type: CreateWebhookRequestBodyScopeType.Project,
-  },
-  signingSecret: "navigate outside",
-  url: "http://old-adapter.info",
-  verifyTls: false,
-}).then((res: CreateWebhookResponse) => {
+  const res = await sdk.webhook.createWebhook({
+    events: [
+      Events.JobCompleted,
+    ],
+    name: "string",
+    scope: {
+      id: "ef8f63e3-b7d2-4240-88ac-4c59d30daac8",
+      type: TypeT.Project,
+    },
+    signingSecret: "string",
+    url: "http://ragged-suppression.name",
+    verifyTls: false,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.CreateWebhookRequestBody](../../models/operations/createwebhookrequestbody.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CreateWebhookRequestBody](../../sdk/models/operations/createwebhookrequestbody.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.CreateWebhookResponse](../../models/operations/createwebhookresponse.md)>**
+**Promise<[operations.CreateWebhookResponse](../../sdk/models/operations/createwebhookresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## deleteWebhook
 
-Delete a webhook
+Deletes an outbound webhook
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteWebhookResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.webhook.deleteWebhook({
-  webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
-}).then((res: DeleteWebhookResponse) => {
+  const res = await sdk.webhook.deleteWebhook({
+    webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.DeleteWebhookRequest](../../models/operations/deletewebhookrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.DeleteWebhookRequest](../../sdk/models/operations/deletewebhookrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.DeleteWebhookResponse](../../models/operations/deletewebhookresponse.md)>**
+**Promise<[operations.DeleteWebhookResponse](../../sdk/models/operations/deletewebhookresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getWebhookById
 
-Get a webhook by id.
+Get an outbound webhook by id.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWebhookByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.webhook.getWebhookById({
-  webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
-}).then((res: GetWebhookByIdResponse) => {
+  const res = await sdk.webhook.getWebhookById({
+    webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetWebhookByIdRequest](../../models/operations/getwebhookbyidrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetWebhookByIdRequest](../../sdk/models/operations/getwebhookbyidrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.GetWebhookByIdResponse](../../models/operations/getwebhookbyidresponse.md)>**
+**Promise<[operations.GetWebhookByIdResponse](../../sdk/models/operations/getwebhookbyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getWebhooks
 
-Get a list of webhook that match the given scope-type and scope-id
+Get a list of outbound webhooks that match the given scope-type and scope-id
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWebhooksResponse, GetWebhooksScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.webhook.getWebhooks({
-  scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
-  scopeType: GetWebhooksScopeType.Project,
-}).then((res: GetWebhooksResponse) => {
+  const res = await sdk.webhook.getWebhooks({
+    scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
+    scopeType: ScopeType.Project,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
-```
+}
 
-### Parameters
-
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.GetWebhooksRequest](../../models/operations/getwebhooksrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
-
-
-### Response
-
-**Promise<[operations.GetWebhooksResponse](../../models/operations/getwebhooksresponse.md)>**
-
-
-## updateWebhook
-
-Update a webhook
-
-### Example Usage
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-import { UpdateWebhookRequestBodyEvents, UpdateWebhookResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
-
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
-
-sdk.webhook.updateWebhook({
-  requestBody: {
-    events: [
-      UpdateWebhookRequestBodyEvents.JobCompleted,
-    ],
-    name: "Cruiser platforms",
-    signingSecret: "synthesize",
-    url: "http://pricey-sorghum.biz",
-    verifyTls: false,
-  },
-  webhookId: "36100ab1-98d2-4970-b889-dc7808cca31d",
-}).then((res: UpdateWebhookResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
+run();
 ```
 
 ### Parameters
 
 | Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.UpdateWebhookRequest](../../models/operations/updatewebhookrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `request`                                                                          | [operations.GetWebhooksRequest](../../sdk/models/operations/getwebhooksrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 | `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.UpdateWebhookResponse](../../models/operations/updatewebhookresponse.md)>**
+**Promise<[operations.GetWebhooksResponse](../../sdk/models/operations/getwebhooksresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## updateWebhook
+
+Updates an outbound webhook.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+import { UpdateWebhookEvents } from "circleci-v2-sdk/dist/sdk/models/operations";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.webhook.updateWebhook({
+    requestBody: {
+      events: [
+        UpdateWebhookEvents.JobCompleted,
+      ],
+    },
+    webhookId: "ac255204-82ad-4436-900a-b198d2970788",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.UpdateWebhookRequest](../../sdk/models/operations/updatewebhookrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.UpdateWebhookResponse](../../sdk/models/operations/updatewebhookresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

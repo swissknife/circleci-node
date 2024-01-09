@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -21,7 +21,7 @@ export class SetDecisionSettingsRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class SetDecisionSettings500ApplicationJSON extends SpeakeasyBase {
+export class SetDecisionSettingsPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -33,7 +33,7 @@ export class SetDecisionSettings500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class SetDecisionSettings403ApplicationJSON extends SpeakeasyBase {
+export class SetDecisionSettingsPolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -45,7 +45,7 @@ export class SetDecisionSettings403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class SetDecisionSettings401ApplicationJSON extends SpeakeasyBase {
+export class SetDecisionSettingsPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -57,13 +57,46 @@ export class SetDecisionSettings401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class SetDecisionSettings400ApplicationJSON extends SpeakeasyBase {
+export class SetDecisionSettingsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class SetDecisionSettingsResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: SetDecisionSettingsResponseBody;
+
+    /**
+     * The request is unauthorized
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndOneApplicationJsonObject?: SetDecisionSettingsPolicyManagementResponseBody;
+
+    /**
+     * The user is forbidden from making this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThreeApplicationJsonObject?: SetDecisionSettingsPolicyManagementResponseResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: SetDecisionSettingsPolicyManagementResponse500ResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -77,24 +110,6 @@ export class SetDecisionSettingsResponse extends SpeakeasyBase {
     decisionSettings?: shared.DecisionSettings;
 
     /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    setDecisionSettings400ApplicationJSONObject?: SetDecisionSettings400ApplicationJSON;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    setDecisionSettings403ApplicationJSONObject?: SetDecisionSettings403ApplicationJSON;
-
-    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -104,20 +119,5 @@ export class SetDecisionSettingsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    setDecisionSettings401ApplicationJSONObject?: SetDecisionSettings401ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    setDecisionSettings500ApplicationJSONObject?: SetDecisionSettings500ApplicationJSON;
+    rawResponse: AxiosResponse;
 }

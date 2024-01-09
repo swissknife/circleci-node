@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 
 export class ListEnvVarsRequest extends SpeakeasyBase {
     /**
-     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
     projectSlug: string;
@@ -17,7 +17,7 @@ export class ListEnvVarsRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListEnvVarsDefaultApplicationJSON extends SpeakeasyBase {
+export class ListEnvVarsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +26,7 @@ export class ListEnvVarsDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * An environment variable is a map containing a value and an optional timestamp.
  */
-export class ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable extends SpeakeasyBase {
+export class EnvironmentVariable extends SpeakeasyBase {
     /**
      * The creation timestamp of the environment variable.
      */
@@ -53,10 +53,10 @@ export class ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable exten
  * A sequence of environment variables.
  */
 export class ListEnvVarsEnvironmentVariableListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable })
+    @SpeakeasyMetadata({ elemType: EnvironmentVariable })
     @Expose({ name: "items" })
-    @Type(() => ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable)
-    items: ListEnvVarsEnvironmentVariableListResponseEnvironmentVariable[];
+    @Type(() => EnvironmentVariable)
+    items: EnvironmentVariable[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -89,11 +89,11 @@ export class ListEnvVarsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    listEnvVarsDefaultApplicationJSONObject?: ListEnvVarsDefaultApplicationJSON;
+    object?: ListEnvVarsResponseBody;
 }

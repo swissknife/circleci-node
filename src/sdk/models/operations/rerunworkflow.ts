@@ -53,7 +53,7 @@ export class RerunWorkflowRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class RerunWorkflowDefaultApplicationJSON extends SpeakeasyBase {
+export class RerunWorkflowWorkflowResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -62,7 +62,7 @@ export class RerunWorkflowDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * A response to rerunning a workflow
  */
-export class RerunWorkflow202ApplicationJSON extends SpeakeasyBase {
+export class RerunWorkflowResponseBody extends SpeakeasyBase {
     /**
      * The ID of the newly-created workflow.
      */
@@ -72,6 +72,12 @@ export class RerunWorkflow202ApplicationJSON extends SpeakeasyBase {
 }
 
 export class RerunWorkflowResponse extends SpeakeasyBase {
+    /**
+     * A confirmation message.
+     */
+    @SpeakeasyMetadata()
+    twoHundredAndTwoApplicationJsonObject?: RerunWorkflowResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -88,17 +94,11 @@ export class RerunWorkflowResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
-
-    /**
-     * A confirmation message.
-     */
-    @SpeakeasyMetadata()
-    rerunWorkflow202ApplicationJSONObject?: RerunWorkflow202ApplicationJSON;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    rerunWorkflowDefaultApplicationJSONObject?: RerunWorkflowDefaultApplicationJSON;
+    defaultApplicationJsonObject?: RerunWorkflowWorkflowResponseBody;
 }

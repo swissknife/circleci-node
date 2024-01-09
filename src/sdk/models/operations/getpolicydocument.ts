@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -24,7 +24,7 @@ export class GetPolicyDocumentRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class GetPolicyDocument500ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyDocumentPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -36,7 +36,7 @@ export class GetPolicyDocument500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetPolicyDocument404ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyDocumentPolicyManagementResponse404ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -48,7 +48,7 @@ export class GetPolicyDocument404ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetPolicyDocument403ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyDocumentPolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -60,7 +60,7 @@ export class GetPolicyDocument403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetPolicyDocument401ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyDocumentPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -72,7 +72,7 @@ export class GetPolicyDocument401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetPolicyDocument400ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyDocumentResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -80,19 +80,13 @@ export class GetPolicyDocument400ApplicationJSON extends SpeakeasyBase {
 
 export class GetPolicyDocumentResponse extends SpeakeasyBase {
     /**
-     * HTTP response content type for this operation
-     */
-    @SpeakeasyMetadata()
-    contentType: string;
-
-    /**
      * The request is malformed (e.g, a given path parameter is invalid)
      *
      * @remarks
      *
      */
     @SpeakeasyMetadata()
-    getPolicyDocument400ApplicationJSONObject?: GetPolicyDocument400ApplicationJSON;
+    fourHundredApplicationJsonObject?: GetPolicyDocumentResponseBody;
 
     /**
      * The request is unauthorized
@@ -101,7 +95,7 @@ export class GetPolicyDocumentResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getPolicyDocument401ApplicationJSONObject?: GetPolicyDocument401ApplicationJSON;
+    fourHundredAndOneApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponseBody;
 
     /**
      * The user is forbidden from making this request
@@ -110,7 +104,7 @@ export class GetPolicyDocumentResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getPolicyDocument403ApplicationJSONObject?: GetPolicyDocument403ApplicationJSON;
+    fourHundredAndThreeApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponseResponseBody;
 
     /**
      * There was no policy that was found with the given owner_id and policy name.
@@ -119,13 +113,19 @@ export class GetPolicyDocumentResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getPolicyDocument404ApplicationJSONObject?: GetPolicyDocument404ApplicationJSON;
+    fourHundredAndFourApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponse404ResponseBody;
 
     /**
      * Something unexpected happened on the server.
      */
     @SpeakeasyMetadata()
-    getPolicyDocument500ApplicationJSONObject?: GetPolicyDocument500ApplicationJSON;
+    fiveHundredApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponse500ResponseBody;
+
+    /**
+     * HTTP response content type for this operation
+     */
+    @SpeakeasyMetadata()
+    contentType: string;
 
     /**
      * Policy retrieved successfully.
@@ -143,5 +143,5 @@ export class GetPolicyDocumentResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

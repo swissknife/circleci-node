@@ -22,75 +22,88 @@ Get a list of all branches for a specified project. The list will only contain b
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetAllInsightsBranchesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getAllInsightsBranches({
-  projectSlug: "optimize fast",
-  workflowName: "Handmade",
-}).then((res: GetAllInsightsBranchesResponse) => {
+  const res = await sdk.insights.getAllInsightsBranches({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.GetAllInsightsBranchesRequest](../../models/operations/getallinsightsbranchesrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.GetAllInsightsBranchesRequest](../../sdk/models/operations/getallinsightsbranchesrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.GetAllInsightsBranchesResponse](../../models/operations/getallinsightsbranchesresponse.md)>**
+**Promise<[operations.GetAllInsightsBranchesResponse](../../sdk/models/operations/getallinsightsbranchesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getFlakyTests
 
-Get a list of flaky tests for a given project. Flaky tests are branch agnostic. 
+Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
              A flaky test is a test that passed and failed in the same commit.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetFlakyTestsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getFlakyTests({
-  projectSlug: "Non Diesel workforce",
-}).then((res: GetFlakyTestsResponse) => {
+  const res = await sdk.insights.getFlakyTests({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetFlakyTestsRequest](../../models/operations/getflakytestsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.GetFlakyTestsRequest](../../sdk/models/operations/getflakytestsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.GetFlakyTestsResponse](../../models/operations/getflakytestsresponse.md)>**
+**Promise<[operations.GetFlakyTestsResponse](../../sdk/models/operations/getflakytestsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getJobTimeseries
 
@@ -100,81 +113,92 @@ Get timeseries data for all jobs within a workflow. Hourly granularity data is o
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetJobTimeseriesGranularity, GetJobTimeseriesResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { Granularity } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getJobTimeseries({
-  branch: "male",
-  endDate: new Date("2023-08-08T22:52:48.977Z"),
-  granularity: GetJobTimeseriesGranularity.Daily,
-  projectSlug: "HTTP",
-  startDate: new Date("2022-12-12T00:20:19.001Z"),
-  workflowName: "Northwest until extend",
-}).then((res: GetJobTimeseriesResponse) => {
+  const res = await sdk.insights.getJobTimeseries({
+    projectSlug: "string",
+    workflowName: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetJobTimeseriesRequest](../../models/operations/getjobtimeseriesrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetJobTimeseriesRequest](../../sdk/models/operations/getjobtimeseriesrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.GetJobTimeseriesResponse](../../models/operations/getjobtimeseriesresponse.md)>**
+**Promise<[operations.GetJobTimeseriesResponse](../../sdk/models/operations/getjobtimeseriesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getOrgSummaryData
 
-Gets aggregated summary metrics with trends for the entire org. 
+Gets aggregated summary metrics with trends for the entire org.
               Also gets aggregated metrics and trends for each project belonging to the org.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetOrgSummaryDataReportingWindow, GetOrgSummaryDataResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { ReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getOrgSummaryData({
-  orgSlug: "Buckinghamshire",
-  projectNames: {},
-  reportingWindow: GetOrgSummaryDataReportingWindow.Last90Days,
-}).then((res: GetOrgSummaryDataResponse) => {
+  const res = await sdk.insights.getOrgSummaryData({
+    orgSlug: "string",
+    projectNames: {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetOrgSummaryDataRequest](../../models/operations/getorgsummarydatarequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.GetOrgSummaryDataRequest](../../sdk/models/operations/getorgsummarydatarequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.GetOrgSummaryDataResponse](../../models/operations/getorgsummarydataresponse.md)>**
+**Promise<[operations.GetOrgSummaryDataResponse](../../sdk/models/operations/getorgsummarydataresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getProjectWorkflowJobMetrics
 
@@ -184,43 +208,44 @@ Get summary metrics for a project workflow's jobs. Job runs going back at most 9
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  GetProjectWorkflowJobMetricsReportingWindow,
-  GetProjectWorkflowJobMetricsResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { QueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getProjectWorkflowJobMetrics({
-  allBranches: false,
-  branch: "female",
-  pageToken: "violet Parks",
-  projectSlug: "navigating",
-  reportingWindow: GetProjectWorkflowJobMetricsReportingWindow.Last60Days,
-  workflowName: "vaguely overlooked",
-}).then((res: GetProjectWorkflowJobMetricsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowJobMetrics({
+    projectSlug: "string",
+    workflowName: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                        | [operations.GetProjectWorkflowJobMetricsRequest](../../models/operations/getprojectworkflowjobmetricsrequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
-| `config`                                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                     | :heavy_minus_sign:                                                                                               | Available config options for making requests.                                                                    |
+| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                            | [operations.GetProjectWorkflowJobMetricsRequest](../../sdk/models/operations/getprojectworkflowjobmetricsrequest.md) | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
+| `config`                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                         | :heavy_minus_sign:                                                                                                   | Available config options for making requests.                                                                        |
 
 
 ### Response
 
-**Promise<[operations.GetProjectWorkflowJobMetricsResponse](../../models/operations/getprojectworkflowjobmetricsresponse.md)>**
+**Promise<[operations.GetProjectWorkflowJobMetricsResponse](../../sdk/models/operations/getprojectworkflowjobmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getProjectWorkflowMetrics
 
@@ -230,39 +255,43 @@ Get summary metrics for a project's workflows.  Workflow runs going back at most
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowMetricsReportingWindow, GetProjectWorkflowMetricsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowMetricsQueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getProjectWorkflowMetrics({
-  allBranches: false,
-  branch: "Convertible mindshare deliverables",
-  pageToken: "so",
-  projectSlug: "Fresh",
-  reportingWindow: GetProjectWorkflowMetricsReportingWindow.Last7Days,
-}).then((res: GetProjectWorkflowMetricsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowMetrics({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.GetProjectWorkflowMetricsRequest](../../models/operations/getprojectworkflowmetricsrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.GetProjectWorkflowMetricsRequest](../../sdk/models/operations/getprojectworkflowmetricsrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
 
 
 ### Response
 
-**Promise<[operations.GetProjectWorkflowMetricsResponse](../../models/operations/getprojectworkflowmetricsresponse.md)>**
+**Promise<[operations.GetProjectWorkflowMetricsResponse](../../sdk/models/operations/getprojectworkflowmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getProjectWorkflowRuns
 
@@ -272,41 +301,43 @@ Get recent runs of a workflow. Runs going back at most 90 days are returned. Ple
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowRunsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getProjectWorkflowRuns({
-  allBranches: false,
-  branch: "Shoes",
-  endDate: new Date("2022-08-03T04:14:45.339Z"),
-  pageToken: "IP",
-  projectSlug: "channels till",
-  startDate: new Date("2022-03-17T08:38:16.828Z"),
-  workflowName: "systems Sports pariatur",
-}).then((res: GetProjectWorkflowRunsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowRuns({
+    projectSlug: "string",
+    workflowName: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.GetProjectWorkflowRunsRequest](../../models/operations/getprojectworkflowrunsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.GetProjectWorkflowRunsRequest](../../sdk/models/operations/getprojectworkflowrunsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.GetProjectWorkflowRunsResponse](../../models/operations/getprojectworkflowrunsresponse.md)>**
+**Promise<[operations.GetProjectWorkflowRunsResponse](../../sdk/models/operations/getprojectworkflowrunsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getProjectWorkflowTestMetrics
 
@@ -316,82 +347,94 @@ Get test metrics for a project's workflows. Currently tests metrics are calculat
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowTestMetricsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getProjectWorkflowTestMetrics({
-  allBranches: false,
-  branch: "gold Chair Diesel",
-  projectSlug: "South maximize program",
-  workflowName: "Kids",
-}).then((res: GetProjectWorkflowTestMetricsResponse) => {
+  const res = await sdk.insights.getProjectWorkflowTestMetrics({
+    projectSlug: "string",
+    workflowName: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                          | [operations.GetProjectWorkflowTestMetricsRequest](../../models/operations/getprojectworkflowtestmetricsrequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
-| `config`                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                       | :heavy_minus_sign:                                                                                                 | Available config options for making requests.                                                                      |
+| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                              | [operations.GetProjectWorkflowTestMetricsRequest](../../sdk/models/operations/getprojectworkflowtestmetricsrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
+| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
 
 
 ### Response
 
-**Promise<[operations.GetProjectWorkflowTestMetricsResponse](../../models/operations/getprojectworkflowtestmetricsresponse.md)>**
+**Promise<[operations.GetProjectWorkflowTestMetricsResponse](../../sdk/models/operations/getprojectworkflowtestmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getProjectWorkflowsPageData
 
-Get summary metrics and trends for a project at workflow and branch level. 
-             Workflow runs going back at most 90 days are included in the aggregation window. 
-             Trends are only supported upto last 30 days. 
+Get summary metrics and trends for a project at workflow and branch level.
+             Workflow runs going back at most 90 days are included in the aggregation window.
+             Trends are only supported upto last 30 days.
              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectWorkflowsPageDataReportingWindow, GetProjectWorkflowsPageDataResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { GetProjectWorkflowsPageDataQueryParamReportingWindow } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getProjectWorkflowsPageData({
-  branches: {},
-  projectSlug: "strategic Mouse cheap",
-  reportingWindow: GetProjectWorkflowsPageDataReportingWindow.Last90Days,
-  workflowNames: {},
-}).then((res: GetProjectWorkflowsPageDataResponse) => {
+  const res = await sdk.insights.getProjectWorkflowsPageData({
+    branches: {},
+    projectSlug: "string",
+    workflowNames: {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                      | [operations.GetProjectWorkflowsPageDataRequest](../../models/operations/getprojectworkflowspagedatarequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
+| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
+| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                          | [operations.GetProjectWorkflowsPageDataRequest](../../sdk/models/operations/getprojectworkflowspagedatarequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
+| `config`                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                       | :heavy_minus_sign:                                                                                                 | Available config options for making requests.                                                                      |
 
 
 ### Response
 
-**Promise<[operations.GetProjectWorkflowsPageDataResponse](../../models/operations/getprojectworkflowspagedataresponse.md)>**
+**Promise<[operations.GetProjectWorkflowsPageDataResponse](../../sdk/models/operations/getprojectworkflowspagedataresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getWorkflowSummary
 
@@ -401,35 +444,40 @@ Get the metrics and trends for a particular workflow on a single branch or all b
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetWorkflowSummaryResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.insights.getWorkflowSummary({
-  allBranches: false,
-  branch: "Northwest atop",
-  projectSlug: "azure Southeast",
-  workflowName: "HTTP Northeast microchip",
-}).then((res: GetWorkflowSummaryResponse) => {
+  const res = await sdk.insights.getWorkflowSummary({
+    projectSlug: "string",
+    workflowName: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetWorkflowSummaryRequest](../../models/operations/getworkflowsummaryrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.GetWorkflowSummaryRequest](../../sdk/models/operations/getworkflowsummaryrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.GetWorkflowSummaryResponse](../../models/operations/getworkflowsummaryresponse.md)>**
+**Promise<[operations.GetWorkflowSummaryResponse](../../sdk/models/operations/getworkflowsummaryresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

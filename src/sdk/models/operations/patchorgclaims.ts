@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -18,7 +18,7 @@ export class PatchOrgClaimsRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class PatchOrgClaims500ApplicationJSON extends SpeakeasyBase {
+export class PatchOrgClaimsOIDCTokenManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -30,7 +30,7 @@ export class PatchOrgClaims500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class PatchOrgClaims403ApplicationJSON extends SpeakeasyBase {
+export class PatchOrgClaimsOIDCTokenManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -42,13 +42,37 @@ export class PatchOrgClaims403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class PatchOrgClaims400ApplicationJSON extends SpeakeasyBase {
+export class PatchOrgClaimsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class PatchOrgClaimsResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: PatchOrgClaimsResponseBody;
+
+    /**
+     * The user is forbidden from making this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThreeApplicationJsonObject?: PatchOrgClaimsOIDCTokenManagementResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: PatchOrgClaimsOIDCTokenManagementResponseResponseBody;
+
     /**
      * Claims successfully patched.
      */
@@ -62,30 +86,6 @@ export class PatchOrgClaimsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    patchOrgClaims400ApplicationJSONObject?: PatchOrgClaims400ApplicationJSON;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    patchOrgClaims403ApplicationJSONObject?: PatchOrgClaims403ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    patchOrgClaims500ApplicationJSONObject?: PatchOrgClaims500ApplicationJSON;
-
-    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -95,5 +95,5 @@ export class PatchOrgClaimsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

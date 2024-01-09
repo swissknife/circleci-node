@@ -17,7 +17,7 @@ export class GetContextRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetContextDefaultApplicationJSON extends SpeakeasyBase {
+export class GetContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -73,11 +73,11 @@ export class GetContextResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getContextDefaultApplicationJSONObject?: GetContextDefaultApplicationJSON;
+    object?: GetContextResponseBody;
 }

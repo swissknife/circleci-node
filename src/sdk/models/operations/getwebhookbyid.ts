@@ -17,13 +17,13 @@ export class GetWebhookByIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetWebhookByIdDefaultApplicationJSON extends SpeakeasyBase {
+export class GetWebhookByIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
-export enum GetWebhookByIdWebhookEvents {
+export enum GetWebhookByIdEvents {
     WorkflowCompleted = "workflow-completed",
     JobCompleted = "job-completed",
 }
@@ -31,7 +31,7 @@ export enum GetWebhookByIdWebhookEvents {
 /**
  * The scope in which the relevant events that will trigger webhooks
  */
-export class GetWebhookByIdWebhookScope extends SpeakeasyBase {
+export class GetWebhookByIdScope extends SpeakeasyBase {
     /**
      * ID of the scope being used (at the moment, only project ID is supported)
      */
@@ -64,7 +64,7 @@ export class GetWebhookByIdWebhook extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "events" })
-    events: GetWebhookByIdWebhookEvents[];
+    events: GetWebhookByIdEvents[];
 
     /**
      * The unique ID of the webhook
@@ -85,8 +85,8 @@ export class GetWebhookByIdWebhook extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "scope" })
-    @Type(() => GetWebhookByIdWebhookScope)
-    scope: GetWebhookByIdWebhookScope;
+    @Type(() => GetWebhookByIdScope)
+    scope: GetWebhookByIdScope;
 
     /**
      * Masked value of the secret used to build an HMAC hash of the payload and passed as a header in the webhook request
@@ -135,7 +135,7 @@ export class GetWebhookByIdResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * A webhook
@@ -147,5 +147,5 @@ export class GetWebhookByIdResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getWebhookByIdDefaultApplicationJSONObject?: GetWebhookByIdDefaultApplicationJSON;
+    object?: GetWebhookByIdResponseBody;
 }

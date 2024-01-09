@@ -30,7 +30,7 @@ export class CreateEnvVarRequest extends SpeakeasyBase {
     requestBody?: CreateEnvVarEnvironmentVariable;
 
     /**
-     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
     projectSlug: string;
@@ -39,7 +39,7 @@ export class CreateEnvVarRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CreateEnvVarDefaultApplicationJSON extends SpeakeasyBase {
+export class CreateEnvVarResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -48,7 +48,7 @@ export class CreateEnvVarDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * An environment variable is a map containing a value and an optional timestamp.
  */
-export class CreateEnvVarEnvironmentVariable1 extends SpeakeasyBase {
+export class CreateEnvVarProjectEnvironmentVariable extends SpeakeasyBase {
     /**
      * The creation timestamp of the environment variable.
      */
@@ -82,7 +82,7 @@ export class CreateEnvVarResponse extends SpeakeasyBase {
      * The environment variable.
      */
     @SpeakeasyMetadata()
-    environmentVariable?: CreateEnvVarEnvironmentVariable1;
+    environmentVariable?: CreateEnvVarProjectEnvironmentVariable;
 
     /**
      * HTTP response status code for this operation
@@ -94,11 +94,11 @@ export class CreateEnvVarResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    createEnvVarDefaultApplicationJSONObject?: CreateEnvVarDefaultApplicationJSON;
+    object?: CreateEnvVarResponseBody;
 }

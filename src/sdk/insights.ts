@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -34,7 +34,11 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/branches", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/insights/{project-slug}/branches",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -52,14 +56,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -68,17 +72,17 @@ export class Insights {
         const res: operations.GetAllInsightsBranchesResponse =
             new operations.GetAllInsightsBranchesResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAllInsightsBranches200ApplicationJSONAny = JSON.parse(decodedRes);
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.any = JSON.parse(decodedRes);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -86,14 +90,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAllInsightsBranchesDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAllInsightsBranchesDefaultApplicationJSON
+                        operations.GetAllInsightsBranchesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -124,7 +128,11 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/flaky-tests", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/insights/{project-slug}/flaky-tests",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -141,14 +149,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -156,20 +164,20 @@ export class Insights {
 
         const res: operations.GetFlakyTestsResponse = new operations.GetFlakyTestsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getFlakyTests200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetFlakyTests200ApplicationJSON
+                        operations.GetFlakyTestsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -177,14 +185,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getFlakyTestsDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetFlakyTestsDefaultApplicationJSON
+                        operations.GetFlakyTestsInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -214,7 +222,7 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/insights/time-series/{project-slug}/workflows/{workflow-name}/jobs",
             req
@@ -236,14 +244,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -251,20 +259,20 @@ export class Insights {
 
         const res: operations.GetJobTimeseriesResponse = new operations.GetJobTimeseriesResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getJobTimeseries200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetJobTimeseries200ApplicationJSON
+                        operations.GetJobTimeseriesResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -272,14 +280,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getJobTimeseriesDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetJobTimeseriesDefaultApplicationJSON
+                        operations.GetJobTimeseriesInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -310,7 +318,11 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/insights/{org-slug}/summary", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/insights/{org-slug}/summary",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -328,14 +340,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -343,20 +355,20 @@ export class Insights {
 
         const res: operations.GetOrgSummaryDataResponse = new operations.GetOrgSummaryDataResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgSummaryData200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgSummaryData200ApplicationJSON
+                        operations.GetOrgSummaryDataResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -364,14 +376,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getOrgSummaryDataDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetOrgSummaryDataDefaultApplicationJSON
+                        operations.GetOrgSummaryDataInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -401,7 +413,7 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}/jobs",
             req
@@ -423,14 +435,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -439,20 +451,20 @@ export class Insights {
         const res: operations.GetProjectWorkflowJobMetricsResponse =
             new operations.GetProjectWorkflowJobMetricsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowJobMetrics200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowJobMetrics200ApplicationJSON
+                        operations.GetProjectWorkflowJobMetricsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -460,15 +472,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowJobMetricsDefaultApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.GetProjectWorkflowJobMetricsDefaultApplicationJSON
-                        );
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectWorkflowJobMetricsInsightsResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -498,7 +509,11 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/insights/{project-slug}/workflows", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/insights/{project-slug}/workflows",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -516,14 +531,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -532,20 +547,20 @@ export class Insights {
         const res: operations.GetProjectWorkflowMetricsResponse =
             new operations.GetProjectWorkflowMetricsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowMetrics200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowMetrics200ApplicationJSON
+                        operations.GetProjectWorkflowMetricsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -553,14 +568,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowMetricsDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowMetricsDefaultApplicationJSON
+                        operations.GetProjectWorkflowMetricsInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -590,7 +605,7 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}",
             req
@@ -612,14 +627,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -628,20 +643,20 @@ export class Insights {
         const res: operations.GetProjectWorkflowRunsResponse =
             new operations.GetProjectWorkflowRunsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowRuns200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowRuns200ApplicationJSON
+                        operations.GetProjectWorkflowRunsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -649,14 +664,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowRunsDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowRunsDefaultApplicationJSON
+                        operations.GetProjectWorkflowRunsInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -686,7 +701,7 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}/test-metrics",
             req
@@ -708,14 +723,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -724,20 +739,20 @@ export class Insights {
         const res: operations.GetProjectWorkflowTestMetricsResponse =
             new operations.GetProjectWorkflowTestMetricsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowTestMetrics200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowTestMetrics200ApplicationJSON
+                        operations.GetProjectWorkflowTestMetricsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -745,15 +760,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowTestMetricsDefaultApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.GetProjectWorkflowTestMetricsDefaultApplicationJSON
-                        );
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectWorkflowTestMetricsInsightsResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -786,7 +800,7 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/insights/pages/{project-slug}/summary",
             req
@@ -808,14 +822,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -824,20 +838,20 @@ export class Insights {
         const res: operations.GetProjectWorkflowsPageDataResponse =
             new operations.GetProjectWorkflowsPageDataResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowsPageData200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectWorkflowsPageData200ApplicationJSON
+                        operations.GetProjectWorkflowsPageDataResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -845,15 +859,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectWorkflowsPageDataDefaultApplicationJSONObject =
-                        utils.objectToClass(
-                            JSON.parse(decodedRes),
-                            operations.GetProjectWorkflowsPageDataDefaultApplicationJSON
-                        );
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectWorkflowsPageDataInsightsResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -883,7 +896,7 @@ export class Insights {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/insights/{project-slug}/workflows/{workflow-name}/summary",
             req
@@ -905,14 +918,14 @@ export class Insights {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -921,20 +934,20 @@ export class Insights {
         const res: operations.GetWorkflowSummaryResponse =
             new operations.GetWorkflowSummaryResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getWorkflowSummary200ApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetWorkflowSummary200ApplicationJSON
+                        operations.GetWorkflowSummaryResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -942,14 +955,14 @@ export class Insights {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getWorkflowSummaryDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetWorkflowSummaryDefaultApplicationJSON
+                        operations.GetWorkflowSummaryInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

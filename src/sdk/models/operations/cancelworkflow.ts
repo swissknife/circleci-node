@@ -17,7 +17,7 @@ export class CancelWorkflowRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CancelWorkflowDefaultApplicationJSON extends SpeakeasyBase {
+export class CancelWorkflowResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -58,11 +58,11 @@ export class CancelWorkflowResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    cancelWorkflowDefaultApplicationJSONObject?: CancelWorkflowDefaultApplicationJSON;
+    object?: CancelWorkflowResponseBody;
 }

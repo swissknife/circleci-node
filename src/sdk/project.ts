@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -20,7 +20,10 @@ export class Project {
      * Create a new checkout key
      *
      * @remarks
-     * Creates a new checkout key. This API request is only usable with a user API token.
+     * Not available to projects that use GitLab or GitHub App. Creates a new checkout key. This API request is only usable with a user API token.
+     *                            Please ensure that you have authorized your account with GitHub before creating user keys.
+     *                            This is necessary to give CircleCI the permission to create a user key associated with
+     *                            your GitHub user account. You can find this page by visiting Project Settings > Checkout SSH Keys
      */
     async createCheckoutKey(
         req: operations.CreateCheckoutKeyRequest,
@@ -34,7 +37,11 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/checkout-key", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/checkout-key",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -65,7 +72,7 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -73,7 +80,7 @@ export class Project {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -81,20 +88,20 @@ export class Project {
 
         const res: operations.CreateCheckoutKeyResponse = new operations.CreateCheckoutKeyResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.checkoutKey = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateCheckoutKeyCheckoutKey
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -102,14 +109,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateCheckoutKeyDefaultApplicationJSON
+                        operations.CreateCheckoutKeyResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -139,7 +146,11 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/envvar", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/envvar",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -170,7 +181,7 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -178,7 +189,7 @@ export class Project {
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -186,20 +197,20 @@ export class Project {
 
         const res: operations.CreateEnvVarResponse = new operations.CreateEnvVarResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 201:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.environmentVariable = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateEnvVarEnvironmentVariable1
+                        operations.CreateEnvVarProjectEnvironmentVariable
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -207,14 +218,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CreateEnvVarDefaultApplicationJSON
+                        operations.CreateEnvVarResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -230,7 +241,7 @@ export class Project {
      * Delete a checkout key
      *
      * @remarks
-     * Deletes the checkout key.
+     * Deletes the checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
      */
     async deleteCheckoutKey(
         req: operations.DeleteCheckoutKeyRequest,
@@ -244,7 +255,7 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/checkout-key/{fingerprint}",
             req
@@ -265,14 +276,14 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -280,20 +291,20 @@ export class Project {
 
         const res: operations.DeleteCheckoutKeyResponse = new operations.DeleteCheckoutKeyResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteCheckoutKeyMessageResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -301,14 +312,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteCheckoutKeyDefaultApplicationJSON
+                        operations.DeleteCheckoutKeyResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -338,7 +349,7 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/envvar/{name}",
             req
@@ -359,14 +370,14 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -374,20 +385,20 @@ export class Project {
 
         const res: operations.DeleteEnvVarResponse = new operations.DeleteEnvVarResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteEnvVarMessageResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -395,14 +406,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.deleteEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DeleteEnvVarDefaultApplicationJSON
+                        operations.DeleteEnvVarResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -418,7 +429,7 @@ export class Project {
      * Get a checkout key
      *
      * @remarks
-     * Returns an individual checkout key.
+     * Returns an individual checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
      */
     async getCheckoutKey(
         req: operations.GetCheckoutKeyRequest,
@@ -432,7 +443,7 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/checkout-key/{fingerprint}",
             req
@@ -453,14 +464,14 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -468,20 +479,20 @@ export class Project {
 
         const res: operations.GetCheckoutKeyResponse = new operations.GetCheckoutKeyResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.checkoutKey = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetCheckoutKeyCheckoutKey
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -489,14 +500,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getCheckoutKeyDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetCheckoutKeyDefaultApplicationJSON
+                        operations.GetCheckoutKeyResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -526,7 +537,7 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/project/{project-slug}/envvar/{name}",
             req
@@ -547,14 +558,14 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -562,20 +573,20 @@ export class Project {
 
         const res: operations.GetEnvVarResponse = new operations.GetEnvVarResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.environmentVariable = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetEnvVarEnvironmentVariable
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -583,14 +594,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getEnvVarDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetEnvVarDefaultApplicationJSON
+                        operations.GetEnvVarResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -620,7 +631,7 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/project/{project-slug}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -637,14 +648,14 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -652,20 +663,20 @@ export class Project {
 
         const res: operations.GetProjectBySlugResponse = new operations.GetProjectBySlugResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.project = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetProjectBySlugProject
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -673,14 +684,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getProjectBySlugDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetProjectBySlugDefaultApplicationJSON
+                        operations.GetProjectBySlugResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -710,7 +721,11 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/checkout-key", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/checkout-key",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -721,20 +736,21 @@ export class Project {
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -742,20 +758,20 @@ export class Project {
 
         const res: operations.ListCheckoutKeysResponse = new operations.ListCheckoutKeysResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.checkoutKeyListResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListCheckoutKeysCheckoutKeyListResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -763,14 +779,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listCheckoutKeysDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListCheckoutKeysDefaultApplicationJSON
+                        operations.ListCheckoutKeysResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -800,7 +816,11 @@ export class Project {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/project/{project-slug}/envvar", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/project/{project-slug}/envvar",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -817,14 +837,14 @@ export class Project {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
             ...config,
         });
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -832,20 +852,20 @@ export class Project {
 
         const res: operations.ListEnvVarsResponse = new operations.ListEnvVarsResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.environmentVariableListResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListEnvVarsEnvironmentVariableListResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -853,14 +873,14 @@ export class Project {
                 }
                 break;
             default:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listEnvVarsDefaultApplicationJSONObject = utils.objectToClass(
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListEnvVarsDefaultApplicationJSON
+                        operations.ListEnvVarsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * The granularity for which to query timeseries data.
  */
-export enum GetJobTimeseriesGranularity {
+export enum Granularity {
     Daily = "daily",
     Hourly = "hourly",
 }
@@ -31,10 +31,10 @@ export class GetJobTimeseriesRequest extends SpeakeasyBase {
      * The granularity for which to query timeseries data.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=granularity" })
-    granularity?: GetJobTimeseriesGranularity;
+    granularity?: Granularity;
 
     /**
-     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
     projectSlug: string;
@@ -55,7 +55,7 @@ export class GetJobTimeseriesRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetJobTimeseriesDefaultApplicationJSON extends SpeakeasyBase {
+export class GetJobTimeseriesInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -64,7 +64,7 @@ export class GetJobTimeseriesDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * Metrics relating to the duration of runs for a workflow.
  */
-export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics extends SpeakeasyBase {
+export class GetJobTimeseriesDurationMetrics extends SpeakeasyBase {
     /**
      * The max duration, in seconds, among a group of runs.
      */
@@ -104,14 +104,14 @@ export class GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics exten
 /**
  * Metrics relating to a workflow's runs.
  */
-export class GetJobTimeseries200ApplicationJSONItemsMetrics extends SpeakeasyBase {
+export class GetJobTimeseriesMetrics extends SpeakeasyBase {
     /**
      * Metrics relating to the duration of runs for a workflow.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "duration_metrics" })
-    @Type(() => GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics)
-    durationMetrics: GetJobTimeseries200ApplicationJSONItemsMetricsDurationMetrics;
+    @Type(() => GetJobTimeseriesDurationMetrics)
+    durationMetrics: GetJobTimeseriesDurationMetrics;
 
     /**
      * The number of failed runs.
@@ -156,7 +156,7 @@ export class GetJobTimeseries200ApplicationJSONItemsMetrics extends SpeakeasyBas
     totalRuns: number;
 }
 
-export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
+export class GetJobTimeseriesItems extends SpeakeasyBase {
     /**
      * The end time of the last execution included in the metrics.
      */
@@ -170,8 +170,8 @@ export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "metrics" })
-    @Type(() => GetJobTimeseries200ApplicationJSONItemsMetrics)
-    metrics: GetJobTimeseries200ApplicationJSONItemsMetrics;
+    @Type(() => GetJobTimeseriesMetrics)
+    metrics: GetJobTimeseriesMetrics;
 
     /**
      * The start time for the earliest execution included in the metrics.
@@ -200,14 +200,14 @@ export class GetJobTimeseries200ApplicationJSONItems extends SpeakeasyBase {
 /**
  * Project level timeseries metrics response
  */
-export class GetJobTimeseries200ApplicationJSON extends SpeakeasyBase {
+export class GetJobTimeseriesResponseBody extends SpeakeasyBase {
     /**
      * Aggregate metrics for a workflow at a time granularity
      */
-    @SpeakeasyMetadata({ elemType: GetJobTimeseries200ApplicationJSONItems })
+    @SpeakeasyMetadata({ elemType: GetJobTimeseriesItems })
     @Expose({ name: "items" })
-    @Type(() => GetJobTimeseries200ApplicationJSONItems)
-    items: GetJobTimeseries200ApplicationJSONItems[];
+    @Type(() => GetJobTimeseriesItems)
+    items: GetJobTimeseriesItems[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -218,6 +218,12 @@ export class GetJobTimeseries200ApplicationJSON extends SpeakeasyBase {
 }
 
 export class GetJobTimeseriesResponse extends SpeakeasyBase {
+    /**
+     * An array of timeseries data, one entry per job.
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetJobTimeseriesResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -234,17 +240,11 @@ export class GetJobTimeseriesResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
-
-    /**
-     * An array of timeseries data, one entry per job.
-     */
-    @SpeakeasyMetadata()
-    getJobTimeseries200ApplicationJSONObject?: GetJobTimeseries200ApplicationJSON;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getJobTimeseriesDefaultApplicationJSONObject?: GetJobTimeseriesDefaultApplicationJSON;
+    defaultApplicationJsonObject?: GetJobTimeseriesInsightsResponseBody;
 }

@@ -11,109 +11,103 @@
 
 ## createSchedule
 
-Creates a schedule and returns the created schedule.
+Not yet available to projects that use GitLab or GitHub App. Creates a schedule and returns the created schedule.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  CreateScheduleCreateScheduleParametersAttributionActor,
-  CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek,
-  CreateScheduleCreateScheduleParametersTimetable1Months,
-  CreateScheduleCreateScheduleParametersTimetable2DaysOfWeek,
-  CreateScheduleCreateScheduleParametersTimetable2Months,
-  CreateScheduleResponse,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.schedule.createSchedule({
-  requestBody: {
-    attributionActor: CreateScheduleCreateScheduleParametersAttributionActor.Current,
-    description: "Reactive actuating knowledge user",
-    name: "fuchsia SMTP Agent",
-    parameters: {
-      "ipsam": "animi",
+  const res = await sdk.schedule.createSchedule({
+    requestBody: {
+      attributionActor: AttributionActor.Current,
+      name: "string",
+      parameters: {
+        "deploy_prod": "string",
+        "branch": "string",
+      },
+      timetable: "string",
     },
-    timetable: {
-      daysOfMonth: [
-        608569,
-      ],
-      daysOfWeek: [
-        CreateScheduleCreateScheduleParametersTimetable1DaysOfWeek.Thu,
-      ],
-      hoursOfDay: [
-        20568,
-      ],
-      months: [
-        CreateScheduleCreateScheduleParametersTimetable1Months.May,
-      ],
-      perHour: 950659,
-    },
-  },
-  projectSlug: "National copying",
-}).then((res: CreateScheduleResponse) => {
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.CreateScheduleRequest](../../models/operations/createschedulerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.CreateScheduleRequest](../../sdk/models/operations/createschedulerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.CreateScheduleResponse](../../models/operations/createscheduleresponse.md)>**
+**Promise<[operations.CreateScheduleResponse](../../sdk/models/operations/createscheduleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## deleteScheduleById
 
-Deletes the schedule by id.
+Not yet available to projects that use GitLab or GitHub App. Deletes the schedule by id.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.schedule.deleteScheduleById({
-  scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
-}).then((res: DeleteScheduleByIdResponse) => {
+  const res = await sdk.schedule.deleteScheduleById({
+    scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.DeleteScheduleByIdRequest](../../models/operations/deleteschedulebyidrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.DeleteScheduleByIdRequest](../../sdk/models/operations/deleteschedulebyidrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.DeleteScheduleByIdResponse](../../models/operations/deleteschedulebyidresponse.md)>**
+**Promise<[operations.DeleteScheduleByIdResponse](../../sdk/models/operations/deleteschedulebyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getScheduleById
 
@@ -123,35 +117,42 @@ Get a schedule by id.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetScheduleByIdResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.schedule.getScheduleById({
-  scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
-}).then((res: GetScheduleByIdResponse) => {
+  const res = await sdk.schedule.getScheduleById({
+    scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetScheduleByIdRequest](../../models/operations/getschedulebyidrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetScheduleByIdRequest](../../sdk/models/operations/getschedulebyidrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.GetScheduleByIdResponse](../../models/operations/getschedulebyidresponse.md)>**
+**Promise<[operations.GetScheduleByIdResponse](../../sdk/models/operations/getschedulebyidresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listSchedulesForProject
 
@@ -161,99 +162,106 @@ Returns all schedules for this project.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListSchedulesForProjectResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.schedule.listSchedulesForProject({
-  pageToken: "Missouri southeast transparent",
-  projectSlug: "array",
-}).then((res: ListSchedulesForProjectResponse) => {
+  const res = await sdk.schedule.listSchedulesForProject({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.ListSchedulesForProjectRequest](../../models/operations/listschedulesforprojectrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.ListSchedulesForProjectRequest](../../sdk/models/operations/listschedulesforprojectrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
 
-**Promise<[operations.ListSchedulesForProjectResponse](../../models/operations/listschedulesforprojectresponse.md)>**
+**Promise<[operations.ListSchedulesForProjectResponse](../../sdk/models/operations/listschedulesforprojectresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## updateSchedule
 
-Updates a schedule and returns the updated schedule.
+Not yet available to projects that use GitLab or GitHub App. Updates a schedule and returns the updated schedule.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import {
-  UpdateScheduleResponse,
-  UpdateScheduleUpdateScheduleParametersAttributionActor,
-  UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek,
-  UpdateScheduleUpdateScheduleParametersTimetableMonths,
-} from "circleci-v2-sdk/dist/sdk/models/operations";
+import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.schedule.updateSchedule({
-  requestBody: {
-    attributionActor: UpdateScheduleUpdateScheduleParametersAttributionActor.Current,
-    description: "Managed secondary knowledge base",
-    name: "Northwest instead Alto",
-    parameters: {
-      "ducimus": "kindly",
+  const res = await sdk.schedule.updateSchedule({
+    requestBody: {
+      attributionActor: UpdateScheduleAttributionActor.Current,
+      parameters: {
+        "deploy_prod": "string",
+        "branch": "string",
+      },
+      timetable: {
+        daysOfMonth: [
+          422422,
+        ],
+        daysOfWeek: [
+          DaysOfWeek.Wed,
+        ],
+        hoursOfDay: [
+          565089,
+        ],
+        months: [
+          Months.Aug,
+        ],
+      },
     },
-    timetable: {
-      daysOfMonth: [
-        296760,
-      ],
-      daysOfWeek: [
-        UpdateScheduleUpdateScheduleParametersTimetableDaysOfWeek.Tue,
-      ],
-      hoursOfDay: [
-        582612,
-      ],
-      months: [
-        UpdateScheduleUpdateScheduleParametersTimetableMonths.Jun,
-      ],
-      perHour: 842366,
-    },
-  },
-  scheduleId: "3e9ab9ea-99c1-4416-a521-017015725a23",
-}).then((res: UpdateScheduleResponse) => {
+    scheduleId: "15e60e97-e640-494d-be9a-b9ea99c1416e",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.UpdateScheduleRequest](../../models/operations/updateschedulerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.UpdateScheduleRequest](../../sdk/models/operations/updateschedulerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.UpdateScheduleResponse](../../models/operations/updatescheduleresponse.md)>**
+**Promise<[operations.UpdateScheduleResponse](../../sdk/models/operations/updatescheduleresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

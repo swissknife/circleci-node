@@ -17,7 +17,7 @@ export class GetPipelineConfigByIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetPipelineConfigByIdDefaultApplicationJSON extends SpeakeasyBase {
+export class GetPipelineConfigByIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -79,11 +79,11 @@ export class GetPipelineConfigByIdResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getPipelineConfigByIdDefaultApplicationJSONObject?: GetPipelineConfigByIdDefaultApplicationJSON;
+    object?: GetPipelineConfigByIdResponseBody;
 }

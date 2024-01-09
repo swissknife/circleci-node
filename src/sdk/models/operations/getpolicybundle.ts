@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -17,7 +18,7 @@ export class GetPolicyBundleRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class GetPolicyBundle500ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyBundlePolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -29,7 +30,7 @@ export class GetPolicyBundle500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetPolicyBundle403ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyBundlePolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -41,7 +42,7 @@ export class GetPolicyBundle403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetPolicyBundle401ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyBundlePolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -53,7 +54,7 @@ export class GetPolicyBundle401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetPolicyBundle400ApplicationJSON extends SpeakeasyBase {
+export class GetPolicyBundleResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -61,10 +62,10 @@ export class GetPolicyBundle400ApplicationJSON extends SpeakeasyBase {
 
 export class GetPolicyBundleResponse extends SpeakeasyBase {
     /**
-     * HTTP response content type for this operation
+     * Policy-Bundle retrieved successfully.
      */
-    @SpeakeasyMetadata()
-    contentType: string;
+    @SpeakeasyMetadata({ elemType: shared.Policy, elemDepth: 2 })
+    twoHundredApplicationJsonPolicyBundle?: Record<string, shared.Policy[]>;
 
     /**
      * The request is malformed (e.g, a given path parameter is invalid)
@@ -73,7 +74,7 @@ export class GetPolicyBundleResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getPolicyBundle400ApplicationJSONObject?: GetPolicyBundle400ApplicationJSON;
+    fourHundredApplicationJsonObject?: GetPolicyBundleResponseBody;
 
     /**
      * The request is unauthorized
@@ -82,7 +83,7 @@ export class GetPolicyBundleResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getPolicyBundle401ApplicationJSONObject?: GetPolicyBundle401ApplicationJSON;
+    fourHundredAndOneApplicationJsonObject?: GetPolicyBundlePolicyManagementResponseBody;
 
     /**
      * The user is forbidden from making this request
@@ -91,19 +92,19 @@ export class GetPolicyBundleResponse extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata()
-    getPolicyBundle403ApplicationJSONObject?: GetPolicyBundle403ApplicationJSON;
+    fourHundredAndThreeApplicationJsonObject?: GetPolicyBundlePolicyManagementResponseResponseBody;
 
     /**
      * Something unexpected happened on the server.
      */
     @SpeakeasyMetadata()
-    getPolicyBundle500ApplicationJSONObject?: GetPolicyBundle500ApplicationJSON;
+    fiveHundredApplicationJsonObject?: GetPolicyBundlePolicyManagementResponse500ResponseBody;
 
     /**
-     * Policy-Bundle retrieved successfully.
+     * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
-    policyBundle?: Record<string, any>;
+    contentType: string;
 
     /**
      * HTTP response status code for this operation
@@ -115,5 +116,5 @@ export class GetPolicyBundleResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

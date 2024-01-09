@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform } from "class-transformer";
+import { Expose } from "class-transformer";
 
 export class AddEnvironmentVariableToContextRequestBody extends SpeakeasyBase {
     /**
@@ -35,54 +35,10 @@ export class AddEnvironmentVariableToContextRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class AddEnvironmentVariableToContextDefaultApplicationJSON extends SpeakeasyBase {
+export class AddEnvironmentVariableToContextResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
-}
-
-/**
- * message response
- */
-export class AddEnvironmentVariableToContext200ApplicationJSONMessageResponse extends SpeakeasyBase {
-    /**
-     * A human-readable message
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message: string;
-}
-
-export class AddEnvironmentVariableToContext200ApplicationJson1 extends SpeakeasyBase {
-    /**
-     * ID of the context (UUID)
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "context_id" })
-    contextId: string;
-
-    /**
-     * The date and time the environment variable was created.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "created_at" })
-    @Transform(({ value }) => new Date(value), { toClassOnly: true })
-    createdAt: Date;
-
-    /**
-     * The date and time the environment variable was updated
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "updated_at" })
-    @Transform(({ value }) => new Date(value), { toClassOnly: true })
-    updatedAt: Date;
-
-    /**
-     * The name of the environment variable
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "variable" })
-    variable: string;
 }
 
 export class AddEnvironmentVariableToContextResponse extends SpeakeasyBase {
@@ -102,17 +58,17 @@ export class AddEnvironmentVariableToContextResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
-
-    /**
-     * The new environment variable
-     */
-    @SpeakeasyMetadata()
-    addEnvironmentVariableToContext200ApplicationJSONOneOf?: any;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    addEnvironmentVariableToContextDefaultApplicationJSONObject?: AddEnvironmentVariableToContextDefaultApplicationJSON;
+    object?: AddEnvironmentVariableToContextResponseBody;
+
+    /**
+     * The new environment variable
+     */
+    @SpeakeasyMetadata()
+    oneOf?: any;
 }

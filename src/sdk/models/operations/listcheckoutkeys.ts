@@ -6,9 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
+/**
+ * The fingerprint digest type to return. This may be either `md5` or `sha256`. If not passed, defaults to `md5`.
+ */
+export enum Digest {
+    Sha256 = "sha256",
+    Md5 = "md5",
+}
+
 export class ListCheckoutKeysRequest extends SpeakeasyBase {
     /**
-     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped.
+     * The fingerprint digest type to return. This may be either `md5` or `sha256`. If not passed, defaults to `md5`.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=digest" })
+    digest?: Digest;
+
+    /**
+     * Project slug in the form `vcs-slug/org-name/repo-name`. The `/` characters may be URL-escaped. For projects that use GitLab or GitHub App, use `circleci` as the `vcs-slug`, replace `org-name` with the organization ID (found in Organization Settings), and replace `repo-name` with the project ID (found in Project Settings).
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=project-slug" })
     projectSlug: string;
@@ -17,7 +31,7 @@ export class ListCheckoutKeysRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class ListCheckoutKeysDefaultApplicationJSON extends SpeakeasyBase {
+export class ListCheckoutKeysResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +40,7 @@ export class ListCheckoutKeysDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The type of checkout key. This may be either `deploy-key` or `github-user-key`.
  */
-export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType {
+export enum ListCheckoutKeysCheckoutKeyType {
     DeployKey = "deploy-key",
     GithubUserKey = "github-user-key",
 }
@@ -34,7 +48,7 @@ export enum ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType {
 /**
  * A checkout key
  */
-export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends SpeakeasyBase {
+export class CheckoutKey extends SpeakeasyBase {
     /**
      * The date and time the checkout key was created.
      */
@@ -69,17 +83,17 @@ export class ListCheckoutKeysCheckoutKeyListResponseCheckoutKey extends Speakeas
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: ListCheckoutKeysCheckoutKeyListResponseCheckoutKeyCheckoutKeyType;
+    type: ListCheckoutKeysCheckoutKeyType;
 }
 
 /**
  * A sequence of checkout keys.
  */
 export class ListCheckoutKeysCheckoutKeyListResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey })
+    @SpeakeasyMetadata({ elemType: CheckoutKey })
     @Expose({ name: "items" })
-    @Type(() => ListCheckoutKeysCheckoutKeyListResponseCheckoutKey)
-    items: ListCheckoutKeysCheckoutKeyListResponseCheckoutKey[];
+    @Type(() => CheckoutKey)
+    items: CheckoutKey[];
 
     /**
      * A token to pass as a `page-token` query parameter to return the next page of results.
@@ -112,11 +126,11 @@ export class ListCheckoutKeysResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    listCheckoutKeysDefaultApplicationJSONObject?: ListCheckoutKeysDefaultApplicationJSON;
+    object?: ListCheckoutKeysResponseBody;
 }

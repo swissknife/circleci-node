@@ -1,0 +1,10 @@
+# GetOrgSummaryDataRequest
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `orgSlug`                                                                                    | *string*                                                                                     | :heavy_check_mark:                                                                           | Org slug in the form `vcs-slug/org-name`. The `/` characters may be URL-escaped.             |
+| `projectNames`                                                                               | [operations.ProjectNames](../../../sdk/models/operations/projectnames.md)                    | :heavy_minus_sign:                                                                           | List of project names.                                                                       |
+| `reportingWindow`                                                                            | [operations.ReportingWindow](../../../sdk/models/operations/reportingwindow.md)              | :heavy_minus_sign:                                                                           | The time window used to calculate summary metrics. If not provided, defaults to last-90-days |

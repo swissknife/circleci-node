@@ -3,14 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-
-export class SchemeBasicAuth extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "security, name=password" })
-    password: string;
-
-    @SpeakeasyMetadata({ data: "security, name=username" })
-    username: string;
-}
+import { SchemeBasicAuth } from "./schemebasicauth";
 
 export class Security extends SpeakeasyBase {
     @SpeakeasyMetadata({

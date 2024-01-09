@@ -17,7 +17,7 @@ export class GetWorkflowByIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetWorkflowByIdDefaultApplicationJSON extends SpeakeasyBase {
+export class GetWorkflowByIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +26,7 @@ export class GetWorkflowByIdDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The current status of the workflow.
  */
-export enum GetWorkflowByIdWorkflowStatus {
+export enum GetWorkflowByIdStatus {
     Success = "success",
     Running = "running",
     NotRun = "not_run",
@@ -41,7 +41,7 @@ export enum GetWorkflowByIdWorkflowStatus {
 /**
  * Tag used for the workflow
  */
-export enum GetWorkflowByIdWorkflowTag {
+export enum Tag {
     Setup = "setup",
 }
 
@@ -109,7 +109,7 @@ export class GetWorkflowByIdWorkflow extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: GetWorkflowByIdWorkflowStatus;
+    status: GetWorkflowByIdStatus;
 
     /**
      * The date and time the workflow stopped.
@@ -124,7 +124,7 @@ export class GetWorkflowByIdWorkflow extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "tag" })
-    tag?: GetWorkflowByIdWorkflowTag;
+    tag?: Tag;
 }
 
 export class GetWorkflowByIdResponse extends SpeakeasyBase {
@@ -144,7 +144,7 @@ export class GetWorkflowByIdResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * A workflow object.
@@ -156,5 +156,5 @@ export class GetWorkflowByIdResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    getWorkflowByIdDefaultApplicationJSONObject?: GetWorkflowByIdDefaultApplicationJSON;
+    object?: GetWorkflowByIdResponseBody;
 }

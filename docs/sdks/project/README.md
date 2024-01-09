@@ -15,44 +15,55 @@
 
 ## createCheckoutKey
 
-Creates a new checkout key. This API request is only usable with a user API token.
+Not available to projects that use GitLab or GitHub App. Creates a new checkout key. This API request is only usable with a user API token.
+                           Please ensure that you have authorized your account with GitHub before creating user keys.
+                           This is necessary to give CircleCI the permission to create a user key associated with
+                           your GitHub user account. You can find this page by visiting Project Settings > Checkout SSH Keys
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType, CreateCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { CheckoutKeyInputType } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.createCheckoutKey({
-  requestBody: {
-    type: CreateCheckoutKeyCheckoutKeyInputCheckoutKeyInputType.DeployKey,
-  },
-  projectSlug: "payment grow",
-}).then((res: CreateCheckoutKeyResponse) => {
+  const res = await sdk.project.createCheckoutKey({
+    requestBody: {
+      type: CheckoutKeyInputType.DeployKey,
+    },
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.CreateCheckoutKeyRequest](../../models/operations/createcheckoutkeyrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CreateCheckoutKeyRequest](../../sdk/models/operations/createcheckoutkeyrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.CreateCheckoutKeyResponse](../../models/operations/createcheckoutkeyresponse.md)>**
+**Promise<[operations.CreateCheckoutKeyResponse](../../sdk/models/operations/createcheckoutkeyresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## createEnvVar
 
@@ -62,78 +73,92 @@ Creates a new environment variable.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { CreateEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.createEnvVar({
-  requestBody: {
-    name: "foo",
-    value: "xxxx1234",
-  },
-  projectSlug: "Alaska",
-}).then((res: CreateEnvVarResponse) => {
+  const res = await sdk.project.createEnvVar({
+    requestBody: {
+      name: "foo",
+      value: "xxxx1234",
+    },
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.CreateEnvVarRequest](../../models/operations/createenvvarrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.CreateEnvVarRequest](../../sdk/models/operations/createenvvarrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.CreateEnvVarResponse](../../models/operations/createenvvarresponse.md)>**
+**Promise<[operations.CreateEnvVarResponse](../../sdk/models/operations/createenvvarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## deleteCheckoutKey
 
-Deletes the checkout key.
+Deletes the checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.deleteCheckoutKey({
-  fingerprint: "Wooden since",
-  projectSlug: "Configuration",
-}).then((res: DeleteCheckoutKeyResponse) => {
+  const res = await sdk.project.deleteCheckoutKey({
+    fingerprint: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteCheckoutKeyRequest](../../models/operations/deletecheckoutkeyrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteCheckoutKeyRequest](../../sdk/models/operations/deletecheckoutkeyrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.DeleteCheckoutKeyResponse](../../models/operations/deletecheckoutkeyresponse.md)>**
+**Promise<[operations.DeleteCheckoutKeyResponse](../../sdk/models/operations/deletecheckoutkeyresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## deleteEnvVar
 
@@ -143,75 +168,89 @@ Deletes the environment variable named :name.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DeleteEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.deleteEnvVar({
-  name: "Terbium Soap Volkswagen",
-  projectSlug: "Convertible Omnigender Fish",
-}).then((res: DeleteEnvVarResponse) => {
+  const res = await sdk.project.deleteEnvVar({
+    name: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
-```
+}
 
-### Parameters
-
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.DeleteEnvVarRequest](../../models/operations/deleteenvvarrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
-
-
-### Response
-
-**Promise<[operations.DeleteEnvVarResponse](../../models/operations/deleteenvvarresponse.md)>**
-
-
-## getCheckoutKey
-
-Returns an individual checkout key.
-
-### Example Usage
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-import { GetCheckoutKeyResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
-
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
-
-sdk.project.getCheckoutKey({
-  fingerprint: "Guernsey",
-  projectSlug: "extend compressing",
-}).then((res: GetCheckoutKeyResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
+run();
 ```
 
 ### Parameters
 
 | Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetCheckoutKeyRequest](../../models/operations/getcheckoutkeyrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `request`                                                                            | [operations.DeleteEnvVarRequest](../../sdk/models/operations/deleteenvvarrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 | `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.GetCheckoutKeyResponse](../../models/operations/getcheckoutkeyresponse.md)>**
+**Promise<[operations.DeleteEnvVarResponse](../../sdk/models/operations/deleteenvvarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## getCheckoutKey
+
+Returns an individual checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.project.getCheckoutKey({
+    fingerprint: "string",
+    projectSlug: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetCheckoutKeyRequest](../../sdk/models/operations/getcheckoutkeyrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+
+
+### Response
+
+**Promise<[operations.GetCheckoutKeyResponse](../../sdk/models/operations/getcheckoutkeyresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getEnvVar
 
@@ -221,36 +260,43 @@ Returns the masked value of environment variable :name.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetEnvVarResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.getEnvVar({
-  name: "pascal",
-  projectSlug: "Metrics Engineer",
-}).then((res: GetEnvVarResponse) => {
+  const res = await sdk.project.getEnvVar({
+    name: "string",
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `request`                                                                  | [operations.GetEnvVarRequest](../../models/operations/getenvvarrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetEnvVarRequest](../../sdk/models/operations/getenvvarrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
 
-**Promise<[operations.GetEnvVarResponse](../../models/operations/getenvvarresponse.md)>**
+**Promise<[operations.GetEnvVarResponse](../../sdk/models/operations/getenvvarresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getProjectBySlug
 
@@ -260,35 +306,42 @@ Retrieves a project by project slug.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { GetProjectBySlugResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.getProjectBySlug({
-  projectSlug: "reboot",
-}).then((res: GetProjectBySlugResponse) => {
+  const res = await sdk.project.getProjectBySlug({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetProjectBySlugRequest](../../models/operations/getprojectbyslugrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetProjectBySlugRequest](../../sdk/models/operations/getprojectbyslugrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.GetProjectBySlugResponse](../../models/operations/getprojectbyslugresponse.md)>**
+**Promise<[operations.GetProjectBySlugResponse](../../sdk/models/operations/getprojectbyslugresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listCheckoutKeys
 
@@ -298,35 +351,43 @@ Returns a sequence of checkout keys for `:project`.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListCheckoutKeysResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
+import { Digest } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.listCheckoutKeys({
-  projectSlug: "Pataca",
-}).then((res: ListCheckoutKeysResponse) => {
+  const res = await sdk.project.listCheckoutKeys({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListCheckoutKeysRequest](../../models/operations/listcheckoutkeysrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListCheckoutKeysRequest](../../sdk/models/operations/listcheckoutkeysrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.ListCheckoutKeysResponse](../../models/operations/listcheckoutkeysresponse.md)>**
+**Promise<[operations.ListCheckoutKeysResponse](../../sdk/models/operations/listcheckoutkeysresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listEnvVars
 
@@ -336,32 +397,39 @@ Returns four 'x' characters, in addition to the last four ASCII characters of th
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ListEnvVarsResponse } from "circleci-v2-sdk/dist/sdk/models/operations";
 
-const sdk = new Circleci({
-  security: {
-    apiKeyHeader: "",
-  },
-});
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
 
-sdk.project.listEnvVars({
-  projectSlug: "Southeast Books Austin",
-}).then((res: ListEnvVarsResponse) => {
+  const res = await sdk.project.listEnvVars({
+    projectSlug: "string",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.ListEnvVarsRequest](../../models/operations/listenvvarsrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.ListEnvVarsRequest](../../sdk/models/operations/listenvvarsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.ListEnvVarsResponse](../../models/operations/listenvvarsresponse.md)>**
+**Promise<[operations.ListEnvVarsResponse](../../sdk/models/operations/listenvvarsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |

@@ -17,7 +17,7 @@ export class GetScheduleByIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
+export class GetScheduleByIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -26,7 +26,7 @@ export class GetScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
 /**
  * The attribution actor who will run the scheduled pipeline.
  */
-export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
+export class GetScheduleByIdUser extends SpeakeasyBase {
     /**
      * The unique ID of the user.
      */
@@ -50,148 +50,6 @@ export class GetScheduleByIdScheduleUser extends SpeakeasyBase {
 }
 
 /**
- * Day in a week, in three letters format
- */
-export enum GetScheduleByIdScheduleTimetable2DaysOfWeek {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI",
-}
-
-/**
- * Month, in three letters format.
- */
-export enum GetScheduleByIdScheduleTimetable2Months {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL",
-}
-
-/**
- * Timetable that specifies when a schedule triggers.
- */
-export class GetScheduleByIdScheduleTimetable2 extends SpeakeasyBase {
-    /**
-     * Days in a month in which the schedule triggers. This is mutually exclusive with days in a week.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "days-of-month" })
-    daysOfMonth: number[];
-
-    /**
-     * Days in a week in which the schedule triggers.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "days-of-week" })
-    daysOfWeek?: GetScheduleByIdScheduleTimetable2DaysOfWeek[];
-
-    /**
-     * Hours in a day in which the schedule triggers.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "hours-of-day" })
-    hoursOfDay: number[];
-
-    /**
-     * Months in which the schedule triggers.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "months" })
-    months?: GetScheduleByIdScheduleTimetable2Months[];
-
-    /**
-     * Number of times a schedule triggers per hour, value must be between 1 and 60
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "per-hour" })
-    perHour: number;
-}
-
-/**
- * Day in a week, in three letters format
- */
-export enum GetScheduleByIdScheduleTimetable1DaysOfWeek {
-    Tue = "TUE",
-    Sat = "SAT",
-    Sun = "SUN",
-    Mon = "MON",
-    Thu = "THU",
-    Wed = "WED",
-    Fri = "FRI",
-}
-
-/**
- * Month, in three letters format.
- */
-export enum GetScheduleByIdScheduleTimetable1Months {
-    Mar = "MAR",
-    Nov = "NOV",
-    Dec = "DEC",
-    Jun = "JUN",
-    May = "MAY",
-    Oct = "OCT",
-    Feb = "FEB",
-    Apr = "APR",
-    Sep = "SEP",
-    Aug = "AUG",
-    Jan = "JAN",
-    Jul = "JUL",
-}
-
-/**
- * Timetable that specifies when a schedule triggers.
- */
-export class GetScheduleByIdScheduleTimetable1 extends SpeakeasyBase {
-    /**
-     * Days in a month in which the schedule triggers. This is mutually exclusive with days in a week.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "days-of-month" })
-    daysOfMonth?: number[];
-
-    /**
-     * Days in a week in which the schedule triggers.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "days-of-week" })
-    daysOfWeek: GetScheduleByIdScheduleTimetable1DaysOfWeek[];
-
-    /**
-     * Hours in a day in which the schedule triggers.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "hours-of-day" })
-    hoursOfDay: number[];
-
-    /**
-     * Months in which the schedule triggers.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "months" })
-    months?: GetScheduleByIdScheduleTimetable1Months[];
-
-    /**
-     * Number of times a schedule triggers per hour, value must be between 1 and 60
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "per-hour" })
-    perHour: number;
-}
-
-/**
  * A schedule response
  */
 export class GetScheduleByIdSchedule extends SpeakeasyBase {
@@ -200,8 +58,8 @@ export class GetScheduleByIdSchedule extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "actor" })
-    @Type(() => GetScheduleByIdScheduleUser)
-    actor: GetScheduleByIdScheduleUser;
+    @Type(() => GetScheduleByIdUser)
+    actor: GetScheduleByIdUser;
 
     /**
      * The date and time the pipeline was created.
@@ -285,11 +143,11 @@ export class GetScheduleByIdResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    getScheduleByIdDefaultApplicationJSONObject?: GetScheduleByIdDefaultApplicationJSON;
+    object?: GetScheduleByIdResponseBody;
 }

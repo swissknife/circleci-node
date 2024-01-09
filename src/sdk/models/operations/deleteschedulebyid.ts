@@ -17,7 +17,7 @@ export class DeleteScheduleByIdRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class DeleteScheduleByIdDefaultApplicationJSON extends SpeakeasyBase {
+export class DeleteScheduleByIdResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -58,11 +58,11 @@ export class DeleteScheduleByIdResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    deleteScheduleByIdDefaultApplicationJSONObject?: DeleteScheduleByIdDefaultApplicationJSON;
+    object?: DeleteScheduleByIdResponseBody;
 }

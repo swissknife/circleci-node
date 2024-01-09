@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -21,7 +21,7 @@ export class GetDecisionLogRequest extends SpeakeasyBase {
 /**
  * Something unexpected happened on the server.
  */
-export class GetDecisionLog500ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -33,7 +33,7 @@ export class GetDecisionLog500ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionLog404ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyManagementResponse404ResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -45,7 +45,7 @@ export class GetDecisionLog404ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionLog403ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyManagementResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -57,7 +57,7 @@ export class GetDecisionLog403ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionLog401ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -69,13 +69,55 @@ export class GetDecisionLog401ApplicationJSON extends SpeakeasyBase {
  * @remarks
  *
  */
-export class GetDecisionLog400ApplicationJSON extends SpeakeasyBase {
+export class GetDecisionLogResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
 }
 
 export class GetDecisionLogResponse extends SpeakeasyBase {
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredApplicationJsonObject?: GetDecisionLogResponseBody;
+
+    /**
+     * The request is unauthorized
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndOneApplicationJsonObject?: GetDecisionLogPolicyManagementResponseBody;
+
+    /**
+     * The user is forbidden from making this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndThreeApplicationJsonObject?: GetDecisionLogPolicyManagementResponseResponseBody;
+
+    /**
+     * There was no decision log found for given decision_id, and owner_id.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    fourHundredAndFourApplicationJsonObject?: GetDecisionLogPolicyManagementResponse404ResponseBody;
+
+    /**
+     * Something unexpected happened on the server.
+     */
+    @SpeakeasyMetadata()
+    fiveHundredApplicationJsonObject?: GetDecisionLogPolicyManagementResponse500ResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -89,48 +131,6 @@ export class GetDecisionLogResponse extends SpeakeasyBase {
     decisionLog?: shared.DecisionLog;
 
     /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getDecisionLog400ApplicationJSONObject?: GetDecisionLog400ApplicationJSON;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getDecisionLog401ApplicationJSONObject?: GetDecisionLog401ApplicationJSON;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getDecisionLog403ApplicationJSONObject?: GetDecisionLog403ApplicationJSON;
-
-    /**
-     * There was no decision log found for given decision_id, and owner_id.
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    getDecisionLog404ApplicationJSONObject?: GetDecisionLog404ApplicationJSON;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    getDecisionLog500ApplicationJSONObject?: GetDecisionLog500ApplicationJSON;
-
-    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -140,5 +140,5 @@ export class GetDecisionLogResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }
