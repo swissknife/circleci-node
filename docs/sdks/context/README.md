@@ -5,9 +5,12 @@
 
 * [addEnvironmentVariableToContext](#addenvironmentvariabletocontext) - Add or update an environment variable
 * [createContext](#createcontext) - Create a new context
+* [createContextRestriction](#createcontextrestriction) - 🧪 Create context restriction
 * [deleteContext](#deletecontext) - Delete a context
+* [deleteContextRestriction](#deletecontextrestriction) - 🧪 Delete context restriction
 * [deleteEnvironmentVariableFromContext](#deleteenvironmentvariablefromcontext) - Remove an environment variable
 * [getContext](#getcontext) - Get a context
+* [getContextRestrictions](#getcontextrestrictions) - 🧪 Get context restrictions
 * [listContexts](#listcontexts) - List contexts
 * [listEnvironmentVariablesFromContext](#listenvironmentvariablesfromcontext) - List environment variables
 
@@ -106,6 +109,52 @@ run();
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
+## createContextRestriction
+
+[__EXPERIMENTAL__] Creates project restriction on a context.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.context.createContextRestriction({
+    requestBody: {},
+    contextId: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.CreateContextRestrictionRequest](../../sdk/models/operations/createcontextrestrictionrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+
+
+### Response
+
+**Promise<[operations.CreateContextRestrictionResponse](../../sdk/models/operations/createcontextrestrictionresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
 ## deleteContext
 
 Delete a context
@@ -145,6 +194,52 @@ run();
 ### Response
 
 **Promise<[operations.DeleteContextResponse](../../sdk/models/operations/deletecontextresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## deleteContextRestriction
+
+[__EXPERIMENTAL__] Deletes a project restriction on a context.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.context.deleteContextRestriction({
+    contextId: "string",
+    restrictionId: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.DeleteContextRestrictionRequest](../../sdk/models/operations/deletecontextrestrictionrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+
+
+### Response
+
+**Promise<[operations.DeleteContextRestrictionResponse](../../sdk/models/operations/deletecontextrestrictionresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -236,6 +331,51 @@ run();
 ### Response
 
 **Promise<[operations.GetContextResponse](../../sdk/models/operations/getcontextresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## getContextRestrictions
+
+[__EXPERIMENTAL__] Gets a list of project restrictions associated with a context.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.context.getContextRestrictions({
+    contextId: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.GetContextRestrictionsRequest](../../sdk/models/operations/getcontextrestrictionsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+
+
+### Response
+
+**Promise<[operations.GetContextRestrictionsResponse](../../sdk/models/operations/getcontextrestrictionsresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

@@ -1,29 +1,29 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 2145bcd39e24365c7a7a8720fde2c896
+  docChecksum: 474467720a8f7cdfa4636d3ca4f91a4d
   docVersion: v2
   speakeasyVersion: internal
-  generationVersion: 2.230.1
-  releaseVersion: 4.1.3
-  configChecksum: fe1def7052884a388afc56c4db4b834d
+  generationVersion: 2.237.3
+  releaseVersion: 4.1.4
+  configChecksum: d7913b71d0c8e5f3ed26b309792ae994
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
   published: true
 features:
   typescript:
-    core: 3.4.3
+    core: 3.4.6
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
 generatedFiles:
   - src/sdk/context.ts
+  - src/sdk/project.ts
   - src/sdk/insights.ts
   - src/sdk/user.ts
   - src/sdk/oidctokenmanagement.ts
   - src/sdk/policymanagement.ts
   - src/sdk/pipeline.ts
-  - src/sdk/project.ts
   - src/sdk/job.ts
   - src/sdk/schedule.ts
   - src/sdk/webhook.ts
@@ -50,11 +50,26 @@ generatedFiles:
   - tsconfig.json
   - src/sdk/models/operations/addenvironmentvariabletocontext.ts
   - src/sdk/models/operations/createcontext.ts
+  - src/sdk/models/operations/createcontextrestriction.ts
   - src/sdk/models/operations/deletecontext.ts
+  - src/sdk/models/operations/deletecontextrestriction.ts
   - src/sdk/models/operations/deleteenvironmentvariablefromcontext.ts
   - src/sdk/models/operations/getcontext.ts
+  - src/sdk/models/operations/getcontextrestrictions.ts
   - src/sdk/models/operations/listcontexts.ts
   - src/sdk/models/operations/listenvironmentvariablesfromcontext.ts
+  - src/sdk/models/operations/createcheckoutkey.ts
+  - src/sdk/models/operations/createenvvar.ts
+  - src/sdk/models/operations/createproject.ts
+  - src/sdk/models/operations/deletecheckoutkey.ts
+  - src/sdk/models/operations/deleteenvvar.ts
+  - src/sdk/models/operations/getcheckoutkey.ts
+  - src/sdk/models/operations/getenvvar.ts
+  - src/sdk/models/operations/getprojectbyslug.ts
+  - src/sdk/models/operations/getprojectsettings.ts
+  - src/sdk/models/operations/listcheckoutkeys.ts
+  - src/sdk/models/operations/listenvvars.ts
+  - src/sdk/models/operations/patchprojectsettings.ts
   - src/sdk/models/operations/getallinsightsbranches.ts
   - src/sdk/models/operations/getflakytests.ts
   - src/sdk/models/operations/getjobtimeseries.ts
@@ -92,15 +107,6 @@ generatedFiles:
   - src/sdk/models/operations/listpipelinesforproject.ts
   - src/sdk/models/operations/listworkflowsbypipelineid.ts
   - src/sdk/models/operations/triggerpipeline.ts
-  - src/sdk/models/operations/createcheckoutkey.ts
-  - src/sdk/models/operations/createenvvar.ts
-  - src/sdk/models/operations/deletecheckoutkey.ts
-  - src/sdk/models/operations/deleteenvvar.ts
-  - src/sdk/models/operations/getcheckoutkey.ts
-  - src/sdk/models/operations/getenvvar.ts
-  - src/sdk/models/operations/getprojectbyslug.ts
-  - src/sdk/models/operations/listcheckoutkeys.ts
-  - src/sdk/models/operations/listenvvars.ts
   - src/sdk/models/operations/canceljob.ts
   - src/sdk/models/operations/getjobartifacts.ts
   - src/sdk/models/operations/getjobdetails.ts
@@ -120,6 +126,10 @@ generatedFiles:
   - src/sdk/models/operations/getworkflowbyid.ts
   - src/sdk/models/operations/listworkflowjobs.ts
   - src/sdk/models/operations/rerunworkflow.ts
+  - src/sdk/models/shared/restrictioncreated.ts
+  - src/sdk/models/shared/restrictiondeleted.ts
+  - src/sdk/models/shared/contextprojectrestrictionslist.ts
+  - src/sdk/models/shared/projectsettings.ts
   - src/sdk/models/shared/claimresponse.ts
   - src/sdk/models/shared/patchclaimsrequest.ts
   - src/sdk/models/shared/bundlediff.ts
@@ -142,10 +152,26 @@ generatedFiles:
   - docs/sdk/models/operations/createcontextresponsebody.md
   - docs/sdk/models/operations/createcontextcontext.md
   - docs/sdk/models/operations/createcontextresponse.md
+  - docs/sdk/models/operations/createcontextrestrictionrequestbody.md
+  - docs/sdk/models/operations/createcontextrestrictionrequest.md
+  - docs/sdk/models/operations/createcontextrestrictioncontextresponse500responsebody.md
+  - docs/sdk/models/operations/createcontextrestrictioncontextresponse429responsebody.md
+  - docs/sdk/models/operations/createcontextrestrictioncontextresponse409responsebody.md
+  - docs/sdk/models/operations/createcontextrestrictioncontextresponseresponsebody.md
+  - docs/sdk/models/operations/createcontextrestrictioncontextresponsebody.md
+  - docs/sdk/models/operations/createcontextrestrictionresponsebody.md
+  - docs/sdk/models/operations/createcontextrestrictionresponse.md
   - docs/sdk/models/operations/deletecontextrequest.md
   - docs/sdk/models/operations/deletecontextresponsebody.md
   - docs/sdk/models/operations/deletecontextmessageresponse.md
   - docs/sdk/models/operations/deletecontextresponse.md
+  - docs/sdk/models/operations/deletecontextrestrictionrequest.md
+  - docs/sdk/models/operations/deletecontextrestrictioncontextresponse500responsebody.md
+  - docs/sdk/models/operations/deletecontextrestrictioncontextresponse429responsebody.md
+  - docs/sdk/models/operations/deletecontextrestrictioncontextresponseresponsebody.md
+  - docs/sdk/models/operations/deletecontextrestrictioncontextresponsebody.md
+  - docs/sdk/models/operations/deletecontextrestrictionresponsebody.md
+  - docs/sdk/models/operations/deletecontextrestrictionresponse.md
   - docs/sdk/models/operations/deleteenvironmentvariablefromcontextrequest.md
   - docs/sdk/models/operations/deleteenvironmentvariablefromcontextresponsebody.md
   - docs/sdk/models/operations/deleteenvironmentvariablefromcontextmessageresponse.md
@@ -154,6 +180,13 @@ generatedFiles:
   - docs/sdk/models/operations/getcontextresponsebody.md
   - docs/sdk/models/operations/getcontextcontext.md
   - docs/sdk/models/operations/getcontextresponse.md
+  - docs/sdk/models/operations/getcontextrestrictionsrequest.md
+  - docs/sdk/models/operations/getcontextrestrictionscontextresponse500responsebody.md
+  - docs/sdk/models/operations/getcontextrestrictionscontextresponse429responsebody.md
+  - docs/sdk/models/operations/getcontextrestrictionscontextresponseresponsebody.md
+  - docs/sdk/models/operations/getcontextrestrictionscontextresponsebody.md
+  - docs/sdk/models/operations/getcontextrestrictionsresponsebody.md
+  - docs/sdk/models/operations/getcontextrestrictionsresponse.md
   - docs/sdk/models/operations/ownertype.md
   - docs/sdk/models/operations/listcontextsrequest.md
   - docs/sdk/models/operations/listcontextscontextresponsebody.md
@@ -165,6 +198,78 @@ generatedFiles:
   - docs/sdk/models/operations/items.md
   - docs/sdk/models/operations/listenvironmentvariablesfromcontextresponsebody.md
   - docs/sdk/models/operations/listenvironmentvariablesfromcontextresponse.md
+  - docs/sdk/models/operations/checkoutkeyinputtype.md
+  - docs/sdk/models/operations/createcheckoutkeycheckoutkeyinput.md
+  - docs/sdk/models/operations/createcheckoutkeyrequest.md
+  - docs/sdk/models/operations/createcheckoutkeyresponsebody.md
+  - docs/sdk/models/operations/checkoutkeytype.md
+  - docs/sdk/models/operations/createcheckoutkeycheckoutkey.md
+  - docs/sdk/models/operations/createcheckoutkeyresponse.md
+  - docs/sdk/models/operations/createenvvarenvironmentvariable.md
+  - docs/sdk/models/operations/createenvvarrequest.md
+  - docs/sdk/models/operations/createenvvarresponsebody.md
+  - docs/sdk/models/operations/createenvvarprojectenvironmentvariable.md
+  - docs/sdk/models/operations/createenvvarresponse.md
+  - docs/sdk/models/operations/createprojectrequest.md
+  - docs/sdk/models/operations/createprojectprojectresponse500responsebody.md
+  - docs/sdk/models/operations/createprojectprojectresponse429responsebody.md
+  - docs/sdk/models/operations/createprojectprojectresponse405responsebody.md
+  - docs/sdk/models/operations/createprojectprojectresponse404responsebody.md
+  - docs/sdk/models/operations/createprojectprojectresponseresponsebody.md
+  - docs/sdk/models/operations/createprojectprojectresponsebody.md
+  - docs/sdk/models/operations/createprojectresponsebody.md
+  - docs/sdk/models/operations/createprojectresponse.md
+  - docs/sdk/models/operations/deletecheckoutkeyrequest.md
+  - docs/sdk/models/operations/deletecheckoutkeyresponsebody.md
+  - docs/sdk/models/operations/deletecheckoutkeymessageresponse.md
+  - docs/sdk/models/operations/deletecheckoutkeyresponse.md
+  - docs/sdk/models/operations/deleteenvvarrequest.md
+  - docs/sdk/models/operations/deleteenvvarresponsebody.md
+  - docs/sdk/models/operations/deleteenvvarmessageresponse.md
+  - docs/sdk/models/operations/deleteenvvarresponse.md
+  - docs/sdk/models/operations/getcheckoutkeyrequest.md
+  - docs/sdk/models/operations/getcheckoutkeyresponsebody.md
+  - docs/sdk/models/operations/getcheckoutkeycheckoutkeytype.md
+  - docs/sdk/models/operations/getcheckoutkeycheckoutkey.md
+  - docs/sdk/models/operations/getcheckoutkeyresponse.md
+  - docs/sdk/models/operations/getenvvarrequest.md
+  - docs/sdk/models/operations/getenvvarresponsebody.md
+  - docs/sdk/models/operations/getenvvarenvironmentvariable.md
+  - docs/sdk/models/operations/getenvvarresponse.md
+  - docs/sdk/models/operations/getprojectbyslugrequest.md
+  - docs/sdk/models/operations/getprojectbyslugresponsebody.md
+  - docs/sdk/models/operations/provider.md
+  - docs/sdk/models/operations/vcsinfo.md
+  - docs/sdk/models/operations/getprojectbyslugproject.md
+  - docs/sdk/models/operations/getprojectbyslugresponse.md
+  - docs/sdk/models/operations/getprojectsettingsrequest.md
+  - docs/sdk/models/operations/getprojectsettingsprojectresponse500responsebody.md
+  - docs/sdk/models/operations/getprojectsettingsprojectresponse429responsebody.md
+  - docs/sdk/models/operations/getprojectsettingsprojectresponseresponsebody.md
+  - docs/sdk/models/operations/getprojectsettingsprojectresponsebody.md
+  - docs/sdk/models/operations/getprojectsettingsresponsebody.md
+  - docs/sdk/models/operations/getprojectsettingsresponse.md
+  - docs/sdk/models/operations/digest.md
+  - docs/sdk/models/operations/listcheckoutkeysrequest.md
+  - docs/sdk/models/operations/listcheckoutkeysresponsebody.md
+  - docs/sdk/models/operations/listcheckoutkeyscheckoutkeytype.md
+  - docs/sdk/models/operations/checkoutkey.md
+  - docs/sdk/models/operations/listcheckoutkeyscheckoutkeylistresponse.md
+  - docs/sdk/models/operations/listcheckoutkeysresponse.md
+  - docs/sdk/models/operations/listenvvarsrequest.md
+  - docs/sdk/models/operations/listenvvarsresponsebody.md
+  - docs/sdk/models/operations/environmentvariable.md
+  - docs/sdk/models/operations/listenvvarsenvironmentvariablelistresponse.md
+  - docs/sdk/models/operations/listenvvarsresponse.md
+  - docs/sdk/models/operations/patchprojectsettingsrequest.md
+  - docs/sdk/models/operations/patchprojectsettingsprojectresponse500responsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsprojectresponse429responsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsprojectresponse422responsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsprojectresponse404responsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsprojectresponseresponsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsresponse.md
   - docs/sdk/models/operations/getallinsightsbranchesrequest.md
   - docs/sdk/models/operations/getallinsightsbranchesresponsebody.md
   - docs/sdk/models/operations/getallinsightsbranchesresponse.md
@@ -429,53 +534,6 @@ generatedFiles:
   - docs/sdk/models/operations/triggerpipelinestate.md
   - docs/sdk/models/operations/triggerpipelinepipelinecreation.md
   - docs/sdk/models/operations/triggerpipelineresponse.md
-  - docs/sdk/models/operations/checkoutkeyinputtype.md
-  - docs/sdk/models/operations/createcheckoutkeycheckoutkeyinput.md
-  - docs/sdk/models/operations/createcheckoutkeyrequest.md
-  - docs/sdk/models/operations/createcheckoutkeyresponsebody.md
-  - docs/sdk/models/operations/checkoutkeytype.md
-  - docs/sdk/models/operations/createcheckoutkeycheckoutkey.md
-  - docs/sdk/models/operations/createcheckoutkeyresponse.md
-  - docs/sdk/models/operations/createenvvarenvironmentvariable.md
-  - docs/sdk/models/operations/createenvvarrequest.md
-  - docs/sdk/models/operations/createenvvarresponsebody.md
-  - docs/sdk/models/operations/createenvvarprojectenvironmentvariable.md
-  - docs/sdk/models/operations/createenvvarresponse.md
-  - docs/sdk/models/operations/deletecheckoutkeyrequest.md
-  - docs/sdk/models/operations/deletecheckoutkeyresponsebody.md
-  - docs/sdk/models/operations/deletecheckoutkeymessageresponse.md
-  - docs/sdk/models/operations/deletecheckoutkeyresponse.md
-  - docs/sdk/models/operations/deleteenvvarrequest.md
-  - docs/sdk/models/operations/deleteenvvarresponsebody.md
-  - docs/sdk/models/operations/deleteenvvarmessageresponse.md
-  - docs/sdk/models/operations/deleteenvvarresponse.md
-  - docs/sdk/models/operations/getcheckoutkeyrequest.md
-  - docs/sdk/models/operations/getcheckoutkeyresponsebody.md
-  - docs/sdk/models/operations/getcheckoutkeycheckoutkeytype.md
-  - docs/sdk/models/operations/getcheckoutkeycheckoutkey.md
-  - docs/sdk/models/operations/getcheckoutkeyresponse.md
-  - docs/sdk/models/operations/getenvvarrequest.md
-  - docs/sdk/models/operations/getenvvarresponsebody.md
-  - docs/sdk/models/operations/getenvvarenvironmentvariable.md
-  - docs/sdk/models/operations/getenvvarresponse.md
-  - docs/sdk/models/operations/getprojectbyslugrequest.md
-  - docs/sdk/models/operations/getprojectbyslugresponsebody.md
-  - docs/sdk/models/operations/provider.md
-  - docs/sdk/models/operations/vcsinfo.md
-  - docs/sdk/models/operations/getprojectbyslugproject.md
-  - docs/sdk/models/operations/getprojectbyslugresponse.md
-  - docs/sdk/models/operations/digest.md
-  - docs/sdk/models/operations/listcheckoutkeysrequest.md
-  - docs/sdk/models/operations/listcheckoutkeysresponsebody.md
-  - docs/sdk/models/operations/listcheckoutkeyscheckoutkeytype.md
-  - docs/sdk/models/operations/checkoutkey.md
-  - docs/sdk/models/operations/listcheckoutkeyscheckoutkeylistresponse.md
-  - docs/sdk/models/operations/listcheckoutkeysresponse.md
-  - docs/sdk/models/operations/listenvvarsrequest.md
-  - docs/sdk/models/operations/listenvvarsresponsebody.md
-  - docs/sdk/models/operations/environmentvariable.md
-  - docs/sdk/models/operations/listenvvarsenvironmentvariablelistresponse.md
-  - docs/sdk/models/operations/listenvvarsresponse.md
   - docs/sdk/models/operations/canceljobrequest.md
   - docs/sdk/models/operations/canceljobresponsebody.md
   - docs/sdk/models/operations/canceljobmessageresponse.md
@@ -596,6 +654,12 @@ generatedFiles:
   - docs/sdk/models/operations/rerunworkflowworkflowresponsebody.md
   - docs/sdk/models/operations/rerunworkflowresponsebody.md
   - docs/sdk/models/operations/rerunworkflowresponse.md
+  - docs/sdk/models/shared/restrictioncreated.md
+  - docs/sdk/models/shared/restrictiondeleted.md
+  - docs/sdk/models/shared/items.md
+  - docs/sdk/models/shared/contextprojectrestrictionslist.md
+  - docs/sdk/models/shared/advanced.md
+  - docs/sdk/models/shared/projectsettings.md
   - docs/sdk/models/shared/claimresponse.md
   - docs/sdk/models/shared/patchclaimsrequest.md
   - docs/sdk/models/shared/bundlediff.md
@@ -611,12 +675,12 @@ generatedFiles:
   - docs/sdk/models/shared/schemebasicauth.md
   - docs/sdks/circleci/README.md
   - docs/sdks/context/README.md
+  - docs/sdks/project/README.md
   - docs/sdks/insights/README.md
   - docs/sdks/user/README.md
   - docs/sdks/oidctokenmanagement/README.md
   - docs/sdks/policymanagement/README.md
   - docs/sdks/pipeline/README.md
-  - docs/sdks/project/README.md
   - docs/sdks/job/README.md
   - docs/sdks/schedule/README.md
   - docs/sdks/webhook/README.md

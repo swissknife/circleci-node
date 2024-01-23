@@ -9,6 +9,10 @@ import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
+/**
+ * [__EXPERIMENTAL__] Endpoints related to creating and managing a project.
+ */
+
 export class Project {
     private sdkConfiguration: SDKConfiguration;
 
@@ -222,6 +226,190 @@ export class Project {
                     res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateEnvVarResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * 🧪 Create a project
+     *
+     * @remarks
+     * [__EXPERIMENTAL__]  Creates a new CircleCI project, and returns a list of the default advanced settings. Can only be called on a repo with a main branch and an existing config.yml file. Not yet available to projects that use GitLab or GitHub App.
+     */
+    async createProject(
+        req: operations.CreateProjectRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.CreateProjectResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.CreateProjectRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/api/v2/project/{provider}/{organization}/{project}",
+            req
+        );
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: operationUrl,
+            method: "post",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.CreateProjectResponse = new operations.CreateProjectResponse({
+            statusCode: httpRes.status,
+            contentType: responseContentType,
+            rawResponse: httpRes,
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 201:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.projectSettings = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ProjectSettings
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 400:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateProjectResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 401:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateProjectProjectResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 403:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateProjectProjectResponseResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 404:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateProjectProjectResponse404ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 405:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndFiveApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateProjectProjectResponse405ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 429:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndTwentyNineApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateProjectProjectResponse429ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 500:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.CreateProjectProjectResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -704,6 +892,161 @@ export class Project {
     }
 
     /**
+     * 🧪 Get project settings
+     *
+     * @remarks
+     * [__EXPERIMENTAL__] Returns a list of the advanced settings for a CircleCI project, whether enabled (true) or not (false).
+     */
+    async getProjectSettings(
+        req: operations.GetProjectSettingsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProjectSettingsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProjectSettingsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/api/v2/project/{provider}/{organization}/{project}/settings",
+            req
+        );
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: operationUrl,
+            method: "get",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetProjectSettingsResponse =
+            new operations.GetProjectSettingsResponse({
+                statusCode: httpRes.status,
+                contentType: responseContentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.projectSettings = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ProjectSettings
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 401:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectSettingsResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 403:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectSettingsProjectResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 404:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectSettingsProjectResponseResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 429:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndTwentyNineApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectSettingsProjectResponse429ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 500:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetProjectSettingsProjectResponse500ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * Get all checkout keys
      *
      * @remarks
@@ -877,6 +1220,207 @@ export class Project {
                     res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.ListEnvVarsResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * 🧪 Update project settings
+     *
+     * @remarks
+     * [__EXPERIMENTAL__] Updates one or more of the advanced settings for a CircleCI project.
+     */
+    async patchProjectSettings(
+        req: operations.PatchProjectSettingsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.PatchProjectSettingsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.PatchProjectSettingsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/api/v2/project/{provider}/{organization}/{project}/settings",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "projectSettings", "json");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
+        if (reqBody == null) throw new Error("request body is required");
+        headers["Accept"] = "application/json";
+
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: operationUrl,
+            method: "patch",
+            headers: headers,
+            responseType: "arraybuffer",
+            data: reqBody,
+            ...config,
+        });
+
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.PatchProjectSettingsResponse =
+            new operations.PatchProjectSettingsResponse({
+                statusCode: httpRes.status,
+                contentType: responseContentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.projectSettings = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ProjectSettings
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 400:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.PatchProjectSettingsResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 401:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.PatchProjectSettingsProjectResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 403:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndThreeApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.PatchProjectSettingsProjectResponseResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 404:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.PatchProjectSettingsProjectResponse404ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 422:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndTwentyTwoApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.PatchProjectSettingsProjectResponse422ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 429:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fourHundredAndTwentyNineApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.PatchProjectSettingsProjectResponse429ResponseBody
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 500:
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.PatchProjectSettingsProjectResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
