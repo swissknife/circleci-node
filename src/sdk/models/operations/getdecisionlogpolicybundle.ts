@@ -19,45 +19,12 @@ export class GetDecisionLogPolicyBundleRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class GetDecisionLogPolicyBundlePolicyManagementResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * There was no decision log found for given decision_id, and owner_id.
  *
  * @remarks
  *
  */
 export class GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class GetDecisionLogPolicyBundlePolicyManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The request is unauthorized
- *
- * @remarks
- *
- */
-export class GetDecisionLogPolicyBundlePolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -77,58 +44,16 @@ export class GetDecisionLogPolicyBundleResponseBody extends SpeakeasyBase {
 
 export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
     /**
-     * Policy-Bundle retrieved successfully for given decision log ID
-     */
-    @SpeakeasyMetadata({ elemType: shared.Policy, elemDepth: 2 })
-    twoHundredApplicationJsonPolicyBundle?: Record<string, shared.Policy[]>;
-
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: GetDecisionLogPolicyBundleResponseBody;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponseResponseBody;
-
-    /**
-     * There was no decision log found for given decision_id, and owner_id.
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetDecisionLogPolicyBundlePolicyManagementResponse500ResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Policy-Bundle retrieved successfully for given decision log ID
+     */
+    @SpeakeasyMetadata({ elemType: shared.Policy, elemDepth: 2 })
+    policyBundle?: Record<string, shared.Policy[]>;
 
     /**
      * HTTP response status code for this operation
@@ -141,4 +66,22 @@ export class GetDecisionLogPolicyBundleResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: GetDecisionLogPolicyBundleResponseBody;
+
+    /**
+     * There was no decision log found for given decision_id, and owner_id.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object1?: GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody;
 }

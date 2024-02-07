@@ -19,39 +19,6 @@ export class SetDecisionSettingsRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class SetDecisionSettingsPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class SetDecisionSettingsPolicyManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The request is unauthorized
- *
- * @remarks
- *
- */
-export class SetDecisionSettingsPolicyManagementResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
@@ -64,39 +31,6 @@ export class SetDecisionSettingsResponseBody extends SpeakeasyBase {
 }
 
 export class SetDecisionSettingsResponse extends SpeakeasyBase {
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: SetDecisionSettingsResponseBody;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: SetDecisionSettingsPolicyManagementResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: SetDecisionSettingsPolicyManagementResponseResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: SetDecisionSettingsPolicyManagementResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -120,4 +54,13 @@ export class SetDecisionSettingsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: SetDecisionSettingsResponseBody;
 }

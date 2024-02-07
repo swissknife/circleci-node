@@ -22,45 +22,12 @@ export class GetPolicyDocumentRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class GetPolicyDocumentPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * There was no policy that was found with the given owner_id and policy name.
  *
  * @remarks
  *
  */
 export class GetPolicyDocumentPolicyManagementResponse404ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class GetPolicyDocumentPolicyManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The request is unauthorized
- *
- * @remarks
- *
- */
-export class GetPolicyDocumentPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -79,48 +46,6 @@ export class GetPolicyDocumentResponseBody extends SpeakeasyBase {
 }
 
 export class GetPolicyDocumentResponse extends SpeakeasyBase {
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: GetPolicyDocumentResponseBody;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponseResponseBody;
-
-    /**
-     * There was no policy that was found with the given owner_id and policy name.
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponse404ResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetPolicyDocumentPolicyManagementResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -144,4 +69,22 @@ export class GetPolicyDocumentResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: GetPolicyDocumentResponseBody;
+
+    /**
+     * There was no policy that was found with the given owner_id and policy name.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object1?: GetPolicyDocumentPolicyManagementResponse404ResponseBody;
 }

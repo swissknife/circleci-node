@@ -1397,3 +1397,23 @@ Based on:
 - [typescript v4.1.3] .
 ### Releases
 - [NPM v4.1.3] https://www.npmjs.com/package/circleci-v2-sdk/v/4.1.3 - .
+
+## 2024-01-23 00:45:44
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.148.0 (2.237.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v4.1.4] .
+### Releases
+- [NPM v4.1.4] https://www.npmjs.com/package/circleci-v2-sdk/v/4.1.4 - .
+
+## 2024-02-07 00:39:52
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.170.1 (2.250.12) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.0.0] .
+### Releases
+- [NPM v5.0.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.0.0 - .

@@ -22,45 +22,12 @@ export class CreatePolicyBundleRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class CreatePolicyBundlePolicyManagementResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * The request exceeds the maximum payload size for policy bundles ~2.5Mib
  *
  * @remarks
  *
  */
 export class CreatePolicyBundlePolicyManagementResponse413ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class CreatePolicyBundlePolicyManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The request is unauthorized
- *
- * @remarks
- *
- */
-export class CreatePolicyBundlePolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -79,48 +46,6 @@ export class CreatePolicyBundleResponseBody extends SpeakeasyBase {
 }
 
 export class CreatePolicyBundleResponse extends SpeakeasyBase {
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: CreatePolicyBundleResponseBody;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponseResponseBody;
-
-    /**
-     * The request exceeds the maximum payload size for policy bundles ~2.5Mib
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThirteenApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponse413ResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: CreatePolicyBundlePolicyManagementResponse500ResponseBody;
-
     /**
      * Policy-Bundle diff successfully returned.
      */
@@ -144,4 +69,22 @@ export class CreatePolicyBundleResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: CreatePolicyBundleResponseBody;
+
+    /**
+     * The request exceeds the maximum payload size for policy bundles ~2.5Mib
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object1?: CreatePolicyBundlePolicyManagementResponse413ResponseBody;
 }

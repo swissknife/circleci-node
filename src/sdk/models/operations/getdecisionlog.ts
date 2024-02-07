@@ -19,45 +19,12 @@ export class GetDecisionLogRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class GetDecisionLogPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * There was no decision log found for given decision_id, and owner_id.
  *
  * @remarks
  *
  */
 export class GetDecisionLogPolicyManagementResponse404ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class GetDecisionLogPolicyManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The request is unauthorized
- *
- * @remarks
- *
- */
-export class GetDecisionLogPolicyManagementResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error: string;
@@ -76,48 +43,6 @@ export class GetDecisionLogResponseBody extends SpeakeasyBase {
 }
 
 export class GetDecisionLogResponse extends SpeakeasyBase {
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: GetDecisionLogResponseBody;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: GetDecisionLogPolicyManagementResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: GetDecisionLogPolicyManagementResponseResponseBody;
-
-    /**
-     * There was no decision log found for given decision_id, and owner_id.
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: GetDecisionLogPolicyManagementResponse404ResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetDecisionLogPolicyManagementResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -141,4 +66,22 @@ export class GetDecisionLogResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: GetDecisionLogResponseBody;
+
+    /**
+     * There was no decision log found for given decision_id, and owner_id.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object1?: GetDecisionLogPolicyManagementResponse404ResponseBody;
 }

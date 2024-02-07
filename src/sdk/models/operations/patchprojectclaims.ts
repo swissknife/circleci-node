@@ -19,27 +19,6 @@ export class PatchProjectClaimsRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class PatchProjectClaimsOIDCTokenManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class PatchProjectClaimsOIDCTokenManagementResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
@@ -52,30 +31,6 @@ export class PatchProjectClaimsResponseBody extends SpeakeasyBase {
 }
 
 export class PatchProjectClaimsResponse extends SpeakeasyBase {
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: PatchProjectClaimsResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: PatchProjectClaimsOIDCTokenManagementResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: PatchProjectClaimsOIDCTokenManagementResponseResponseBody;
-
     /**
      * Claims successfully patched.
      */
@@ -99,4 +54,13 @@ export class PatchProjectClaimsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: PatchProjectClaimsResponseBody;
 }

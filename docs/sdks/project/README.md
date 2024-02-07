@@ -1,17 +1,24 @@
 # Project
 (*project*)
 
+## Overview
+
+[__EXPERIMENTAL__] Endpoints related to creating and managing a project.
+
 ### Available Operations
 
 * [createCheckoutKey](#createcheckoutkey) - Create a new checkout key
 * [createEnvVar](#createenvvar) - Create an environment variable
+* [createProject](#createproject) - 🧪 Create a project
 * [deleteCheckoutKey](#deletecheckoutkey) - Delete a checkout key
 * [deleteEnvVar](#deleteenvvar) - Delete an environment variable
 * [getCheckoutKey](#getcheckoutkey) - Get a checkout key
 * [getEnvVar](#getenvvar) - Get a masked environment variable
 * [getProjectBySlug](#getprojectbyslug) - Get a project
+* [getProjectSettings](#getprojectsettings) - 🧪 Get project settings
 * [listCheckoutKeys](#listcheckoutkeys) - Get all checkout keys
 * [listEnvVars](#listenvvars) - List all environment variables
+* [patchProjectSettings](#patchprojectsettings) - 🧪 Update project settings
 
 ## createCheckoutKey
 
@@ -108,6 +115,53 @@ run();
 ### Response
 
 **Promise<[operations.CreateEnvVarResponse](../../sdk/models/operations/createenvvarresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## createProject
+
+[__EXPERIMENTAL__]  Creates a new CircleCI project, and returns a list of the default advanced settings. Can only be called on a repo with a main branch and an existing config.yml file. Not yet available to projects that use GitLab or GitHub App.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.project.createProject({
+    organization: "string",
+    project: "string",
+    provider: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateProjectRequest](../../sdk/models/operations/createprojectrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.CreateProjectResponse](../../sdk/models/operations/createprojectresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -343,6 +397,53 @@ run();
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
 
+## getProjectSettings
+
+[__EXPERIMENTAL__] Returns a list of the advanced settings for a CircleCI project, whether enabled (true) or not (false).
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.project.getProjectSettings({
+    organization: "string",
+    project: "string",
+    provider: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.GetProjectSettingsRequest](../../sdk/models/operations/getprojectsettingsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+
+
+### Response
+
+**Promise<[operations.GetProjectSettingsResponse](../../sdk/models/operations/getprojectsettingsresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
 ## listCheckoutKeys
 
 Returns a sequence of checkout keys for `:project`.
@@ -428,6 +529,60 @@ run();
 ### Response
 
 **Promise<[operations.ListEnvVarsResponse](../../sdk/models/operations/listenvvarsresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## patchProjectSettings
+
+[__EXPERIMENTAL__] Updates one or more of the advanced settings for a CircleCI project.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+async function run() {
+  const sdk = new Circleci({
+    security: {
+      apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+  });
+
+  const res = await sdk.project.patchProjectSettings({
+    organization: "string",
+    project: "string",
+    projectSettings: {
+      advanced: {
+        prOnlyBranchOverrides: [
+          "string",
+        ],
+      },
+    },
+    provider: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.PatchProjectSettingsRequest](../../sdk/models/operations/patchprojectsettingsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+
+
+### Response
+
+**Promise<[operations.PatchProjectSettingsResponse](../../sdk/models/operations/patchprojectsettingsresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

@@ -16,39 +16,6 @@ export class GetPolicyBundleRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class GetPolicyBundlePolicyManagementResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class GetPolicyBundlePolicyManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The request is unauthorized
- *
- * @remarks
- *
- */
-export class GetPolicyBundlePolicyManagementResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
@@ -62,49 +29,16 @@ export class GetPolicyBundleResponseBody extends SpeakeasyBase {
 
 export class GetPolicyBundleResponse extends SpeakeasyBase {
     /**
-     * Policy-Bundle retrieved successfully.
-     */
-    @SpeakeasyMetadata({ elemType: shared.Policy, elemDepth: 2 })
-    twoHundredApplicationJsonPolicyBundle?: Record<string, shared.Policy[]>;
-
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: GetPolicyBundleResponseBody;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: GetPolicyBundlePolicyManagementResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: GetPolicyBundlePolicyManagementResponseResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetPolicyBundlePolicyManagementResponse500ResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Policy-Bundle retrieved successfully.
+     */
+    @SpeakeasyMetadata({ elemType: shared.Policy, elemDepth: 2 })
+    policyBundle?: Record<string, shared.Policy[]>;
 
     /**
      * HTTP response status code for this operation
@@ -117,4 +51,13 @@ export class GetPolicyBundleResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: GetPolicyBundleResponseBody;
 }
