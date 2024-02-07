@@ -13,27 +13,6 @@ export class GetOrgClaimsRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class GetOrgClaimsOIDCTokenManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class GetOrgClaimsOIDCTokenManagementResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
@@ -46,30 +25,6 @@ export class GetOrgClaimsResponseBody extends SpeakeasyBase {
 }
 
 export class GetOrgClaimsResponse extends SpeakeasyBase {
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: GetOrgClaimsResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: GetOrgClaimsOIDCTokenManagementResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetOrgClaimsOIDCTokenManagementResponseResponseBody;
-
     /**
      * Claims successfully fetched.
      */
@@ -93,4 +48,13 @@ export class GetOrgClaimsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: GetOrgClaimsResponseBody;
 }

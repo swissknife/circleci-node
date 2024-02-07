@@ -58,39 +58,6 @@ export class GetDecisionLogsRequest extends SpeakeasyBase {
 }
 
 /**
- * Something unexpected happened on the server.
- */
-export class GetDecisionLogsPolicyManagementResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The user is forbidden from making this request
- *
- * @remarks
- *
- */
-export class GetDecisionLogsPolicyManagementResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
- * The request is unauthorized
- *
- * @remarks
- *
- */
-export class GetDecisionLogsPolicyManagementResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error: string;
-}
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
@@ -103,45 +70,6 @@ export class GetDecisionLogsResponseBody extends SpeakeasyBase {
 }
 
 export class GetDecisionLogsResponse extends SpeakeasyBase {
-    /**
-     * Decision logs successfully retrieved.
-     */
-    @SpeakeasyMetadata({ elemType: shared.DecisionLog })
-    twoHundredApplicationJsonClasses?: shared.DecisionLog[];
-
-    /**
-     * The request is malformed (e.g, a given path parameter is invalid)
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: GetDecisionLogsResponseBody;
-
-    /**
-     * The request is unauthorized
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: GetDecisionLogsPolicyManagementResponseBody;
-
-    /**
-     * The user is forbidden from making this request
-     *
-     * @remarks
-     *
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: GetDecisionLogsPolicyManagementResponseResponseBody;
-
-    /**
-     * Something unexpected happened on the server.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetDecisionLogsPolicyManagementResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -159,4 +87,19 @@ export class GetDecisionLogsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Decision logs successfully retrieved.
+     */
+    @SpeakeasyMetadata({ elemType: shared.DecisionLog })
+    classes?: shared.DecisionLog[];
+
+    /**
+     * The request is malformed (e.g, a given path parameter is invalid)
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    object?: GetDecisionLogsResponseBody;
 }

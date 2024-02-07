@@ -34,45 +34,9 @@ export class PatchProjectSettingsRequest extends SpeakeasyBase {
 }
 
 /**
- * Internal server error.
- */
-export class PatchProjectSettingsProjectResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * API rate limits exceeded.
- */
-export class PatchProjectSettingsProjectResponse429ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
  * One or more settings provided do not exist.
  */
 export class PatchProjectSettingsProjectResponse422ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Insufficient credentials for a private project, OR the organization, project, or repository does not exist.
- */
-export class PatchProjectSettingsProjectResponse404ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * None or insufficient credentials provided.
- */
-export class PatchProjectSettingsProjectResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -104,40 +68,10 @@ export class PatchProjectSettingsResponse extends SpeakeasyBase {
     fourHundredApplicationJsonObject?: PatchProjectSettingsResponseBody;
 
     /**
-     * Credentials provided are invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: PatchProjectSettingsProjectResponseBody;
-
-    /**
-     * None or insufficient credentials provided.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: PatchProjectSettingsProjectResponseResponseBody;
-
-    /**
-     * Insufficient credentials for a private project, OR the organization, project, or repository does not exist.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: PatchProjectSettingsProjectResponse404ResponseBody;
-
-    /**
      * One or more settings provided do not exist.
      */
     @SpeakeasyMetadata()
     fourHundredAndTwentyTwoApplicationJsonObject?: PatchProjectSettingsProjectResponse422ResponseBody;
-
-    /**
-     * API rate limits exceeded.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndTwentyNineApplicationJsonObject?: PatchProjectSettingsProjectResponse429ResponseBody;
-
-    /**
-     * Internal server error.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: PatchProjectSettingsProjectResponse500ResponseBody;
 
     /**
      * HTTP response content type for this operation
@@ -156,6 +90,12 @@ export class PatchProjectSettingsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Credentials provided are invalid.
+     */
+    @SpeakeasyMetadata()
+    object?: PatchProjectSettingsProjectResponseBody;
 
     /**
      * Successful response. Always includes the full advanced settings object. Returned even when the provided updates match the existing settings, but can also be returned when `oss: true` fails to set.

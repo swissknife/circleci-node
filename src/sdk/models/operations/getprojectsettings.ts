@@ -28,42 +28,6 @@ export class GetProjectSettingsRequest extends SpeakeasyBase {
 }
 
 /**
- * Internal server error.
- */
-export class GetProjectSettingsProjectResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * API rate limits exceeded.
- */
-export class GetProjectSettingsProjectResponse429ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Insufficient credentials for a private project, OR the organization, project, or repository does not exist.
- */
-export class GetProjectSettingsProjectResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * None or insufficient credentials provided.
- */
-export class GetProjectSettingsProjectResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
  * Credentials provided are invalid.
  */
 export class GetProjectSettingsResponseBody extends SpeakeasyBase {
@@ -73,36 +37,6 @@ export class GetProjectSettingsResponseBody extends SpeakeasyBase {
 }
 
 export class GetProjectSettingsResponse extends SpeakeasyBase {
-    /**
-     * Credentials provided are invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: GetProjectSettingsResponseBody;
-
-    /**
-     * None or insufficient credentials provided.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: GetProjectSettingsProjectResponseBody;
-
-    /**
-     * Insufficient credentials for a private project, OR the organization, project, or repository does not exist.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: GetProjectSettingsProjectResponseResponseBody;
-
-    /**
-     * API rate limits exceeded.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndTwentyNineApplicationJsonObject?: GetProjectSettingsProjectResponse429ResponseBody;
-
-    /**
-     * Internal server error.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetProjectSettingsProjectResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -120,6 +54,12 @@ export class GetProjectSettingsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Credentials provided are invalid.
+     */
+    @SpeakeasyMetadata()
+    object?: GetProjectSettingsResponseBody;
 
     /**
      * Successful response.

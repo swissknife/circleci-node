@@ -334,26 +334,11 @@ export class Context {
                     );
                 }
                 break;
-            case httpRes?.status == 401:
+            case [401, 404, 429, 500].includes(httpRes?.status):
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateContextRestrictionContextResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.CreateContextRestrictionContextResponseResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -369,36 +354,6 @@ export class Context {
                     res.fourHundredAndNineApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.CreateContextRestrictionContextResponse409ResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 429:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndTwentyNineApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.CreateContextRestrictionContextResponse429ResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 500:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.CreateContextRestrictionContextResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -576,71 +531,11 @@ export class Context {
                     );
                 }
                 break;
-            case httpRes?.status == 400:
+            case [400, 401, 404, 429, 500].includes(httpRes?.status):
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.DeleteContextRestrictionResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 401:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.DeleteContextRestrictionContextResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.DeleteContextRestrictionContextResponseResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 429:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndTwentyNineApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.DeleteContextRestrictionContextResponse429ResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 500:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.DeleteContextRestrictionContextResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
@@ -916,71 +811,11 @@ export class Context {
                     );
                 }
                 break;
-            case httpRes?.status == 400:
+            case [400, 401, 404, 429, 500].includes(httpRes?.status):
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.GetContextRestrictionsResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 401:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndOneApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.GetContextRestrictionsContextResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndFourApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.GetContextRestrictionsContextResponseResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 429:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndTwentyNineApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.GetContextRestrictionsContextResponse429ResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 500:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fiveHundredApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.GetContextRestrictionsContextResponse500ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

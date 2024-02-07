@@ -25,36 +25,9 @@ export class CreateContextRestrictionRequest extends SpeakeasyBase {
 }
 
 /**
- * Internal server error.
- */
-export class CreateContextRestrictionContextResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * API rate limits exceeded.
- */
-export class CreateContextRestrictionContextResponse429ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
  * Request conflict.
  */
 export class CreateContextRestrictionContextResponse409ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Entity not found.
- */
-export class CreateContextRestrictionContextResponseResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -86,34 +59,10 @@ export class CreateContextRestrictionResponse extends SpeakeasyBase {
     fourHundredApplicationJsonObject?: CreateContextRestrictionResponseBody;
 
     /**
-     * Credentials provided are invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: CreateContextRestrictionContextResponseBody;
-
-    /**
-     * Entity not found.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: CreateContextRestrictionContextResponseResponseBody;
-
-    /**
      * Request conflict.
      */
     @SpeakeasyMetadata()
     fourHundredAndNineApplicationJsonObject?: CreateContextRestrictionContextResponse409ResponseBody;
-
-    /**
-     * API rate limits exceeded.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndTwentyNineApplicationJsonObject?: CreateContextRestrictionContextResponse429ResponseBody;
-
-    /**
-     * Internal server error.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: CreateContextRestrictionContextResponse500ResponseBody;
 
     /**
      * HTTP response content type for this operation
@@ -132,6 +81,12 @@ export class CreateContextRestrictionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Credentials provided are invalid.
+     */
+    @SpeakeasyMetadata()
+    object?: CreateContextRestrictionContextResponseBody;
 
     /**
      * Successful response.

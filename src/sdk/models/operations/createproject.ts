@@ -28,54 +28,9 @@ export class CreateProjectRequest extends SpeakeasyBase {
 }
 
 /**
- * Internal server error.
- */
-export class CreateProjectProjectResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * API rate limits exceeded.
- */
-export class CreateProjectProjectResponse429ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Create projects using the API is currently supported for classic Github OAuth and Bitbucket projects only.
- */
-export class CreateProjectProjectResponse405ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
  * Either a branch or a project were not found.
  */
 export class CreateProjectProjectResponse404ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * None or insufficient credentials provided.
- */
-export class CreateProjectProjectResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Credentials provided are invalid.
- */
-export class CreateProjectProjectResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -91,48 +46,6 @@ export class CreateProjectResponseBody extends SpeakeasyBase {
 }
 
 export class CreateProjectResponse extends SpeakeasyBase {
-    /**
-     * Unexpected request body provided.
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: CreateProjectResponseBody;
-
-    /**
-     * Credentials provided are invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: CreateProjectProjectResponseBody;
-
-    /**
-     * None or insufficient credentials provided.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndThreeApplicationJsonObject?: CreateProjectProjectResponseResponseBody;
-
-    /**
-     * Either a branch or a project were not found.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: CreateProjectProjectResponse404ResponseBody;
-
-    /**
-     * Create projects using the API is currently supported for classic Github OAuth and Bitbucket projects only.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFiveApplicationJsonObject?: CreateProjectProjectResponse405ResponseBody;
-
-    /**
-     * API rate limits exceeded.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndTwentyNineApplicationJsonObject?: CreateProjectProjectResponse429ResponseBody;
-
-    /**
-     * Internal server error.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: CreateProjectProjectResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -150,6 +63,18 @@ export class CreateProjectResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Unexpected request body provided.
+     */
+    @SpeakeasyMetadata()
+    object?: CreateProjectResponseBody;
+
+    /**
+     * Either a branch or a project were not found.
+     */
+    @SpeakeasyMetadata()
+    object1?: CreateProjectProjectResponse404ResponseBody;
 
     /**
      * Successful response.

@@ -22,42 +22,6 @@ export class DeleteContextRestrictionRequest extends SpeakeasyBase {
 }
 
 /**
- * Internal server error.
- */
-export class DeleteContextRestrictionContextResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * API rate limits exceeded.
- */
-export class DeleteContextRestrictionContextResponse429ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Entity not found.
- */
-export class DeleteContextRestrictionContextResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Credentials provided are invalid.
- */
-export class DeleteContextRestrictionContextResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
  * Context restriction ID provided is invalid.
  */
 export class DeleteContextRestrictionResponseBody extends SpeakeasyBase {
@@ -67,36 +31,6 @@ export class DeleteContextRestrictionResponseBody extends SpeakeasyBase {
 }
 
 export class DeleteContextRestrictionResponse extends SpeakeasyBase {
-    /**
-     * Context restriction ID provided is invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: DeleteContextRestrictionResponseBody;
-
-    /**
-     * Credentials provided are invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: DeleteContextRestrictionContextResponseBody;
-
-    /**
-     * Entity not found.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: DeleteContextRestrictionContextResponseResponseBody;
-
-    /**
-     * API rate limits exceeded.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndTwentyNineApplicationJsonObject?: DeleteContextRestrictionContextResponse429ResponseBody;
-
-    /**
-     * Internal server error.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: DeleteContextRestrictionContextResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -114,6 +48,12 @@ export class DeleteContextRestrictionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Context restriction ID provided is invalid.
+     */
+    @SpeakeasyMetadata()
+    object?: DeleteContextRestrictionResponseBody;
 
     /**
      * Successful response.

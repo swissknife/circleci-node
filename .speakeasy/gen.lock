@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 474467720a8f7cdfa4636d3ca4f91a4d
+  docChecksum: 700c49a96a01de446dd935a8e9ea81f5
   docVersion: v2
   speakeasyVersion: internal
-  generationVersion: 2.237.3
-  releaseVersion: 4.1.4
-  configChecksum: d7913b71d0c8e5f3ed26b309792ae994
+  generationVersion: 2.250.12
+  releaseVersion: 5.0.0
+  configChecksum: 092ffedbf7f25132155ff38454c05819
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -154,10 +154,7 @@ generatedFiles:
   - docs/sdk/models/operations/createcontextresponse.md
   - docs/sdk/models/operations/createcontextrestrictionrequestbody.md
   - docs/sdk/models/operations/createcontextrestrictionrequest.md
-  - docs/sdk/models/operations/createcontextrestrictioncontextresponse500responsebody.md
-  - docs/sdk/models/operations/createcontextrestrictioncontextresponse429responsebody.md
   - docs/sdk/models/operations/createcontextrestrictioncontextresponse409responsebody.md
-  - docs/sdk/models/operations/createcontextrestrictioncontextresponseresponsebody.md
   - docs/sdk/models/operations/createcontextrestrictioncontextresponsebody.md
   - docs/sdk/models/operations/createcontextrestrictionresponsebody.md
   - docs/sdk/models/operations/createcontextrestrictionresponse.md
@@ -166,10 +163,6 @@ generatedFiles:
   - docs/sdk/models/operations/deletecontextmessageresponse.md
   - docs/sdk/models/operations/deletecontextresponse.md
   - docs/sdk/models/operations/deletecontextrestrictionrequest.md
-  - docs/sdk/models/operations/deletecontextrestrictioncontextresponse500responsebody.md
-  - docs/sdk/models/operations/deletecontextrestrictioncontextresponse429responsebody.md
-  - docs/sdk/models/operations/deletecontextrestrictioncontextresponseresponsebody.md
-  - docs/sdk/models/operations/deletecontextrestrictioncontextresponsebody.md
   - docs/sdk/models/operations/deletecontextrestrictionresponsebody.md
   - docs/sdk/models/operations/deletecontextrestrictionresponse.md
   - docs/sdk/models/operations/deleteenvironmentvariablefromcontextrequest.md
@@ -181,10 +174,6 @@ generatedFiles:
   - docs/sdk/models/operations/getcontextcontext.md
   - docs/sdk/models/operations/getcontextresponse.md
   - docs/sdk/models/operations/getcontextrestrictionsrequest.md
-  - docs/sdk/models/operations/getcontextrestrictionscontextresponse500responsebody.md
-  - docs/sdk/models/operations/getcontextrestrictionscontextresponse429responsebody.md
-  - docs/sdk/models/operations/getcontextrestrictionscontextresponseresponsebody.md
-  - docs/sdk/models/operations/getcontextrestrictionscontextresponsebody.md
   - docs/sdk/models/operations/getcontextrestrictionsresponsebody.md
   - docs/sdk/models/operations/getcontextrestrictionsresponse.md
   - docs/sdk/models/operations/ownertype.md
@@ -211,12 +200,7 @@ generatedFiles:
   - docs/sdk/models/operations/createenvvarprojectenvironmentvariable.md
   - docs/sdk/models/operations/createenvvarresponse.md
   - docs/sdk/models/operations/createprojectrequest.md
-  - docs/sdk/models/operations/createprojectprojectresponse500responsebody.md
-  - docs/sdk/models/operations/createprojectprojectresponse429responsebody.md
-  - docs/sdk/models/operations/createprojectprojectresponse405responsebody.md
   - docs/sdk/models/operations/createprojectprojectresponse404responsebody.md
-  - docs/sdk/models/operations/createprojectprojectresponseresponsebody.md
-  - docs/sdk/models/operations/createprojectprojectresponsebody.md
   - docs/sdk/models/operations/createprojectresponsebody.md
   - docs/sdk/models/operations/createprojectresponse.md
   - docs/sdk/models/operations/deletecheckoutkeyrequest.md
@@ -243,10 +227,6 @@ generatedFiles:
   - docs/sdk/models/operations/getprojectbyslugproject.md
   - docs/sdk/models/operations/getprojectbyslugresponse.md
   - docs/sdk/models/operations/getprojectsettingsrequest.md
-  - docs/sdk/models/operations/getprojectsettingsprojectresponse500responsebody.md
-  - docs/sdk/models/operations/getprojectsettingsprojectresponse429responsebody.md
-  - docs/sdk/models/operations/getprojectsettingsprojectresponseresponsebody.md
-  - docs/sdk/models/operations/getprojectsettingsprojectresponsebody.md
   - docs/sdk/models/operations/getprojectsettingsresponsebody.md
   - docs/sdk/models/operations/getprojectsettingsresponse.md
   - docs/sdk/models/operations/digest.md
@@ -262,11 +242,7 @@ generatedFiles:
   - docs/sdk/models/operations/listenvvarsenvironmentvariablelistresponse.md
   - docs/sdk/models/operations/listenvvarsresponse.md
   - docs/sdk/models/operations/patchprojectsettingsrequest.md
-  - docs/sdk/models/operations/patchprojectsettingsprojectresponse500responsebody.md
-  - docs/sdk/models/operations/patchprojectsettingsprojectresponse429responsebody.md
   - docs/sdk/models/operations/patchprojectsettingsprojectresponse422responsebody.md
-  - docs/sdk/models/operations/patchprojectsettingsprojectresponse404responsebody.md
-  - docs/sdk/models/operations/patchprojectsettingsprojectresponseresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponse.md
@@ -362,79 +338,46 @@ generatedFiles:
   - docs/sdk/models/operations/getuseruser.md
   - docs/sdk/models/operations/getuserresponse.md
   - docs/sdk/models/operations/deleteorgclaimsrequest.md
-  - docs/sdk/models/operations/deleteorgclaimsoidctokenmanagementresponseresponsebody.md
-  - docs/sdk/models/operations/deleteorgclaimsoidctokenmanagementresponsebody.md
   - docs/sdk/models/operations/deleteorgclaimsresponsebody.md
   - docs/sdk/models/operations/deleteorgclaimsresponse.md
   - docs/sdk/models/operations/deleteprojectclaimsrequest.md
-  - docs/sdk/models/operations/deleteprojectclaimsoidctokenmanagementresponseresponsebody.md
-  - docs/sdk/models/operations/deleteprojectclaimsoidctokenmanagementresponsebody.md
   - docs/sdk/models/operations/deleteprojectclaimsresponsebody.md
   - docs/sdk/models/operations/deleteprojectclaimsresponse.md
   - docs/sdk/models/operations/getorgclaimsrequest.md
-  - docs/sdk/models/operations/getorgclaimsoidctokenmanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getorgclaimsoidctokenmanagementresponsebody.md
   - docs/sdk/models/operations/getorgclaimsresponsebody.md
   - docs/sdk/models/operations/getorgclaimsresponse.md
   - docs/sdk/models/operations/getprojectclaimsrequest.md
-  - docs/sdk/models/operations/getprojectclaimsoidctokenmanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getprojectclaimsoidctokenmanagementresponsebody.md
   - docs/sdk/models/operations/getprojectclaimsresponsebody.md
   - docs/sdk/models/operations/getprojectclaimsresponse.md
   - docs/sdk/models/operations/patchorgclaimsrequest.md
-  - docs/sdk/models/operations/patchorgclaimsoidctokenmanagementresponseresponsebody.md
-  - docs/sdk/models/operations/patchorgclaimsoidctokenmanagementresponsebody.md
   - docs/sdk/models/operations/patchorgclaimsresponsebody.md
   - docs/sdk/models/operations/patchorgclaimsresponse.md
   - docs/sdk/models/operations/patchprojectclaimsrequest.md
-  - docs/sdk/models/operations/patchprojectclaimsoidctokenmanagementresponseresponsebody.md
-  - docs/sdk/models/operations/patchprojectclaimsoidctokenmanagementresponsebody.md
   - docs/sdk/models/operations/patchprojectclaimsresponsebody.md
   - docs/sdk/models/operations/patchprojectclaimsresponse.md
   - docs/sdk/models/operations/createpolicybundlerequest.md
-  - docs/sdk/models/operations/createpolicybundlepolicymanagementresponse500responsebody.md
   - docs/sdk/models/operations/createpolicybundlepolicymanagementresponse413responsebody.md
-  - docs/sdk/models/operations/createpolicybundlepolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/createpolicybundlepolicymanagementresponsebody.md
   - docs/sdk/models/operations/createpolicybundleresponsebody.md
   - docs/sdk/models/operations/createpolicybundleresponse.md
   - docs/sdk/models/operations/getdecisionlogrequest.md
-  - docs/sdk/models/operations/getdecisionlogpolicymanagementresponse500responsebody.md
   - docs/sdk/models/operations/getdecisionlogpolicymanagementresponse404responsebody.md
-  - docs/sdk/models/operations/getdecisionlogpolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getdecisionlogpolicymanagementresponsebody.md
   - docs/sdk/models/operations/getdecisionlogresponsebody.md
   - docs/sdk/models/operations/getdecisionlogresponse.md
   - docs/sdk/models/operations/getdecisionlogpolicybundlerequest.md
-  - docs/sdk/models/operations/getdecisionlogpolicybundlepolicymanagementresponse500responsebody.md
   - docs/sdk/models/operations/getdecisionlogpolicybundlepolicymanagementresponse404responsebody.md
-  - docs/sdk/models/operations/getdecisionlogpolicybundlepolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getdecisionlogpolicybundlepolicymanagementresponsebody.md
   - docs/sdk/models/operations/getdecisionlogpolicybundleresponsebody.md
   - docs/sdk/models/operations/getdecisionlogpolicybundleresponse.md
   - docs/sdk/models/operations/getdecisionlogsrequest.md
-  - docs/sdk/models/operations/getdecisionlogspolicymanagementresponse500responsebody.md
-  - docs/sdk/models/operations/getdecisionlogspolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getdecisionlogspolicymanagementresponsebody.md
   - docs/sdk/models/operations/getdecisionlogsresponsebody.md
   - docs/sdk/models/operations/getdecisionlogsresponse.md
   - docs/sdk/models/operations/getdecisionsettingsrequest.md
-  - docs/sdk/models/operations/getdecisionsettingspolicymanagementresponse500responsebody.md
-  - docs/sdk/models/operations/getdecisionsettingspolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getdecisionsettingspolicymanagementresponsebody.md
   - docs/sdk/models/operations/getdecisionsettingsresponsebody.md
   - docs/sdk/models/operations/getdecisionsettingsresponse.md
   - docs/sdk/models/operations/getpolicybundlerequest.md
-  - docs/sdk/models/operations/getpolicybundlepolicymanagementresponse500responsebody.md
-  - docs/sdk/models/operations/getpolicybundlepolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getpolicybundlepolicymanagementresponsebody.md
   - docs/sdk/models/operations/getpolicybundleresponsebody.md
   - docs/sdk/models/operations/getpolicybundleresponse.md
   - docs/sdk/models/operations/getpolicydocumentrequest.md
-  - docs/sdk/models/operations/getpolicydocumentpolicymanagementresponse500responsebody.md
   - docs/sdk/models/operations/getpolicydocumentpolicymanagementresponse404responsebody.md
-  - docs/sdk/models/operations/getpolicydocumentpolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/getpolicydocumentpolicymanagementresponsebody.md
   - docs/sdk/models/operations/getpolicydocumentresponsebody.md
   - docs/sdk/models/operations/getpolicydocumentresponse.md
   - docs/sdk/models/operations/metadata.md
@@ -445,9 +388,6 @@ generatedFiles:
   - docs/sdk/models/operations/makedecisionresponsebody.md
   - docs/sdk/models/operations/makedecisionresponse.md
   - docs/sdk/models/operations/setdecisionsettingsrequest.md
-  - docs/sdk/models/operations/setdecisionsettingspolicymanagementresponse500responsebody.md
-  - docs/sdk/models/operations/setdecisionsettingspolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/setdecisionsettingspolicymanagementresponsebody.md
   - docs/sdk/models/operations/setdecisionsettingsresponsebody.md
   - docs/sdk/models/operations/setdecisionsettingsresponse.md
   - docs/sdk/models/operations/continuepipelinerequestbody.md

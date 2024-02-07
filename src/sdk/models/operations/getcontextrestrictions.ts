@@ -16,42 +16,6 @@ export class GetContextRestrictionsRequest extends SpeakeasyBase {
 }
 
 /**
- * Internal server error.
- */
-export class GetContextRestrictionsContextResponse500ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * API rate limits exceeded.
- */
-export class GetContextRestrictionsContextResponse429ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Entity not found.
- */
-export class GetContextRestrictionsContextResponseResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
- * Credentials provided are invalid.
- */
-export class GetContextRestrictionsContextResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
  * Context ID provided is invalid.
  */
 export class GetContextRestrictionsResponseBody extends SpeakeasyBase {
@@ -61,36 +25,6 @@ export class GetContextRestrictionsResponseBody extends SpeakeasyBase {
 }
 
 export class GetContextRestrictionsResponse extends SpeakeasyBase {
-    /**
-     * Context ID provided is invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: GetContextRestrictionsResponseBody;
-
-    /**
-     * Credentials provided are invalid.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndOneApplicationJsonObject?: GetContextRestrictionsContextResponseBody;
-
-    /**
-     * Entity not found.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndFourApplicationJsonObject?: GetContextRestrictionsContextResponseResponseBody;
-
-    /**
-     * API rate limits exceeded.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndTwentyNineApplicationJsonObject?: GetContextRestrictionsContextResponse429ResponseBody;
-
-    /**
-     * Internal server error.
-     */
-    @SpeakeasyMetadata()
-    fiveHundredApplicationJsonObject?: GetContextRestrictionsContextResponse500ResponseBody;
-
     /**
      * HTTP response content type for this operation
      */
@@ -114,4 +48,10 @@ export class GetContextRestrictionsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     contextProjectRestrictionsList?: shared.ContextProjectRestrictionsList;
+
+    /**
+     * Context ID provided is invalid.
+     */
+    @SpeakeasyMetadata()
+    object?: GetContextRestrictionsResponseBody;
 }
