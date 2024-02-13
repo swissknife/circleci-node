@@ -31,8 +31,8 @@ async function run() {
       attributionActor: AttributionActor.Current,
       name: "string",
       parameters: {
-        "deploy_prod": "string",
-        "branch": "string",
+        "deploy_prod": true,
+        "branch": "feature/design-new-api",
       },
       timetable: "string",
     },
@@ -220,8 +220,8 @@ async function run() {
     requestBody: {
       attributionActor: UpdateScheduleAttributionActor.Current,
       parameters: {
-        "deploy_prod": "string",
-        "branch": "string",
+        "deploy_prod": true,
+        "branch": "feature/design-new-api",
       },
       timetable: {
         daysOfMonth: [

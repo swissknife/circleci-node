@@ -33,7 +33,7 @@ async function run() {
     configuration: "string",
     continuationKey: "string",
     parameters: {
-      "deploy_prod": "string",
+      "deploy_prod": true,
     },
   });
 
@@ -396,7 +396,7 @@ async function run() {
     requestBody: {
       branch: "feature/design-new-api",
       parameters: {
-        "deploy_prod": "string",
+        "deploy_prod": true,
       },
       tag: "v3.1.4159",
     },

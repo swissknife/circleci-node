@@ -9,7 +9,7 @@ generation:
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
 typescript:
-  version: 5.0.0
+  version: 5.0.1
   author: Speakeasy API
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: false
