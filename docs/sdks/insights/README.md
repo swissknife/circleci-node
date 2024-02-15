@@ -31,7 +31,7 @@ async function run() {
   });
 
   const res = await sdk.insights.getAllInsightsBranches({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -77,7 +77,7 @@ async function run() {
   });
 
   const res = await sdk.insights.getFlakyTests({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -123,8 +123,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getJobTimeseries({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "<value>",
+    workflowName: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -171,7 +171,7 @@ async function run() {
   });
 
   const res = await sdk.insights.getOrgSummaryData({
-    orgSlug: "string",
+    orgSlug: "<value>",
     projectNames: {},
   });
 
@@ -218,8 +218,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowJobMetrics({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "<value>",
+    workflowName: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -265,7 +265,7 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowMetrics({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -310,8 +310,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowRuns({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "<value>",
+    workflowName: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -356,8 +356,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowTestMetrics({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "<value>",
+    workflowName: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -407,7 +407,7 @@ async function run() {
 
   const res = await sdk.insights.getProjectWorkflowsPageData({
     branches: {},
-    projectSlug: "string",
+    projectSlug: "<value>",
     workflowNames: {},
   });
 
@@ -453,8 +453,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getWorkflowSummary({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "<value>",
+    workflowName: "<value>",
   });
 
   if (res.statusCode == 200) {

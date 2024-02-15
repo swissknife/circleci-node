@@ -30,12 +30,12 @@ async function run() {
     events: [
       Events.JobCompleted,
     ],
-    name: "string",
+    name: "<value>",
     scope: {
       id: "ef8f63e3-b7d2-4240-88ac-4c59d30daac8",
       type: TypeT.Project,
     },
-    signingSecret: "string",
+    signingSecret: "<value>",
     url: "http://ragged-suppression.name",
     verifyTls: false,
   });

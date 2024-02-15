@@ -38,7 +38,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "<value>",
     });
 
     if (res.statusCode == 200) {
@@ -200,7 +200,7 @@ async function run() {
                 value: "some-secret-value",
             },
             contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-            envVarName: "string",
+            envVarName: "<value>",
         });
     } catch (err) {
         if (err instanceof errors.SDKError) {
@@ -250,7 +250,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "<value>",
     });
 
     if (res.statusCode == 200) {
@@ -282,7 +282,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "<value>",
     });
 
     if (res.statusCode == 200) {
@@ -347,7 +347,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "<value>",
     });
 
     if (res.statusCode == 200) {

@@ -29,14 +29,14 @@ async function run() {
   const res = await sdk.schedule.createSchedule({
     requestBody: {
       attributionActor: AttributionActor.Current,
-      name: "string",
+      name: "<value>",
       parameters: {
         "deploy_prod": true,
         "branch": "feature/design-new-api",
       },
-      timetable: "string",
+      timetable: "<value>",
     },
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -171,7 +171,7 @@ async function run() {
   });
 
   const res = await sdk.schedule.listSchedulesForProject({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {

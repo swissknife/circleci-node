@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 27dd323bb5dede09dbabe093743b07d9
+  docChecksum: a377d9c59a1d71a4a1680a4a28d0f202
   docVersion: v2
   speakeasyVersion: internal
-  generationVersion: 2.253.0
-  releaseVersion: 5.0.1
-  configChecksum: 2bcb7b059e5b0c3d5eef1d965284d7e0
+  generationVersion: 2.258.2
+  releaseVersion: 5.0.2
+  configChecksum: 1d76f9802a90505457b2b8a55352f299
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
   published: true
 features:
   typescript:
-    core: 3.4.6
+    core: 3.4.7
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
 generatedFiles:
@@ -247,6 +247,7 @@ generatedFiles:
   - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponse.md
   - docs/sdk/models/operations/getallinsightsbranchesrequest.md
+  - docs/sdk/models/operations/getallinsightsbranchesinsightsresponsebody.md
   - docs/sdk/models/operations/getallinsightsbranchesresponsebody.md
   - docs/sdk/models/operations/getallinsightsbranchesresponse.md
   - docs/sdk/models/operations/getflakytestsrequest.md

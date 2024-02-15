@@ -31,7 +31,7 @@ async function run() {
   });
 
   const res = await sdk.oidcTokenManagement.deleteOrgClaims({
-    claims: "string",
+    claims: "<value>",
     orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
   });
 
@@ -77,7 +77,7 @@ async function run() {
   });
 
   const res = await sdk.oidcTokenManagement.deleteProjectClaims({
-    claims: "string",
+    claims: "<value>",
     orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
     projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
   });
@@ -217,7 +217,7 @@ async function run() {
   const res = await sdk.oidcTokenManagement.patchOrgClaims({
     patchClaimsRequest: {
       audience: [
-        "string",
+        "<value>",
       ],
     },
     orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
@@ -267,7 +267,7 @@ async function run() {
   const res = await sdk.oidcTokenManagement.patchProjectClaims({
     patchClaimsRequest: {
       audience: [
-        "string",
+        "<value>",
       ],
     },
     orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
