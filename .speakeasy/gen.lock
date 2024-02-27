@@ -4,9 +4,9 @@ management:
   docChecksum: 6af7d8213ae279e941cb6cc7e8e1155b
   docVersion: v2
   speakeasyVersion: internal
-  generationVersion: 2.272.4
-  releaseVersion: 5.0.3
-  configChecksum: be55f0532ed0a3e731e654949c7792f8
+  generationVersion: 2.272.7
+  releaseVersion: 5.0.4
+  configChecksum: bb1e092506aa24f2ba427f92ac7cbec8
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -14,7 +14,7 @@ management:
 features:
   typescript:
     core: 3.4.8
-    globalSecurity: 2.82.3
+    globalSecurity: 2.82.4
     globalServerURLs: 2.82.1
 generatedFiles:
   - src/sdk/context.ts
