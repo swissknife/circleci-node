@@ -261,7 +261,7 @@ export class Project {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/api/v2/project/{provider}/{organization}/{project}",
+            "/project/{provider}/{organization}/{project}",
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
@@ -836,7 +836,7 @@ export class Project {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/api/v2/project/{provider}/{organization}/{project}/settings",
+            "/project/{provider}/{organization}/{project}/settings",
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
@@ -1120,7 +1120,7 @@ export class Project {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/api/v2/project/{provider}/{organization}/{project}/settings",
+            "/project/{provider}/{organization}/{project}/settings",
             req
         );
 

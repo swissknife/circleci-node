@@ -67,21 +67,6 @@ run();
 * [listContexts](docs/sdks/context/README.md#listcontexts) - List contexts
 * [listEnvironmentVariablesFromContext](docs/sdks/context/README.md#listenvironmentvariablesfromcontext) - List environment variables
 
-### [project](docs/sdks/project/README.md)
-
-* [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
-* [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
-* [createProject](docs/sdks/project/README.md#createproject) - 🧪 Create a project
-* [deleteCheckoutKey](docs/sdks/project/README.md#deletecheckoutkey) - Delete a checkout key
-* [deleteEnvVar](docs/sdks/project/README.md#deleteenvvar) - Delete an environment variable
-* [getCheckoutKey](docs/sdks/project/README.md#getcheckoutkey) - Get a checkout key
-* [getEnvVar](docs/sdks/project/README.md#getenvvar) - Get a masked environment variable
-* [getProjectBySlug](docs/sdks/project/README.md#getprojectbyslug) - Get a project
-* [getProjectSettings](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
-* [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
-* [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
-* [patchProjectSettings](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
-
 ### [insights](docs/sdks/insights/README.md)
 
 * [getAllInsightsBranches](docs/sdks/insights/README.md#getallinsightsbranches) - Get all branches for a project
@@ -133,6 +118,21 @@ run();
 * [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 * [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
 * [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
+
+### [project](docs/sdks/project/README.md)
+
+* [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
+* [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
+* [createProject](docs/sdks/project/README.md#createproject) - 🧪 Create a project
+* [deleteCheckoutKey](docs/sdks/project/README.md#deletecheckoutkey) - Delete a checkout key
+* [deleteEnvVar](docs/sdks/project/README.md#deleteenvvar) - Delete an environment variable
+* [getCheckoutKey](docs/sdks/project/README.md#getcheckoutkey) - Get a checkout key
+* [getEnvVar](docs/sdks/project/README.md#getenvvar) - Get a masked environment variable
+* [getProjectBySlug](docs/sdks/project/README.md#getprojectbyslug) - Get a project
+* [getProjectSettings](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
+* [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
+* [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
+* [patchProjectSettings](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
 
 ### [job](docs/sdks/job/README.md)
 

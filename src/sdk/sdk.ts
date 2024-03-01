@@ -59,9 +59,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "v2";
-    sdkVersion = "5.0.4";
-    genVersion = "2.272.7";
-    userAgent = "speakeasy-sdk/typescript 5.0.4 2.272.7 v2 circleci-v2-sdk";
+    sdkVersion = "5.0.5";
+    genVersion = "2.275.4";
+    userAgent = "speakeasy-sdk/typescript 5.0.5 2.275.4 v2 circleci-v2-sdk";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -73,10 +73,6 @@ export class SDKConfiguration {
  */
 export class Circleci {
     public context: Context;
-    /**
-     * [__EXPERIMENTAL__] Endpoints related to creating and managing a project.
-     */
-    public project: Project;
     public insights: Insights;
     public user: User;
     /**
@@ -88,6 +84,10 @@ export class Circleci {
      */
     public policyManagement: PolicyManagement;
     public pipeline: Pipeline;
+    /**
+     * [__EXPERIMENTAL__] Endpoints related to creating and managing a project.
+     */
+    public project: Project;
     public job: Job;
     public schedule: Schedule;
     public webhook: Webhook;
@@ -112,12 +112,12 @@ export class Circleci {
         });
 
         this.context = new Context(this.sdkConfiguration);
-        this.project = new Project(this.sdkConfiguration);
         this.insights = new Insights(this.sdkConfiguration);
         this.user = new User(this.sdkConfiguration);
         this.oidcTokenManagement = new OIDCTokenManagement(this.sdkConfiguration);
         this.policyManagement = new PolicyManagement(this.sdkConfiguration);
         this.pipeline = new Pipeline(this.sdkConfiguration);
+        this.project = new Project(this.sdkConfiguration);
         this.job = new Job(this.sdkConfiguration);
         this.schedule = new Schedule(this.sdkConfiguration);
         this.webhook = new Webhook(this.sdkConfiguration);
