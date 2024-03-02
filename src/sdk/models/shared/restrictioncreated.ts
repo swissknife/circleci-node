@@ -5,6 +5,14 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * Type of the restriction
+ */
+export enum RestrictionType {
+    Project = "project",
+    Expression = "expression",
+}
+
 export class RestrictionCreated extends SpeakeasyBase {
     /**
      * UUID of the project restriction
@@ -14,16 +22,42 @@ export class RestrictionCreated extends SpeakeasyBase {
     id?: string;
 
     /**
-     * Name of the project
+     * Contains a human-readable reference for the restriction. For
+     *
+     * @remarks
+     * "project" restrictions this is the name of the project.
+     *
+     * May be null.
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
 
     /**
-     * UUID of the project
+     * Deprecated - For "project" restrictions read the project ID from
+     *
+     * @remarks
+     * "restriction_value" instead.
+     *
+     * UUID of the project used in a project restriction.
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "project_id" })
     projectId?: string;
+
+    /**
+     * Type of the restriction
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "restriction_type" })
+    restrictionType?: RestrictionType;
+
+    /**
+     * Value used to evaluate the restriction
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "restriction_value" })
+    restrictionValue?: string;
 }

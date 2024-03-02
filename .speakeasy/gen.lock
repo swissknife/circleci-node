@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 196ef4794946f643a1b28a4eeffbccdf
+  docChecksum: f3683de640cde399f1d3a9fb52a0eb9d
   docVersion: v2
   speakeasyVersion: internal
-  generationVersion: 2.275.4
-  releaseVersion: 5.0.5
-  configChecksum: f526a79fdb001be7358af8638d66a0e6
+  generationVersion: 2.277.0
+  releaseVersion: 5.1.0
+  configChecksum: 68a8e0f506411dc3b00d53821307b383
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -14,6 +14,7 @@ management:
 features:
   typescript:
     core: 3.4.8
+    deprecations: 2.81.1
     globalSecurity: 2.82.4
     globalServerURLs: 2.82.1
 generatedFiles:
@@ -595,8 +596,10 @@ generatedFiles:
   - docs/sdk/models/operations/rerunworkflowworkflowresponsebody.md
   - docs/sdk/models/operations/rerunworkflowresponsebody.md
   - docs/sdk/models/operations/rerunworkflowresponse.md
+  - docs/sdk/models/shared/restrictiontype.md
   - docs/sdk/models/shared/restrictioncreated.md
   - docs/sdk/models/shared/restrictiondeleted.md
+  - docs/sdk/models/shared/contextprojectrestrictionslistrestrictiontype.md
   - docs/sdk/models/shared/items.md
   - docs/sdk/models/shared/contextprojectrestrictionslist.md
   - docs/sdk/models/shared/claimresponse.md
