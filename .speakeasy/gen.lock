@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: acad1477f43d5bd98386611b3fbcf339
+  docChecksum: 4fa0ab5720a1f81eabee703861e55790
   docVersion: v2
-  speakeasyVersion: 1.205.2
-  generationVersion: 2.279.1
-  releaseVersion: 5.1.5
-  configChecksum: 9670d58cb7e4b562a57c83115977d025
+  speakeasyVersion: 1.207.1
+  generationVersion: 2.280.6
+  releaseVersion: 5.1.6
+  configChecksum: b1606743ade6f9d531ad0dc1de6c0456
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -16,7 +16,7 @@ features:
     core: 3.4.8
     deprecations: 2.81.1
     globalSecurity: 2.82.4
-    globalServerURLs: 2.82.1
+    globalServerURLs: 2.82.2
 generatedFiles:
   - src/sdk/context.ts
   - src/sdk/insights.ts
@@ -472,7 +472,6 @@ generatedFiles:
   - docs/sdk/models/operations/listenvvarsenvironmentvariablelistresponse.md
   - docs/sdk/models/operations/listenvvarsresponse.md
   - docs/sdk/models/operations/patchprojectsettingsrequest.md
-  - docs/sdk/models/operations/patchprojectsettingsprojectresponse422responsebody.md
   - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponse.md

@@ -1193,7 +1193,7 @@ export class Project {
                 break;
             case httpRes?.status == 400:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredApplicationJsonObject = utils.objectToClass(
+                    res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PatchProjectSettingsResponseBody
                     );
@@ -1208,24 +1208,9 @@ export class Project {
                 break;
             case [401, 403, 404, 429, 500].includes(httpRes?.status):
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.object = utils.objectToClass(
+                    res.object1 = utils.objectToClass(
                         JSON.parse(decodedRes),
                         operations.PatchProjectSettingsProjectResponseBody
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + responseContentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 422:
-                if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.fourHundredAndTwentyTwoApplicationJsonObject = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.PatchProjectSettingsProjectResponse422ResponseBody
                     );
                 } else {
                     throw new errors.SDKError(
