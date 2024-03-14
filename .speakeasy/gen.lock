@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 4fa0ab5720a1f81eabee703861e55790
+  docChecksum: 7734a74ff35305667f8db182c86a465e
   docVersion: v2
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 5.1.6
-  configChecksum: b1606743ade6f9d531ad0dc1de6c0456
+  speakeasyVersion: 1.209.2
+  generationVersion: 2.281.2
+  releaseVersion: 5.1.7
+  configChecksum: d5e9fd574b89a811c117fa0cf7a37eb7
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
