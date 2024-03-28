@@ -8,9 +8,30 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class CreateContextRestrictionRequestBody extends SpeakeasyBase {
+    /**
+     * Deprecated - Use "restriction_type" and "restriction_value"
+     *
+     * @remarks
+     * instead.
+     *
+     * The project ID to use for a project restriction. This is
+     * mutually exclusive with restriction_type and restriction_value
+     * and implies restriction_type is "project".
+     *
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "project_id" })
     projectId?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "restriction_type" })
+    restrictionType?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "restriction_value" })
+    restrictionValue?: string;
 }
 
 export class CreateContextRestrictionRequest extends SpeakeasyBase {

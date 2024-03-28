@@ -44,7 +44,7 @@ async function run() {
     requestBody: {
       type: CheckoutKeyInputType.DeployKey,
     },
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -93,7 +93,7 @@ async function run() {
       name: "foo",
       value: "xxxx1234",
     },
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -138,9 +138,9 @@ async function run() {
   });
 
   const res = await sdk.project.createProject({
-    organization: "string",
-    project: "string",
-    provider: "string",
+    organization: "<value>",
+    project: "<value>",
+    provider: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -185,8 +185,8 @@ async function run() {
   });
 
   const res = await sdk.project.deleteCheckoutKey({
-    fingerprint: "string",
-    projectSlug: "string",
+    fingerprint: "<value>",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -231,8 +231,8 @@ async function run() {
   });
 
   const res = await sdk.project.deleteEnvVar({
-    name: "string",
-    projectSlug: "string",
+    name: "<value>",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -277,8 +277,8 @@ async function run() {
   });
 
   const res = await sdk.project.getCheckoutKey({
-    fingerprint: "string",
-    projectSlug: "string",
+    fingerprint: "<value>",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -323,8 +323,8 @@ async function run() {
   });
 
   const res = await sdk.project.getEnvVar({
-    name: "string",
-    projectSlug: "string",
+    name: "<value>",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -369,7 +369,7 @@ async function run() {
   });
 
   const res = await sdk.project.getProjectBySlug({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -414,9 +414,9 @@ async function run() {
   });
 
   const res = await sdk.project.getProjectSettings({
-    organization: "string",
-    project: "string",
-    provider: "string",
+    organization: "<value>",
+    project: "<value>",
+    provider: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -462,7 +462,7 @@ async function run() {
   });
 
   const res = await sdk.project.listCheckoutKeys({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -507,7 +507,7 @@ async function run() {
   });
 
   const res = await sdk.project.listEnvVars({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -552,16 +552,16 @@ async function run() {
   });
 
   const res = await sdk.project.patchProjectSettings({
-    organization: "string",
-    project: "string",
+    organization: "<value>",
+    project: "<value>",
     projectSettings: {
       advanced: {
         prOnlyBranchOverrides: [
-          "string",
+          "<value>",
         ],
       },
     },
-    provider: "string",
+    provider: "<value>",
   });
 
   if (res.statusCode == 200) {

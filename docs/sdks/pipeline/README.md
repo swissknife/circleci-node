@@ -15,7 +15,7 @@
 
 ## continuePipeline
 
-Continue a pipeline from the setup phase.
+Continue a pipeline from the setup phase. For information on using pipeline parameters with dynamic configuration, see the [Pipeline values and parameters](https://circleci.com/docs/pipeline-variables/#pipeline-parameters-and-dynamic-configuration) docs.
 
 ### Example Usage
 
@@ -30,10 +30,10 @@ async function run() {
   });
 
   const res = await sdk.pipeline.continuePipeline({
-    configuration: "string",
-    continuationKey: "string",
+    configuration: "<value>",
+    continuationKey: "<value>",
     parameters: {
-      "deploy_prod": "string",
+      "deploy_prod": true,
     },
   });
 
@@ -124,8 +124,8 @@ async function run() {
   });
 
   const res = await sdk.pipeline.getPipelineByNumber({
-    pipelineNumber: "string",
-    projectSlug: "string",
+    pipelineNumber: "<value>",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -215,7 +215,7 @@ async function run() {
   });
 
   const res = await sdk.pipeline.listMyPipelines({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -303,7 +303,7 @@ async function run() {
   });
 
   const res = await sdk.pipeline.listPipelinesForProject({
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -396,11 +396,11 @@ async function run() {
     requestBody: {
       branch: "feature/design-new-api",
       parameters: {
-        "deploy_prod": "string",
+        "deploy_prod": true,
       },
       tag: "v3.1.4159",
     },
-    projectSlug: "string",
+    projectSlug: "<value>",
   });
 
   if (res.statusCode == 200) {

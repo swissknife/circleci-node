@@ -36,11 +36,11 @@ async function run() {
   const res = await sdk.policyManagement.createPolicyBundle({
     bundlePayload: {
       policies: {
-        "key": "string",
+        "key": "<value>",
       },
     },
-    context: "string",
-    ownerID: "string",
+    context: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -85,9 +85,9 @@ async function run() {
   });
 
   const res = await sdk.policyManagement.getDecisionLog({
-    context: "string",
-    decisionID: "string",
-    ownerID: "string",
+    context: "<value>",
+    decisionID: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -132,9 +132,9 @@ async function run() {
   });
 
   const res = await sdk.policyManagement.getDecisionLogPolicyBundle({
-    context: "string",
-    decisionID: "string",
-    ownerID: "string",
+    context: "<value>",
+    decisionID: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -179,8 +179,8 @@ async function run() {
   });
 
   const res = await sdk.policyManagement.getDecisionLogs({
-    context: "string",
-    ownerID: "string",
+    context: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -225,8 +225,8 @@ async function run() {
   });
 
   const res = await sdk.policyManagement.getDecisionSettings({
-    context: "string",
-    ownerID: "string",
+    context: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -271,8 +271,8 @@ async function run() {
   });
 
   const res = await sdk.policyManagement.getPolicyBundle({
-    context: "string",
-    ownerID: "string",
+    context: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -317,9 +317,9 @@ async function run() {
   });
 
   const res = await sdk.policyManagement.getPolicyDocument({
-    context: "string",
-    ownerID: "string",
-    policyName: "string",
+    context: "<value>",
+    ownerID: "<value>",
+    policyName: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -365,11 +365,11 @@ async function run() {
 
   const res = await sdk.policyManagement.makeDecision({
     requestBody: {
-      input: "string",
+      input: "<value>",
       metadata: {},
     },
-    context: "string",
-    ownerID: "string",
+    context: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -415,8 +415,8 @@ async function run() {
 
   const res = await sdk.policyManagement.setDecisionSettings({
     decisionSettings: {},
-    context: "string",
-    ownerID: "string",
+    context: "<value>",
+    ownerID: "<value>",
   });
 
   if (res.statusCode == 200) {

@@ -20,7 +20,7 @@ export class Pipeline {
      * Continue a pipeline
      *
      * @remarks
-     * Continue a pipeline from the setup phase.
+     * Continue a pipeline from the setup phase. For information on using pipeline parameters with dynamic configuration, see the [Pipeline values and parameters](https://circleci.com/docs/pipeline-variables/#pipeline-parameters-and-dynamic-configuration) docs.
      */
     async continuePipeline(
         req: operations.ContinuePipelineRequestBody,

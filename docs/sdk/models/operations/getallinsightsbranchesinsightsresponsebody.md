@@ -1,6 +1,6 @@
-# PatchProjectSettingsProjectResponse422ResponseBody
+# GetAllInsightsBranchesInsightsResponseBody
 
-One or more settings provided do not exist.
+Error response.
 
 
 ## Fields

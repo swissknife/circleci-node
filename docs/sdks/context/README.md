@@ -35,7 +35,7 @@ async function run() {
       value: "some-secret-value",
     },
     contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-    envVarName: "string",
+    envVarName: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -80,8 +80,8 @@ async function run() {
   });
 
   const res = await sdk.context.createContext({
-    name: "string",
-    owner: "string",
+    name: "<value>",
+    owner: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -127,7 +127,7 @@ async function run() {
 
   const res = await sdk.context.createContextRestriction({
     requestBody: {},
-    contextId: "string",
+    contextId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -217,8 +217,8 @@ async function run() {
   });
 
   const res = await sdk.context.deleteContextRestriction({
-    contextId: "string",
-    restrictionId: "string",
+    contextId: "<value>",
+    restrictionId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -264,7 +264,7 @@ async function run() {
 
   const res = await sdk.context.deleteEnvironmentVariableFromContext({
     contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
-    envVarName: "string",
+    envVarName: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -354,7 +354,7 @@ async function run() {
   });
 
   const res = await sdk.context.getContextRestrictions({
-    contextId: "string",
+    contextId: "<value>",
   });
 
   if (res.statusCode == 200) {
