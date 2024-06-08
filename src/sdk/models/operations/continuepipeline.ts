@@ -22,7 +22,7 @@ export class ContinuePipelineRequestBody extends SpeakeasyBase {
     continuationKey: string;
 
     /**
-     * An object containing pipeline parameters and their values.
+     * An object containing pipeline parameters and their values. Pipeline parameters have the following size limits: 100 max entries, 128 maximum key length, 512 maximum value length.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "parameters" })

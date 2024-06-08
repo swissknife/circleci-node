@@ -44,6 +44,7 @@ export enum ListPipelinesForProjectType {
     Timeout = "timeout",
     Permission = "permission",
     Other = "other",
+    TriggerRule = "trigger-rule",
     Plan = "plan",
 }
 

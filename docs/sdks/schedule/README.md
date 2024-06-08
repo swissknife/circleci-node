@@ -29,14 +29,14 @@ async function run() {
   const res = await sdk.schedule.createSchedule({
     requestBody: {
       attributionActor: AttributionActor.Current,
-      name: "string",
+      name: "<value>",
       parameters: {
-        "deploy_prod": "string",
-        "branch": "string",
+        "deploy_prod": true,
+        "branch": "feature/design-new-api",
       },
-      timetable: "string",
+      timetable: "<value>",
     },
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -171,7 +171,7 @@ async function run() {
   });
 
   const res = await sdk.schedule.listSchedulesForProject({
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -220,8 +220,8 @@ async function run() {
     requestBody: {
       attributionActor: UpdateScheduleAttributionActor.Current,
       parameters: {
-        "deploy_prod": "string",
-        "branch": "string",
+        "deploy_prod": true,
+        "branch": "feature/design-new-api",
       },
       timetable: {
         daysOfMonth: [

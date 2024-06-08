@@ -25,8 +25,8 @@ async function run() {
   });
 
   const res = await sdk.job.cancelJob({
-    jobNumber: "string",
-    projectSlug: "string",
+    jobNumber: "123",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -71,8 +71,8 @@ async function run() {
   });
 
   const res = await sdk.job.getJobArtifacts({
-    jobNumber: "string",
-    projectSlug: "string",
+    jobNumber: "123",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -117,8 +117,8 @@ async function run() {
   });
 
   const res = await sdk.job.getJobDetails({
-    jobNumber: "string",
-    projectSlug: "string",
+    jobNumber: "123",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -163,8 +163,8 @@ async function run() {
   });
 
   const res = await sdk.job.getTests({
-    jobNumber: "string",
-    projectSlug: "string",
+    jobNumber: "123",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {

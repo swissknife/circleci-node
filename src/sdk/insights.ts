@@ -79,7 +79,10 @@ export class Insights {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.any = JSON.parse(decodedRes);
+                    res.twoHundredApplicationJsonObject = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        operations.GetAllInsightsBranchesResponseBody
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + responseContentType,
@@ -91,9 +94,9 @@ export class Insights {
                 break;
             default:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.object = utils.objectToClass(
+                    res.defaultApplicationJsonObject = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAllInsightsBranchesResponseBody
+                        operations.GetAllInsightsBranchesInsightsResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

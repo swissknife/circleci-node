@@ -23,13 +23,45 @@ export class GetAllInsightsBranchesRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class GetAllInsightsBranchesResponseBody extends SpeakeasyBase {
+export class GetAllInsightsBranchesInsightsResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 }
 
+/**
+ * Project branches response.
+ */
+export class GetAllInsightsBranchesResponseBody extends SpeakeasyBase {
+    /**
+     * A list of all the branches for a given project.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "branches" })
+    branches: string[];
+
+    /**
+     * The unique ID of the organization
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "org_id" })
+    orgId: any;
+
+    /**
+     * The unique ID of the project
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "project_id" })
+    projectId: any;
+}
+
 export class GetAllInsightsBranchesResponse extends SpeakeasyBase {
+    /**
+     * A list of branches for a project
+     */
+    @SpeakeasyMetadata()
+    twoHundredApplicationJsonObject?: GetAllInsightsBranchesResponseBody;
+
     /**
      * HTTP response content type for this operation
      */
@@ -49,14 +81,8 @@ export class GetAllInsightsBranchesResponse extends SpeakeasyBase {
     rawResponse: AxiosResponse;
 
     /**
-     * A list of branches for a project
-     */
-    @SpeakeasyMetadata()
-    any?: any;
-
-    /**
      * Error response.
      */
     @SpeakeasyMetadata()
-    object?: GetAllInsightsBranchesResponseBody;
+    defaultApplicationJsonObject?: GetAllInsightsBranchesInsightsResponseBody;
 }

@@ -31,7 +31,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getAllInsightsBranches({
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    workflowName: "build-and-test",
   });
 
   if (res.statusCode == 200) {
@@ -77,7 +78,7 @@ async function run() {
   });
 
   const res = await sdk.insights.getFlakyTests({
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -123,8 +124,11 @@ async function run() {
   });
 
   const res = await sdk.insights.getJobTimeseries({
-    projectSlug: "string",
-    workflowName: "string",
+    endDate: new Date("2020-09-04T13:26:29Z"),
+    granularity: Granularity.Hourly,
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    startDate: new Date("2020-08-21T13:26:29Z"),
+    workflowName: "build-and-test",
   });
 
   if (res.statusCode == 200) {
@@ -171,8 +175,9 @@ async function run() {
   });
 
   const res = await sdk.insights.getOrgSummaryData({
-    orgSlug: "string",
+    orgSlug: "gh/CircleCI-Public",
     projectNames: {},
+    reportingWindow: ReportingWindow.Last90Days,
   });
 
   if (res.statusCode == 200) {
@@ -218,8 +223,9 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowJobMetrics({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    reportingWindow: QueryParamReportingWindow.Last90Days,
+    workflowName: "build-and-test",
   });
 
   if (res.statusCode == 200) {
@@ -265,7 +271,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowMetrics({
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    reportingWindow: GetProjectWorkflowMetricsQueryParamReportingWindow.Last90Days,
   });
 
   if (res.statusCode == 200) {
@@ -310,8 +317,10 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowRuns({
-    projectSlug: "string",
-    workflowName: "string",
+    endDate: new Date("2020-09-04T13:26:29Z"),
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    startDate: new Date("2020-08-21T13:26:29Z"),
+    workflowName: "build-and-test",
   });
 
   if (res.statusCode == 200) {
@@ -356,8 +365,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getProjectWorkflowTestMetrics({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    workflowName: "build-and-test",
   });
 
   if (res.statusCode == 200) {
@@ -407,7 +416,8 @@ async function run() {
 
   const res = await sdk.insights.getProjectWorkflowsPageData({
     branches: {},
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    reportingWindow: GetProjectWorkflowsPageDataQueryParamReportingWindow.Last90Days,
     workflowNames: {},
   });
 
@@ -453,8 +463,8 @@ async function run() {
   });
 
   const res = await sdk.insights.getWorkflowSummary({
-    projectSlug: "string",
-    workflowName: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    workflowName: "build-and-test",
   });
 
   if (res.statusCode == 200) {

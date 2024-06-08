@@ -15,7 +15,7 @@
 
 ## continuePipeline
 
-Continue a pipeline from the setup phase.
+Continue a pipeline from the setup phase. For information on using pipeline parameters with dynamic configuration, see the [Pipeline values and parameters](https://circleci.com/docs/pipeline-variables/#pipeline-parameters-and-dynamic-configuration) docs.
 
 ### Example Usage
 
@@ -30,10 +30,10 @@ async function run() {
   });
 
   const res = await sdk.pipeline.continuePipeline({
-    configuration: "string",
-    continuationKey: "string",
+    configuration: "<value>",
+    continuationKey: "<value>",
     parameters: {
-      "deploy_prod": "string",
+      "deploy_prod": true,
     },
   });
 
@@ -79,7 +79,7 @@ async function run() {
   });
 
   const res = await sdk.pipeline.getPipelineById({
-    pipelineId: "dadb6d74-3d9d-42e4-8e5f-3f6f93bf148f",
+    pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {
@@ -124,8 +124,8 @@ async function run() {
   });
 
   const res = await sdk.pipeline.getPipelineByNumber({
-    pipelineNumber: "string",
-    projectSlug: "string",
+    pipelineNumber: "123",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -170,7 +170,7 @@ async function run() {
   });
 
   const res = await sdk.pipeline.getPipelineConfigById({
-    pipelineId: "98433987-e179-4ff4-b797-b27527d81606",
+    pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {
@@ -215,7 +215,7 @@ async function run() {
   });
 
   const res = await sdk.pipeline.listMyPipelines({
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -259,7 +259,9 @@ async function run() {
     },
   });
 
-  const res = await sdk.pipeline.listPipelines({});
+  const res = await sdk.pipeline.listPipelines({
+    orgSlug: "gh/CircleCI-Public",
+  });
 
   if (res.statusCode == 200) {
     // handle response
@@ -303,7 +305,7 @@ async function run() {
   });
 
   const res = await sdk.pipeline.listPipelinesForProject({
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {
@@ -348,7 +350,7 @@ async function run() {
   });
 
   const res = await sdk.pipeline.listWorkflowsByPipelineId({
-    pipelineId: "c0e3f0ba-dcb8-47b7-a0fb-0aa2a8dd26b5",
+    pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {
@@ -396,11 +398,11 @@ async function run() {
     requestBody: {
       branch: "feature/design-new-api",
       parameters: {
-        "deploy_prod": "string",
+        "deploy_prod": true,
       },
       tag: "v3.1.4159",
     },
-    projectSlug: "string",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
   if (res.statusCode == 200) {

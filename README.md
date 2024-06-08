@@ -38,7 +38,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "POSTGRES_USER",
     });
 
     if (res.statusCode == 200) {
@@ -66,21 +66,6 @@ run();
 * [getContextRestrictions](docs/sdks/context/README.md#getcontextrestrictions) - 🧪 Get context restrictions
 * [listContexts](docs/sdks/context/README.md#listcontexts) - List contexts
 * [listEnvironmentVariablesFromContext](docs/sdks/context/README.md#listenvironmentvariablesfromcontext) - List environment variables
-
-### [project](docs/sdks/project/README.md)
-
-* [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
-* [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
-* [createProject](docs/sdks/project/README.md#createproject) - 🧪 Create a project
-* [deleteCheckoutKey](docs/sdks/project/README.md#deletecheckoutkey) - Delete a checkout key
-* [deleteEnvVar](docs/sdks/project/README.md#deleteenvvar) - Delete an environment variable
-* [getCheckoutKey](docs/sdks/project/README.md#getcheckoutkey) - Get a checkout key
-* [getEnvVar](docs/sdks/project/README.md#getenvvar) - Get a masked environment variable
-* [getProjectBySlug](docs/sdks/project/README.md#getprojectbyslug) - Get a project
-* [getProjectSettings](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
-* [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
-* [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
-* [patchProjectSettings](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
 
 ### [insights](docs/sdks/insights/README.md)
 
@@ -110,6 +95,11 @@ run();
 * [patchOrgClaims](docs/sdks/oidctokenmanagement/README.md#patchorgclaims) - Patch org-level claims
 * [patchProjectClaims](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
 
+### [usage](docs/sdks/usage/README.md)
+
+* [createUsageExport](docs/sdks/usage/README.md#createusageexport) - Create a usage export
+* [getUsageExport](docs/sdks/usage/README.md#getusageexport) - Get a usage export
+
 ### [policyManagement](docs/sdks/policymanagement/README.md)
 
 * [createPolicyBundle](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
@@ -133,6 +123,21 @@ run();
 * [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 * [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
 * [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
+
+### [project](docs/sdks/project/README.md)
+
+* [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
+* [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
+* [createProject](docs/sdks/project/README.md#createproject) - 🧪 Create a project
+* [deleteCheckoutKey](docs/sdks/project/README.md#deletecheckoutkey) - Delete a checkout key
+* [deleteEnvVar](docs/sdks/project/README.md#deleteenvvar) - Delete an environment variable
+* [getCheckoutKey](docs/sdks/project/README.md#getcheckoutkey) - Get a checkout key
+* [getEnvVar](docs/sdks/project/README.md#getenvvar) - Get a masked environment variable
+* [getProjectBySlug](docs/sdks/project/README.md#getprojectbyslug) - Get a project
+* [getProjectSettings](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
+* [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
+* [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
+* [patchProjectSettings](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
 
 ### [job](docs/sdks/job/README.md)
 
@@ -200,7 +205,7 @@ async function run() {
                 value: "some-secret-value",
             },
             contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-            envVarName: "string",
+            envVarName: "POSTGRES_USER",
         });
     } catch (err) {
         if (err instanceof errors.SDKError) {
@@ -250,7 +255,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "POSTGRES_USER",
     });
 
     if (res.statusCode == 200) {
@@ -282,7 +287,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "POSTGRES_USER",
     });
 
     if (res.statusCode == 200) {
@@ -347,7 +352,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "POSTGRES_USER",
     });
 
     if (res.statusCode == 200) {
