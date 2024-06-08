@@ -12,4 +12,5 @@ The type of error.
 | `Timeout`     | timeout       |
 | `Permission`  | permission    |
 | `Other`       | other         |
+| `TriggerRule` | trigger-rule  |
 | `Plan`        | plan          |

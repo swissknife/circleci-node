@@ -248,7 +248,7 @@ export class Context {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/api/v2/context/{context_id}/restrictions",
+            "/context/{context_id}/restrictions",
             req
         );
 
@@ -476,7 +476,7 @@ export class Context {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/api/v2/context/{context_id}/restrictions/{restriction_id}",
+            "/context/{context_id}/restrictions/{restriction_id}",
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
@@ -756,7 +756,7 @@ export class Context {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/api/v2/context/{context_id}/restrictions",
+            "/context/{context_id}/restrictions",
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;

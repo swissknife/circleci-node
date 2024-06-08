@@ -34,15 +34,6 @@ export class PatchProjectSettingsRequest extends SpeakeasyBase {
 }
 
 /**
- * One or more settings provided do not exist.
- */
-export class PatchProjectSettingsProjectResponse422ResponseBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-}
-
-/**
  * Credentials provided are invalid.
  */
 export class PatchProjectSettingsProjectResponseBody extends SpeakeasyBase {
@@ -62,18 +53,6 @@ export class PatchProjectSettingsResponseBody extends SpeakeasyBase {
 
 export class PatchProjectSettingsResponse extends SpeakeasyBase {
     /**
-     * Request is malformed, e.g. with improperly encoded JSON
-     */
-    @SpeakeasyMetadata()
-    fourHundredApplicationJsonObject?: PatchProjectSettingsResponseBody;
-
-    /**
-     * One or more settings provided do not exist.
-     */
-    @SpeakeasyMetadata()
-    fourHundredAndTwentyTwoApplicationJsonObject?: PatchProjectSettingsProjectResponse422ResponseBody;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
@@ -92,10 +71,16 @@ export class PatchProjectSettingsResponse extends SpeakeasyBase {
     rawResponse: AxiosResponse;
 
     /**
+     * Request is malformed, e.g. with improperly encoded JSON
+     */
+    @SpeakeasyMetadata()
+    object?: PatchProjectSettingsResponseBody;
+
+    /**
      * Credentials provided are invalid.
      */
     @SpeakeasyMetadata()
-    object?: PatchProjectSettingsProjectResponseBody;
+    object1?: PatchProjectSettingsProjectResponseBody;
 
     /**
      * Successful response. Always includes the full advanced settings object. Returned even when the provided updates match the existing settings, but can also be returned when `oss: true` fails to set.

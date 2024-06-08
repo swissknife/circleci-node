@@ -27,7 +27,7 @@ async function run() {
 
   const res = await sdk.workflow.approvePendingApprovalJobById({
     approvalRequestId: "afd4e8a2-73f4-4706-8fed-d209a62dd146",
-    id: "e96a2274-8cfb-42ea-a2f3-af572e6d17e2",
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {
@@ -72,7 +72,7 @@ async function run() {
   });
 
   const res = await sdk.workflow.cancelWorkflow({
-    id: "bd1cc4a6-2f45-4453-98c5-6f84c2afb654",
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {
@@ -117,7 +117,7 @@ async function run() {
   });
 
   const res = await sdk.workflow.getWorkflowById({
-    id: "9471ae6d-5ba0-4e9c-bb5d-c99815c6257a",
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {
@@ -162,7 +162,7 @@ async function run() {
   });
 
   const res = await sdk.workflow.listWorkflowJobs({
-    id: "d4ad492c-ef34-47c2-a4b5-e4d0fd15ab40",
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {
@@ -216,7 +216,7 @@ async function run() {
       ],
       sparseTree: false,
     },
-    id: "0038409e-102a-4ccf-8dd8-307fb89c2413",
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
   if (res.statusCode == 200) {

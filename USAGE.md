@@ -14,7 +14,7 @@ async function run() {
             value: "some-secret-value",
         },
         contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "string",
+        envVarName: "POSTGRES_USER",
     });
 
     if (res.statusCode == 200) {
