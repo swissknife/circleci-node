@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: d3eacb7ed5d623a6bd7bb173c7cf70a1
+  docChecksum: 78cfb2445c35aa2a5dc54b83b575c006
   docVersion: v2
-  speakeasyVersion: 1.352.0
-  generationVersion: 2.384.4
-  releaseVersion: 5.1.1
-  configChecksum: 71a27921128a5928632cfca5bc7adb79
+  speakeasyVersion: 1.357.3
+  generationVersion: 2.390.0
+  releaseVersion: 5.1.2
+  configChecksum: 0806b6c6626634cb0688b8f262721dd3
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     core: 3.4.14
     deprecations: 2.81.1
-    globalSecurity: 2.82.5
+    globalSecurity: 2.82.6
     globalServerURLs: 2.82.2
 generatedFiles:
   - src/sdk/context.ts
@@ -111,7 +111,7 @@ generatedFiles:
   - src/sdk/models/operations/listcheckoutkeys.ts
   - src/sdk/models/operations/listenvvars.ts
   - src/sdk/models/operations/patchprojectsettings.ts
-  - src/sdk/models/operations/canceljob.ts
+  - src/sdk/models/operations/canceljobbyjobnumber.ts
   - src/sdk/models/operations/getjobartifacts.ts
   - src/sdk/models/operations/getjobdetails.ts
   - src/sdk/models/operations/gettests.ts
@@ -487,10 +487,10 @@ generatedFiles:
   - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponse.md
-  - docs/sdk/models/operations/canceljobrequest.md
-  - docs/sdk/models/operations/canceljobresponsebody.md
-  - docs/sdk/models/operations/canceljobmessageresponse.md
-  - docs/sdk/models/operations/canceljobresponse.md
+  - docs/sdk/models/operations/canceljobbyjobnumberrequest.md
+  - docs/sdk/models/operations/canceljobbyjobnumberresponsebody.md
+  - docs/sdk/models/operations/canceljobbyjobnumbermessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobnumberresponse.md
   - docs/sdk/models/operations/getjobartifactsrequest.md
   - docs/sdk/models/operations/getjobartifactsresponsebody.md
   - docs/sdk/models/operations/artifact.md

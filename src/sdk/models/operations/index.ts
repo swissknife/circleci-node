@@ -4,7 +4,7 @@
 
 export * from "./addenvironmentvariabletocontext";
 export * from "./approvependingapprovaljobbyid";
-export * from "./canceljob";
+export * from "./canceljobbyjobnumber";
 export * from "./cancelworkflow";
 export * from "./continuepipeline";
 export * from "./createcheckoutkey";

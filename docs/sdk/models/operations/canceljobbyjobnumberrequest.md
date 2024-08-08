@@ -1,4 +1,4 @@
-# CancelJobRequest
+# CancelJobByJobNumberRequest
 
 
 ## Fields

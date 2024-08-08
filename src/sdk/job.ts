@@ -17,17 +17,17 @@ export class Job {
     }
 
     /**
-     * Cancel job
+     * Cancel job by job number
      *
      * @remarks
      * Cancel job with a given job number.
      */
-    async cancelJob(
-        req: operations.CancelJobRequest,
+    async cancelJobByJobNumber(
+        req: operations.CancelJobByJobNumberRequest,
         config?: AxiosRequestConfig
-    ): Promise<operations.CancelJobResponse> {
+    ): Promise<operations.CancelJobByJobNumberResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CancelJobRequest(req);
+            req = new operations.CancelJobByJobNumberRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -68,18 +68,19 @@ export class Job {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.CancelJobResponse = new operations.CancelJobResponse({
-            statusCode: httpRes.status,
-            contentType: responseContentType,
-            rawResponse: httpRes,
-        });
+        const res: operations.CancelJobByJobNumberResponse =
+            new operations.CancelJobByJobNumberResponse({
+                statusCode: httpRes.status,
+                contentType: responseContentType,
+                rawResponse: httpRes,
+            });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.messageResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CancelJobMessageResponse
+                        operations.CancelJobByJobNumberMessageResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -94,7 +95,7 @@ export class Job {
                 if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.object = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.CancelJobResponseBody
+                        operations.CancelJobByJobNumberResponseBody
                     );
                 } else {
                     throw new errors.SDKError(

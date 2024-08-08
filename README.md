@@ -141,7 +141,7 @@ run();
 
 ### [job](docs/sdks/job/README.md)
 
-* [cancelJob](docs/sdks/job/README.md#canceljob) - Cancel job
+* [cancelJobByJobNumber](docs/sdks/job/README.md#canceljobbyjobnumber) - Cancel job by job number
 * [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
 * [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
 * [getTests](docs/sdks/job/README.md#gettests) - Get test metadata

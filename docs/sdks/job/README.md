@@ -3,12 +3,12 @@
 
 ### Available Operations
 
-* [cancelJob](#canceljob) - Cancel job
+* [cancelJobByJobNumber](#canceljobbyjobnumber) - Cancel job by job number
 * [getJobArtifacts](#getjobartifacts) - Get a job's artifacts
 * [getJobDetails](#getjobdetails) - Get job details
 * [getTests](#gettests) - Get test metadata
 
-## cancelJob
+## cancelJobByJobNumber
 
 Cancel job with a given job number.
 
@@ -24,7 +24,7 @@ async function run() {
     },
   });
 
-  const res = await sdk.job.cancelJob({
+  const res = await sdk.job.cancelJobByJobNumber({
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
@@ -39,15 +39,15 @@ run();
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.CancelJobRequest](../../sdk/models/operations/canceljobrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.CancelJobByJobNumberRequest](../../sdk/models/operations/canceljobbyjobnumberrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
 
-**Promise<[operations.CancelJobResponse](../../sdk/models/operations/canceljobresponse.md)>**
+**Promise<[operations.CancelJobByJobNumberResponse](../../sdk/models/operations/canceljobbyjobnumberresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

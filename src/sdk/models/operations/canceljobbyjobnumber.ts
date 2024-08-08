@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class CancelJobRequest extends SpeakeasyBase {
+export class CancelJobByJobNumberRequest extends SpeakeasyBase {
     /**
      * The number of the job.
      */
@@ -23,7 +23,7 @@ export class CancelJobRequest extends SpeakeasyBase {
 /**
  * Error response.
  */
-export class CancelJobResponseBody extends SpeakeasyBase {
+export class CancelJobByJobNumberResponseBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
@@ -32,7 +32,7 @@ export class CancelJobResponseBody extends SpeakeasyBase {
 /**
  * message response
  */
-export class CancelJobMessageResponse extends SpeakeasyBase {
+export class CancelJobByJobNumberMessageResponse extends SpeakeasyBase {
     /**
      * A human-readable message
      */
@@ -41,7 +41,7 @@ export class CancelJobMessageResponse extends SpeakeasyBase {
     message: string;
 }
 
-export class CancelJobResponse extends SpeakeasyBase {
+export class CancelJobByJobNumberResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */
@@ -49,7 +49,7 @@ export class CancelJobResponse extends SpeakeasyBase {
     contentType: string;
 
     @SpeakeasyMetadata()
-    messageResponse?: CancelJobMessageResponse;
+    messageResponse?: CancelJobByJobNumberMessageResponse;
 
     /**
      * HTTP response status code for this operation
@@ -67,5 +67,5 @@ export class CancelJobResponse extends SpeakeasyBase {
      * Error response.
      */
     @SpeakeasyMetadata()
-    object?: CancelJobResponseBody;
+    object?: CancelJobByJobNumberResponseBody;
 }

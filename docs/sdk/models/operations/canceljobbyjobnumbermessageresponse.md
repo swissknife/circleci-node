@@ -1,4 +1,4 @@
-# CancelJobMessageResponse
+# CancelJobByJobNumberMessageResponse
 
 message response
 
