@@ -1,12 +1,17 @@
 # GetPipelineByNumberResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                   | *string*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response content type for this operation                                                                   |
-| `pipeline`                                                                                                      | [operations.GetPipelineByNumberPipeline](../../../sdk/models/operations/getpipelinebynumberpipeline.md)         | :heavy_minus_sign:                                                                                              | A pipeline object.                                                                                              |
-| `statusCode`                                                                                                    | *number*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response status code for this operation                                                                    |
-| `rawResponse`                                                                                                   | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                         | :heavy_check_mark:                                                                                              | Raw HTTP response; suitable for custom response parsing                                                         |
-| `object`                                                                                                        | [operations.GetPipelineByNumberResponseBody](../../../sdk/models/operations/getpipelinebynumberresponsebody.md) | :heavy_minus_sign:                                                                                              | Error response.                                                                                                 |
+### `operations.GetPipelineByNumberPipeline`
+
+```typescript
+const value: operations.GetPipelineByNumberPipeline = /* values here */
+```
+
+### `operations.GetPipelineByNumberResponseBody`
+
+```typescript
+const value: operations.GetPipelineByNumberResponseBody = /* values here */
+```
+

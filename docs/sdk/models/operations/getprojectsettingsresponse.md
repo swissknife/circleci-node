@@ -1,12 +1,17 @@
 # GetProjectSettingsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                 | *string*                                                                                                      | :heavy_check_mark:                                                                                            | HTTP response content type for this operation                                                                 |
-| `statusCode`                                                                                                  | *number*                                                                                                      | :heavy_check_mark:                                                                                            | HTTP response status code for this operation                                                                  |
-| `rawResponse`                                                                                                 | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                       | :heavy_check_mark:                                                                                            | Raw HTTP response; suitable for custom response parsing                                                       |
-| `object`                                                                                                      | [operations.GetProjectSettingsResponseBody](../../../sdk/models/operations/getprojectsettingsresponsebody.md) | :heavy_minus_sign:                                                                                            | Credentials provided are invalid.                                                                             |
-| `projectSettings`                                                                                             | [shared.ProjectSettings](../../../sdk/models/shared/projectsettings.md)                                       | :heavy_minus_sign:                                                                                            | Successful response.                                                                                          |
+### `operations.GetProjectSettingsResponseBody`
+
+```typescript
+const value: operations.GetProjectSettingsResponseBody = /* values here */
+```
+
+### `shared.ProjectSettings`
+
+```typescript
+const value: shared.ProjectSettings = /* values here */
+```
+

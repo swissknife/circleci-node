@@ -1,12 +1,17 @@
 # ContinuePipelineResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                   | *string*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response content type for this operation                                                                   |
-| `messageResponse`                                                                                               | [operations.ContinuePipelineMessageResponse](../../../sdk/models/operations/continuepipelinemessageresponse.md) | :heavy_minus_sign:                                                                                              | A confirmation message.                                                                                         |
-| `statusCode`                                                                                                    | *number*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response status code for this operation                                                                    |
-| `rawResponse`                                                                                                   | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                         | :heavy_check_mark:                                                                                              | Raw HTTP response; suitable for custom response parsing                                                         |
-| `object`                                                                                                        | [operations.ContinuePipelineResponseBody](../../../sdk/models/operations/continuepipelineresponsebody.md)       | :heavy_minus_sign:                                                                                              | Error response.                                                                                                 |
+### `operations.ContinuePipelineMessageResponse`
+
+```typescript
+const value: operations.ContinuePipelineMessageResponse = /* values here */
+```
+
+### `operations.ContinuePipelineResponseBody`
+
+```typescript
+const value: operations.ContinuePipelineResponseBody = /* values here */
+```
+

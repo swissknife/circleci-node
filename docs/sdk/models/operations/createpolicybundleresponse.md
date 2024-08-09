@@ -1,13 +1,23 @@
 # CreatePolicyBundleResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                                               | Type                                                                                                                                                                | Required                                                                                                                                                            | Description                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bundleDiff`                                                                                                                                                        | [shared.BundleDiff](../../../sdk/models/shared/bundlediff.md)                                                                                                       | :heavy_minus_sign:                                                                                                                                                  | Policy-Bundle diff successfully returned.                                                                                                                           |
-| `contentType`                                                                                                                                                       | *string*                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                  | HTTP response content type for this operation                                                                                                                       |
-| `statusCode`                                                                                                                                                        | *number*                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                  | HTTP response status code for this operation                                                                                                                        |
-| `rawResponse`                                                                                                                                                       | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                                             | :heavy_check_mark:                                                                                                                                                  | Raw HTTP response; suitable for custom response parsing                                                                                                             |
-| `object`                                                                                                                                                            | [operations.CreatePolicyBundleResponseBody](../../../sdk/models/operations/createpolicybundleresponsebody.md)                                                       | :heavy_minus_sign:                                                                                                                                                  | The request is malformed (e.g, a given path parameter is invalid)<br/>                                                                                              |
-| `object1`                                                                                                                                                           | [operations.CreatePolicyBundlePolicyManagementResponse413ResponseBody](../../../sdk/models/operations/createpolicybundlepolicymanagementresponse413responsebody.md) | :heavy_minus_sign:                                                                                                                                                  | The request exceeds the maximum payload size for policy bundles ~2.5Mib<br/>                                                                                        |
+### `shared.BundleDiff`
+
+```typescript
+const value: shared.BundleDiff = /* values here */
+```
+
+### `operations.CreatePolicyBundleResponseBody`
+
+```typescript
+const value: operations.CreatePolicyBundleResponseBody = /* values here */
+```
+
+### `operations.CreatePolicyBundlePolicyManagementResponse413ResponseBody`
+
+```typescript
+const value: operations.CreatePolicyBundlePolicyManagementResponse413ResponseBody = /* values here */
+```
+

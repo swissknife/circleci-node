@@ -1,12 +1,17 @@
 # DeleteEnvVarResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                           | *string*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response content type for this operation                                                           |
-| `messageResponse`                                                                                       | [operations.DeleteEnvVarMessageResponse](../../../sdk/models/operations/deleteenvvarmessageresponse.md) | :heavy_minus_sign:                                                                                      | A confirmation message.                                                                                 |
-| `statusCode`                                                                                            | *number*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response status code for this operation                                                            |
-| `rawResponse`                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                 | :heavy_check_mark:                                                                                      | Raw HTTP response; suitable for custom response parsing                                                 |
-| `object`                                                                                                | [operations.DeleteEnvVarResponseBody](../../../sdk/models/operations/deleteenvvarresponsebody.md)       | :heavy_minus_sign:                                                                                      | Error response.                                                                                         |
+### `operations.DeleteEnvVarMessageResponse`
+
+```typescript
+const value: operations.DeleteEnvVarMessageResponse = /* values here */
+```
+
+### `operations.DeleteEnvVarResponseBody`
+
+```typescript
+const value: operations.DeleteEnvVarResponseBody = /* values here */
+```
+

@@ -1,12 +1,17 @@
 # CreateEnvVarResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                         | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | HTTP response content type for this operation                                                                                 |
-| `environmentVariable`                                                                                                         | [operations.CreateEnvVarProjectEnvironmentVariable](../../../sdk/models/operations/createenvvarprojectenvironmentvariable.md) | :heavy_minus_sign:                                                                                                            | The environment variable.                                                                                                     |
-| `statusCode`                                                                                                                  | *number*                                                                                                                      | :heavy_check_mark:                                                                                                            | HTTP response status code for this operation                                                                                  |
-| `rawResponse`                                                                                                                 | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                       | :heavy_check_mark:                                                                                                            | Raw HTTP response; suitable for custom response parsing                                                                       |
-| `object`                                                                                                                      | [operations.CreateEnvVarResponseBody](../../../sdk/models/operations/createenvvarresponsebody.md)                             | :heavy_minus_sign:                                                                                                            | Error response.                                                                                                               |
+### `operations.CreateEnvVarProjectEnvironmentVariable`
+
+```typescript
+const value: operations.CreateEnvVarProjectEnvironmentVariable = /* values here */
+```
+
+### `operations.CreateEnvVarResponseBody`
+
+```typescript
+const value: operations.CreateEnvVarResponseBody = /* values here */
+```
+

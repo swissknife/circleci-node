@@ -1,13 +1,23 @@
 # GetPolicyDocumentResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                                             | Type                                                                                                                                                              | Required                                                                                                                                                          | Description                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                                                                     | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | HTTP response content type for this operation                                                                                                                     |
-| `policy`                                                                                                                                                          | [shared.Policy](../../../sdk/models/shared/policy.md)                                                                                                             | :heavy_minus_sign:                                                                                                                                                | Policy retrieved successfully.                                                                                                                                    |
-| `statusCode`                                                                                                                                                      | *number*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | HTTP response status code for this operation                                                                                                                      |
-| `rawResponse`                                                                                                                                                     | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                                           | :heavy_check_mark:                                                                                                                                                | Raw HTTP response; suitable for custom response parsing                                                                                                           |
-| `object`                                                                                                                                                          | [operations.GetPolicyDocumentResponseBody](../../../sdk/models/operations/getpolicydocumentresponsebody.md)                                                       | :heavy_minus_sign:                                                                                                                                                | The request is malformed (e.g, a given path parameter is invalid)<br/>                                                                                            |
-| `object1`                                                                                                                                                         | [operations.GetPolicyDocumentPolicyManagementResponse404ResponseBody](../../../sdk/models/operations/getpolicydocumentpolicymanagementresponse404responsebody.md) | :heavy_minus_sign:                                                                                                                                                | There was no policy that was found with the given owner_id and policy name.<br/>                                                                                  |
+### `shared.Policy`
+
+```typescript
+const value: shared.Policy = /* values here */
+```
+
+### `operations.GetPolicyDocumentResponseBody`
+
+```typescript
+const value: operations.GetPolicyDocumentResponseBody = /* values here */
+```
+
+### `operations.GetPolicyDocumentPolicyManagementResponse404ResponseBody`
+
+```typescript
+const value: operations.GetPolicyDocumentPolicyManagementResponse404ResponseBody = /* values here */
+```
+

@@ -23,21 +23,20 @@ Deletes org-level custom claims of OIDC identity tokens
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.oidcTokenManagement.deleteOrgClaims({
+async function run() {
+  const result = await circleci.oidcTokenManagement.deleteOrgClaims({
     claims: "<value>",
     orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -45,15 +44,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.DeleteOrgClaimsRequest](../../sdk/models/operations/deleteorgclaimsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteOrgClaimsRequest](../../sdk/models/operations/deleteorgclaimsrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.DeleteOrgClaimsResponse](../../sdk/models/operations/deleteorgclaimsresponse.md)>**
+**Promise\<[operations.DeleteOrgClaimsResponse](../../sdk/models/operations/deleteorgclaimsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -69,22 +70,21 @@ Deletes project-level custom claims of OIDC identity tokens
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.oidcTokenManagement.deleteProjectClaims({
+async function run() {
+  const result = await circleci.oidcTokenManagement.deleteProjectClaims({
     claims: "<value>",
     orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
     projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -92,15 +92,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.DeleteProjectClaimsRequest](../../sdk/models/operations/deleteprojectclaimsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteProjectClaimsRequest](../../sdk/models/operations/deleteprojectclaimsrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.DeleteProjectClaimsResponse](../../sdk/models/operations/deleteprojectclaimsresponse.md)>**
+**Promise\<[operations.DeleteProjectClaimsResponse](../../sdk/models/operations/deleteprojectclaimsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -116,20 +118,19 @@ Fetches org-level custom claims of OIDC identity tokens
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.oidcTokenManagement.getOrgClaims({
+async function run() {
+  const result = await circleci.oidcTokenManagement.getOrgClaims({
     orgID: "faa87345-442f-4070-a007-ecf098342349",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -137,15 +138,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetOrgClaimsRequest](../../sdk/models/operations/getorgclaimsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetOrgClaimsRequest](../../sdk/models/operations/getorgclaimsrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetOrgClaimsResponse](../../sdk/models/operations/getorgclaimsresponse.md)>**
+**Promise\<[operations.GetOrgClaimsResponse](../../sdk/models/operations/getorgclaimsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -161,21 +164,20 @@ Fetches project-level custom claims of OIDC identity tokens
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.oidcTokenManagement.getProjectClaims({
+async function run() {
+  const result = await circleci.oidcTokenManagement.getProjectClaims({
     orgID: "01345488-5416-440e-9811-7333cda41eee",
     projectID: "17124405-51b9-4707-91e2-d3024606dad9",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -183,15 +185,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetProjectClaimsRequest](../../sdk/models/operations/getprojectclaimsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetProjectClaimsRequest](../../sdk/models/operations/getprojectclaimsrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetProjectClaimsResponse](../../sdk/models/operations/getprojectclaimsresponse.md)>**
+**Promise\<[operations.GetProjectClaimsResponse](../../sdk/models/operations/getprojectclaimsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -207,25 +211,19 @@ Creates/Updates org-level custom claims of OIDC identity tokens
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.oidcTokenManagement.patchOrgClaims({
-    patchClaimsRequest: {
-      audience: [
-        "<value>",
-      ],
-    },
+async function run() {
+  const result = await circleci.oidcTokenManagement.patchOrgClaims({
     orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -233,15 +231,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.PatchOrgClaimsRequest](../../sdk/models/operations/patchorgclaimsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchOrgClaimsRequest](../../sdk/models/operations/patchorgclaimsrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.PatchOrgClaimsResponse](../../sdk/models/operations/patchorgclaimsresponse.md)>**
+**Promise\<[operations.PatchOrgClaimsResponse](../../sdk/models/operations/patchorgclaimsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -257,26 +257,20 @@ Creates/Updates project-level custom claims of OIDC identity tokens
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.oidcTokenManagement.patchProjectClaims({
-    patchClaimsRequest: {
-      audience: [
-        "<value>",
-      ],
-    },
+async function run() {
+  const result = await circleci.oidcTokenManagement.patchProjectClaims({
     orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
     projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -284,15 +278,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.PatchProjectClaimsRequest](../../sdk/models/operations/patchprojectclaimsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.PatchProjectClaimsRequest](../../sdk/models/operations/patchprojectclaimsrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.PatchProjectClaimsResponse](../../sdk/models/operations/patchprojectclaimsresponse.md)>**
+**Promise\<[operations.PatchProjectClaimsResponse](../../sdk/models/operations/patchprojectclaimsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

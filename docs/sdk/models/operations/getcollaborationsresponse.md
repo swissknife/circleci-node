@@ -1,12 +1,17 @@
 # GetCollaborationsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                               | *string*                                                                                                    | :heavy_check_mark:                                                                                          | HTTP response content type for this operation                                                               |
-| `statusCode`                                                                                                | *number*                                                                                                    | :heavy_check_mark:                                                                                          | HTTP response status code for this operation                                                                |
-| `rawResponse`                                                                                               | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                     | :heavy_check_mark:                                                                                          | Raw HTTP response; suitable for custom response parsing                                                     |
-| `classes`                                                                                                   | [operations.Collaboration](../../../sdk/models/operations/collaboration.md)[]                               | :heavy_minus_sign:                                                                                          | Collaborations                                                                                              |
-| `object`                                                                                                    | [operations.GetCollaborationsResponseBody](../../../sdk/models/operations/getcollaborationsresponsebody.md) | :heavy_minus_sign:                                                                                          | Error response.                                                                                             |
+### `operations.Collaboration[]`
+
+```typescript
+const value: operations.Collaboration[] = /* values here */
+```
+
+### `operations.GetCollaborationsResponseBody`
+
+```typescript
+const value: operations.GetCollaborationsResponseBody = /* values here */
+```
+

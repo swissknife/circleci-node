@@ -1,12 +1,17 @@
 # DeleteEnvironmentVariableFromContextResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                                   | Type                                                                                                                                                    | Required                                                                                                                                                | Description                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                                                           | *string*                                                                                                                                                | :heavy_check_mark:                                                                                                                                      | HTTP response content type for this operation                                                                                                           |
-| `messageResponse`                                                                                                                                       | [operations.DeleteEnvironmentVariableFromContextMessageResponse](../../../sdk/models/operations/deleteenvironmentvariablefromcontextmessageresponse.md) | :heavy_minus_sign:                                                                                                                                      | A confirmation message                                                                                                                                  |
-| `statusCode`                                                                                                                                            | *number*                                                                                                                                                | :heavy_check_mark:                                                                                                                                      | HTTP response status code for this operation                                                                                                            |
-| `rawResponse`                                                                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                                 | :heavy_check_mark:                                                                                                                                      | Raw HTTP response; suitable for custom response parsing                                                                                                 |
-| `object`                                                                                                                                                | [operations.DeleteEnvironmentVariableFromContextResponseBody](../../../sdk/models/operations/deleteenvironmentvariablefromcontextresponsebody.md)       | :heavy_minus_sign:                                                                                                                                      | Error response.                                                                                                                                         |
+### `operations.DeleteEnvironmentVariableFromContextMessageResponse`
+
+```typescript
+const value: operations.DeleteEnvironmentVariableFromContextMessageResponse = /* values here */
+```
+
+### `operations.DeleteEnvironmentVariableFromContextResponseBody`
+
+```typescript
+const value: operations.DeleteEnvironmentVariableFromContextResponseBody = /* values here */
+```
+

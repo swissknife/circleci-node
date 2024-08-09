@@ -1,13 +1,16 @@
 # GetPipelineByIdType
 
-The type of trigger.
+The type of error.
 
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `ScheduledPipeline` | scheduled_pipeline  |
-| `Explicit`          | explicit            |
-| `Api`               | api                 |
-| `Webhook`           | webhook             |
+| Name          | Value         |
+| ------------- | ------------- |
+| `Config`      | config        |
+| `ConfigFetch` | config-fetch  |
+| `Timeout`     | timeout       |
+| `Permission`  | permission    |
+| `Other`       | other         |
+| `TriggerRule` | trigger-rule  |
+| `Plan`        | plan          |

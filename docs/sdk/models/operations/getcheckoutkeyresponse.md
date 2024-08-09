@@ -1,12 +1,17 @@
 # GetCheckoutKeyResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `checkoutKey`                                                                                         | [operations.GetCheckoutKeyCheckoutKey](../../../sdk/models/operations/getcheckoutkeycheckoutkey.md)   | :heavy_minus_sign:                                                                                    | The checkout key.                                                                                     |
-| `contentType`                                                                                         | *string*                                                                                              | :heavy_check_mark:                                                                                    | HTTP response content type for this operation                                                         |
-| `statusCode`                                                                                          | *number*                                                                                              | :heavy_check_mark:                                                                                    | HTTP response status code for this operation                                                          |
-| `rawResponse`                                                                                         | [AxiosResponse](https://axios-http.com/docs/res_schema)                                               | :heavy_check_mark:                                                                                    | Raw HTTP response; suitable for custom response parsing                                               |
-| `object`                                                                                              | [operations.GetCheckoutKeyResponseBody](../../../sdk/models/operations/getcheckoutkeyresponsebody.md) | :heavy_minus_sign:                                                                                    | Error response.                                                                                       |
+### `operations.GetCheckoutKeyCheckoutKey`
+
+```typescript
+const value: operations.GetCheckoutKeyCheckoutKey = /* values here */
+```
+
+### `operations.GetCheckoutKeyResponseBody`
+
+```typescript
+const value: operations.GetCheckoutKeyResponseBody = /* values here */
+```
+

@@ -23,14 +23,14 @@ Create or update an environment variable within a context. Returns information a
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.addEnvironmentVariableToContext({
+async function run() {
+  const result = await circleci.context.addEnvironmentVariableToContext({
     requestBody: {
       value: "some-secret-value",
     },
@@ -38,9 +38,8 @@ async function run() {
     envVarName: "POSTGRES_USER",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -48,15 +47,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                  | [operations.AddEnvironmentVariableToContextRequest](../../sdk/models/operations/addenvironmentvariabletocontextrequest.md) | :heavy_check_mark:                                                                                                         | The request object to use for the request.                                                                                 |
-| `config`                                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                               | :heavy_minus_sign:                                                                                                         | Available config options for making requests.                                                                              |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.AddEnvironmentVariableToContextRequest](../../sdk/models/operations/addenvironmentvariabletocontextrequest.md)                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.AddEnvironmentVariableToContextResponse](../../sdk/models/operations/addenvironmentvariabletocontextresponse.md)>**
+**Promise\<[operations.AddEnvironmentVariableToContextResponse](../../sdk/models/operations/addenvironmentvariabletocontextresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -72,21 +73,22 @@ Creates a new context.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
-
-  const res = await sdk.context.createContext({
+  const result = await circleci.context.createContext({
     name: "<value>",
-    owner: "<value>",
+  owner:     {
+        slug: "<value>",
+      },
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -94,15 +96,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CreateContextRequestBody](../../sdk/models/operations/createcontextrequestbody.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateContextRequestBody](../../sdk/models/operations/createcontextrequestbody.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.CreateContextResponse](../../sdk/models/operations/createcontextresponse.md)>**
+**Promise\<[operations.CreateContextResponse](../../sdk/models/operations/createcontextresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -118,21 +122,24 @@ run();
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.createContextRestriction({
-    requestBody: {},
+async function run() {
+  const result = await circleci.context.createContextRestriction({
+    requestBody: {
+      projectId: "405d8375-3514-403b-8c43-83ae74cfe0e9",
+      restrictionType: "project",
+      restrictionValue: "405d8375-3514-403b-8c43-83ae74cfe0e9",
+    },
     contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -140,15 +147,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.CreateContextRestrictionRequest](../../sdk/models/operations/createcontextrestrictionrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateContextRestrictionRequest](../../sdk/models/operations/createcontextrestrictionrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.CreateContextRestrictionResponse](../../sdk/models/operations/createcontextrestrictionresponse.md)>**
+**Promise\<[operations.CreateContextRestrictionResponse](../../sdk/models/operations/createcontextrestrictionresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -164,20 +173,19 @@ Delete a context
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.deleteContext({
+async function run() {
+  const result = await circleci.context.deleteContext({
     contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -185,15 +193,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteContextRequest](../../sdk/models/operations/deletecontextrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteContextRequest](../../sdk/models/operations/deletecontextrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.DeleteContextResponse](../../sdk/models/operations/deletecontextresponse.md)>**
+**Promise\<[operations.DeleteContextResponse](../../sdk/models/operations/deletecontextresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -209,21 +219,20 @@ run();
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.deleteContextRestriction({
+async function run() {
+  const result = await circleci.context.deleteContextRestriction({
     contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
     restrictionId: "1c23d2cb-07b1-4a28-8af3-e369732050ed",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -231,15 +240,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.DeleteContextRestrictionRequest](../../sdk/models/operations/deletecontextrestrictionrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteContextRestrictionRequest](../../sdk/models/operations/deletecontextrestrictionrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.DeleteContextRestrictionResponse](../../sdk/models/operations/deletecontextrestrictionresponse.md)>**
+**Promise\<[operations.DeleteContextRestrictionResponse](../../sdk/models/operations/deletecontextrestrictionresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -255,21 +266,20 @@ Delete an environment variable from a context.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.deleteEnvironmentVariableFromContext({
+async function run() {
+  const result = await circleci.context.deleteEnvironmentVariableFromContext({
     contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
     envVarName: "POSTGRES_USER",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -277,15 +287,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                            | Type                                                                                                                                 | Required                                                                                                                             | Description                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                            | [operations.DeleteEnvironmentVariableFromContextRequest](../../sdk/models/operations/deleteenvironmentvariablefromcontextrequest.md) | :heavy_check_mark:                                                                                                                   | The request object to use for the request.                                                                                           |
-| `config`                                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                         | :heavy_minus_sign:                                                                                                                   | Available config options for making requests.                                                                                        |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteEnvironmentVariableFromContextRequest](../../sdk/models/operations/deleteenvironmentvariablefromcontextrequest.md)                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.DeleteEnvironmentVariableFromContextResponse](../../sdk/models/operations/deleteenvironmentvariablefromcontextresponse.md)>**
+**Promise\<[operations.DeleteEnvironmentVariableFromContextResponse](../../sdk/models/operations/deleteenvironmentvariablefromcontextresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -301,20 +313,19 @@ Returns basic information about a context.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.getContext({
+async function run() {
+  const result = await circleci.context.getContext({
     contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -322,15 +333,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.GetContextRequest](../../sdk/models/operations/getcontextrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetContextRequest](../../sdk/models/operations/getcontextrequest.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetContextResponse](../../sdk/models/operations/getcontextresponse.md)>**
+**Promise\<[operations.GetContextResponse](../../sdk/models/operations/getcontextresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -346,20 +359,19 @@ run();
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.getContextRestrictions({
+async function run() {
+  const result = await circleci.context.getContextRestrictions({
     contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -367,15 +379,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GetContextRestrictionsRequest](../../sdk/models/operations/getcontextrestrictionsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetContextRestrictionsRequest](../../sdk/models/operations/getcontextrestrictionsrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetContextRestrictionsResponse](../../sdk/models/operations/getcontextrestrictionsresponse.md)>**
+**Promise\<[operations.GetContextRestrictionsResponse](../../sdk/models/operations/getcontextrestrictionsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -390,20 +404,18 @@ List all contexts for an owner.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { OwnerType } from "circleci-v2-sdk/dist/sdk/models/operations";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+  const result = await circleci.context.listContexts({});
 
-  const res = await sdk.context.listContexts({});
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -411,15 +423,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.ListContextsRequest](../../sdk/models/operations/listcontextsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListContextsRequest](../../sdk/models/operations/listcontextsrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ListContextsResponse](../../sdk/models/operations/listcontextsresponse.md)>**
+**Promise\<[operations.ListContextsResponse](../../sdk/models/operations/listcontextsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -435,20 +449,19 @@ List information about environment variables in a context, not including their v
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.context.listEnvironmentVariablesFromContext({
+async function run() {
+  const result = await circleci.context.listEnvironmentVariablesFromContext({
     contextId: "bd93f37e-8737-476a-be63-944592b835e7",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -456,15 +469,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                          | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                          | [operations.ListEnvironmentVariablesFromContextRequest](../../sdk/models/operations/listenvironmentvariablesfromcontextrequest.md) | :heavy_check_mark:                                                                                                                 | The request object to use for the request.                                                                                         |
-| `config`                                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                       | :heavy_minus_sign:                                                                                                                 | Available config options for making requests.                                                                                      |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListEnvironmentVariablesFromContextRequest](../../sdk/models/operations/listenvironmentvariablesfromcontextrequest.md)                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ListEnvironmentVariablesFromContextResponse](../../sdk/models/operations/listenvironmentvariablesfromcontextresponse.md)>**
+**Promise\<[operations.ListEnvironmentVariablesFromContextResponse](../../sdk/models/operations/listenvironmentvariablesfromcontextresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

@@ -22,14 +22,14 @@ Continue a pipeline from the setup phase. For information on using pipeline para
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.continuePipeline({
+async function run() {
+  const result = await circleci.pipeline.continuePipeline({
     configuration: "<value>",
     continuationKey: "<value>",
     parameters: {
@@ -37,9 +37,8 @@ async function run() {
     },
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -47,15 +46,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.ContinuePipelineRequestBody](../../sdk/models/operations/continuepipelinerequestbody.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ContinuePipelineRequestBody](../../sdk/models/operations/continuepipelinerequestbody.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ContinuePipelineResponse](../../sdk/models/operations/continuepipelineresponse.md)>**
+**Promise\<[operations.ContinuePipelineResponse](../../sdk/models/operations/continuepipelineresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -71,20 +72,19 @@ Returns a pipeline by the pipeline ID.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.getPipelineById({
+async function run() {
+  const result = await circleci.pipeline.getPipelineById({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -92,15 +92,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetPipelineByIdRequest](../../sdk/models/operations/getpipelinebyidrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetPipelineByIdRequest](../../sdk/models/operations/getpipelinebyidrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetPipelineByIdResponse](../../sdk/models/operations/getpipelinebyidresponse.md)>**
+**Promise\<[operations.GetPipelineByIdResponse](../../sdk/models/operations/getpipelinebyidresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -116,21 +118,20 @@ Returns a pipeline by the pipeline number.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.getPipelineByNumber({
+async function run() {
+  const result = await circleci.pipeline.getPipelineByNumber({
     pipelineNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -138,15 +139,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.GetPipelineByNumberRequest](../../sdk/models/operations/getpipelinebynumberrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetPipelineByNumberRequest](../../sdk/models/operations/getpipelinebynumberrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetPipelineByNumberResponse](../../sdk/models/operations/getpipelinebynumberresponse.md)>**
+**Promise\<[operations.GetPipelineByNumberResponse](../../sdk/models/operations/getpipelinebynumberresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -162,20 +165,19 @@ Returns a pipeline's configuration by ID.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.getPipelineConfigById({
+async function run() {
+  const result = await circleci.pipeline.getPipelineConfigById({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -183,15 +185,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.GetPipelineConfigByIdRequest](../../sdk/models/operations/getpipelineconfigbyidrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetPipelineConfigByIdRequest](../../sdk/models/operations/getpipelineconfigbyidrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetPipelineConfigByIdResponse](../../sdk/models/operations/getpipelineconfigbyidresponse.md)>**
+**Promise\<[operations.GetPipelineConfigByIdResponse](../../sdk/models/operations/getpipelineconfigbyidresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -207,20 +211,19 @@ Returns a sequence of all pipelines for this project triggered by the user.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.listMyPipelines({
+async function run() {
+  const result = await circleci.pipeline.listMyPipelines({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -228,15 +231,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.ListMyPipelinesRequest](../../sdk/models/operations/listmypipelinesrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListMyPipelinesRequest](../../sdk/models/operations/listmypipelinesrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ListMyPipelinesResponse](../../sdk/models/operations/listmypipelinesresponse.md)>**
+**Promise\<[operations.ListMyPipelinesResponse](../../sdk/models/operations/listmypipelinesresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -252,20 +257,19 @@ Returns all pipelines for the most recently built projects (max 250) you follow 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.listPipelines({
+async function run() {
+  const result = await circleci.pipeline.listPipelines({
     orgSlug: "gh/CircleCI-Public",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -273,15 +277,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.ListPipelinesRequest](../../sdk/models/operations/listpipelinesrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListPipelinesRequest](../../sdk/models/operations/listpipelinesrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ListPipelinesResponse](../../sdk/models/operations/listpipelinesresponse.md)>**
+**Promise\<[operations.ListPipelinesResponse](../../sdk/models/operations/listpipelinesresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -297,20 +303,19 @@ Returns all pipelines for this project.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.listPipelinesForProject({
+async function run() {
+  const result = await circleci.pipeline.listPipelinesForProject({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -318,15 +323,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.ListPipelinesForProjectRequest](../../sdk/models/operations/listpipelinesforprojectrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListPipelinesForProjectRequest](../../sdk/models/operations/listpipelinesforprojectrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ListPipelinesForProjectResponse](../../sdk/models/operations/listpipelinesforprojectresponse.md)>**
+**Promise\<[operations.ListPipelinesForProjectResponse](../../sdk/models/operations/listpipelinesforprojectresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -342,20 +349,19 @@ Returns a paginated list of workflows by pipeline ID.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.listWorkflowsByPipelineId({
+async function run() {
+  const result = await circleci.pipeline.listWorkflowsByPipelineId({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -363,15 +369,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                      | [operations.ListWorkflowsByPipelineIdRequest](../../sdk/models/operations/listworkflowsbypipelineidrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ListWorkflowsByPipelineIdRequest](../../sdk/models/operations/listworkflowsbypipelineidrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ListWorkflowsByPipelineIdResponse](../../sdk/models/operations/listworkflowsbypipelineidresponse.md)>**
+**Promise\<[operations.ListWorkflowsByPipelineIdResponse](../../sdk/models/operations/listworkflowsbypipelineidresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -387,14 +395,14 @@ Not yet available to projects that use GitLab or GitHub App. Triggers a new pipe
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.pipeline.triggerPipeline({
+async function run() {
+  const result = await circleci.pipeline.triggerPipeline({
     requestBody: {
       branch: "feature/design-new-api",
       parameters: {
@@ -405,9 +413,8 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -415,15 +422,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.TriggerPipelineRequest](../../sdk/models/operations/triggerpipelinerequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.TriggerPipelineRequest](../../sdk/models/operations/triggerpipelinerequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.TriggerPipelineResponse](../../sdk/models/operations/triggerpipelineresponse.md)>**
+**Promise\<[operations.TriggerPipelineResponse](../../sdk/models/operations/triggerpipelineresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

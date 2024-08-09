@@ -2,14 +2,14 @@
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-    const sdk = new Circleci({
-        security: {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        },
-    });
+const circleci = new Circleci({
+    security: {
+        apiKeyHeader: "<YOUR_API_KEY_HERE>",
+    },
+});
 
-    const res = await sdk.context.addEnvironmentVariableToContext({
+async function run() {
+    const result = await circleci.context.addEnvironmentVariableToContext({
         requestBody: {
             value: "some-secret-value",
         },
@@ -17,9 +17,8 @@ async function run() {
         envVarName: "POSTGRES_USER",
     });
 
-    if (res.statusCode == 200) {
-        // handle response
-    }
+    // Handle the result
+    console.log(result);
 }
 
 run();

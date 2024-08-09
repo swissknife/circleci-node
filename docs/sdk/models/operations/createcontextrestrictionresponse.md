@@ -1,14 +1,29 @@
 # CreateContextRestrictionResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                                         | Type                                                                                                                                                          | Required                                                                                                                                                      | Description                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fourHundredApplicationJsonObject`                                                                                                                            | [operations.CreateContextRestrictionResponseBody](../../../sdk/models/operations/createcontextrestrictionresponsebody.md)                                     | :heavy_minus_sign:                                                                                                                                            | Bad request.                                                                                                                                                  |
-| `fourHundredAndNineApplicationJsonObject`                                                                                                                     | [operations.CreateContextRestrictionContextResponse409ResponseBody](../../../sdk/models/operations/createcontextrestrictioncontextresponse409responsebody.md) | :heavy_minus_sign:                                                                                                                                            | Request conflict.                                                                                                                                             |
-| `contentType`                                                                                                                                                 | *string*                                                                                                                                                      | :heavy_check_mark:                                                                                                                                            | HTTP response content type for this operation                                                                                                                 |
-| `statusCode`                                                                                                                                                  | *number*                                                                                                                                                      | :heavy_check_mark:                                                                                                                                            | HTTP response status code for this operation                                                                                                                  |
-| `rawResponse`                                                                                                                                                 | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                                       | :heavy_check_mark:                                                                                                                                            | Raw HTTP response; suitable for custom response parsing                                                                                                       |
-| `object`                                                                                                                                                      | [operations.CreateContextRestrictionContextResponseBody](../../../sdk/models/operations/createcontextrestrictioncontextresponsebody.md)                       | :heavy_minus_sign:                                                                                                                                            | Credentials provided are invalid.                                                                                                                             |
-| `restrictionCreated`                                                                                                                                          | [shared.RestrictionCreated](../../../sdk/models/shared/restrictioncreated.md)                                                                                 | :heavy_minus_sign:                                                                                                                                            | Successful response.                                                                                                                                          |
+### `operations.CreateContextRestrictionResponseBody`
+
+```typescript
+const value: operations.CreateContextRestrictionResponseBody = /* values here */
+```
+
+### `operations.CreateContextRestrictionContextResponse409ResponseBody`
+
+```typescript
+const value: operations.CreateContextRestrictionContextResponse409ResponseBody = /* values here */
+```
+
+### `operations.CreateContextRestrictionContextResponseBody`
+
+```typescript
+const value: operations.CreateContextRestrictionContextResponseBody = /* values here */
+```
+
+### `shared.RestrictionCreated`
+
+```typescript
+const value: shared.RestrictionCreated = /* values here */
+```
+

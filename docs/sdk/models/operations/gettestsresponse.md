@@ -1,12 +1,17 @@
 # GetTestsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `contentType`                                                                               | *string*                                                                                    | :heavy_check_mark:                                                                          | HTTP response content type for this operation                                               |
-| `statusCode`                                                                                | *number*                                                                                    | :heavy_check_mark:                                                                          | HTTP response status code for this operation                                                |
-| `rawResponse`                                                                               | [AxiosResponse](https://axios-http.com/docs/res_schema)                                     | :heavy_check_mark:                                                                          | Raw HTTP response; suitable for custom response parsing                                     |
-| `testsResponse`                                                                             | [operations.GetTestsTestsResponse](../../../sdk/models/operations/getteststestsresponse.md) | :heavy_minus_sign:                                                                          | A paginated list of test results.                                                           |
-| `object`                                                                                    | [operations.GetTestsResponseBody](../../../sdk/models/operations/gettestsresponsebody.md)   | :heavy_minus_sign:                                                                          | Error response.                                                                             |
+### `operations.GetTestsTestsResponse`
+
+```typescript
+const value: operations.GetTestsTestsResponse = /* values here */
+```
+
+### `operations.GetTestsResponseBody`
+
+```typescript
+const value: operations.GetTestsResponseBody = /* values here */
+```
+

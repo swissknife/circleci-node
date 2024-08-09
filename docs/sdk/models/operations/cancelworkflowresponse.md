@@ -1,12 +1,17 @@
 # CancelWorkflowResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                               | *string*                                                                                                    | :heavy_check_mark:                                                                                          | HTTP response content type for this operation                                                               |
-| `messageResponse`                                                                                           | [operations.CancelWorkflowMessageResponse](../../../sdk/models/operations/cancelworkflowmessageresponse.md) | :heavy_minus_sign:                                                                                          | A confirmation message.                                                                                     |
-| `statusCode`                                                                                                | *number*                                                                                                    | :heavy_check_mark:                                                                                          | HTTP response status code for this operation                                                                |
-| `rawResponse`                                                                                               | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                     | :heavy_check_mark:                                                                                          | Raw HTTP response; suitable for custom response parsing                                                     |
-| `object`                                                                                                    | [operations.CancelWorkflowResponseBody](../../../sdk/models/operations/cancelworkflowresponsebody.md)       | :heavy_minus_sign:                                                                                          | Error response.                                                                                             |
+### `operations.CancelWorkflowMessageResponse`
+
+```typescript
+const value: operations.CancelWorkflowMessageResponse = /* values here */
+```
+
+### `operations.CancelWorkflowResponseBody`
+
+```typescript
+const value: operations.CancelWorkflowResponseBody = /* values here */
+```
+

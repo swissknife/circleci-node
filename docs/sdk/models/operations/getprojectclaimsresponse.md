@@ -1,12 +1,17 @@
 # GetProjectClaimsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                     | Type                                                                                                      | Required                                                                                                  | Description                                                                                               |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `claimResponse`                                                                                           | [shared.ClaimResponse](../../../sdk/models/shared/claimresponse.md)                                       | :heavy_minus_sign:                                                                                        | Claims successfully fetched.                                                                              |
-| `contentType`                                                                                             | *string*                                                                                                  | :heavy_check_mark:                                                                                        | HTTP response content type for this operation                                                             |
-| `statusCode`                                                                                              | *number*                                                                                                  | :heavy_check_mark:                                                                                        | HTTP response status code for this operation                                                              |
-| `rawResponse`                                                                                             | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                   | :heavy_check_mark:                                                                                        | Raw HTTP response; suitable for custom response parsing                                                   |
-| `object`                                                                                                  | [operations.GetProjectClaimsResponseBody](../../../sdk/models/operations/getprojectclaimsresponsebody.md) | :heavy_minus_sign:                                                                                        | The request is malformed (e.g, a given path parameter is invalid)<br/>                                    |
+### `shared.ClaimResponse`
+
+```typescript
+const value: shared.ClaimResponse = /* values here */
+```
+
+### `operations.GetProjectClaimsResponseBody`
+
+```typescript
+const value: operations.GetProjectClaimsResponseBody = /* values here */
+```
+

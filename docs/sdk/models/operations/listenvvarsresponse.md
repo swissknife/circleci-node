@@ -1,12 +1,17 @@
 # ListEnvVarsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                 | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                                         | *string*                                                                                                                              | :heavy_check_mark:                                                                                                                    | HTTP response content type for this operation                                                                                         |
-| `environmentVariableListResponse`                                                                                                     | [operations.ListEnvVarsEnvironmentVariableListResponse](../../../sdk/models/operations/listenvvarsenvironmentvariablelistresponse.md) | :heavy_minus_sign:                                                                                                                    | A sequence of environment variables.                                                                                                  |
-| `statusCode`                                                                                                                          | *number*                                                                                                                              | :heavy_check_mark:                                                                                                                    | HTTP response status code for this operation                                                                                          |
-| `rawResponse`                                                                                                                         | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                               | :heavy_check_mark:                                                                                                                    | Raw HTTP response; suitable for custom response parsing                                                                               |
-| `object`                                                                                                                              | [operations.ListEnvVarsResponseBody](../../../sdk/models/operations/listenvvarsresponsebody.md)                                       | :heavy_minus_sign:                                                                                                                    | Error response.                                                                                                                       |
+### `operations.ListEnvVarsEnvironmentVariableListResponse`
+
+```typescript
+const value: operations.ListEnvVarsEnvironmentVariableListResponse = /* values here */
+```
+
+### `operations.ListEnvVarsResponseBody`
+
+```typescript
+const value: operations.ListEnvVarsResponseBody = /* values here */
+```
+

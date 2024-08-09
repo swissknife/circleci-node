@@ -17,21 +17,20 @@ Cancel job with a given job number.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.job.cancelJobByJobNumber({
+async function run() {
+  const result = await circleci.job.cancelJobByJobNumber({
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -39,15 +38,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.CancelJobByJobNumberRequest](../../sdk/models/operations/canceljobbyjobnumberrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CancelJobByJobNumberRequest](../../sdk/models/operations/canceljobbyjobnumberrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.CancelJobByJobNumberResponse](../../sdk/models/operations/canceljobbyjobnumberresponse.md)>**
+**Promise\<[operations.CancelJobByJobNumberResponse](../../sdk/models/operations/canceljobbyjobnumberresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -63,21 +64,20 @@ Returns a job's artifacts.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.job.getJobArtifacts({
+async function run() {
+  const result = await circleci.job.getJobArtifacts({
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -85,15 +85,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetJobArtifactsRequest](../../sdk/models/operations/getjobartifactsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetJobArtifactsRequest](../../sdk/models/operations/getjobartifactsrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetJobArtifactsResponse](../../sdk/models/operations/getjobartifactsresponse.md)>**
+**Promise\<[operations.GetJobArtifactsResponse](../../sdk/models/operations/getjobartifactsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -109,21 +111,20 @@ Returns job details.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.job.getJobDetails({
+async function run() {
+  const result = await circleci.job.getJobDetails({
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -131,15 +132,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetJobDetailsRequest](../../sdk/models/operations/getjobdetailsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetJobDetailsRequest](../../sdk/models/operations/getjobdetailsrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetJobDetailsResponse](../../sdk/models/operations/getjobdetailsresponse.md)>**
+**Promise\<[operations.GetJobDetailsResponse](../../sdk/models/operations/getjobdetailsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
@@ -155,21 +158,20 @@ Get test metadata for a build. In the rare case where there is more than 250MB o
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
-  const res = await sdk.job.getTests({
+async function run() {
+  const result = await circleci.job.getTests({
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -177,15 +179,17 @@ run();
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetTestsRequest](../../sdk/models/operations/gettestsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetTestsRequest](../../sdk/models/operations/gettestsrequest.md)                                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetTestsResponse](../../sdk/models/operations/gettestsresponse.md)>**
+**Promise\<[operations.GetTestsResponse](../../sdk/models/operations/gettestsresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
