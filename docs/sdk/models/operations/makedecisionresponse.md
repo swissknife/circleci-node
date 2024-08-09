@@ -1,14 +1,29 @@
 # MakeDecisionResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                             | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fourHundredApplicationJsonObject`                                                                                                                | [operations.MakeDecisionResponseBody](../../../sdk/models/operations/makedecisionresponsebody.md)                                                 | :heavy_minus_sign:                                                                                                                                | The request is malformed<br/>                                                                                                                     |
-| `fourHundredAndOneApplicationJsonObject`                                                                                                          | [operations.MakeDecisionPolicyManagementResponseBody](../../../sdk/models/operations/makedecisionpolicymanagementresponsebody.md)                 | :heavy_minus_sign:                                                                                                                                | The request is unauthorized<br/>                                                                                                                  |
-| `fiveHundredApplicationJsonObject`                                                                                                                | [operations.MakeDecisionPolicyManagementResponseResponseBody](../../../sdk/models/operations/makedecisionpolicymanagementresponseresponsebody.md) | :heavy_minus_sign:                                                                                                                                | Something unexpected happened on the server.                                                                                                      |
-| `contentType`                                                                                                                                     | *string*                                                                                                                                          | :heavy_check_mark:                                                                                                                                | HTTP response content type for this operation                                                                                                     |
-| `decision`                                                                                                                                        | [shared.Decision](../../../sdk/models/shared/decision.md)                                                                                         | :heavy_minus_sign:                                                                                                                                | Decision rendered by applying the policy against the provided data. Response will be modeled by the data and rego processed.                      |
-| `statusCode`                                                                                                                                      | *number*                                                                                                                                          | :heavy_check_mark:                                                                                                                                | HTTP response status code for this operation                                                                                                      |
-| `rawResponse`                                                                                                                                     | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                           | :heavy_check_mark:                                                                                                                                | Raw HTTP response; suitable for custom response parsing                                                                                           |
+### `operations.MakeDecisionResponseBody`
+
+```typescript
+const value: operations.MakeDecisionResponseBody = /* values here */
+```
+
+### `operations.MakeDecisionPolicyManagementResponseBody`
+
+```typescript
+const value: operations.MakeDecisionPolicyManagementResponseBody = /* values here */
+```
+
+### `operations.MakeDecisionPolicyManagementResponseResponseBody`
+
+```typescript
+const value: operations.MakeDecisionPolicyManagementResponseResponseBody = /* values here */
+```
+
+### `shared.Decision`
+
+```typescript
+const value: shared.Decision = /* values here */
+```
+

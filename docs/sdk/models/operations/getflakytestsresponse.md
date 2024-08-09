@@ -1,12 +1,17 @@
 # GetFlakyTestsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                               | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                   | [operations.GetFlakyTestsResponseBody](../../../sdk/models/operations/getflakytestsresponsebody.md)                 | :heavy_minus_sign:                                                                                                  | A list of flaky tests for a project                                                                                 |
-| `contentType`                                                                                                       | *string*                                                                                                            | :heavy_check_mark:                                                                                                  | HTTP response content type for this operation                                                                       |
-| `statusCode`                                                                                                        | *number*                                                                                                            | :heavy_check_mark:                                                                                                  | HTTP response status code for this operation                                                                        |
-| `rawResponse`                                                                                                       | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                             | :heavy_check_mark:                                                                                                  | Raw HTTP response; suitable for custom response parsing                                                             |
-| `defaultApplicationJsonObject`                                                                                      | [operations.GetFlakyTestsInsightsResponseBody](../../../sdk/models/operations/getflakytestsinsightsresponsebody.md) | :heavy_minus_sign:                                                                                                  | Error response.                                                                                                     |
+### `operations.GetFlakyTestsResponseBody`
+
+```typescript
+const value: operations.GetFlakyTestsResponseBody = /* values here */
+```
+
+### `operations.GetFlakyTestsInsightsResponseBody`
+
+```typescript
+const value: operations.GetFlakyTestsInsightsResponseBody = /* values here */
+```
+

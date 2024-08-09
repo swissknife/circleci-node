@@ -1,13 +1,23 @@
 # GetDecisionLogResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                                       | Type                                                                                                                                                        | Required                                                                                                                                                    | Description                                                                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                                                               | *string*                                                                                                                                                    | :heavy_check_mark:                                                                                                                                          | HTTP response content type for this operation                                                                                                               |
-| `decisionLog`                                                                                                                                               | [shared.DecisionLog](../../../sdk/models/shared/decisionlog.md)                                                                                             | :heavy_minus_sign:                                                                                                                                          | Decision log successfully retrieved.                                                                                                                        |
-| `statusCode`                                                                                                                                                | *number*                                                                                                                                                    | :heavy_check_mark:                                                                                                                                          | HTTP response status code for this operation                                                                                                                |
-| `rawResponse`                                                                                                                                               | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                                     | :heavy_check_mark:                                                                                                                                          | Raw HTTP response; suitable for custom response parsing                                                                                                     |
-| `object`                                                                                                                                                    | [operations.GetDecisionLogResponseBody](../../../sdk/models/operations/getdecisionlogresponsebody.md)                                                       | :heavy_minus_sign:                                                                                                                                          | The request is malformed (e.g, a given path parameter is invalid)<br/>                                                                                      |
-| `object1`                                                                                                                                                   | [operations.GetDecisionLogPolicyManagementResponse404ResponseBody](../../../sdk/models/operations/getdecisionlogpolicymanagementresponse404responsebody.md) | :heavy_minus_sign:                                                                                                                                          | There was no decision log found for given decision_id, and owner_id.<br/>                                                                                   |
+### `shared.DecisionLog`
+
+```typescript
+const value: shared.DecisionLog = /* values here */
+```
+
+### `operations.GetDecisionLogResponseBody`
+
+```typescript
+const value: operations.GetDecisionLogResponseBody = /* values here */
+```
+
+### `operations.GetDecisionLogPolicyManagementResponse404ResponseBody`
+
+```typescript
+const value: operations.GetDecisionLogPolicyManagementResponse404ResponseBody = /* values here */
+```
+

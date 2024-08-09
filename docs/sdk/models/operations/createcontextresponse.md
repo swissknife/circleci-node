@@ -1,12 +1,17 @@
 # CreateContextResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                       | *string*                                                                                            | :heavy_check_mark:                                                                                  | HTTP response content type for this operation                                                       |
-| `context`                                                                                           | [operations.CreateContextContext](../../../sdk/models/operations/createcontextcontext.md)           | :heavy_minus_sign:                                                                                  | The new context                                                                                     |
-| `statusCode`                                                                                        | *number*                                                                                            | :heavy_check_mark:                                                                                  | HTTP response status code for this operation                                                        |
-| `rawResponse`                                                                                       | [AxiosResponse](https://axios-http.com/docs/res_schema)                                             | :heavy_check_mark:                                                                                  | Raw HTTP response; suitable for custom response parsing                                             |
-| `object`                                                                                            | [operations.CreateContextResponseBody](../../../sdk/models/operations/createcontextresponsebody.md) | :heavy_minus_sign:                                                                                  | Error response.                                                                                     |
+### `operations.CreateContextContext`
+
+```typescript
+const value: operations.CreateContextContext = /* values here */
+```
+
+### `operations.CreateContextResponseBody`
+
+```typescript
+const value: operations.CreateContextResponseBody = /* values here */
+```
+

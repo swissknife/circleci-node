@@ -1,13 +1,23 @@
 # GetDecisionLogPolicyBundleResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                                                               | Type                                                                                                                                                                                | Required                                                                                                                                                                            | Description                                                                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                                                                                       | *string*                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                  | HTTP response content type for this operation                                                                                                                                       |
-| `policyBundle`                                                                                                                                                                      | Record<string, [shared.Policy](../../../sdk/models/shared/policy.md)[]>                                                                                                             | :heavy_minus_sign:                                                                                                                                                                  | Policy-Bundle retrieved successfully for given decision log ID                                                                                                                      |
-| `statusCode`                                                                                                                                                                        | *number*                                                                                                                                                                            | :heavy_check_mark:                                                                                                                                                                  | HTTP response status code for this operation                                                                                                                                        |
-| `rawResponse`                                                                                                                                                                       | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                                                             | :heavy_check_mark:                                                                                                                                                                  | Raw HTTP response; suitable for custom response parsing                                                                                                                             |
-| `object`                                                                                                                                                                            | [operations.GetDecisionLogPolicyBundleResponseBody](../../../sdk/models/operations/getdecisionlogpolicybundleresponsebody.md)                                                       | :heavy_minus_sign:                                                                                                                                                                  | The request is malformed (e.g, a given path parameter is invalid)<br/>                                                                                                              |
-| `object1`                                                                                                                                                                           | [operations.GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody](../../../sdk/models/operations/getdecisionlogpolicybundlepolicymanagementresponse404responsebody.md) | :heavy_minus_sign:                                                                                                                                                                  | There was no decision log found for given decision_id, and owner_id.<br/>                                                                                                           |
+### `{ [k: string]: shared.Policy[] }`
+
+```typescript
+const value: { [k: string]: shared.Policy[] } = /* values here */
+```
+
+### `operations.GetDecisionLogPolicyBundleResponseBody`
+
+```typescript
+const value: operations.GetDecisionLogPolicyBundleResponseBody = /* values here */
+```
+
+### `operations.GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody`
+
+```typescript
+const value: operations.GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody = /* values here */
+```
+

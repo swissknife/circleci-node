@@ -1,12 +1,17 @@
 # ListEnvironmentVariablesFromContextResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                                         | Type                                                                                                                                                          | Required                                                                                                                                                      | Description                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                                                             | [operations.ListEnvironmentVariablesFromContextResponseBody](../../../sdk/models/operations/listenvironmentvariablesfromcontextresponsebody.md)               | :heavy_minus_sign:                                                                                                                                            | A paginated list of environment variables                                                                                                                     |
-| `contentType`                                                                                                                                                 | *string*                                                                                                                                                      | :heavy_check_mark:                                                                                                                                            | HTTP response content type for this operation                                                                                                                 |
-| `statusCode`                                                                                                                                                  | *number*                                                                                                                                                      | :heavy_check_mark:                                                                                                                                            | HTTP response status code for this operation                                                                                                                  |
-| `rawResponse`                                                                                                                                                 | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                                       | :heavy_check_mark:                                                                                                                                            | Raw HTTP response; suitable for custom response parsing                                                                                                       |
-| `defaultApplicationJsonObject`                                                                                                                                | [operations.ListEnvironmentVariablesFromContextContextResponseBody](../../../sdk/models/operations/listenvironmentvariablesfromcontextcontextresponsebody.md) | :heavy_minus_sign:                                                                                                                                            | Error response.                                                                                                                                               |
+### `operations.ListEnvironmentVariablesFromContextResponseBody`
+
+```typescript
+const value: operations.ListEnvironmentVariablesFromContextResponseBody = /* values here */
+```
+
+### `operations.ListEnvironmentVariablesFromContextContextResponseBody`
+
+```typescript
+const value: operations.ListEnvironmentVariablesFromContextContextResponseBody = /* values here */
+```
+

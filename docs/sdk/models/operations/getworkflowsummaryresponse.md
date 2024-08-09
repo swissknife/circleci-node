@@ -1,12 +1,17 @@
 # GetWorkflowSummaryResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                         | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                             | [operations.GetWorkflowSummaryResponseBody](../../../sdk/models/operations/getworkflowsummaryresponsebody.md)                 | :heavy_minus_sign:                                                                                                            | Metrics and trends for a workflow                                                                                             |
-| `contentType`                                                                                                                 | *string*                                                                                                                      | :heavy_check_mark:                                                                                                            | HTTP response content type for this operation                                                                                 |
-| `statusCode`                                                                                                                  | *number*                                                                                                                      | :heavy_check_mark:                                                                                                            | HTTP response status code for this operation                                                                                  |
-| `rawResponse`                                                                                                                 | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                       | :heavy_check_mark:                                                                                                            | Raw HTTP response; suitable for custom response parsing                                                                       |
-| `defaultApplicationJsonObject`                                                                                                | [operations.GetWorkflowSummaryInsightsResponseBody](../../../sdk/models/operations/getworkflowsummaryinsightsresponsebody.md) | :heavy_minus_sign:                                                                                                            | Error response.                                                                                                               |
+### `operations.GetWorkflowSummaryResponseBody`
+
+```typescript
+const value: operations.GetWorkflowSummaryResponseBody = /* values here */
+```
+
+### `operations.GetWorkflowSummaryInsightsResponseBody`
+
+```typescript
+const value: operations.GetWorkflowSummaryInsightsResponseBody = /* values here */
+```
+

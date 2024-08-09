@@ -1,12 +1,17 @@
 # GetProjectWorkflowJobMetricsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                             | Type                                                                                                                                              | Required                                                                                                                                          | Description                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                                                 | [operations.GetProjectWorkflowJobMetricsResponseBody](../../../sdk/models/operations/getprojectworkflowjobmetricsresponsebody.md)                 | :heavy_minus_sign:                                                                                                                                | A paginated list of summary metrics by workflow job.                                                                                              |
-| `contentType`                                                                                                                                     | *string*                                                                                                                                          | :heavy_check_mark:                                                                                                                                | HTTP response content type for this operation                                                                                                     |
-| `statusCode`                                                                                                                                      | *number*                                                                                                                                          | :heavy_check_mark:                                                                                                                                | HTTP response status code for this operation                                                                                                      |
-| `rawResponse`                                                                                                                                     | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                           | :heavy_check_mark:                                                                                                                                | Raw HTTP response; suitable for custom response parsing                                                                                           |
-| `defaultApplicationJsonObject`                                                                                                                    | [operations.GetProjectWorkflowJobMetricsInsightsResponseBody](../../../sdk/models/operations/getprojectworkflowjobmetricsinsightsresponsebody.md) | :heavy_minus_sign:                                                                                                                                | Error response.                                                                                                                                   |
+### `operations.GetProjectWorkflowJobMetricsResponseBody`
+
+```typescript
+const value: operations.GetProjectWorkflowJobMetricsResponseBody = /* values here */
+```
+
+### `operations.GetProjectWorkflowJobMetricsInsightsResponseBody`
+
+```typescript
+const value: operations.GetProjectWorkflowJobMetricsInsightsResponseBody = /* values here */
+```
+

@@ -1,0 +1,14 @@
+# UpdateScheduleTimetable
+
+Timetable that specifies when a schedule triggers.
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `daysOfMonth`                                                                                       | *number*[]                                                                                          | :heavy_minus_sign:                                                                                  | Days in a month in which the schedule triggers. This is mutually exclusive with days in a week.     |
+| `daysOfWeek`                                                                                        | [operations.UpdateScheduleDaysOfWeek](../../../sdk/models/operations/updatescheduledaysofweek.md)[] | :heavy_minus_sign:                                                                                  | Days in a week in which the schedule triggers.                                                      |
+| `hoursOfDay`                                                                                        | *number*[]                                                                                          | :heavy_minus_sign:                                                                                  | Hours in a day in which the schedule triggers.                                                      |
+| `months`                                                                                            | [operations.UpdateScheduleMonths](../../../sdk/models/operations/updateschedulemonths.md)[]         | :heavy_minus_sign:                                                                                  | Months in which the schedule triggers.                                                              |
+| `perHour`                                                                                           | *number*                                                                                            | :heavy_minus_sign:                                                                                  | Number of times a schedule triggers per hour, value must be between 1 and 60                        |

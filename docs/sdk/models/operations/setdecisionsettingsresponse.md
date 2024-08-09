@@ -1,12 +1,17 @@
 # SetDecisionSettingsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                   | *string*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response content type for this operation                                                                   |
-| `decisionSettings`                                                                                              | [shared.DecisionSettings](../../../sdk/models/shared/decisionsettings.md)                                       | :heavy_minus_sign:                                                                                              | Decision settings successfully set.                                                                             |
-| `statusCode`                                                                                                    | *number*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response status code for this operation                                                                    |
-| `rawResponse`                                                                                                   | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                         | :heavy_check_mark:                                                                                              | Raw HTTP response; suitable for custom response parsing                                                         |
-| `object`                                                                                                        | [operations.SetDecisionSettingsResponseBody](../../../sdk/models/operations/setdecisionsettingsresponsebody.md) | :heavy_minus_sign:                                                                                              | The request is malformed (e.g, a given path parameter is invalid)<br/>                                          |
+### `shared.DecisionSettings`
+
+```typescript
+const value: shared.DecisionSettings = /* values here */
+```
+
+### `operations.SetDecisionSettingsResponseBody`
+
+```typescript
+const value: operations.SetDecisionSettingsResponseBody = /* values here */
+```
+

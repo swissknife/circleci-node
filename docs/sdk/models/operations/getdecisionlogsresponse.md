@@ -1,12 +1,17 @@
 # GetDecisionLogsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                           | *string*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response content type for this operation                                                           |
-| `statusCode`                                                                                            | *number*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response status code for this operation                                                            |
-| `rawResponse`                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                 | :heavy_check_mark:                                                                                      | Raw HTTP response; suitable for custom response parsing                                                 |
-| `classes`                                                                                               | [shared.DecisionLog](../../../sdk/models/shared/decisionlog.md)[]                                       | :heavy_minus_sign:                                                                                      | Decision logs successfully retrieved.                                                                   |
-| `object`                                                                                                | [operations.GetDecisionLogsResponseBody](../../../sdk/models/operations/getdecisionlogsresponsebody.md) | :heavy_minus_sign:                                                                                      | The request is malformed (e.g, a given path parameter is invalid)<br/>                                  |
+### `shared.DecisionLog[]`
+
+```typescript
+const value: shared.DecisionLog[] = /* values here */
+```
+
+### `operations.GetDecisionLogsResponseBody`
+
+```typescript
+const value: operations.GetDecisionLogsResponseBody = /* values here */
+```
+

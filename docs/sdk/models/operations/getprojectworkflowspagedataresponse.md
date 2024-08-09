@@ -1,12 +1,17 @@
 # GetProjectWorkflowsPageDataResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                           | Type                                                                                                                                            | Required                                                                                                                                        | Description                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                                               | [operations.GetProjectWorkflowsPageDataResponseBody](../../../sdk/models/operations/getprojectworkflowspagedataresponsebody.md)                 | :heavy_minus_sign:                                                                                                                              | Aggregated summary metrics and trends by workflow and branches                                                                                  |
-| `contentType`                                                                                                                                   | *string*                                                                                                                                        | :heavy_check_mark:                                                                                                                              | HTTP response content type for this operation                                                                                                   |
-| `statusCode`                                                                                                                                    | *number*                                                                                                                                        | :heavy_check_mark:                                                                                                                              | HTTP response status code for this operation                                                                                                    |
-| `rawResponse`                                                                                                                                   | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                         | :heavy_check_mark:                                                                                                                              | Raw HTTP response; suitable for custom response parsing                                                                                         |
-| `defaultApplicationJsonObject`                                                                                                                  | [operations.GetProjectWorkflowsPageDataInsightsResponseBody](../../../sdk/models/operations/getprojectworkflowspagedatainsightsresponsebody.md) | :heavy_minus_sign:                                                                                                                              | Error response.                                                                                                                                 |
+### `operations.GetProjectWorkflowsPageDataResponseBody`
+
+```typescript
+const value: operations.GetProjectWorkflowsPageDataResponseBody = /* values here */
+```
+
+### `operations.GetProjectWorkflowsPageDataInsightsResponseBody`
+
+```typescript
+const value: operations.GetProjectWorkflowsPageDataInsightsResponseBody = /* values here */
+```
+

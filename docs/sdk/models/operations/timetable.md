@@ -3,12 +3,17 @@
 Timetable that specifies when a schedule triggers.
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `daysOfMonth`                                                                                   | *number*[]                                                                                      | :heavy_minus_sign:                                                                              | Days in a month in which the schedule triggers. This is mutually exclusive with days in a week. |
-| `daysOfWeek`                                                                                    | [operations.DaysOfWeek](../../../sdk/models/operations/daysofweek.md)[]                         | :heavy_minus_sign:                                                                              | Days in a week in which the schedule triggers.                                                  |
-| `hoursOfDay`                                                                                    | *number*[]                                                                                      | :heavy_minus_sign:                                                                              | Hours in a day in which the schedule triggers.                                                  |
-| `months`                                                                                        | [operations.Months](../../../sdk/models/operations/months.md)[]                                 | :heavy_minus_sign:                                                                              | Months in which the schedule triggers.                                                          |
-| `perHour`                                                                                       | *number*                                                                                        | :heavy_minus_sign:                                                                              | Number of times a schedule triggers per hour, value must be between 1 and 60                    |
+### `operations.CreateSchedule1`
+
+```typescript
+const value: operations.CreateSchedule1 = /* values here */
+```
+
+### `operations.CreateSchedule2`
+
+```typescript
+const value: operations.CreateSchedule2 = /* values here */
+```
+

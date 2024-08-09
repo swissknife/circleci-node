@@ -1,12 +1,17 @@
 # CreateUsageExportResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                               | *string*                                                                                                    | :heavy_check_mark:                                                                                          | HTTP response content type for this operation                                                               |
-| `statusCode`                                                                                                | *number*                                                                                                    | :heavy_check_mark:                                                                                          | HTTP response status code for this operation                                                                |
-| `rawResponse`                                                                                               | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                     | :heavy_check_mark:                                                                                          | Raw HTTP response; suitable for custom response parsing                                                     |
-| `object`                                                                                                    | [operations.CreateUsageExportResponseBody](../../../sdk/models/operations/createusageexportresponsebody.md) | :heavy_minus_sign:                                                                                          | Unexpected request body provided.                                                                           |
-| `usageExportJob`                                                                                            | [shared.UsageExportJob](../../../sdk/models/shared/usageexportjob.md)                                       | :heavy_minus_sign:                                                                                          | Usage export created successfully                                                                           |
+### `operations.CreateUsageExportResponseBody`
+
+```typescript
+const value: operations.CreateUsageExportResponseBody = /* values here */
+```
+
+### `shared.UsageExportJob`
+
+```typescript
+const value: shared.UsageExportJob = /* values here */
+```
+

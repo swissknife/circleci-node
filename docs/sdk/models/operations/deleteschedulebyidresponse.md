@@ -1,12 +1,17 @@
 # DeleteScheduleByIdResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                               | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                       | *string*                                                                                                            | :heavy_check_mark:                                                                                                  | HTTP response content type for this operation                                                                       |
-| `messageResponse`                                                                                                   | [operations.DeleteScheduleByIdMessageResponse](../../../sdk/models/operations/deleteschedulebyidmessageresponse.md) | :heavy_minus_sign:                                                                                                  | A confirmation message.                                                                                             |
-| `statusCode`                                                                                                        | *number*                                                                                                            | :heavy_check_mark:                                                                                                  | HTTP response status code for this operation                                                                        |
-| `rawResponse`                                                                                                       | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                             | :heavy_check_mark:                                                                                                  | Raw HTTP response; suitable for custom response parsing                                                             |
-| `object`                                                                                                            | [operations.DeleteScheduleByIdResponseBody](../../../sdk/models/operations/deleteschedulebyidresponsebody.md)       | :heavy_minus_sign:                                                                                                  | Error response.                                                                                                     |
+### `operations.DeleteScheduleByIdMessageResponse`
+
+```typescript
+const value: operations.DeleteScheduleByIdMessageResponse = /* values here */
+```
+
+### `operations.DeleteScheduleByIdResponseBody`
+
+```typescript
+const value: operations.DeleteScheduleByIdResponseBody = /* values here */
+```
+

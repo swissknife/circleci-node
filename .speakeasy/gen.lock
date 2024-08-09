@@ -1,23 +1,113 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: d3eacb7ed5d623a6bd7bb173c7cf70a1
+  docChecksum: e1c2855d7c59b250d7da6cc66668b84b
   docVersion: v2
-  speakeasyVersion: 1.352.0
-  generationVersion: 2.384.4
-  releaseVersion: 5.1.1
-  configChecksum: 71a27921128a5928632cfca5bc7adb79
+  speakeasyVersion: 1.358.0
+  generationVersion: 2.390.6
+  releaseVersion: 5.2.0
+  configChecksum: 16cebbac5ba57b4e8b8acee5e7e4d744
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
   published: true
 features:
   typescript:
-    core: 3.4.14
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.6
+    core: 3.12.3
+    defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
-    globalSecurity: 2.82.5
-    globalServerURLs: 2.82.2
+    envVarSecurityUsage: 0.1.1
+    globalSecurity: 2.82.11
+    globalSecurityCallbacks: 0.1.0
+    globalServerURLs: 2.82.4
+    nullables: 0.1.0
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.1.0
+    unions: 2.85.6
 generatedFiles:
+  - src/funcs/contextAddEnvironmentVariableToContext.ts
+  - src/funcs/contextCreateContext.ts
+  - src/funcs/contextCreateContextRestriction.ts
+  - src/funcs/contextDeleteContext.ts
+  - src/funcs/contextDeleteContextRestriction.ts
+  - src/funcs/contextDeleteEnvironmentVariableFromContext.ts
+  - src/funcs/contextGetContext.ts
+  - src/funcs/contextGetContextRestrictions.ts
+  - src/funcs/contextListContexts.ts
+  - src/funcs/contextListEnvironmentVariablesFromContext.ts
+  - src/funcs/insightsGetAllInsightsBranches.ts
+  - src/funcs/insightsGetFlakyTests.ts
+  - src/funcs/insightsGetJobTimeseries.ts
+  - src/funcs/insightsGetOrgSummaryData.ts
+  - src/funcs/insightsGetProjectWorkflowJobMetrics.ts
+  - src/funcs/insightsGetProjectWorkflowMetrics.ts
+  - src/funcs/insightsGetProjectWorkflowRuns.ts
+  - src/funcs/insightsGetProjectWorkflowTestMetrics.ts
+  - src/funcs/insightsGetProjectWorkflowsPageData.ts
+  - src/funcs/insightsGetWorkflowSummary.ts
+  - src/funcs/userGetCollaborations.ts
+  - src/funcs/userGetCurrentUser.ts
+  - src/funcs/userGetUser.ts
+  - src/funcs/oidcTokenManagementDeleteOrgClaims.ts
+  - src/funcs/oidcTokenManagementDeleteProjectClaims.ts
+  - src/funcs/oidcTokenManagementGetOrgClaims.ts
+  - src/funcs/oidcTokenManagementGetProjectClaims.ts
+  - src/funcs/oidcTokenManagementPatchOrgClaims.ts
+  - src/funcs/oidcTokenManagementPatchProjectClaims.ts
+  - src/funcs/usageCreateUsageExport.ts
+  - src/funcs/usageGetUsageExport.ts
+  - src/funcs/policyManagementCreatePolicyBundle.ts
+  - src/funcs/policyManagementGetDecisionLog.ts
+  - src/funcs/policyManagementGetDecisionLogPolicyBundle.ts
+  - src/funcs/policyManagementGetDecisionLogs.ts
+  - src/funcs/policyManagementGetDecisionSettings.ts
+  - src/funcs/policyManagementGetPolicyBundle.ts
+  - src/funcs/policyManagementGetPolicyDocument.ts
+  - src/funcs/policyManagementMakeDecision.ts
+  - src/funcs/policyManagementSetDecisionSettings.ts
+  - src/funcs/pipelineContinuePipeline.ts
+  - src/funcs/pipelineGetPipelineById.ts
+  - src/funcs/pipelineGetPipelineByNumber.ts
+  - src/funcs/pipelineGetPipelineConfigById.ts
+  - src/funcs/pipelineListMyPipelines.ts
+  - src/funcs/pipelineListPipelines.ts
+  - src/funcs/pipelineListPipelinesForProject.ts
+  - src/funcs/pipelineListWorkflowsByPipelineId.ts
+  - src/funcs/pipelineTriggerPipeline.ts
+  - src/funcs/projectCreateCheckoutKey.ts
+  - src/funcs/projectCreateEnvVar.ts
+  - src/funcs/projectCreateProject.ts
+  - src/funcs/projectDeleteCheckoutKey.ts
+  - src/funcs/projectDeleteEnvVar.ts
+  - src/funcs/projectGetCheckoutKey.ts
+  - src/funcs/projectGetEnvVar.ts
+  - src/funcs/projectGetProjectBySlug.ts
+  - src/funcs/projectGetProjectSettings.ts
+  - src/funcs/projectListCheckoutKeys.ts
+  - src/funcs/projectListEnvVars.ts
+  - src/funcs/projectPatchProjectSettings.ts
+  - src/funcs/jobCancelJobByJobNumber.ts
+  - src/funcs/jobGetJobArtifacts.ts
+  - src/funcs/jobGetJobDetails.ts
+  - src/funcs/jobGetTests.ts
+  - src/funcs/scheduleCreateSchedule.ts
+  - src/funcs/scheduleDeleteScheduleById.ts
+  - src/funcs/scheduleGetScheduleById.ts
+  - src/funcs/scheduleListSchedulesForProject.ts
+  - src/funcs/scheduleUpdateSchedule.ts
+  - src/funcs/webhookCreateWebhook.ts
+  - src/funcs/webhookDeleteWebhook.ts
+  - src/funcs/webhookGetWebhookById.ts
+  - src/funcs/webhookGetWebhooks.ts
+  - src/funcs/webhookUpdateWebhook.ts
+  - src/funcs/workflowApprovePendingApprovalJobById.ts
+  - src/funcs/workflowCancelWorkflow.ts
+  - src/funcs/workflowGetWorkflowById.ts
+  - src/funcs/workflowListWorkflowJobs.ts
+  - src/funcs/workflowRerunWorkflow.ts
   - src/sdk/context.ts
   - src/sdk/insights.ts
   - src/sdk/user.ts
@@ -31,23 +121,35 @@ generatedFiles:
   - src/sdk/webhook.ts
   - src/sdk/workflow.ts
   - src/sdk/sdk.ts
-  - .eslintrc.yml
-  - jest.config.js
-  - package-lock.json
+  - .eslintrc.cjs
+  - .npmignore
+  - RUNTIMES.md
+  - jsr.json
   - package.json
+  - src/core.ts
   - src/index.ts
-  - src/internal/utils/contenttype.ts
-  - src/internal/utils/headers.ts
-  - src/internal/utils/index.ts
-  - src/internal/utils/pathparams.ts
-  - src/internal/utils/queryparams.ts
-  - src/internal/utils/requestbody.ts
-  - src/internal/utils/retries.ts
-  - src/internal/utils/security.ts
-  - src/internal/utils/utils.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
   - src/sdk/index.ts
+  - src/sdk/models/errors/httpclienterrors.ts
   - src/sdk/models/errors/sdkerror.ts
+  - src/sdk/models/errors/sdkvalidationerror.ts
+  - src/sdk/types/blobs.ts
+  - src/sdk/types/enums.ts
+  - src/sdk/types/fp.ts
   - src/sdk/types/index.ts
+  - src/sdk/types/operations.ts
   - src/sdk/types/rfcdate.ts
   - tsconfig.json
   - src/sdk/models/operations/addenvironmentvariabletocontext.ts
@@ -111,7 +213,7 @@ generatedFiles:
   - src/sdk/models/operations/listcheckoutkeys.ts
   - src/sdk/models/operations/listenvvars.ts
   - src/sdk/models/operations/patchprojectsettings.ts
-  - src/sdk/models/operations/canceljob.ts
+  - src/sdk/models/operations/canceljobbyjobnumber.ts
   - src/sdk/models/operations/getjobartifacts.ts
   - src/sdk/models/operations/getjobdetails.ts
   - src/sdk/models/operations/gettests.ts
@@ -152,8 +254,16 @@ generatedFiles:
   - src/sdk/models/shared/index.ts
   - docs/sdk/models/operations/addenvironmentvariabletocontextrequestbody.md
   - docs/sdk/models/operations/addenvironmentvariabletocontextrequest.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontextcontextresponsebody.md
+  - docs/sdk/models/operations/messageresponse.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontext1.md
   - docs/sdk/models/operations/addenvironmentvariabletocontextresponsebody.md
   - docs/sdk/models/operations/addenvironmentvariabletocontextresponse.md
+  - docs/sdk/models/operations/createcontexttype.md
+  - docs/sdk/models/operations/two.md
+  - docs/sdk/models/operations/type.md
+  - docs/sdk/models/operations/one.md
+  - docs/sdk/models/operations/owner.md
   - docs/sdk/models/operations/createcontextrequestbody.md
   - docs/sdk/models/operations/createcontextresponsebody.md
   - docs/sdk/models/operations/createcontextcontext.md
@@ -345,18 +455,21 @@ generatedFiles:
   - docs/sdk/models/operations/setdecisionsettingsrequest.md
   - docs/sdk/models/operations/setdecisionsettingsresponsebody.md
   - docs/sdk/models/operations/setdecisionsettingsresponse.md
+  - docs/sdk/models/operations/parameterst.md
   - docs/sdk/models/operations/continuepipelinerequestbody.md
   - docs/sdk/models/operations/continuepipelineresponsebody.md
   - docs/sdk/models/operations/continuepipelinemessageresponse.md
   - docs/sdk/models/operations/continuepipelineresponse.md
   - docs/sdk/models/operations/getpipelinebyidrequest.md
   - docs/sdk/models/operations/getpipelinebyidresponsebody.md
-  - docs/sdk/models/operations/getpipelinebyidpipelinetype.md
+  - docs/sdk/models/operations/getpipelinebyidtype.md
   - docs/sdk/models/operations/errors.md
   - docs/sdk/models/operations/state.md
   - docs/sdk/models/operations/actor.md
-  - docs/sdk/models/operations/getpipelinebyidtype.md
+  - docs/sdk/models/operations/getpipelinebyidpipelinetype.md
   - docs/sdk/models/operations/trigger.md
+  - docs/sdk/models/operations/four.md
+  - docs/sdk/models/operations/triggerparameters.md
   - docs/sdk/models/operations/commit.md
   - docs/sdk/models/operations/vcs.md
   - docs/sdk/models/operations/getpipelinebyidpipeline.md
@@ -369,6 +482,8 @@ generatedFiles:
   - docs/sdk/models/operations/getpipelinebynumberactor.md
   - docs/sdk/models/operations/getpipelinebynumberpipelinetype.md
   - docs/sdk/models/operations/getpipelinebynumbertrigger.md
+  - docs/sdk/models/operations/getpipelinebynumber4.md
+  - docs/sdk/models/operations/getpipelinebynumbertriggerparameters.md
   - docs/sdk/models/operations/getpipelinebynumbercommit.md
   - docs/sdk/models/operations/getpipelinebynumbervcs.md
   - docs/sdk/models/operations/getpipelinebynumberpipeline.md
@@ -385,6 +500,8 @@ generatedFiles:
   - docs/sdk/models/operations/listmypipelinesactor.md
   - docs/sdk/models/operations/listmypipelinespipelinetype.md
   - docs/sdk/models/operations/listmypipelinestrigger.md
+  - docs/sdk/models/operations/listmypipelines4.md
+  - docs/sdk/models/operations/listmypipelinestriggerparameters.md
   - docs/sdk/models/operations/listmypipelinescommit.md
   - docs/sdk/models/operations/listmypipelinesvcs.md
   - docs/sdk/models/operations/listmypipelinespipeline.md
@@ -398,6 +515,8 @@ generatedFiles:
   - docs/sdk/models/operations/listpipelinesactor.md
   - docs/sdk/models/operations/listpipelinespipelinetype.md
   - docs/sdk/models/operations/listpipelinestrigger.md
+  - docs/sdk/models/operations/listpipelines4.md
+  - docs/sdk/models/operations/listpipelinestriggerparameters.md
   - docs/sdk/models/operations/listpipelinescommit.md
   - docs/sdk/models/operations/listpipelinesvcs.md
   - docs/sdk/models/operations/listpipelinespipeline.md
@@ -411,6 +530,8 @@ generatedFiles:
   - docs/sdk/models/operations/listpipelinesforprojectactor.md
   - docs/sdk/models/operations/listpipelinesforprojectpipelinetype.md
   - docs/sdk/models/operations/listpipelinesforprojecttrigger.md
+  - docs/sdk/models/operations/listpipelinesforproject4.md
+  - docs/sdk/models/operations/listpipelinesforprojecttriggerparameters.md
   - docs/sdk/models/operations/listpipelinesforprojectcommit.md
   - docs/sdk/models/operations/listpipelinesforprojectvcs.md
   - docs/sdk/models/operations/listpipelinesforprojectpipeline.md
@@ -423,6 +544,7 @@ generatedFiles:
   - docs/sdk/models/operations/workflow.md
   - docs/sdk/models/operations/listworkflowsbypipelineidworkflowlistresponse.md
   - docs/sdk/models/operations/listworkflowsbypipelineidresponse.md
+  - docs/sdk/models/operations/triggerpipelineparameters.md
   - docs/sdk/models/operations/triggerpipelinetriggerpipelineparameters.md
   - docs/sdk/models/operations/triggerpipelinerequest.md
   - docs/sdk/models/operations/triggerpipelineresponsebody.md
@@ -487,10 +609,10 @@ generatedFiles:
   - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponse.md
-  - docs/sdk/models/operations/canceljobrequest.md
-  - docs/sdk/models/operations/canceljobresponsebody.md
-  - docs/sdk/models/operations/canceljobmessageresponse.md
-  - docs/sdk/models/operations/canceljobresponse.md
+  - docs/sdk/models/operations/canceljobbyjobnumberrequest.md
+  - docs/sdk/models/operations/canceljobbyjobnumberresponsebody.md
+  - docs/sdk/models/operations/canceljobbyjobnumbermessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobnumberresponse.md
   - docs/sdk/models/operations/getjobartifactsrequest.md
   - docs/sdk/models/operations/getjobartifactsresponsebody.md
   - docs/sdk/models/operations/artifact.md
@@ -515,10 +637,26 @@ generatedFiles:
   - docs/sdk/models/operations/getteststestsresponse.md
   - docs/sdk/models/operations/gettestsresponse.md
   - docs/sdk/models/operations/attributionactor.md
+  - docs/sdk/models/operations/createscheduleparameters.md
+  - docs/sdk/models/operations/createscheduledaysofweek.md
+  - docs/sdk/models/operations/createschedulemonths.md
+  - docs/sdk/models/operations/createschedule2.md
+  - docs/sdk/models/operations/daysofweek.md
+  - docs/sdk/models/operations/months.md
+  - docs/sdk/models/operations/createschedule1.md
+  - docs/sdk/models/operations/timetable.md
   - docs/sdk/models/operations/createschedulecreatescheduleparameters.md
   - docs/sdk/models/operations/createschedulerequest.md
   - docs/sdk/models/operations/createscheduleresponsebody.md
   - docs/sdk/models/operations/user.md
+  - docs/sdk/models/operations/createschedulescheduleparameters.md
+  - docs/sdk/models/operations/createschedulescheduleresponsedaysofweek.md
+  - docs/sdk/models/operations/createschedulescheduleresponsemonths.md
+  - docs/sdk/models/operations/createscheduleschedule2.md
+  - docs/sdk/models/operations/createschedulescheduledaysofweek.md
+  - docs/sdk/models/operations/createscheduleschedulemonths.md
+  - docs/sdk/models/operations/createscheduleschedule1.md
+  - docs/sdk/models/operations/createscheduletimetable.md
   - docs/sdk/models/operations/createscheduleschedule.md
   - docs/sdk/models/operations/createscheduleresponse.md
   - docs/sdk/models/operations/deleteschedulebyidrequest.md
@@ -528,26 +666,51 @@ generatedFiles:
   - docs/sdk/models/operations/getschedulebyidrequest.md
   - docs/sdk/models/operations/getschedulebyidresponsebody.md
   - docs/sdk/models/operations/getschedulebyiduser.md
+  - docs/sdk/models/operations/getschedulebyidparameters.md
+  - docs/sdk/models/operations/getschedulebyidscheduledaysofweek.md
+  - docs/sdk/models/operations/getschedulebyidschedulemonths.md
+  - docs/sdk/models/operations/getschedulebyid2.md
+  - docs/sdk/models/operations/getschedulebyiddaysofweek.md
+  - docs/sdk/models/operations/getschedulebyidmonths.md
+  - docs/sdk/models/operations/getschedulebyid1.md
+  - docs/sdk/models/operations/getschedulebyidtimetable.md
   - docs/sdk/models/operations/getschedulebyidschedule.md
   - docs/sdk/models/operations/getschedulebyidresponse.md
   - docs/sdk/models/operations/listschedulesforprojectrequest.md
   - docs/sdk/models/operations/listschedulesforprojectscheduleresponsebody.md
   - docs/sdk/models/operations/listschedulesforprojectuser.md
+  - docs/sdk/models/operations/listschedulesforprojectparameters.md
+  - docs/sdk/models/operations/listschedulesforprojectscheduledaysofweek.md
+  - docs/sdk/models/operations/listschedulesforprojectschedulemonths.md
+  - docs/sdk/models/operations/listschedulesforproject2.md
+  - docs/sdk/models/operations/listschedulesforprojectdaysofweek.md
+  - docs/sdk/models/operations/listschedulesforprojectmonths.md
+  - docs/sdk/models/operations/listschedulesforproject1.md
+  - docs/sdk/models/operations/listschedulesforprojecttimetable.md
   - docs/sdk/models/operations/schedule.md
   - docs/sdk/models/operations/listschedulesforprojectresponsebody.md
   - docs/sdk/models/operations/listschedulesforprojectresponse.md
   - docs/sdk/models/operations/updatescheduleattributionactor.md
-  - docs/sdk/models/operations/daysofweek.md
-  - docs/sdk/models/operations/months.md
-  - docs/sdk/models/operations/timetable.md
+  - docs/sdk/models/operations/updatescheduleparameters.md
+  - docs/sdk/models/operations/updatescheduledaysofweek.md
+  - docs/sdk/models/operations/updateschedulemonths.md
+  - docs/sdk/models/operations/updatescheduletimetable.md
   - docs/sdk/models/operations/updatescheduleupdatescheduleparameters.md
   - docs/sdk/models/operations/updateschedulerequest.md
   - docs/sdk/models/operations/updatescheduleresponsebody.md
   - docs/sdk/models/operations/updatescheduleuser.md
+  - docs/sdk/models/operations/updateschedulescheduleparameters.md
+  - docs/sdk/models/operations/updateschedulescheduleresponsedaysofweek.md
+  - docs/sdk/models/operations/updateschedulescheduleresponsemonths.md
+  - docs/sdk/models/operations/updateschedule2.md
+  - docs/sdk/models/operations/updateschedulescheduledaysofweek.md
+  - docs/sdk/models/operations/updatescheduleschedulemonths.md
+  - docs/sdk/models/operations/updateschedule1.md
+  - docs/sdk/models/operations/updateschedulescheduletimetable.md
   - docs/sdk/models/operations/updatescheduleschedule.md
   - docs/sdk/models/operations/updatescheduleresponse.md
   - docs/sdk/models/operations/events.md
-  - docs/sdk/models/operations/typet.md
+  - docs/sdk/models/operations/createwebhooktype.md
   - docs/sdk/models/operations/scope.md
   - docs/sdk/models/operations/createwebhookrequestbody.md
   - docs/sdk/models/operations/createwebhookresponsebody.md
@@ -633,6 +796,7 @@ generatedFiles:
   - docs/sdk/models/shared/security.md
   - docs/sdk/models/shared/schemebasicauth.md
   - docs/sdks/circleci/README.md
+  - docs/lib/utils/retryconfig.md
   - docs/sdks/context/README.md
   - docs/sdks/insights/README.md
   - docs/sdks/user/README.md
@@ -647,3 +811,7 @@ generatedFiles:
   - docs/sdks/workflow/README.md
   - USAGE.md
   - .gitattributes
+  - src/hooks/hooks.ts
+  - src/hooks/types.ts
+  - src/hooks/index.ts
+  - CONTRIBUTING.md

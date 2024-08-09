@@ -1,10 +1,19 @@
 # AddEnvironmentVariableToContextResponseBody
 
-Error response.
+The new environment variable
 
 
-## Fields
+## Supported Types
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `message`          | *string*           | :heavy_minus_sign: | N/A                |
+### `operations.AddEnvironmentVariableToContext1`
+
+```typescript
+const value: operations.AddEnvironmentVariableToContext1 = /* values here */
+```
+
+### `operations.MessageResponse`
+
+```typescript
+const value: operations.MessageResponse = /* values here */
+```
+

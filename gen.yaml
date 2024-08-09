@@ -11,9 +11,15 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 typescript:
-  version: 5.1.1
+  version: 5.2.0
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
   author: Speakeasy API
   clientServerStatusCodesAsErrors: false
+  enumFormat: union
   flattenGlobalSecurity: false
   imports:
     option: openapi
@@ -25,6 +31,10 @@ typescript:
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
   maxMethodParams: 0
+  methodArguments: require-security-and-request
+  moduleFormat: commonjs
   outputModelSuffix: output
   packageName: circleci-v2-sdk
-  templateVersion: v1
+  responseFormat: flat
+  templateVersion: v2
+  useIndexModules: true

@@ -1,12 +1,17 @@
 # GetOrgSummaryDataResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                       | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                           | [operations.GetOrgSummaryDataResponseBody](../../../sdk/models/operations/getorgsummarydataresponsebody.md)                 | :heavy_minus_sign:                                                                                                          | summary metrics with trends for an entire org and it's projects.                                                            |
-| `contentType`                                                                                                               | *string*                                                                                                                    | :heavy_check_mark:                                                                                                          | HTTP response content type for this operation                                                                               |
-| `statusCode`                                                                                                                | *number*                                                                                                                    | :heavy_check_mark:                                                                                                          | HTTP response status code for this operation                                                                                |
-| `rawResponse`                                                                                                               | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                     | :heavy_check_mark:                                                                                                          | Raw HTTP response; suitable for custom response parsing                                                                     |
-| `defaultApplicationJsonObject`                                                                                              | [operations.GetOrgSummaryDataInsightsResponseBody](../../../sdk/models/operations/getorgsummarydatainsightsresponsebody.md) | :heavy_minus_sign:                                                                                                          | Error response.                                                                                                             |
+### `operations.GetOrgSummaryDataResponseBody`
+
+```typescript
+const value: operations.GetOrgSummaryDataResponseBody = /* values here */
+```
+
+### `operations.GetOrgSummaryDataInsightsResponseBody`
+
+```typescript
+const value: operations.GetOrgSummaryDataInsightsResponseBody = /* values here */
+```
+

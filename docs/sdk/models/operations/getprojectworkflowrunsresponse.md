@@ -1,12 +1,17 @@
 # GetProjectWorkflowRunsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                 | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                                     | [operations.GetProjectWorkflowRunsResponseBody](../../../sdk/models/operations/getprojectworkflowrunsresponsebody.md)                 | :heavy_minus_sign:                                                                                                                    | A paginated list of recent workflow runs                                                                                              |
-| `contentType`                                                                                                                         | *string*                                                                                                                              | :heavy_check_mark:                                                                                                                    | HTTP response content type for this operation                                                                                         |
-| `statusCode`                                                                                                                          | *number*                                                                                                                              | :heavy_check_mark:                                                                                                                    | HTTP response status code for this operation                                                                                          |
-| `rawResponse`                                                                                                                         | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                               | :heavy_check_mark:                                                                                                                    | Raw HTTP response; suitable for custom response parsing                                                                               |
-| `defaultApplicationJsonObject`                                                                                                        | [operations.GetProjectWorkflowRunsInsightsResponseBody](../../../sdk/models/operations/getprojectworkflowrunsinsightsresponsebody.md) | :heavy_minus_sign:                                                                                                                    | Error response.                                                                                                                       |
+### `operations.GetProjectWorkflowRunsResponseBody`
+
+```typescript
+const value: operations.GetProjectWorkflowRunsResponseBody = /* values here */
+```
+
+### `operations.GetProjectWorkflowRunsInsightsResponseBody`
+
+```typescript
+const value: operations.GetProjectWorkflowRunsInsightsResponseBody = /* values here */
+```
+

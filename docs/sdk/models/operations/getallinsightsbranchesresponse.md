@@ -1,12 +1,17 @@
 # GetAllInsightsBranchesResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                 | Type                                                                                                                                  | Required                                                                                                                              | Description                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                                     | [operations.GetAllInsightsBranchesResponseBody](../../../sdk/models/operations/getallinsightsbranchesresponsebody.md)                 | :heavy_minus_sign:                                                                                                                    | A list of branches for a project                                                                                                      |
-| `contentType`                                                                                                                         | *string*                                                                                                                              | :heavy_check_mark:                                                                                                                    | HTTP response content type for this operation                                                                                         |
-| `statusCode`                                                                                                                          | *number*                                                                                                                              | :heavy_check_mark:                                                                                                                    | HTTP response status code for this operation                                                                                          |
-| `rawResponse`                                                                                                                         | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                               | :heavy_check_mark:                                                                                                                    | Raw HTTP response; suitable for custom response parsing                                                                               |
-| `defaultApplicationJsonObject`                                                                                                        | [operations.GetAllInsightsBranchesInsightsResponseBody](../../../sdk/models/operations/getallinsightsbranchesinsightsresponsebody.md) | :heavy_minus_sign:                                                                                                                    | Error response.                                                                                                                       |
+### `operations.GetAllInsightsBranchesResponseBody`
+
+```typescript
+const value: operations.GetAllInsightsBranchesResponseBody = /* values here */
+```
+
+### `operations.GetAllInsightsBranchesInsightsResponseBody`
+
+```typescript
+const value: operations.GetAllInsightsBranchesInsightsResponseBody = /* values here */
+```
+

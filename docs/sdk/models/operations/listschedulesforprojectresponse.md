@@ -1,12 +1,17 @@
 # ListSchedulesForProjectResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                   | Type                                                                                                                                    | Required                                                                                                                                | Description                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                                                       | [operations.ListSchedulesForProjectResponseBody](../../../sdk/models/operations/listschedulesforprojectresponsebody.md)                 | :heavy_minus_sign:                                                                                                                      | A sequence of schedules.                                                                                                                |
-| `contentType`                                                                                                                           | *string*                                                                                                                                | :heavy_check_mark:                                                                                                                      | HTTP response content type for this operation                                                                                           |
-| `statusCode`                                                                                                                            | *number*                                                                                                                                | :heavy_check_mark:                                                                                                                      | HTTP response status code for this operation                                                                                            |
-| `rawResponse`                                                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                                 | :heavy_check_mark:                                                                                                                      | Raw HTTP response; suitable for custom response parsing                                                                                 |
-| `defaultApplicationJsonObject`                                                                                                          | [operations.ListSchedulesForProjectScheduleResponseBody](../../../sdk/models/operations/listschedulesforprojectscheduleresponsebody.md) | :heavy_minus_sign:                                                                                                                      | Error response.                                                                                                                         |
+### `operations.ListSchedulesForProjectResponseBody`
+
+```typescript
+const value: operations.ListSchedulesForProjectResponseBody = /* values here */
+```
+
+### `operations.ListSchedulesForProjectScheduleResponseBody`
+
+```typescript
+const value: operations.ListSchedulesForProjectScheduleResponseBody = /* values here */
+```
+
