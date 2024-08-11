@@ -3,10 +3,10 @@ id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
   docChecksum: 262478bf95e70f57797c9ba3788af5ec
   docVersion: v2
-  speakeasyVersion: 1.361.0
-  generationVersion: 2.392.0
-  releaseVersion: 5.3.0
-  configChecksum: 26b3e750d824f6376ee2eb3beb3eb4ba
+  speakeasyVersion: 1.361.1
+  generationVersion: 2.393.4
+  releaseVersion: 5.3.1
+  configChecksum: e827ecb528058f2caa83348341f95fe9
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -14,8 +14,8 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.6
-    core: 3.13.0
+    constsAndDefaults: 0.1.7
+    core: 3.13.1
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     envVarSecurityUsage: 0.1.1
@@ -26,7 +26,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.1.0
-    unions: 2.85.6
+    unions: 2.85.7
 generatedFiles:
   - src/funcs/contextAddEnvironmentVariableToContext.ts
   - src/funcs/contextCreateContext.ts
@@ -147,6 +147,7 @@ generatedFiles:
   - src/sdk/models/errors/sdkerror.ts
   - src/sdk/models/errors/sdkvalidationerror.ts
   - src/sdk/types/blobs.ts
+  - src/sdk/types/constdatetime.ts
   - src/sdk/types/enums.ts
   - src/sdk/types/fp.ts
   - src/sdk/types/index.ts
