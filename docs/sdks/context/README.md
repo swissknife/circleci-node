@@ -45,6 +45,45 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextAddEnvironmentVariableToContext } from "circleci-v2-sdk/funcs/contextAddEnvironmentVariableToContext.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextAddEnvironmentVariableToContext(circleci, {
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "c801dd32-095a-4bf2-95a0-63f7271c0c64",
+    envVarName: "POSTGRES_USER",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -86,6 +125,44 @@ async function run() {
         slug: "<value>",
       },
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextCreateContext } from "circleci-v2-sdk/funcs/contextCreateContext.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextCreateContext(circleci, {
+    name: "<value>",
+  owner:     {
+        slug: "<value>",
+      },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -145,6 +222,46 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextCreateContextRestriction } from "circleci-v2-sdk/funcs/contextCreateContextRestriction.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextCreateContextRestriction(circleci, {
+    requestBody: {
+      projectId: "405d8375-3514-403b-8c43-83ae74cfe0e9",
+      restrictionType: "project",
+      restrictionValue: "405d8375-3514-403b-8c43-83ae74cfe0e9",
+    },
+    contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -183,6 +300,41 @@ async function run() {
   const result = await circleci.context.deleteContext({
     contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextDeleteContext } from "circleci-v2-sdk/funcs/contextDeleteContext.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextDeleteContext(circleci, {
+    contextId: "cc18cccd-235b-48b1-9a39-f05941d547ca",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -238,6 +390,42 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextDeleteContextRestriction } from "circleci-v2-sdk/funcs/contextDeleteContextRestriction.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextDeleteContextRestriction(circleci, {
+    contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
+    restrictionId: "1c23d2cb-07b1-4a28-8af3-e369732050ed",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -277,6 +465,42 @@ async function run() {
     contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
     envVarName: "POSTGRES_USER",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextDeleteEnvironmentVariableFromContext } from "circleci-v2-sdk/funcs/contextDeleteEnvironmentVariableFromContext.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextDeleteEnvironmentVariableFromContext(circleci, {
+    contextId: "06b42e86-5a70-41b9-b15e-1342720c1860",
+    envVarName: "POSTGRES_USER",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -331,6 +555,41 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextGetContext } from "circleci-v2-sdk/funcs/contextGetContext.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextGetContext(circleci, {
+    contextId: "12d1f9a6-9baf-460f-a3ce-089284313413",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -369,6 +628,41 @@ async function run() {
   const result = await circleci.context.getContextRestrictions({
     contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextGetContextRestrictions } from "circleci-v2-sdk/funcs/contextGetContextRestrictions.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextGetContextRestrictions(circleci, {
+    contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -421,6 +715,39 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextListContexts } from "circleci-v2-sdk/funcs/contextListContexts.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextListContexts(circleci, {});
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -459,6 +786,41 @@ async function run() {
   const result = await circleci.context.listEnvironmentVariablesFromContext({
     contextId: "bd93f37e-8737-476a-be63-944592b835e7",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { contextListEnvironmentVariablesFromContext } from "circleci-v2-sdk/funcs/contextListEnvironmentVariablesFromContext.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await contextListEnvironmentVariablesFromContext(circleci, {
+    contextId: "9a42d7c3-0001-4d08-8861-17ae360b079a",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

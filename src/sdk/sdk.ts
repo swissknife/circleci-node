@@ -27,6 +27,11 @@ export class Circleci extends ClientSDK {
         return (this._insights ??= new Insights(this.options$));
     }
 
+    private _job?: Job;
+    get job(): Job {
+        return (this._job ??= new Job(this.options$));
+    }
+
     private _user?: User;
     get user(): User {
         return (this._user ??= new User(this.options$));
@@ -55,11 +60,6 @@ export class Circleci extends ClientSDK {
     private _project?: Project;
     get project(): Project {
         return (this._project ??= new Project(this.options$));
-    }
-
-    private _job?: Job;
-    get job(): Job {
-        return (this._job ??= new Job(this.options$));
     }
 
     private _schedule?: Schedule;

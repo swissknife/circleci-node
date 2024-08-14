@@ -42,6 +42,42 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetAllInsightsBranches } from "circleci-v2-sdk/funcs/insightsGetAllInsightsBranches.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetAllInsightsBranches(circleci, {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    workflowName: "build-and-test",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -81,6 +117,41 @@ async function run() {
   const result = await circleci.insights.getFlakyTests({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetFlakyTests } from "circleci-v2-sdk/funcs/insightsGetFlakyTests.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetFlakyTests(circleci, {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -139,6 +210,45 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetJobTimeseries } from "circleci-v2-sdk/funcs/insightsGetJobTimeseries.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetJobTimeseries(circleci, {
+    endDate: new Date("2020-09-04T13:26:29Z"),
+    granularity: "hourly",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    startDate: new Date("2020-08-21T13:26:29Z"),
+    workflowName: "build-and-test",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -180,6 +290,43 @@ async function run() {
     projectNames: {},
     reportingWindow: "last-90-days",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetOrgSummaryData } from "circleci-v2-sdk/funcs/insightsGetOrgSummaryData.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetOrgSummaryData(circleci, {
+    orgSlug: "gh/CircleCI-Public",
+    projectNames: {},
+    reportingWindow: "last-90-days",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -237,6 +384,44 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetProjectWorkflowJobMetrics } from "circleci-v2-sdk/funcs/insightsGetProjectWorkflowJobMetrics.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetProjectWorkflowJobMetrics(circleci, {
+    jobName: "lint",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    reportingWindow: "last-90-days",
+    workflowName: "build-and-test",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -276,6 +461,42 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     reportingWindow: "last-90-days",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetProjectWorkflowMetrics } from "circleci-v2-sdk/funcs/insightsGetProjectWorkflowMetrics.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetProjectWorkflowMetrics(circleci, {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    reportingWindow: "last-90-days",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -333,6 +554,44 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetProjectWorkflowRuns } from "circleci-v2-sdk/funcs/insightsGetProjectWorkflowRuns.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetProjectWorkflowRuns(circleci, {
+    endDate: new Date("2020-09-04T13:26:29Z"),
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    startDate: new Date("2020-08-21T13:26:29Z"),
+    workflowName: "build-and-test",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -372,6 +631,42 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     workflowName: "build-and-test",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetProjectWorkflowTestMetrics } from "circleci-v2-sdk/funcs/insightsGetProjectWorkflowTestMetrics.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetProjectWorkflowTestMetrics(circleci, {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    workflowName: "build-and-test",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -432,6 +727,44 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetProjectWorkflowsPageData } from "circleci-v2-sdk/funcs/insightsGetProjectWorkflowsPageData.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetProjectWorkflowsPageData(circleci, {
+    branches: {},
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    reportingWindow: "last-90-days",
+    workflowNames: {},
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -471,6 +804,42 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     workflowName: "build-and-test",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { insightsGetWorkflowSummary } from "circleci-v2-sdk/funcs/insightsGetWorkflowSummary.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await insightsGetWorkflowSummary(circleci, {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    workflowName: "build-and-test",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

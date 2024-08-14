@@ -94,6 +94,14 @@ run();
 * [getProjectWorkflowsPageData](docs/sdks/insights/README.md#getprojectworkflowspagedata) - Get summary metrics and trends for a project across it's workflows and branches
 * [getWorkflowSummary](docs/sdks/insights/README.md#getworkflowsummary) - Get metrics and trends for workflows
 
+### [job](docs/sdks/job/README.md)
+
+* [cancelJobByJobID](docs/sdks/job/README.md#canceljobbyjobid) - Cancel job by job ID
+* [cancelJobByJobNumber](docs/sdks/job/README.md#canceljobbyjobnumber) - Cancel job by job number
+* [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
+* [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
+* [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
+
 ### [user](docs/sdks/user/README.md)
 
 * [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
@@ -152,13 +160,6 @@ run();
 * [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
 * [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
 * [patchProjectSettings](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
-
-### [job](docs/sdks/job/README.md)
-
-* [cancelJobByJobNumber](docs/sdks/job/README.md#canceljobbyjobnumber) - Cancel job by job number
-* [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
-* [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
-* [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
 
 ### [schedule](docs/sdks/schedule/README.md)
 
@@ -518,6 +519,107 @@ import { Circleci } from "circleci-v2-sdk";
 const sdk = new Circleci({ debugLogger: console });
 ```
 <!-- End Debugging [debug] -->
+
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [contextAddEnvironmentVariableToContext](docs/sdks/context/README.md#addenvironmentvariabletocontext)
+- [contextCreateContextRestriction](docs/sdks/context/README.md#createcontextrestriction)
+- [contextCreateContext](docs/sdks/context/README.md#createcontext)
+- [contextDeleteContextRestriction](docs/sdks/context/README.md#deletecontextrestriction)
+- [contextDeleteContext](docs/sdks/context/README.md#deletecontext)
+- [contextDeleteEnvironmentVariableFromContext](docs/sdks/context/README.md#deleteenvironmentvariablefromcontext)
+- [contextGetContextRestrictions](docs/sdks/context/README.md#getcontextrestrictions)
+- [contextGetContext](docs/sdks/context/README.md#getcontext)
+- [contextListContexts](docs/sdks/context/README.md#listcontexts)
+- [contextListEnvironmentVariablesFromContext](docs/sdks/context/README.md#listenvironmentvariablesfromcontext)
+- [insightsGetAllInsightsBranches](docs/sdks/insights/README.md#getallinsightsbranches)
+- [insightsGetFlakyTests](docs/sdks/insights/README.md#getflakytests)
+- [insightsGetJobTimeseries](docs/sdks/insights/README.md#getjobtimeseries)
+- [insightsGetOrgSummaryData](docs/sdks/insights/README.md#getorgsummarydata)
+- [insightsGetProjectWorkflowJobMetrics](docs/sdks/insights/README.md#getprojectworkflowjobmetrics)
+- [insightsGetProjectWorkflowMetrics](docs/sdks/insights/README.md#getprojectworkflowmetrics)
+- [insightsGetProjectWorkflowRuns](docs/sdks/insights/README.md#getprojectworkflowruns)
+- [insightsGetProjectWorkflowTestMetrics](docs/sdks/insights/README.md#getprojectworkflowtestmetrics)
+- [insightsGetProjectWorkflowsPageData](docs/sdks/insights/README.md#getprojectworkflowspagedata)
+- [insightsGetWorkflowSummary](docs/sdks/insights/README.md#getworkflowsummary)
+- [jobCancelJobByJobID](docs/sdks/job/README.md#canceljobbyjobid)
+- [jobCancelJobByJobNumber](docs/sdks/job/README.md#canceljobbyjobnumber)
+- [jobGetJobArtifacts](docs/sdks/job/README.md#getjobartifacts)
+- [jobGetJobDetails](docs/sdks/job/README.md#getjobdetails)
+- [jobGetTests](docs/sdks/job/README.md#gettests)
+- [oidcTokenManagementDeleteOrgClaims](docs/sdks/oidctokenmanagement/README.md#deleteorgclaims)
+- [oidcTokenManagementDeleteProjectClaims](docs/sdks/oidctokenmanagement/README.md#deleteprojectclaims)
+- [oidcTokenManagementGetOrgClaims](docs/sdks/oidctokenmanagement/README.md#getorgclaims)
+- [oidcTokenManagementGetProjectClaims](docs/sdks/oidctokenmanagement/README.md#getprojectclaims)
+- [oidcTokenManagementPatchOrgClaims](docs/sdks/oidctokenmanagement/README.md#patchorgclaims)
+- [oidcTokenManagementPatchProjectClaims](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims)
+- [pipelineContinuePipeline](docs/sdks/pipeline/README.md#continuepipeline)
+- [pipelineGetPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid)
+- [pipelineGetPipelineByNumber](docs/sdks/pipeline/README.md#getpipelinebynumber)
+- [pipelineGetPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid)
+- [pipelineListMyPipelines](docs/sdks/pipeline/README.md#listmypipelines)
+- [pipelineListPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject)
+- [pipelineListPipelines](docs/sdks/pipeline/README.md#listpipelines)
+- [pipelineListWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid)
+- [pipelineTriggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline)
+- [policyManagementCreatePolicyBundle](docs/sdks/policymanagement/README.md#createpolicybundle)
+- [policyManagementGetDecisionLogPolicyBundle](docs/sdks/policymanagement/README.md#getdecisionlogpolicybundle)
+- [policyManagementGetDecisionLog](docs/sdks/policymanagement/README.md#getdecisionlog)
+- [policyManagementGetDecisionLogs](docs/sdks/policymanagement/README.md#getdecisionlogs)
+- [policyManagementGetDecisionSettings](docs/sdks/policymanagement/README.md#getdecisionsettings)
+- [policyManagementGetPolicyBundle](docs/sdks/policymanagement/README.md#getpolicybundle)
+- [policyManagementGetPolicyDocument](docs/sdks/policymanagement/README.md#getpolicydocument)
+- [policyManagementMakeDecision](docs/sdks/policymanagement/README.md#makedecision)
+- [policyManagementSetDecisionSettings](docs/sdks/policymanagement/README.md#setdecisionsettings)
+- [projectCreateCheckoutKey](docs/sdks/project/README.md#createcheckoutkey)
+- [projectCreateEnvVar](docs/sdks/project/README.md#createenvvar)
+- [projectCreateProject](docs/sdks/project/README.md#createproject)
+- [projectDeleteCheckoutKey](docs/sdks/project/README.md#deletecheckoutkey)
+- [projectDeleteEnvVar](docs/sdks/project/README.md#deleteenvvar)
+- [projectGetCheckoutKey](docs/sdks/project/README.md#getcheckoutkey)
+- [projectGetEnvVar](docs/sdks/project/README.md#getenvvar)
+- [projectGetProjectBySlug](docs/sdks/project/README.md#getprojectbyslug)
+- [projectGetProjectSettings](docs/sdks/project/README.md#getprojectsettings)
+- [projectListCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys)
+- [projectListEnvVars](docs/sdks/project/README.md#listenvvars)
+- [projectPatchProjectSettings](docs/sdks/project/README.md#patchprojectsettings)
+- [scheduleCreateSchedule](docs/sdks/schedule/README.md#createschedule)
+- [scheduleDeleteScheduleById](docs/sdks/schedule/README.md#deleteschedulebyid)
+- [scheduleGetScheduleById](docs/sdks/schedule/README.md#getschedulebyid)
+- [scheduleListSchedulesForProject](docs/sdks/schedule/README.md#listschedulesforproject)
+- [scheduleUpdateSchedule](docs/sdks/schedule/README.md#updateschedule)
+- [usageCreateUsageExport](docs/sdks/usage/README.md#createusageexport)
+- [usageGetUsageExport](docs/sdks/usage/README.md#getusageexport)
+- [userGetCollaborations](docs/sdks/user/README.md#getcollaborations)
+- [userGetCurrentUser](docs/sdks/user/README.md#getcurrentuser)
+- [userGetUser](docs/sdks/user/README.md#getuser)
+- [webhookCreateWebhook](docs/sdks/webhook/README.md#createwebhook)
+- [webhookDeleteWebhook](docs/sdks/webhook/README.md#deletewebhook)
+- [webhookGetWebhookById](docs/sdks/webhook/README.md#getwebhookbyid)
+- [webhookGetWebhooks](docs/sdks/webhook/README.md#getwebhooks)
+- [webhookUpdateWebhook](docs/sdks/webhook/README.md#updatewebhook)
+- [workflowApprovePendingApprovalJobById](docs/sdks/workflow/README.md#approvependingapprovaljobbyid)
+- [workflowCancelWorkflow](docs/sdks/workflow/README.md#cancelworkflow)
+- [workflowGetWorkflowById](docs/sdks/workflow/README.md#getworkflowbyid)
+- [workflowListWorkflowJobs](docs/sdks/workflow/README.md#listworkflowjobs)
+- [workflowRerunWorkflow](docs/sdks/workflow/README.md#rerunworkflow)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

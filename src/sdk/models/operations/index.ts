@@ -4,6 +4,7 @@
 
 export * from "./addenvironmentvariabletocontext.js";
 export * from "./approvependingapprovaljobbyid.js";
+export * from "./canceljobbyjobid.js";
 export * from "./canceljobbyjobnumber.js";
 export * from "./cancelworkflow.js";
 export * from "./continuepipeline.js";

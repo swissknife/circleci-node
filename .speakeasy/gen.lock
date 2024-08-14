@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 262478bf95e70f57797c9ba3788af5ec
+  docChecksum: 752d955bd0cfaa75046aa15cc4bde612
   docVersion: v2
-  speakeasyVersion: 1.361.1
-  generationVersion: 2.393.4
-  releaseVersion: 5.3.1
-  configChecksum: e827ecb528058f2caa83348341f95fe9
+  speakeasyVersion: 1.366.0
+  generationVersion: 2.396.0
+  releaseVersion: 5.3.2
+  configChecksum: b65b096af3f39be665d0ffd2e92ab0aa
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -48,6 +48,11 @@ generatedFiles:
   - src/funcs/insightsGetProjectWorkflowTestMetrics.ts
   - src/funcs/insightsGetProjectWorkflowsPageData.ts
   - src/funcs/insightsGetWorkflowSummary.ts
+  - src/funcs/jobCancelJobByJobID.ts
+  - src/funcs/jobCancelJobByJobNumber.ts
+  - src/funcs/jobGetJobArtifacts.ts
+  - src/funcs/jobGetJobDetails.ts
+  - src/funcs/jobGetTests.ts
   - src/funcs/userGetCollaborations.ts
   - src/funcs/userGetCurrentUser.ts
   - src/funcs/userGetUser.ts
@@ -89,10 +94,6 @@ generatedFiles:
   - src/funcs/projectListCheckoutKeys.ts
   - src/funcs/projectListEnvVars.ts
   - src/funcs/projectPatchProjectSettings.ts
-  - src/funcs/jobCancelJobByJobNumber.ts
-  - src/funcs/jobGetJobArtifacts.ts
-  - src/funcs/jobGetJobDetails.ts
-  - src/funcs/jobGetTests.ts
   - src/funcs/scheduleCreateSchedule.ts
   - src/funcs/scheduleDeleteScheduleById.ts
   - src/funcs/scheduleGetScheduleById.ts
@@ -110,19 +111,20 @@ generatedFiles:
   - src/funcs/workflowRerunWorkflow.ts
   - src/sdk/context.ts
   - src/sdk/insights.ts
+  - src/sdk/job.ts
   - src/sdk/user.ts
   - src/sdk/oidctokenmanagement.ts
   - src/sdk/usage.ts
   - src/sdk/policymanagement.ts
   - src/sdk/pipeline.ts
   - src/sdk/project.ts
-  - src/sdk/job.ts
   - src/sdk/schedule.ts
   - src/sdk/webhook.ts
   - src/sdk/workflow.ts
   - src/sdk/sdk.ts
   - .eslintrc.cjs
   - .npmignore
+  - FUNCTIONS.md
   - RUNTIMES.md
   - jsr.json
   - package.json
@@ -174,6 +176,11 @@ generatedFiles:
   - src/sdk/models/operations/getprojectworkflowtestmetrics.ts
   - src/sdk/models/operations/getprojectworkflowspagedata.ts
   - src/sdk/models/operations/getworkflowsummary.ts
+  - src/sdk/models/operations/canceljobbyjobid.ts
+  - src/sdk/models/operations/canceljobbyjobnumber.ts
+  - src/sdk/models/operations/getjobartifacts.ts
+  - src/sdk/models/operations/getjobdetails.ts
+  - src/sdk/models/operations/gettests.ts
   - src/sdk/models/operations/getcollaborations.ts
   - src/sdk/models/operations/getcurrentuser.ts
   - src/sdk/models/operations/getuser.ts
@@ -215,10 +222,6 @@ generatedFiles:
   - src/sdk/models/operations/listcheckoutkeys.ts
   - src/sdk/models/operations/listenvvars.ts
   - src/sdk/models/operations/patchprojectsettings.ts
-  - src/sdk/models/operations/canceljobbyjobnumber.ts
-  - src/sdk/models/operations/getjobartifacts.ts
-  - src/sdk/models/operations/getjobdetails.ts
-  - src/sdk/models/operations/gettests.ts
   - src/sdk/models/operations/createschedule.ts
   - src/sdk/models/operations/deleteschedulebyid.ts
   - src/sdk/models/operations/getschedulebyid.ts
@@ -387,6 +390,41 @@ generatedFiles:
   - docs/sdk/models/operations/trends.md
   - docs/sdk/models/operations/getworkflowsummaryresponsebody.md
   - docs/sdk/models/operations/getworkflowsummaryresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidrequest.md
+  - docs/sdk/models/operations/canceljobbyjobidresponsebody.md
+  - docs/sdk/models/operations/canceljobbyjobidjobresponse404messageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidjobresponse403messageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidjobresponsemessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidjobmessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidmessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidresponse.md
+  - docs/sdk/models/operations/canceljobbyjobnumberrequest.md
+  - docs/sdk/models/operations/canceljobbyjobnumberresponsebody.md
+  - docs/sdk/models/operations/canceljobbyjobnumbermessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobnumberresponse.md
+  - docs/sdk/models/operations/getjobartifactsrequest.md
+  - docs/sdk/models/operations/getjobartifactsresponsebody.md
+  - docs/sdk/models/operations/artifact.md
+  - docs/sdk/models/operations/getjobartifactsartifactlistresponse.md
+  - docs/sdk/models/operations/getjobartifactsresponse.md
+  - docs/sdk/models/operations/getjobdetailsrequest.md
+  - docs/sdk/models/operations/getjobdetailsresponsebody.md
+  - docs/sdk/models/operations/contexts.md
+  - docs/sdk/models/operations/executor.md
+  - docs/sdk/models/operations/latestworkflow.md
+  - docs/sdk/models/operations/messages.md
+  - docs/sdk/models/operations/organization.md
+  - docs/sdk/models/operations/parallelruns.md
+  - docs/sdk/models/operations/pipeline.md
+  - docs/sdk/models/operations/project.md
+  - docs/sdk/models/operations/status.md
+  - docs/sdk/models/operations/getjobdetailsjobdetails.md
+  - docs/sdk/models/operations/getjobdetailsresponse.md
+  - docs/sdk/models/operations/gettestsrequest.md
+  - docs/sdk/models/operations/gettestsresponsebody.md
+  - docs/sdk/models/operations/gettestsitems.md
+  - docs/sdk/models/operations/getteststestsresponse.md
+  - docs/sdk/models/operations/gettestsresponse.md
   - docs/sdk/models/operations/getcollaborationsresponsebody.md
   - docs/sdk/models/operations/collaboration.md
   - docs/sdk/models/operations/getcollaborationsresponse.md
@@ -611,33 +649,6 @@ generatedFiles:
   - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
   - docs/sdk/models/operations/patchprojectsettingsresponse.md
-  - docs/sdk/models/operations/canceljobbyjobnumberrequest.md
-  - docs/sdk/models/operations/canceljobbyjobnumberresponsebody.md
-  - docs/sdk/models/operations/canceljobbyjobnumbermessageresponse.md
-  - docs/sdk/models/operations/canceljobbyjobnumberresponse.md
-  - docs/sdk/models/operations/getjobartifactsrequest.md
-  - docs/sdk/models/operations/getjobartifactsresponsebody.md
-  - docs/sdk/models/operations/artifact.md
-  - docs/sdk/models/operations/getjobartifactsartifactlistresponse.md
-  - docs/sdk/models/operations/getjobartifactsresponse.md
-  - docs/sdk/models/operations/getjobdetailsrequest.md
-  - docs/sdk/models/operations/getjobdetailsresponsebody.md
-  - docs/sdk/models/operations/contexts.md
-  - docs/sdk/models/operations/executor.md
-  - docs/sdk/models/operations/latestworkflow.md
-  - docs/sdk/models/operations/messages.md
-  - docs/sdk/models/operations/organization.md
-  - docs/sdk/models/operations/parallelruns.md
-  - docs/sdk/models/operations/pipeline.md
-  - docs/sdk/models/operations/project.md
-  - docs/sdk/models/operations/status.md
-  - docs/sdk/models/operations/getjobdetailsjobdetails.md
-  - docs/sdk/models/operations/getjobdetailsresponse.md
-  - docs/sdk/models/operations/gettestsrequest.md
-  - docs/sdk/models/operations/gettestsresponsebody.md
-  - docs/sdk/models/operations/gettestsitems.md
-  - docs/sdk/models/operations/getteststestsresponse.md
-  - docs/sdk/models/operations/gettestsresponse.md
   - docs/sdk/models/operations/attributionactor.md
   - docs/sdk/models/operations/createscheduleparameters.md
   - docs/sdk/models/operations/createscheduledaysofweek.md
@@ -801,13 +812,13 @@ generatedFiles:
   - docs/lib/utils/retryconfig.md
   - docs/sdks/context/README.md
   - docs/sdks/insights/README.md
+  - docs/sdks/job/README.md
   - docs/sdks/user/README.md
   - docs/sdks/oidctokenmanagement/README.md
   - docs/sdks/usage/README.md
   - docs/sdks/policymanagement/README.md
   - docs/sdks/pipeline/README.md
   - docs/sdks/project/README.md
-  - docs/sdks/job/README.md
   - docs/sdks/schedule/README.md
   - docs/sdks/webhook/README.md
   - docs/sdks/workflow/README.md

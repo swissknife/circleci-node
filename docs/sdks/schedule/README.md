@@ -53,6 +53,58 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleCreateSchedule } from "circleci-v2-sdk/funcs/scheduleCreateSchedule.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await scheduleCreateSchedule(circleci, {
+    requestBody: {
+      attributionActor: "current",
+      name: "<value>",
+      parameters: {
+        "deploy_prod": true,
+        "branch": "feature/design-new-api",
+      },
+    timetable:     {
+          daysOfMonth: [
+            908700,
+          ],
+          hoursOfDay: [
+            368424,
+          ],
+          perHour: 577823,
+        },
+    },
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -91,6 +143,41 @@ async function run() {
   const result = await circleci.schedule.deleteScheduleById({
     scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleDeleteScheduleById } from "circleci-v2-sdk/funcs/scheduleDeleteScheduleById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await scheduleDeleteScheduleById(circleci, {
+    scheduleId: "2fe92a40-8e87-4092-a39b-c56ca44b0b33",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -145,6 +232,41 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleGetScheduleById } from "circleci-v2-sdk/funcs/scheduleGetScheduleById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await scheduleGetScheduleById(circleci, {
+    scheduleId: "5d9b344e-7567-419e-a0c5-190252279fb7",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -183,6 +305,41 @@ async function run() {
   const result = await circleci.schedule.listSchedulesForProject({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleListSchedulesForProject } from "circleci-v2-sdk/funcs/scheduleListSchedulesForProject.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await scheduleListSchedulesForProject(circleci, {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -236,6 +393,48 @@ async function run() {
     },
     scheduleId: "6d9c15e6-0e97-4e64-894d-3e9ab9ea99c1",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleUpdateSchedule } from "circleci-v2-sdk/funcs/scheduleUpdateSchedule.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await scheduleUpdateSchedule(circleci, {
+    requestBody: {
+      attributionActor: "current",
+      parameters: {
+        "deploy_prod": true,
+        "branch": "feature/design-new-api",
+      },
+    },
+    scheduleId: "69445f6f-0e33-488c-8cf7-cd563839de53",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

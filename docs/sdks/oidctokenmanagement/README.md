@@ -42,6 +42,42 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { oidcTokenManagementDeleteOrgClaims } from "circleci-v2-sdk/funcs/oidcTokenManagementDeleteOrgClaims.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await oidcTokenManagementDeleteOrgClaims(circleci, {
+    claims: "<value>",
+    orgID: "e4b9f995-f995-45dd-98db-63399c588741",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -90,6 +126,43 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { oidcTokenManagementDeleteProjectClaims } from "circleci-v2-sdk/funcs/oidcTokenManagementDeleteProjectClaims.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await oidcTokenManagementDeleteProjectClaims(circleci, {
+    claims: "<value>",
+    orgID: "edf50649-d694-4a52-a034-f4e8d98a25fa",
+    projectID: "a7ca147e-c283-4fa6-8f53-34b8bcb9b43c",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -128,6 +201,41 @@ async function run() {
   const result = await circleci.oidcTokenManagement.getOrgClaims({
     orgID: "faa87345-442f-4070-a007-ecf098342349",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { oidcTokenManagementGetOrgClaims } from "circleci-v2-sdk/funcs/oidcTokenManagementGetOrgClaims.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await oidcTokenManagementGetOrgClaims(circleci, {
+    orgID: "fa93cc70-008b-433f-aa84-64dc0f627262",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -183,6 +291,42 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { oidcTokenManagementGetProjectClaims } from "circleci-v2-sdk/funcs/oidcTokenManagementGetProjectClaims.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await oidcTokenManagementGetProjectClaims(circleci, {
+    orgID: "631b4b37-e7b7-4e25-9cab-26abe94999c8",
+    projectID: "0973175d-5cba-437d-89e7-3bd9c325ef6c",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -221,6 +365,41 @@ async function run() {
   const result = await circleci.oidcTokenManagement.patchOrgClaims({
     orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { oidcTokenManagementPatchOrgClaims } from "circleci-v2-sdk/funcs/oidcTokenManagementPatchOrgClaims.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await oidcTokenManagementPatchOrgClaims(circleci, {
+    orgID: "92d75b66-9c3a-46d7-94e0-c54d86ede315",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -268,6 +447,42 @@ async function run() {
     orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
     projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { oidcTokenManagementPatchProjectClaims } from "circleci-v2-sdk/funcs/oidcTokenManagementPatchProjectClaims.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await oidcTokenManagementPatchProjectClaims(circleci, {
+    orgID: "77cd2839-18c2-4331-ae1b-9f7baddb77c5",
+    projectID: "34fcb246-6aca-4954-9ad4-a55acc211525",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)

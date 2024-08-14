@@ -37,6 +37,42 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { workflowApprovePendingApprovalJobById } from "circleci-v2-sdk/funcs/workflowApprovePendingApprovalJobById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await workflowApprovePendingApprovalJobById(circleci, {
+    approvalRequestId: "a0874928-1523-43f9-85c2-922c565a2408",
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -75,6 +111,41 @@ async function run() {
   const result = await circleci.workflow.cancelWorkflow({
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { workflowCancelWorkflow } from "circleci-v2-sdk/funcs/workflowCancelWorkflow.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await workflowCancelWorkflow(circleci, {
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -129,6 +200,41 @@ async function run() {
 run();
 ```
 
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { workflowGetWorkflowById } from "circleci-v2-sdk/funcs/workflowGetWorkflowById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await workflowGetWorkflowById(circleci, {
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
@@ -167,6 +273,41 @@ async function run() {
   const result = await circleci.workflow.listWorkflowJobs({
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { workflowListWorkflowJobs } from "circleci-v2-sdk/funcs/workflowListWorkflowJobs.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await workflowListWorkflowJobs(circleci, {
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
@@ -222,6 +363,50 @@ async function run() {
     },
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { workflowRerunWorkflow } from "circleci-v2-sdk/funcs/workflowRerunWorkflow.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await workflowRerunWorkflow(circleci, {
+    requestBody: {
+      enableSsh: false,
+      fromFailed: false,
+      jobs: [
+        "c65b68ef-e73b-4bf2-be9a-7a322a9df150",
+        "5e957edd-5e8c-4985-9178-5d0d69561822",
+      ],
+      sparseTree: false,
+    },
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   // Handle the result
   console.log(result)
