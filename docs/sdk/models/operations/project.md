@@ -2,6 +2,18 @@
 
 Information about a project.
 
+## Example Usage
+
+```typescript
+import { Project } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Project = {
+    externalUrl: "https://github.com/CircleCI-Public/api-preview-docs",
+    id: "07e2b6e3-ab88-445f-8597-a60ff2a54a31",
+    name: "api-preview-docs",
+    slug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

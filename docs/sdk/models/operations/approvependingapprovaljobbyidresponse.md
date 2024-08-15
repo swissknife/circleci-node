@@ -1,5 +1,12 @@
 # ApprovePendingApprovalJobByIdResponse
 
+## Example Usage
+
+```typescript
+import { ApprovePendingApprovalJobByIdResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ApprovePendingApprovalJobByIdResponse = {};
+```
 
 ## Supported Types
 

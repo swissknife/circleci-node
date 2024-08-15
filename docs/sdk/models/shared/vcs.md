@@ -1,5 +1,12 @@
 # Vcs
 
+## Example Usage
+
+```typescript
+import { Vcs } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: Vcs = {};
+```
 
 ## Fields
 

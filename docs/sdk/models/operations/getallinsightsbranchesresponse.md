@@ -1,5 +1,16 @@
 # GetAllInsightsBranchesResponse
 
+## Example Usage
+
+```typescript
+import { GetAllInsightsBranchesResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetAllInsightsBranchesResponse = {
+    branches: ["main"],
+    orgId: "<value>",
+    projectId: "<value>",
+};
+```
 
 ## Supported Types
 

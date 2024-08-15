@@ -1,5 +1,15 @@
 # GetWebhooksRequest
 
+## Example Usage
+
+```typescript
+import { GetWebhooksRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetWebhooksRequest = {
+    scopeId: "5e320a31-9f4b-4adf-947c-9a867bc42426",
+    scopeType: "project",
+};
+```
 
 ## Fields
 

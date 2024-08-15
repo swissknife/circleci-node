@@ -1,5 +1,15 @@
 # GetJobArtifactsRequest
 
+## Example Usage
+
+```typescript
+import { GetJobArtifactsRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetJobArtifactsRequest = {
+    jobNumber: "123",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

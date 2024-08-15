@@ -1,5 +1,21 @@
 # GetProjectWorkflowRunsItems
 
+## Example Usage
+
+```typescript
+import { GetProjectWorkflowRunsItems } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectWorkflowRunsItems = {
+    branch: "main",
+    createdAt: new Date("2022-03-19T05:02:34.319Z"),
+    creditsUsed: 241418,
+    duration: 683573,
+    id: "a63aae8d-6786-44db-b675-fd5e60b375ed",
+    isApproval: false,
+    status: "failed",
+    stoppedAt: new Date("2024-12-16T02:21:59.706Z"),
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # UpdateScheduleScheduleParameters
 
+## Example Usage
+
+```typescript
+import { UpdateScheduleScheduleParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateScheduleScheduleParameters = 710059;
+```
 
 ## Supported Types
 

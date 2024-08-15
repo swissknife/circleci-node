@@ -2,6 +2,16 @@
 
 The latest commit in the pipeline.
 
+## Example Usage
+
+```typescript
+import { ListMyPipelinesCommit } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListMyPipelinesCommit = {
+    body: "<value>",
+    subject: "<value>",
+};
+```
 
 ## Fields
 

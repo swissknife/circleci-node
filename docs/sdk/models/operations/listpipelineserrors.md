@@ -2,6 +2,16 @@
 
 An error with a type and message.
 
+## Example Usage
+
+```typescript
+import { ListPipelinesErrors } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListPipelinesErrors = {
+    message: "<value>",
+    type: "permission",
+};
+```
 
 ## Fields
 

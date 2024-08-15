@@ -1,5 +1,12 @@
 # TriggerParameters
 
+## Example Usage
+
+```typescript
+import { TriggerParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: TriggerParameters = 854115;
+```
 
 ## Supported Types
 

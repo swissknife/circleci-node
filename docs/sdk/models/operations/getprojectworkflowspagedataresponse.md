@@ -1,5 +1,12 @@
 # GetProjectWorkflowsPageDataResponse
 
+## Example Usage
+
+```typescript
+import { GetProjectWorkflowsPageDataResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectWorkflowsPageDataResponse = {};
+```
 
 ## Supported Types
 

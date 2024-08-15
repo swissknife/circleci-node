@@ -1,5 +1,12 @@
 # CancelJobByJobNumberResponse
 
+## Example Usage
+
+```typescript
+import { CancelJobByJobNumberResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CancelJobByJobNumberResponse = {};
+```
 
 ## Supported Types
 

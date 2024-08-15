@@ -1,5 +1,12 @@
 # GetPipelineConfigByIdResponse
 
+## Example Usage
+
+```typescript
+import { GetPipelineConfigByIdResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPipelineConfigByIdResponse = {};
+```
 
 ## Supported Types
 

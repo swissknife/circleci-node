@@ -1,5 +1,16 @@
 # DeleteProjectClaimsRequest
 
+## Example Usage
+
+```typescript
+import { DeleteProjectClaimsRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteProjectClaimsRequest = {
+    claims: "<value>",
+    orgID: "e056013f-59da-4757-a59e-cfef66ef1caa",
+    projectID: "3383c2be-b477-4373-88d7-2f64d1db1f2c",
+};
+```
 
 ## Fields
 

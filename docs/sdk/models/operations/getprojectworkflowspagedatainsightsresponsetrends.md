@@ -2,6 +2,18 @@
 
 Trends aggregated across a workflow or branch for a project.
 
+## Example Usage
+
+```typescript
+import { GetProjectWorkflowsPageDataInsightsResponseTrends } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectWorkflowsPageDataInsightsResponseTrends = {
+    p95DurationSecs: 3335.07,
+    successRate: 3295.43,
+    totalCreditsUsed: 9241.59,
+    totalRuns: 9671.22,
+};
+```
 
 ## Fields
 

@@ -1,5 +1,16 @@
 # CreateScheduleSchedule1
 
+## Example Usage
+
+```typescript
+import { CreateScheduleSchedule1 } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateScheduleSchedule1 = {
+    daysOfWeek: ["SUN"],
+    hoursOfDay: [344289],
+    perHour: 460909,
+};
+```
 
 ## Fields
 

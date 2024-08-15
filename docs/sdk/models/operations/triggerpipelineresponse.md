@@ -1,5 +1,12 @@
 # TriggerPipelineResponse
 
+## Example Usage
+
+```typescript
+import { TriggerPipelineResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: TriggerPipelineResponse = {};
+```
 
 ## Supported Types
 

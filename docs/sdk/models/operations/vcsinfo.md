@@ -2,6 +2,17 @@
 
 Information about the VCS that hosts the project source code.
 
+## Example Usage
+
+```typescript
+import { VcsInfo } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: VcsInfo = {
+    defaultBranch: "main",
+    provider: "Bitbucket",
+    vcsUrl: "https://github.com/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

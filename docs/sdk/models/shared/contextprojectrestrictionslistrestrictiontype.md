@@ -2,10 +2,16 @@
 
 Type of the restriction
 
+## Example Usage
+
+```typescript
+import { ContextProjectRestrictionsListRestrictionType } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: ContextProjectRestrictionsListRestrictionType = "project";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Project`    | project      |
-| `Expression` | expression   |
+```typescript
+"project" | "expression"
+```

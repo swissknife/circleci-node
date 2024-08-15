@@ -1,5 +1,12 @@
 # GetOrgSummaryDataResponse
 
+## Example Usage
+
+```typescript
+import { GetOrgSummaryDataResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetOrgSummaryDataResponse = {};
+```
 
 ## Supported Types
 

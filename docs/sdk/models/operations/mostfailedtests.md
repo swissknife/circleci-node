@@ -1,5 +1,22 @@
 # MostFailedTests
 
+## Example Usage
+
+```typescript
+import { MostFailedTests } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: MostFailedTests = {
+    classname: "<value>",
+    failedRuns: 449292,
+    file: "<value>",
+    flaky: false,
+    jobName: "<value>",
+    p95Duration: 2962.42,
+    source: "<value>",
+    testName: "<value>",
+    totalRuns: 304468,
+};
+```
 
 ## Fields
 

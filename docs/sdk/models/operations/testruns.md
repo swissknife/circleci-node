@@ -1,5 +1,23 @@
 # TestRuns
 
+## Example Usage
+
+```typescript
+import { TestRuns } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: TestRuns = {
+    pipelineNumber: 201517,
+    successRate: 6339.98,
+    testCounts: {
+        error: 548519,
+        failure: 867290,
+        skipped: 519643,
+        success: 940210,
+        total: 348783,
+    },
+    workflowId: "<value>",
+};
+```
 
 ## Fields
 

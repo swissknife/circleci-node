@@ -1,5 +1,15 @@
 # CreateContextRestrictionRequest
 
+## Example Usage
+
+```typescript
+import { CreateContextRestrictionRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateContextRestrictionRequest = {
+    requestBody: {},
+    contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
+};
+```
 
 ## Fields
 

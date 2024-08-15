@@ -1,5 +1,14 @@
 # ListMyPipelinesRequest
 
+## Example Usage
+
+```typescript
+import { ListMyPipelinesRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListMyPipelinesRequest = {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

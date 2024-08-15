@@ -2,6 +2,25 @@
 
 The parameters for a create schedule request
 
+## Example Usage
+
+```typescript
+import { CreateScheduleCreateScheduleParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateScheduleCreateScheduleParameters = {
+    attributionActor: "current",
+    name: "<value>",
+    parameters: {
+        deploy_prod: true,
+        branch: "feature/design-new-api",
+    },
+    timetable: {
+        daysOfMonth: [135548],
+        hoursOfDay: [725784],
+        perHour: 720266,
+    },
+};
+```
 
 ## Fields
 

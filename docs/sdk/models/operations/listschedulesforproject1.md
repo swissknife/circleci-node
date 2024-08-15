@@ -1,5 +1,16 @@
 # ListSchedulesForProject1
 
+## Example Usage
+
+```typescript
+import { ListSchedulesForProject1 } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListSchedulesForProject1 = {
+    daysOfWeek: ["MON"],
+    hoursOfDay: [543353],
+    perHour: 886118,
+};
+```
 
 ## Fields
 

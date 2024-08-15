@@ -1,5 +1,14 @@
 # DeleteContextResponse
 
+## Example Usage
+
+```typescript
+import { DeleteContextResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteContextResponse = {
+    message: "<value>",
+};
+```
 
 ## Supported Types
 

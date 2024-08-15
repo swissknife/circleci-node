@@ -2,6 +2,20 @@
 
 A summary of the trigger.
 
+## Example Usage
+
+```typescript
+import { GetPipelineByNumberTrigger } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPipelineByNumberTrigger = {
+    actor: {
+        avatarUrl: "<value>",
+        login: "Elliott_Schamberger",
+    },
+    receivedAt: new Date("2024-10-07T04:53:54.264Z"),
+    type: "scheduled_pipeline",
+};
+```
 
 ## Fields
 

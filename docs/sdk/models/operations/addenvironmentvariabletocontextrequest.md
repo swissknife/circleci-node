@@ -1,5 +1,18 @@
 # AddEnvironmentVariableToContextRequest
 
+## Example Usage
+
+```typescript
+import { AddEnvironmentVariableToContextRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: AddEnvironmentVariableToContextRequest = {
+    requestBody: {
+        value: "some-secret-value",
+    },
+    contextId: "a05dfc2d-df7c-4c78-8a1b-a928fc816742",
+    envVarName: "POSTGRES_USER",
+};
+```
 
 ## Fields
 

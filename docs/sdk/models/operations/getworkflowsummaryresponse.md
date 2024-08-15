@@ -1,5 +1,12 @@
 # GetWorkflowSummaryResponse
 
+## Example Usage
+
+```typescript
+import { GetWorkflowSummaryResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetWorkflowSummaryResponse = {};
+```
 
 ## Supported Types
 

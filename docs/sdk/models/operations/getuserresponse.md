@@ -1,5 +1,12 @@
 # GetUserResponse
 
+## Example Usage
+
+```typescript
+import { GetUserResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetUserResponse = {};
+```
 
 ## Supported Types
 

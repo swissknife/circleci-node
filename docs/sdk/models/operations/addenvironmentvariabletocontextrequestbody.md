@@ -1,5 +1,14 @@
 # AddEnvironmentVariableToContextRequestBody
 
+## Example Usage
+
+```typescript
+import { AddEnvironmentVariableToContextRequestBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: AddEnvironmentVariableToContextRequestBody = {
+    value: "some-secret-value",
+};
+```
 
 ## Fields
 

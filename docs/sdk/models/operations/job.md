@@ -2,6 +2,21 @@
 
 Job
 
+## Example Usage
+
+```typescript
+import { Job } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Job = {
+    dependencies: ["bb33cfaa-348c-431b-b407-ee4fcf0c42b7"],
+    id: "8f156263-98a0-4dc7-a632-4ccb06c8ca12",
+    name: "<value>",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    startedAt: new Date("2024-06-29T19:34:52.289Z"),
+    status: "success",
+    type: "build",
+};
+```
 
 ## Fields
 

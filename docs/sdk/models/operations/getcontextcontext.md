@@ -2,6 +2,17 @@
 
 The context
 
+## Example Usage
+
+```typescript
+import { GetContextContext } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetContextContext = {
+    createdAt: new Date("2015-09-21T17:29:21.042Z"),
+    id: "33323f9b-77f3-4a41-8067-4ebf69280d1b",
+    name: "<value>",
+};
+```
 
 ## Fields
 

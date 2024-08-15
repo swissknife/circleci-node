@@ -1,5 +1,14 @@
 # MakeDecisionResponse
 
+## Example Usage
+
+```typescript
+import { MakeDecisionResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: MakeDecisionResponse = {
+    error: "There was an error processing your request.",
+};
+```
 
 ## Supported Types
 

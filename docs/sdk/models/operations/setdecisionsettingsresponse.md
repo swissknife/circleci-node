@@ -1,5 +1,12 @@
 # SetDecisionSettingsResponse
 
+## Example Usage
+
+```typescript
+import { SetDecisionSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: SetDecisionSettingsResponse = {};
+```
 
 ## Supported Types
 

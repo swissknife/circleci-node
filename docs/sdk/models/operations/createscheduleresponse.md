@@ -1,5 +1,12 @@
 # CreateScheduleResponse
 
+## Example Usage
+
+```typescript
+import { CreateScheduleResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateScheduleResponse = {};
+```
 
 ## Supported Types
 

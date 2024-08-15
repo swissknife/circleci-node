@@ -2,6 +2,16 @@
 
 An error with a type and message.
 
+## Example Usage
+
+```typescript
+import { ListPipelinesForProjectErrors } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListPipelinesForProjectErrors = {
+    message: "<value>",
+    type: "plan",
+};
+```
 
 ## Fields
 

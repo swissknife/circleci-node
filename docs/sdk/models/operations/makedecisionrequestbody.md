@@ -1,5 +1,14 @@
 # MakeDecisionRequestBody
 
+## Example Usage
+
+```typescript
+import { MakeDecisionRequestBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: MakeDecisionRequestBody = {
+    input: "<value>",
+};
+```
 
 ## Fields
 

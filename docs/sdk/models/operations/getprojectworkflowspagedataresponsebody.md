@@ -2,6 +2,51 @@
 
 Aggregated summary metrics and trends by workflow and branches
 
+## Example Usage
+
+```typescript
+import { GetProjectWorkflowsPageDataResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectWorkflowsPageDataResponseBody = {
+    allBranches: ["main"],
+    allWorkflows: ["build-and-test"],
+    projectWorkflowBranchData: [
+        {
+            branch: "main",
+            metrics: {
+                p95DurationSecs: 1046.27,
+                successRate: 5124.52,
+                totalCreditsUsed: 348476,
+                totalRuns: 510629,
+            },
+            trends: {
+                p95DurationSecs: 7400.98,
+                successRate: 3868.27,
+                totalCreditsUsed: 6805.15,
+                totalRuns: 5300.89,
+            },
+            workflowName: "build-and-test",
+        },
+    ],
+    projectWorkflowData: [
+        {
+            metrics: {
+                p95DurationSecs: 6223.85,
+                successRate: 9447.08,
+                totalCreditsUsed: 710529,
+                totalRuns: 892863,
+            },
+            trends: {
+                p95DurationSecs: 2049.23,
+                successRate: 6771.15,
+                totalCreditsUsed: 3416.98,
+                totalRuns: 6390.28,
+            },
+            workflowName: "build-and-test",
+        },
+    ],
+};
+```
 
 ## Fields
 

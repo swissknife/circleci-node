@@ -2,15 +2,16 @@
 
 Day in a week, in three letters format
 
+## Example Usage
+
+```typescript
+import { GetScheduleByIdScheduleDaysOfWeek } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetScheduleByIdScheduleDaysOfWeek = "FRI";
+```
 
 ## Values
 
-| Name  | Value |
-| ----- | ----- |
-| `Tue` | TUE   |
-| `Sat` | SAT   |
-| `Sun` | SUN   |
-| `Mon` | MON   |
-| `Thu` | THU   |
-| `Wed` | WED   |
-| `Fri` | FRI   |
+```typescript
+"TUE" | "SAT" | "SUN" | "MON" | "THU" | "WED" | "FRI"
+```

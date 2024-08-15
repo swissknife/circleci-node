@@ -2,6 +2,25 @@
 
 NOTE: The definition of Project is subject to change.
 
+## Example Usage
+
+```typescript
+import { GetProjectBySlugProject } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectBySlugProject = {
+    id: "3a45cefc-5fde-410a-8ce2-169e510019c6",
+    name: "api-preview-docs",
+    organizationId: "CircleCI-Public",
+    organizationName: "CircleCI-Public",
+    organizationSlug: "CircleCI-Public",
+    slug: "gh/CircleCI-Public/api-preview-docs",
+    vcsInfo: {
+        defaultBranch: "main",
+        provider: "GitHub",
+        vcsUrl: "https://github.com/CircleCI-Public/api-preview-docs",
+    },
+};
+```
 
 ## Fields
 

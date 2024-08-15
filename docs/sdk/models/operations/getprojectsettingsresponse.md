@@ -1,5 +1,12 @@
 # GetProjectSettingsResponse
 
+## Example Usage
+
+```typescript
+import { GetProjectSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectSettingsResponse = {};
+```
 
 ## Supported Types
 

@@ -1,5 +1,12 @@
 # GetUsageExportResponse
 
+## Example Usage
+
+```typescript
+import { GetUsageExportResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetUsageExportResponse = {};
+```
 
 ## Supported Types
 

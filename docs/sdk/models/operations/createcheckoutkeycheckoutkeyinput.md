@@ -1,5 +1,14 @@
 # CreateCheckoutKeyCheckoutKeyInput
 
+## Example Usage
+
+```typescript
+import { CreateCheckoutKeyCheckoutKeyInput } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateCheckoutKeyCheckoutKeyInput = {
+    type: "deploy-key",
+};
+```
 
 ## Fields
 

@@ -2,6 +2,13 @@
 
 Error response.
 
+## Example Usage
+
+```typescript
+import { GetWorkflowSummaryInsightsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetWorkflowSummaryInsightsResponseBody = {};
+```
 
 ## Fields
 

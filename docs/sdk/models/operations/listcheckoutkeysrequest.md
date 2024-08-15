@@ -1,5 +1,14 @@
 # ListCheckoutKeysRequest
 
+## Example Usage
+
+```typescript
+import { ListCheckoutKeysRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListCheckoutKeysRequest = {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

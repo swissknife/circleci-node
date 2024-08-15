@@ -2,6 +2,16 @@
 
 An environment variable request requires a name and a value
 
+## Example Usage
+
+```typescript
+import { CreateEnvVarEnvironmentVariable } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateEnvVarEnvironmentVariable = {
+    name: "foo",
+    value: "xxxx1234",
+};
+```
 
 ## Fields
 

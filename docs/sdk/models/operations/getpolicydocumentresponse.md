@@ -1,5 +1,12 @@
 # GetPolicyDocumentResponse
 
+## Example Usage
+
+```typescript
+import { GetPolicyDocumentResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPolicyDocumentResponse = {};
+```
 
 ## Supported Types
 

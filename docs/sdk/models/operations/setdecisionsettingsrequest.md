@@ -1,5 +1,15 @@
 # SetDecisionSettingsRequest
 
+## Example Usage
+
+```typescript
+import { SetDecisionSettingsRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: SetDecisionSettingsRequest = {
+    context: "<value>",
+    ownerID: "<value>",
+};
+```
 
 ## Fields
 

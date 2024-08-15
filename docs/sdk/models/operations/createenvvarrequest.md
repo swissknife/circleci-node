@@ -1,5 +1,18 @@
 # CreateEnvVarRequest
 
+## Example Usage
+
+```typescript
+import { CreateEnvVarRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateEnvVarRequest = {
+    requestBody: {
+        name: "foo",
+        value: "xxxx1234",
+    },
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

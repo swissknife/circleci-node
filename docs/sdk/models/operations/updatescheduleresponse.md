@@ -1,5 +1,12 @@
 # UpdateScheduleResponse
 
+## Example Usage
+
+```typescript
+import { UpdateScheduleResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateScheduleResponse = {};
+```
 
 ## Supported Types
 

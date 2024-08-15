@@ -2,6 +2,16 @@
 
 An error with a type and message.
 
+## Example Usage
+
+```typescript
+import { GetPipelineByNumberErrors } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPipelineByNumberErrors = {
+    message: "<value>",
+    type: "trigger-rule",
+};
+```
 
 ## Fields
 

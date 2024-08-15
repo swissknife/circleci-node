@@ -2,6 +2,16 @@
 
 Info about a status of the parallel run.
 
+## Example Usage
+
+```typescript
+import { ParallelRuns } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ParallelRuns = {
+    index: 517612,
+    status: "<value>",
+};
+```
 
 ## Fields
 

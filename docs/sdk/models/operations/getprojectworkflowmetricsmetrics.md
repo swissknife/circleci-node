@@ -2,6 +2,30 @@
 
 Metrics relating to a workflow's runs.
 
+## Example Usage
+
+```typescript
+import { GetProjectWorkflowMetricsMetrics } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectWorkflowMetricsMetrics = {
+    durationMetrics: {
+        max: 391774,
+        mean: 16328,
+        median: 531849,
+        min: 185232,
+        p95: 845358,
+        standardDeviation: 4012.59,
+    },
+    failedRuns: 536275,
+    mttr: 929292,
+    successRate: 6802.7,
+    successfulRuns: 99615,
+    throughput: 6091.78,
+    totalCreditsUsed: 945302,
+    totalRecoveries: 98478,
+    totalRuns: 869489,
+};
+```
 
 ## Fields
 

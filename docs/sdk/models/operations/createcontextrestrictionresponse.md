@@ -1,5 +1,12 @@
 # CreateContextRestrictionResponse
 
+## Example Usage
+
+```typescript
+import { CreateContextRestrictionResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateContextRestrictionResponse = {};
+```
 
 ## Supported Types
 

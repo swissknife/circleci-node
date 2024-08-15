@@ -1,5 +1,22 @@
 # SlowestTests
 
+## Example Usage
+
+```typescript
+import { SlowestTests } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: SlowestTests = {
+    classname: "<value>",
+    failedRuns: 885963,
+    file: "<value>",
+    flaky: false,
+    jobName: "<value>",
+    p95Duration: 8391.89,
+    source: "<value>",
+    testName: "<value>",
+    totalRuns: 351870,
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # GetDecisionLogPolicyBundleResponse
 
+## Example Usage
+
+```typescript
+import { GetDecisionLogPolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetDecisionLogPolicyBundleResponse = {
+    error: "decision log not found",
+};
+```
 
 ## Supported Types
 

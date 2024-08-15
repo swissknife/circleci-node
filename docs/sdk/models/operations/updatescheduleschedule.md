@@ -2,6 +2,34 @@
 
 A schedule response
 
+## Example Usage
+
+```typescript
+import { UpdateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateScheduleSchedule = {
+    actor: {
+        id: "1c4ee2c8-c6ce-4611-beeb-1c7cbdb6eec7",
+        login: "Elva_Emmerich",
+        name: "<value>",
+    },
+    createdAt: new Date("2024-02-09T03:46:21.979Z"),
+    description: "Profit-focused bi-directional firmware",
+    id: "317747dc-915a-4d2c-af5d-d6723dc0f5ae",
+    name: "<value>",
+    parameters: {
+        deploy_prod: true,
+        branch: "feature/design-new-api",
+    },
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    timetable: {
+        daysOfWeek: ["FRI"],
+        hoursOfDay: [204373],
+        perHour: 640565,
+    },
+    updatedAt: new Date("2023-02-21T02:36:54.593Z"),
+};
+```
 
 ## Fields
 

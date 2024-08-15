@@ -2,6 +2,17 @@
 
 User login information.
 
+## Example Usage
+
+```typescript
+import { GetCurrentUserUser } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetCurrentUserUser = {
+    id: "59a1adea-ab58-451d-ac64-5b08b61891ba",
+    login: "Lori_Bartell10",
+    name: "<value>",
+};
+```
 
 ## Fields
 

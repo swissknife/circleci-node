@@ -1,5 +1,12 @@
 # GetJobDetailsResponse
 
+## Example Usage
+
+```typescript
+import { GetJobDetailsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetJobDetailsResponse = {};
+```
 
 ## Supported Types
 

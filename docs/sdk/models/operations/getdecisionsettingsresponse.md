@@ -1,5 +1,12 @@
 # GetDecisionSettingsResponse
 
+## Example Usage
+
+```typescript
+import { GetDecisionSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetDecisionSettingsResponse = {};
+```
 
 ## Supported Types
 

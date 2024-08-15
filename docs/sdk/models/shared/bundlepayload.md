@@ -1,5 +1,12 @@
 # BundlePayload
 
+## Example Usage
+
+```typescript
+import { BundlePayload } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: BundlePayload = {};
+```
 
 ## Fields
 

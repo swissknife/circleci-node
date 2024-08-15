@@ -1,5 +1,15 @@
 # CreateUsageExportRequestBody
 
+## Example Usage
+
+```typescript
+import { CreateUsageExportRequestBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateUsageExportRequestBody = {
+    end: new Date("2024-04-27T07:53:12.695Z"),
+    start: new Date("2024-03-23T09:31:34.975Z"),
+};
+```
 
 ## Fields
 

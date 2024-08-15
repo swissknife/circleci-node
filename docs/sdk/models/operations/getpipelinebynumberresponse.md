@@ -1,5 +1,12 @@
 # GetPipelineByNumberResponse
 
+## Example Usage
+
+```typescript
+import { GetPipelineByNumberResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPipelineByNumberResponse = {};
+```
 
 ## Supported Types
 

@@ -1,5 +1,17 @@
 # CreateCheckoutKeyRequest
 
+## Example Usage
+
+```typescript
+import { CreateCheckoutKeyRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateCheckoutKeyRequest = {
+    requestBody: {
+        type: "deploy-key",
+    },
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

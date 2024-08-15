@@ -1,9 +1,15 @@
 # GetWebhookByIdEvents
 
+## Example Usage
+
+```typescript
+import { GetWebhookByIdEvents } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetWebhookByIdEvents = "workflow-completed";
+```
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `WorkflowCompleted` | workflow-completed  |
-| `JobCompleted`      | job-completed       |
+```typescript
+"workflow-completed" | "job-completed"
+```

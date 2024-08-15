@@ -2,6 +2,18 @@
 
 Metrics aggregated across a workflow or branchfor a project.
 
+## Example Usage
+
+```typescript
+import { GetProjectWorkflowsPageDataInsightsMetrics } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectWorkflowsPageDataInsightsMetrics = {
+    p95DurationSecs: 5520.78,
+    successRate: 9757.52,
+    totalCreditsUsed: 271653,
+    totalRuns: 273009,
+};
+```
 
 ## Fields
 

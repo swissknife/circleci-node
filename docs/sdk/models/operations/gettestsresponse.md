@@ -1,5 +1,12 @@
 # GetTestsResponse
 
+## Example Usage
+
+```typescript
+import { GetTestsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetTestsResponse = {};
+```
 
 ## Supported Types
 

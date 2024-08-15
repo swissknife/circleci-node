@@ -1,5 +1,12 @@
 # TriggerPipelineParameters
 
+## Example Usage
+
+```typescript
+import { TriggerPipelineParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: TriggerPipelineParameters = 397026;
+```
 
 ## Supported Types
 

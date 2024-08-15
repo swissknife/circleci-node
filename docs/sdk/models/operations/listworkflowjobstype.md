@@ -2,10 +2,16 @@
 
 The type of job.
 
+## Example Usage
+
+```typescript
+import { ListWorkflowJobsType } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListWorkflowJobsType = "build";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Build`    | build      |
-| `Approval` | approval   |
+```typescript
+"build" | "approval"
+```

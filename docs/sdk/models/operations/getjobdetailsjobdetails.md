@@ -2,6 +2,59 @@
 
 Job Details
 
+## Example Usage
+
+```typescript
+import { GetJobDetailsJobDetails } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetJobDetailsJobDetails = {
+    contexts: [
+        {
+            name: "<value>",
+        },
+    ],
+    createdAt: new Date("2023-10-28T13:05:15.433Z"),
+    duration: 309251,
+    executor: {
+        resourceClass: "<value>",
+    },
+    latestWorkflow: {
+        id: "764a3e86-5e79-456f-9251-a5a9da660ff5",
+        name: "build-and-test",
+    },
+    messages: [
+        {
+            message: "<value>",
+            type: "<value>",
+        },
+    ],
+    name: "<value>",
+    number: 448143,
+    organization: {
+        name: "<value>",
+    },
+    parallelRuns: [
+        {
+            index: 721407,
+            status: "<value>",
+        },
+    ],
+    parallelism: 937636,
+    pipeline: {
+        id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+    },
+    project: {
+        externalUrl: "https://github.com/CircleCI-Public/api-preview-docs",
+        id: "aad4f9ef-c1b4-4512-8103-2648dc2f6151",
+        name: "api-preview-docs",
+        slug: "gh/CircleCI-Public/api-preview-docs",
+    },
+    queuedAt: new Date("2023-10-02T09:51:49.346Z"),
+    startedAt: new Date("2023-10-09T07:19:47.340Z"),
+    status: "unauthorized",
+    webUrl: "<value>",
+};
+```
 
 ## Fields
 

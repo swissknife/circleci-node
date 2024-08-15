@@ -1,5 +1,12 @@
 # PatchClaimsRequest
 
+## Example Usage
+
+```typescript
+import { PatchClaimsRequest } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: PatchClaimsRequest = {};
+```
 
 ## Fields
 

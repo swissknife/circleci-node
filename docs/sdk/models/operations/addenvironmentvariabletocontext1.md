@@ -1,5 +1,17 @@
 # AddEnvironmentVariableToContext1
 
+## Example Usage
+
+```typescript
+import { AddEnvironmentVariableToContext1 } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: AddEnvironmentVariableToContext1 = {
+    contextId: "cb739205-9293-496f-aa75-96eb10faaa23",
+    createdAt: new Date("2015-09-21T17:29:21.042Z"),
+    updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+    variable: "POSTGRES_USER",
+};
+```
 
 ## Fields
 

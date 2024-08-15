@@ -1,5 +1,14 @@
 # DeleteWebhookResponse
 
+## Example Usage
+
+```typescript
+import { DeleteWebhookResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteWebhookResponse = {
+    message: "<value>",
+};
+```
 
 ## Supported Types
 

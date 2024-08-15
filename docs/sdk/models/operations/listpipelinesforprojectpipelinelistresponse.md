@@ -2,6 +2,48 @@
 
 List of pipelines
 
+## Example Usage
+
+```typescript
+import { ListPipelinesForProjectPipelineListResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListPipelinesForProjectPipelineListResponse = {
+    items: [
+        {
+            createdAt: new Date("2024-10-06T15:02:23.671Z"),
+            errors: [
+                {
+                    message: "<value>",
+                    type: "config-fetch",
+                },
+            ],
+            id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+            number: 25,
+            projectSlug: "gh/CircleCI-Public/api-preview-docs",
+            state: "setup-pending",
+            trigger: {
+                actor: {
+                    avatarUrl: "<value>",
+                    login: "Brandy.Thompson",
+                },
+                receivedAt: new Date("2022-06-05T10:21:41.829Z"),
+                type: "api",
+            },
+            vcs: {
+                branch: "feature/design-new-api",
+                originRepositoryUrl: "https://github.com/CircleCI-Public/api-preview-docs",
+                providerName: "GitHub",
+                reviewId: "123",
+                reviewUrl: "https://github.com/CircleCI-Public/api-preview-docs/pull/123",
+                revision: "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4",
+                tag: "v3.1.4159",
+                targetRepositoryUrl: "https://github.com/CircleCI-Public/api-preview-docs",
+            },
+        },
+    ],
+    nextPageToken: "<value>",
+};
+```
 
 ## Fields
 

@@ -2,6 +2,16 @@
 
 An error with a type and message.
 
+## Example Usage
+
+```typescript
+import { Errors } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Errors = {
+    message: "<value>",
+    type: "permission",
+};
+```
 
 ## Fields
 

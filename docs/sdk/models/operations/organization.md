@@ -2,6 +2,15 @@
 
 Information about an organization.
 
+## Example Usage
+
+```typescript
+import { Organization } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Organization = {
+    name: "<value>",
+};
+```
 
 ## Fields
 

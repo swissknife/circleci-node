@@ -1,5 +1,12 @@
 # Advanced
 
+## Example Usage
+
+```typescript
+import { Advanced } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: Advanced = {};
+```
 
 ## Fields
 

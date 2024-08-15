@@ -1,5 +1,15 @@
 # DeleteEnvVarRequest
 
+## Example Usage
+
+```typescript
+import { DeleteEnvVarRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteEnvVarRequest = {
+    name: "foo",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

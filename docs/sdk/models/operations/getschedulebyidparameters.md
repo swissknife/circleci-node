@@ -1,5 +1,12 @@
 # GetScheduleByIdParameters
 
+## Example Usage
+
+```typescript
+import { GetScheduleByIdParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetScheduleByIdParameters = "<value>";
+```
 
 ## Supported Types
 

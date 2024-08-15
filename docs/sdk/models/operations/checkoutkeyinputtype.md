@@ -2,10 +2,16 @@
 
 The type of checkout key to create. This may be either `deploy-key` or `user-key`.
 
+## Example Usage
+
+```typescript
+import { CheckoutKeyInputType } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CheckoutKeyInputType = "deploy-key";
+```
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `UserKey`   | user-key    |
-| `DeployKey` | deploy-key  |
+```typescript
+"user-key" | "deploy-key"
+```

@@ -1,5 +1,15 @@
 # DeleteEnvironmentVariableFromContextRequest
 
+## Example Usage
+
+```typescript
+import { DeleteEnvironmentVariableFromContextRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteEnvironmentVariableFromContextRequest = {
+    contextId: "1fb576b0-d5f0-4d30-85fb-b2587053202c",
+    envVarName: "POSTGRES_USER",
+};
+```
 
 ## Fields
 

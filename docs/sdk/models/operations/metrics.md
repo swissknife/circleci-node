@@ -2,6 +2,32 @@
 
 Metrics aggregated across a workflow for a given time window.
 
+## Example Usage
+
+```typescript
+import { Metrics } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Metrics = {
+    completedRuns: 856303,
+    durationMetrics: {
+        max: 30235,
+        mean: 635057,
+        median: 710337,
+        min: 299643,
+        p95: 7884,
+        standardDeviation: 4602.2,
+    },
+    failedRuns: 372679,
+    mttr: 24527,
+    successRate: 5305.37,
+    successfulRuns: 558065,
+    throughput: 9221.12,
+    totalCreditsUsed: 361151,
+    totalRuns: 89494,
+    windowEnd: new Date("2023-07-05T23:16:18.690Z"),
+    windowStart: new Date("2023-03-21T21:54:24.703Z"),
+};
+```
 
 ## Fields
 

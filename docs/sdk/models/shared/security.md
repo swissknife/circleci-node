@@ -1,5 +1,17 @@
 # Security
 
+## Example Usage
+
+```typescript
+import { Security } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: Security = {
+    basicAuth: {
+        password: "",
+        username: "",
+    },
+};
+```
 
 ## Fields
 

@@ -1,5 +1,17 @@
 # GetProjectWorkflowJobMetricsRequest
 
+## Example Usage
+
+```typescript
+import { GetProjectWorkflowJobMetricsRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectWorkflowJobMetricsRequest = {
+    jobName: "lint",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    reportingWindow: "last-90-days",
+    workflowName: "build-and-test",
+};
+```
 
 ## Fields
 

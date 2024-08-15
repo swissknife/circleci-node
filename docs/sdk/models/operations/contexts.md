@@ -2,6 +2,15 @@
 
 Information about the context.
 
+## Example Usage
+
+```typescript
+import { Contexts } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Contexts = {
+    name: "<value>",
+};
+```
 
 ## Fields
 

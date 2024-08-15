@@ -1,5 +1,16 @@
 # UpdateSchedule2
 
+## Example Usage
+
+```typescript
+import { UpdateSchedule2 } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateSchedule2 = {
+    daysOfMonth: [123795],
+    hoursOfDay: [317260],
+    perHour: 859725,
+};
+```
 
 ## Fields
 

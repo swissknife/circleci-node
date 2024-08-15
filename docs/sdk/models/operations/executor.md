@@ -2,6 +2,15 @@
 
 Information about executor used for a job.
 
+## Example Usage
+
+```typescript
+import { Executor } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Executor = {
+    resourceClass: "<value>",
+};
+```
 
 ## Fields
 

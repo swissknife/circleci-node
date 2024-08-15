@@ -1,5 +1,12 @@
 # GetProjectBySlugResponse
 
+## Example Usage
+
+```typescript
+import { GetProjectBySlugResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetProjectBySlugResponse = {};
+```
 
 ## Supported Types
 

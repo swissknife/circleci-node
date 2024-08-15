@@ -1,5 +1,15 @@
 # GetAllInsightsBranchesRequest
 
+## Example Usage
+
+```typescript
+import { GetAllInsightsBranchesRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetAllInsightsBranchesRequest = {
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    workflowName: "build-and-test",
+};
+```
 
 ## Fields
 

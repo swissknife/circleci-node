@@ -1,5 +1,12 @@
 # RestrictionDeleted
 
+## Example Usage
+
+```typescript
+import { RestrictionDeleted } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: RestrictionDeleted = {};
+```
 
 ## Fields
 

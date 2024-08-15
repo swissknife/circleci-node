@@ -1,5 +1,18 @@
 # Collaboration
 
+## Example Usage
+
+```typescript
+import { Collaboration } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Collaboration = {
+    avatarUrl: "<value>",
+    id: "d0e9fe6c-632c-4a3a-ad01-17996312fde0",
+    name: "<value>",
+    slug: "<value>",
+    vcsType: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # PatchProjectSettingsResponse
 
+## Example Usage
+
+```typescript
+import { PatchProjectSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: PatchProjectSettingsResponse = {};
+```
 
 ## Supported Types
 

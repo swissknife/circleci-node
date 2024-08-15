@@ -2,6 +2,22 @@
 
 A paginated list of the job's artifacts.
 
+## Example Usage
+
+```typescript
+import { GetJobArtifactsArtifactListResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetJobArtifactsArtifactListResponse = {
+    items: [
+        {
+            nodeIndex: 542129,
+            path: "/root",
+            url: "http://vapid-porthole.net",
+        },
+    ],
+    nextPageToken: "<value>",
+};
+```
 
 ## Fields
 

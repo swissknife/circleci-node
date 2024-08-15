@@ -2,6 +2,16 @@
 
 The user who triggered the Pipeline.
 
+## Example Usage
+
+```typescript
+import { GetPipelineByNumberActor } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPipelineByNumberActor = {
+    avatarUrl: "<value>",
+    login: "Jamison29",
+};
+```
 
 ## Fields
 

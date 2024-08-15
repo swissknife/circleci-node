@@ -1,5 +1,14 @@
 # UpdateWebhookRequest
 
+## Example Usage
+
+```typescript
+import { UpdateWebhookRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateWebhookRequest = {
+    webhookId: "21780bcc-c0db-4bdd-b484-708fb4e391e6",
+};
+```
 
 ## Fields
 

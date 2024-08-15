@@ -1,5 +1,14 @@
 # Decision
 
+## Example Usage
+
+```typescript
+import { Decision } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: Decision = {
+    status: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,11 +1,15 @@
 # State
 
+## Example Usage
+
+```typescript
+import { State } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: State = "processing";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Created`    | created      |
-| `Processing` | processing   |
-| `Failed`     | failed       |
-| `Completed`  | completed    |
+```typescript
+"created" | "processing" | "failed" | "completed"
+```

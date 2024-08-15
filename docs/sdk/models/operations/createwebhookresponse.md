@@ -1,5 +1,12 @@
 # CreateWebhookResponse
 
+## Example Usage
+
+```typescript
+import { CreateWebhookResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateWebhookResponse = {};
+```
 
 ## Supported Types
 

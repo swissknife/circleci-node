@@ -2,6 +2,13 @@
 
 Error response.
 
+## Example Usage
+
+```typescript
+import { TriggerPipelineResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: TriggerPipelineResponseBody = {};
+```
 
 ## Fields
 

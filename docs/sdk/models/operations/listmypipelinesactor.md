@@ -2,6 +2,16 @@
 
 The user who triggered the Pipeline.
 
+## Example Usage
+
+```typescript
+import { ListMyPipelinesActor } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListMyPipelinesActor = {
+    avatarUrl: "<value>",
+    login: "Olen3",
+};
+```
 
 ## Fields
 

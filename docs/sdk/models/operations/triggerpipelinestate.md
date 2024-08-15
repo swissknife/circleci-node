@@ -2,13 +2,16 @@
 
 The current state of the pipeline.
 
+## Example Usage
+
+```typescript
+import { TriggerPipelineState } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: TriggerPipelineState = "created";
+```
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `Created`      | created        |
-| `Errored`      | errored        |
-| `SetupPending` | setup-pending  |
-| `Setup`        | setup          |
-| `Pending`      | pending        |
+```typescript
+"created" | "errored" | "setup-pending" | "setup" | "pending"
+```

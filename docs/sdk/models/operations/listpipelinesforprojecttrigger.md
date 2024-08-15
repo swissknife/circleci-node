@@ -2,6 +2,20 @@
 
 A summary of the trigger.
 
+## Example Usage
+
+```typescript
+import { ListPipelinesForProjectTrigger } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListPipelinesForProjectTrigger = {
+    actor: {
+        avatarUrl: "<value>",
+        login: "Christop.Feeney12",
+    },
+    receivedAt: new Date("2023-01-19T22:57:13.583Z"),
+    type: "explicit",
+};
+```
 
 ## Fields
 

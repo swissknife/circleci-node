@@ -1,5 +1,12 @@
 # CreateScheduleScheduleParameters
 
+## Example Usage
+
+```typescript
+import { CreateScheduleScheduleParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateScheduleScheduleParameters = 755868;
+```
 
 ## Supported Types
 

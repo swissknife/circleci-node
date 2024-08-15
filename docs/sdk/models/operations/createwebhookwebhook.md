@@ -2,6 +2,26 @@
 
 A webhook
 
+## Example Usage
+
+```typescript
+import { CreateWebhookWebhook } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateWebhookWebhook = {
+    createdAt: new Date("2015-09-21T17:29:21.042Z"),
+    events: ["workflow-completed"],
+    id: "676696e1-ec00-4221-b335-d89acb3ecfda",
+    name: "<value>",
+    scope: {
+        id: "8d0c549e-f030-4049-b8a6-1fa1cf20688f",
+        type: "<value>",
+    },
+    signingSecret: "<value>",
+    updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+    url: "http://junior-shop.com",
+    verifyTls: false,
+};
+```
 
 ## Fields
 

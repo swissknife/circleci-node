@@ -1,5 +1,21 @@
 # TriggerPipelineRequest
 
+## Example Usage
+
+```typescript
+import { TriggerPipelineRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: TriggerPipelineRequest = {
+    requestBody: {
+        branch: "feature/design-new-api",
+        parameters: {
+            deploy_prod: true,
+        },
+        tag: "v3.1.4159",
+    },
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

@@ -2,6 +2,13 @@
 
 Timetable that specifies when a schedule triggers.
 
+## Example Usage
+
+```typescript
+import { UpdateScheduleTimetable } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateScheduleTimetable = {};
+```
 
 ## Fields
 

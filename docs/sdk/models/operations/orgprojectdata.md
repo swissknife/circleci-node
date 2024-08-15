@@ -1,5 +1,26 @@
 # OrgProjectData
 
+## Example Usage
+
+```typescript
+import { OrgProjectData } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: OrgProjectData = {
+    metrics: {
+        successRate: 4752.89,
+        totalCreditsUsed: 35362,
+        totalDurationSecs: 783648,
+        totalRuns: 430402,
+    },
+    projectName: "api-preview-docs",
+    trends: {
+        successRate: 5564.29,
+        totalCreditsUsed: 5100.17,
+        totalDurationSecs: 1598.67,
+        totalRuns: 5361.78,
+    },
+};
+```
 
 ## Fields
 

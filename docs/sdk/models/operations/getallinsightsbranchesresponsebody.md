@@ -2,6 +2,17 @@
 
 Project branches response.
 
+## Example Usage
+
+```typescript
+import { GetAllInsightsBranchesResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetAllInsightsBranchesResponseBody = {
+    branches: ["main"],
+    orgId: "<value>",
+    projectId: "<value>",
+};
+```
 
 ## Fields
 

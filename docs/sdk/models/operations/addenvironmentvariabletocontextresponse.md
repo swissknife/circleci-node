@@ -1,5 +1,12 @@
 # AddEnvironmentVariableToContextResponse
 
+## Example Usage
+
+```typescript
+import { AddEnvironmentVariableToContextResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: AddEnvironmentVariableToContextResponse = {};
+```
 
 ## Supported Types
 

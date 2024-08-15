@@ -1,5 +1,16 @@
 # GetDecisionLogPolicyBundleRequest
 
+## Example Usage
+
+```typescript
+import { GetDecisionLogPolicyBundleRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetDecisionLogPolicyBundleRequest = {
+    context: "<value>",
+    decisionID: "<value>",
+    ownerID: "<value>",
+};
+```
 
 ## Fields
 

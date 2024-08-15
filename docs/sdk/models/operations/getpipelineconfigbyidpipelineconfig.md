@@ -2,6 +2,16 @@
 
 The configuration strings for the pipeline.
 
+## Example Usage
+
+```typescript
+import { GetPipelineConfigByIdPipelineConfig } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPipelineConfigByIdPipelineConfig = {
+    compiled: "<value>",
+    source: "<value>",
+};
+```
 
 ## Fields
 

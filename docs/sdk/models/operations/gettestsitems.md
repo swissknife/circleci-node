@@ -1,5 +1,20 @@
 # GetTestsItems
 
+## Example Usage
+
+```typescript
+import { GetTestsItems } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetTestsItems = {
+  classname: "",
+  file: "",
+  message: "",
+  name: "",
+  result: "",
+  runTime: ,
+  source: "",
+};
+```
 
 ## Fields
 

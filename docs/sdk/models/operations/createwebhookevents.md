@@ -1,9 +1,15 @@
 # CreateWebhookEvents
 
+## Example Usage
+
+```typescript
+import { CreateWebhookEvents } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateWebhookEvents = "workflow-completed";
+```
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `WorkflowCompleted` | workflow-completed  |
-| `JobCompleted`      | job-completed       |
+```typescript
+"workflow-completed" | "job-completed"
+```

@@ -2,20 +2,16 @@
 
 Month, in three letters format.
 
+## Example Usage
+
+```typescript
+import { UpdateScheduleScheduleResponseMonths } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateScheduleScheduleResponseMonths = "AUG";
+```
 
 ## Values
 
-| Name  | Value |
-| ----- | ----- |
-| `Mar` | MAR   |
-| `Nov` | NOV   |
-| `Dec` | DEC   |
-| `Jun` | JUN   |
-| `May` | MAY   |
-| `Oct` | OCT   |
-| `Feb` | FEB   |
-| `Apr` | APR   |
-| `Sep` | SEP   |
-| `Aug` | AUG   |
-| `Jan` | JAN   |
-| `Jul` | JUL   |
+```typescript
+"MAR" | "NOV" | "DEC" | "JUN" | "MAY" | "OCT" | "FEB" | "APR" | "SEP" | "AUG" | "JAN" | "JUL"
+```

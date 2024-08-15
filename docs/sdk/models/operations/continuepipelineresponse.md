@@ -1,5 +1,14 @@
 # ContinuePipelineResponse
 
+## Example Usage
+
+```typescript
+import { ContinuePipelineResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ContinuePipelineResponse = {
+    message: "<value>",
+};
+```
 
 ## Supported Types
 

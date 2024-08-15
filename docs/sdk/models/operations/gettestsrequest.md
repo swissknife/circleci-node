@@ -1,5 +1,15 @@
 # GetTestsRequest
 
+## Example Usage
+
+```typescript
+import { GetTestsRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetTestsRequest = {
+    jobNumber: "123",
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

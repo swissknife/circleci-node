@@ -1,5 +1,12 @@
 # RerunWorkflowResponse
 
+## Example Usage
+
+```typescript
+import { RerunWorkflowResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: RerunWorkflowResponse = {};
+```
 
 ## Supported Types
 

@@ -1,5 +1,12 @@
 # ParametersT
 
+## Example Usage
+
+```typescript
+import { ParametersT } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ParametersT = "<value>";
+```
 
 ## Supported Types
 

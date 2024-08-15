@@ -2,6 +2,15 @@
 
 message response
 
+## Example Usage
+
+```typescript
+import { ApprovePendingApprovalJobByIdMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ApprovePendingApprovalJobByIdMessageResponse = {
+    message: "<value>",
+};
+```
 
 ## Fields
 

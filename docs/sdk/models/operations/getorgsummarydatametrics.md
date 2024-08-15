@@ -2,6 +2,19 @@
 
 Metrics for a single org metrics.
 
+## Example Usage
+
+```typescript
+import { GetOrgSummaryDataMetrics } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetOrgSummaryDataMetrics = {
+    successRate: 1783.67,
+    throughput: 3738.13,
+    totalCreditsUsed: 69859,
+    totalDurationSecs: 587600,
+    totalRuns: 9688,
+};
+```
 
 ## Fields
 

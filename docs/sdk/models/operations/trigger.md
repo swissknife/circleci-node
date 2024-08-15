@@ -2,6 +2,20 @@
 
 A summary of the trigger.
 
+## Example Usage
+
+```typescript
+import { Trigger } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Trigger = {
+    actor: {
+        avatarUrl: "<value>",
+        login: "Daisy_Carroll",
+    },
+    receivedAt: new Date("2022-05-03T04:47:32.342Z"),
+    type: "explicit",
+};
+```
 
 ## Fields
 

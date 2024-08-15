@@ -2,6 +2,26 @@
 
 A paginated list of test results.
 
+## Example Usage
+
+```typescript
+import { GetTestsTestsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetTestsTestsResponse = {
+  items: [
+    {
+      classname: "",
+      file: "",
+      message: "",
+      name: "",
+      result: "",
+      runTime: ,
+      source: "",
+    },
+  ],
+  nextPageToken: "<value>",
+};
+```
 
 ## Fields
 

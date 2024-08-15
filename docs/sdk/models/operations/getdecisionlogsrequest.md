@@ -1,5 +1,15 @@
 # GetDecisionLogsRequest
 
+## Example Usage
+
+```typescript
+import { GetDecisionLogsRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetDecisionLogsRequest = {
+    context: "<value>",
+    ownerID: "<value>",
+};
+```
 
 ## Fields
 

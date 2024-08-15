@@ -2,6 +2,30 @@
 
 Flaky tests response
 
+## Example Usage
+
+```typescript
+import { GetFlakyTestsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetFlakyTestsResponseBody = {
+    flakyTests: [
+        {
+            classname: "<value>",
+            file: "<value>",
+            jobName: "<value>",
+            jobNumber: 301831,
+            pipelineNumber: 407241,
+            source: "<value>",
+            testName: "<value>",
+            timesFlaked: 775220,
+            workflowCreatedAt: "<value>",
+            workflowId: "<value>",
+            workflowName: "<value>",
+        },
+    ],
+    totalFlakyTests: 5,
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # ListPipelinesResponse
 
+## Example Usage
+
+```typescript
+import { ListPipelinesResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListPipelinesResponse = {};
+```
 
 ## Supported Types
 

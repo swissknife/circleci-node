@@ -1,5 +1,27 @@
 # CreateScheduleRequest
 
+## Example Usage
+
+```typescript
+import { CreateScheduleRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateScheduleRequest = {
+    requestBody: {
+        attributionActor: "current",
+        name: "<value>",
+        parameters: {
+            deploy_prod: true,
+            branch: "feature/design-new-api",
+        },
+        timetable: {
+            daysOfWeek: ["FRI"],
+            hoursOfDay: [797254],
+            perHour: 664666,
+        },
+    },
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+};
+```
 
 ## Fields
 

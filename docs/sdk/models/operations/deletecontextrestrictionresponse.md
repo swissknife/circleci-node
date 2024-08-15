@@ -1,5 +1,12 @@
 # DeleteContextRestrictionResponse
 
+## Example Usage
+
+```typescript
+import { DeleteContextRestrictionResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteContextRestrictionResponse = {};
+```
 
 ## Supported Types
 

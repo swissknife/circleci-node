@@ -1,5 +1,12 @@
 # ListMyPipelinesTriggerParameters
 
+## Example Usage
+
+```typescript
+import { ListMyPipelinesTriggerParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListMyPipelinesTriggerParameters = "<value>";
+```
 
 ## Supported Types
 

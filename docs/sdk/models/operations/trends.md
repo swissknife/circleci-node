@@ -2,6 +2,22 @@
 
 Trends for aggregated metrics across a workflow for a given time window.
 
+## Example Usage
+
+```typescript
+import { Trends } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Trends = {
+    failedRuns: 1536.27,
+    medianDurationSecs: 243.13,
+    mttr: 4255.08,
+    p95DurationSecs: 3426.11,
+    successRate: 9061.72,
+    throughput: 6222.31,
+    totalCreditsUsed: 85.11,
+    totalRuns: 2790.68,
+};
+```
 
 ## Fields
 

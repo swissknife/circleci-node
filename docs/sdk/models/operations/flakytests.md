@@ -1,5 +1,24 @@
 # FlakyTests
 
+## Example Usage
+
+```typescript
+import { FlakyTests } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: FlakyTests = {
+    classname: "<value>",
+    file: "<value>",
+    jobName: "<value>",
+    jobNumber: 333145,
+    pipelineNumber: 399499,
+    source: "<value>",
+    testName: "<value>",
+    timesFlaked: 81101,
+    workflowCreatedAt: "<value>",
+    workflowId: "<value>",
+    workflowName: "<value>",
+};
+```
 
 ## Fields
 

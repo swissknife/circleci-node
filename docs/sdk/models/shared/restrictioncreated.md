@@ -1,5 +1,12 @@
 # RestrictionCreated
 
+## Example Usage
+
+```typescript
+import { RestrictionCreated } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: RestrictionCreated = {};
+```
 
 ## Fields
 

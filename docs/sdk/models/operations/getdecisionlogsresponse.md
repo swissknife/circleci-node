@@ -1,5 +1,14 @@
 # GetDecisionLogsResponse
 
+## Example Usage
+
+```typescript
+import { GetDecisionLogsResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetDecisionLogsResponse = {
+    error: "OwnerID: must be a valid UUID.",
+};
+```
 
 ## Supported Types
 

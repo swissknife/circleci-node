@@ -1,5 +1,12 @@
 # GetContextResponse
 
+## Example Usage
+
+```typescript
+import { GetContextResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetContextResponse = {};
+```
 
 ## Supported Types
 

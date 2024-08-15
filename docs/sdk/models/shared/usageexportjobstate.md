@@ -1,11 +1,15 @@
 # UsageExportJobState
 
+## Example Usage
+
+```typescript
+import { UsageExportJobState } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: UsageExportJobState = "processing";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Created`    | created      |
-| `Processing` | processing   |
-| `Failed`     | failed       |
-| `Completed`  | completed    |
+```typescript
+"created" | "processing" | "failed" | "completed"
+```

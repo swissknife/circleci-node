@@ -1,5 +1,15 @@
 # One
 
+## Example Usage
+
+```typescript
+import { One } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: One = {
+    id: "2c3f5ad0-19da-41ff-a78f-097b0074f154",
+    type: "organization",
+};
+```
 
 ## Fields
 

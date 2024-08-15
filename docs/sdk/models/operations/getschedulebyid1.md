@@ -1,5 +1,16 @@
 # GetScheduleById1
 
+## Example Usage
+
+```typescript
+import { GetScheduleById1 } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetScheduleById1 = {
+    daysOfWeek: ["FRI"],
+    hoursOfDay: [688463],
+    perHour: 294266,
+};
+```
 
 ## Fields
 

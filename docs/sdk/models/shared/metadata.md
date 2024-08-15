@@ -1,5 +1,12 @@
 # Metadata
 
+## Example Usage
+
+```typescript
+import { Metadata } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: Metadata = {};
+```
 
 ## Fields
 

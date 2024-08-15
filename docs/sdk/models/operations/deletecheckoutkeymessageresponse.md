@@ -2,6 +2,15 @@
 
 message response
 
+## Example Usage
+
+```typescript
+import { DeleteCheckoutKeyMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteCheckoutKeyMessageResponse = {
+    message: "<value>",
+};
+```
 
 ## Fields
 

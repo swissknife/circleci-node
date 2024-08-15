@@ -1,5 +1,12 @@
 # CreatePolicyBundleResponse
 
+## Example Usage
+
+```typescript
+import { CreatePolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreatePolicyBundleResponse = {};
+```
 
 ## Supported Types
 

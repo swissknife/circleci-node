@@ -2,6 +2,24 @@
 
 A workflow
 
+## Example Usage
+
+```typescript
+import { Workflow } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Workflow = {
+    createdAt: new Date("2023-06-24T22:12:12.406Z"),
+    id: "d575f140-0e76-44ad-b334-ec1b781b36a0",
+    name: "build-and-test",
+    pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+    pipelineNumber: 25,
+    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    startedBy: "8088d100-efad-4a20-8ef0-422eb2164cf9",
+    status: "failing",
+    stoppedAt: new Date("2024-03-11T14:29:41.139Z"),
+    tag: "setup",
+};
+```
 
 ## Fields
 

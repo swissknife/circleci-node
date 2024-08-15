@@ -2,6 +2,16 @@
 
 The scope in which the relevant events that will trigger webhooks
 
+## Example Usage
+
+```typescript
+import { GetWebhooksScope } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetWebhooksScope = {
+    id: "65816ddc-a8ef-451f-8b4c-593ec12cdaad",
+    type: "<value>",
+};
+```
 
 ## Fields
 

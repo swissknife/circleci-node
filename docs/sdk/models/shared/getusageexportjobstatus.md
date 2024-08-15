@@ -1,5 +1,16 @@
 # GetUsageExportJobStatus
 
+## Example Usage
+
+```typescript
+import { GetUsageExportJobStatus } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: GetUsageExportJobStatus = {
+    downloadUrls: ["http://windy-instrumentation.org"],
+    state: "created",
+    usageExportJobId: "ef049640-d6a1-4831-887a-df596fdf1ad8",
+};
+```
 
 ## Fields
 

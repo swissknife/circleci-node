@@ -2,12 +2,16 @@
 
 The type of trigger.
 
+## Example Usage
+
+```typescript
+import { ListPipelinesForProjectPipelineType } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListPipelinesForProjectPipelineType = "webhook";
+```
 
 ## Values
 
-| Name                | Value               |
-| ------------------- | ------------------- |
-| `ScheduledPipeline` | scheduled_pipeline  |
-| `Explicit`          | explicit            |
-| `Api`               | api                 |
-| `Webhook`           | webhook             |
+```typescript
+"scheduled_pipeline" | "explicit" | "api" | "webhook"
+```

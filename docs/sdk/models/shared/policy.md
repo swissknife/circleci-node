@@ -1,5 +1,12 @@
 # Policy
 
+## Example Usage
+
+```typescript
+import { Policy } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: Policy = {};
+```
 
 ## Fields
 
