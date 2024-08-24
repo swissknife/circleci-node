@@ -1,6 +1,8 @@
 # Schedule
 (*schedule*)
 
+## Overview
+
 ### Available Operations
 
 * [createSchedule](#createschedule) - Create a schedule
@@ -33,15 +35,15 @@ async function run() {
         "deploy_prod": true,
         "branch": "feature/design-new-api",
       },
-    timetable:     {
-          daysOfMonth: [
-            67744,
-          ],
-          hoursOfDay: [
-            548467,
-          ],
-          perHour: 889871,
-        },
+      timetable: {
+        daysOfMonth: [
+          67744,
+        ],
+        hoursOfDay: [
+          548467,
+        ],
+        perHour: 889871,
+      },
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
@@ -52,7 +54,6 @@ async function run() {
 
 run();
 ```
-
 
 ### Standalone function
 
@@ -79,15 +80,15 @@ async function run() {
         "deploy_prod": true,
         "branch": "feature/design-new-api",
       },
-    timetable:     {
-          daysOfMonth: [
-            908700,
-          ],
-          hoursOfDay: [
-            368424,
-          ],
-          perHour: 577823,
-        },
+      timetable: {
+        daysOfMonth: [
+          908700,
+        ],
+        hoursOfDay: [
+          368424,
+        ],
+        perHour: 577823,
+      },
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
@@ -114,15 +115,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.CreateScheduleResponse](../../sdk/models/operations/createscheduleresponse.md)\>**
+
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
+
 
 ## deleteScheduleById
 
@@ -150,7 +152,6 @@ async function run() {
 
 run();
 ```
-
 
 ### Standalone function
 
@@ -195,15 +196,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.DeleteScheduleByIdResponse](../../sdk/models/operations/deleteschedulebyidresponse.md)\>**
+
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
+
 
 ## getScheduleById
 
@@ -231,7 +233,6 @@ async function run() {
 
 run();
 ```
-
 
 ### Standalone function
 
@@ -276,15 +277,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.GetScheduleByIdResponse](../../sdk/models/operations/getschedulebyidresponse.md)\>**
+
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
+
 
 ## listSchedulesForProject
 
@@ -312,7 +314,6 @@ async function run() {
 
 run();
 ```
-
 
 ### Standalone function
 
@@ -357,15 +358,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.ListSchedulesForProjectResponse](../../sdk/models/operations/listschedulesforprojectresponse.md)\>**
+
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
 | errors.SDKError | 4xx-5xx         | */*             |
+
 
 ## updateSchedule
 
@@ -400,7 +402,6 @@ async function run() {
 
 run();
 ```
-
 
 ### Standalone function
 
@@ -452,10 +453,10 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[operations.UpdateScheduleResponse](../../sdk/models/operations/updatescheduleresponse.md)\>**
+
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
