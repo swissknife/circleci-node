@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: cfaacb63d03388a81fac9126c1a33099
+  docChecksum: f57a96773da97ae2f9a81c831b4f47e7
   docVersion: v2
-  speakeasyVersion: 1.383.2
-  generationVersion: 2.407.0
-  releaseVersion: 5.4.2
-  configChecksum: f95a4f93bb363226d4336a2ea6ccef81
+  speakeasyVersion: 1.390.1
+  generationVersion: 2.409.0
+  releaseVersion: 5.5.0
+  configChecksum: 27ff20b4c86fd924ce86d50126578fa8
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.14.1
+    core: 3.16.0
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     envVarSecurityUsage: 0.1.1
@@ -134,6 +134,7 @@ generatedFiles:
   - src/lib/config.ts
   - src/lib/dlv.ts
   - src/lib/encodings.ts
+  - src/lib/files.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
   - src/lib/logger.ts
@@ -155,6 +156,7 @@ generatedFiles:
   - src/sdk/types/index.ts
   - src/sdk/types/operations.ts
   - src/sdk/types/rfcdate.ts
+  - src/sdk/types/streams.ts
   - tsconfig.json
   - src/sdk/models/operations/addenvironmentvariabletocontext.ts
   - src/sdk/models/operations/createcontext.ts
