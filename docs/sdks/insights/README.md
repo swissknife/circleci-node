@@ -36,7 +36,7 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     workflowName: "build-and-test",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -119,7 +119,7 @@ async function run() {
   const result = await circleci.insights.getFlakyTests({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -204,7 +204,7 @@ async function run() {
     startDate: new Date("2020-08-21T13:26:29Z"),
     workflowName: "build-and-test",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -292,7 +292,7 @@ async function run() {
     projectNames: {},
     reportingWindow: "last-90-days",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -378,7 +378,7 @@ async function run() {
     reportingWindow: "last-90-days",
     workflowName: "build-and-test",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -463,7 +463,7 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     reportingWindow: "last-90-days",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -548,7 +548,7 @@ async function run() {
     startDate: new Date("2020-08-21T13:26:29Z"),
     workflowName: "build-and-test",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -633,7 +633,7 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     workflowName: "build-and-test",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -721,7 +721,7 @@ async function run() {
     reportingWindow: "last-90-days",
     workflowNames: {},
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -806,7 +806,7 @@ async function run() {
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     workflowName: "build-and-test",
   });
-
+  
   // Handle the result
   console.log(result)
 }

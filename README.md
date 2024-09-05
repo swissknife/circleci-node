@@ -226,6 +226,9 @@ async function run() {
             contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
             envVarName: "POSTGRES_USER",
         });
+
+        // Handle the result
+        console.log(result);
     } catch (err) {
         switch (true) {
             case err instanceof SDKValidationError: {
@@ -240,9 +243,6 @@ async function run() {
             }
         }
     }
-
-    // Handle the result
-    console.log(result);
 }
 
 run();

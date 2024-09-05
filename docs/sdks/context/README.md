@@ -39,7 +39,7 @@ async function run() {
     contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
     envVarName: "POSTGRES_USER",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -127,7 +127,7 @@ async function run() {
       slug: "<value>",
     },
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -216,7 +216,7 @@ async function run() {
     },
     contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -302,7 +302,7 @@ async function run() {
   const result = await circleci.context.deleteContext({
     contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -384,7 +384,7 @@ async function run() {
     contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
     restrictionId: "1c23d2cb-07b1-4a28-8af3-e369732050ed",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -467,7 +467,7 @@ async function run() {
     contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
     envVarName: "POSTGRES_USER",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -549,7 +549,7 @@ async function run() {
   const result = await circleci.context.getContext({
     contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -630,7 +630,7 @@ async function run() {
   const result = await circleci.context.getContextRestrictions({
     contextId: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -709,7 +709,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.context.listContexts({});
-
+  
   // Handle the result
   console.log(result)
 }
@@ -788,7 +788,7 @@ async function run() {
   const result = await circleci.context.listEnvironmentVariablesFromContext({
     contextId: "bd93f37e-8737-476a-be63-944592b835e7",
   });
-
+  
   // Handle the result
   console.log(result)
 }

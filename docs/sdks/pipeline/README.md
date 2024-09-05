@@ -38,7 +38,7 @@ async function run() {
       "deploy_prod": true,
     },
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -123,7 +123,7 @@ async function run() {
   const result = await circleci.pipeline.getPipelineById({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -205,7 +205,7 @@ async function run() {
     pipelineNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -287,7 +287,7 @@ async function run() {
   const result = await circleci.pipeline.getPipelineConfigById({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -368,7 +368,7 @@ async function run() {
   const result = await circleci.pipeline.listMyPipelines({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -449,7 +449,7 @@ async function run() {
   const result = await circleci.pipeline.listPipelines({
     orgSlug: "gh/CircleCI-Public",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -530,7 +530,7 @@ async function run() {
   const result = await circleci.pipeline.listPipelinesForProject({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -611,7 +611,7 @@ async function run() {
   const result = await circleci.pipeline.listWorkflowsByPipelineId({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -699,7 +699,7 @@ async function run() {
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-
+  
   // Handle the result
   console.log(result)
 }

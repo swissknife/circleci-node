@@ -47,7 +47,7 @@ async function run() {
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -145,7 +145,7 @@ async function run() {
   const result = await circleci.schedule.deleteScheduleById({
     scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -226,7 +226,7 @@ async function run() {
   const result = await circleci.schedule.getScheduleById({
     scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -307,7 +307,7 @@ async function run() {
   const result = await circleci.schedule.listSchedulesForProject({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -395,7 +395,7 @@ async function run() {
     },
     scheduleId: "6d9c15e6-0e97-4e64-894d-3e9ab9ea99c1",
   });
-
+  
   // Handle the result
   console.log(result)
 }

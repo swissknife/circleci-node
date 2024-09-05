@@ -31,7 +31,7 @@ async function run() {
     approvalRequestId: "afd4e8a2-73f4-4706-8fed-d209a62dd146",
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -113,7 +113,7 @@ async function run() {
   const result = await circleci.workflow.cancelWorkflow({
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -194,7 +194,7 @@ async function run() {
   const result = await circleci.workflow.getWorkflowById({
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -275,7 +275,7 @@ async function run() {
   const result = await circleci.workflow.listWorkflowJobs({
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
@@ -365,7 +365,7 @@ async function run() {
     },
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-
+  
   // Handle the result
   console.log(result)
 }
