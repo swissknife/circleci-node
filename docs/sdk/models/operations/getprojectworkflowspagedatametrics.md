@@ -8,11 +8,11 @@ Metrics aggregated across all workflows and branches for a project.
 import { GetProjectWorkflowsPageDataMetrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowsPageDataMetrics = {
-    successRate: 1312.89,
-    throughput: 3783.26,
-    totalCreditsUsed: 604118,
-    totalDurationSecs: 100032,
-    totalRuns: 382808,
+    successRate: 2378.07,
+    throughput: 7955.35,
+    totalCreditsUsed: 171853,
+    totalDurationSecs: 503934,
+    totalRuns: 449292,
 };
 ```
 

@@ -14,9 +14,9 @@ let value: CreateScheduleRequest = {
             branch: "feature/design-new-api",
         },
         timetable: {
-            daysOfWeek: ["FRI"],
-            hoursOfDay: [797254],
-            perHour: 664666,
+            daysOfMonth: [280859],
+            hoursOfDay: [256768],
+            perHour: 947822,
         },
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",

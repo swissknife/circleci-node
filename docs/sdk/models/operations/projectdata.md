@@ -9,18 +9,18 @@ import { ProjectData } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ProjectData = {
     metrics: {
-        successRate: 5468.85,
-        throughput: 9795.74,
-        totalCreditsUsed: 274823,
-        totalDurationSecs: 148478,
-        totalRuns: 592231,
+        successRate: 2377.42,
+        throughput: 7383.91,
+        totalCreditsUsed: 502389,
+        totalDurationSecs: 555361,
+        totalRuns: 942584,
     },
     trends: {
-        successRate: 2587.02,
-        throughput: 8967.62,
-        totalCreditsUsed: 2155.29,
-        totalDurationSecs: 4067.33,
-        totalRuns: 5799.12,
+        successRate: 2015.17,
+        throughput: 6339.98,
+        totalCreditsUsed: 5485.19,
+        totalDurationSecs: 8672.9,
+        totalRuns: 5196.43,
     },
 };
 ```

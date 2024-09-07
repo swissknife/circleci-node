@@ -8,7 +8,7 @@ Info about the latest workflow the job was a part of.
 import { LatestWorkflow } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: LatestWorkflow = {
-    id: "2563f94e-29e9-473e-922a-57a15be3e060",
+    id: "689eee95-26f8-4d98-ae88-1ead4f0e1012",
     name: "build-and-test",
 };
 ```

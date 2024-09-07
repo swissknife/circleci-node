@@ -6,7 +6,7 @@
 import { DeleteWebhookRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteWebhookRequest = {
-    webhookId: "fc71dca1-63f2-4a3c-80a9-7ff334cddf85",
+    webhookId: "364ffd45-5906-4d12-a3d4-8e935c2c9e81",
 };
 ```
 

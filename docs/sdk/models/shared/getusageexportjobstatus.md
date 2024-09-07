@@ -6,9 +6,9 @@
 import { GetUsageExportJobStatus } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: GetUsageExportJobStatus = {
-    downloadUrls: ["http://windy-instrumentation.org"],
-    state: "created",
-    usageExportJobId: "ef049640-d6a1-4831-887a-df596fdf1ad8",
+    downloadUrls: ["https://subdued-pink.name"],
+    state: "processing",
+    usageExportJobId: "0774a68a-9a35-4d08-ab6f-66fef020e9f4",
 };
 ```
 

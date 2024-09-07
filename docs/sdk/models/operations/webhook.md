@@ -7,16 +7,16 @@ import { Webhook } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Webhook = {
     createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    events: ["workflow-completed"],
-    id: "ec7afedb-d80d-4f44-8a47-f9390c588809",
+    events: ["job-completed"],
+    id: "35724cdb-0f4d-4281-987d-56844eded85a",
     name: "<value>",
     scope: {
-        id: "83dabf9e-f3ff-4dd9-b7f0-79af4d35724c",
+        id: "9065e628-bdfc-4203-ab6c-879923b7e135",
         type: "<value>",
     },
     signingSecret: "<value>",
     updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    url: "https://shiny-backyard.org",
+    url: "https://firsthand-working.info",
     verifyTls: false,
 };
 ```

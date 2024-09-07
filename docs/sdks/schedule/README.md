@@ -37,12 +37,12 @@ async function run() {
       },
       timetable: {
         daysOfMonth: [
-          67744,
+          708775,
         ],
         hoursOfDay: [
-          548467,
+          67744,
         ],
-        perHour: 889871,
+        perHour: 67744,
       },
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
@@ -82,12 +82,12 @@ async function run() {
       },
       timetable: {
         daysOfMonth: [
-          908700,
+          169093,
         ],
         hoursOfDay: [
-          368424,
+          856459,
         ],
-        perHour: 577823,
+        perHour: 67744,
       },
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
@@ -171,7 +171,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await scheduleDeleteScheduleById(circleci, {
-    scheduleId: "2fe92a40-8e87-4092-a39b-c56ca44b0b33",
+    scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
   });
 
   if (!res.ok) {
@@ -252,7 +252,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await scheduleGetScheduleById(circleci, {
-    scheduleId: "5d9b344e-7567-419e-a0c5-190252279fb7",
+    scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
   });
 
   if (!res.ok) {
@@ -428,7 +428,7 @@ async function run() {
         "branch": "feature/design-new-api",
       },
     },
-    scheduleId: "69445f6f-0e33-488c-8cf7-cd563839de53",
+    scheduleId: "6d9c15e6-0e97-4e64-894d-3e9ab9ea99c1",
   });
 
   if (!res.ok) {

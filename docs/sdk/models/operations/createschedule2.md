@@ -6,9 +6,9 @@
 import { CreateSchedule2 } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateSchedule2 = {
-    daysOfMonth: [616941],
-    hoursOfDay: [588152],
-    perHour: 739508,
+    daysOfMonth: [823753],
+    hoursOfDay: [603323],
+    perHour: 275425,
 };
 ```
 

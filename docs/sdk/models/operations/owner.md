@@ -6,8 +6,7 @@
 import { Owner } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Owner = {
-    id: "1b5e6e13-b99d-4488-a1e9-1e450ad2abd4",
-    type: "organization",
+    slug: "<value>",
 };
 ```
 

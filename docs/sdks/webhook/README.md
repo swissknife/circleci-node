@@ -133,7 +133,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookDeleteWebhook(circleci, {
-    webhookId: "c270f180-5e0a-4ce9-ae8c-b740e21a6a47",
+    webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
   });
 
   if (!res.ok) {
@@ -214,7 +214,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookGetWebhookById(circleci, {
-    webhookId: "186e3e76-60aa-4bb9-bf1c-b39a349aa708",
+    webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
   });
 
   if (!res.ok) {
@@ -296,7 +296,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookGetWebhooks(circleci, {
-    scopeId: "b3101dd5-f6eb-4b8a-9b90-bf7b059057d7",
+    scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
     scopeType: "project",
   });
 
@@ -378,7 +378,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookUpdateWebhook(circleci, {
-    webhookId: "51c85295-b624-44dd-8194-9bacc353e34d",
+    webhookId: "8ac25520-482a-4d43-a100-ab198d297078",
   });
 
   if (!res.ok) {

@@ -5,9 +5,7 @@
 ```typescript
 import { DeleteScheduleByIdResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: DeleteScheduleByIdResponse = {
-    message: "<value>",
-};
+let value: DeleteScheduleByIdResponse = {};
 ```
 
 ## Supported Types

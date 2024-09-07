@@ -6,7 +6,7 @@
 import { CancelJobByJobIDRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CancelJobByJobIDRequest = {
-    jobId: "b7da8a50-ce18-47f8-abc1-73d689eee952",
+    jobId: "3b1194b8-abf6-403a-b9f9-dfe0ab7da8a5",
 };
 ```
 

@@ -212,7 +212,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await userGetUser(circleci, {
-    id: "4ca24aa2-7b15-4401-8075-32e4b5c087b1",
+    id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
   });
 
   if (!res.ok) {

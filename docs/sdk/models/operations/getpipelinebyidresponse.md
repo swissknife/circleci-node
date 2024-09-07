@@ -6,24 +6,24 @@
 import { GetPipelineByIdResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPipelineByIdResponse = {
-    createdAt: new Date("2024-08-21T13:46:31.491Z"),
+    createdAt: new Date("2024-11-01T15:56:36.326Z"),
     errors: [
         {
             message: "<value>",
-            type: "plan",
+            type: "other",
         },
     ],
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
     number: 25,
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    state: "setup",
+    state: "setup-pending",
     trigger: {
         actor: {
             avatarUrl: "<value>",
-            login: "Estella_Dare44",
+            login: "Joseph.Mann",
         },
-        receivedAt: new Date("2023-07-09T22:02:12.316Z"),
-        type: "explicit",
+        receivedAt: new Date("2024-09-14T16:10:11.420Z"),
+        type: "scheduled_pipeline",
     },
     vcs: {
         branch: "feature/design-new-api",

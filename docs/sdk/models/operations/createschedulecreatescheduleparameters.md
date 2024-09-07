@@ -15,9 +15,9 @@ let value: CreateScheduleCreateScheduleParameters = {
         branch: "feature/design-new-api",
     },
     timetable: {
-        daysOfMonth: [135548],
-        hoursOfDay: [725784],
-        perHour: 720266,
+        daysOfWeek: ["SUN"],
+        hoursOfDay: [893773],
+        perHour: 638390,
     },
 };
 ```

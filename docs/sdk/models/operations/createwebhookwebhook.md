@@ -9,16 +9,16 @@ import { CreateWebhookWebhook } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateWebhookWebhook = {
     createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    events: ["workflow-completed"],
-    id: "676696e1-ec00-4221-b335-d89acb3ecfda",
+    events: ["job-completed"],
+    id: "20688f77-c1ff-4c71-9ca1-63f2a3c80a97",
     name: "<value>",
     scope: {
-        id: "8d0c549e-f030-4049-b8a6-1fa1cf20688f",
+        id: "ff334cdd-f857-4a9e-a187-6c6ab21d29df",
         type: "<value>",
     },
     signingSecret: "<value>",
     updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    url: "http://junior-shop.com",
+    url: "https://outlandish-drag.net",
     verifyTls: false,
 };
 ```

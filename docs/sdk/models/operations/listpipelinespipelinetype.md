@@ -7,7 +7,7 @@ The type of trigger.
 ```typescript
 import { ListPipelinesPipelineType } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListPipelinesPipelineType = "webhook";
+let value: ListPipelinesPipelineType = "explicit";
 ```
 
 ## Values

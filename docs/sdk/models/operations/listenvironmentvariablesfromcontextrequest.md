@@ -6,7 +6,7 @@
 import { ListEnvironmentVariablesFromContextRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListEnvironmentVariablesFromContextRequest = {
-    contextId: "31b8b90f-3443-4a11-88e0-adcf4b921879",
+    contextId: "9ebf737a-e420-43ce-9e6a-95d8a0d446ce",
 };
 ```
 

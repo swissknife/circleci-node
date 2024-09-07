@@ -5,9 +5,7 @@
 ```typescript
 import { GetDecisionLogsResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetDecisionLogsResponse = {
-    error: "OwnerID: must be a valid UUID.",
-};
+let value: GetDecisionLogsResponse = [];
 ```
 
 ## Supported Types

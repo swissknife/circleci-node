@@ -8,11 +8,11 @@ A pipeline response.
 import { GetPipelineByNumberPipeline } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPipelineByNumberPipeline = {
-    createdAt: new Date("2022-05-30T10:44:04.508Z"),
+    createdAt: new Date("2023-01-08T08:57:06.777Z"),
     errors: [
         {
             message: "<value>",
-            type: "trigger-rule",
+            type: "timeout",
         },
     ],
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
@@ -22,10 +22,10 @@ let value: GetPipelineByNumberPipeline = {
     trigger: {
         actor: {
             avatarUrl: "<value>",
-            login: "Keely_McLaughlin49",
+            login: "Bailee_McDermott",
         },
-        receivedAt: new Date("2023-01-31T14:01:12.819Z"),
-        type: "webhook",
+        receivedAt: new Date("2024-06-17T17:52:12.969Z"),
+        type: "explicit",
     },
     vcs: {
         branch: "feature/design-new-api",

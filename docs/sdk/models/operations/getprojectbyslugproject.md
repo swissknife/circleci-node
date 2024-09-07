@@ -8,7 +8,7 @@ NOTE: The definition of Project is subject to change.
 import { GetProjectBySlugProject } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectBySlugProject = {
-    id: "3a45cefc-5fde-410a-8ce2-169e510019c6",
+    id: "8f197777-3e63-4562-a7b4-08f05e3d48fd",
     name: "api-preview-docs",
     organizationId: "CircleCI-Public",
     organizationName: "CircleCI-Public",

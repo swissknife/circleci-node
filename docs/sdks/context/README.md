@@ -68,7 +68,7 @@ async function run() {
     requestBody: {
       value: "some-secret-value",
     },
-    contextId: "c801dd32-095a-4bf2-95a0-63f7271c0c64",
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
     envVarName: "POSTGRES_USER",
   });
 
@@ -328,7 +328,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextDeleteContext(circleci, {
-    contextId: "cc18cccd-235b-48b1-9a39-f05941d547ca",
+    contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
   });
 
   if (!res.ok) {
@@ -493,7 +493,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextDeleteEnvironmentVariableFromContext(circleci, {
-    contextId: "06b42e86-5a70-41b9-b15e-1342720c1860",
+    contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
     envVarName: "POSTGRES_USER",
   });
 
@@ -575,7 +575,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextGetContext(circleci, {
-    contextId: "12d1f9a6-9baf-460f-a3ce-089284313413",
+    contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
   });
 
   if (!res.ok) {
@@ -814,7 +814,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextListEnvironmentVariablesFromContext(circleci, {
-    contextId: "9a42d7c3-0001-4d08-8861-17ae360b079a",
+    contextId: "bd93f37e-8737-476a-be63-944592b835e7",
   });
 
   if (!res.ok) {

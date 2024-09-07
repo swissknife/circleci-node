@@ -61,7 +61,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await oidcTokenManagementDeleteOrgClaims(circleci, {
     claims: "<value>",
-    orgID: "e4b9f995-f995-45dd-98db-63399c588741",
+    orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
   });
 
   if (!res.ok) {
@@ -145,8 +145,8 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await oidcTokenManagementDeleteProjectClaims(circleci, {
     claims: "<value>",
-    orgID: "edf50649-d694-4a52-a034-f4e8d98a25fa",
-    projectID: "a7ca147e-c283-4fa6-8f53-34b8bcb9b43c",
+    orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
+    projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
   });
 
   if (!res.ok) {
@@ -227,7 +227,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementGetOrgClaims(circleci, {
-    orgID: "fa93cc70-008b-433f-aa84-64dc0f627262",
+    orgID: "faa87345-442f-4070-a007-ecf098342349",
   });
 
   if (!res.ok) {
@@ -309,8 +309,8 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementGetProjectClaims(circleci, {
-    orgID: "631b4b37-e7b7-4e25-9cab-26abe94999c8",
-    projectID: "0973175d-5cba-437d-89e7-3bd9c325ef6c",
+    orgID: "01345488-5416-440e-9811-7333cda41eee",
+    projectID: "17124405-51b9-4707-91e2-d3024606dad9",
   });
 
   if (!res.ok) {
@@ -391,7 +391,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementPatchOrgClaims(circleci, {
-    orgID: "92d75b66-9c3a-46d7-94e0-c54d86ede315",
+    orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
   });
 
   if (!res.ok) {
@@ -473,8 +473,8 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementPatchProjectClaims(circleci, {
-    orgID: "77cd2839-18c2-4331-ae1b-9f7baddb77c5",
-    projectID: "34fcb246-6aca-4954-9ad4-a55acc211525",
+    orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
+    projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
   });
 
   if (!res.ok) {

@@ -9,7 +9,7 @@ import { ListMyPipelinesActor } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListMyPipelinesActor = {
     avatarUrl: "<value>",
-    login: "Olen3",
+    login: "Mortimer.Huels50",
 };
 ```
 

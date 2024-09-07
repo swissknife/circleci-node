@@ -8,14 +8,14 @@ Trends for aggregated metrics across a workflow for a given time window.
 import { Trends } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Trends = {
-    failedRuns: 1536.27,
-    medianDurationSecs: 243.13,
-    mttr: 4255.08,
-    p95DurationSecs: 3426.11,
-    successRate: 9061.72,
-    throughput: 6222.31,
-    totalCreditsUsed: 85.11,
-    totalRuns: 2790.68,
+    failedRuns: 6390.28,
+    medianDurationSecs: 6762.43,
+    mttr: 5483.61,
+    p95DurationSecs: 8792.35,
+    successRate: 2726.83,
+    throughput: 5436.78,
+    totalCreditsUsed: 1482.68,
+    totalRuns: 2826.99,
 };
 ```
 

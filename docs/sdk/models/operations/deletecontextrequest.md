@@ -6,7 +6,7 @@
 import { DeleteContextRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteContextRequest = {
-    contextId: "fe4c8b71-1e5b-47fd-aed0-28921cddc692",
+    contextId: "b14cd66a-e395-4efb-9ba8-8f3a66997074",
 };
 ```
 

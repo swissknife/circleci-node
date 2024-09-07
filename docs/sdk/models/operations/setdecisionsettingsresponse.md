@@ -5,7 +5,9 @@
 ```typescript
 import { SetDecisionSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: SetDecisionSettingsResponse = {};
+let value: SetDecisionSettingsResponse = {
+    error: "OwnerID: must be a valid UUID.",
+};
 ```
 
 ## Supported Types

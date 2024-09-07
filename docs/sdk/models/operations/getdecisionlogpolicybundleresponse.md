@@ -6,7 +6,7 @@
 import { GetDecisionLogPolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetDecisionLogPolicyBundleResponse = {
-    error: "decision log not found",
+    error: "OwnerID: must be a valid UUID.",
 };
 ```
 

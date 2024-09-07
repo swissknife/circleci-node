@@ -132,8 +132,8 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await usageCreateUsageExport(circleci, {
     requestBody: {
-      end: new Date("2023-11-06T08:13:17.453Z"),
-      start: new Date("2022-12-21T02:54:01.322Z"),
+      end: new Date("2024-04-25T08:17:56.389Z"),
+      start: new Date("2022-04-10T20:35:03.698Z"),
     },
     orgId: "b9291e0d-a11e-41fb-8517-c545388b5953",
   });

@@ -8,10 +8,10 @@ Trends aggregated across a workflow or branch for a project.
 import { GetProjectWorkflowsPageDataInsightsTrends } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowsPageDataInsightsTrends = {
-    p95DurationSecs: 4554.44,
-    successRate: 9700.76,
-    totalCreditsUsed: 4017.13,
-    totalRuns: 254.97,
+    p95DurationSecs: 6995.75,
+    successRate: 1488.29,
+    totalCreditsUsed: 9679.66,
+    totalRuns: 1318.52,
 };
 ```
 

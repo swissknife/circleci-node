@@ -5,11 +5,7 @@
 ```typescript
 import { GetAllInsightsBranchesResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetAllInsightsBranchesResponse = {
-    branches: ["main"],
-    orgId: "<value>",
-    projectId: "<value>",
-};
+let value: GetAllInsightsBranchesResponse = {};
 ```
 
 ## Supported Types

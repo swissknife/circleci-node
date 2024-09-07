@@ -9,13 +9,13 @@ import { UpdateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateScheduleSchedule = {
     actor: {
-        id: "1c4ee2c8-c6ce-4611-beeb-1c7cbdb6eec7",
-        login: "Elva_Emmerich",
+        id: "c364b7c1-5dfb-4ace-988b-1c4ee2c8c6ce",
+        login: "Gunnar98",
         name: "<value>",
     },
-    createdAt: new Date("2024-02-09T03:46:21.979Z"),
-    description: "Profit-focused bi-directional firmware",
-    id: "317747dc-915a-4d2c-af5d-d6723dc0f5ae",
+    createdAt: new Date("2024-10-17T05:47:22.107Z"),
+    description: "Synergized neutral approach",
+    id: "c7cbdb6e-ec74-4378-ba25-317747dc915a",
     name: "<value>",
     parameters: {
         deploy_prod: true,
@@ -23,11 +23,11 @@ let value: UpdateScheduleSchedule = {
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
     timetable: {
-        daysOfWeek: ["FRI"],
-        hoursOfDay: [204373],
-        perHour: 640565,
+        daysOfMonth: [147989],
+        hoursOfDay: [804879],
+        perHour: 681115,
     },
-    updatedAt: new Date("2023-02-21T02:36:54.593Z"),
+    updatedAt: new Date("2024-12-30T04:43:36.340Z"),
 };
 ```
 

@@ -9,7 +9,7 @@ let value: AddEnvironmentVariableToContextRequest = {
     requestBody: {
         value: "some-secret-value",
     },
-    contextId: "a05dfc2d-df7c-4c78-8a1b-a928fc816742",
+    contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
     envVarName: "POSTGRES_USER",
 };
 ```

@@ -6,7 +6,7 @@
 import { GetPolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPolicyBundleResponse = {
-    error: "OwnerID: must be a valid UUID.",
+    key: [{}],
 };
 ```
 

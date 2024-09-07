@@ -9,7 +9,7 @@ import { GetPipelineByNumberActor } from "circleci-v2-sdk/sdk/models/operations"
 
 let value: GetPipelineByNumberActor = {
     avatarUrl: "<value>",
-    login: "Jamison29",
+    login: "Mose3",
 };
 ```
 

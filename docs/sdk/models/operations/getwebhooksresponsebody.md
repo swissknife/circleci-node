@@ -11,16 +11,16 @@ let value: GetWebhooksResponseBody = {
     items: [
         {
             createdAt: new Date("2015-09-21T17:29:21.042Z"),
-            events: ["workflow-completed"],
-            id: "d281187d-5684-44ed-ad85-a9065e628bdf",
+            events: ["job-completed"],
+            id: "e12c6891-f82c-4e11-9717-2305377dcfa8",
             name: "<value>",
             scope: {
-                id: "c2032b6c-8799-423b-be13-584f7ae12c68",
+                id: "9df975e3-5668-4609-ae9c-3ddc5f111dea",
                 type: "<value>",
             },
             signingSecret: "<value>",
             updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-            url: "https://celebrated-valance.name",
+            url: "http://anchored-celebrity.info",
             verifyTls: false,
         },
     ],

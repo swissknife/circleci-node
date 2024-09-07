@@ -7,7 +7,7 @@ The type of the owner. Defaults to "organization". Accounts are only used as con
 ```typescript
 import { OwnerType } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: OwnerType = "account";
+let value: OwnerType = "organization";
 ```
 
 ## Values

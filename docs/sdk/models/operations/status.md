@@ -7,7 +7,7 @@ The current status of the job.
 ```typescript
 import { Status } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: Status = "canceled";
+let value: Status = "not_running";
 ```
 
 ## Values

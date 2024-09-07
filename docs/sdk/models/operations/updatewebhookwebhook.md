@@ -9,16 +9,16 @@ import { UpdateWebhookWebhook } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateWebhookWebhook = {
     createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    events: ["job-completed"],
-    id: "a1bd8fb7-a0a1-416c-a723-d4097fa30e9a",
+    events: ["workflow-completed"],
+    id: "0e9b200c-e78a-41bd-8fb7-a0a116ce723d",
     name: "<value>",
     scope: {
-        id: "f725b291-2203-40d8-bf5a-eb7799d22e8c",
+        id: "4097fa30-e9af-4725-b291-22030d83f5ae",
         type: "<value>",
     },
     signingSecret: "<value>",
     updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    url: "http://zealous-mark.biz",
+    url: "https://lazy-koala.name",
     verifyTls: false,
 };
 ```

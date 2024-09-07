@@ -5,7 +5,7 @@
 ```typescript
 import { ListSchedulesForProjectParameters } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListSchedulesForProjectParameters = false;
+let value: ListSchedulesForProjectParameters = 667213;
 ```
 
 ## Supported Types

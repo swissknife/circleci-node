@@ -9,7 +9,7 @@ import { Errors } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Errors = {
     message: "<value>",
-    type: "permission",
+    type: "plan",
 };
 ```
 

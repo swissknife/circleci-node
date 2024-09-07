@@ -7,7 +7,7 @@ Month, in three letters format.
 ```typescript
 import { CreateScheduleScheduleMonths } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: CreateScheduleScheduleMonths = "APR";
+let value: CreateScheduleScheduleMonths = "JAN";
 ```
 
 ## Values

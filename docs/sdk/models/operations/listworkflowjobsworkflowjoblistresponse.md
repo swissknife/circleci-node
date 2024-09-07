@@ -10,12 +10,12 @@ import { ListWorkflowJobsWorkflowJobListResponse } from "circleci-v2-sdk/sdk/mod
 let value: ListWorkflowJobsWorkflowJobListResponse = {
     items: [
         {
-            dependencies: ["529270b8-d572-42dd-895b-8bcf24db9596"],
-            id: "93352f74-5339-494d-b8de-3b6e9389f5ab",
+            dependencies: ["06c8ca12-d025-4292-b0b8-d5722dd895b8"],
+            id: "bcf24db9-5969-4335-af74-533994d78de3",
             name: "<value>",
             projectSlug: "gh/CircleCI-Public/api-preview-docs",
-            startedAt: new Date("2024-03-21T23:32:45.326Z"),
-            status: "not_running",
+            startedAt: new Date("2024-02-25T14:34:33.243Z"),
+            status: "queued",
             type: "approval",
         },
     ],

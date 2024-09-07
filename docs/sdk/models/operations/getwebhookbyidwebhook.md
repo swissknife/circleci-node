@@ -9,16 +9,16 @@ import { GetWebhookByIdWebhook } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetWebhookByIdWebhook = {
     createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    events: ["workflow-completed"],
-    id: "52cb3119-167b-48e3-88db-03408d6d364f",
+    events: ["job-completed"],
+    id: "55e7f73b-c845-4e32-8a31-9f4badf947c9",
     name: "<value>",
     scope: {
-        id: "fd455906-d126-43d4-8e93-5c2c9e81f30b",
+        id: "a867bc42-4266-4658-96dd-ca8ef51fcb4c",
         type: "<value>",
     },
     signingSecret: "<value>",
     updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    url: "https://dimpled-tray.biz",
+    url: "http://nutritious-crayon.org",
     verifyTls: false,
 };
 ```

@@ -7,7 +7,7 @@ The current state of the pipeline.
 ```typescript
 import { TriggerPipelineState } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: TriggerPipelineState = "created";
+let value: TriggerPipelineState = "errored";
 ```
 
 ## Values

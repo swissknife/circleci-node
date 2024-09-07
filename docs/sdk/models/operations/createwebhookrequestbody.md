@@ -11,11 +11,11 @@ let value: CreateWebhookRequestBody = {
     events: ["job-completed"],
     name: "<value>",
     scope: {
-        id: "acc6cbd6-b5f3-4ec9-8930-4f926bad2553",
+        id: "a910abdc-ab62-4676-a96e-1ec00221b335",
         type: "project",
     },
     signingSecret: "<value>",
-    url: "https://burdensome-overshoot.net",
+    url: "https://lucky-numismatist.name",
     verifyTls: false,
 };
 ```
