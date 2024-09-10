@@ -8,7 +8,7 @@ A response to rerunning a workflow
 import { RerunWorkflowResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: RerunWorkflowResponseBody = {
-    workflowId: "0e53027b-521a-4c40-9042-47e72b3c63a3",
+  workflowId: "0e53027b-521a-4c40-9042-47e72b3c63a3",
 };
 ```
 

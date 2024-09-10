@@ -5,34 +5,34 @@
 import * as z from "zod";
 
 export type PatchClaimsRequest = {
-    audience?: Array<string> | undefined;
-    ttl?: string | undefined;
+  audience?: Array<string> | undefined;
+  ttl?: string | undefined;
 };
 
 /** @internal */
 export const PatchClaimsRequest$inboundSchema: z.ZodType<
-    PatchClaimsRequest,
-    z.ZodTypeDef,
-    unknown
+  PatchClaimsRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    audience: z.array(z.string()).optional(),
-    ttl: z.string().optional(),
+  audience: z.array(z.string()).optional(),
+  ttl: z.string().optional(),
 });
 
 /** @internal */
 export type PatchClaimsRequest$Outbound = {
-    audience?: Array<string> | undefined;
-    ttl?: string | undefined;
+  audience?: Array<string> | undefined;
+  ttl?: string | undefined;
 };
 
 /** @internal */
 export const PatchClaimsRequest$outboundSchema: z.ZodType<
-    PatchClaimsRequest$Outbound,
-    z.ZodTypeDef,
-    PatchClaimsRequest
+  PatchClaimsRequest$Outbound,
+  z.ZodTypeDef,
+  PatchClaimsRequest
 > = z.object({
-    audience: z.array(z.string()).optional(),
-    ttl: z.string().optional(),
+  audience: z.array(z.string()).optional(),
+  ttl: z.string().optional(),
 });
 
 /**
@@ -40,10 +40,10 @@ export const PatchClaimsRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace PatchClaimsRequest$ {
-    /** @deprecated use `PatchClaimsRequest$inboundSchema` instead. */
-    export const inboundSchema = PatchClaimsRequest$inboundSchema;
-    /** @deprecated use `PatchClaimsRequest$outboundSchema` instead. */
-    export const outboundSchema = PatchClaimsRequest$outboundSchema;
-    /** @deprecated use `PatchClaimsRequest$Outbound` instead. */
-    export type Outbound = PatchClaimsRequest$Outbound;
+  /** @deprecated use `PatchClaimsRequest$inboundSchema` instead. */
+  export const inboundSchema = PatchClaimsRequest$inboundSchema;
+  /** @deprecated use `PatchClaimsRequest$outboundSchema` instead. */
+  export const outboundSchema = PatchClaimsRequest$outboundSchema;
+  /** @deprecated use `PatchClaimsRequest$Outbound` instead. */
+  export type Outbound = PatchClaimsRequest$Outbound;
 }

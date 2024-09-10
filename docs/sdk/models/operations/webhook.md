@@ -6,18 +6,20 @@
 import { Webhook } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Webhook = {
-    createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    events: ["job-completed"],
-    id: "35724cdb-0f4d-4281-987d-56844eded85a",
-    name: "<value>",
-    scope: {
-        id: "9065e628-bdfc-4203-ab6c-879923b7e135",
-        type: "<value>",
-    },
-    signingSecret: "<value>",
-    updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    url: "https://firsthand-working.info",
-    verifyTls: false,
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  events: [
+    "job-completed",
+  ],
+  id: "35724cdb-0f4d-4281-987d-56844eded85a",
+  name: "<value>",
+  scope: {
+    id: "9065e628-bdfc-4203-ab6c-879923b7e135",
+    type: "<value>",
+  },
+  signingSecret: "<value>",
+  updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+  url: "https://firsthand-working.info",
+  verifyTls: false,
 };
 ```
 

@@ -8,26 +8,30 @@ A schedule response
 import { CreateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleSchedule = {
-    actor: {
-        id: "169e5100-19c6-4dc5-a347-62799bfbbe69",
-        login: "Diana_Mertz13",
-        name: "<value>",
-    },
-    createdAt: new Date("2024-03-06T11:00:53.005Z"),
-    description: "Re-contextualized directional system engine",
-    id: "cae6c3d5-db3a-4deb-95da-ea4c506a8aa9",
+  actor: {
+    id: "169e5100-19c6-4dc5-a347-62799bfbbe69",
+    login: "Diana_Mertz13",
     name: "<value>",
-    parameters: {
-        deploy_prod: true,
-        branch: "feature/design-new-api",
-    },
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    timetable: {
-        daysOfWeek: ["WED"],
-        hoursOfDay: [19462],
-        perHour: 143528,
-    },
-    updatedAt: new Date("2023-03-14T13:08:44.183Z"),
+  },
+  createdAt: new Date("2024-03-06T11:00:53.005Z"),
+  description: "Re-contextualized directional system engine",
+  id: "cae6c3d5-db3a-4deb-95da-ea4c506a8aa9",
+  name: "<value>",
+  parameters: {
+    "deploy_prod": true,
+    "branch": "feature/design-new-api",
+  },
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  timetable: {
+    daysOfWeek: [
+      "WED",
+    ],
+    hoursOfDay: [
+      19462,
+    ],
+    perHour: 143528,
+  },
+  updatedAt: new Date("2023-03-14T13:08:44.183Z"),
 };
 ```
 

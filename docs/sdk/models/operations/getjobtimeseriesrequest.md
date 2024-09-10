@@ -6,11 +6,11 @@
 import { GetJobTimeseriesRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetJobTimeseriesRequest = {
-    endDate: new Date("2020-09-04T13:26:29Z"),
-    granularity: "hourly",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    startDate: new Date("2020-08-21T13:26:29Z"),
-    workflowName: "build-and-test",
+  endDate: new Date("2020-09-04T13:26:29Z"),
+  granularity: "hourly",
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  startDate: new Date("2020-08-21T13:26:29Z"),
+  workflowName: "build-and-test",
 };
 ```
 

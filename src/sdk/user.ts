@@ -10,44 +10,56 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class User extends ClientSDK {
-    /**
-     * Collaborations
-     *
-     * @remarks
-     * Provides the set of organizations of which a user is a member or a collaborator.
-     *
-     * The set of organizations that a user can collaborate on is composed of:
-     *
-     * * Organizations that the current user belongs to across VCS types (e.g. BitBucket, GitHub)
-     * * The parent organization of repository that the user can collaborate on, but is not necessarily a member of
-     * * The organization of the current user's account
-     */
-    async getCollaborations(
-        options?: RequestOptions
-    ): Promise<operations.GetCollaborationsResponse> {
-        return unwrapAsync(userGetCollaborations(this, options));
-    }
+  /**
+   * Collaborations
+   *
+   * @remarks
+   * Provides the set of organizations of which a user is a member or a collaborator.
+   *
+   * The set of organizations that a user can collaborate on is composed of:
+   *
+   * * Organizations that the current user belongs to across VCS types (e.g. BitBucket, GitHub)
+   * * The parent organization of repository that the user can collaborate on, but is not necessarily a member of
+   * * The organization of the current user's account
+   */
+  async getCollaborations(
+    options?: RequestOptions,
+  ): Promise<operations.GetCollaborationsResponse> {
+    return unwrapAsync(userGetCollaborations(
+      this,
+      options,
+    ));
+  }
 
-    /**
-     * User Information
-     *
-     * @remarks
-     * Provides information about the user that is currently signed in.
-     */
-    async getCurrentUser(options?: RequestOptions): Promise<operations.GetCurrentUserResponse> {
-        return unwrapAsync(userGetCurrentUser(this, options));
-    }
+  /**
+   * User Information
+   *
+   * @remarks
+   * Provides information about the user that is currently signed in.
+   */
+  async getCurrentUser(
+    options?: RequestOptions,
+  ): Promise<operations.GetCurrentUserResponse> {
+    return unwrapAsync(userGetCurrentUser(
+      this,
+      options,
+    ));
+  }
 
-    /**
-     * User Information
-     *
-     * @remarks
-     * Provides information about the user with the given ID.
-     */
-    async getUser(
-        request: operations.GetUserRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetUserResponse> {
-        return unwrapAsync(userGetUser(this, request, options));
-    }
+  /**
+   * User Information
+   *
+   * @remarks
+   * Provides information about the user with the given ID.
+   */
+  async getUser(
+    request: operations.GetUserRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetUserResponse> {
+    return unwrapAsync(userGetUser(
+      this,
+      request,
+      options,
+    ));
+  }
 }

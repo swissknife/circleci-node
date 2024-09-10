@@ -8,9 +8,9 @@ The new context
 import { CreateContextContext } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateContextContext = {
-    createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    id: "5e6e13b9-9d48-48e1-a91e-450ad2abd442",
-    name: "<value>",
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  id: "5e6e13b9-9d48-48e1-a91e-450ad2abd442",
+  name: "<value>",
 };
 ```
 

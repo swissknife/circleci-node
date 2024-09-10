@@ -8,7 +8,7 @@ Information about executor used for a job.
 import { Executor } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Executor = {
-    resourceClass: "<value>",
+  resourceClass: "<value>",
 };
 ```
 

@@ -8,18 +8,20 @@ A webhook
 import { CreateWebhookWebhook } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateWebhookWebhook = {
-    createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    events: ["job-completed"],
-    id: "20688f77-c1ff-4c71-9ca1-63f2a3c80a97",
-    name: "<value>",
-    scope: {
-        id: "ff334cdd-f857-4a9e-a187-6c6ab21d29df",
-        type: "<value>",
-    },
-    signingSecret: "<value>",
-    updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    url: "https://outlandish-drag.net",
-    verifyTls: false,
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  events: [
+    "job-completed",
+  ],
+  id: "20688f77-c1ff-4c71-9ca1-63f2a3c80a97",
+  name: "<value>",
+  scope: {
+    id: "ff334cdd-f857-4a9e-a187-6c6ab21d29df",
+    type: "<value>",
+  },
+  signingSecret: "<value>",
+  updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+  url: "https://outlandish-drag.net",
+  verifyTls: false,
 };
 ```
 

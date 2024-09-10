@@ -6,8 +6,8 @@
 import { GetPipelineByNumberRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPipelineByNumberRequest = {
-    pipelineNumber: "123",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  pipelineNumber: "123",
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
 };
 ```
 

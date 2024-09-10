@@ -8,20 +8,20 @@ Metrics relating to a workflow job's runs.
 import { GetProjectWorkflowJobMetricsMetrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowJobMetricsMetrics = {
-    durationMetrics: {
-        max: 373813,
-        mean: 69859,
-        median: 587600,
-        min: 9688,
-        p95: 272822,
-        standardDeviation: 8920.5,
-    },
-    failedRuns: 370853,
-    successRate: 1334.65,
-    successfulRuns: 197054,
-    throughput: 7791.92,
-    totalCreditsUsed: 459856,
-    totalRuns: 925164,
+  durationMetrics: {
+    max: 373813,
+    mean: 69859,
+    median: 587600,
+    min: 9688,
+    p95: 272822,
+    standardDeviation: 8920.5,
+  },
+  failedRuns: 370853,
+  successRate: 1334.65,
+  successfulRuns: 197054,
+  throughput: 7791.92,
+  totalCreditsUsed: 459856,
+  totalRuns: 925164,
 };
 ```
 

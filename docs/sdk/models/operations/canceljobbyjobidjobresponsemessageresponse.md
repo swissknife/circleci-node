@@ -8,7 +8,7 @@ message response
 import { CancelJobByJobIDJobResponseMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CancelJobByJobIDJobResponseMessageResponse = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

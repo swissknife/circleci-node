@@ -8,7 +8,7 @@ The new environment variable
 import { AddEnvironmentVariableToContextResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: AddEnvironmentVariableToContextResponseBody = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

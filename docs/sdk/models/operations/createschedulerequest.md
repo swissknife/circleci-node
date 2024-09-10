@@ -6,20 +6,24 @@
 import { CreateScheduleRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleRequest = {
-    requestBody: {
-        attributionActor: "current",
-        name: "<value>",
-        parameters: {
-            deploy_prod: true,
-            branch: "feature/design-new-api",
-        },
-        timetable: {
-            daysOfMonth: [280859],
-            hoursOfDay: [256768],
-            perHour: 947822,
-        },
+  requestBody: {
+    attributionActor: "current",
+    name: "<value>",
+    parameters: {
+      "deploy_prod": true,
+      "branch": "feature/design-new-api",
     },
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+    timetable: {
+      daysOfMonth: [
+        280859,
+      ],
+      hoursOfDay: [
+        256768,
+      ],
+      perHour: 947822,
+    },
+  },
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
 };
 ```
 

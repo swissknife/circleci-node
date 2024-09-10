@@ -6,7 +6,7 @@
 import { SetDecisionSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: SetDecisionSettingsResponse = {
-    error: "OwnerID: must be a valid UUID.",
+  error: "OwnerID: must be a valid UUID.",
 };
 ```
 

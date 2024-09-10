@@ -8,12 +8,12 @@ A summary of the trigger.
 import { ListPipelinesForProjectTrigger } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListPipelinesForProjectTrigger = {
-    actor: {
-        avatarUrl: "<value>",
-        login: "Robert41",
-    },
-    receivedAt: new Date("2024-04-25T06:18:52.474Z"),
-    type: "explicit",
+  actor: {
+    avatarUrl: "<value>",
+    login: "Robert41",
+  },
+  receivedAt: new Date("2024-04-25T06:18:52.474Z"),
+  type: "explicit",
 };
 ```
 

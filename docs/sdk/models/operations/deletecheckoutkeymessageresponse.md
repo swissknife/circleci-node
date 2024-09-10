@@ -8,7 +8,7 @@ message response
 import { DeleteCheckoutKeyMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteCheckoutKeyMessageResponse = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

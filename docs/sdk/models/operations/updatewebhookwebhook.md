@@ -8,18 +8,20 @@ A webhook
 import { UpdateWebhookWebhook } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateWebhookWebhook = {
-    createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    events: ["workflow-completed"],
-    id: "0e9b200c-e78a-41bd-8fb7-a0a116ce723d",
-    name: "<value>",
-    scope: {
-        id: "4097fa30-e9af-4725-b291-22030d83f5ae",
-        type: "<value>",
-    },
-    signingSecret: "<value>",
-    updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    url: "https://lazy-koala.name",
-    verifyTls: false,
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  events: [
+    "workflow-completed",
+  ],
+  id: "0e9b200c-e78a-41bd-8fb7-a0a116ce723d",
+  name: "<value>",
+  scope: {
+    id: "4097fa30-e9af-4725-b291-22030d83f5ae",
+    type: "<value>",
+  },
+  signingSecret: "<value>",
+  updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+  url: "https://lazy-koala.name",
+  verifyTls: false,
 };
 ```
 

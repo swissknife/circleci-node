@@ -6,8 +6,8 @@
 import { DeleteCheckoutKeyRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteCheckoutKeyRequest = {
-    fingerprint: "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  fingerprint: "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f",
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
 };
 ```
 

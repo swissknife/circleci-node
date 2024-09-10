@@ -6,14 +6,14 @@
 import { GetProjectWorkflowRunsItems } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowRunsItems = {
-    branch: "main",
-    createdAt: new Date("2023-05-06T07:50:19.638Z"),
-    creditsUsed: 258684,
-    duration: 727697,
-    id: "db04f157-5608-42d6-8ea1-9f1d17051339",
-    isApproval: false,
-    status: "unauthorized",
-    stoppedAt: new Date("2022-02-06T05:59:38.358Z"),
+  branch: "main",
+  createdAt: new Date("2023-05-06T07:50:19.638Z"),
+  creditsUsed: 258684,
+  duration: 727697,
+  id: "db04f157-5608-42d6-8ea1-9f1d17051339",
+  isApproval: false,
+  status: "unauthorized",
+  stoppedAt: new Date("2022-02-06T05:59:38.358Z"),
 };
 ```
 

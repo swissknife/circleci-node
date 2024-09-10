@@ -6,10 +6,10 @@
 import { GetProjectWorkflowsPageDataRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowsPageDataRequest = {
-    branches: {},
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    reportingWindow: "last-90-days",
-    workflowNames: {},
+  branches: {},
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  reportingWindow: "last-90-days",
+  workflowNames: {},
 };
 ```
 

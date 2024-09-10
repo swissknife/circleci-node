@@ -8,14 +8,14 @@ A paginated list of the job's artifacts.
 import { GetJobArtifactsArtifactListResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetJobArtifactsArtifactListResponse = {
-    items: [
-        {
-            nodeIndex: 383103,
-            path: "/usr/X11R6",
-            url: "https://bright-inhibition.biz",
-        },
-    ],
-    nextPageToken: "<value>",
+  items: [
+    {
+      nodeIndex: 383103,
+      path: "/usr/X11R6",
+      url: "https://bright-inhibition.biz",
+    },
+  ],
+  nextPageToken: "<value>",
 };
 ```
 

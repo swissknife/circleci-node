@@ -9,7 +9,7 @@ There was no decision log found for given decision_id, and owner_id.
 import { GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody = {
-    error: "decision log not found",
+  error: "decision log not found",
 };
 ```
 

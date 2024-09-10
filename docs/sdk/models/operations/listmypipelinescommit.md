@@ -8,8 +8,8 @@ The latest commit in the pipeline.
 import { ListMyPipelinesCommit } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListMyPipelinesCommit = {
-    body: "<value>",
-    subject: "<value>",
+  body: "<value>",
+  subject: "<value>",
 };
 ```
 

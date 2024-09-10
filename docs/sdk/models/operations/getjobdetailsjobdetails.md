@@ -8,51 +8,51 @@ Job Details
 import { GetJobDetailsJobDetails } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetJobDetailsJobDetails = {
-    contexts: [
-        {
-            name: "<value>",
-        },
-    ],
-    createdAt: new Date("2024-09-21T21:00:27.794Z"),
-    duration: 184362,
-    executor: {
-        resourceClass: "<value>",
+  contexts: [
+    {
+      name: "<value>",
     },
-    latestWorkflow: {
-        id: "b6e3ab88-45f0-4597-a60f-f2a54a31e947",
-        name: "build-and-test",
+  ],
+  createdAt: new Date("2024-09-21T21:00:27.794Z"),
+  duration: 184362,
+  executor: {
+    resourceClass: "<value>",
+  },
+  latestWorkflow: {
+    id: "b6e3ab88-45f0-4597-a60f-f2a54a31e947",
+    name: "build-and-test",
+  },
+  messages: [
+    {
+      message: "<value>",
+      type: "<value>",
     },
-    messages: [
-        {
-            message: "<value>",
-            type: "<value>",
-        },
-    ],
+  ],
+  name: "<value>",
+  number: 403218,
+  organization: {
     name: "<value>",
-    number: 403218,
-    organization: {
-        name: "<value>",
+  },
+  parallelRuns: [
+    {
+      index: 284000,
+      status: "<value>",
     },
-    parallelRuns: [
-        {
-            index: 284000,
-            status: "<value>",
-        },
-    ],
-    parallelism: 633062,
-    pipeline: {
-        id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
-    },
-    project: {
-        externalUrl: "https://github.com/CircleCI-Public/api-preview-docs",
-        id: "3e865e79-56f9-4251-a5a9-da660ff57bfa",
-        name: "api-preview-docs",
-        slug: "gh/CircleCI-Public/api-preview-docs",
-    },
-    queuedAt: new Date("2024-01-07T13:22:04.726Z"),
-    startedAt: new Date("2024-06-10T02:34:07.582Z"),
-    status: "failed",
-    webUrl: "<value>",
+  ],
+  parallelism: 633062,
+  pipeline: {
+    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  },
+  project: {
+    externalUrl: "https://github.com/CircleCI-Public/api-preview-docs",
+    id: "3e865e79-56f9-4251-a5a9-da660ff57bfa",
+    name: "api-preview-docs",
+    slug: "gh/CircleCI-Public/api-preview-docs",
+  },
+  queuedAt: new Date("2024-01-07T13:22:04.726Z"),
+  startedAt: new Date("2024-06-10T02:34:07.582Z"),
+  status: "failed",
+  webUrl: "<value>",
 };
 ```
 

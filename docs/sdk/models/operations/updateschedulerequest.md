@@ -6,14 +6,14 @@
 import { UpdateScheduleRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateScheduleRequest = {
-    requestBody: {
-        attributionActor: "current",
-        parameters: {
-            deploy_prod: true,
-            branch: "feature/design-new-api",
-        },
+  requestBody: {
+    attributionActor: "current",
+    parameters: {
+      "deploy_prod": true,
+      "branch": "feature/design-new-api",
     },
-    scheduleId: "05672822-7b2d-4309-870b-f7a4fa87cf53",
+  },
+  scheduleId: "05672822-7b2d-4309-870b-f7a4fa87cf53",
 };
 ```
 

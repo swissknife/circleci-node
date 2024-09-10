@@ -8,7 +8,7 @@ Information about an organization.
 import { Organization } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Organization = {
-    name: "<value>",
+  name: "<value>",
 };
 ```
 

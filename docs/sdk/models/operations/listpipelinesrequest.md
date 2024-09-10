@@ -6,7 +6,7 @@
 import { ListPipelinesRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListPipelinesRequest = {
-    orgSlug: "gh/CircleCI-Public",
+  orgSlug: "gh/CircleCI-Public",
 };
 ```
 

@@ -8,26 +8,30 @@ A schedule response
 import { GetScheduleByIdSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetScheduleByIdSchedule = {
-    actor: {
-        id: "d0af2dfe-13db-44f6-acba-3f8941aebc0b",
-        login: "Katherine.Becker",
-        name: "<value>",
-    },
-    createdAt: new Date("2023-09-18T04:25:03.089Z"),
-    description: "De-engineered didactic secured line",
-    id: "3b2ecfcc-8f89-4501-8f5d-d3d6fa1804e5",
+  actor: {
+    id: "d0af2dfe-13db-44f6-acba-3f8941aebc0b",
+    login: "Katherine.Becker",
     name: "<value>",
-    parameters: {
-        deploy_prod: true,
-        branch: "feature/design-new-api",
-    },
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    timetable: {
-        daysOfWeek: ["WED"],
-        hoursOfDay: [557987],
-        perHour: 162450,
-    },
-    updatedAt: new Date("2024-12-12T18:13:48.672Z"),
+  },
+  createdAt: new Date("2023-09-18T04:25:03.089Z"),
+  description: "De-engineered didactic secured line",
+  id: "3b2ecfcc-8f89-4501-8f5d-d3d6fa1804e5",
+  name: "<value>",
+  parameters: {
+    "deploy_prod": true,
+    "branch": "feature/design-new-api",
+  },
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  timetable: {
+    daysOfWeek: [
+      "WED",
+    ],
+    hoursOfDay: [
+      557987,
+    ],
+    perHour: 162450,
+  },
+  updatedAt: new Date("2024-12-12T18:13:48.672Z"),
 };
 ```
 

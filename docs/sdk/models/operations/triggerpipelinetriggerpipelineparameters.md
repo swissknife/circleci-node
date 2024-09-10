@@ -8,11 +8,11 @@ The information you can supply when triggering a pipeline.
 import { TriggerPipelineTriggerPipelineParameters } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: TriggerPipelineTriggerPipelineParameters = {
-    branch: "feature/design-new-api",
-    parameters: {
-        deploy_prod: true,
-    },
-    tag: "v3.1.4159",
+  branch: "feature/design-new-api",
+  parameters: {
+    "deploy_prod": true,
+  },
+  tag: "v3.1.4159",
 };
 ```
 

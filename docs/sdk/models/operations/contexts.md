@@ -8,7 +8,7 @@ Information about the context.
 import { Contexts } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Contexts = {
-    name: "<value>",
+  name: "<value>",
 };
 ```
 

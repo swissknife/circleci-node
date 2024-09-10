@@ -6,7 +6,7 @@
 import { MakeDecisionResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: MakeDecisionResponse = {
-    error: "There was an error processing your request.",
+  error: "There was an error processing your request.",
 };
 ```
 

@@ -6,7 +6,7 @@
 import { AddEnvironmentVariableToContextRequestBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: AddEnvironmentVariableToContextRequestBody = {
-    value: "some-secret-value",
+  value: "some-secret-value",
 };
 ```
 

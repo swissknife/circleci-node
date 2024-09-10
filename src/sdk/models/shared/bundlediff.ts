@@ -5,42 +5,49 @@
 import * as z from "zod";
 
 export type BundleDiff = {
-    created?: Array<string> | undefined;
-    deleted?: Array<string> | undefined;
-    modified?: Array<string> | undefined;
+  created?: Array<string> | undefined;
+  deleted?: Array<string> | undefined;
+  modified?: Array<string> | undefined;
 };
 
 /** @internal */
-export const BundleDiff$inboundSchema: z.ZodType<BundleDiff, z.ZodTypeDef, unknown> = z.object({
-    created: z.array(z.string()).optional(),
-    deleted: z.array(z.string()).optional(),
-    modified: z.array(z.string()).optional(),
+export const BundleDiff$inboundSchema: z.ZodType<
+  BundleDiff,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  created: z.array(z.string()).optional(),
+  deleted: z.array(z.string()).optional(),
+  modified: z.array(z.string()).optional(),
 });
 
 /** @internal */
 export type BundleDiff$Outbound = {
-    created?: Array<string> | undefined;
-    deleted?: Array<string> | undefined;
-    modified?: Array<string> | undefined;
+  created?: Array<string> | undefined;
+  deleted?: Array<string> | undefined;
+  modified?: Array<string> | undefined;
 };
 
 /** @internal */
-export const BundleDiff$outboundSchema: z.ZodType<BundleDiff$Outbound, z.ZodTypeDef, BundleDiff> =
-    z.object({
-        created: z.array(z.string()).optional(),
-        deleted: z.array(z.string()).optional(),
-        modified: z.array(z.string()).optional(),
-    });
+export const BundleDiff$outboundSchema: z.ZodType<
+  BundleDiff$Outbound,
+  z.ZodTypeDef,
+  BundleDiff
+> = z.object({
+  created: z.array(z.string()).optional(),
+  deleted: z.array(z.string()).optional(),
+  modified: z.array(z.string()).optional(),
+});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace BundleDiff$ {
-    /** @deprecated use `BundleDiff$inboundSchema` instead. */
-    export const inboundSchema = BundleDiff$inboundSchema;
-    /** @deprecated use `BundleDiff$outboundSchema` instead. */
-    export const outboundSchema = BundleDiff$outboundSchema;
-    /** @deprecated use `BundleDiff$Outbound` instead. */
-    export type Outbound = BundleDiff$Outbound;
+  /** @deprecated use `BundleDiff$inboundSchema` instead. */
+  export const inboundSchema = BundleDiff$inboundSchema;
+  /** @deprecated use `BundleDiff$outboundSchema` instead. */
+  export const outboundSchema = BundleDiff$outboundSchema;
+  /** @deprecated use `BundleDiff$Outbound` instead. */
+  export type Outbound = BundleDiff$Outbound;
 }

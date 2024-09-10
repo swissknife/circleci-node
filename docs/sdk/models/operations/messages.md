@@ -8,8 +8,8 @@ Message from CircleCI execution platform.
 import { Messages } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Messages = {
-    message: "<value>",
-    type: "<value>",
+  message: "<value>",
+  type: "<value>",
 };
 ```
 

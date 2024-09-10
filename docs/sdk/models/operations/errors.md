@@ -8,8 +8,8 @@ An error with a type and message.
 import { Errors } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Errors = {
-    message: "<value>",
-    type: "plan",
+  message: "<value>",
+  type: "plan",
 };
 ```
 

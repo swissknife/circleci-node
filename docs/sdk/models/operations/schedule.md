@@ -8,26 +8,30 @@ A schedule response
 import { Schedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Schedule = {
-    actor: {
-        id: "95f2eac5-565d-4307-8fee-81206e2813fa",
-        login: "Ellen12",
-        name: "<value>",
-    },
-    createdAt: new Date("2024-04-25T02:48:04.822Z"),
-    description: "Exclusive intangible application",
-    id: "d3f2132a-f031-402d-914f-4cc6f18bf962",
+  actor: {
+    id: "95f2eac5-565d-4307-8fee-81206e2813fa",
+    login: "Ellen12",
     name: "<value>",
-    parameters: {
-        deploy_prod: true,
-        branch: "feature/design-new-api",
-    },
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    timetable: {
-        daysOfWeek: ["THU"],
-        hoursOfDay: [408774],
-        perHour: 657301,
-    },
-    updatedAt: new Date("2022-11-21T13:20:41.358Z"),
+  },
+  createdAt: new Date("2024-04-25T02:48:04.822Z"),
+  description: "Exclusive intangible application",
+  id: "d3f2132a-f031-402d-914f-4cc6f18bf962",
+  name: "<value>",
+  parameters: {
+    "deploy_prod": true,
+    "branch": "feature/design-new-api",
+  },
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  timetable: {
+    daysOfWeek: [
+      "THU",
+    ],
+    hoursOfDay: [
+      408774,
+    ],
+    perHour: 657301,
+  },
+  updatedAt: new Date("2022-11-21T13:20:41.358Z"),
 };
 ```
 

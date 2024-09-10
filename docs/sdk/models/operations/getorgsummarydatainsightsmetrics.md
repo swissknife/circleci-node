@@ -8,10 +8,10 @@ Metrics for a single project, across all branches.
 import { GetOrgSummaryDataInsightsMetrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetOrgSummaryDataInsightsMetrics = {
-    successRate: 9528.71,
-    totalCreditsUsed: 725595,
-    totalDurationSecs: 13948,
-    totalRuns: 11427,
+  successRate: 9528.71,
+  totalCreditsUsed: 725595,
+  totalDurationSecs: 13948,
+  totalRuns: 11427,
 };
 ```
 

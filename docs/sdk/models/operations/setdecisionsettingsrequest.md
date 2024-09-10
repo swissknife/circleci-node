@@ -6,8 +6,8 @@
 import { SetDecisionSettingsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: SetDecisionSettingsRequest = {
-    context: "<value>",
-    ownerID: "<value>",
+  context: "<value>",
+  ownerID: "<value>",
 };
 ```
 

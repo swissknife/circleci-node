@@ -19,162 +19,210 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Project extends ClientSDK {
-    /**
-     * Create a new checkout key
-     *
-     * @remarks
-     * Not available to projects that use GitLab or GitHub App. Creates a new checkout key. This API request is only usable with a user API token.
-     *                            Please ensure that you have authorized your account with GitHub before creating user keys.
-     *                            This is necessary to give CircleCI the permission to create a user key associated with
-     *                            your GitHub user account. You can find this page by visiting Project Settings > Checkout SSH Keys
-     */
-    async createCheckoutKey(
-        request: operations.CreateCheckoutKeyRequest,
-        options?: RequestOptions
-    ): Promise<operations.CreateCheckoutKeyResponse> {
-        return unwrapAsync(projectCreateCheckoutKey(this, request, options));
-    }
+  /**
+   * Create a new checkout key
+   *
+   * @remarks
+   * Not available to projects that use GitLab or GitHub App. Creates a new checkout key. This API request is only usable with a user API token.
+   *                            Please ensure that you have authorized your account with GitHub before creating user keys.
+   *                            This is necessary to give CircleCI the permission to create a user key associated with
+   *                            your GitHub user account. You can find this page by visiting Project Settings > Checkout SSH Keys
+   */
+  async createCheckoutKey(
+    request: operations.CreateCheckoutKeyRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateCheckoutKeyResponse> {
+    return unwrapAsync(projectCreateCheckoutKey(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create an environment variable
-     *
-     * @remarks
-     * Creates a new environment variable.
-     */
-    async createEnvVar(
-        request: operations.CreateEnvVarRequest,
-        options?: RequestOptions
-    ): Promise<operations.CreateEnvVarResponse> {
-        return unwrapAsync(projectCreateEnvVar(this, request, options));
-    }
+  /**
+   * Create an environment variable
+   *
+   * @remarks
+   * Creates a new environment variable.
+   */
+  async createEnvVar(
+    request: operations.CreateEnvVarRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateEnvVarResponse> {
+    return unwrapAsync(projectCreateEnvVar(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * 🧪 Create a project
-     *
-     * @remarks
-     * [__EXPERIMENTAL__]  Creates a new CircleCI project, and returns a list of the default advanced settings. Can only be called on a repo with a main branch and an existing config.yml file. Not yet available to projects that use GitLab or GitHub App.
-     */
-    async createProject(
-        request: operations.CreateProjectRequest,
-        options?: RequestOptions
-    ): Promise<operations.CreateProjectResponse> {
-        return unwrapAsync(projectCreateProject(this, request, options));
-    }
+  /**
+   * 🧪 Create a project
+   *
+   * @remarks
+   * [__EXPERIMENTAL__]  Creates a new CircleCI project, and returns a list of the default advanced settings. Can only be called on a repo with a main branch and an existing config.yml file. Not yet available to projects that use GitLab or GitHub App.
+   */
+  async createProject(
+    request: operations.CreateProjectRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateProjectResponse> {
+    return unwrapAsync(projectCreateProject(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete a checkout key
-     *
-     * @remarks
-     * Deletes the checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
-     */
-    async deleteCheckoutKey(
-        request: operations.DeleteCheckoutKeyRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteCheckoutKeyResponse> {
-        return unwrapAsync(projectDeleteCheckoutKey(this, request, options));
-    }
+  /**
+   * Delete a checkout key
+   *
+   * @remarks
+   * Deletes the checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
+   */
+  async deleteCheckoutKey(
+    request: operations.DeleteCheckoutKeyRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteCheckoutKeyResponse> {
+    return unwrapAsync(projectDeleteCheckoutKey(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete an environment variable
-     *
-     * @remarks
-     * Deletes the environment variable named :name.
-     */
-    async deleteEnvVar(
-        request: operations.DeleteEnvVarRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteEnvVarResponse> {
-        return unwrapAsync(projectDeleteEnvVar(this, request, options));
-    }
+  /**
+   * Delete an environment variable
+   *
+   * @remarks
+   * Deletes the environment variable named :name.
+   */
+  async deleteEnvVar(
+    request: operations.DeleteEnvVarRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteEnvVarResponse> {
+    return unwrapAsync(projectDeleteEnvVar(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a checkout key
-     *
-     * @remarks
-     * Returns an individual checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
-     */
-    async getCheckoutKey(
-        request: operations.GetCheckoutKeyRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetCheckoutKeyResponse> {
-        return unwrapAsync(projectGetCheckoutKey(this, request, options));
-    }
+  /**
+   * Get a checkout key
+   *
+   * @remarks
+   * Returns an individual checkout key via md5 or sha256 fingerprint. sha256 keys should be url-encoded.
+   */
+  async getCheckoutKey(
+    request: operations.GetCheckoutKeyRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetCheckoutKeyResponse> {
+    return unwrapAsync(projectGetCheckoutKey(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a masked environment variable
-     *
-     * @remarks
-     * Returns the masked value of environment variable :name.
-     */
-    async getEnvVar(
-        request: operations.GetEnvVarRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetEnvVarResponse> {
-        return unwrapAsync(projectGetEnvVar(this, request, options));
-    }
+  /**
+   * Get a masked environment variable
+   *
+   * @remarks
+   * Returns the masked value of environment variable :name.
+   */
+  async getEnvVar(
+    request: operations.GetEnvVarRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetEnvVarResponse> {
+    return unwrapAsync(projectGetEnvVar(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a project
-     *
-     * @remarks
-     * Retrieves a project by project slug.
-     */
-    async getProjectBySlug(
-        request: operations.GetProjectBySlugRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectBySlugResponse> {
-        return unwrapAsync(projectGetProjectBySlug(this, request, options));
-    }
+  /**
+   * Get a project
+   *
+   * @remarks
+   * Retrieves a project by project slug.
+   */
+  async getProjectBySlug(
+    request: operations.GetProjectBySlugRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectBySlugResponse> {
+    return unwrapAsync(projectGetProjectBySlug(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * 🧪 Get project settings
-     *
-     * @remarks
-     * [__EXPERIMENTAL__] Returns a list of the advanced settings for a CircleCI project, whether enabled (true) or not (false).
-     */
-    async getProjectSettings(
-        request: operations.GetProjectSettingsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectSettingsResponse> {
-        return unwrapAsync(projectGetProjectSettings(this, request, options));
-    }
+  /**
+   * 🧪 Get project settings
+   *
+   * @remarks
+   * [__EXPERIMENTAL__] Returns a list of the advanced settings for a CircleCI project, whether enabled (true) or not (false).
+   */
+  async getProjectSettings(
+    request: operations.GetProjectSettingsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectSettingsResponse> {
+    return unwrapAsync(projectGetProjectSettings(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get all checkout keys
-     *
-     * @remarks
-     * Returns a sequence of checkout keys for `:project`.
-     */
-    async listCheckoutKeys(
-        request: operations.ListCheckoutKeysRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListCheckoutKeysResponse> {
-        return unwrapAsync(projectListCheckoutKeys(this, request, options));
-    }
+  /**
+   * Get all checkout keys
+   *
+   * @remarks
+   * Returns a sequence of checkout keys for `:project`.
+   */
+  async listCheckoutKeys(
+    request: operations.ListCheckoutKeysRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListCheckoutKeysResponse> {
+    return unwrapAsync(projectListCheckoutKeys(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * List all environment variables
-     *
-     * @remarks
-     * Returns four 'x' characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
-     */
-    async listEnvVars(
-        request: operations.ListEnvVarsRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListEnvVarsResponse> {
-        return unwrapAsync(projectListEnvVars(this, request, options));
-    }
+  /**
+   * List all environment variables
+   *
+   * @remarks
+   * Returns four 'x' characters, in addition to the last four ASCII characters of the value, consistent with the display of environment variable values on the CircleCI website.
+   */
+  async listEnvVars(
+    request: operations.ListEnvVarsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListEnvVarsResponse> {
+    return unwrapAsync(projectListEnvVars(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * 🧪 Update project settings
-     *
-     * @remarks
-     * [__EXPERIMENTAL__] Updates one or more of the advanced settings for a CircleCI project.
-     */
-    async patchProjectSettings(
-        request: operations.PatchProjectSettingsRequest,
-        options?: RequestOptions
-    ): Promise<operations.PatchProjectSettingsResponse> {
-        return unwrapAsync(projectPatchProjectSettings(this, request, options));
-    }
+  /**
+   * 🧪 Update project settings
+   *
+   * @remarks
+   * [__EXPERIMENTAL__] Updates one or more of the advanced settings for a CircleCI project.
+   */
+  async patchProjectSettings(
+    request: operations.PatchProjectSettingsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchProjectSettingsResponse> {
+    return unwrapAsync(projectPatchProjectSettings(
+      this,
+      request,
+      options,
+    ));
+  }
 }

@@ -6,9 +6,9 @@
 import { GetProjectSettingsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectSettingsRequest = {
-    organization: "CircleCI-Public",
-    project: "api-preview-docs",
-    provider: "gh",
+  organization: "CircleCI-Public",
+  project: "api-preview-docs",
+  provider: "gh",
 };
 ```
 

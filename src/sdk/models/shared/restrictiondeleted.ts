@@ -5,33 +5,33 @@
 import * as z from "zod";
 
 export type RestrictionDeleted = {
-    /**
-     * Response message
-     */
-    message?: string | undefined;
+  /**
+   * Response message
+   */
+  message?: string | undefined;
 };
 
 /** @internal */
 export const RestrictionDeleted$inboundSchema: z.ZodType<
-    RestrictionDeleted,
-    z.ZodTypeDef,
-    unknown
+  RestrictionDeleted,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    message: z.string().optional(),
+  message: z.string().optional(),
 });
 
 /** @internal */
 export type RestrictionDeleted$Outbound = {
-    message?: string | undefined;
+  message?: string | undefined;
 };
 
 /** @internal */
 export const RestrictionDeleted$outboundSchema: z.ZodType<
-    RestrictionDeleted$Outbound,
-    z.ZodTypeDef,
-    RestrictionDeleted
+  RestrictionDeleted$Outbound,
+  z.ZodTypeDef,
+  RestrictionDeleted
 > = z.object({
-    message: z.string().optional(),
+  message: z.string().optional(),
 });
 
 /**
@@ -39,10 +39,10 @@ export const RestrictionDeleted$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace RestrictionDeleted$ {
-    /** @deprecated use `RestrictionDeleted$inboundSchema` instead. */
-    export const inboundSchema = RestrictionDeleted$inboundSchema;
-    /** @deprecated use `RestrictionDeleted$outboundSchema` instead. */
-    export const outboundSchema = RestrictionDeleted$outboundSchema;
-    /** @deprecated use `RestrictionDeleted$Outbound` instead. */
-    export type Outbound = RestrictionDeleted$Outbound;
+  /** @deprecated use `RestrictionDeleted$inboundSchema` instead. */
+  export const inboundSchema = RestrictionDeleted$inboundSchema;
+  /** @deprecated use `RestrictionDeleted$outboundSchema` instead. */
+  export const outboundSchema = RestrictionDeleted$outboundSchema;
+  /** @deprecated use `RestrictionDeleted$Outbound` instead. */
+  export type Outbound = RestrictionDeleted$Outbound;
 }

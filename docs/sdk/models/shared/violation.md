@@ -6,8 +6,8 @@
 import { Violation } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: Violation = {
-    reason: "<value>",
-    rule: "<value>",
+  reason: "<value>",
+  rule: "<value>",
 };
 ```
 

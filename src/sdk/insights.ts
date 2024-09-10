@@ -9,146 +9,186 @@ import { insightsGetOrgSummaryData } from "../funcs/insightsGetOrgSummaryData.js
 import { insightsGetProjectWorkflowJobMetrics } from "../funcs/insightsGetProjectWorkflowJobMetrics.js";
 import { insightsGetProjectWorkflowMetrics } from "../funcs/insightsGetProjectWorkflowMetrics.js";
 import { insightsGetProjectWorkflowRuns } from "../funcs/insightsGetProjectWorkflowRuns.js";
-import { insightsGetProjectWorkflowTestMetrics } from "../funcs/insightsGetProjectWorkflowTestMetrics.js";
 import { insightsGetProjectWorkflowsPageData } from "../funcs/insightsGetProjectWorkflowsPageData.js";
+import { insightsGetProjectWorkflowTestMetrics } from "../funcs/insightsGetProjectWorkflowTestMetrics.js";
 import { insightsGetWorkflowSummary } from "../funcs/insightsGetWorkflowSummary.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Insights extends ClientSDK {
-    /**
-     * Get all branches for a project
-     *
-     * @remarks
-     * Get a list of all branches for a specified project. The list will only contain branches currently available within Insights. The maximum number of branches returned by this endpoint is 5,000.
-     */
-    async getAllInsightsBranches(
-        request: operations.GetAllInsightsBranchesRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetAllInsightsBranchesResponse> {
-        return unwrapAsync(insightsGetAllInsightsBranches(this, request, options));
-    }
+  /**
+   * Get all branches for a project
+   *
+   * @remarks
+   * Get a list of all branches for a specified project. The list will only contain branches currently available within Insights. The maximum number of branches returned by this endpoint is 5,000.
+   */
+  async getAllInsightsBranches(
+    request: operations.GetAllInsightsBranchesRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetAllInsightsBranchesResponse> {
+    return unwrapAsync(insightsGetAllInsightsBranches(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get flaky tests for a project
-     *
-     * @remarks
-     * Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
-     *              A flaky test is a test that passed and failed in the same commit.
-     */
-    async getFlakyTests(
-        request: operations.GetFlakyTestsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetFlakyTestsResponse> {
-        return unwrapAsync(insightsGetFlakyTests(this, request, options));
-    }
+  /**
+   * Get flaky tests for a project
+   *
+   * @remarks
+   * Get a list of flaky tests for a given project. Flaky tests are branch agnostic.
+   *              A flaky test is a test that passed and failed in the same commit.
+   */
+  async getFlakyTests(
+    request: operations.GetFlakyTestsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetFlakyTestsResponse> {
+    return unwrapAsync(insightsGetFlakyTests(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Job timeseries data
-     *
-     * @remarks
-     * Get timeseries data for all jobs within a workflow. Hourly granularity data is only retained for 48 hours while daily granularity data is retained for 90 days.
-     */
-    async getJobTimeseries(
-        request: operations.GetJobTimeseriesRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetJobTimeseriesResponse> {
-        return unwrapAsync(insightsGetJobTimeseries(this, request, options));
-    }
+  /**
+   * Job timeseries data
+   *
+   * @remarks
+   * Get timeseries data for all jobs within a workflow. Hourly granularity data is only retained for 48 hours while daily granularity data is retained for 90 days.
+   */
+  async getJobTimeseries(
+    request: operations.GetJobTimeseriesRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetJobTimeseriesResponse> {
+    return unwrapAsync(insightsGetJobTimeseries(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get summary metrics with trends for the entire org, and for each project.
-     *
-     * @remarks
-     * Gets aggregated summary metrics with trends for the entire org.
-     *               Also gets aggregated metrics and trends for each project belonging to the org.
-     */
-    async getOrgSummaryData(
-        request: operations.GetOrgSummaryDataRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetOrgSummaryDataResponse> {
-        return unwrapAsync(insightsGetOrgSummaryData(this, request, options));
-    }
+  /**
+   * Get summary metrics with trends for the entire org, and for each project.
+   *
+   * @remarks
+   * Gets aggregated summary metrics with trends for the entire org.
+   *               Also gets aggregated metrics and trends for each project belonging to the org.
+   */
+  async getOrgSummaryData(
+    request: operations.GetOrgSummaryDataRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetOrgSummaryDataResponse> {
+    return unwrapAsync(insightsGetOrgSummaryData(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get summary metrics for a project workflow's jobs.
-     *
-     * @remarks
-     * Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-     */
-    async getProjectWorkflowJobMetrics(
-        request: operations.GetProjectWorkflowJobMetricsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectWorkflowJobMetricsResponse> {
-        return unwrapAsync(insightsGetProjectWorkflowJobMetrics(this, request, options));
-    }
+  /**
+   * Get summary metrics for a project workflow's jobs.
+   *
+   * @remarks
+   * Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+   */
+  async getProjectWorkflowJobMetrics(
+    request: operations.GetProjectWorkflowJobMetricsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectWorkflowJobMetricsResponse> {
+    return unwrapAsync(insightsGetProjectWorkflowJobMetrics(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get summary metrics for a project's workflows
-     *
-     * @remarks
-     * Get summary metrics for a project's workflows.  Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.  Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-     */
-    async getProjectWorkflowMetrics(
-        request: operations.GetProjectWorkflowMetricsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectWorkflowMetricsResponse> {
-        return unwrapAsync(insightsGetProjectWorkflowMetrics(this, request, options));
-    }
+  /**
+   * Get summary metrics for a project's workflows
+   *
+   * @remarks
+   * Get summary metrics for a project's workflows.  Workflow runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours.  Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+   */
+  async getProjectWorkflowMetrics(
+    request: operations.GetProjectWorkflowMetricsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectWorkflowMetricsResponse> {
+    return unwrapAsync(insightsGetProjectWorkflowMetrics(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get recent runs of a workflow
-     *
-     * @remarks
-     * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-     */
-    async getProjectWorkflowRuns(
-        request: operations.GetProjectWorkflowRunsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectWorkflowRunsResponse> {
-        return unwrapAsync(insightsGetProjectWorkflowRuns(this, request, options));
-    }
+  /**
+   * Get recent runs of a workflow
+   *
+   * @remarks
+   * Get recent runs of a workflow. Runs going back at most 90 days are returned. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+   */
+  async getProjectWorkflowRuns(
+    request: operations.GetProjectWorkflowRunsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectWorkflowRunsResponse> {
+    return unwrapAsync(insightsGetProjectWorkflowRuns(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get test metrics for a project's workflows
-     *
-     * @remarks
-     * Get test metrics for a project's workflows. Currently tests metrics are calculated based on 10 most recent workflow runs.
-     */
-    async getProjectWorkflowTestMetrics(
-        request: operations.GetProjectWorkflowTestMetricsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectWorkflowTestMetricsResponse> {
-        return unwrapAsync(insightsGetProjectWorkflowTestMetrics(this, request, options));
-    }
+  /**
+   * Get test metrics for a project's workflows
+   *
+   * @remarks
+   * Get test metrics for a project's workflows. Currently tests metrics are calculated based on 10 most recent workflow runs.
+   */
+  async getProjectWorkflowTestMetrics(
+    request: operations.GetProjectWorkflowTestMetricsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectWorkflowTestMetricsResponse> {
+    return unwrapAsync(insightsGetProjectWorkflowTestMetrics(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get summary metrics and trends for a project across it's workflows and branches
-     *
-     * @remarks
-     * Get summary metrics and trends for a project at workflow and branch level.
-     *              Workflow runs going back at most 90 days are included in the aggregation window.
-     *              Trends are only supported upto last 30 days.
-     *              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
-     */
-    async getProjectWorkflowsPageData(
-        request: operations.GetProjectWorkflowsPageDataRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectWorkflowsPageDataResponse> {
-        return unwrapAsync(insightsGetProjectWorkflowsPageData(this, request, options));
-    }
+  /**
+   * Get summary metrics and trends for a project across it's workflows and branches
+   *
+   * @remarks
+   * Get summary metrics and trends for a project at workflow and branch level.
+   *              Workflow runs going back at most 90 days are included in the aggregation window.
+   *              Trends are only supported upto last 30 days.
+   *              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
+   */
+  async getProjectWorkflowsPageData(
+    request: operations.GetProjectWorkflowsPageDataRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectWorkflowsPageDataResponse> {
+    return unwrapAsync(insightsGetProjectWorkflowsPageData(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get metrics and trends for workflows
-     *
-     * @remarks
-     * Get the metrics and trends for a particular workflow on a single branch or all branches
-     */
-    async getWorkflowSummary(
-        request: operations.GetWorkflowSummaryRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetWorkflowSummaryResponse> {
-        return unwrapAsync(insightsGetWorkflowSummary(this, request, options));
-    }
+  /**
+   * Get metrics and trends for workflows
+   *
+   * @remarks
+   * Get the metrics and trends for a particular workflow on a single branch or all branches
+   */
+  async getWorkflowSummary(
+    request: operations.GetWorkflowSummaryRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetWorkflowSummaryResponse> {
+    return unwrapAsync(insightsGetWorkflowSummary(
+      this,
+      request,
+      options,
+    ));
+  }
 }

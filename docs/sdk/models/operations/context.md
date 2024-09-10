@@ -6,9 +6,9 @@
 import { Context } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Context = {
-    createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    id: "e9b90c28-909b-43fe-89a8-d9cbf4863332",
-    name: "<value>",
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  id: "e9b90c28-909b-43fe-89a8-d9cbf4863332",
+  name: "<value>",
 };
 ```
 

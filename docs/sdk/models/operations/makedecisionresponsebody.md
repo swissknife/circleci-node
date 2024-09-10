@@ -9,7 +9,7 @@ The request is malformed
 import { MakeDecisionResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: MakeDecisionResponseBody = {
-    error: "context: must be a valid value.",
+  error: "context: must be a valid value.",
 };
 ```
 

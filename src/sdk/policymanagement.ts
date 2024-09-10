@@ -16,120 +16,156 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class PolicyManagement extends ClientSDK {
-    /**
-     * Creates policy bundle for the context
-     *
-     * @remarks
-     * This endpoint replaces the current policy bundle with the provided policy bundle
-     */
-    async createPolicyBundle(
-        request: operations.CreatePolicyBundleRequest,
-        options?: RequestOptions
-    ): Promise<operations.CreatePolicyBundleResponse> {
-        return unwrapAsync(policyManagementCreatePolicyBundle(this, request, options));
-    }
+  /**
+   * Creates policy bundle for the context
+   *
+   * @remarks
+   * This endpoint replaces the current policy bundle with the provided policy bundle
+   */
+  async createPolicyBundle(
+    request: operations.CreatePolicyBundleRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreatePolicyBundleResponse> {
+    return unwrapAsync(policyManagementCreatePolicyBundle(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Retrieves the owner's decision audit log by given decisionID
-     *
-     * @remarks
-     * This endpoint will retrieve a decision for a given decision log ID
-     */
-    async getDecisionLog(
-        request: operations.GetDecisionLogRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetDecisionLogResponse> {
-        return unwrapAsync(policyManagementGetDecisionLog(this, request, options));
-    }
+  /**
+   * Retrieves the owner's decision audit log by given decisionID
+   *
+   * @remarks
+   * This endpoint will retrieve a decision for a given decision log ID
+   */
+  async getDecisionLog(
+    request: operations.GetDecisionLogRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetDecisionLogResponse> {
+    return unwrapAsync(policyManagementGetDecisionLog(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Retrieves Policy Bundle for a given decision log ID
-     *
-     * @remarks
-     * This endpoint will retrieve a policy bundle for a given decision log ID
-     */
-    async getDecisionLogPolicyBundle(
-        request: operations.GetDecisionLogPolicyBundleRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetDecisionLogPolicyBundleResponse> {
-        return unwrapAsync(policyManagementGetDecisionLogPolicyBundle(this, request, options));
-    }
+  /**
+   * Retrieves Policy Bundle for a given decision log ID
+   *
+   * @remarks
+   * This endpoint will retrieve a policy bundle for a given decision log ID
+   */
+  async getDecisionLogPolicyBundle(
+    request: operations.GetDecisionLogPolicyBundleRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetDecisionLogPolicyBundleResponse> {
+    return unwrapAsync(policyManagementGetDecisionLogPolicyBundle(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Retrieves the owner's decision audit logs.
-     *
-     * @remarks
-     * This endpoint will return a list of decision audit logs that were made using this owner's policies.
-     */
-    async getDecisionLogs(
-        request: operations.GetDecisionLogsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetDecisionLogsResponse> {
-        return unwrapAsync(policyManagementGetDecisionLogs(this, request, options));
-    }
+  /**
+   * Retrieves the owner's decision audit logs.
+   *
+   * @remarks
+   * This endpoint will return a list of decision audit logs that were made using this owner's policies.
+   */
+  async getDecisionLogs(
+    request: operations.GetDecisionLogsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetDecisionLogsResponse> {
+    return unwrapAsync(policyManagementGetDecisionLogs(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get the decision settings
-     *
-     * @remarks
-     * This endpoint retrieves the current decision settings (eg enable/disable policy evaluation)
-     */
-    async getDecisionSettings(
-        request: operations.GetDecisionSettingsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetDecisionSettingsResponse> {
-        return unwrapAsync(policyManagementGetDecisionSettings(this, request, options));
-    }
+  /**
+   * Get the decision settings
+   *
+   * @remarks
+   * This endpoint retrieves the current decision settings (eg enable/disable policy evaluation)
+   */
+  async getDecisionSettings(
+    request: operations.GetDecisionSettingsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetDecisionSettingsResponse> {
+    return unwrapAsync(policyManagementGetDecisionSettings(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Retrieves Policy Bundle
-     *
-     * @remarks
-     * This endpoint will retrieve a policy bundle
-     */
-    async getPolicyBundle(
-        request: operations.GetPolicyBundleRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetPolicyBundleResponse> {
-        return unwrapAsync(policyManagementGetPolicyBundle(this, request, options));
-    }
+  /**
+   * Retrieves Policy Bundle
+   *
+   * @remarks
+   * This endpoint will retrieve a policy bundle
+   */
+  async getPolicyBundle(
+    request: operations.GetPolicyBundleRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetPolicyBundleResponse> {
+    return unwrapAsync(policyManagementGetPolicyBundle(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Retrieves a policy document
-     *
-     * @remarks
-     * This endpoint will retrieve a policy document.
-     */
-    async getPolicyDocument(
-        request: operations.GetPolicyDocumentRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetPolicyDocumentResponse> {
-        return unwrapAsync(policyManagementGetPolicyDocument(this, request, options));
-    }
+  /**
+   * Retrieves a policy document
+   *
+   * @remarks
+   * This endpoint will retrieve a policy document.
+   */
+  async getPolicyDocument(
+    request: operations.GetPolicyDocumentRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetPolicyDocumentResponse> {
+    return unwrapAsync(policyManagementGetPolicyDocument(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Makes a decision
-     *
-     * @remarks
-     * This endpoint will evaluate input data (config+metadata) against owner's stored policies and return a decision.
-     */
-    async makeDecision(
-        request: operations.MakeDecisionRequest,
-        options?: RequestOptions
-    ): Promise<operations.MakeDecisionResponse> {
-        return unwrapAsync(policyManagementMakeDecision(this, request, options));
-    }
+  /**
+   * Makes a decision
+   *
+   * @remarks
+   * This endpoint will evaluate input data (config+metadata) against owner's stored policies and return a decision.
+   */
+  async makeDecision(
+    request: operations.MakeDecisionRequest,
+    options?: RequestOptions,
+  ): Promise<operations.MakeDecisionResponse> {
+    return unwrapAsync(policyManagementMakeDecision(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Set the decision settings
-     *
-     * @remarks
-     * This endpoint allows modifying decision settings (eg enable/disable policy evaluation)
-     */
-    async setDecisionSettings(
-        request: operations.SetDecisionSettingsRequest,
-        options?: RequestOptions
-    ): Promise<operations.SetDecisionSettingsResponse> {
-        return unwrapAsync(policyManagementSetDecisionSettings(this, request, options));
-    }
+  /**
+   * Set the decision settings
+   *
+   * @remarks
+   * This endpoint allows modifying decision settings (eg enable/disable policy evaluation)
+   */
+  async setDecisionSettings(
+    request: operations.SetDecisionSettingsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.SetDecisionSettingsResponse> {
+    return unwrapAsync(policyManagementSetDecisionSettings(
+      this,
+      request,
+      options,
+    ));
+  }
 }

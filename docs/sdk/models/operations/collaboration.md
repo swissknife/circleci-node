@@ -6,11 +6,11 @@
 import { Collaboration } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Collaboration = {
-    avatarUrl: "<value>",
-    id: "efc1b451-2c10-4326-88dc-2f615199ebfd",
-    name: "<value>",
-    slug: "<value>",
-    vcsType: "<value>",
+  avatarUrl: "<value>",
+  id: "efc1b451-2c10-4326-88dc-2f615199ebfd",
+  name: "<value>",
+  slug: "<value>",
+  vcsType: "<value>",
 };
 ```
 

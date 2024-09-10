@@ -6,8 +6,8 @@
 import { GetProjectWorkflowMetricsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowMetricsRequest = {
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    reportingWindow: "last-90-days",
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  reportingWindow: "last-90-days",
 };
 ```
 

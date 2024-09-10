@@ -8,7 +8,7 @@ message response
 import { ApprovePendingApprovalJobByIdMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ApprovePendingApprovalJobByIdMessageResponse = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

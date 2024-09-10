@@ -6,7 +6,7 @@
 import { CreateCheckoutKeyCheckoutKeyInput } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateCheckoutKeyCheckoutKeyInput = {
-    type: "deploy-key",
+  type: "deploy-key",
 };
 ```
 

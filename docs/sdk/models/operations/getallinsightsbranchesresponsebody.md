@@ -8,9 +8,11 @@ Project branches response.
 import { GetAllInsightsBranchesResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetAllInsightsBranchesResponseBody = {
-    branches: ["main"],
-    orgId: "<value>",
-    projectId: "<value>",
+  branches: [
+    "main",
+  ],
+  orgId: "<value>",
+  projectId: "<value>",
 };
 ```
 

@@ -8,8 +8,8 @@ An error with a type and message.
 import { ListMyPipelinesErrors } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListMyPipelinesErrors = {
-    message: "<value>",
-    type: "config-fetch",
+  message: "<value>",
+  type: "config-fetch",
 };
 ```
 

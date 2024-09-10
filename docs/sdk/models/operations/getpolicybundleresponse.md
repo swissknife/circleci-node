@@ -6,7 +6,9 @@
 import { GetPolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPolicyBundleResponse = {
-    key: [{}],
+  "key": [
+    {},
+  ],
 };
 ```
 

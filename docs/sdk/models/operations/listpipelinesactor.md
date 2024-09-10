@@ -8,8 +8,8 @@ The user who triggered the Pipeline.
 import { ListPipelinesActor } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListPipelinesActor = {
-    avatarUrl: "<value>",
-    login: "Jensen6",
+  avatarUrl: "<value>",
+  login: "Jensen6",
 };
 ```
 

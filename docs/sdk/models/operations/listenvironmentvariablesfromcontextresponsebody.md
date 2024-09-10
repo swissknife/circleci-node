@@ -8,15 +8,15 @@ A paginated list of environment variables
 import { ListEnvironmentVariablesFromContextResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListEnvironmentVariablesFromContextResponseBody = {
-    items: [
-        {
-            contextId: "cdb1a842-2bb6-479d-a322-715bf0cbb1e3",
-            createdAt: new Date("2015-09-21T17:29:21.042Z"),
-            updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-            variable: "POSTGRES_USER",
-        },
-    ],
-    nextPageToken: "<value>",
+  items: [
+    {
+      contextId: "cdb1a842-2bb6-479d-a322-715bf0cbb1e3",
+      createdAt: new Date("2015-09-21T17:29:21.042Z"),
+      updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+      variable: "POSTGRES_USER",
+    },
+  ],
+  nextPageToken: "<value>",
 };
 ```
 

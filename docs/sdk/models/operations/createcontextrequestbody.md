@@ -6,11 +6,11 @@
 import { CreateContextRequestBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateContextRequestBody = {
-    name: "<value>",
-    owner: {
-        id: "f5ad019d-a1ff-4e78-b097-b0074f15471b",
-        type: "organization",
-    },
+  name: "<value>",
+  owner: {
+    id: "f5ad019d-a1ff-4e78-b097-b0074f15471b",
+    type: "organization",
+  },
 };
 ```
 

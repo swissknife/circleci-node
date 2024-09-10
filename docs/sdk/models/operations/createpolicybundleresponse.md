@@ -6,7 +6,7 @@
 import { CreatePolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreatePolicyBundleResponse = {
-    error: "http: request payload too large",
+  error: "http: request payload too large",
 };
 ```
 

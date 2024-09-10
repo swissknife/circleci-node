@@ -6,17 +6,17 @@
 import { FlakyTests } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: FlakyTests = {
-    classname: "<value>",
-    file: "<value>",
-    jobName: "<value>",
-    jobNumber: 606476,
-    pipelineNumber: 338159,
-    source: "<value>",
-    testName: "<value>",
-    timesFlaked: 218403,
-    workflowCreatedAt: "<value>",
-    workflowId: "<value>",
-    workflowName: "<value>",
+  classname: "<value>",
+  file: "<value>",
+  jobName: "<value>",
+  jobNumber: 606476,
+  pipelineNumber: 338159,
+  source: "<value>",
+  testName: "<value>",
+  timesFlaked: 218403,
+  workflowCreatedAt: "<value>",
+  workflowId: "<value>",
+  workflowName: "<value>",
 };
 ```
 

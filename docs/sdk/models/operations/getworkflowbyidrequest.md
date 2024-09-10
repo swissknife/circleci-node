@@ -6,7 +6,7 @@
 import { GetWorkflowByIdRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetWorkflowByIdRequest = {
-    id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
 };
 ```
 

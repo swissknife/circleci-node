@@ -5,31 +5,34 @@
 import * as z from "zod";
 
 export type SchemeBasicAuth = {
-    password: string;
-    username: string;
+  password: string;
+  username: string;
 };
 
 /** @internal */
-export const SchemeBasicAuth$inboundSchema: z.ZodType<SchemeBasicAuth, z.ZodTypeDef, unknown> =
-    z.object({
-        password: z.string(),
-        username: z.string(),
-    });
+export const SchemeBasicAuth$inboundSchema: z.ZodType<
+  SchemeBasicAuth,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  password: z.string(),
+  username: z.string(),
+});
 
 /** @internal */
 export type SchemeBasicAuth$Outbound = {
-    password: string;
-    username: string;
+  password: string;
+  username: string;
 };
 
 /** @internal */
 export const SchemeBasicAuth$outboundSchema: z.ZodType<
-    SchemeBasicAuth$Outbound,
-    z.ZodTypeDef,
-    SchemeBasicAuth
+  SchemeBasicAuth$Outbound,
+  z.ZodTypeDef,
+  SchemeBasicAuth
 > = z.object({
-    password: z.string(),
-    username: z.string(),
+  password: z.string(),
+  username: z.string(),
 });
 
 /**
@@ -37,10 +40,10 @@ export const SchemeBasicAuth$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace SchemeBasicAuth$ {
-    /** @deprecated use `SchemeBasicAuth$inboundSchema` instead. */
-    export const inboundSchema = SchemeBasicAuth$inboundSchema;
-    /** @deprecated use `SchemeBasicAuth$outboundSchema` instead. */
-    export const outboundSchema = SchemeBasicAuth$outboundSchema;
-    /** @deprecated use `SchemeBasicAuth$Outbound` instead. */
-    export type Outbound = SchemeBasicAuth$Outbound;
+  /** @deprecated use `SchemeBasicAuth$inboundSchema` instead. */
+  export const inboundSchema = SchemeBasicAuth$inboundSchema;
+  /** @deprecated use `SchemeBasicAuth$outboundSchema` instead. */
+  export const outboundSchema = SchemeBasicAuth$outboundSchema;
+  /** @deprecated use `SchemeBasicAuth$Outbound` instead. */
+  export type Outbound = SchemeBasicAuth$Outbound;
 }

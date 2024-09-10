@@ -8,7 +8,7 @@ message response
 import { MessageResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: MessageResponse = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

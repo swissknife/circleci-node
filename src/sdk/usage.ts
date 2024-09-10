@@ -9,29 +9,37 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Usage extends ClientSDK {
-    /**
-     * Create a usage export
-     *
-     * @remarks
-     * Submits a request to create a usage export for an organization.
-     */
-    async createUsageExport(
-        request: operations.CreateUsageExportRequest,
-        options?: RequestOptions
-    ): Promise<operations.CreateUsageExportResponse> {
-        return unwrapAsync(usageCreateUsageExport(this, request, options));
-    }
+  /**
+   * Create a usage export
+   *
+   * @remarks
+   * Submits a request to create a usage export for an organization.
+   */
+  async createUsageExport(
+    request: operations.CreateUsageExportRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateUsageExportResponse> {
+    return unwrapAsync(usageCreateUsageExport(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a usage export
-     *
-     * @remarks
-     * Gets a usage export for an organization.
-     */
-    async getUsageExport(
-        request: operations.GetUsageExportRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetUsageExportResponse> {
-        return unwrapAsync(usageGetUsageExport(this, request, options));
-    }
+  /**
+   * Get a usage export
+   *
+   * @remarks
+   * Gets a usage export for an organization.
+   */
+  async getUsageExport(
+    request: operations.GetUsageExportRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetUsageExportResponse> {
+    return unwrapAsync(usageGetUsageExport(
+      this,
+      request,
+      options,
+    ));
+  }
 }

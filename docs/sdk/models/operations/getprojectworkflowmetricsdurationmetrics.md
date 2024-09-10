@@ -8,12 +8,12 @@ Metrics relating to the duration of runs for a workflow.
 import { GetProjectWorkflowMetricsDurationMetrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowMetricsDurationMetrics = {
-    max: 82971,
-    mean: 458604,
-    median: 800379,
-    min: 724168,
-    p95: 877131,
-    standardDeviation: 3990.25,
+  max: 82971,
+  mean: 458604,
+  median: 800379,
+  min: 724168,
+  p95: 877131,
+  standardDeviation: 3990.25,
 };
 ```
 

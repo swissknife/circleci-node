@@ -12,68 +12,88 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Schedule extends ClientSDK {
-    /**
-     * Create a schedule
-     *
-     * @remarks
-     * Not yet available to projects that use GitLab or GitHub App. Creates a schedule and returns the created schedule.
-     */
-    async createSchedule(
-        request: operations.CreateScheduleRequest,
-        options?: RequestOptions
-    ): Promise<operations.CreateScheduleResponse> {
-        return unwrapAsync(scheduleCreateSchedule(this, request, options));
-    }
+  /**
+   * Create a schedule
+   *
+   * @remarks
+   * Not yet available to projects that use GitLab or GitHub App. Creates a schedule and returns the created schedule.
+   */
+  async createSchedule(
+    request: operations.CreateScheduleRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateScheduleResponse> {
+    return unwrapAsync(scheduleCreateSchedule(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete a schedule
-     *
-     * @remarks
-     * Not yet available to projects that use GitLab or GitHub App. Deletes the schedule by id.
-     */
-    async deleteScheduleById(
-        request: operations.DeleteScheduleByIdRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteScheduleByIdResponse> {
-        return unwrapAsync(scheduleDeleteScheduleById(this, request, options));
-    }
+  /**
+   * Delete a schedule
+   *
+   * @remarks
+   * Not yet available to projects that use GitLab or GitHub App. Deletes the schedule by id.
+   */
+  async deleteScheduleById(
+    request: operations.DeleteScheduleByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteScheduleByIdResponse> {
+    return unwrapAsync(scheduleDeleteScheduleById(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a schedule
-     *
-     * @remarks
-     * Get a schedule by id.
-     */
-    async getScheduleById(
-        request: operations.GetScheduleByIdRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetScheduleByIdResponse> {
-        return unwrapAsync(scheduleGetScheduleById(this, request, options));
-    }
+  /**
+   * Get a schedule
+   *
+   * @remarks
+   * Get a schedule by id.
+   */
+  async getScheduleById(
+    request: operations.GetScheduleByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetScheduleByIdResponse> {
+    return unwrapAsync(scheduleGetScheduleById(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get all schedules
-     *
-     * @remarks
-     * Returns all schedules for this project.
-     */
-    async listSchedulesForProject(
-        request: operations.ListSchedulesForProjectRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListSchedulesForProjectResponse> {
-        return unwrapAsync(scheduleListSchedulesForProject(this, request, options));
-    }
+  /**
+   * Get all schedules
+   *
+   * @remarks
+   * Returns all schedules for this project.
+   */
+  async listSchedulesForProject(
+    request: operations.ListSchedulesForProjectRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListSchedulesForProjectResponse> {
+    return unwrapAsync(scheduleListSchedulesForProject(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Update a schedule
-     *
-     * @remarks
-     * Not yet available to projects that use GitLab or GitHub App. Updates a schedule and returns the updated schedule.
-     */
-    async updateSchedule(
-        request: operations.UpdateScheduleRequest,
-        options?: RequestOptions
-    ): Promise<operations.UpdateScheduleResponse> {
-        return unwrapAsync(scheduleUpdateSchedule(this, request, options));
-    }
+  /**
+   * Update a schedule
+   *
+   * @remarks
+   * Not yet available to projects that use GitLab or GitHub App. Updates a schedule and returns the updated schedule.
+   */
+  async updateSchedule(
+    request: operations.UpdateScheduleRequest,
+    options?: RequestOptions,
+  ): Promise<operations.UpdateScheduleResponse> {
+    return unwrapAsync(scheduleUpdateSchedule(
+      this,
+      request,
+      options,
+    ));
+  }
 }

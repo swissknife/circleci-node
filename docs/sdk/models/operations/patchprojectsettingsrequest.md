@@ -6,10 +6,10 @@
 import { PatchProjectSettingsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: PatchProjectSettingsRequest = {
-    organization: "CircleCI-Public",
-    project: "api-preview-docs",
-    projectSettings: {},
-    provider: "gh",
+  organization: "CircleCI-Public",
+  project: "api-preview-docs",
+  projectSettings: {},
+  provider: "gh",
 };
 ```
 

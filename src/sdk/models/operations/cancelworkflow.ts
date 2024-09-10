@@ -5,52 +5,54 @@
 import * as z from "zod";
 
 export type CancelWorkflowRequest = {
-    /**
-     * The unique ID of the workflow.
-     */
-    id: string;
+  /**
+   * The unique ID of the workflow.
+   */
+  id: string;
 };
 
 /**
  * Error response.
  */
 export type CancelWorkflowResponseBody = {
-    message?: string | undefined;
+  message?: string | undefined;
 };
 
 /**
  * message response
  */
 export type CancelWorkflowMessageResponse = {
-    /**
-     * A human-readable message
-     */
-    message: string;
+  /**
+   * A human-readable message
+   */
+  message: string;
 };
 
-export type CancelWorkflowResponse = CancelWorkflowMessageResponse | CancelWorkflowResponseBody;
+export type CancelWorkflowResponse =
+  | CancelWorkflowMessageResponse
+  | CancelWorkflowResponseBody;
 
 /** @internal */
 export const CancelWorkflowRequest$inboundSchema: z.ZodType<
-    CancelWorkflowRequest,
-    z.ZodTypeDef,
-    unknown
+  CancelWorkflowRequest,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /** @internal */
 export type CancelWorkflowRequest$Outbound = {
-    id: string;
+  id: string;
 };
 
 /** @internal */
 export const CancelWorkflowRequest$outboundSchema: z.ZodType<
-    CancelWorkflowRequest$Outbound,
-    z.ZodTypeDef,
-    CancelWorkflowRequest
+  CancelWorkflowRequest$Outbound,
+  z.ZodTypeDef,
+  CancelWorkflowRequest
 > = z.object({
-    id: z.string(),
+  id: z.string(),
 });
 
 /**
@@ -58,35 +60,35 @@ export const CancelWorkflowRequest$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace CancelWorkflowRequest$ {
-    /** @deprecated use `CancelWorkflowRequest$inboundSchema` instead. */
-    export const inboundSchema = CancelWorkflowRequest$inboundSchema;
-    /** @deprecated use `CancelWorkflowRequest$outboundSchema` instead. */
-    export const outboundSchema = CancelWorkflowRequest$outboundSchema;
-    /** @deprecated use `CancelWorkflowRequest$Outbound` instead. */
-    export type Outbound = CancelWorkflowRequest$Outbound;
+  /** @deprecated use `CancelWorkflowRequest$inboundSchema` instead. */
+  export const inboundSchema = CancelWorkflowRequest$inboundSchema;
+  /** @deprecated use `CancelWorkflowRequest$outboundSchema` instead. */
+  export const outboundSchema = CancelWorkflowRequest$outboundSchema;
+  /** @deprecated use `CancelWorkflowRequest$Outbound` instead. */
+  export type Outbound = CancelWorkflowRequest$Outbound;
 }
 
 /** @internal */
 export const CancelWorkflowResponseBody$inboundSchema: z.ZodType<
-    CancelWorkflowResponseBody,
-    z.ZodTypeDef,
-    unknown
+  CancelWorkflowResponseBody,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    message: z.string().optional(),
+  message: z.string().optional(),
 });
 
 /** @internal */
 export type CancelWorkflowResponseBody$Outbound = {
-    message?: string | undefined;
+  message?: string | undefined;
 };
 
 /** @internal */
 export const CancelWorkflowResponseBody$outboundSchema: z.ZodType<
-    CancelWorkflowResponseBody$Outbound,
-    z.ZodTypeDef,
-    CancelWorkflowResponseBody
+  CancelWorkflowResponseBody$Outbound,
+  z.ZodTypeDef,
+  CancelWorkflowResponseBody
 > = z.object({
-    message: z.string().optional(),
+  message: z.string().optional(),
 });
 
 /**
@@ -94,35 +96,35 @@ export const CancelWorkflowResponseBody$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace CancelWorkflowResponseBody$ {
-    /** @deprecated use `CancelWorkflowResponseBody$inboundSchema` instead. */
-    export const inboundSchema = CancelWorkflowResponseBody$inboundSchema;
-    /** @deprecated use `CancelWorkflowResponseBody$outboundSchema` instead. */
-    export const outboundSchema = CancelWorkflowResponseBody$outboundSchema;
-    /** @deprecated use `CancelWorkflowResponseBody$Outbound` instead. */
-    export type Outbound = CancelWorkflowResponseBody$Outbound;
+  /** @deprecated use `CancelWorkflowResponseBody$inboundSchema` instead. */
+  export const inboundSchema = CancelWorkflowResponseBody$inboundSchema;
+  /** @deprecated use `CancelWorkflowResponseBody$outboundSchema` instead. */
+  export const outboundSchema = CancelWorkflowResponseBody$outboundSchema;
+  /** @deprecated use `CancelWorkflowResponseBody$Outbound` instead. */
+  export type Outbound = CancelWorkflowResponseBody$Outbound;
 }
 
 /** @internal */
 export const CancelWorkflowMessageResponse$inboundSchema: z.ZodType<
-    CancelWorkflowMessageResponse,
-    z.ZodTypeDef,
-    unknown
+  CancelWorkflowMessageResponse,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    message: z.string(),
+  message: z.string(),
 });
 
 /** @internal */
 export type CancelWorkflowMessageResponse$Outbound = {
-    message: string;
+  message: string;
 };
 
 /** @internal */
 export const CancelWorkflowMessageResponse$outboundSchema: z.ZodType<
-    CancelWorkflowMessageResponse$Outbound,
-    z.ZodTypeDef,
-    CancelWorkflowMessageResponse
+  CancelWorkflowMessageResponse$Outbound,
+  z.ZodTypeDef,
+  CancelWorkflowMessageResponse
 > = z.object({
-    message: z.string(),
+  message: z.string(),
 });
 
 /**
@@ -130,37 +132,37 @@ export const CancelWorkflowMessageResponse$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace CancelWorkflowMessageResponse$ {
-    /** @deprecated use `CancelWorkflowMessageResponse$inboundSchema` instead. */
-    export const inboundSchema = CancelWorkflowMessageResponse$inboundSchema;
-    /** @deprecated use `CancelWorkflowMessageResponse$outboundSchema` instead. */
-    export const outboundSchema = CancelWorkflowMessageResponse$outboundSchema;
-    /** @deprecated use `CancelWorkflowMessageResponse$Outbound` instead. */
-    export type Outbound = CancelWorkflowMessageResponse$Outbound;
+  /** @deprecated use `CancelWorkflowMessageResponse$inboundSchema` instead. */
+  export const inboundSchema = CancelWorkflowMessageResponse$inboundSchema;
+  /** @deprecated use `CancelWorkflowMessageResponse$outboundSchema` instead. */
+  export const outboundSchema = CancelWorkflowMessageResponse$outboundSchema;
+  /** @deprecated use `CancelWorkflowMessageResponse$Outbound` instead. */
+  export type Outbound = CancelWorkflowMessageResponse$Outbound;
 }
 
 /** @internal */
 export const CancelWorkflowResponse$inboundSchema: z.ZodType<
-    CancelWorkflowResponse,
-    z.ZodTypeDef,
-    unknown
+  CancelWorkflowResponse,
+  z.ZodTypeDef,
+  unknown
 > = z.union([
-    z.lazy(() => CancelWorkflowMessageResponse$inboundSchema),
-    z.lazy(() => CancelWorkflowResponseBody$inboundSchema),
+  z.lazy(() => CancelWorkflowMessageResponse$inboundSchema),
+  z.lazy(() => CancelWorkflowResponseBody$inboundSchema),
 ]);
 
 /** @internal */
 export type CancelWorkflowResponse$Outbound =
-    | CancelWorkflowMessageResponse$Outbound
-    | CancelWorkflowResponseBody$Outbound;
+  | CancelWorkflowMessageResponse$Outbound
+  | CancelWorkflowResponseBody$Outbound;
 
 /** @internal */
 export const CancelWorkflowResponse$outboundSchema: z.ZodType<
-    CancelWorkflowResponse$Outbound,
-    z.ZodTypeDef,
-    CancelWorkflowResponse
+  CancelWorkflowResponse$Outbound,
+  z.ZodTypeDef,
+  CancelWorkflowResponse
 > = z.union([
-    z.lazy(() => CancelWorkflowMessageResponse$outboundSchema),
-    z.lazy(() => CancelWorkflowResponseBody$outboundSchema),
+  z.lazy(() => CancelWorkflowMessageResponse$outboundSchema),
+  z.lazy(() => CancelWorkflowResponseBody$outboundSchema),
 ]);
 
 /**
@@ -168,10 +170,10 @@ export const CancelWorkflowResponse$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace CancelWorkflowResponse$ {
-    /** @deprecated use `CancelWorkflowResponse$inboundSchema` instead. */
-    export const inboundSchema = CancelWorkflowResponse$inboundSchema;
-    /** @deprecated use `CancelWorkflowResponse$outboundSchema` instead. */
-    export const outboundSchema = CancelWorkflowResponse$outboundSchema;
-    /** @deprecated use `CancelWorkflowResponse$Outbound` instead. */
-    export type Outbound = CancelWorkflowResponse$Outbound;
+  /** @deprecated use `CancelWorkflowResponse$inboundSchema` instead. */
+  export const inboundSchema = CancelWorkflowResponse$inboundSchema;
+  /** @deprecated use `CancelWorkflowResponse$outboundSchema` instead. */
+  export const outboundSchema = CancelWorkflowResponse$outboundSchema;
+  /** @deprecated use `CancelWorkflowResponse$Outbound` instead. */
+  export type Outbound = CancelWorkflowResponse$Outbound;
 }

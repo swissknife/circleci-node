@@ -8,17 +8,21 @@ The parameters for a create schedule request
 import { CreateScheduleCreateScheduleParameters } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleCreateScheduleParameters = {
-    attributionActor: "current",
-    name: "<value>",
-    parameters: {
-        deploy_prod: true,
-        branch: "feature/design-new-api",
-    },
-    timetable: {
-        daysOfWeek: ["SUN"],
-        hoursOfDay: [893773],
-        perHour: 638390,
-    },
+  attributionActor: "current",
+  name: "<value>",
+  parameters: {
+    "deploy_prod": true,
+    "branch": "feature/design-new-api",
+  },
+  timetable: {
+    daysOfWeek: [
+      "SUN",
+    ],
+    hoursOfDay: [
+      893773,
+    ],
+    perHour: 638390,
+  },
 };
 ```
 

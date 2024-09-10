@@ -6,28 +6,28 @@
 import { GetProjectWorkflowMetricsItems } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowMetricsItems = {
-    metrics: {
-        durationMetrics: {
-            max: 766964,
-            mean: 160538,
-            median: 9766,
-            min: 796392,
-            p95: 308286,
-            standardDeviation: 9591.67,
-        },
-        failedRuns: 232865,
-        mttr: 458139,
-        successRate: 5034.27,
-        successfulRuns: 590984,
-        throughput: 9537.22,
-        totalCreditsUsed: 857723,
-        totalRecoveries: 557811,
-        totalRuns: 457223,
+  metrics: {
+    durationMetrics: {
+      max: 766964,
+      mean: 160538,
+      median: 9766,
+      min: 796392,
+      p95: 308286,
+      standardDeviation: 9591.67,
     },
-    name: "build-and-test",
-    projectId: "<value>",
-    windowEnd: new Date("2022-04-17T19:48:58.789Z"),
-    windowStart: new Date("2024-11-09T06:06:22.263Z"),
+    failedRuns: 232865,
+    mttr: 458139,
+    successRate: 5034.27,
+    successfulRuns: 590984,
+    throughput: 9537.22,
+    totalCreditsUsed: 857723,
+    totalRecoveries: 557811,
+    totalRuns: 457223,
+  },
+  name: "build-and-test",
+  projectId: "<value>",
+  windowEnd: new Date("2022-04-17T19:48:58.789Z"),
+  windowStart: new Date("2024-11-09T06:06:22.263Z"),
 };
 ```
 

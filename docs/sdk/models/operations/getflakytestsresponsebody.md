@@ -8,22 +8,22 @@ Flaky tests response
 import { GetFlakyTestsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetFlakyTestsResponseBody = {
-    flakyTests: [
-        {
-            classname: "<value>",
-            file: "<value>",
-            jobName: "<value>",
-            jobNumber: 961571,
-            pipelineNumber: 455169,
-            source: "<value>",
-            testName: "<value>",
-            timesFlaked: 231701,
-            workflowCreatedAt: "<value>",
-            workflowId: "<value>",
-            workflowName: "<value>",
-        },
-    ],
-    totalFlakyTests: 5,
+  flakyTests: [
+    {
+      classname: "<value>",
+      file: "<value>",
+      jobName: "<value>",
+      jobNumber: 961571,
+      pipelineNumber: 455169,
+      source: "<value>",
+      testName: "<value>",
+      timesFlaked: 231701,
+      workflowCreatedAt: "<value>",
+      workflowId: "<value>",
+      workflowName: "<value>",
+    },
+  ],
+  totalFlakyTests: 5,
 };
 ```
 

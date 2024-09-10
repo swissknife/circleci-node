@@ -6,8 +6,8 @@
 import { GetWebhooksRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetWebhooksRequest = {
-    scopeId: "12cdaad0-ec7a-4fed-bd80-df448a47f939",
-    scopeType: "project",
+  scopeId: "12cdaad0-ec7a-4fed-bd80-df448a47f939",
+  scopeType: "project",
 };
 ```
 

@@ -8,20 +8,20 @@ Metrics and trends data aggregated for a given project.
 import { ProjectData } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ProjectData = {
-    metrics: {
-        successRate: 2377.42,
-        throughput: 7383.91,
-        totalCreditsUsed: 502389,
-        totalDurationSecs: 555361,
-        totalRuns: 942584,
-    },
-    trends: {
-        successRate: 2015.17,
-        throughput: 6339.98,
-        totalCreditsUsed: 5485.19,
-        totalDurationSecs: 8672.9,
-        totalRuns: 5196.43,
-    },
+  metrics: {
+    successRate: 2377.42,
+    throughput: 7383.91,
+    totalCreditsUsed: 502389,
+    totalDurationSecs: 555361,
+    totalRuns: 942584,
+  },
+  trends: {
+    successRate: 2015.17,
+    throughput: 6339.98,
+    totalCreditsUsed: 5485.19,
+    totalDurationSecs: 8672.9,
+    totalRuns: 5196.43,
+  },
 };
 ```
 

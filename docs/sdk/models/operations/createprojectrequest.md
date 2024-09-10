@@ -6,9 +6,9 @@
 import { CreateProjectRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateProjectRequest = {
-    organization: "CircleCI-Public",
-    project: "api-preview-docs",
-    provider: "gh",
+  organization: "CircleCI-Public",
+  project: "api-preview-docs",
+  provider: "gh",
 };
 ```
 

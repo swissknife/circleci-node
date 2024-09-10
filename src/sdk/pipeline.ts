@@ -16,120 +16,156 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Pipeline extends ClientSDK {
-    /**
-     * Continue a pipeline
-     *
-     * @remarks
-     * Continue a pipeline from the setup phase. For information on using pipeline parameters with dynamic configuration, see the [Pipeline values and parameters](https://circleci.com/docs/pipeline-variables/#pipeline-parameters-and-dynamic-configuration) docs.
-     */
-    async continuePipeline(
-        request?: operations.ContinuePipelineRequestBody | undefined,
-        options?: RequestOptions
-    ): Promise<operations.ContinuePipelineResponse> {
-        return unwrapAsync(pipelineContinuePipeline(this, request, options));
-    }
+  /**
+   * Continue a pipeline
+   *
+   * @remarks
+   * Continue a pipeline from the setup phase. For information on using pipeline parameters with dynamic configuration, see the [Pipeline values and parameters](https://circleci.com/docs/pipeline-variables/#pipeline-parameters-and-dynamic-configuration) docs.
+   */
+  async continuePipeline(
+    request?: operations.ContinuePipelineRequestBody | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.ContinuePipelineResponse> {
+    return unwrapAsync(pipelineContinuePipeline(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a pipeline by ID
-     *
-     * @remarks
-     * Returns a pipeline by the pipeline ID.
-     */
-    async getPipelineById(
-        request: operations.GetPipelineByIdRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetPipelineByIdResponse> {
-        return unwrapAsync(pipelineGetPipelineById(this, request, options));
-    }
+  /**
+   * Get a pipeline by ID
+   *
+   * @remarks
+   * Returns a pipeline by the pipeline ID.
+   */
+  async getPipelineById(
+    request: operations.GetPipelineByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetPipelineByIdResponse> {
+    return unwrapAsync(pipelineGetPipelineById(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a pipeline by pipeline number
-     *
-     * @remarks
-     * Returns a pipeline by the pipeline number.
-     */
-    async getPipelineByNumber(
-        request: operations.GetPipelineByNumberRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetPipelineByNumberResponse> {
-        return unwrapAsync(pipelineGetPipelineByNumber(this, request, options));
-    }
+  /**
+   * Get a pipeline by pipeline number
+   *
+   * @remarks
+   * Returns a pipeline by the pipeline number.
+   */
+  async getPipelineByNumber(
+    request: operations.GetPipelineByNumberRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetPipelineByNumberResponse> {
+    return unwrapAsync(pipelineGetPipelineByNumber(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a pipeline's configuration
-     *
-     * @remarks
-     * Returns a pipeline's configuration by ID.
-     */
-    async getPipelineConfigById(
-        request: operations.GetPipelineConfigByIdRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetPipelineConfigByIdResponse> {
-        return unwrapAsync(pipelineGetPipelineConfigById(this, request, options));
-    }
+  /**
+   * Get a pipeline's configuration
+   *
+   * @remarks
+   * Returns a pipeline's configuration by ID.
+   */
+  async getPipelineConfigById(
+    request: operations.GetPipelineConfigByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetPipelineConfigByIdResponse> {
+    return unwrapAsync(pipelineGetPipelineConfigById(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get your pipelines
-     *
-     * @remarks
-     * Returns a sequence of all pipelines for this project triggered by the user.
-     */
-    async listMyPipelines(
-        request: operations.ListMyPipelinesRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListMyPipelinesResponse> {
-        return unwrapAsync(pipelineListMyPipelines(this, request, options));
-    }
+  /**
+   * Get your pipelines
+   *
+   * @remarks
+   * Returns a sequence of all pipelines for this project triggered by the user.
+   */
+  async listMyPipelines(
+    request: operations.ListMyPipelinesRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListMyPipelinesResponse> {
+    return unwrapAsync(pipelineListMyPipelines(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a list of pipelines
-     *
-     * @remarks
-     * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
-     */
-    async listPipelines(
-        request: operations.ListPipelinesRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListPipelinesResponse> {
-        return unwrapAsync(pipelineListPipelines(this, request, options));
-    }
+  /**
+   * Get a list of pipelines
+   *
+   * @remarks
+   * Returns all pipelines for the most recently built projects (max 250) you follow in an organization.
+   */
+  async listPipelines(
+    request: operations.ListPipelinesRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListPipelinesResponse> {
+    return unwrapAsync(pipelineListPipelines(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get all pipelines
-     *
-     * @remarks
-     * Returns all pipelines for this project.
-     */
-    async listPipelinesForProject(
-        request: operations.ListPipelinesForProjectRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListPipelinesForProjectResponse> {
-        return unwrapAsync(pipelineListPipelinesForProject(this, request, options));
-    }
+  /**
+   * Get all pipelines
+   *
+   * @remarks
+   * Returns all pipelines for this project.
+   */
+  async listPipelinesForProject(
+    request: operations.ListPipelinesForProjectRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListPipelinesForProjectResponse> {
+    return unwrapAsync(pipelineListPipelinesForProject(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a pipeline's workflows
-     *
-     * @remarks
-     * Returns a paginated list of workflows by pipeline ID.
-     */
-    async listWorkflowsByPipelineId(
-        request: operations.ListWorkflowsByPipelineIdRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListWorkflowsByPipelineIdResponse> {
-        return unwrapAsync(pipelineListWorkflowsByPipelineId(this, request, options));
-    }
+  /**
+   * Get a pipeline's workflows
+   *
+   * @remarks
+   * Returns a paginated list of workflows by pipeline ID.
+   */
+  async listWorkflowsByPipelineId(
+    request: operations.ListWorkflowsByPipelineIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListWorkflowsByPipelineIdResponse> {
+    return unwrapAsync(pipelineListWorkflowsByPipelineId(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Trigger a new pipeline
-     *
-     * @remarks
-     * Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
-     */
-    async triggerPipeline(
-        request: operations.TriggerPipelineRequest,
-        options?: RequestOptions
-    ): Promise<operations.TriggerPipelineResponse> {
-        return unwrapAsync(pipelineTriggerPipeline(this, request, options));
-    }
+  /**
+   * Trigger a new pipeline
+   *
+   * @remarks
+   * Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
+   */
+  async triggerPipeline(
+    request: operations.TriggerPipelineRequest,
+    options?: RequestOptions,
+  ): Promise<operations.TriggerPipelineResponse> {
+    return unwrapAsync(pipelineTriggerPipeline(
+      this,
+      request,
+      options,
+    ));
+  }
 }

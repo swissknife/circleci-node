@@ -6,11 +6,11 @@
 import { ContinuePipelineRequestBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ContinuePipelineRequestBody = {
-    configuration: "<value>",
-    continuationKey: "<value>",
-    parameters: {
-        deploy_prod: true,
-    },
+  configuration: "<value>",
+  continuationKey: "<value>",
+  parameters: {
+    "deploy_prod": true,
+  },
 };
 ```
 

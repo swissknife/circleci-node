@@ -8,7 +8,7 @@ message response
 import { DeleteEnvVarMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteEnvVarMessageResponse = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

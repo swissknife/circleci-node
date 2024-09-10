@@ -8,50 +8,52 @@ import * as z from "zod";
  * Error response.
  */
 export type GetCurrentUserResponseBody = {
-    message?: string | undefined;
+  message?: string | undefined;
 };
 
 /**
  * User login information.
  */
 export type GetCurrentUserUser = {
-    /**
-     * The unique ID of the user.
-     */
-    id: string;
-    /**
-     * The login information for the user on the VCS.
-     */
-    login: string;
-    /**
-     * The name of the user.
-     */
-    name: string;
+  /**
+   * The unique ID of the user.
+   */
+  id: string;
+  /**
+   * The login information for the user on the VCS.
+   */
+  login: string;
+  /**
+   * The name of the user.
+   */
+  name: string;
 };
 
-export type GetCurrentUserResponse = GetCurrentUserResponseBody | GetCurrentUserUser;
+export type GetCurrentUserResponse =
+  | GetCurrentUserResponseBody
+  | GetCurrentUserUser;
 
 /** @internal */
 export const GetCurrentUserResponseBody$inboundSchema: z.ZodType<
-    GetCurrentUserResponseBody,
-    z.ZodTypeDef,
-    unknown
+  GetCurrentUserResponseBody,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    message: z.string().optional(),
+  message: z.string().optional(),
 });
 
 /** @internal */
 export type GetCurrentUserResponseBody$Outbound = {
-    message?: string | undefined;
+  message?: string | undefined;
 };
 
 /** @internal */
 export const GetCurrentUserResponseBody$outboundSchema: z.ZodType<
-    GetCurrentUserResponseBody$Outbound,
-    z.ZodTypeDef,
-    GetCurrentUserResponseBody
+  GetCurrentUserResponseBody$Outbound,
+  z.ZodTypeDef,
+  GetCurrentUserResponseBody
 > = z.object({
-    message: z.string().optional(),
+  message: z.string().optional(),
 });
 
 /**
@@ -59,41 +61,41 @@ export const GetCurrentUserResponseBody$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace GetCurrentUserResponseBody$ {
-    /** @deprecated use `GetCurrentUserResponseBody$inboundSchema` instead. */
-    export const inboundSchema = GetCurrentUserResponseBody$inboundSchema;
-    /** @deprecated use `GetCurrentUserResponseBody$outboundSchema` instead. */
-    export const outboundSchema = GetCurrentUserResponseBody$outboundSchema;
-    /** @deprecated use `GetCurrentUserResponseBody$Outbound` instead. */
-    export type Outbound = GetCurrentUserResponseBody$Outbound;
+  /** @deprecated use `GetCurrentUserResponseBody$inboundSchema` instead. */
+  export const inboundSchema = GetCurrentUserResponseBody$inboundSchema;
+  /** @deprecated use `GetCurrentUserResponseBody$outboundSchema` instead. */
+  export const outboundSchema = GetCurrentUserResponseBody$outboundSchema;
+  /** @deprecated use `GetCurrentUserResponseBody$Outbound` instead. */
+  export type Outbound = GetCurrentUserResponseBody$Outbound;
 }
 
 /** @internal */
 export const GetCurrentUserUser$inboundSchema: z.ZodType<
-    GetCurrentUserUser,
-    z.ZodTypeDef,
-    unknown
+  GetCurrentUserUser,
+  z.ZodTypeDef,
+  unknown
 > = z.object({
-    id: z.string(),
-    login: z.string(),
-    name: z.string(),
+  id: z.string(),
+  login: z.string(),
+  name: z.string(),
 });
 
 /** @internal */
 export type GetCurrentUserUser$Outbound = {
-    id: string;
-    login: string;
-    name: string;
+  id: string;
+  login: string;
+  name: string;
 };
 
 /** @internal */
 export const GetCurrentUserUser$outboundSchema: z.ZodType<
-    GetCurrentUserUser$Outbound,
-    z.ZodTypeDef,
-    GetCurrentUserUser
+  GetCurrentUserUser$Outbound,
+  z.ZodTypeDef,
+  GetCurrentUserUser
 > = z.object({
-    id: z.string(),
-    login: z.string(),
-    name: z.string(),
+  id: z.string(),
+  login: z.string(),
+  name: z.string(),
 });
 
 /**
@@ -101,37 +103,37 @@ export const GetCurrentUserUser$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace GetCurrentUserUser$ {
-    /** @deprecated use `GetCurrentUserUser$inboundSchema` instead. */
-    export const inboundSchema = GetCurrentUserUser$inboundSchema;
-    /** @deprecated use `GetCurrentUserUser$outboundSchema` instead. */
-    export const outboundSchema = GetCurrentUserUser$outboundSchema;
-    /** @deprecated use `GetCurrentUserUser$Outbound` instead. */
-    export type Outbound = GetCurrentUserUser$Outbound;
+  /** @deprecated use `GetCurrentUserUser$inboundSchema` instead. */
+  export const inboundSchema = GetCurrentUserUser$inboundSchema;
+  /** @deprecated use `GetCurrentUserUser$outboundSchema` instead. */
+  export const outboundSchema = GetCurrentUserUser$outboundSchema;
+  /** @deprecated use `GetCurrentUserUser$Outbound` instead. */
+  export type Outbound = GetCurrentUserUser$Outbound;
 }
 
 /** @internal */
 export const GetCurrentUserResponse$inboundSchema: z.ZodType<
-    GetCurrentUserResponse,
-    z.ZodTypeDef,
-    unknown
+  GetCurrentUserResponse,
+  z.ZodTypeDef,
+  unknown
 > = z.union([
-    z.lazy(() => GetCurrentUserResponseBody$inboundSchema),
-    z.lazy(() => GetCurrentUserUser$inboundSchema),
+  z.lazy(() => GetCurrentUserResponseBody$inboundSchema),
+  z.lazy(() => GetCurrentUserUser$inboundSchema),
 ]);
 
 /** @internal */
 export type GetCurrentUserResponse$Outbound =
-    | GetCurrentUserResponseBody$Outbound
-    | GetCurrentUserUser$Outbound;
+  | GetCurrentUserResponseBody$Outbound
+  | GetCurrentUserUser$Outbound;
 
 /** @internal */
 export const GetCurrentUserResponse$outboundSchema: z.ZodType<
-    GetCurrentUserResponse$Outbound,
-    z.ZodTypeDef,
-    GetCurrentUserResponse
+  GetCurrentUserResponse$Outbound,
+  z.ZodTypeDef,
+  GetCurrentUserResponse
 > = z.union([
-    z.lazy(() => GetCurrentUserResponseBody$outboundSchema),
-    z.lazy(() => GetCurrentUserUser$outboundSchema),
+  z.lazy(() => GetCurrentUserResponseBody$outboundSchema),
+  z.lazy(() => GetCurrentUserUser$outboundSchema),
 ]);
 
 /**
@@ -139,10 +141,10 @@ export const GetCurrentUserResponse$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace GetCurrentUserResponse$ {
-    /** @deprecated use `GetCurrentUserResponse$inboundSchema` instead. */
-    export const inboundSchema = GetCurrentUserResponse$inboundSchema;
-    /** @deprecated use `GetCurrentUserResponse$outboundSchema` instead. */
-    export const outboundSchema = GetCurrentUserResponse$outboundSchema;
-    /** @deprecated use `GetCurrentUserResponse$Outbound` instead. */
-    export type Outbound = GetCurrentUserResponse$Outbound;
+  /** @deprecated use `GetCurrentUserResponse$inboundSchema` instead. */
+  export const inboundSchema = GetCurrentUserResponse$inboundSchema;
+  /** @deprecated use `GetCurrentUserResponse$outboundSchema` instead. */
+  export const outboundSchema = GetCurrentUserResponse$outboundSchema;
+  /** @deprecated use `GetCurrentUserResponse$Outbound` instead. */
+  export type Outbound = GetCurrentUserResponse$Outbound;
 }

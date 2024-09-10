@@ -8,12 +8,12 @@ A summary of the trigger.
 import { Trigger } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Trigger = {
-    actor: {
-        avatarUrl: "<value>",
-        login: "Nelda_Bednar",
-    },
-    receivedAt: new Date("2022-04-06T18:30:51.845Z"),
-    type: "scheduled_pipeline",
+  actor: {
+    avatarUrl: "<value>",
+    login: "Nelda_Bednar",
+  },
+  receivedAt: new Date("2022-04-06T18:30:51.845Z"),
+  type: "scheduled_pipeline",
 };
 ```
 

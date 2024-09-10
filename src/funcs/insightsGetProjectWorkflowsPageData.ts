@@ -4,8 +4,8 @@
 
 import { CircleciCore } from "../core.js";
 import {
-    encodeFormQuery as encodeFormQuery$,
-    encodeSimple as encodeSimple$,
+  encodeFormQuery as encodeFormQuery$,
+  encodeSimple as encodeSimple$,
 } from "../lib/encodings.js";
 import * as m$ from "../lib/matchers.js";
 import * as schemas$ from "../lib/schemas.js";
@@ -13,11 +13,11 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-    ConnectionError,
-    InvalidRequestError,
-    RequestAbortedError,
-    RequestTimeoutError,
-    UnexpectedClientError,
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
 } from "../sdk/models/errors/httpclienterrors.js";
 import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
@@ -34,106 +34,111 @@ import { Result } from "../sdk/types/fp.js";
  *              Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
  */
 export async function insightsGetProjectWorkflowsPageData(
-    client$: CircleciCore,
-    request: operations.GetProjectWorkflowsPageDataRequest,
-    options?: RequestOptions
+  client$: CircleciCore,
+  request: operations.GetProjectWorkflowsPageDataRequest,
+  options?: RequestOptions,
 ): Promise<
-    Result<
-        operations.GetProjectWorkflowsPageDataResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >
+  Result<
+    operations.GetProjectWorkflowsPageDataResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >
 > {
-    const input$ = request;
+  const input$ = request;
 
-    const parsed$ = schemas$.safeParse(
-        input$,
-        (value$) => operations.GetProjectWorkflowsPageDataRequest$outboundSchema.parse(value$),
-        "Input validation failed"
-    );
-    if (!parsed$.ok) {
-        return parsed$;
-    }
-    const payload$ = parsed$.value;
-    const body$ = null;
+  const parsed$ = schemas$.safeParse(
+    input$,
+    (value$) =>
+      operations.GetProjectWorkflowsPageDataRequest$outboundSchema.parse(
+        value$,
+      ),
+    "Input validation failed",
+  );
+  if (!parsed$.ok) {
+    return parsed$;
+  }
+  const payload$ = parsed$.value;
+  const body$ = null;
 
-    const pathParams$ = {
-        "project-slug": encodeSimple$("project-slug", payload$["project-slug"], {
-            explode: false,
-            charEncoding: "percent",
-        }),
-    };
+  const pathParams$ = {
+    "project-slug": encodeSimple$("project-slug", payload$["project-slug"], {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
 
-    const path$ = pathToFunc("/insights/pages/{project-slug}/summary")(pathParams$);
+  const path$ = pathToFunc("/insights/pages/{project-slug}/summary")(
+    pathParams$,
+  );
 
-    const query$ = encodeFormQuery$({
-        branches: payload$.branches,
-        "reporting-window": payload$["reporting-window"],
-        "workflow-names": payload$["workflow-names"],
-    });
+  const query$ = encodeFormQuery$({
+    "branches": payload$.branches,
+    "reporting-window": payload$["reporting-window"],
+    "workflow-names": payload$["workflow-names"],
+  });
 
-    const headers$ = new Headers({
-        Accept: "application/json",
-    });
+  const headers$ = new Headers({
+    Accept: "application/json",
+  });
 
-    const security$ = await extractSecurity(client$.options$.security);
-    const context = {
-        operationID: "getProjectWorkflowsPageData",
-        oAuth2Scopes: [],
-        securitySource: client$.options$.security,
-    };
-    const securitySettings$ = resolveGlobalSecurity(security$);
+  const security$ = await extractSecurity(client$.options$.security);
+  const context = {
+    operationID: "getProjectWorkflowsPageData",
+    oAuth2Scopes: [],
+    securitySource: client$.options$.security,
+  };
+  const securitySettings$ = resolveGlobalSecurity(security$);
 
-    const requestRes = client$.createRequest$(
-        context,
-        {
-            security: securitySettings$,
-            method: "GET",
-            path: path$,
-            headers: headers$,
-            query: query$,
-            body: body$,
-            timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
-        },
-        options
-    );
-    if (!requestRes.ok) {
-        return requestRes;
-    }
-    const request$ = requestRes.value;
+  const requestRes = client$.createRequest$(context, {
+    security: securitySettings$,
+    method: "GET",
+    path: path$,
+    headers: headers$,
+    query: query$,
+    body: body$,
+    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+  }, options);
+  if (!requestRes.ok) {
+    return requestRes;
+  }
+  const request$ = requestRes.value;
 
-    const doResult = await client$.do$(request$, {
-        context,
-        errorCodes: [],
-        retryConfig: options?.retries || client$.options$.retryConfig,
-        retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
-    });
-    if (!doResult.ok) {
-        return doResult;
-    }
-    const response = doResult.value;
+  const doResult = await client$.do$(request$, {
+    context,
+    errorCodes: [],
+    retryConfig: options?.retries
+      || client$.options$.retryConfig,
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
+  });
+  if (!doResult.ok) {
+    return doResult;
+  }
+  const response = doResult.value;
 
-    const [result$] = await m$.match<
-        operations.GetProjectWorkflowsPageDataResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >(
-        m$.json(200, operations.GetProjectWorkflowsPageDataResponse$inboundSchema),
-        m$.json("default", operations.GetProjectWorkflowsPageDataResponse$inboundSchema)
-    )(response);
-    if (!result$.ok) {
-        return result$;
-    }
-
+  const [result$] = await m$.match<
+    operations.GetProjectWorkflowsPageDataResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >(
+    m$.json(200, operations.GetProjectWorkflowsPageDataResponse$inboundSchema),
+    m$.json(
+      "default",
+      operations.GetProjectWorkflowsPageDataResponse$inboundSchema,
+    ),
+  )(response);
+  if (!result$.ok) {
     return result$;
+  }
+
+  return result$;
 }

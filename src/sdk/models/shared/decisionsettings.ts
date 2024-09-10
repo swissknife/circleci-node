@@ -5,27 +5,30 @@
 import * as z from "zod";
 
 export type DecisionSettings = {
-    enabled?: boolean | undefined;
+  enabled?: boolean | undefined;
 };
 
 /** @internal */
-export const DecisionSettings$inboundSchema: z.ZodType<DecisionSettings, z.ZodTypeDef, unknown> =
-    z.object({
-        enabled: z.boolean().optional(),
-    });
+export const DecisionSettings$inboundSchema: z.ZodType<
+  DecisionSettings,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  enabled: z.boolean().optional(),
+});
 
 /** @internal */
 export type DecisionSettings$Outbound = {
-    enabled?: boolean | undefined;
+  enabled?: boolean | undefined;
 };
 
 /** @internal */
 export const DecisionSettings$outboundSchema: z.ZodType<
-    DecisionSettings$Outbound,
-    z.ZodTypeDef,
-    DecisionSettings
+  DecisionSettings$Outbound,
+  z.ZodTypeDef,
+  DecisionSettings
 > = z.object({
-    enabled: z.boolean().optional(),
+  enabled: z.boolean().optional(),
 });
 
 /**
@@ -33,10 +36,10 @@ export const DecisionSettings$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace DecisionSettings$ {
-    /** @deprecated use `DecisionSettings$inboundSchema` instead. */
-    export const inboundSchema = DecisionSettings$inboundSchema;
-    /** @deprecated use `DecisionSettings$outboundSchema` instead. */
-    export const outboundSchema = DecisionSettings$outboundSchema;
-    /** @deprecated use `DecisionSettings$Outbound` instead. */
-    export type Outbound = DecisionSettings$Outbound;
+  /** @deprecated use `DecisionSettings$inboundSchema` instead. */
+  export const inboundSchema = DecisionSettings$inboundSchema;
+  /** @deprecated use `DecisionSettings$outboundSchema` instead. */
+  export const outboundSchema = DecisionSettings$outboundSchema;
+  /** @deprecated use `DecisionSettings$Outbound` instead. */
+  export type Outbound = DecisionSettings$Outbound;
 }

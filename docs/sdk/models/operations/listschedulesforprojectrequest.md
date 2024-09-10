@@ -6,7 +6,7 @@
 import { ListSchedulesForProjectRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListSchedulesForProjectRequest = {
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
 };
 ```
 

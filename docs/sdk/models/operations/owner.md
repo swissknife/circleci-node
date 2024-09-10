@@ -6,7 +6,7 @@
 import { Owner } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Owner = {
-    slug: "<value>",
+  slug: "<value>",
 };
 ```
 

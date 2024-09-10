@@ -8,7 +8,7 @@ Something unexpected happened on the server.
 import { MakeDecisionPolicyManagementResponseResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: MakeDecisionPolicyManagementResponseResponseBody = {
-    error: "There was an error processing your request.",
+  error: "There was an error processing your request.",
 };
 ```
 

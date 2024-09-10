@@ -3,10 +3,10 @@ id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
   docChecksum: 2cedb74329e4d6079a07d85e1e26c7f8
   docVersion: v2
-  speakeasyVersion: 1.392.1
-  generationVersion: 2.411.9
-  releaseVersion: 5.5.3
-  configChecksum: 33d859c2eea69449c2449d7f0a4e2cf9
+  speakeasyVersion: 1.394.0
+  generationVersion: 2.413.0
+  releaseVersion: 5.6.0
+  configChecksum: 5d3b0e7c7f972e91a1e6bf6becc11243
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.16.4
+    core: 3.17.0
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     envVarSecurityUsage: 0.1.1
@@ -912,6 +912,10 @@ examples:
       parameters:
         path:
           context-id: "7e402047-2522-48a7-bbf0-da8a8f076c4a"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   deleteContextRestriction:
     "":
       parameters:
@@ -933,6 +937,10 @@ examples:
         path:
           env-var-name: "POSTGRES_USER"
           context-id: "08279212-4ea7-49d9-b11a-c208b7a59267"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   getContext:
     speakeasy-default-get-context:
       parameters:
@@ -1018,6 +1026,10 @@ examples:
         query:
           reporting-window: "last-90-days"
           job-name: "lint"
+      responses:
+        "200":
+          application/json: {"items": [], "next_page_token": "<value>"}
+        default: {}
   getProjectWorkflowMetrics:
     "":
       parameters:
@@ -1049,6 +1061,10 @@ examples:
           project-slug: "gh/CircleCI-Public/api-preview-docs"
           workflow-name: "build-and-test"
         query: {}
+      responses:
+        "200":
+          application/json: {"average_test_count": 842643, "most_failed_tests": [], "most_failed_tests_extra": 788897, "slowest_tests": [], "slowest_tests_extra": 818678, "test_runs": [], "total_test_runs": 267028}
+        default: {}
   getProjectWorkflowsPageData:
     "":
       parameters:
@@ -1069,23 +1085,47 @@ examples:
           project-slug: "gh/CircleCI-Public/api-preview-docs"
           workflow-name: "build-and-test"
         query: {}
+      responses:
+        "200":
+          application/json: {"metrics": {"completed_runs": 484160, "duration_metrics": {"max": 103577, "mean": 264282, "median": 965701, "min": 250881, "p95": 465308, "standard_deviation": "1718.98"}, "failed_runs": 906060, "mttr": 99254, "success_rate": "8116.68", "successful_runs": 976138, "throughput": "4612.04", "total_credits_used": 374196, "total_runs": 105398, "window_end": "2022-03-09T07:10:47.395Z", "window_start": "2023-08-12T23:40:20.004Z"}, "trends": {"failed_runs": "1946.02", "median_duration_secs": "8618.53", "mttr": "7639.15", "p95_duration_secs": "6230.99", "success_rate": "4959.75", "throughput": "9963.22", "total_credits_used": "8325.07", "total_runs": "3775.91"}, "workflow_names": []}
+        default: {}
   cancelJobByJobID:
     speakeasy-default-cancel-job-by-job-ID:
       parameters:
         path:
           job-id: "afacffe1-191b-4f17-a3d4-b9d17568b0b6"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        "400":
+          application/json: {"message": "<value>"}
+        "401":
+          application/json: {"message": "<value>"}
+        "403":
+          application/json: {"message": "<value>"}
+        "404":
+          application/json: {"message": "<value>"}
+        default: {}
   cancelJobByJobNumber:
     "":
       parameters:
         path:
           job-number: "123"
           project-slug: "gh/CircleCI-Public/api-preview-docs"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   getJobArtifacts:
     "":
       parameters:
         path:
           job-number: "123"
           project-slug: "gh/CircleCI-Public/api-preview-docs"
+      responses:
+        "200":
+          application/json: {"items": [], "next_page_token": "<value>"}
+        default: {}
   getJobDetails:
     "":
       parameters:
@@ -1107,14 +1147,26 @@ examples:
           application/json: {"items": [], "next_page_token": "<value>"}
         default: {}
   getCollaborations:
-    speakeasy-default-get-collaborations: {}
+    speakeasy-default-get-collaborations:
+      responses:
+        "200":
+          application/json: []
+        default: {}
   getCurrentUser:
-    speakeasy-default-get-current-user: {}
+    speakeasy-default-get-current-user:
+      responses:
+        "200":
+          application/json: {"id": "802c7c7e-abfa-4383-8fe2-e8badc1983a8", "login": "Erich.Johnson93", "name": "<value>"}
+        default: {}
   getUser:
     speakeasy-default-get-user:
       parameters:
         path:
           id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e"
+      responses:
+        "200":
+          application/json: {"id": "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e", "login": "Candido.Sipes89", "name": "<value>"}
+        default: {}
   DeleteOrgClaims:
     speakeasy-default-delete-org-claims:
       parameters:
@@ -1125,6 +1177,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200":
+          application/json: {"org_id": "56c7db21-f354-44d2-8a53-d8b02d62f07c"}
   DeleteProjectClaims:
     speakeasy-default-delete-project-claims:
       parameters:
@@ -1136,6 +1190,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200":
+          application/json: {"org_id": "8d31466e-45c6-467d-a12f-45793f4014a8"}
   GetOrgClaims:
     speakeasy-default-get-org-claims:
       parameters:
@@ -1144,6 +1200,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200":
+          application/json: {"org_id": "faa87345-442f-4070-a007-ecf098342349"}
   GetProjectClaims:
     speakeasy-default-get-project-claims:
       parameters:
@@ -1153,6 +1211,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200":
+          application/json: {"org_id": "01345488-5416-440e-9811-7333cda41eee"}
   PatchOrgClaims:
     speakeasy-default-patch-org-claims:
       parameters:
@@ -1161,6 +1221,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200":
+          application/json: {"org_id": "b6c03243-08db-481d-a939-b2ebcfa7ef13"}
   PatchProjectClaims:
     speakeasy-default-patch-project-claims:
       parameters:
@@ -1170,6 +1232,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200":
+          application/json: {"org_id": "ddf25b42-5814-4fe1-af2a-ce9e5283bd11"}
   createUsageExport:
     "":
       parameters:
@@ -1177,12 +1241,20 @@ examples:
           org_id: "b9291e0d-a11e-41fb-8517-c545388b5953"
       requestBody:
         application/json: {"end": "2024-04-25T08:17:56.389Z", "start": "2022-04-10T20:35:03.698Z"}
+      responses:
+        "201":
+          application/json: {"download_urls": [], "end": "2024-04-25T08:17:56.389Z", "start": "2022-04-10T20:35:03.698Z", "state": "processing", "usage_export_job_id": "49513e73-3604-4194-8a53-1baf237fcbd5"}
+        "400": {}
   getUsageExport:
     "":
       parameters:
         path:
           org_id: "b9291e0d-a11e-41fb-8517-c545388b5953"
           usage_export_job_id: "e8235eed-f121-4ae3-9c72-2719d6572818"
+      responses:
+        "200":
+          application/json: {"download_urls": [], "state": "created", "usage_export_job_id": "b2cd27b8-2b03-47d3-a50b-3f37d2d2ca7a"}
+        "400": {}
   CreatePolicyBundle:
     speakeasy-default-create-policy-bundle:
       parameters:
@@ -1195,6 +1267,7 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "413":
           application/json: {"error": "http: request payload too large"}
+        "200": {}
   GetDecisionLog:
     speakeasy-default-get-decision-log:
       parameters:
@@ -1221,6 +1294,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "404":
           application/json: {"error": "decision log not found"}
+        "200":
+          application/json: {"key": [], "key1": []}
   GetDecisionLogs:
     speakeasy-default-get-decision-logs:
       parameters:
@@ -1242,6 +1317,7 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200": {}
   GetPolicyBundle:
     speakeasy-default-get-policy-bundle:
       parameters:
@@ -1251,6 +1327,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200":
+          application/json: {"key": []}
   GetPolicyDocument:
     speakeasy-default-get-policy-document:
       parameters:
@@ -1263,6 +1341,7 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "404":
           application/json: {"error": "policy not found"}
+        "200": {}
   MakeDecision:
     speakeasy-default-make-decision:
       parameters:
@@ -1276,6 +1355,8 @@ examples:
           application/json: {"error": "Unauthorized."}
         "500":
           application/json: {"error": "There was an error processing your request."}
+        "200":
+          application/json: {"status": "<value>"}
   SetDecisionSettings:
     speakeasy-default-set-decision-settings:
       parameters:
@@ -1285,10 +1366,15 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "200": {}
   continuePipeline:
     speakeasy-default-continue-pipeline:
       requestBody:
         application/json: {"configuration": "<value>", "continuation-key": "<value>", "parameters": {"deploy_prod": true}}
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   getPipelineById:
     "":
       parameters:
@@ -1313,6 +1399,10 @@ examples:
       parameters:
         path:
           pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "200":
+          application/json: {"compiled": "<value>", "source": "<value>"}
+        default: {}
   listMyPipelines:
     "":
       parameters:
@@ -1416,12 +1506,20 @@ examples:
         path:
           project-slug: "gh/CircleCI-Public/api-preview-docs"
           fingerprint: "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   deleteEnvVar:
     "":
       parameters:
         path:
           project-slug: "gh/CircleCI-Public/api-preview-docs"
           name: "foo"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   getCheckoutKey:
     "":
       parameters:
@@ -1626,6 +1724,10 @@ examples:
       parameters:
         path:
           schedule-id: "d61435f8-c8fd-4d1b-8e96-b194177e1b46"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   getScheduleById:
     speakeasy-default-get-schedule-by-id:
       parameters:
@@ -1667,6 +1769,10 @@ examples:
       parameters:
         path:
           webhook-id: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
   getWebhookById:
     speakeasy-default-get-webhook-by-id:
       parameters:
@@ -1701,11 +1807,19 @@ examples:
         path:
           approval_request_id: "afd4e8a2-73f4-4706-8fed-d209a62dd146"
           id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "202":
+          application/json: {"message": "<value>"}
+        default: {}
   cancelWorkflow:
     "":
       parameters:
         path:
           id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "202":
+          application/json: {"message": "<value>"}
+        default: {}
   getWorkflowById:
     "":
       parameters:

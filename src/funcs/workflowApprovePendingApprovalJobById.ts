@@ -10,11 +10,11 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import {
-    ConnectionError,
-    InvalidRequestError,
-    RequestAbortedError,
-    RequestTimeoutError,
-    UnexpectedClientError,
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
 } from "../sdk/models/errors/httpclienterrors.js";
 import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
@@ -28,100 +28,112 @@ import { Result } from "../sdk/types/fp.js";
  * Approves a pending approval job in a workflow.
  */
 export async function workflowApprovePendingApprovalJobById(
-    client$: CircleciCore,
-    request: operations.ApprovePendingApprovalJobByIdRequest,
-    options?: RequestOptions
+  client$: CircleciCore,
+  request: operations.ApprovePendingApprovalJobByIdRequest,
+  options?: RequestOptions,
 ): Promise<
-    Result<
-        operations.ApprovePendingApprovalJobByIdResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >
+  Result<
+    operations.ApprovePendingApprovalJobByIdResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >
 > {
-    const input$ = request;
+  const input$ = request;
 
-    const parsed$ = schemas$.safeParse(
-        input$,
-        (value$) => operations.ApprovePendingApprovalJobByIdRequest$outboundSchema.parse(value$),
-        "Input validation failed"
-    );
-    if (!parsed$.ok) {
-        return parsed$;
-    }
-    const payload$ = parsed$.value;
-    const body$ = null;
+  const parsed$ = schemas$.safeParse(
+    input$,
+    (value$) =>
+      operations.ApprovePendingApprovalJobByIdRequest$outboundSchema.parse(
+        value$,
+      ),
+    "Input validation failed",
+  );
+  if (!parsed$.ok) {
+    return parsed$;
+  }
+  const payload$ = parsed$.value;
+  const body$ = null;
 
-    const pathParams$ = {
-        approval_request_id: encodeSimple$("approval_request_id", payload$.approval_request_id, {
-            explode: false,
-            charEncoding: "percent",
-        }),
-        id: encodeSimple$("id", payload$.id, { explode: false, charEncoding: "percent" }),
-    };
+  const pathParams$ = {
+    approval_request_id: encodeSimple$(
+      "approval_request_id",
+      payload$.approval_request_id,
+      { explode: false, charEncoding: "percent" },
+    ),
+    id: encodeSimple$("id", payload$.id, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
 
-    const path$ = pathToFunc("/workflow/{id}/approve/{approval_request_id}")(pathParams$);
+  const path$ = pathToFunc("/workflow/{id}/approve/{approval_request_id}")(
+    pathParams$,
+  );
 
-    const headers$ = new Headers({
-        Accept: "application/json",
-    });
+  const headers$ = new Headers({
+    Accept: "application/json",
+  });
 
-    const security$ = await extractSecurity(client$.options$.security);
-    const context = {
-        operationID: "approvePendingApprovalJobById",
-        oAuth2Scopes: [],
-        securitySource: client$.options$.security,
-    };
-    const securitySettings$ = resolveGlobalSecurity(security$);
+  const security$ = await extractSecurity(client$.options$.security);
+  const context = {
+    operationID: "approvePendingApprovalJobById",
+    oAuth2Scopes: [],
+    securitySource: client$.options$.security,
+  };
+  const securitySettings$ = resolveGlobalSecurity(security$);
 
-    const requestRes = client$.createRequest$(
-        context,
-        {
-            security: securitySettings$,
-            method: "POST",
-            path: path$,
-            headers: headers$,
-            body: body$,
-            timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
-        },
-        options
-    );
-    if (!requestRes.ok) {
-        return requestRes;
-    }
-    const request$ = requestRes.value;
+  const requestRes = client$.createRequest$(context, {
+    security: securitySettings$,
+    method: "POST",
+    path: path$,
+    headers: headers$,
+    body: body$,
+    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+  }, options);
+  if (!requestRes.ok) {
+    return requestRes;
+  }
+  const request$ = requestRes.value;
 
-    const doResult = await client$.do$(request$, {
-        context,
-        errorCodes: [],
-        retryConfig: options?.retries || client$.options$.retryConfig,
-        retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
-    });
-    if (!doResult.ok) {
-        return doResult;
-    }
-    const response = doResult.value;
+  const doResult = await client$.do$(request$, {
+    context,
+    errorCodes: [],
+    retryConfig: options?.retries
+      || client$.options$.retryConfig,
+    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
+  });
+  if (!doResult.ok) {
+    return doResult;
+  }
+  const response = doResult.value;
 
-    const [result$] = await m$.match<
-        operations.ApprovePendingApprovalJobByIdResponse,
-        | SDKError
-        | SDKValidationError
-        | UnexpectedClientError
-        | InvalidRequestError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | ConnectionError
-    >(
-        m$.json(202, operations.ApprovePendingApprovalJobByIdResponse$inboundSchema),
-        m$.json("default", operations.ApprovePendingApprovalJobByIdResponse$inboundSchema)
-    )(response);
-    if (!result$.ok) {
-        return result$;
-    }
-
+  const [result$] = await m$.match<
+    operations.ApprovePendingApprovalJobByIdResponse,
+    | SDKError
+    | SDKValidationError
+    | UnexpectedClientError
+    | InvalidRequestError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | ConnectionError
+  >(
+    m$.json(
+      202,
+      operations.ApprovePendingApprovalJobByIdResponse$inboundSchema,
+    ),
+    m$.json(
+      "default",
+      operations.ApprovePendingApprovalJobByIdResponse$inboundSchema,
+    ),
+  )(response);
+  if (!result$.ok) {
     return result$;
+  }
+
+  return result$;
 }

@@ -9,7 +9,7 @@ The request is unauthorized
 import { MakeDecisionPolicyManagementResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: MakeDecisionPolicyManagementResponseBody = {
-    error: "Unauthorized.",
+  error: "Unauthorized.",
 };
 ```
 

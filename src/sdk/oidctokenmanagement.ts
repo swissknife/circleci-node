@@ -13,81 +13,105 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class OIDCTokenManagement extends ClientSDK {
-    /**
-     * Delete org-level claims
-     *
-     * @remarks
-     * Deletes org-level custom claims of OIDC identity tokens
-     */
-    async deleteOrgClaims(
-        request: operations.DeleteOrgClaimsRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteOrgClaimsResponse> {
-        return unwrapAsync(oidcTokenManagementDeleteOrgClaims(this, request, options));
-    }
+  /**
+   * Delete org-level claims
+   *
+   * @remarks
+   * Deletes org-level custom claims of OIDC identity tokens
+   */
+  async deleteOrgClaims(
+    request: operations.DeleteOrgClaimsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteOrgClaimsResponse> {
+    return unwrapAsync(oidcTokenManagementDeleteOrgClaims(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete project-level claims
-     *
-     * @remarks
-     * Deletes project-level custom claims of OIDC identity tokens
-     */
-    async deleteProjectClaims(
-        request: operations.DeleteProjectClaimsRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteProjectClaimsResponse> {
-        return unwrapAsync(oidcTokenManagementDeleteProjectClaims(this, request, options));
-    }
+  /**
+   * Delete project-level claims
+   *
+   * @remarks
+   * Deletes project-level custom claims of OIDC identity tokens
+   */
+  async deleteProjectClaims(
+    request: operations.DeleteProjectClaimsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteProjectClaimsResponse> {
+    return unwrapAsync(oidcTokenManagementDeleteProjectClaims(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get org-level claims
-     *
-     * @remarks
-     * Fetches org-level custom claims of OIDC identity tokens
-     */
-    async getOrgClaims(
-        request: operations.GetOrgClaimsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetOrgClaimsResponse> {
-        return unwrapAsync(oidcTokenManagementGetOrgClaims(this, request, options));
-    }
+  /**
+   * Get org-level claims
+   *
+   * @remarks
+   * Fetches org-level custom claims of OIDC identity tokens
+   */
+  async getOrgClaims(
+    request: operations.GetOrgClaimsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetOrgClaimsResponse> {
+    return unwrapAsync(oidcTokenManagementGetOrgClaims(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get project-level claims
-     *
-     * @remarks
-     * Fetches project-level custom claims of OIDC identity tokens
-     */
-    async getProjectClaims(
-        request: operations.GetProjectClaimsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetProjectClaimsResponse> {
-        return unwrapAsync(oidcTokenManagementGetProjectClaims(this, request, options));
-    }
+  /**
+   * Get project-level claims
+   *
+   * @remarks
+   * Fetches project-level custom claims of OIDC identity tokens
+   */
+  async getProjectClaims(
+    request: operations.GetProjectClaimsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetProjectClaimsResponse> {
+    return unwrapAsync(oidcTokenManagementGetProjectClaims(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Patch org-level claims
-     *
-     * @remarks
-     * Creates/Updates org-level custom claims of OIDC identity tokens
-     */
-    async patchOrgClaims(
-        request: operations.PatchOrgClaimsRequest,
-        options?: RequestOptions
-    ): Promise<operations.PatchOrgClaimsResponse> {
-        return unwrapAsync(oidcTokenManagementPatchOrgClaims(this, request, options));
-    }
+  /**
+   * Patch org-level claims
+   *
+   * @remarks
+   * Creates/Updates org-level custom claims of OIDC identity tokens
+   */
+  async patchOrgClaims(
+    request: operations.PatchOrgClaimsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchOrgClaimsResponse> {
+    return unwrapAsync(oidcTokenManagementPatchOrgClaims(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Patch project-level claims
-     *
-     * @remarks
-     * Creates/Updates project-level custom claims of OIDC identity tokens
-     */
-    async patchProjectClaims(
-        request: operations.PatchProjectClaimsRequest,
-        options?: RequestOptions
-    ): Promise<operations.PatchProjectClaimsResponse> {
-        return unwrapAsync(oidcTokenManagementPatchProjectClaims(this, request, options));
-    }
+  /**
+   * Patch project-level claims
+   *
+   * @remarks
+   * Creates/Updates project-level custom claims of OIDC identity tokens
+   */
+  async patchProjectClaims(
+    request: operations.PatchProjectClaimsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PatchProjectClaimsResponse> {
+    return unwrapAsync(oidcTokenManagementPatchProjectClaims(
+      this,
+      request,
+      options,
+    ));
+  }
 }

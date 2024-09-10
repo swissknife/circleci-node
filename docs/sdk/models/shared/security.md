@@ -6,10 +6,10 @@
 import { Security } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: Security = {
-    basicAuth: {
-        password: "",
-        username: "",
-    },
+  basicAuth: {
+    password: "",
+    username: "",
+  },
 };
 ```
 

@@ -8,8 +8,8 @@ An error with a type and message.
 import { GetPipelineByNumberErrors } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPipelineByNumberErrors = {
-    message: "<value>",
-    type: "other",
+  message: "<value>",
+  type: "other",
 };
 ```
 

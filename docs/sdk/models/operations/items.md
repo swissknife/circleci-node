@@ -6,10 +6,10 @@
 import { Items } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Items = {
-    contextId: "2af7a73c-f3be-4453-b870-b326b5a73429",
-    createdAt: new Date("2015-09-21T17:29:21.042Z"),
-    updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-    variable: "POSTGRES_USER",
+  contextId: "2af7a73c-f3be-4453-b870-b326b5a73429",
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+  variable: "POSTGRES_USER",
 };
 ```
 

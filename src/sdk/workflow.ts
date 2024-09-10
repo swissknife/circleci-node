@@ -12,68 +12,88 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Workflow extends ClientSDK {
-    /**
-     * Approve a job
-     *
-     * @remarks
-     * Approves a pending approval job in a workflow.
-     */
-    async approvePendingApprovalJobById(
-        request: operations.ApprovePendingApprovalJobByIdRequest,
-        options?: RequestOptions
-    ): Promise<operations.ApprovePendingApprovalJobByIdResponse> {
-        return unwrapAsync(workflowApprovePendingApprovalJobById(this, request, options));
-    }
+  /**
+   * Approve a job
+   *
+   * @remarks
+   * Approves a pending approval job in a workflow.
+   */
+  async approvePendingApprovalJobById(
+    request: operations.ApprovePendingApprovalJobByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ApprovePendingApprovalJobByIdResponse> {
+    return unwrapAsync(workflowApprovePendingApprovalJobById(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Cancel a workflow
-     *
-     * @remarks
-     * Cancels a running workflow.
-     */
-    async cancelWorkflow(
-        request: operations.CancelWorkflowRequest,
-        options?: RequestOptions
-    ): Promise<operations.CancelWorkflowResponse> {
-        return unwrapAsync(workflowCancelWorkflow(this, request, options));
-    }
+  /**
+   * Cancel a workflow
+   *
+   * @remarks
+   * Cancels a running workflow.
+   */
+  async cancelWorkflow(
+    request: operations.CancelWorkflowRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CancelWorkflowResponse> {
+    return unwrapAsync(workflowCancelWorkflow(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a workflow
-     *
-     * @remarks
-     * Returns summary fields of a workflow by ID.
-     */
-    async getWorkflowById(
-        request: operations.GetWorkflowByIdRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetWorkflowByIdResponse> {
-        return unwrapAsync(workflowGetWorkflowById(this, request, options));
-    }
+  /**
+   * Get a workflow
+   *
+   * @remarks
+   * Returns summary fields of a workflow by ID.
+   */
+  async getWorkflowById(
+    request: operations.GetWorkflowByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetWorkflowByIdResponse> {
+    return unwrapAsync(workflowGetWorkflowById(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a workflow's jobs
-     *
-     * @remarks
-     * Returns a sequence of jobs for a workflow.
-     */
-    async listWorkflowJobs(
-        request: operations.ListWorkflowJobsRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListWorkflowJobsResponse> {
-        return unwrapAsync(workflowListWorkflowJobs(this, request, options));
-    }
+  /**
+   * Get a workflow's jobs
+   *
+   * @remarks
+   * Returns a sequence of jobs for a workflow.
+   */
+  async listWorkflowJobs(
+    request: operations.ListWorkflowJobsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListWorkflowJobsResponse> {
+    return unwrapAsync(workflowListWorkflowJobs(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Rerun a workflow
-     *
-     * @remarks
-     * Reruns a workflow.
-     */
-    async rerunWorkflow(
-        request: operations.RerunWorkflowRequest,
-        options?: RequestOptions
-    ): Promise<operations.RerunWorkflowResponse> {
-        return unwrapAsync(workflowRerunWorkflow(this, request, options));
-    }
+  /**
+   * Rerun a workflow
+   *
+   * @remarks
+   * Reruns a workflow.
+   */
+  async rerunWorkflow(
+    request: operations.RerunWorkflowRequest,
+    options?: RequestOptions,
+  ): Promise<operations.RerunWorkflowResponse> {
+    return unwrapAsync(workflowRerunWorkflow(
+      this,
+      request,
+      options,
+    ));
+  }
 }

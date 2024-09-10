@@ -8,7 +8,7 @@ message response
 import { ContinuePipelineMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ContinuePipelineMessageResponse = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

@@ -8,15 +8,17 @@ The parameters for a create webhook request
 import { CreateWebhookRequestBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateWebhookRequestBody = {
-    events: ["job-completed"],
-    name: "<value>",
-    scope: {
-        id: "a910abdc-ab62-4676-a96e-1ec00221b335",
-        type: "project",
-    },
-    signingSecret: "<value>",
-    url: "https://lucky-numismatist.name",
-    verifyTls: false,
+  events: [
+    "job-completed",
+  ],
+  name: "<value>",
+  scope: {
+    id: "a910abdc-ab62-4676-a96e-1ec00221b335",
+    type: "project",
+  },
+  signingSecret: "<value>",
+  url: "https://lucky-numismatist.name",
+  verifyTls: false,
 };
 ```
 

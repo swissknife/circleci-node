@@ -8,8 +8,8 @@ Info about a status of the parallel run.
 import { ParallelRuns } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ParallelRuns = {
-    index: 316488,
-    status: "<value>",
+  index: 316488,
+  status: "<value>",
 };
 ```
 

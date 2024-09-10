@@ -6,7 +6,7 @@
 import { GetDecisionLogResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetDecisionLogResponse = {
-    error: "decision log not found",
+  error: "decision log not found",
 };
 ```
 

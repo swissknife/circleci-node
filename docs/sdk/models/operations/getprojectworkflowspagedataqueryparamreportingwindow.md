@@ -7,7 +7,8 @@ The time window used to calculate summary metrics. If not provided, defaults to 
 ```typescript
 import { GetProjectWorkflowsPageDataQueryParamReportingWindow } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetProjectWorkflowsPageDataQueryParamReportingWindow = "last-90-days";
+let value: GetProjectWorkflowsPageDataQueryParamReportingWindow =
+  "last-90-days";
 ```
 
 ## Values

@@ -8,43 +8,47 @@ Aggregated summary metrics and trends by workflow and branches
 import { GetProjectWorkflowsPageDataResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowsPageDataResponseBody = {
-    allBranches: ["main"],
-    allWorkflows: ["build-and-test"],
-    projectWorkflowBranchData: [
-        {
-            branch: "main",
-            metrics: {
-                p95DurationSecs: 2748.23,
-                successRate: 1484.78,
-                totalCreditsUsed: 592231,
-                totalRuns: 258702,
-            },
-            trends: {
-                p95DurationSecs: 8967.62,
-                successRate: 2155.29,
-                totalCreditsUsed: 4067.33,
-                totalRuns: 5799.12,
-            },
-            workflowName: "build-and-test",
-        },
-    ],
-    projectWorkflowData: [
-        {
-            metrics: {
-                p95DurationSecs: 5520.78,
-                successRate: 9757.52,
-                totalCreditsUsed: 271653,
-                totalRuns: 273009,
-            },
-            trends: {
-                p95DurationSecs: 4554.44,
-                successRate: 9700.76,
-                totalCreditsUsed: 4017.13,
-                totalRuns: 254.97,
-            },
-            workflowName: "build-and-test",
-        },
-    ],
+  allBranches: [
+    "main",
+  ],
+  allWorkflows: [
+    "build-and-test",
+  ],
+  projectWorkflowBranchData: [
+    {
+      branch: "main",
+      metrics: {
+        p95DurationSecs: 2748.23,
+        successRate: 1484.78,
+        totalCreditsUsed: 592231,
+        totalRuns: 258702,
+      },
+      trends: {
+        p95DurationSecs: 8967.62,
+        successRate: 2155.29,
+        totalCreditsUsed: 4067.33,
+        totalRuns: 5799.12,
+      },
+      workflowName: "build-and-test",
+    },
+  ],
+  projectWorkflowData: [
+    {
+      metrics: {
+        p95DurationSecs: 5520.78,
+        successRate: 9757.52,
+        totalCreditsUsed: 271653,
+        totalRuns: 273009,
+      },
+      trends: {
+        p95DurationSecs: 4554.44,
+        successRate: 9700.76,
+        totalCreditsUsed: 4017.13,
+        totalRuns: 254.97,
+      },
+      workflowName: "build-and-test",
+    },
+  ],
 };
 ```
 

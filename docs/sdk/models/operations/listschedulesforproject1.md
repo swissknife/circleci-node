@@ -6,9 +6,13 @@
 import { ListSchedulesForProject1 } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListSchedulesForProject1 = {
-    daysOfWeek: ["SUN"],
-    hoursOfDay: [958068],
-    perHour: 901651,
+  daysOfWeek: [
+    "SUN",
+  ],
+  hoursOfDay: [
+    958068,
+  ],
+  perHour: 901651,
 };
 ```
 

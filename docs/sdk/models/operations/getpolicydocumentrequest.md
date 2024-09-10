@@ -6,9 +6,9 @@
 import { GetPolicyDocumentRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPolicyDocumentRequest = {
-    context: "<value>",
-    ownerID: "<value>",
-    policyName: "<value>",
+  context: "<value>",
+  ownerID: "<value>",
+  policyName: "<value>",
 };
 ```
 

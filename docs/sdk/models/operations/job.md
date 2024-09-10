@@ -8,13 +8,15 @@ Job
 import { Job } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Job = {
-    dependencies: ["81f06898-1d6b-4b33-8faa-348c31bf407e"],
-    id: "e4fcf0c4-2b78-4f15-a263-98a0dc766324",
-    name: "<value>",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    startedAt: new Date("2024-06-01T02:03:47.298Z"),
-    status: "blocked",
-    type: "approval",
+  dependencies: [
+    "81f06898-1d6b-4b33-8faa-348c31bf407e",
+  ],
+  id: "e4fcf0c4-2b78-4f15-a263-98a0dc766324",
+  name: "<value>",
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  startedAt: new Date("2024-06-01T02:03:47.298Z"),
+  status: "blocked",
+  type: "approval",
 };
 ```
 

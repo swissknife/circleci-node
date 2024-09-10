@@ -8,33 +8,33 @@ Paginated workflow summary metrics.
 import { GetProjectWorkflowMetricsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowMetricsResponseBody = {
-    items: [
-        {
-            metrics: {
-                durationMetrics: {
-                    max: 621679,
-                    mean: 575751,
-                    median: 863023,
-                    min: 820767,
-                    p95: 157632,
-                    standardDeviation: 9088.44,
-                },
-                failedRuns: 992430,
-                mttr: 815524,
-                successRate: 850.01,
-                successfulRuns: 159414,
-                throughput: 944.58,
-                totalCreditsUsed: 628899,
-                totalRecoveries: 633608,
-                totalRuns: 398434,
-            },
-            name: "build-and-test",
-            projectId: "<value>",
-            windowEnd: new Date("2024-11-06T10:19:15.251Z"),
-            windowStart: new Date("2022-03-10T17:36:05.100Z"),
+  items: [
+    {
+      metrics: {
+        durationMetrics: {
+          max: 621679,
+          mean: 575751,
+          median: 863023,
+          min: 820767,
+          p95: 157632,
+          standardDeviation: 9088.44,
         },
-    ],
-    nextPageToken: "<value>",
+        failedRuns: 992430,
+        mttr: 815524,
+        successRate: 850.01,
+        successfulRuns: 159414,
+        throughput: 944.58,
+        totalCreditsUsed: 628899,
+        totalRecoveries: 633608,
+        totalRuns: 398434,
+      },
+      name: "build-and-test",
+      projectId: "<value>",
+      windowEnd: new Date("2024-11-06T10:19:15.251Z"),
+      windowStart: new Date("2022-03-10T17:36:05.100Z"),
+    },
+  ],
+  nextPageToken: "<value>",
 };
 ```
 

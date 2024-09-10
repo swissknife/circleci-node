@@ -6,9 +6,9 @@
 import { GetOrgSummaryDataRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetOrgSummaryDataRequest = {
-    orgSlug: "gh/CircleCI-Public",
-    projectNames: {},
-    reportingWindow: "last-90-days",
+  orgSlug: "gh/CircleCI-Public",
+  projectNames: {},
+  reportingWindow: "last-90-days",
 };
 ```
 

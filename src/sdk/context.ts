@@ -17,130 +17,170 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Context extends ClientSDK {
-    /**
-     * Add or update an environment variable
-     *
-     * @remarks
-     * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
-     */
-    async addEnvironmentVariableToContext(
-        request: operations.AddEnvironmentVariableToContextRequest,
-        options?: RequestOptions
-    ): Promise<operations.AddEnvironmentVariableToContextResponse> {
-        return unwrapAsync(contextAddEnvironmentVariableToContext(this, request, options));
-    }
+  /**
+   * Add or update an environment variable
+   *
+   * @remarks
+   * Create or update an environment variable within a context. Returns information about the environment variable, not including its value.
+   */
+  async addEnvironmentVariableToContext(
+    request: operations.AddEnvironmentVariableToContextRequest,
+    options?: RequestOptions,
+  ): Promise<operations.AddEnvironmentVariableToContextResponse> {
+    return unwrapAsync(contextAddEnvironmentVariableToContext(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Create a new context
-     *
-     * @remarks
-     * Creates a new context.
-     */
-    async createContext(
-        request?: operations.CreateContextRequestBody | undefined,
-        options?: RequestOptions
-    ): Promise<operations.CreateContextResponse> {
-        return unwrapAsync(contextCreateContext(this, request, options));
-    }
+  /**
+   * Create a new context
+   *
+   * @remarks
+   * Creates a new context.
+   */
+  async createContext(
+    request?: operations.CreateContextRequestBody | undefined,
+    options?: RequestOptions,
+  ): Promise<operations.CreateContextResponse> {
+    return unwrapAsync(contextCreateContext(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * 🧪 Create context restriction
-     *
-     * @remarks
-     * [__EXPERIMENTAL__] Creates project restriction on a context.
-     */
-    async createContextRestriction(
-        request: operations.CreateContextRestrictionRequest,
-        options?: RequestOptions
-    ): Promise<operations.CreateContextRestrictionResponse> {
-        return unwrapAsync(contextCreateContextRestriction(this, request, options));
-    }
+  /**
+   * 🧪 Create context restriction
+   *
+   * @remarks
+   * [__EXPERIMENTAL__] Creates project restriction on a context.
+   */
+  async createContextRestriction(
+    request: operations.CreateContextRestrictionRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CreateContextRestrictionResponse> {
+    return unwrapAsync(contextCreateContextRestriction(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Delete a context
-     */
-    async deleteContext(
-        request: operations.DeleteContextRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteContextResponse> {
-        return unwrapAsync(contextDeleteContext(this, request, options));
-    }
+  /**
+   * Delete a context
+   */
+  async deleteContext(
+    request: operations.DeleteContextRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteContextResponse> {
+    return unwrapAsync(contextDeleteContext(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * 🧪 Delete context restriction
-     *
-     * @remarks
-     * [__EXPERIMENTAL__] Deletes a project restriction on a context.
-     */
-    async deleteContextRestriction(
-        request: operations.DeleteContextRestrictionRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteContextRestrictionResponse> {
-        return unwrapAsync(contextDeleteContextRestriction(this, request, options));
-    }
+  /**
+   * 🧪 Delete context restriction
+   *
+   * @remarks
+   * [__EXPERIMENTAL__] Deletes a project restriction on a context.
+   */
+  async deleteContextRestriction(
+    request: operations.DeleteContextRestrictionRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteContextRestrictionResponse> {
+    return unwrapAsync(contextDeleteContextRestriction(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Remove an environment variable
-     *
-     * @remarks
-     * Delete an environment variable from a context.
-     */
-    async deleteEnvironmentVariableFromContext(
-        request: operations.DeleteEnvironmentVariableFromContextRequest,
-        options?: RequestOptions
-    ): Promise<operations.DeleteEnvironmentVariableFromContextResponse> {
-        return unwrapAsync(contextDeleteEnvironmentVariableFromContext(this, request, options));
-    }
+  /**
+   * Remove an environment variable
+   *
+   * @remarks
+   * Delete an environment variable from a context.
+   */
+  async deleteEnvironmentVariableFromContext(
+    request: operations.DeleteEnvironmentVariableFromContextRequest,
+    options?: RequestOptions,
+  ): Promise<operations.DeleteEnvironmentVariableFromContextResponse> {
+    return unwrapAsync(contextDeleteEnvironmentVariableFromContext(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a context
-     *
-     * @remarks
-     * Returns basic information about a context.
-     */
-    async getContext(
-        request: operations.GetContextRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetContextResponse> {
-        return unwrapAsync(contextGetContext(this, request, options));
-    }
+  /**
+   * Get a context
+   *
+   * @remarks
+   * Returns basic information about a context.
+   */
+  async getContext(
+    request: operations.GetContextRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetContextResponse> {
+    return unwrapAsync(contextGetContext(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * 🧪 Get context restrictions
-     *
-     * @remarks
-     * [__EXPERIMENTAL__] Gets a list of project restrictions associated with a context.
-     */
-    async getContextRestrictions(
-        request: operations.GetContextRestrictionsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetContextRestrictionsResponse> {
-        return unwrapAsync(contextGetContextRestrictions(this, request, options));
-    }
+  /**
+   * 🧪 Get context restrictions
+   *
+   * @remarks
+   * [__EXPERIMENTAL__] Gets a list of project restrictions associated with a context.
+   */
+  async getContextRestrictions(
+    request: operations.GetContextRestrictionsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetContextRestrictionsResponse> {
+    return unwrapAsync(contextGetContextRestrictions(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * List contexts
-     *
-     * @remarks
-     * List all contexts for an owner.
-     */
-    async listContexts(
-        request: operations.ListContextsRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListContextsResponse> {
-        return unwrapAsync(contextListContexts(this, request, options));
-    }
+  /**
+   * List contexts
+   *
+   * @remarks
+   * List all contexts for an owner.
+   */
+  async listContexts(
+    request: operations.ListContextsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListContextsResponse> {
+    return unwrapAsync(contextListContexts(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * List environment variables
-     *
-     * @remarks
-     * List information about environment variables in a context, not including their values.
-     */
-    async listEnvironmentVariablesFromContext(
-        request: operations.ListEnvironmentVariablesFromContextRequest,
-        options?: RequestOptions
-    ): Promise<operations.ListEnvironmentVariablesFromContextResponse> {
-        return unwrapAsync(contextListEnvironmentVariablesFromContext(this, request, options));
-    }
+  /**
+   * List environment variables
+   *
+   * @remarks
+   * List information about environment variables in a context, not including their values.
+   */
+  async listEnvironmentVariablesFromContext(
+    request: operations.ListEnvironmentVariablesFromContextRequest,
+    options?: RequestOptions,
+  ): Promise<operations.ListEnvironmentVariablesFromContextResponse> {
+    return unwrapAsync(contextListEnvironmentVariablesFromContext(
+      this,
+      request,
+      options,
+    ));
+  }
 }

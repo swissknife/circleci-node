@@ -12,68 +12,88 @@ import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Job extends ClientSDK {
-    /**
-     * Cancel job by job ID
-     *
-     * @remarks
-     * Cancel job with a given job ID.
-     */
-    async cancelJobByJobID(
-        request: operations.CancelJobByJobIDRequest,
-        options?: RequestOptions
-    ): Promise<operations.CancelJobByJobIDResponse> {
-        return unwrapAsync(jobCancelJobByJobID(this, request, options));
-    }
+  /**
+   * Cancel job by job ID
+   *
+   * @remarks
+   * Cancel job with a given job ID.
+   */
+  async cancelJobByJobID(
+    request: operations.CancelJobByJobIDRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CancelJobByJobIDResponse> {
+    return unwrapAsync(jobCancelJobByJobID(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Cancel job by job number
-     *
-     * @remarks
-     * Cancel job with a given job number.
-     */
-    async cancelJobByJobNumber(
-        request: operations.CancelJobByJobNumberRequest,
-        options?: RequestOptions
-    ): Promise<operations.CancelJobByJobNumberResponse> {
-        return unwrapAsync(jobCancelJobByJobNumber(this, request, options));
-    }
+  /**
+   * Cancel job by job number
+   *
+   * @remarks
+   * Cancel job with a given job number.
+   */
+  async cancelJobByJobNumber(
+    request: operations.CancelJobByJobNumberRequest,
+    options?: RequestOptions,
+  ): Promise<operations.CancelJobByJobNumberResponse> {
+    return unwrapAsync(jobCancelJobByJobNumber(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get a job's artifacts
-     *
-     * @remarks
-     * Returns a job's artifacts.
-     */
-    async getJobArtifacts(
-        request: operations.GetJobArtifactsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetJobArtifactsResponse> {
-        return unwrapAsync(jobGetJobArtifacts(this, request, options));
-    }
+  /**
+   * Get a job's artifacts
+   *
+   * @remarks
+   * Returns a job's artifacts.
+   */
+  async getJobArtifacts(
+    request: operations.GetJobArtifactsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetJobArtifactsResponse> {
+    return unwrapAsync(jobGetJobArtifacts(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get job details
-     *
-     * @remarks
-     * Returns job details.
-     */
-    async getJobDetails(
-        request: operations.GetJobDetailsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetJobDetailsResponse> {
-        return unwrapAsync(jobGetJobDetails(this, request, options));
-    }
+  /**
+   * Get job details
+   *
+   * @remarks
+   * Returns job details.
+   */
+  async getJobDetails(
+    request: operations.GetJobDetailsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetJobDetailsResponse> {
+    return unwrapAsync(jobGetJobDetails(
+      this,
+      request,
+      options,
+    ));
+  }
 
-    /**
-     * Get test metadata
-     *
-     * @remarks
-     * Get test metadata for a build. In the rare case where there is more than 250MB of test data on the job, no results will be returned.
-     */
-    async getTests(
-        request: operations.GetTestsRequest,
-        options?: RequestOptions
-    ): Promise<operations.GetTestsResponse> {
-        return unwrapAsync(jobGetTests(this, request, options));
-    }
+  /**
+   * Get test metadata
+   *
+   * @remarks
+   * Get test metadata for a build. In the rare case where there is more than 250MB of test data on the job, no results will be returned.
+   */
+  async getTests(
+    request: operations.GetTestsRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetTestsResponse> {
+    return unwrapAsync(jobGetTests(
+      this,
+      request,
+      options,
+    ));
+  }
 }

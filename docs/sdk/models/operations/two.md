@@ -6,7 +6,7 @@
 import { Two } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Two = {
-    slug: "<value>",
+  slug: "<value>",
 };
 ```
 

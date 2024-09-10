@@ -8,9 +8,9 @@ An artifact
 import { Artifact } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Artifact = {
-    nodeIndex: 919532,
-    path: "/etc",
-    url: "https://insubstantial-worth.name",
+  nodeIndex: 919532,
+  path: "/etc",
+  url: "https://insubstantial-worth.name",
 };
 ```
 

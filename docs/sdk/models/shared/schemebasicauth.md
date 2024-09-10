@@ -6,8 +6,8 @@
 import { SchemeBasicAuth } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: SchemeBasicAuth = {
-    password: "",
-    username: "",
+  password: "",
+  username: "",
 };
 ```
 

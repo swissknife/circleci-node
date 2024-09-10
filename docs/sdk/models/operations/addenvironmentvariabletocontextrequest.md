@@ -6,11 +6,11 @@
 import { AddEnvironmentVariableToContextRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: AddEnvironmentVariableToContextRequest = {
-    requestBody: {
-        value: "some-secret-value",
-    },
-    contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
-    envVarName: "POSTGRES_USER",
+  requestBody: {
+    value: "some-secret-value",
+  },
+  contextId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+  envVarName: "POSTGRES_USER",
 };
 ```
 

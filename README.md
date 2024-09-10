@@ -44,22 +44,22 @@ yarn add circleci-v2-sdk zod
 import { Circleci } from "circleci-v2-sdk";
 
 const circleci = new Circleci({
-    security: {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
 });
 
 async function run() {
-    const result = await circleci.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    envVarName: "POSTGRES_USER",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -211,38 +211,38 @@ import { Circleci } from "circleci-v2-sdk";
 import { SDKValidationError } from "circleci-v2-sdk/sdk/models/errors";
 
 const circleci = new Circleci({
-    security: {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
 });
 
 async function run() {
-    let result;
-    try {
-        result = await circleci.context.addEnvironmentVariableToContext({
-            requestBody: {
-                value: "some-secret-value",
-            },
-            contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-            envVarName: "POSTGRES_USER",
-        });
+  let result;
+  try {
+    result = await circleci.context.addEnvironmentVariableToContext({
+      requestBody: {
+        value: "some-secret-value",
+      },
+      contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+      envVarName: "POSTGRES_USER",
+    });
 
-        // Handle the result
-        console.log(result);
-    } catch (err) {
-        switch (true) {
-            case err instanceof SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
+    // Handle the result
+    console.log(result);
+  } catch (err) {
+    switch (true) {
+      case (err instanceof SDKValidationError): {
+        // Validation errors can be pretty-printed
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      default: {
+        throw err;
+      }
     }
+  }
 }
 
 run();
@@ -267,23 +267,23 @@ You can override the default server globally by passing a server index to the `s
 import { Circleci } from "circleci-v2-sdk";
 
 const circleci = new Circleci({
-    serverIdx: 0,
-    security: {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  serverIdx: 0,
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
 });
 
 async function run() {
-    const result = await circleci.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    envVarName: "POSTGRES_USER",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -299,23 +299,23 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { Circleci } from "circleci-v2-sdk";
 
 const circleci = new Circleci({
-    serverURL: "https://circleci.com/api/v2",
-    security: {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  serverURL: "https://circleci.com/api/v2",
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
 });
 
 async function run() {
-    const result = await circleci.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    envVarName: "POSTGRES_USER",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -394,22 +394,22 @@ You can set the security parameters through the `security` optional parameter wh
 import { Circleci } from "circleci-v2-sdk";
 
 const circleci = new Circleci({
-    security: {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
 });
 
 async function run() {
-    const result = await circleci.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    envVarName: "POSTGRES_USER",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -433,36 +433,33 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { Circleci } from "circleci-v2-sdk";
 
 const circleci = new Circleci({
-    security: {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
 });
 
 async function run() {
-    const result = await circleci.context.addEnvironmentVariableToContext(
-        {
-            requestBody: {
-                value: "some-secret-value",
-            },
-            contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-            envVarName: "POSTGRES_USER",
-        },
-        {
-            retries: {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 1,
-                    maxInterval: 50,
-                    exponent: 1.1,
-                    maxElapsedTime: 100,
-                },
-                retryConnectionErrors: false,
-            },
-        }
-    );
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    envVarName: "POSTGRES_USER",
+  }, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -474,32 +471,32 @@ If you'd like to override the default retry strategy for all operations that sup
 import { Circleci } from "circleci-v2-sdk";
 
 const circleci = new Circleci({
-    retryConfig: {
-        strategy: "backoff",
-        backoff: {
-            initialInterval: 1,
-            maxInterval: 50,
-            exponent: 1.1,
-            maxElapsedTime: 100,
-        },
-        retryConnectionErrors: false,
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
     },
-    security: {
-        apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+    retryConnectionErrors: false,
+  },
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
 });
 
 async function run() {
-    const result = await circleci.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    envVarName: "POSTGRES_USER",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();

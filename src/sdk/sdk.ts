@@ -17,63 +17,65 @@ import { Webhook } from "./webhook.js";
 import { Workflow } from "./workflow.js";
 
 export class Circleci extends ClientSDK {
-    private _context?: Context;
-    get context(): Context {
-        return (this._context ??= new Context(this.options$));
-    }
+  private _context?: Context;
+  get context(): Context {
+    return (this._context ??= new Context(this.options$));
+  }
 
-    private _insights?: Insights;
-    get insights(): Insights {
-        return (this._insights ??= new Insights(this.options$));
-    }
+  private _insights?: Insights;
+  get insights(): Insights {
+    return (this._insights ??= new Insights(this.options$));
+  }
 
-    private _job?: Job;
-    get job(): Job {
-        return (this._job ??= new Job(this.options$));
-    }
+  private _job?: Job;
+  get job(): Job {
+    return (this._job ??= new Job(this.options$));
+  }
 
-    private _user?: User;
-    get user(): User {
-        return (this._user ??= new User(this.options$));
-    }
+  private _user?: User;
+  get user(): User {
+    return (this._user ??= new User(this.options$));
+  }
 
-    private _oidcTokenManagement?: OIDCTokenManagement;
-    get oidcTokenManagement(): OIDCTokenManagement {
-        return (this._oidcTokenManagement ??= new OIDCTokenManagement(this.options$));
-    }
+  private _oidcTokenManagement?: OIDCTokenManagement;
+  get oidcTokenManagement(): OIDCTokenManagement {
+    return (this._oidcTokenManagement ??= new OIDCTokenManagement(
+      this.options$,
+    ));
+  }
 
-    private _usage?: Usage;
-    get usage(): Usage {
-        return (this._usage ??= new Usage(this.options$));
-    }
+  private _usage?: Usage;
+  get usage(): Usage {
+    return (this._usage ??= new Usage(this.options$));
+  }
 
-    private _policyManagement?: PolicyManagement;
-    get policyManagement(): PolicyManagement {
-        return (this._policyManagement ??= new PolicyManagement(this.options$));
-    }
+  private _policyManagement?: PolicyManagement;
+  get policyManagement(): PolicyManagement {
+    return (this._policyManagement ??= new PolicyManagement(this.options$));
+  }
 
-    private _pipeline?: Pipeline;
-    get pipeline(): Pipeline {
-        return (this._pipeline ??= new Pipeline(this.options$));
-    }
+  private _pipeline?: Pipeline;
+  get pipeline(): Pipeline {
+    return (this._pipeline ??= new Pipeline(this.options$));
+  }
 
-    private _project?: Project;
-    get project(): Project {
-        return (this._project ??= new Project(this.options$));
-    }
+  private _project?: Project;
+  get project(): Project {
+    return (this._project ??= new Project(this.options$));
+  }
 
-    private _schedule?: Schedule;
-    get schedule(): Schedule {
-        return (this._schedule ??= new Schedule(this.options$));
-    }
+  private _schedule?: Schedule;
+  get schedule(): Schedule {
+    return (this._schedule ??= new Schedule(this.options$));
+  }
 
-    private _webhook?: Webhook;
-    get webhook(): Webhook {
-        return (this._webhook ??= new Webhook(this.options$));
-    }
+  private _webhook?: Webhook;
+  get webhook(): Webhook {
+    return (this._webhook ??= new Webhook(this.options$));
+  }
 
-    private _workflow?: Workflow;
-    get workflow(): Workflow {
-        return (this._workflow ??= new Workflow(this.options$));
-    }
+  private _workflow?: Workflow;
+  get workflow(): Workflow {
+    return (this._workflow ??= new Workflow(this.options$));
+  }
 }

@@ -8,7 +8,7 @@ message response
 import { DeleteScheduleByIdMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteScheduleByIdMessageResponse = {
-    message: "<value>",
+  message: "<value>",
 };
 ```
 

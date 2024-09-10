@@ -5,27 +5,30 @@
 import * as z from "zod";
 
 export type BundlePayload = {
-    policies?: { [k: string]: string } | undefined;
+  policies?: { [k: string]: string } | undefined;
 };
 
 /** @internal */
-export const BundlePayload$inboundSchema: z.ZodType<BundlePayload, z.ZodTypeDef, unknown> =
-    z.object({
-        policies: z.record(z.string()).optional(),
-    });
+export const BundlePayload$inboundSchema: z.ZodType<
+  BundlePayload,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  policies: z.record(z.string()).optional(),
+});
 
 /** @internal */
 export type BundlePayload$Outbound = {
-    policies?: { [k: string]: string } | undefined;
+  policies?: { [k: string]: string } | undefined;
 };
 
 /** @internal */
 export const BundlePayload$outboundSchema: z.ZodType<
-    BundlePayload$Outbound,
-    z.ZodTypeDef,
-    BundlePayload
+  BundlePayload$Outbound,
+  z.ZodTypeDef,
+  BundlePayload
 > = z.object({
-    policies: z.record(z.string()).optional(),
+  policies: z.record(z.string()).optional(),
 });
 
 /**
@@ -33,10 +36,10 @@ export const BundlePayload$outboundSchema: z.ZodType<
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
 export namespace BundlePayload$ {
-    /** @deprecated use `BundlePayload$inboundSchema` instead. */
-    export const inboundSchema = BundlePayload$inboundSchema;
-    /** @deprecated use `BundlePayload$outboundSchema` instead. */
-    export const outboundSchema = BundlePayload$outboundSchema;
-    /** @deprecated use `BundlePayload$Outbound` instead. */
-    export type Outbound = BundlePayload$Outbound;
+  /** @deprecated use `BundlePayload$inboundSchema` instead. */
+  export const inboundSchema = BundlePayload$inboundSchema;
+  /** @deprecated use `BundlePayload$outboundSchema` instead. */
+  export const outboundSchema = BundlePayload$outboundSchema;
+  /** @deprecated use `BundlePayload$Outbound` instead. */
+  export type Outbound = BundlePayload$Outbound;
 }

@@ -8,14 +8,14 @@ A paginated list of contexts
 import { ListContextsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListContextsResponseBody = {
-    items: [
-        {
-            createdAt: new Date("2015-09-21T17:29:21.042Z"),
-            id: "3f9b77f3-a410-4067-8ebf-69280d1ba77a",
-            name: "<value>",
-        },
-    ],
-    nextPageToken: "<value>",
+  items: [
+    {
+      createdAt: new Date("2015-09-21T17:29:21.042Z"),
+      id: "3f9b77f3-a410-4067-8ebf-69280d1ba77a",
+      name: "<value>",
+    },
+  ],
+  nextPageToken: "<value>",
 };
 ```
 

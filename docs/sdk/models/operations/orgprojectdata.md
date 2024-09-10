@@ -6,19 +6,19 @@
 import { OrgProjectData } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: OrgProjectData = {
-    metrics: {
-        successRate: 8828.6,
-        totalCreditsUsed: 79522,
-        totalDurationSecs: 250622,
-        totalRuns: 89603,
-    },
-    projectName: "api-preview-docs",
-    trends: {
-        successRate: 6774.12,
-        totalCreditsUsed: 6720.48,
-        totalDurationSecs: 8104.24,
-        totalRuns: 2453.67,
-    },
+  metrics: {
+    successRate: 8828.6,
+    totalCreditsUsed: 79522,
+    totalDurationSecs: 250622,
+    totalRuns: 89603,
+  },
+  projectName: "api-preview-docs",
+  trends: {
+    successRate: 6774.12,
+    totalCreditsUsed: 6720.48,
+    totalDurationSecs: 8104.24,
+    totalRuns: 2453.67,
+  },
 };
 ```
 

@@ -8,8 +8,8 @@ The configuration strings for the pipeline.
 import { GetPipelineConfigByIdPipelineConfig } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPipelineConfigByIdPipelineConfig = {
-    compiled: "<value>",
-    source: "<value>",
+  compiled: "<value>",
+  source: "<value>",
 };
 ```
 

@@ -6,8 +6,8 @@
 import { GetProjectWorkflowTestMetricsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowTestMetricsRequest = {
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-    workflowName: "build-and-test",
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  workflowName: "build-and-test",
 };
 ```
 

@@ -9,7 +9,7 @@ The request is malformed (e.g, a given path parameter is invalid)
 import { GetDecisionSettingsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetDecisionSettingsResponseBody = {
-    error: "OwnerID: must be a valid UUID.",
+  error: "OwnerID: must be a valid UUID.",
 };
 ```
 

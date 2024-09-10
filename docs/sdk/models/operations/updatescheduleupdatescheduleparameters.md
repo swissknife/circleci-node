@@ -8,11 +8,11 @@ The parameters for an update schedule request
 import { UpdateScheduleUpdateScheduleParameters } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateScheduleUpdateScheduleParameters = {
-    attributionActor: "current",
-    parameters: {
-        deploy_prod: true,
-        branch: "feature/design-new-api",
-    },
+  attributionActor: "current",
+  parameters: {
+    "deploy_prod": true,
+    "branch": "feature/design-new-api",
+  },
 };
 ```
 

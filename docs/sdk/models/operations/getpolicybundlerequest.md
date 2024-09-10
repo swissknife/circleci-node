@@ -6,8 +6,8 @@
 import { GetPolicyBundleRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetPolicyBundleRequest = {
-    context: "<value>",
-    ownerID: "<value>",
+  context: "<value>",
+  ownerID: "<value>",
 };
 ```
 
