@@ -70,6 +70,10 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
+
 ### [context](docs/sdks/context/README.md)
 
 * [addEnvironmentVariableToContext](docs/sdks/context/README.md#addenvironmentvariabletocontext) - Add or update an environment variable
@@ -104,12 +108,6 @@ run();
 * [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
 * [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
 
-### [user](docs/sdks/user/README.md)
-
-* [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
-* [getCurrentUser](docs/sdks/user/README.md#getcurrentuser) - User Information
-* [getUser](docs/sdks/user/README.md#getuser) - User Information
-
 ### [oidcTokenManagement](docs/sdks/oidctokenmanagement/README.md)
 
 * [deleteOrgClaims](docs/sdks/oidctokenmanagement/README.md#deleteorgclaims) - Delete org-level claims
@@ -118,23 +116,6 @@ run();
 * [getProjectClaims](docs/sdks/oidctokenmanagement/README.md#getprojectclaims) - Get project-level claims
 * [patchOrgClaims](docs/sdks/oidctokenmanagement/README.md#patchorgclaims) - Patch org-level claims
 * [patchProjectClaims](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
-
-### [usage](docs/sdks/usage/README.md)
-
-* [createUsageExport](docs/sdks/usage/README.md#createusageexport) - Create a usage export
-* [getUsageExport](docs/sdks/usage/README.md#getusageexport) - Get a usage export
-
-### [policyManagement](docs/sdks/policymanagement/README.md)
-
-* [createPolicyBundle](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
-* [getDecisionLog](docs/sdks/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
-* [getDecisionLogPolicyBundle](docs/sdks/policymanagement/README.md#getdecisionlogpolicybundle) - Retrieves Policy Bundle for a given decision log ID
-* [getDecisionLogs](docs/sdks/policymanagement/README.md#getdecisionlogs) - Retrieves the owner's decision audit logs.
-* [getDecisionSettings](docs/sdks/policymanagement/README.md#getdecisionsettings) - Get the decision settings
-* [getPolicyBundle](docs/sdks/policymanagement/README.md#getpolicybundle) - Retrieves Policy Bundle
-* [getPolicyDocument](docs/sdks/policymanagement/README.md#getpolicydocument) - Retrieves a policy document
-* [makeDecision](docs/sdks/policymanagement/README.md#makedecision) - Makes a decision
-* [setDecisionSettings](docs/sdks/policymanagement/README.md#setdecisionsettings) - Set the decision settings
 
 ### [pipeline](docs/sdks/pipeline/README.md)
 
@@ -147,6 +128,18 @@ run();
 * [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 * [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
 * [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
+
+### [policyManagement](docs/sdks/policymanagement/README.md)
+
+* [createPolicyBundle](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
+* [getDecisionLog](docs/sdks/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
+* [getDecisionLogPolicyBundle](docs/sdks/policymanagement/README.md#getdecisionlogpolicybundle) - Retrieves Policy Bundle for a given decision log ID
+* [getDecisionLogs](docs/sdks/policymanagement/README.md#getdecisionlogs) - Retrieves the owner's decision audit logs.
+* [getDecisionSettings](docs/sdks/policymanagement/README.md#getdecisionsettings) - Get the decision settings
+* [getPolicyBundle](docs/sdks/policymanagement/README.md#getpolicybundle) - Retrieves Policy Bundle
+* [getPolicyDocument](docs/sdks/policymanagement/README.md#getpolicydocument) - Retrieves a policy document
+* [makeDecision](docs/sdks/policymanagement/README.md#makedecision) - Makes a decision
+* [setDecisionSettings](docs/sdks/policymanagement/README.md#setdecisionsettings) - Set the decision settings
 
 ### [project](docs/sdks/project/README.md)
 
@@ -171,6 +164,17 @@ run();
 * [listSchedulesForProject](docs/sdks/schedule/README.md#listschedulesforproject) - Get all schedules
 * [updateSchedule](docs/sdks/schedule/README.md#updateschedule) - Update a schedule
 
+### [usage](docs/sdks/usage/README.md)
+
+* [createUsageExport](docs/sdks/usage/README.md#createusageexport) - Create a usage export
+* [getUsageExport](docs/sdks/usage/README.md#getusageexport) - Get a usage export
+
+### [user](docs/sdks/user/README.md)
+
+* [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
+* [getCurrentUser](docs/sdks/user/README.md#getcurrentuser) - User Information
+* [getUser](docs/sdks/user/README.md#getuser) - User Information
+
 ### [webhook](docs/sdks/webhook/README.md)
 
 * [createWebhook](docs/sdks/webhook/README.md#createwebhook) - Create an outbound webhook
@@ -186,6 +190,8 @@ run();
 * [getWorkflowById](docs/sdks/workflow/README.md#getworkflowbyid) - Get a workflow
 * [listWorkflowJobs](docs/sdks/workflow/README.md#listworkflowjobs) - Get a workflow's jobs
 * [rerunWorkflow](docs/sdks/workflow/README.md#rerunworkflow) - Rerun a workflow
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
