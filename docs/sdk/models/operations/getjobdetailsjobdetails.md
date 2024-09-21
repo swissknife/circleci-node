@@ -13,13 +13,13 @@ let value: GetJobDetailsJobDetails = {
       name: "<value>",
     },
   ],
-  createdAt: new Date("2024-09-21T21:00:27.794Z"),
-  duration: 184362,
+  createdAt: new Date("2023-12-17T16:30:20.563Z"),
+  duration: 344289,
   executor: {
     resourceClass: "<value>",
   },
   latestWorkflow: {
-    id: "b6e3ab88-45f0-4597-a60f-f2a54a31e947",
+    id: "8d1c0dc0-a822-4c9f-aff1-f37c39211506",
     name: "build-and-test",
   },
   messages: [
@@ -29,29 +29,29 @@ let value: GetJobDetailsJobDetails = {
     },
   ],
   name: "<value>",
-  number: 403218,
+  number: 401688,
   organization: {
     name: "<value>",
   },
   parallelRuns: [
     {
-      index: 284000,
+      index: 85794,
       status: "<value>",
     },
   ],
-  parallelism: 633062,
+  parallelism: 62688,
   pipeline: {
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   },
   project: {
     externalUrl: "https://github.com/CircleCI-Public/api-preview-docs",
-    id: "3e865e79-56f9-4251-a5a9-da660ff57bfa",
+    id: "42f2c998-f5c8-46f9-916c-be4c79ffd5ea",
     name: "api-preview-docs",
     slug: "gh/CircleCI-Public/api-preview-docs",
   },
-  queuedAt: new Date("2024-01-07T13:22:04.726Z"),
-  startedAt: new Date("2024-06-10T02:34:07.582Z"),
-  status: "failed",
+  queuedAt: new Date("2022-02-09T04:10:31.873Z"),
+  startedAt: new Date("2024-04-24T01:27:00.644Z"),
+  status: "infrastructure_fail",
   webUrl: "<value>",
 };
 ```

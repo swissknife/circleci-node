@@ -8,13 +8,13 @@ Timetable that specifies when a schedule triggers.
 import { CreateScheduleTimetable } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleTimetable = {
-  daysOfWeek: [
-    "WED",
+  daysOfMonth: [
+    43270,
   ],
   hoursOfDay: [
-    898193,
+    800761,
   ],
-  perHour: 155978,
+  perHour: 377430,
 };
 ```
 

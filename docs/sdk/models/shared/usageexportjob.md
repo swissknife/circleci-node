@@ -7,12 +7,12 @@ import { UsageExportJob } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: UsageExportJob = {
   downloadUrls: [
-    "https://pretty-gorilla.info",
+    "https://infamous-flame.info/",
   ],
-  end: new Date("2022-02-02T01:56:34.519Z"),
-  start: new Date("2022-03-26T03:47:07.287Z"),
-  state: "processing",
-  usageExportJobId: "4e06f5bf-6ae5-491b-88bd-ef3612b63c20",
+  end: new Date("2023-02-14T00:32:46.921Z"),
+  start: new Date("2022-06-08T02:18:28.420Z"),
+  state: "created",
+  usageExportJobId: "17d1a6d5-b68c-4f28-a20b-f910560d7fe8",
 };
 ```
 

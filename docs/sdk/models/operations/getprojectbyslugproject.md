@@ -8,7 +8,7 @@ NOTE: The definition of Project is subject to change.
 import { GetProjectBySlugProject } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectBySlugProject = {
-  id: "8f197777-3e63-4562-a7b4-08f05e3d48fd",
+  id: "01374e5e-f734-4c46-b79f-354515e45fb8",
   name: "api-preview-docs",
   organizationId: "CircleCI-Public",
   organizationName: "CircleCI-Public",
@@ -16,7 +16,7 @@ let value: GetProjectBySlugProject = {
   slug: "gh/CircleCI-Public/api-preview-docs",
   vcsInfo: {
     defaultBranch: "main",
-    provider: "GitHub",
+    provider: "Bitbucket",
     vcsUrl: "https://github.com/CircleCI-Public/api-preview-docs",
   },
 };

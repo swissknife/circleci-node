@@ -11,13 +11,13 @@ let value: ListWorkflowJobsWorkflowJobListResponse = {
   items: [
     {
       dependencies: [
-        "06c8ca12-d025-4292-b0b8-d5722dd895b8",
+        "4eb7b662-84a6-4dc2-b9b8-1865953b3cf7",
       ],
-      id: "bcf24db9-5969-4335-af74-533994d78de3",
+      id: "2cf842e5-766c-4eaf-b39a-bc5e24794e71",
       name: "<value>",
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      startedAt: new Date("2024-02-25T14:34:33.243Z"),
-      status: "queued",
+      startedAt: new Date("2024-11-24T03:17:57.386Z"),
+      status: "retried",
       type: "approval",
     },
   ],

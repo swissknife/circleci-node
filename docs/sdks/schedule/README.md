@@ -40,7 +40,7 @@ async function run() {
           708775,
         ],
         hoursOfDay: [
-          67744,
+          548467,
         ],
         perHour: 67744,
       },
@@ -82,10 +82,10 @@ async function run() {
       },
       timetable: {
         daysOfMonth: [
-          169093,
+          686972,
         ],
         hoursOfDay: [
-          856459,
+          368424,
         ],
         perHour: 67744,
       },

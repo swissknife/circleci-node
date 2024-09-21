@@ -11,13 +11,13 @@ let value: GetProjectWorkflowRunsResponseBody = {
   items: [
     {
       branch: "main",
-      createdAt: new Date("2023-07-27T12:26:04.164Z"),
-      creditsUsed: 15606,
-      duration: 513075,
-      id: "6a184039-4c26-4071-b93f-5f0642dac7af",
+      createdAt: new Date("2024-03-19T01:22:32.739Z"),
+      creditsUsed: 5152,
+      duration: 694158,
+      id: "eb2725ee-459f-424d-b7e2-855765ebb49c",
       isApproval: false,
       status: "failed",
-      stoppedAt: new Date("2022-03-13T13:45:42.625Z"),
+      stoppedAt: new Date("2024-04-24T21:02:13.160Z"),
     },
   ],
   nextPageToken: "<value>",

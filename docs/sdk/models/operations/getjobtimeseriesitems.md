@@ -6,25 +6,25 @@
 import { GetJobTimeseriesItems } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetJobTimeseriesItems = {
-  maxEndedAt: new Date("2022-01-15T12:10:56.211Z"),
+  maxEndedAt: new Date("2023-02-01T23:01:15.623Z"),
   metrics: {
     durationMetrics: {
-      max: 974259,
-      median: 347233,
-      min: 862310,
-      p95: 148141,
-      total: 780427,
+      max: 470649,
+      median: 378245,
+      min: 979527,
+      p95: 174658,
+      total: 327988,
     },
-    failedRuns: 981830,
-    medianCreditsUsed: 985033,
-    successfulRuns: 478370,
-    throughput: 7535.7,
-    totalCreditsUsed: 497391,
-    totalRuns: 4048,
+    failedRuns: 680349,
+    medianCreditsUsed: 63207,
+    successfulRuns: 607249,
+    throughput: 4776.47,
+    totalCreditsUsed: 284000,
+    totalRuns: 238413,
   },
-  minStartedAt: new Date("2023-12-02T20:41:06.265Z"),
+  minStartedAt: new Date("2023-07-18T21:44:35.519Z"),
   name: "build-and-test",
-  timestamp: new Date("2022-10-23T08:23:13.536Z"),
+  timestamp: new Date("2023-02-08T05:58:01.482Z"),
 };
 ```
 

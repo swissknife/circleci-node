@@ -8,7 +8,7 @@ A pipeline creation response.
 import { TriggerPipelinePipelineCreation } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: TriggerPipelinePipelineCreation = {
-  createdAt: new Date("2022-11-21T08:39:52.285Z"),
+  createdAt: new Date("2022-04-18T16:21:56.604Z"),
   id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   number: 25,
   state: "errored",

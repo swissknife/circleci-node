@@ -12,9 +12,9 @@ let value: GetScheduleByIdTimetable = {
     "FRI",
   ],
   hoursOfDay: [
-    24769,
+    799306,
   ],
-  perHour: 694728,
+  perHour: 203356,
 };
 ```
 

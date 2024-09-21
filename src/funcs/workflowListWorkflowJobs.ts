@@ -3,9 +3,9 @@
  */
 
 import { CircleciCore } from "../core.js";
-import { encodeSimple as encodeSimple$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -28,7 +28,7 @@ import { Result } from "../sdk/types/fp.js";
  * Returns a sequence of jobs for a workflow.
  */
 export async function workflowListWorkflowJobs(
-  client$: CircleciCore,
+  client: CircleciCore,
   request: operations.ListWorkflowJobsRequest,
   options?: RequestOptions,
 ): Promise<
@@ -43,58 +43,58 @@ export async function workflowListWorkflowJobs(
     | ConnectionError
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) => operations.ListWorkflowJobsRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    input,
+    (value) => operations.ListWorkflowJobsRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    id: encodeSimple$("id", payload$.id, {
+  const pathParams = {
+    id: encodeSimple("id", payload.id, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc("/workflow/{id}/job")(pathParams$);
+  const path = pathToFunc("/workflow/{id}/job")(pathParams);
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const security$ = await extractSecurity(client$.options$.security);
+  const securityInput = await extractSecurity(client._options.security);
   const context = {
     operationID: "listWorkflowJobs",
     oAuth2Scopes: [],
-    securitySource: client$.options$.security,
+    securitySource: client._options.security,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
-    path: path$,
-    headers: headers$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: [],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -102,7 +102,7 @@ export async function workflowListWorkflowJobs(
   }
   const response = doResult.value;
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     operations.ListWorkflowJobsResponse,
     | SDKError
     | SDKValidationError
@@ -112,12 +112,12 @@ export async function workflowListWorkflowJobs(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, operations.ListWorkflowJobsResponse$inboundSchema),
-    m$.json("default", operations.ListWorkflowJobsResponse$inboundSchema),
+    M.json(200, operations.ListWorkflowJobsResponse$inboundSchema),
+    M.json("default", operations.ListWorkflowJobsResponse$inboundSchema),
   )(response);
-  if (!result$.ok) {
-    return result$;
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

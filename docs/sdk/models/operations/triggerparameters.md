@@ -5,7 +5,7 @@
 ```typescript
 import { TriggerParameters } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: TriggerParameters = 863471;
+let value: TriggerParameters = "<value>";
 ```
 
 ## Supported Types

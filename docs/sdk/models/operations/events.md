@@ -5,7 +5,7 @@
 ```typescript
 import { Events } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: Events = "workflow-completed";
+let value: Events = "job-completed";
 ```
 
 ## Values

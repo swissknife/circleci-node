@@ -7,14 +7,14 @@ import { SlowestTests } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: SlowestTests = {
   classname: "<value>",
-  failedRuns: 381760,
+  failedRuns: 486410,
   file: "<value>",
   flaky: false,
   jobName: "<value>",
-  p95Duration: 9689.72,
+  p95Duration: 4483.69,
   source: "<value>",
   testName: "<value>",
-  totalRuns: 697142,
+  totalRuns: 567846,
 };
 ```
 

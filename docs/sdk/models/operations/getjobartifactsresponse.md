@@ -5,7 +5,16 @@
 ```typescript
 import { GetJobArtifactsResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetJobArtifactsResponse = {};
+let value: GetJobArtifactsResponse = {
+  items: [
+    {
+      nodeIndex: 638390,
+      path: "/lost+found",
+      url: "https://shadowy-filter.net",
+    },
+  ],
+  nextPageToken: "<value>",
+};
 ```
 
 ## Supported Types

@@ -7,12 +7,12 @@ import { GetScheduleById1 } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetScheduleById1 = {
   daysOfWeek: [
-    "SUN",
+    "THU",
   ],
   hoursOfDay: [
-    845154,
+    952937,
   ],
-  perHour: 366480,
+  perHour: 288348,
 };
 ```
 

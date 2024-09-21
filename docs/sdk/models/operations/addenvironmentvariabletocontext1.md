@@ -6,7 +6,7 @@
 import { AddEnvironmentVariableToContext1 } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: AddEnvironmentVariableToContext1 = {
-  contextId: "a05dfc2d-df7c-4c78-8a1b-a928fc816742",
+  contextId: "c790999f-a56b-40aa-8325-597f132a4732",
   createdAt: new Date("2015-09-21T17:29:21.042Z"),
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
   variable: "POSTGRES_USER",

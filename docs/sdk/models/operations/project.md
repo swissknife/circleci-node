@@ -9,7 +9,7 @@ import { Project } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Project = {
   externalUrl: "https://github.com/CircleCI-Public/api-preview-docs",
-  id: "63f94e29-e973-4e92-aa57-a15be3e06080",
+  id: "79fb64f2-bea6-435b-baed-de4568a4064f",
   name: "api-preview-docs",
   slug: "gh/CircleCI-Public/api-preview-docs",
 };

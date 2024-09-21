@@ -6,7 +6,7 @@
 import { DeleteEnvironmentVariableFromContextRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteEnvironmentVariableFromContextRequest = {
-  contextId: "4469b6e2-1419-4598-90af-a563e2516fe4",
+  contextId: "89f4310e-ac49-417f-be5f-3ffcad4d9052",
   envVarName: "POSTGRES_USER",
 };
 ```

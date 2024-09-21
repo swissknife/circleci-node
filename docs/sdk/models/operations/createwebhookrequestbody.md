@@ -13,11 +13,11 @@ let value: CreateWebhookRequestBody = {
   ],
   name: "<value>",
   scope: {
-    id: "a910abdc-ab62-4676-a96e-1ec00221b335",
+    id: "0c0f6f54-5b3d-49ff-a2f0-0ff277dac7ab",
     type: "project",
   },
   signingSecret: "<value>",
-  url: "https://lucky-numismatist.name",
+  url: "https://buzzing-freezing.com/",
   verifyTls: false,
 };
 ```

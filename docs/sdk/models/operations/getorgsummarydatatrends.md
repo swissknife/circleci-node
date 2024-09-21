@@ -8,10 +8,10 @@ Trends for a single project, across all branches.
 import { GetOrgSummaryDataTrends } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetOrgSummaryDataTrends = {
-  successRate: 5334.66,
-  totalCreditsUsed: 7705.81,
-  totalDurationSecs: 3045.82,
-  totalRuns: 1469.46,
+  successRate: 972.58,
+  totalCreditsUsed: 4977.77,
+  totalDurationSecs: 5810.82,
+  totalRuns: 2415.57,
 };
 ```
 

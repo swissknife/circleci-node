@@ -5,10 +5,7 @@
 ```typescript
 import { GetPipelineConfigByIdResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetPipelineConfigByIdResponse = {
-  compiled: "<value>",
-  source: "<value>",
-};
+let value: GetPipelineConfigByIdResponse = {};
 ```
 
 ## Supported Types

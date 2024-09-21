@@ -3,12 +3,9 @@
  */
 
 import { CircleciCore } from "../core.js";
-import {
-  encodeFormQuery as encodeFormQuery$,
-  encodeSimple as encodeSimple$,
-} from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -31,7 +28,7 @@ import { Result } from "../sdk/types/fp.js";
  * Deletes org-level custom claims of OIDC identity tokens
  */
 export async function oidcTokenManagementDeleteOrgClaims(
-  client$: CircleciCore,
+  client: CircleciCore,
   request: operations.DeleteOrgClaimsRequest,
   options?: RequestOptions,
 ): Promise<
@@ -46,63 +43,63 @@ export async function oidcTokenManagementDeleteOrgClaims(
     | ConnectionError
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) => operations.DeleteOrgClaimsRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    input,
+    (value) => operations.DeleteOrgClaimsRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    orgID: encodeSimple$("orgID", payload$.orgID, {
+  const pathParams = {
+    orgID: encodeSimple("orgID", payload.orgID, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc("/org/{orgID}/oidc-custom-claims")(pathParams$);
+  const path = pathToFunc("/org/{orgID}/oidc-custom-claims")(pathParams);
 
-  const query$ = encodeFormQuery$({
-    "claims": payload$.claims,
+  const query = encodeFormQuery({
+    "claims": payload.claims,
   });
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const security$ = await extractSecurity(client$.options$.security);
+  const securityInput = await extractSecurity(client._options.security);
   const context = {
     operationID: "DeleteOrgClaims",
     oAuth2Scopes: [],
-    securitySource: client$.options$.security,
+    securitySource: client._options.security,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "DELETE",
-    path: path$,
-    headers: headers$,
-    query: query$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    query: query,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: [],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -110,7 +107,7 @@ export async function oidcTokenManagementDeleteOrgClaims(
   }
   const response = doResult.value;
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     operations.DeleteOrgClaimsResponse,
     | SDKError
     | SDKValidationError
@@ -120,12 +117,12 @@ export async function oidcTokenManagementDeleteOrgClaims(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, operations.DeleteOrgClaimsResponse$inboundSchema),
-    m$.json([400, 403, 500], operations.DeleteOrgClaimsResponse$inboundSchema),
+    M.json(200, operations.DeleteOrgClaimsResponse$inboundSchema),
+    M.json([400, 403, 500], operations.DeleteOrgClaimsResponse$inboundSchema),
   )(response);
-  if (!result$.ok) {
-    return result$;
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

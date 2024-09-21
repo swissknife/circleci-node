@@ -6,8 +6,8 @@
 import { PatchProjectClaimsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: PatchProjectClaimsRequest = {
-  orgID: "92443da7-ce52-4b89-9c53-7c6454efb0b3",
-  projectID: "4896c3ca-5acf-4be2-bd57-07577929177d",
+  orgID: "3cec1034-96b5-425e-9f3c-4e2a1fbd9798",
+  projectID: "c22651dc-8f1c-4453-8c2d-a0caeb8d484f",
 };
 ```
 

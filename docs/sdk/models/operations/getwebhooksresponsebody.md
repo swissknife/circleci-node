@@ -14,15 +14,15 @@ let value: GetWebhooksResponseBody = {
       events: [
         "job-completed",
       ],
-      id: "e12c6891-f82c-4e11-9717-2305377dcfa8",
+      id: "7e016119-3aed-431f-af57-2b6c905cbaa9",
       name: "<value>",
       scope: {
-        id: "9df975e3-5668-4609-ae9c-3ddc5f111dea",
+        id: "98c57635-0561-4333-a52b-5192026ba0c5",
         type: "<value>",
       },
       signingSecret: "<value>",
       updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-      url: "http://anchored-celebrity.info",
+      url: "https://immaculate-aftermath.net/",
       verifyTls: false,
     },
   ],

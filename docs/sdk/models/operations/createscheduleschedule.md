@@ -9,13 +9,13 @@ import { CreateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleSchedule = {
   actor: {
-    id: "169e5100-19c6-4dc5-a347-62799bfbbe69",
-    login: "Diana_Mertz13",
+    id: "a7bb3ad3-caf4-4244-9cba-3df8a84453ed",
+    login: "Frederique_Fadel5",
     name: "<value>",
   },
-  createdAt: new Date("2024-03-06T11:00:53.005Z"),
-  description: "Re-contextualized directional system engine",
-  id: "cae6c3d5-db3a-4deb-95da-ea4c506a8aa9",
+  createdAt: new Date("2023-10-25T00:19:28.038Z"),
+  description: "Programmable logistical strategy",
+  id: "fc7d1a82-f59e-481d-85fe-d5cf870bd358",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -24,14 +24,14 @@ let value: CreateScheduleSchedule = {
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
     daysOfWeek: [
-      "WED",
+      "SUN",
     ],
     hoursOfDay: [
-      19462,
+      261219,
     ],
-    perHour: 143528,
+    perHour: 406037,
   },
-  updatedAt: new Date("2023-03-14T13:08:44.183Z"),
+  updatedAt: new Date("2023-05-14T00:10:37.867Z"),
 };
 ```
 

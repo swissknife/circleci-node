@@ -10,9 +10,9 @@ import { GetJobArtifactsArtifactListResponse } from "circleci-v2-sdk/sdk/models/
 let value: GetJobArtifactsArtifactListResponse = {
   items: [
     {
-      nodeIndex: 383103,
-      path: "/usr/X11R6",
-      url: "https://bright-inhibition.biz",
+      nodeIndex: 603323,
+      path: "/etc/mail",
+      url: "https://acceptable-council.org",
     },
   ],
   nextPageToken: "<value>",

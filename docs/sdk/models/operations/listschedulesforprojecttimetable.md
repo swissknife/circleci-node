@@ -9,12 +9,12 @@ import { ListSchedulesForProjectTimetable } from "circleci-v2-sdk/sdk/models/ope
 
 let value: ListSchedulesForProjectTimetable = {
   daysOfMonth: [
-    642234,
+    335303,
   ],
   hoursOfDay: [
-    620126,
+    104990,
   ],
-  perHour: 763869,
+  perHour: 392692,
 };
 ```
 

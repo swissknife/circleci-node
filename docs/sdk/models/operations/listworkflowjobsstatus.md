@@ -7,7 +7,7 @@ The current status of the job.
 ```typescript
 import { ListWorkflowJobsStatus } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListWorkflowJobsStatus = "terminated-unknown";
+let value: ListWorkflowJobsStatus = "not_run";
 ```
 
 ## Values

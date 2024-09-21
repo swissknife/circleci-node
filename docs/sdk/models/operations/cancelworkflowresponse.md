@@ -5,7 +5,9 @@
 ```typescript
 import { CancelWorkflowResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: CancelWorkflowResponse = {};
+let value: CancelWorkflowResponse = {
+  message: "<value>",
+};
 ```
 
 ## Supported Types

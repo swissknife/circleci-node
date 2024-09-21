@@ -6,7 +6,7 @@
 import { GetScheduleByIdRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetScheduleByIdRequest = {
-  scheduleId: "901c6ecb-b4e2-443c-b789-ffafeda53e5a",
+  scheduleId: "1abd87fc-85d7-417d-a709-fd9ed79bd0c7",
 };
 ```
 

@@ -8,16 +8,16 @@ import { ProjectWorkflowBranchData } from "circleci-v2-sdk/sdk/models/operations
 let value: ProjectWorkflowBranchData = {
   branch: "main",
   metrics: {
-    p95DurationSecs: 9944.01,
-    successRate: 7079.18,
-    totalCreditsUsed: 451822,
-    totalRuns: 709072,
+    p95DurationSecs: 1623.58,
+    successRate: 2908.41,
+    totalCreditsUsed: 179795,
+    totalRuns: 345506,
   },
   trends: {
-    p95DurationSecs: 708.69,
-    successRate: 6117.49,
-    totalCreditsUsed: 2927.94,
-    totalRuns: 6719.07,
+    p95DurationSecs: 4800.61,
+    successRate: 5221.76,
+    totalCreditsUsed: 8536.06,
+    totalRuns: 8894.48,
   },
   workflowName: "build-and-test",
 };

@@ -9,12 +9,12 @@ import { Timetable } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Timetable = {
   daysOfMonth: [
-    198911,
+    35107,
   ],
   hoursOfDay: [
-    412433,
+    933847,
   ],
-  perHour: 956124,
+  perHour: 773854,
 };
 ```
 

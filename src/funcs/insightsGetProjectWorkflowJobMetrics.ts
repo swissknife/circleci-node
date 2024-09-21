@@ -3,12 +3,9 @@
  */
 
 import { CircleciCore } from "../core.js";
-import {
-  encodeFormQuery as encodeFormQuery$,
-  encodeSimple as encodeSimple$,
-} from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -31,7 +28,7 @@ import { Result } from "../sdk/types/fp.js";
  * Get summary metrics for a project workflow's jobs. Job runs going back at most 90 days are included in the aggregation window. Metrics are refreshed daily, and thus may not include executions from the last 24 hours. Please note that Insights is not a financial reporting tool and should not be used for precise credit reporting.  Credit reporting from Insights does not use the same source of truth as the billing information that is found in the Plan Overview page in the CircleCI UI, nor does the underlying data have the same data accuracy guarantees as the billing information in the CircleCI UI.  This may lead to discrepancies between credits reported from Insights and the billing information in the Plan Overview page of the CircleCI UI.  For precise credit reporting, always use the Plan Overview page in the CircleCI UI.
  */
 export async function insightsGetProjectWorkflowJobMetrics(
-  client$: CircleciCore,
+  client: CircleciCore,
   request: operations.GetProjectWorkflowJobMetricsRequest,
   options?: RequestOptions,
 ): Promise<
@@ -46,76 +43,76 @@ export async function insightsGetProjectWorkflowJobMetrics(
     | ConnectionError
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) =>
+  const parsed = safeParse(
+    input,
+    (value) =>
       operations.GetProjectWorkflowJobMetricsRequest$outboundSchema.parse(
-        value$,
+        value,
       ),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    "project-slug": encodeSimple$("project-slug", payload$["project-slug"], {
+  const pathParams = {
+    "project-slug": encodeSimple("project-slug", payload["project-slug"], {
       explode: false,
       charEncoding: "percent",
     }),
-    "workflow-name": encodeSimple$("workflow-name", payload$["workflow-name"], {
+    "workflow-name": encodeSimple("workflow-name", payload["workflow-name"], {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc(
+  const path = pathToFunc(
     "/insights/{project-slug}/workflows/{workflow-name}/jobs",
-  )(pathParams$);
+  )(pathParams);
 
-  const query$ = encodeFormQuery$({
-    "all-branches": payload$["all-branches"],
-    "branch": payload$.branch,
-    "job-name": payload$["job-name"],
-    "page-token": payload$["page-token"],
-    "reporting-window": payload$["reporting-window"],
+  const query = encodeFormQuery({
+    "all-branches": payload["all-branches"],
+    "branch": payload.branch,
+    "job-name": payload["job-name"],
+    "page-token": payload["page-token"],
+    "reporting-window": payload["reporting-window"],
   });
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const security$ = await extractSecurity(client$.options$.security);
+  const securityInput = await extractSecurity(client._options.security);
   const context = {
     operationID: "getProjectWorkflowJobMetrics",
     oAuth2Scopes: [],
-    securitySource: client$.options$.security,
+    securitySource: client._options.security,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
-    path: path$,
-    headers: headers$,
-    query: query$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    query: query,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: [],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -123,7 +120,7 @@ export async function insightsGetProjectWorkflowJobMetrics(
   }
   const response = doResult.value;
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     operations.GetProjectWorkflowJobMetricsResponse,
     | SDKError
     | SDKValidationError
@@ -133,15 +130,15 @@ export async function insightsGetProjectWorkflowJobMetrics(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, operations.GetProjectWorkflowJobMetricsResponse$inboundSchema),
-    m$.json(
+    M.json(200, operations.GetProjectWorkflowJobMetricsResponse$inboundSchema),
+    M.json(
       "default",
       operations.GetProjectWorkflowJobMetricsResponse$inboundSchema,
     ),
   )(response);
-  if (!result$.ok) {
-    return result$;
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

@@ -5,7 +5,7 @@
 ```typescript
 import { UpdateWebhookWebhookEvents } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: UpdateWebhookWebhookEvents = "workflow-completed";
+let value: UpdateWebhookWebhookEvents = "job-completed";
 ```
 
 ## Values

@@ -7,7 +7,7 @@ Type of the restriction
 ```typescript
 import { RestrictionType } from "circleci-v2-sdk/sdk/models/shared";
 
-let value: RestrictionType = "expression";
+let value: RestrictionType = "project";
 ```
 
 ## Values

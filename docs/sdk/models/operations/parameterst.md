@@ -5,7 +5,7 @@
 ```typescript
 import { ParametersT } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ParametersT = 918547;
+let value: ParametersT = "<value>";
 ```
 
 ## Supported Types

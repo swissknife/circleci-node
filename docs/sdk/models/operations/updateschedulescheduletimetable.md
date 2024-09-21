@@ -12,9 +12,9 @@ let value: UpdateScheduleScheduleTimetable = {
     "WED",
   ],
   hoursOfDay: [
-    601277,
+    670710,
   ],
-  perHour: 1116,
+  perHour: 890688,
 };
 ```
 

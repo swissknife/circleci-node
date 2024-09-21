@@ -9,13 +9,13 @@ import { UpdateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateScheduleSchedule = {
   actor: {
-    id: "c364b7c1-5dfb-4ace-988b-1c4ee2c8c6ce",
-    login: "Gunnar98",
+    id: "f11c23ef-5dd9-4994-9932-6b9fa22139de",
+    login: "Keegan_Hahn",
     name: "<value>",
   },
-  createdAt: new Date("2024-10-17T05:47:22.107Z"),
-  description: "Synergized neutral approach",
-  id: "c7cbdb6e-ec74-4378-ba25-317747dc915a",
+  createdAt: new Date("2022-07-09T16:29:33.851Z"),
+  description: "Multi-lateral foreground help-desk",
+  id: "3243bb91-9105-439e-9bcf-a99d6ca403b9",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -23,15 +23,15 @@ let value: UpdateScheduleSchedule = {
   },
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
-    daysOfMonth: [
-      147989,
+    daysOfWeek: [
+      "THU",
     ],
     hoursOfDay: [
-      804879,
+      127086,
     ],
-    perHour: 681115,
+    perHour: 432280,
   },
-  updatedAt: new Date("2024-12-30T04:43:36.340Z"),
+  updatedAt: new Date("2023-04-02T14:53:00.063Z"),
 };
 ```
 

@@ -6,14 +6,14 @@
 import { TestRuns } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: TestRuns = {
-  pipelineNumber: 241545,
-  successRate: 2494.2,
+  pipelineNumber: 416692,
+  successRate: 8108.39,
   testCounts: {
-    error: 228263,
-    failure: 105906,
-    skipped: 489509,
-    success: 950953,
-    total: 891523,
+    error: 348192,
+    failure: 211455,
+    skipped: 59383,
+    success: 876027,
+    total: 918547,
   },
   workflowId: "<value>",
 };

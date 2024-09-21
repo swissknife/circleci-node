@@ -3,12 +3,9 @@
  */
 
 import { CircleciCore } from "../core.js";
-import {
-  encodeFormQuery as encodeFormQuery$,
-  encodeSimple as encodeSimple$,
-} from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeFormQuery, encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -31,7 +28,7 @@ import { Result } from "../sdk/types/fp.js";
  * Get the metrics and trends for a particular workflow on a single branch or all branches
  */
 export async function insightsGetWorkflowSummary(
-  client$: CircleciCore,
+  client: CircleciCore,
   request: operations.GetWorkflowSummaryRequest,
   options?: RequestOptions,
 ): Promise<
@@ -46,71 +43,70 @@ export async function insightsGetWorkflowSummary(
     | ConnectionError
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) =>
-      operations.GetWorkflowSummaryRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    input,
+    (value) => operations.GetWorkflowSummaryRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    "project-slug": encodeSimple$("project-slug", payload$["project-slug"], {
+  const pathParams = {
+    "project-slug": encodeSimple("project-slug", payload["project-slug"], {
       explode: false,
       charEncoding: "percent",
     }),
-    "workflow-name": encodeSimple$("workflow-name", payload$["workflow-name"], {
+    "workflow-name": encodeSimple("workflow-name", payload["workflow-name"], {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc(
+  const path = pathToFunc(
     "/insights/{project-slug}/workflows/{workflow-name}/summary",
-  )(pathParams$);
+  )(pathParams);
 
-  const query$ = encodeFormQuery$({
-    "all-branches": payload$["all-branches"],
-    "branch": payload$.branch,
+  const query = encodeFormQuery({
+    "all-branches": payload["all-branches"],
+    "branch": payload.branch,
   });
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const security$ = await extractSecurity(client$.options$.security);
+  const securityInput = await extractSecurity(client._options.security);
   const context = {
     operationID: "getWorkflowSummary",
     oAuth2Scopes: [],
-    securitySource: client$.options$.security,
+    securitySource: client._options.security,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
-    path: path$,
-    headers: headers$,
-    query: query$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    query: query,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: [],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -118,7 +114,7 @@ export async function insightsGetWorkflowSummary(
   }
   const response = doResult.value;
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     operations.GetWorkflowSummaryResponse,
     | SDKError
     | SDKValidationError
@@ -128,12 +124,12 @@ export async function insightsGetWorkflowSummary(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, operations.GetWorkflowSummaryResponse$inboundSchema),
-    m$.json("default", operations.GetWorkflowSummaryResponse$inboundSchema),
+    M.json(200, operations.GetWorkflowSummaryResponse$inboundSchema),
+    M.json("default", operations.GetWorkflowSummaryResponse$inboundSchema),
   )(response);
-  if (!result$.ok) {
-    return result$;
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

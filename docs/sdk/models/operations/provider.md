@@ -7,7 +7,7 @@ The VCS provider
 ```typescript
 import { Provider } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: Provider = "GitHub";
+let value: Provider = "Bitbucket";
 ```
 
 ## Values

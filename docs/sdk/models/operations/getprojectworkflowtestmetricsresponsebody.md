@@ -8,50 +8,50 @@ Project level test metrics response
 import { GetProjectWorkflowTestMetricsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectWorkflowTestMetricsResponseBody = {
-  averageTestCount: 233420,
+  averageTestCount: 120120,
   mostFailedTests: [
     {
       classname: "<value>",
-      failedRuns: 358107,
+      failedRuns: 334474,
       file: "<value>",
       flaky: false,
       jobName: "<value>",
-      p95Duration: 6897.68,
+      p95Duration: 1753.72,
       source: "<value>",
       testName: "<value>",
-      totalRuns: 385237,
+      totalRuns: 115898,
     },
   ],
-  mostFailedTestsExtra: 58356,
+  mostFailedTestsExtra: 899867,
   slowestTests: [
     {
       classname: "<value>",
-      failedRuns: 916727,
+      failedRuns: 56877,
       file: "<value>",
       flaky: false,
       jobName: "<value>",
-      p95Duration: 7307.09,
+      p95Duration: 9804.86,
       source: "<value>",
       testName: "<value>",
-      totalRuns: 113816,
+      totalRuns: 96450,
     },
   ],
-  slowestTestsExtra: 881721,
+  slowestTestsExtra: 863471,
   testRuns: [
     {
-      pipelineNumber: 631126,
-      successRate: 2724.37,
+      pipelineNumber: 566506,
+      successRate: 3679.17,
       testCounts: {
-        error: 132815,
-        failure: 379057,
-        skipped: 374244,
-        success: 374296,
-        total: 324405,
+        error: 342342,
+        failure: 757364,
+        skipped: 314573,
+        success: 657319,
+        total: 517326,
       },
       workflowId: "<value>",
     },
   ],
-  totalTestRuns: 748789,
+  totalTestRuns: 484966,
 };
 ```
 

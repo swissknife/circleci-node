@@ -12,15 +12,15 @@ let value: UpdateWebhookWebhook = {
   events: [
     "workflow-completed",
   ],
-  id: "0e9b200c-e78a-41bd-8fb7-a0a116ce723d",
+  id: "5a697cdd-9970-4417-9d9a-342d48215559",
   name: "<value>",
   scope: {
-    id: "4097fa30-e9af-4725-b291-22030d83f5ae",
+    id: "c15a9174-a2a7-44b3-820d-781158b7d606",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://lazy-koala.name",
+  url: "https://worthy-story.biz/",
   verifyTls: false,
 };
 ```

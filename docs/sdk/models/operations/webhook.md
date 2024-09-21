@@ -10,15 +10,15 @@ let value: Webhook = {
   events: [
     "job-completed",
   ],
-  id: "35724cdb-0f4d-4281-987d-56844eded85a",
+  id: "1623380f-80a4-41d3-810b-a03b2937d4a7",
   name: "<value>",
   scope: {
-    id: "9065e628-bdfc-4203-ab6c-879923b7e135",
+    id: "5dfd25d8-cc15-47fe-9616-8e44a8327ccf",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://firsthand-working.info",
+  url: "https://able-someplace.name/",
   verifyTls: false,
 };
 ```

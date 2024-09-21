@@ -8,7 +8,7 @@ import { GetCollaborationsResponse } from "circleci-v2-sdk/sdk/models/operations
 let value: GetCollaborationsResponse = [
   {
     avatarUrl: "<value>",
-    id: "e9fe6c63-2ca3-4aed-8117-996312fde047",
+    id: "ecb062db-efcf-4900-85dd-f10e48f6a6c8",
     name: "<value>",
     slug: "<value>",
     vcsType: "<value>",

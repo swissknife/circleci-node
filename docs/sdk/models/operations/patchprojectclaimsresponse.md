@@ -6,7 +6,7 @@
 import { PatchProjectClaimsResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: PatchProjectClaimsResponse = {
-  error: "OwnerID: must be a valid UUID.",
+  orgId: "5808db9f-fd97-409f-9d52-cbfd817584dd",
 };
 ```
 

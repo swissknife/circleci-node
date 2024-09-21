@@ -9,21 +9,21 @@ import { GetProjectWorkflowMetricsMetrics } from "circleci-v2-sdk/sdk/models/ope
 
 let value: GetProjectWorkflowMetricsMetrics = {
   durationMetrics: {
-    max: 93459,
-    mean: 904045,
-    median: 426306,
-    min: 690025,
-    p95: 473221,
-    standardDeviation: 6996.22,
+    max: 549501,
+    mean: 930819,
+    median: 520761,
+    min: 267207,
+    p95: 877399,
+    standardDeviation: 3719.19,
   },
-  failedRuns: 580197,
-  mttr: 327720,
-  successRate: 7162.44,
-  successfulRuns: 756779,
-  throughput: 270.69,
-  totalCreditsUsed: 636061,
-  totalRecoveries: 731398,
-  totalRuns: 240020,
+  failedRuns: 1383,
+  mttr: 247685,
+  successRate: 3182.34,
+  successfulRuns: 858778,
+  throughput: 4585.03,
+  totalCreditsUsed: 444587,
+  totalRecoveries: 336102,
+  totalRuns: 880679,
 };
 ```
 

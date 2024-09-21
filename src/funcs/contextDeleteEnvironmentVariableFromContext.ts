@@ -3,9 +3,9 @@
  */
 
 import { CircleciCore } from "../core.js";
-import { encodeSimple as encodeSimple$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -28,7 +28,7 @@ import { Result } from "../sdk/types/fp.js";
  * Delete an environment variable from a context.
  */
 export async function contextDeleteEnvironmentVariableFromContext(
-  client$: CircleciCore,
+  client: CircleciCore,
   request: operations.DeleteEnvironmentVariableFromContextRequest,
   options?: RequestOptions,
 ): Promise<
@@ -43,66 +43,66 @@ export async function contextDeleteEnvironmentVariableFromContext(
     | ConnectionError
   >
 > {
-  const input$ = request;
+  const input = request;
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) =>
+  const parsed = safeParse(
+    input,
+    (value) =>
       operations.DeleteEnvironmentVariableFromContextRequest$outboundSchema
-        .parse(value$),
+        .parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    "context-id": encodeSimple$("context-id", payload$["context-id"], {
+  const pathParams = {
+    "context-id": encodeSimple("context-id", payload["context-id"], {
       explode: false,
       charEncoding: "percent",
     }),
-    "env-var-name": encodeSimple$("env-var-name", payload$["env-var-name"], {
+    "env-var-name": encodeSimple("env-var-name", payload["env-var-name"], {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc(
+  const path = pathToFunc(
     "/context/{context-id}/environment-variable/{env-var-name}",
-  )(pathParams$);
+  )(pathParams);
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const security$ = await extractSecurity(client$.options$.security);
+  const securityInput = await extractSecurity(client._options.security);
   const context = {
     operationID: "deleteEnvironmentVariableFromContext",
     oAuth2Scopes: [],
-    securitySource: client$.options$.security,
+    securitySource: client._options.security,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "DELETE",
-    path: path$,
-    headers: headers$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: [],
     retryConfig: options?.retries
-      || client$.options$.retryConfig,
+      || client._options.retryConfig,
     retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
   });
   if (!doResult.ok) {
@@ -110,7 +110,7 @@ export async function contextDeleteEnvironmentVariableFromContext(
   }
   const response = doResult.value;
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     operations.DeleteEnvironmentVariableFromContextResponse,
     | SDKError
     | SDKValidationError
@@ -120,18 +120,18 @@ export async function contextDeleteEnvironmentVariableFromContext(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(
+    M.json(
       200,
       operations.DeleteEnvironmentVariableFromContextResponse$inboundSchema,
     ),
-    m$.json(
+    M.json(
       "default",
       operations.DeleteEnvironmentVariableFromContextResponse$inboundSchema,
     ),
   )(response);
-  if (!result$.ok) {
-    return result$;
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

@@ -16,12 +16,12 @@ let value: CreateScheduleCreateScheduleParameters = {
   },
   timetable: {
     daysOfWeek: [
-      "SUN",
+      "FRI",
     ],
     hoursOfDay: [
-      893773,
+      296257,
     ],
-    perHour: 638390,
+    perHour: 409295,
   },
 };
 ```

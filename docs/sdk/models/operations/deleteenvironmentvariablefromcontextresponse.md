@@ -5,7 +5,9 @@
 ```typescript
 import { DeleteEnvironmentVariableFromContextResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: DeleteEnvironmentVariableFromContextResponse = {};
+let value: DeleteEnvironmentVariableFromContextResponse = {
+  message: "<value>",
+};
 ```
 
 ## Supported Types

@@ -10,17 +10,17 @@ import { CreateWebhookWebhook } from "circleci-v2-sdk/sdk/models/operations";
 let value: CreateWebhookWebhook = {
   createdAt: new Date("2015-09-21T17:29:21.042Z"),
   events: [
-    "job-completed",
+    "workflow-completed",
   ],
-  id: "20688f77-c1ff-4c71-9ca1-63f2a3c80a97",
+  id: "20366ea6-f95b-47ee-9584-afd51f6457ff",
   name: "<value>",
   scope: {
-    id: "ff334cdd-f857-4a9e-a187-6c6ab21d29df",
+    id: "5802e016-b444-4d38-afb5-cf5b1e1584a8",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://outlandish-drag.net",
+  url: "https://negative-signature.net/",
   verifyTls: false,
 };
 ```
