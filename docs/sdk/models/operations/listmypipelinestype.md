@@ -7,7 +7,7 @@ The type of error.
 ```typescript
 import { ListMyPipelinesType } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListMyPipelinesType = "config-fetch";
+let value: ListMyPipelinesType = "config";
 ```
 
 ## Values

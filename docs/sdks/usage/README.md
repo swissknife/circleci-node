@@ -105,9 +105,9 @@ async function run() {
     },
     orgId: "b9291e0d-a11e-41fb-8517-c545388b5953",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -145,7 +145,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -191,9 +191,9 @@ async function run() {
     orgId: "b9291e0d-a11e-41fb-8517-c545388b5953",
     usageExportJobId: "e8235eed-f121-4ae3-9c72-2719d6572818",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -228,7 +228,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

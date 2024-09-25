@@ -30,9 +30,9 @@ async function run() {
   const result = await circleci.job.cancelJobByJobID({
     jobId: "afacffe1-191b-4f17-a3d4-b9d17568b0b6",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -66,7 +66,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -112,9 +112,9 @@ async function run() {
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -149,7 +149,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -195,9 +195,9 @@ async function run() {
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -232,7 +232,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -278,9 +278,9 @@ async function run() {
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -315,7 +315,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -361,9 +361,9 @@ async function run() {
     jobNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -398,7 +398,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

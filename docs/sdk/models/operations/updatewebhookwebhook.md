@@ -12,15 +12,15 @@ let value: UpdateWebhookWebhook = {
   events: [
     "workflow-completed",
   ],
-  id: "5a697cdd-9970-4417-9d9a-342d48215559",
+  id: "a697cdd9-9704-417d-b9a3-42d482155595",
   name: "<value>",
   scope: {
-    id: "c15a9174-a2a7-44b3-820d-781158b7d606",
+    id: "15a9174a-2a74-4b32-90d7-81158b7d6061",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://worthy-story.biz/",
+  url: "https://tinted-derby.info",
   verifyTls: false,
 };
 ```

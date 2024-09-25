@@ -6,7 +6,7 @@
 import { GetProjectBySlugResponse } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetProjectBySlugResponse = {
-  id: "13256f47-cdc4-4723-b6b8-ed099f08309c",
+  id: "6f47cdc4-7236-4b8e-8d09-9f08309cc060",
   name: "api-preview-docs",
   organizationId: "CircleCI-Public",
   organizationName: "CircleCI-Public",

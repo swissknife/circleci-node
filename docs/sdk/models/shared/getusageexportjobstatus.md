@@ -7,10 +7,10 @@ import { GetUsageExportJobStatus } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: GetUsageExportJobStatus = {
   downloadUrls: [
-    "https://compassionate-mallard.com/",
+    "https://stingy-case.net",
   ],
   state: "processing",
-  usageExportJobId: "5c6e3e91-84ba-416e-b6b1-d8f8cfb95066",
+  usageExportJobId: "bfc9b740-a27a-4e93-a7a3-bc8d38ebc395",
 };
 ```
 

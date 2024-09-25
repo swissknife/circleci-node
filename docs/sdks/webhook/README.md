@@ -28,9 +28,9 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.webhook.createWebhook();
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -62,7 +62,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -107,9 +107,9 @@ async function run() {
   const result = await circleci.webhook.deleteWebhook({
     webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -143,7 +143,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -188,9 +188,9 @@ async function run() {
   const result = await circleci.webhook.getWebhookById({
     webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -224,7 +224,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -270,9 +270,9 @@ async function run() {
     scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
     scopeType: "project",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -307,7 +307,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -352,9 +352,9 @@ async function run() {
   const result = await circleci.webhook.updateWebhook({
     webhookId: "8ac25520-482a-4d43-a100-ab198d297078",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -388,7 +388,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

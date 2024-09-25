@@ -8,17 +8,17 @@ import { Webhook } from "circleci-v2-sdk/sdk/models/operations";
 let value: Webhook = {
   createdAt: new Date("2015-09-21T17:29:21.042Z"),
   events: [
-    "job-completed",
+    "workflow-completed",
   ],
-  id: "1623380f-80a4-41d3-810b-a03b2937d4a7",
+  id: "e0161193-aed3-41ff-a572-b6c905cbaa9a",
   name: "<value>",
   scope: {
-    id: "5dfd25d8-cc15-47fe-9616-8e44a8327ccf",
+    id: "8c576350-5613-4335-82b5-192026ba0c5a",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://able-someplace.name/",
+  url: "https://agreeable-skean.biz/",
   verifyTls: false,
 };
 ```

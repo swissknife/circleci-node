@@ -8,15 +8,15 @@ import { ListWorkflowsByPipelineIdResponse } from "circleci-v2-sdk/sdk/models/op
 let value: ListWorkflowsByPipelineIdResponse = {
   items: [
     {
-      createdAt: new Date("2023-01-01T12:34:42.729Z"),
-      id: "9e24977d-e7ac-484a-b9e0-e805b7f65d8a",
+      createdAt: new Date("2022-11-03T12:40:15.931Z"),
+      id: "977de7ac-84a9-4e0e-a805-b7f65d8aca61",
       name: "build-and-test",
       pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       pipelineNumber: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      startedBy: "a619e6e8-9d91-4f3b-9873-b1fd8648e483",
-      status: "running",
-      stoppedAt: new Date("2024-12-21T15:08:34.645Z"),
+      startedBy: "e6e89d91-f3b8-473b-a1fd-8648e48353f9",
+      status: "success",
+      stoppedAt: new Date("2023-02-06T06:21:21.734Z"),
       tag: "setup",
     },
   ],

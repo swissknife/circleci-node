@@ -7,12 +7,12 @@ import { UsageExportJob } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: UsageExportJob = {
   downloadUrls: [
-    "https://infamous-flame.info/",
+    "https://kooky-cassava.com",
   ],
-  end: new Date("2023-02-14T00:32:46.921Z"),
-  start: new Date("2022-06-08T02:18:28.420Z"),
+  end: new Date("2023-11-02T02:51:49.131Z"),
+  start: new Date("2022-12-27T05:13:49.176Z"),
   state: "created",
-  usageExportJobId: "17d1a6d5-b68c-4f28-a20b-f910560d7fe8",
+  usageExportJobId: "a0122c12-72b7-4e0d-b2e5-80b3ea442c74",
 };
 ```
 

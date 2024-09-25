@@ -10,9 +10,9 @@ import { ListPipelinesForProjectTrigger } from "circleci-v2-sdk/sdk/models/opera
 let value: ListPipelinesForProjectTrigger = {
   actor: {
     avatarUrl: "<value>",
-    login: "Delaney.Gerlach83",
+    login: "Robert54",
   },
-  receivedAt: new Date("2023-04-13T15:41:27.262Z"),
+  receivedAt: new Date("2024-01-16T16:27:33.018Z"),
   type: "api",
 };
 ```

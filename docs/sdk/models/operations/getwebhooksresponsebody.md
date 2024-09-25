@@ -14,15 +14,15 @@ let value: GetWebhooksResponseBody = {
       events: [
         "job-completed",
       ],
-      id: "7e016119-3aed-431f-af57-2b6c905cbaa9",
+      id: "42e9e4df-6e55-4ff3-ad5f-de9438ab2863",
       name: "<value>",
       scope: {
-        id: "98c57635-0561-4333-a52b-5192026ba0c5",
+        id: "483e591a-4f69-43dc-93e0-c7d713f52c01",
         type: "<value>",
       },
       signingSecret: "<value>",
       updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-      url: "https://immaculate-aftermath.net/",
+      url: "https://youthful-pop.name/",
       verifyTls: false,
     },
   ],

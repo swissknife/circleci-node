@@ -45,9 +45,9 @@ async function run() {
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -84,7 +84,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -133,9 +133,9 @@ async function run() {
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -173,7 +173,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -220,9 +220,9 @@ async function run() {
     project: "api-preview-docs",
     provider: "gh",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -258,7 +258,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -304,9 +304,9 @@ async function run() {
     fingerprint: "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -341,7 +341,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -387,9 +387,9 @@ async function run() {
     name: "foo",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -424,7 +424,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -470,9 +470,9 @@ async function run() {
     fingerprint: "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -507,7 +507,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -553,9 +553,9 @@ async function run() {
     name: "foo",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -590,7 +590,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -635,9 +635,9 @@ async function run() {
   const result = await circleci.project.getProjectBySlug({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -671,7 +671,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -718,9 +718,9 @@ async function run() {
     project: "api-preview-docs",
     provider: "gh",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -756,7 +756,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -801,9 +801,9 @@ async function run() {
   const result = await circleci.project.listCheckoutKeys({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -837,7 +837,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -882,9 +882,9 @@ async function run() {
   const result = await circleci.project.listEnvVars({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -918,7 +918,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -974,9 +974,9 @@ async function run() {
     },
     provider: "gh",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -1021,7 +1021,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

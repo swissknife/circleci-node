@@ -9,7 +9,7 @@ import { ListPipelinesErrors } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListPipelinesErrors = {
   message: "<value>",
-  type: "config-fetch",
+  type: "trigger-rule",
 };
 ```
 

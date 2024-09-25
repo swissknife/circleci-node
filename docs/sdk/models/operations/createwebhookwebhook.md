@@ -12,15 +12,15 @@ let value: CreateWebhookWebhook = {
   events: [
     "workflow-completed",
   ],
-  id: "20366ea6-f95b-47ee-9584-afd51f6457ff",
+  id: "0366ea6f-95b7-4ee5-984a-fd51f6457ff4",
   name: "<value>",
   scope: {
-    id: "5802e016-b444-4d38-afb5-cf5b1e1584a8",
+    id: "802e016b-444d-438f-9b5c-f5b1e1584a8b",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://negative-signature.net/",
+  url: "https://sturdy-siege.net",
   verifyTls: false,
 };
 ```

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 51dfdd90289055e0711a72eaf03ff1bf
+  docChecksum: 1fd59799e2211bb33922792e9ef7937f
   docVersion: v2
-  speakeasyVersion: 1.401.2
-  generationVersion: 2.421.3
-  releaseVersion: 5.7.3
-  configChecksum: b8c7b5bfc4d5ffb279a5464ad5beed69
+  speakeasyVersion: 1.402.12
+  generationVersion: 2.422.15
+  releaseVersion: 5.7.4
+  configChecksum: 1d801d28881ead605ef089e2ac51009f
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -271,6 +271,9 @@ generatedFiles:
   - docs/sdk/models/operations/getpipelineconfigbyidrequest.md
   - docs/sdk/models/operations/getpipelineconfigbyidresponse.md
   - docs/sdk/models/operations/getpipelineconfigbyidresponsebody.md
+  - docs/sdk/models/operations/getpipelinevaluesbyidrequest.md
+  - docs/sdk/models/operations/getpipelinevaluesbyidresponse.md
+  - docs/sdk/models/operations/getpipelinevaluesbyidresponsebody.md
   - docs/sdk/models/operations/getpolicybundlerequest.md
   - docs/sdk/models/operations/getpolicybundleresponse.md
   - docs/sdk/models/operations/getpolicybundleresponsebody.md
@@ -505,6 +508,7 @@ generatedFiles:
   - docs/sdk/models/operations/rerunworkflowresponse.md
   - docs/sdk/models/operations/rerunworkflowresponsebody.md
   - docs/sdk/models/operations/rerunworkflowworkflowresponsebody.md
+  - docs/sdk/models/operations/responsebody.md
   - docs/sdk/models/operations/schedule.md
   - docs/sdk/models/operations/scope.md
   - docs/sdk/models/operations/scopetype.md
@@ -639,6 +643,7 @@ generatedFiles:
   - src/funcs/pipelineGetPipelineById.ts
   - src/funcs/pipelineGetPipelineByNumber.ts
   - src/funcs/pipelineGetPipelineConfigById.ts
+  - src/funcs/pipelineGetPipelineValuesById.ts
   - src/funcs/pipelineListMyPipelines.ts
   - src/funcs/pipelineListPipelines.ts
   - src/funcs/pipelineListPipelinesForProject.ts
@@ -756,6 +761,7 @@ generatedFiles:
   - src/sdk/models/operations/getpipelinebyid.ts
   - src/sdk/models/operations/getpipelinebynumber.ts
   - src/sdk/models/operations/getpipelineconfigbyid.ts
+  - src/sdk/models/operations/getpipelinevaluesbyid.ts
   - src/sdk/models/operations/getpolicybundle.ts
   - src/sdk/models/operations/getpolicydocument.ts
   - src/sdk/models/operations/getprojectbyslug.ts
@@ -1849,4 +1855,13 @@ examples:
       responses:
         "202":
           application/json: {"workflow_id": "0e53027b-521a-4c40-9042-47e72b3c63a3"}
+        default: {}
+  getPipelineValuesById:
+    "":
+      parameters:
+        path:
+          pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "200":
+          application/json: {}
         default: {}

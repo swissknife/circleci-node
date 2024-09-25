@@ -5,7 +5,9 @@
 ```typescript
 import { DeleteCheckoutKeyResponse } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: DeleteCheckoutKeyResponse = {};
+let value: DeleteCheckoutKeyResponse = {
+  message: "<value>",
+};
 ```
 
 ## Supported Types

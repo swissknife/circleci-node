@@ -10,9 +10,9 @@ let value: GetScheduleById1 = {
     "THU",
   ],
   hoursOfDay: [
-    952937,
+    537623,
   ],
-  perHour: 288348,
+  perHour: 198406,
 };
 ```
 

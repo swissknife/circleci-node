@@ -9,6 +9,7 @@
 * [getPipelineById](#getpipelinebyid) - Get a pipeline by ID
 * [getPipelineByNumber](#getpipelinebynumber) - Get a pipeline by pipeline number
 * [getPipelineConfigById](#getpipelineconfigbyid) - Get a pipeline's configuration
+* [getPipelineValuesById](#getpipelinevaluesbyid) - Get pipeline values for a pipeline
 * [listMyPipelines](#listmypipelines) - Get your pipelines
 * [listPipelines](#listpipelines) - Get a list of pipelines
 * [listPipelinesForProject](#listpipelinesforproject) - Get all pipelines
@@ -38,9 +39,9 @@ async function run() {
       "deploy_prod": true,
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -78,7 +79,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -123,9 +124,9 @@ async function run() {
   const result = await circleci.pipeline.getPipelineById({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -159,7 +160,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -205,9 +206,9 @@ async function run() {
     pipelineNumber: "123",
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -242,7 +243,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -287,9 +288,9 @@ async function run() {
   const result = await circleci.pipeline.getPipelineConfigById({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -323,7 +324,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -341,6 +342,87 @@ run();
 ### Response
 
 **Promise\<[operations.GetPipelineConfigByIdResponse](../../sdk/models/operations/getpipelineconfigbyidresponse.md)\>**
+
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+
+## getPipelineValuesById
+
+Returns a map of pipeline values by pipeline ID. For more information see the [pipeline values reference page](https://circleci.com/docs/variables/#pipeline-values).
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const result = await circleci.pipeline.getPipelineValuesById({
+    pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { pipelineGetPipelineValuesById } from "circleci-v2-sdk/funcs/pipelineGetPipelineValuesById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await pipelineGetPipelineValuesById(circleci, {
+    pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetPipelineValuesByIdRequest](../../sdk/models/operations/getpipelinevaluesbyidrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.GetPipelineValuesByIdResponse](../../sdk/models/operations/getpipelinevaluesbyidresponse.md)\>**
 
 ### Errors
 
@@ -368,9 +450,9 @@ async function run() {
   const result = await circleci.pipeline.listMyPipelines({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -404,7 +486,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -449,9 +531,9 @@ async function run() {
   const result = await circleci.pipeline.listPipelines({
     orgSlug: "gh/CircleCI-Public",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -485,7 +567,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -530,9 +612,9 @@ async function run() {
   const result = await circleci.pipeline.listPipelinesForProject({
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -566,7 +648,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -611,9 +693,9 @@ async function run() {
   const result = await circleci.pipeline.listWorkflowsByPipelineId({
     pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -647,7 +729,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -699,9 +781,9 @@ async function run() {
     },
     projectSlug: "gh/CircleCI-Public/api-preview-docs",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -742,7 +824,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

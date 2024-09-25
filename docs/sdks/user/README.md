@@ -32,9 +32,9 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.user.getCollaborations();
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -66,7 +66,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -108,9 +108,9 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.user.getCurrentUser();
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -142,7 +142,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -186,9 +186,9 @@ async function run() {
   const result = await circleci.user.getUser({
     id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -222,7 +222,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

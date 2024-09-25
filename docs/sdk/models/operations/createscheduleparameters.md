@@ -5,7 +5,7 @@
 ```typescript
 import { CreateScheduleParameters } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: CreateScheduleParameters = "<value>";
+let value: CreateScheduleParameters = false;
 ```
 
 ## Supported Types

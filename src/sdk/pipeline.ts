@@ -6,6 +6,7 @@ import { pipelineContinuePipeline } from "../funcs/pipelineContinuePipeline.js";
 import { pipelineGetPipelineById } from "../funcs/pipelineGetPipelineById.js";
 import { pipelineGetPipelineByNumber } from "../funcs/pipelineGetPipelineByNumber.js";
 import { pipelineGetPipelineConfigById } from "../funcs/pipelineGetPipelineConfigById.js";
+import { pipelineGetPipelineValuesById } from "../funcs/pipelineGetPipelineValuesById.js";
 import { pipelineListMyPipelines } from "../funcs/pipelineListMyPipelines.js";
 import { pipelineListPipelines } from "../funcs/pipelineListPipelines.js";
 import { pipelineListPipelinesForProject } from "../funcs/pipelineListPipelinesForProject.js";
@@ -78,6 +79,23 @@ export class Pipeline extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetPipelineConfigByIdResponse> {
     return unwrapAsync(pipelineGetPipelineConfigById(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get pipeline values for a pipeline
+   *
+   * @remarks
+   * Returns a map of pipeline values by pipeline ID. For more information see the [pipeline values reference page](https://circleci.com/docs/variables/#pipeline-values).
+   */
+  async getPipelineValuesById(
+    request: operations.GetPipelineValuesByIdRequest,
+    options?: RequestOptions,
+  ): Promise<operations.GetPipelineValuesByIdResponse> {
+    return unwrapAsync(pipelineGetPipelineValuesById(
       this,
       request,
       options,

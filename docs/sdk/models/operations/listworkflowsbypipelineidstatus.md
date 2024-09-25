@@ -7,7 +7,7 @@ The current status of the workflow.
 ```typescript
 import { ListWorkflowsByPipelineIdStatus } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListWorkflowsByPipelineIdStatus = "running";
+let value: ListWorkflowsByPipelineIdStatus = "success";
 ```
 
 ## Values

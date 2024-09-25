@@ -5,7 +5,7 @@
 ```typescript
 import { ListMyPipelinesTriggerParameters } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListMyPipelinesTriggerParameters = "<value>";
+let value: ListMyPipelinesTriggerParameters = 268109;
 ```
 
 ## Supported Types

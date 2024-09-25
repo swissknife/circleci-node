@@ -10,10 +10,10 @@ import { ListPipelinesTrigger } from "circleci-v2-sdk/sdk/models/operations";
 let value: ListPipelinesTrigger = {
   actor: {
     avatarUrl: "<value>",
-    login: "Halie_Ferry68",
+    login: "Tyree8",
   },
-  receivedAt: new Date("2024-04-22T19:44:51.587Z"),
-  type: "scheduled_pipeline",
+  receivedAt: new Date("2022-02-24T00:23:58.036Z"),
+  type: "webhook",
 };
 ```
 

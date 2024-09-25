@@ -7,7 +7,7 @@ The current status of the workflow.
 ```typescript
 import { GetWorkflowByIdStatus } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetWorkflowByIdStatus = "running";
+let value: GetWorkflowByIdStatus = "canceled";
 ```
 
 ## Values

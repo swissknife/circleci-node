@@ -46,6 +46,7 @@ export * from "./getorgsummarydata.js";
 export * from "./getpipelinebyid.js";
 export * from "./getpipelinebynumber.js";
 export * from "./getpipelineconfigbyid.js";
+export * from "./getpipelinevaluesbyid.js";
 export * from "./getpolicybundle.js";
 export * from "./getpolicydocument.js";
 export * from "./getprojectbyslug.js";

@@ -9,12 +9,12 @@ import { CreateScheduleTimetable } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleTimetable = {
   daysOfMonth: [
-    43270,
+    471664,
   ],
   hoursOfDay: [
-    800761,
+    702339,
   ],
-  perHour: 377430,
+  perHour: 724331,
 };
 ```
 

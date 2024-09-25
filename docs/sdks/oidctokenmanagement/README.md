@@ -34,9 +34,9 @@ async function run() {
     claims: "<value>",
     orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -71,7 +71,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -118,9 +118,9 @@ async function run() {
     orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
     projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -156,7 +156,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -201,9 +201,9 @@ async function run() {
   const result = await circleci.oidcTokenManagement.getOrgClaims({
     orgID: "faa87345-442f-4070-a007-ecf098342349",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -237,7 +237,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -283,9 +283,9 @@ async function run() {
     orgID: "01345488-5416-440e-9811-7333cda41eee",
     projectID: "17124405-51b9-4707-91e2-d3024606dad9",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -320,7 +320,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -365,9 +365,9 @@ async function run() {
   const result = await circleci.oidcTokenManagement.patchOrgClaims({
     orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -401,7 +401,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -447,9 +447,9 @@ async function run() {
     orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
     projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -484,7 +484,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();

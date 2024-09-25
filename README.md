@@ -123,6 +123,7 @@ run();
 * [getPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
 * [getPipelineByNumber](docs/sdks/pipeline/README.md#getpipelinebynumber) - Get a pipeline by pipeline number
 * [getPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
+* [getPipelineValuesById](docs/sdks/pipeline/README.md#getpipelinevaluesbyid) - Get pipeline values for a pipeline
 * [listMyPipelines](docs/sdks/pipeline/README.md#listmypipelines) - Get your pipelines
 * [listPipelines](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
 * [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
@@ -577,6 +578,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [pipelineGetPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid)
 - [pipelineGetPipelineByNumber](docs/sdks/pipeline/README.md#getpipelinebynumber)
 - [pipelineGetPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid)
+- [pipelineGetPipelineValuesById](docs/sdks/pipeline/README.md#getpipelinevaluesbyid)
 - [pipelineListMyPipelines](docs/sdks/pipeline/README.md#listmypipelines)
 - [pipelineListPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject)
 - [pipelineListPipelines](docs/sdks/pipeline/README.md#listpipelines)

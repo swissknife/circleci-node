@@ -9,7 +9,7 @@ import { ListPipelinesForProjectErrors } from "circleci-v2-sdk/sdk/models/operat
 
 let value: ListPipelinesForProjectErrors = {
   message: "<value>",
-  type: "plan",
+  type: "timeout",
 };
 ```
 

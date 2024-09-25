@@ -8,13 +8,13 @@ Timetable that specifies when a schedule triggers.
 import { GetScheduleByIdTimetable } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetScheduleByIdTimetable = {
-  daysOfWeek: [
-    "FRI",
+  daysOfMonth: [
+    340231,
   ],
   hoursOfDay: [
-    799306,
+    238371,
   ],
-  perHour: 203356,
+  perHour: 510401,
 };
 ```
 

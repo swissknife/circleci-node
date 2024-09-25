@@ -8,7 +8,7 @@ The scope in which the relevant events that will trigger webhooks
 import { GetWebhookByIdScope } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetWebhookByIdScope = {
-  id: "50c390d2-04e4-4864-9ecc-8d7773e433dc",
+  id: "0c390d20-4e48-464e-8cc8-d7773e433dc6",
   type: "<value>",
 };
 ```

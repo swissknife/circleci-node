@@ -6,7 +6,7 @@
 import { ClaimResponse } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: ClaimResponse = {
-  orgId: "b09079ae-4d7a-4cbc-9ace-e5f0973818d2",
+  orgId: "eeb94015-3986-4cbb-8806-770a408e0098",
 };
 ```
 
