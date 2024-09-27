@@ -1,30 +1,28 @@
 # GetPolicyDocumentResponse
 
-## Example Usage
-
-```typescript
-import { GetPolicyDocumentResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetPolicyDocumentResponse = {};
-```
 
 ## Supported Types
 
 ### `shared.Policy`
 
 ```typescript
-const value: shared.Policy = /* values here */
+const value: shared.Policy = {};
 ```
 
 ### `operations.GetPolicyDocumentResponseBody`
 
 ```typescript
-const value: operations.GetPolicyDocumentResponseBody = /* values here */
+const value: operations.GetPolicyDocumentResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 
 ### `operations.GetPolicyDocumentPolicyManagementResponse404ResponseBody`
 
 ```typescript
-const value: operations.GetPolicyDocumentPolicyManagementResponse404ResponseBody = /* values here */
+const value:
+  operations.GetPolicyDocumentPolicyManagementResponse404ResponseBody = {
+    error: "policy not found",
+  };
 ```
 

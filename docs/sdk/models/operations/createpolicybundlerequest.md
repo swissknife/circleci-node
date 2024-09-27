@@ -7,7 +7,7 @@ import { CreatePolicyBundleRequest } from "circleci-v2-sdk/sdk/models/operations
 
 let value: CreatePolicyBundleRequest = {
   context: "<value>",
-  ownerID: "<value>",
+  ownerID: "<id>",
 };
 ```
 

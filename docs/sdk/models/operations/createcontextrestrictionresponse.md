@@ -1,36 +1,30 @@
 # CreateContextRestrictionResponse
 
-## Example Usage
-
-```typescript
-import { CreateContextRestrictionResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: CreateContextRestrictionResponse = {};
-```
 
 ## Supported Types
 
 ### `operations.CreateContextRestrictionResponseBody`
 
 ```typescript
-const value: operations.CreateContextRestrictionResponseBody = /* values here */
+const value: operations.CreateContextRestrictionResponseBody = {};
 ```
 
 ### `operations.CreateContextRestrictionContextResponse409ResponseBody`
 
 ```typescript
-const value: operations.CreateContextRestrictionContextResponse409ResponseBody = /* values here */
+const value: operations.CreateContextRestrictionContextResponse409ResponseBody =
+  {};
 ```
 
 ### `operations.CreateContextRestrictionContextResponseBody`
 
 ```typescript
-const value: operations.CreateContextRestrictionContextResponseBody = /* values here */
+const value: operations.CreateContextRestrictionContextResponseBody = {};
 ```
 
 ### `shared.RestrictionCreated`
 
 ```typescript
-const value: shared.RestrictionCreated = /* values here */
+const value: shared.RestrictionCreated = {};
 ```
 

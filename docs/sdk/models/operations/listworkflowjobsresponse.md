@@ -1,21 +1,22 @@
 # ListWorkflowJobsResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.ListWorkflowJobsWorkflowJobListResponse`
 
 ```typescript
-import { ListWorkflowJobsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ListWorkflowJobsResponse = {
+const value: operations.ListWorkflowJobsWorkflowJobListResponse = {
   items: [
     {
       dependencies: [
-        "0d7fe8a5-4281-475c-86e3-e9184ba16e6b",
+        "fc34663c-cb0e-450a-9ba6-d58eb1ced7d1",
       ],
-      id: "d8f8cfb9-5066-4d3b-90ea-64296be4a609",
+      id: "d06d717b-5ef2-4147-b23e-b9b02bbd986d",
       name: "<value>",
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      startedAt: new Date("2022-01-16T01:02:59.626Z"),
-      status: "not_running",
+      startedAt: new Date("2023-05-10T22:42:04.682Z"),
+      status: "queued",
       type: "build",
     },
   ],
@@ -23,17 +24,9 @@ let value: ListWorkflowJobsResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.ListWorkflowJobsWorkflowJobListResponse`
-
-```typescript
-const value: operations.ListWorkflowJobsWorkflowJobListResponse = /* values here */
-```
-
 ### `operations.ListWorkflowJobsResponseBody`
 
 ```typescript
-const value: operations.ListWorkflowJobsResponseBody = /* values here */
+const value: operations.ListWorkflowJobsResponseBody = {};
 ```
 

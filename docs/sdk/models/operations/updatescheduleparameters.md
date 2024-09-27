@@ -1,30 +1,23 @@
 # UpdateScheduleParameters
 
-## Example Usage
-
-```typescript
-import { UpdateScheduleParameters } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: UpdateScheduleParameters = false;
-```
 
 ## Supported Types
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 309694;
 ```
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `boolean`
 
 ```typescript
-const value: boolean = /* values here */
+const value: boolean = false;
 ```
 

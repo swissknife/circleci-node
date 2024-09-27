@@ -2,33 +2,34 @@
 
 Timetable that specifies when a schedule triggers.
 
-## Example Usage
-
-```typescript
-import { UpdateScheduleScheduleTimetable } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: UpdateScheduleScheduleTimetable = {
-  daysOfMonth: [
-    670710,
-  ],
-  hoursOfDay: [
-    890688,
-  ],
-  perHour: 968792,
-};
-```
 
 ## Supported Types
 
 ### `operations.UpdateSchedule1`
 
 ```typescript
-const value: operations.UpdateSchedule1 = /* values here */
+const value: operations.UpdateSchedule1 = {
+  daysOfWeek: [
+    "TUE",
+  ],
+  hoursOfDay: [
+    38622,
+  ],
+  perHour: 117117,
+};
 ```
 
 ### `operations.UpdateSchedule2`
 
 ```typescript
-const value: operations.UpdateSchedule2 = /* values here */
+const value: operations.UpdateSchedule2 = {
+  daysOfMonth: [
+    628325,
+  ],
+  hoursOfDay: [
+    414547,
+  ],
+  perHour: 848926,
+};
 ```
 

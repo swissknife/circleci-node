@@ -1,61 +1,54 @@
 # GetOrgSummaryDataResponse
 
-## Example Usage
-
-```typescript
-import { GetOrgSummaryDataResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetOrgSummaryDataResponse = {
-  allProjects: [
-    "<value>",
-  ],
-  orgData: {
-    metrics: {
-      successRate: 4053.74,
-      throughput: 3210.43,
-      totalCreditsUsed: 29950,
-      totalDurationSecs: 737254,
-      totalRuns: 109784,
-    },
-    trends: {
-      successRate: 6063.08,
-      throughput: 7032.17,
-      totalCreditsUsed: 6347.86,
-      totalDurationSecs: 9591.42,
-      totalRuns: 1032.98,
-    },
-  },
-  orgProjectData: [
-    {
-      metrics: {
-        successRate: 8671.67,
-        totalCreditsUsed: 29190,
-        totalDurationSecs: 534917,
-        totalRuns: 404244,
-      },
-      projectName: "api-preview-docs",
-      trends: {
-        successRate: 5241.84,
-        totalCreditsUsed: 3651.00,
-        totalDurationSecs: 1905.67,
-        totalRuns: 191.23,
-      },
-    },
-  ],
-};
-```
 
 ## Supported Types
 
 ### `operations.GetOrgSummaryDataResponseBody`
 
 ```typescript
-const value: operations.GetOrgSummaryDataResponseBody = /* values here */
+const value: operations.GetOrgSummaryDataResponseBody = {
+  allProjects: [
+    "<value>",
+  ],
+  orgData: {
+    metrics: {
+      successRate: 4564.10,
+      throughput: 1533.69,
+      totalCreditsUsed: 199596,
+      totalDurationSecs: 432984,
+      totalRuns: 528234,
+    },
+    trends: {
+      successRate: 3494.40,
+      throughput: 7814.80,
+      totalCreditsUsed: 7510.22,
+      totalDurationSecs: 9272.12,
+      totalRuns: 289.53,
+    },
+  },
+  orgProjectData: [
+    {
+      metrics: {
+        successRate: 8956.91,
+        totalCreditsUsed: 392569,
+        totalDurationSecs: 878373,
+        totalRuns: 690785,
+      },
+      projectName: "api-preview-docs",
+      trends: {
+        successRate: 9873.49,
+        totalCreditsUsed: 7592.82,
+        totalDurationSecs: 3645.45,
+        totalRuns: 5010.63,
+      },
+    },
+  ],
+};
 ```
 
 ### `operations.GetOrgSummaryDataInsightsResponseBody`
 
 ```typescript
-const value: operations.GetOrgSummaryDataInsightsResponseBody = /* values here */
+const value: operations.GetOrgSummaryDataInsightsResponseBody = {};
 ```
 

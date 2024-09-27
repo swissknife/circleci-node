@@ -9,7 +9,7 @@ import { VcsInfo } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: VcsInfo = {
   defaultBranch: "main",
-  provider: "CircleCI",
+  provider: "Bitbucket",
   vcsUrl: "https://github.com/CircleCI-Public/api-preview-docs",
 };
 ```

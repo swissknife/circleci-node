@@ -6,7 +6,7 @@
 import { One } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: One = {
-  id: "35d1d1f7-f9b0-4414-9156-1b94819e5a2b",
+  id: "4290d0a4-bf39-4993-9f7d-b4d6e9ebb8fa",
   type: "organization",
 };
 ```

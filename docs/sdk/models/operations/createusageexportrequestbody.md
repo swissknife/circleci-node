@@ -6,8 +6,8 @@
 import { CreateUsageExportRequestBody } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateUsageExportRequestBody = {
-  end: new Date("2023-10-20T03:23:15.846Z"),
-  start: new Date("2023-04-17T11:28:38.206Z"),
+  end: new Date("2022-12-08T08:21:53.641Z"),
+  start: new Date("2022-09-30T02:40:00.548Z"),
 };
 ```
 

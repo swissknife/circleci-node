@@ -1,12 +1,13 @@
 # GetProjectBySlugResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.GetProjectBySlugProject`
 
 ```typescript
-import { GetProjectBySlugResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetProjectBySlugResponse = {
-  id: "6f47cdc4-7236-4b8e-8d09-9f08309cc060",
+const value: operations.GetProjectBySlugProject = {
+  id: "d4f542ef-5b51-4681-bd73-9c5b6fc50a31",
   name: "api-preview-docs",
   organizationId: "CircleCI-Public",
   organizationName: "CircleCI-Public",
@@ -14,23 +15,15 @@ let value: GetProjectBySlugResponse = {
   slug: "gh/CircleCI-Public/api-preview-docs",
   vcsInfo: {
     defaultBranch: "main",
-    provider: "Bitbucket",
+    provider: "GitHub",
     vcsUrl: "https://github.com/CircleCI-Public/api-preview-docs",
   },
 };
 ```
 
-## Supported Types
-
-### `operations.GetProjectBySlugProject`
-
-```typescript
-const value: operations.GetProjectBySlugProject = /* values here */
-```
-
 ### `operations.GetProjectBySlugResponseBody`
 
 ```typescript
-const value: operations.GetProjectBySlugResponseBody = /* values here */
+const value: operations.GetProjectBySlugResponseBody = {};
 ```
 

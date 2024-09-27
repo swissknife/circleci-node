@@ -7,7 +7,7 @@ The current state of the pipeline.
 ```typescript
 import { ListPipelinesState } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListPipelinesState = "setup-pending";
+let value: ListPipelinesState = "created";
 ```
 
 ## Values

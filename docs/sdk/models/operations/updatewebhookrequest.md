@@ -6,7 +6,7 @@
 import { UpdateWebhookRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateWebhookRequest = {
-  webhookId: "23d5760b-8a46-436a-bfa8-61729bf462ed",
+  webhookId: "333704b9-db09-475f-8a48-1b5220cb746e",
 };
 ```
 

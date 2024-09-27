@@ -8,23 +8,23 @@ import { GetProjectWorkflowJobMetricsItems } from "circleci-v2-sdk/sdk/models/op
 let value: GetProjectWorkflowJobMetricsItems = {
   metrics: {
     durationMetrics: {
-      max: 432984,
-      mean: 528234,
-      median: 349440,
-      min: 781480,
-      p95: 751022,
-      standardDeviation: 9272.12,
+      max: 507636,
+      mean: 300403,
+      median: 549501,
+      min: 930819,
+      p95: 520761,
+      standardDeviation: 2672.07,
     },
-    failedRuns: 28952,
-    successRate: 8956.91,
-    successfulRuns: 392569,
-    throughput: 8783.72,
-    totalCreditsUsed: 690785,
-    totalRuns: 987349,
+    failedRuns: 877399,
+    successRate: 3719.19,
+    successfulRuns: 1383,
+    throughput: 2476.85,
+    totalCreditsUsed: 318233,
+    totalRuns: 858778,
   },
   name: "<value>",
-  windowEnd: new Date("2024-04-12T04:09:56.196Z"),
-  windowStart: new Date("2023-02-04T12:58:54.632Z"),
+  windowEnd: new Date("2023-05-18T12:28:02.303Z"),
+  windowStart: new Date("2023-05-03T06:25:26.467Z"),
 };
 ```
 

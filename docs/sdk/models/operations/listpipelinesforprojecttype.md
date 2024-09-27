@@ -7,7 +7,7 @@ The type of error.
 ```typescript
 import { ListPipelinesForProjectType } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListPipelinesForProjectType = "timeout";
+let value: ListPipelinesForProjectType = "other";
 ```
 
 ## Values

@@ -1,36 +1,29 @@
 # ListPipelinesForProjectTriggerParameters
 
-## Example Usage
-
-```typescript
-import { ListPipelinesForProjectTriggerParameters } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ListPipelinesForProjectTriggerParameters = {};
-```
 
 ## Supported Types
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 858398;
 ```
 
 ### `boolean`
 
 ```typescript
-const value: boolean = /* values here */
+const value: boolean = false;
 ```
 
 ### `operations.ListPipelinesForProject4`
 
 ```typescript
-const value: operations.ListPipelinesForProject4 = /* values here */
+const value: operations.ListPipelinesForProject4 = {};
 ```
 

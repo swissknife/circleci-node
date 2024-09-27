@@ -7,12 +7,12 @@ import { UsageExportJob } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: UsageExportJob = {
   downloadUrls: [
-    "https://kooky-cassava.com",
+    "https://unfortunate-birth.net",
   ],
-  end: new Date("2023-11-02T02:51:49.131Z"),
-  start: new Date("2022-12-27T05:13:49.176Z"),
-  state: "created",
-  usageExportJobId: "a0122c12-72b7-4e0d-b2e5-80b3ea442c74",
+  end: new Date("2023-06-17T15:50:06.479Z"),
+  start: new Date("2023-11-24T19:19:10.725Z"),
+  state: "failed",
+  usageExportJobId: "8a992dcf-c9ea-4429-8bd4-e9bce46ed67b",
 };
 ```
 

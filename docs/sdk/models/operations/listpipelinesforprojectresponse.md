@@ -1,18 +1,19 @@
 # ListPipelinesForProjectResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.ListPipelinesForProjectPipelineListResponse`
 
 ```typescript
-import { ListPipelinesForProjectResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ListPipelinesForProjectResponse = {
+const value: operations.ListPipelinesForProjectPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2024-05-13T11:35:30.480Z"),
+      createdAt: new Date("2023-01-26T10:53:00.895Z"),
       errors: [
         {
           message: "<value>",
-          type: "other",
+          type: "trigger-rule",
         },
       ],
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
@@ -21,11 +22,11 @@ let value: ListPipelinesForProjectResponse = {
       state: "pending",
       trigger: {
         actor: {
-          avatarUrl: "<value>",
-          login: "Curtis.Reilly17",
+          avatarUrl: "https://limp-advancement.net",
+          login: "Ryann_Halvorson7",
         },
-        receivedAt: new Date("2024-06-14T05:46:06.678Z"),
-        type: "api",
+        receivedAt: new Date("2023-04-07T12:53:50.646Z"),
+        type: "explicit",
       },
       vcs: {
         branch: "feature/design-new-api",
@@ -46,17 +47,9 @@ let value: ListPipelinesForProjectResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.ListPipelinesForProjectPipelineListResponse`
-
-```typescript
-const value: operations.ListPipelinesForProjectPipelineListResponse = /* values here */
-```
-
 ### `operations.ListPipelinesForProjectResponseBody`
 
 ```typescript
-const value: operations.ListPipelinesForProjectResponseBody = /* values here */
+const value: operations.ListPipelinesForProjectResponseBody = {};
 ```
 

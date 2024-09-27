@@ -1,24 +1,34 @@
 # GetFlakyTestsResponse
 
-## Example Usage
-
-```typescript
-import { GetFlakyTestsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetFlakyTestsResponse = {};
-```
 
 ## Supported Types
 
 ### `operations.GetFlakyTestsResponseBody`
 
 ```typescript
-const value: operations.GetFlakyTestsResponseBody = /* values here */
+const value: operations.GetFlakyTestsResponseBody = {
+  flakyTests: [
+    {
+      classname: "<value>",
+      file: "<value>",
+      jobName: "<value>",
+      jobNumber: 378245,
+      pipelineNumber: 979527,
+      source: "<value>",
+      testName: "<value>",
+      timesFlaked: 174658,
+      workflowCreatedAt: "<value>",
+      workflowId: "<value>",
+      workflowName: "<value>",
+    },
+  ],
+  totalFlakyTests: 5,
+};
 ```
 
 ### `operations.GetFlakyTestsInsightsResponseBody`
 
 ```typescript
-const value: operations.GetFlakyTestsInsightsResponseBody = /* values here */
+const value: operations.GetFlakyTestsInsightsResponseBody = {};
 ```
 

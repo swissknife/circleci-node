@@ -7,14 +7,14 @@ import { MostFailedTests } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: MostFailedTests = {
   classname: "<value>",
-  failedRuns: 141506,
+  failedRuns: 69182,
   file: "<value>",
   flaky: false,
   jobName: "<value>",
-  p95Duration: 8659.45,
+  p95Duration: 8791.73,
   source: "<value>",
   testName: "<value>",
-  totalRuns: 441321,
+  totalRuns: 734814,
 };
 ```
 

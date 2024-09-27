@@ -10,11 +10,11 @@ import { ListPipelinesPipelineListResponse } from "circleci-v2-sdk/sdk/models/op
 let value: ListPipelinesPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2023-03-06T15:44:21.307Z"),
+      createdAt: new Date("2022-01-19T15:57:10.680Z"),
       errors: [
         {
           message: "<value>",
-          type: "config-fetch",
+          type: "timeout",
         },
       ],
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
@@ -23,11 +23,11 @@ let value: ListPipelinesPipelineListResponse = {
       state: "pending",
       trigger: {
         actor: {
-          avatarUrl: "<value>",
-          login: "Mia_Leannon16",
+          avatarUrl: "https://cute-incandescence.org",
+          login: "Kaela.Mraz",
         },
-        receivedAt: new Date("2022-12-14T23:37:02.292Z"),
-        type: "api",
+        receivedAt: new Date("2023-09-05T03:23:29.598Z"),
+        type: "scheduled_pipeline",
       },
       vcs: {
         branch: "feature/design-new-api",

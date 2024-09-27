@@ -10,17 +10,17 @@ import { GetWebhookByIdWebhook } from "circleci-v2-sdk/sdk/models/operations";
 let value: GetWebhookByIdWebhook = {
   createdAt: new Date("2015-09-21T17:29:21.042Z"),
   events: [
-    "job-completed",
+    "workflow-completed",
   ],
-  id: "2dcfc536-3bda-4209-a735-8a7f0ae33c7f",
+  id: "825d98f6-e965-4e94-b833-2bc56c0548e0",
   name: "<value>",
   scope: {
-    id: "e02a6d6b-91bb-4185-8761-213d06c13ba9",
+    id: "89f24379-b06e-47d1-94b9-7ace7a6e76f0",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://coordinated-chainstay.net",
+  url: "https://known-follower.name",
   verifyTls: false,
 };
 ```

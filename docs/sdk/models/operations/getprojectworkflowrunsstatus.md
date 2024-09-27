@@ -7,7 +7,7 @@ Workflow status.
 ```typescript
 import { GetProjectWorkflowRunsStatus } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetProjectWorkflowRunsStatus = "success";
+let value: GetProjectWorkflowRunsStatus = "failed";
 ```
 
 ## Values

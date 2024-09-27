@@ -9,18 +9,18 @@ import { OrgData } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: OrgData = {
   metrics: {
-    successRate: 9587.41,
-    throughput: 1173.20,
-    totalCreditsUsed: 107004,
-    totalDurationSecs: 589695,
-    totalRuns: 745398,
+    successRate: 6391.87,
+    throughput: 3991.61,
+    totalCreditsUsed: 431760,
+    totalDurationSecs: 614528,
+    totalRuns: 70042,
   },
   trends: {
-    successRate: 8481.50,
-    throughput: 9358.32,
-    totalCreditsUsed: 9834.26,
-    totalDurationSecs: 3998.02,
-    totalRuns: 3803.35,
+    successRate: 8224.07,
+    throughput: 6534.21,
+    totalCreditsUsed: 7263.42,
+    totalDurationSecs: 5369.23,
+    totalRuns: 1104.77,
   },
 };
 ```

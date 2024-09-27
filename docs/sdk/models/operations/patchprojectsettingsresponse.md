@@ -1,30 +1,23 @@
 # PatchProjectSettingsResponse
 
-## Example Usage
-
-```typescript
-import { PatchProjectSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: PatchProjectSettingsResponse = {};
-```
 
 ## Supported Types
 
 ### `operations.PatchProjectSettingsResponseBody`
 
 ```typescript
-const value: operations.PatchProjectSettingsResponseBody = /* values here */
+const value: operations.PatchProjectSettingsResponseBody = {};
 ```
 
 ### `operations.PatchProjectSettingsProjectResponseBody`
 
 ```typescript
-const value: operations.PatchProjectSettingsProjectResponseBody = /* values here */
+const value: operations.PatchProjectSettingsProjectResponseBody = {};
 ```
 
 ### `shared.ProjectSettings`
 
 ```typescript
-const value: shared.ProjectSettings = /* values here */
+const value: shared.ProjectSettings = {};
 ```
 

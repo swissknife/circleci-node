@@ -1,30 +1,23 @@
 # GetScheduleByIdParameters
 
-## Example Usage
-
-```typescript
-import { GetScheduleByIdParameters } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetScheduleByIdParameters = "<value>";
-```
 
 ## Supported Types
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 828571;
 ```
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `boolean`
 
 ```typescript
-const value: boolean = /* values here */
+const value: boolean = false;
 ```
 

@@ -1,26 +1,21 @@
 # GetProjectClaimsResponse
 
-## Example Usage
-
-```typescript
-import { GetProjectClaimsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetProjectClaimsResponse = {
-  error: "OwnerID: must be a valid UUID.",
-};
-```
 
 ## Supported Types
 
 ### `shared.ClaimResponse`
 
 ```typescript
-const value: shared.ClaimResponse = /* values here */
+const value: shared.ClaimResponse = {
+  orgId: "172081bb-2fb4-4bb5-9659-e2e0a6cb7a8c",
+};
 ```
 
 ### `operations.GetProjectClaimsResponseBody`
 
 ```typescript
-const value: operations.GetProjectClaimsResponseBody = /* values here */
+const value: operations.GetProjectClaimsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 

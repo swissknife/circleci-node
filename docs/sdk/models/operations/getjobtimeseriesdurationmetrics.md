@@ -8,11 +8,11 @@ Metrics relating to the duration of runs for a workflow.
 import { GetJobTimeseriesDurationMetrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetJobTimeseriesDurationMetrics = {
-  max: 160230,
-  median: 661118,
-  min: 440264,
-  p95: 76486,
-  total: 696463,
+  max: 327988,
+  median: 680349,
+  min: 63207,
+  p95: 607249,
+  total: 477646,
 };
 ```
 

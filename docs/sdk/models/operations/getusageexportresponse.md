@@ -1,30 +1,23 @@
 # GetUsageExportResponse
 
-## Example Usage
-
-```typescript
-import { GetUsageExportResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetUsageExportResponse = {
-  downloadUrls: [
-    "https://good-brush.com",
-  ],
-  state: "completed",
-  usageExportJobId: "12d4ad9f-b18b-4c0b-9db8-78be9eb18445",
-};
-```
 
 ## Supported Types
 
 ### `shared.GetUsageExportJobStatus`
 
 ```typescript
-const value: shared.GetUsageExportJobStatus = /* values here */
+const value: shared.GetUsageExportJobStatus = {
+  downloadUrls: [
+    "https://carefree-retention.info/",
+  ],
+  state: "failed",
+  usageExportJobId: "968af991-f8c0-4644-9c97-0ff308fe945e",
+};
 ```
 
 ### `operations.GetUsageExportResponseBody`
 
 ```typescript
-const value: operations.GetUsageExportResponseBody = /* values here */
+const value: operations.GetUsageExportResponseBody = {};
 ```
 

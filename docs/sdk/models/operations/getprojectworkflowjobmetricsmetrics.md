@@ -9,19 +9,19 @@ import { GetProjectWorkflowJobMetricsMetrics } from "circleci-v2-sdk/sdk/models/
 
 let value: GetProjectWorkflowJobMetricsMetrics = {
   durationMetrics: {
-    max: 221396,
-    mean: 100014,
-    median: 265039,
-    min: 66149,
-    p95: 65604,
-    standardDeviation: 8562.76,
+    max: 524380,
+    mean: 117380,
+    median: 159845,
+    min: 46806,
+    p95: 970732,
+    standardDeviation: 38.60,
   },
-  failedRuns: 162120,
-  successRate: 5596.82,
-  successfulRuns: 773456,
-  throughput: 4564.10,
-  totalCreditsUsed: 153369,
-  totalRuns: 199596,
+  failedRuns: 178580,
+  successRate: 6128.67,
+  successfulRuns: 81369,
+  throughput: 8818.97,
+  totalCreditsUsed: 719620,
+  totalRuns: 966390,
 };
 ```
 

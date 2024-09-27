@@ -1,11 +1,12 @@
 # GetDecisionLogsResponse
 
-## Example Usage
+
+## Supported Types
+
+### `shared.DecisionLog[]`
 
 ```typescript
-import { GetDecisionLogsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetDecisionLogsResponse = [
+const value: shared.DecisionLog[] = [
   {
     policies: {
       "policy_name1":
@@ -17,17 +18,11 @@ let value: GetDecisionLogsResponse = [
 ];
 ```
 
-## Supported Types
-
-### `shared.DecisionLog[]`
-
-```typescript
-const value: shared.DecisionLog[] = /* values here */
-```
-
 ### `operations.GetDecisionLogsResponseBody`
 
 ```typescript
-const value: operations.GetDecisionLogsResponseBody = /* values here */
+const value: operations.GetDecisionLogsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 

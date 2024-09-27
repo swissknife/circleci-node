@@ -12,15 +12,15 @@ let value: CreateWebhookWebhook = {
   events: [
     "workflow-completed",
   ],
-  id: "0366ea6f-95b7-4ee5-984a-fd51f6457ff4",
+  id: "560d7fe8-a542-4817-95c6-e3e9184ba16e",
   name: "<value>",
   scope: {
-    id: "802e016b-444d-438f-9b5c-f5b1e1584a8b",
+    id: "b1d8f8cf-b950-466d-83b0-ea64296be4a6",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://sturdy-siege.net",
+  url: "https://heavy-adult.info",
   verifyTls: false,
 };
 ```

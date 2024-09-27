@@ -1,36 +1,29 @@
 # GetPipelineByNumberTriggerParameters
 
-## Example Usage
-
-```typescript
-import { GetPipelineByNumberTriggerParameters } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetPipelineByNumberTriggerParameters = "<value>";
-```
 
 ## Supported Types
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 243941;
 ```
 
 ### `boolean`
 
 ```typescript
-const value: boolean = /* values here */
+const value: boolean = false;
 ```
 
 ### `operations.GetPipelineByNumber4`
 
 ```typescript
-const value: operations.GetPipelineByNumber4 = /* values here */
+const value: operations.GetPipelineByNumber4 = {};
 ```
 

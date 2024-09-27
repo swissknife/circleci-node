@@ -8,11 +8,11 @@ Trends for a single org.
 import { GetOrgSummaryDataInsightsTrends } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetOrgSummaryDataInsightsTrends = {
-  successRate: 626.36,
-  throughput: 2419.02,
-  totalCreditsUsed: 4322.81,
-  totalDurationSecs: 5219.96,
-  totalRuns: 7730.84,
+  successRate: 4037.93,
+  throughput: 3998.12,
+  totalCreditsUsed: 6713.83,
+  totalDurationSecs: 3447.18,
+  totalRuns: 7137.67,
 };
 ```
 

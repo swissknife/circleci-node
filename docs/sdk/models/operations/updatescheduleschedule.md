@@ -9,13 +9,13 @@ import { UpdateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateScheduleSchedule = {
   actor: {
-    id: "11c23ef5-dd99-4949-a326-b9fa22139de6",
-    login: "Raina.Mertz47",
+    id: "47b85282-f82b-41c7-a20f-4f881fb81265",
+    login: "Arden.Langosh",
     name: "<value>",
   },
-  createdAt: new Date("2023-05-22T19:39:49.574Z"),
-  description: "Integrated global contingency",
-  id: "243bb919-1053-49eb-9cfa-99d6ca403b94",
+  createdAt: new Date("2022-03-09T17:02:11.941Z"),
+  description: "sonar availability even which filthy ah",
+  id: "31a8300b-3402-4d3f-924d-64b0ed1cf79a",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -24,14 +24,14 @@ let value: UpdateScheduleSchedule = {
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
     daysOfMonth: [
-      127086,
+      474867,
     ],
     hoursOfDay: [
-      432280,
+      405542,
     ],
-    perHour: 416624,
+    perHour: 902802,
   },
-  updatedAt: new Date("2023-08-18T16:34:38.040Z"),
+  updatedAt: new Date("2024-05-24T12:02:36.255Z"),
 };
 ```
 

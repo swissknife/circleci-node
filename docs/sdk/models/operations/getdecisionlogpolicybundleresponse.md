@@ -1,34 +1,33 @@
 # GetDecisionLogPolicyBundleResponse
 
-## Example Usage
-
-```typescript
-import { GetDecisionLogPolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetDecisionLogPolicyBundleResponse = {
-  "key": [
-    {},
-  ],
-};
-```
 
 ## Supported Types
 
 ### `{ [k: string]: shared.Policy[] }`
 
 ```typescript
-const value: { [k: string]: shared.Policy[] } = /* values here */
+const value: { [k: string]: shared.Policy[] } = {
+  "key": [
+    {},
+  ],
+};
 ```
 
 ### `operations.GetDecisionLogPolicyBundleResponseBody`
 
 ```typescript
-const value: operations.GetDecisionLogPolicyBundleResponseBody = /* values here */
+const value: operations.GetDecisionLogPolicyBundleResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 
 ### `operations.GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody`
 
 ```typescript
-const value: operations.GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody = /* values here */
+const value:
+  operations.GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody =
+    {
+      error: "decision log not found",
+    };
 ```
 

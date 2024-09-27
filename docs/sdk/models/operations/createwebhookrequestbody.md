@@ -9,15 +9,15 @@ import { CreateWebhookRequestBody } from "circleci-v2-sdk/sdk/models/operations"
 
 let value: CreateWebhookRequestBody = {
   events: [
-    "workflow-completed",
+    "job-completed",
   ],
   name: "<value>",
   scope: {
-    id: "c0f6f545-b3d9-4ff2-8f00-ff277dac7abb",
+    id: "f589c2db-0907-49ae-94d7-acbcacee5f09",
     type: "project",
   },
   signingSecret: "<value>",
-  url: "https://heavy-bar.info/",
+  url: "https://musty-baseboard.name/",
   verifyTls: false,
 };
 ```

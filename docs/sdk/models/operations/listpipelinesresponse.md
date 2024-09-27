@@ -1,31 +1,32 @@
 # ListPipelinesResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.ListPipelinesPipelineListResponse`
 
 ```typescript
-import { ListPipelinesResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ListPipelinesResponse = {
+const value: operations.ListPipelinesPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2024-01-30T00:57:24.858Z"),
+      createdAt: new Date("2023-09-05T17:10:02.116Z"),
       errors: [
         {
           message: "<value>",
-          type: "trigger-rule",
+          type: "permission",
         },
       ],
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       number: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      state: "setup-pending",
+      state: "setup",
       trigger: {
         actor: {
-          avatarUrl: "<value>",
-          login: "Bria70",
+          avatarUrl: "https://nice-remark.org/",
+          login: "Geo.Powlowski",
         },
-        receivedAt: new Date("2022-11-20T15:45:49.704Z"),
-        type: "api",
+        receivedAt: new Date("2024-01-05T13:57:54.417Z"),
+        type: "explicit",
       },
       vcs: {
         branch: "feature/design-new-api",
@@ -46,17 +47,9 @@ let value: ListPipelinesResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.ListPipelinesPipelineListResponse`
-
-```typescript
-const value: operations.ListPipelinesPipelineListResponse = /* values here */
-```
-
 ### `operations.ListPipelinesResponseBody`
 
 ```typescript
-const value: operations.ListPipelinesResponseBody = /* values here */
+const value: operations.ListPipelinesResponseBody = {};
 ```
 

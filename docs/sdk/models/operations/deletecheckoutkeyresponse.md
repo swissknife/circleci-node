@@ -1,26 +1,19 @@
 # DeleteCheckoutKeyResponse
 
-## Example Usage
-
-```typescript
-import { DeleteCheckoutKeyResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: DeleteCheckoutKeyResponse = {
-  message: "<value>",
-};
-```
 
 ## Supported Types
 
 ### `operations.DeleteCheckoutKeyMessageResponse`
 
 ```typescript
-const value: operations.DeleteCheckoutKeyMessageResponse = /* values here */
+const value: operations.DeleteCheckoutKeyMessageResponse = {
+  message: "<value>",
+};
 ```
 
 ### `operations.DeleteCheckoutKeyResponseBody`
 
 ```typescript
-const value: operations.DeleteCheckoutKeyResponseBody = /* values here */
+const value: operations.DeleteCheckoutKeyResponseBody = {};
 ```
 

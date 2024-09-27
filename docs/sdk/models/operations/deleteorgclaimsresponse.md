@@ -1,26 +1,21 @@
 # DeleteOrgClaimsResponse
 
-## Example Usage
-
-```typescript
-import { DeleteOrgClaimsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: DeleteOrgClaimsResponse = {
-  error: "OwnerID: must be a valid UUID.",
-};
-```
 
 ## Supported Types
 
 ### `shared.ClaimResponse`
 
 ```typescript
-const value: shared.ClaimResponse = /* values here */
+const value: shared.ClaimResponse = {
+  orgId: "3b342271-5606-417d-9d19-d3cec103496b",
+};
 ```
 
 ### `operations.DeleteOrgClaimsResponseBody`
 
 ```typescript
-const value: operations.DeleteOrgClaimsResponseBody = /* values here */
+const value: operations.DeleteOrgClaimsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 

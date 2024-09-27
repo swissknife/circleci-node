@@ -7,12 +7,12 @@ import { CreateScheduleSchedule1 } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleSchedule1 = {
   daysOfWeek: [
-    "TUE",
+    "MON",
   ],
   hoursOfDay: [
-    800761,
+    428482,
   ],
-  perHour: 377430,
+  perHour: 116452,
 };
 ```
 

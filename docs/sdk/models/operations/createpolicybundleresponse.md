@@ -1,32 +1,28 @@
 # CreatePolicyBundleResponse
 
-## Example Usage
-
-```typescript
-import { CreatePolicyBundleResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: CreatePolicyBundleResponse = {
-  error: "OwnerID: must be a valid UUID.",
-};
-```
 
 ## Supported Types
 
 ### `shared.BundleDiff`
 
 ```typescript
-const value: shared.BundleDiff = /* values here */
+const value: shared.BundleDiff = {};
 ```
 
 ### `operations.CreatePolicyBundleResponseBody`
 
 ```typescript
-const value: operations.CreatePolicyBundleResponseBody = /* values here */
+const value: operations.CreatePolicyBundleResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 
 ### `operations.CreatePolicyBundlePolicyManagementResponse413ResponseBody`
 
 ```typescript
-const value: operations.CreatePolicyBundlePolicyManagementResponse413ResponseBody = /* values here */
+const value:
+  operations.CreatePolicyBundlePolicyManagementResponse413ResponseBody = {
+    error: "http: request payload too large",
+  };
 ```
 

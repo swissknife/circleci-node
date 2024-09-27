@@ -1,32 +1,25 @@
 # CreateUsageExportResponse
 
-## Example Usage
-
-```typescript
-import { CreateUsageExportResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: CreateUsageExportResponse = {
-  downloadUrls: [
-    "https://defensive-courtroom.net",
-  ],
-  end: new Date("2024-05-03T22:51:53.391Z"),
-  start: new Date("2023-06-22T15:24:08.414Z"),
-  state: "failed",
-  usageExportJobId: "371547e2-69f2-4e17-a735-7df8d9536802",
-};
-```
 
 ## Supported Types
 
 ### `operations.CreateUsageExportResponseBody`
 
 ```typescript
-const value: operations.CreateUsageExportResponseBody = /* values here */
+const value: operations.CreateUsageExportResponseBody = {};
 ```
 
 ### `shared.UsageExportJob`
 
 ```typescript
-const value: shared.UsageExportJob = /* values here */
+const value: shared.UsageExportJob = {
+  downloadUrls: [
+    "https://official-scout.net",
+  ],
+  end: new Date("2024-07-12T20:33:30.741Z"),
+  start: new Date("2023-03-31T10:47:58.920Z"),
+  state: "processing",
+  usageExportJobId: "ea185f09-b4fd-4e09-84da-818af9ffa87e",
+};
 ```
 

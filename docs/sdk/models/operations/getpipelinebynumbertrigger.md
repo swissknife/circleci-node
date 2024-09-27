@@ -9,11 +9,11 @@ import { GetPipelineByNumberTrigger } from "circleci-v2-sdk/sdk/models/operation
 
 let value: GetPipelineByNumberTrigger = {
   actor: {
-    avatarUrl: "<value>",
-    login: "Vincenzo.Weissnat46",
+    avatarUrl: "https://unusual-knuckle.name/",
+    login: "River24",
   },
-  receivedAt: new Date("2022-01-06T05:55:38.572Z"),
-  type: "api",
+  receivedAt: new Date("2023-07-08T14:30:14.002Z"),
+  type: "explicit",
 };
 ```
 

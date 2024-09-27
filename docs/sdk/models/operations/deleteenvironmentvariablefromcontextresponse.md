@@ -1,26 +1,19 @@
 # DeleteEnvironmentVariableFromContextResponse
 
-## Example Usage
-
-```typescript
-import { DeleteEnvironmentVariableFromContextResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: DeleteEnvironmentVariableFromContextResponse = {
-  message: "<value>",
-};
-```
 
 ## Supported Types
 
 ### `operations.DeleteEnvironmentVariableFromContextMessageResponse`
 
 ```typescript
-const value: operations.DeleteEnvironmentVariableFromContextMessageResponse = /* values here */
+const value: operations.DeleteEnvironmentVariableFromContextMessageResponse = {
+  message: "<value>",
+};
 ```
 
 ### `operations.DeleteEnvironmentVariableFromContextResponseBody`
 
 ```typescript
-const value: operations.DeleteEnvironmentVariableFromContextResponseBody = /* values here */
+const value: operations.DeleteEnvironmentVariableFromContextResponseBody = {};
 ```
 

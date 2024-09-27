@@ -1,26 +1,21 @@
 # PatchProjectClaimsResponse
 
-## Example Usage
-
-```typescript
-import { PatchProjectClaimsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: PatchProjectClaimsResponse = {
-  orgId: "5808db9f-fd97-409f-9d52-cbfd817584dd",
-};
-```
 
 ## Supported Types
 
 ### `shared.ClaimResponse`
 
 ```typescript
-const value: shared.ClaimResponse = /* values here */
+const value: shared.ClaimResponse = {
+  orgId: "5fa51cbe-31b3-425d-a807-a893d8bf6e00",
+};
 ```
 
 ### `operations.PatchProjectClaimsResponseBody`
 
 ```typescript
-const value: operations.PatchProjectClaimsResponseBody = /* values here */
+const value: operations.PatchProjectClaimsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 

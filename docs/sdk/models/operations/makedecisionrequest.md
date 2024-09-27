@@ -7,7 +7,7 @@ import { MakeDecisionRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: MakeDecisionRequest = {
   context: "<value>",
-  ownerID: "<value>",
+  ownerID: "<id>",
 };
 ```
 

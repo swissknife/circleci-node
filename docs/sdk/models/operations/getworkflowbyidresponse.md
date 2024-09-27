@@ -1,35 +1,28 @@
 # GetWorkflowByIdResponse
 
-## Example Usage
-
-```typescript
-import { GetWorkflowByIdResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetWorkflowByIdResponse = {
-  createdAt: new Date("2022-06-17T04:58:05.871Z"),
-  id: "ebbd878b-612f-40bf-b2b4-3de5a2ce5ae0",
-  name: "build-and-test",
-  pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
-  pipelineNumber: 25,
-  projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  startedBy: "968db87e-31ab-4944-a947-5833b63d61b4",
-  status: "failing",
-  stoppedAt: new Date("2024-11-20T23:33:22.526Z"),
-  tag: "setup",
-};
-```
 
 ## Supported Types
 
 ### `operations.GetWorkflowByIdWorkflow`
 
 ```typescript
-const value: operations.GetWorkflowByIdWorkflow = /* values here */
+const value: operations.GetWorkflowByIdWorkflow = {
+  createdAt: new Date("2023-05-12T19:52:22.574Z"),
+  id: "d9bb0fb9-0e7e-469e-a726-6bd0742ad83c",
+  name: "build-and-test",
+  pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
+  pipelineNumber: 25,
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  startedBy: "cf654bf4-79f3-4f8b-9c2f-fdd5de42c916",
+  status: "failing",
+  stoppedAt: new Date("2023-04-06T18:20:13.817Z"),
+  tag: "setup",
+};
 ```
 
 ### `operations.GetWorkflowByIdResponseBody`
 
 ```typescript
-const value: operations.GetWorkflowByIdResponseBody = /* values here */
+const value: operations.GetWorkflowByIdResponseBody = {};
 ```
 

@@ -9,13 +9,13 @@ import { Schedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Schedule = {
   actor: {
-    id: "e506caf1-e576-413b-8020-d92cfee09495",
-    login: "Irving30",
+    id: "91bb1857-6121-43d0-96c1-3ba92c22c554",
+    login: "Eva77",
     name: "<value>",
   },
-  createdAt: new Date("2023-12-25T00:37:49.378Z"),
-  description: "Stand-alone multi-tasking pricing structure",
-  id: "73c92cf5-41af-4271-b0ad-5e13e89020e2",
+  createdAt: new Date("2023-11-03T16:02:14.499Z"),
+  description: "courteous pixellate yahoo",
+  id: "e2034ca0-09a2-4935-a61f-f74fdb76c8a9",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -24,14 +24,14 @@ let value: Schedule = {
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
     daysOfWeek: [
-      "WED",
+      "SUN",
     ],
     hoursOfDay: [
-      365043,
+      167089,
     ],
-    perHour: 267684,
+    perHour: 242044,
   },
-  updatedAt: new Date("2022-04-13T15:39:03.902Z"),
+  updatedAt: new Date("2022-08-09T02:28:54.372Z"),
 };
 ```
 

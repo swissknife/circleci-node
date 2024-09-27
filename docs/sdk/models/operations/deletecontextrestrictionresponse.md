@@ -1,24 +1,17 @@
 # DeleteContextRestrictionResponse
 
-## Example Usage
-
-```typescript
-import { DeleteContextRestrictionResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: DeleteContextRestrictionResponse = {};
-```
 
 ## Supported Types
 
 ### `operations.DeleteContextRestrictionResponseBody`
 
 ```typescript
-const value: operations.DeleteContextRestrictionResponseBody = /* values here */
+const value: operations.DeleteContextRestrictionResponseBody = {};
 ```
 
 ### `shared.RestrictionDeleted`
 
 ```typescript
-const value: shared.RestrictionDeleted = /* values here */
+const value: shared.RestrictionDeleted = {};
 ```
 

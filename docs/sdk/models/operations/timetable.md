@@ -2,33 +2,34 @@
 
 Timetable that specifies when a schedule triggers.
 
-## Example Usage
-
-```typescript
-import { Timetable } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: Timetable = {
-  daysOfWeek: [
-    "FRI",
-  ],
-  hoursOfDay: [
-    296257,
-  ],
-  perHour: 409295,
-};
-```
 
 ## Supported Types
 
 ### `operations.CreateSchedule1`
 
 ```typescript
-const value: operations.CreateSchedule1 = /* values here */
+const value: operations.CreateSchedule1 = {
+  daysOfWeek: [
+    "SUN",
+  ],
+  hoursOfDay: [
+    290226,
+  ],
+  perHour: 969624,
+};
 ```
 
 ### `operations.CreateSchedule2`
 
 ```typescript
-const value: operations.CreateSchedule2 = /* values here */
+const value: operations.CreateSchedule2 = {
+  daysOfMonth: [
+    348633,
+  ],
+  hoursOfDay: [
+    107849,
+  ],
+  perHour: 388589,
+};
 ```
 

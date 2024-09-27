@@ -6,7 +6,7 @@
 import { GetContextRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetContextRequest = {
-  contextId: "7a52d383-1dff-4ec5-b163-20b0c211a368",
+  contextId: "d9052f77-a52d-4383-81df-fec516320b0c",
 };
 ```
 

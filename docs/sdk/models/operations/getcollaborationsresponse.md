@@ -1,14 +1,15 @@
 # GetCollaborationsResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.Collaboration[]`
 
 ```typescript
-import { GetCollaborationsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetCollaborationsResponse = [
+const value: operations.Collaboration[] = [
   {
-    avatarUrl: "<value>",
-    id: "ecb062db-efcf-4900-85dd-f10e48f6a6c8",
+    avatarUrl: "https://sweet-backbone.biz",
+    id: "0faf8c55-6a5e-4f03-9103-7d37eac8f903",
     name: "<value>",
     slug: "<value>",
     vcsType: "<value>",
@@ -16,17 +17,9 @@ let value: GetCollaborationsResponse = [
 ];
 ```
 
-## Supported Types
-
-### `operations.Collaboration[]`
-
-```typescript
-const value: operations.Collaboration[] = /* values here */
-```
-
 ### `operations.GetCollaborationsResponseBody`
 
 ```typescript
-const value: operations.GetCollaborationsResponseBody = /* values here */
+const value: operations.GetCollaborationsResponseBody = {};
 ```
 

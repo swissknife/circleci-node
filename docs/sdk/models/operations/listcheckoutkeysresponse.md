@@ -1,11 +1,12 @@
 # ListCheckoutKeysResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.ListCheckoutKeysCheckoutKeyListResponse`
 
 ```typescript
-import { ListCheckoutKeysResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ListCheckoutKeysResponse = {
+const value: operations.ListCheckoutKeysCheckoutKeyListResponse = {
   items: [
     {
       createdAt: new Date("2015-09-21T17:29:21.042Z"),
@@ -19,17 +20,9 @@ let value: ListCheckoutKeysResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.ListCheckoutKeysCheckoutKeyListResponse`
-
-```typescript
-const value: operations.ListCheckoutKeysCheckoutKeyListResponse = /* values here */
-```
-
 ### `operations.ListCheckoutKeysResponseBody`
 
 ```typescript
-const value: operations.ListCheckoutKeysResponseBody = /* values here */
+const value: operations.ListCheckoutKeysResponseBody = {};
 ```
 

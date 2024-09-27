@@ -7,12 +7,12 @@ import { UpdateSchedule2 } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateSchedule2 = {
   daysOfMonth: [
-    458279,
+    85002,
   ],
   hoursOfDay: [
-    48077,
+    322054,
   ],
-  perHour: 149776,
+  perHour: 985155,
 };
 ```
 

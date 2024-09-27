@@ -1,36 +1,29 @@
 # TriggerParameters
 
-## Example Usage
-
-```typescript
-import { TriggerParameters } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: TriggerParameters = "<value>";
-```
 
 ## Supported Types
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 714054;
 ```
 
 ### `boolean`
 
 ```typescript
-const value: boolean = /* values here */
+const value: boolean = false;
 ```
 
 ### `operations.Four`
 
 ```typescript
-const value: operations.Four = /* values here */
+const value: operations.Four = {};
 ```
 

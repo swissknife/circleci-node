@@ -8,24 +8,24 @@ Metrics aggregated across a workflow for a given time window.
 import { Metrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Metrics = {
-  completedRuns: 411615,
+  completedRuns: 202796,
   durationMetrics: {
-    max: 489459,
-    mean: 243678,
-    median: 588639,
-    min: 753240,
-    p95: 235834,
-    standardDeviation: 6205.00,
+    max: 423588,
+    mean: 357758,
+    median: 163684,
+    min: 441374,
+    p95: 262800,
+    standardDeviation: 5220.62,
   },
-  failedRuns: 639622,
-  mttr: 948541,
-  successRate: 7782.76,
-  successfulRuns: 848346,
-  throughput: 4904.20,
-  totalCreditsUsed: 185348,
-  totalRuns: 995816,
-  windowEnd: new Date("2022-05-22T18:34:26.178Z"),
-  windowStart: new Date("2023-06-01T17:12:47.982Z"),
+  failedRuns: 35160,
+  mttr: 906232,
+  successRate: 8163.64,
+  successfulRuns: 552581,
+  throughput: 8518.09,
+  totalCreditsUsed: 962396,
+  totalRuns: 110522,
+  windowEnd: new Date("2023-11-23T09:23:59.598Z"),
+  windowStart: new Date("2024-12-29T19:14:03.123Z"),
 };
 ```
 

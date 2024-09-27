@@ -11,13 +11,13 @@ let value: ListSchedulesForProjectResponseBody = {
   items: [
     {
       actor: {
-        id: "47d7f806-b3b8-40c8-8174-e4f85db6acdd",
-        login: "Rhiannon_Dooley",
+        id: "80f80a41-d310-4ba0-83b2-937d4a715dfd",
+        login: "Ezekiel_Lueilwitz77",
         name: "<value>",
       },
-      createdAt: new Date("2022-12-04T12:43:46.364Z"),
-      description: "Managed dynamic analyzer",
-      id: "8f94f6ba-fe21-4ce7-9b13-29304a95d448",
+      createdAt: new Date("2023-01-11T06:39:44.285Z"),
+      description: "zowie given wherever jealously uh-huh consequently",
+      id: "b6c905cb-aa9a-498c-9576-35056133352b",
       name: "<value>",
       parameters: {
         "deploy_prod": true,
@@ -26,14 +26,14 @@ let value: ListSchedulesForProjectResponseBody = {
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
       timetable: {
         daysOfWeek: [
-          "SAT",
+          "THU",
         ],
         hoursOfDay: [
-          504646,
+          179648,
         ],
-        perHour: 259019,
+        perHour: 58056,
       },
-      updatedAt: new Date("2023-03-06T19:53:58.677Z"),
+      updatedAt: new Date("2022-06-28T23:14:11.413Z"),
     },
   ],
   nextPageToken: "<value>",

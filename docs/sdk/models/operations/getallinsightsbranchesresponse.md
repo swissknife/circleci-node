@@ -1,11 +1,12 @@
 # GetAllInsightsBranchesResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.GetAllInsightsBranchesResponseBody`
 
 ```typescript
-import { GetAllInsightsBranchesResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetAllInsightsBranchesResponse = {
+const value: operations.GetAllInsightsBranchesResponseBody = {
   branches: [
     "main",
   ],
@@ -14,17 +15,9 @@ let value: GetAllInsightsBranchesResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.GetAllInsightsBranchesResponseBody`
-
-```typescript
-const value: operations.GetAllInsightsBranchesResponseBody = /* values here */
-```
-
 ### `operations.GetAllInsightsBranchesInsightsResponseBody`
 
 ```typescript
-const value: operations.GetAllInsightsBranchesInsightsResponseBody = /* values here */
+const value: operations.GetAllInsightsBranchesInsightsResponseBody = {};
 ```
 

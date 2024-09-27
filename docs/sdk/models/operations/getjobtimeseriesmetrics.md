@@ -9,18 +9,18 @@ import { GetJobTimeseriesMetrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetJobTimeseriesMetrics = {
   durationMetrics: {
-    max: 247399,
-    median: 39615,
-    min: 59944,
-    p95: 61078,
-    total: 907733,
+    max: 284000,
+    median: 238413,
+    min: 514513,
+    p95: 367927,
+    total: 456520,
   },
-  failedRuns: 739884,
-  medianCreditsUsed: 898063,
-  successfulRuns: 672582,
-  throughput: 5289.40,
-  totalCreditsUsed: 304446,
-  totalRuns: 997963,
+  failedRuns: 337477,
+  medianCreditsUsed: 970494,
+  successfulRuns: 133439,
+  throughput: 968.04,
+  totalCreditsUsed: 343392,
+  totalRuns: 591027,
 };
 ```
 

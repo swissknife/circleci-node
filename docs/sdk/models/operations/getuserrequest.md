@@ -6,7 +6,7 @@
 import { GetUserRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetUserRequest = {
-  id: "40323a01-2544-4cf8-9f61-647a7eeb726b",
+  id: "0f2bd531-b7be-42e6-84ff-3a1ada6669ee",
 };
 ```
 

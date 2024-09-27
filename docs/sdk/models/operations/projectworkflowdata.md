@@ -7,16 +7,16 @@ import { ProjectWorkflowData } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ProjectWorkflowData = {
   metrics: {
-    p95DurationSecs: 691.83,
-    successRate: 8791.73,
-    totalCreditsUsed: 734814,
-    totalRuns: 176499,
+    p95DurationSecs: 5112.22,
+    successRate: 832.91,
+    totalCreditsUsed: 51075,
+    totalRuns: 965517,
   },
   trends: {
-    p95DurationSecs: 9391.61,
-    successRate: 5063.12,
-    totalCreditsUsed: 9998.09,
-    totalRuns: 1972.59,
+    p95DurationSecs: 8590.03,
+    successRate: 1520.27,
+    totalCreditsUsed: 6.64,
+    totalRuns: 9416.68,
   },
   workflowName: "build-and-test",
 };

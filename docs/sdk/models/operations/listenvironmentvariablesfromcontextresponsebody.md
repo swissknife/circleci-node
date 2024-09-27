@@ -10,7 +10,7 @@ import { ListEnvironmentVariablesFromContextResponseBody } from "circleci-v2-sdk
 let value: ListEnvironmentVariablesFromContextResponseBody = {
   items: [
     {
-      contextId: "715ba9b3-5ae8-440b-b058-e160594319ba",
+      contextId: "0594319b-af0a-499f-a0bd-85c178b1369e",
       createdAt: new Date("2015-09-21T17:29:21.042Z"),
       updatedAt: new Date("2015-09-21T17:29:21.042Z"),
       variable: "POSTGRES_USER",

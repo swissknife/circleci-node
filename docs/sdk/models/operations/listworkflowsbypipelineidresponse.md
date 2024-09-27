@@ -1,22 +1,23 @@
 # ListWorkflowsByPipelineIdResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.ListWorkflowsByPipelineIdWorkflowListResponse`
 
 ```typescript
-import { ListWorkflowsByPipelineIdResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ListWorkflowsByPipelineIdResponse = {
+const value: operations.ListWorkflowsByPipelineIdWorkflowListResponse = {
   items: [
     {
-      createdAt: new Date("2022-11-03T12:40:15.931Z"),
-      id: "977de7ac-84a9-4e0e-a805-b7f65d8aca61",
+      createdAt: new Date("2022-06-23T05:36:11.637Z"),
+      id: "ab9f72a9-98f2-4123-8993-777c7c28d279",
       name: "build-and-test",
       pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       pipelineNumber: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      startedBy: "e6e89d91-f3b8-473b-a1fd-8648e48353f9",
-      status: "success",
-      stoppedAt: new Date("2023-02-06T06:21:21.734Z"),
+      startedBy: "c1f7516a-14da-432e-a42f-4176e211e729",
+      status: "running",
+      stoppedAt: new Date("2023-10-23T22:18:54.790Z"),
       tag: "setup",
     },
   ],
@@ -24,17 +25,9 @@ let value: ListWorkflowsByPipelineIdResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.ListWorkflowsByPipelineIdWorkflowListResponse`
-
-```typescript
-const value: operations.ListWorkflowsByPipelineIdWorkflowListResponse = /* values here */
-```
-
 ### `operations.ListWorkflowsByPipelineIdResponseBody`
 
 ```typescript
-const value: operations.ListWorkflowsByPipelineIdResponseBody = /* values here */
+const value: operations.ListWorkflowsByPipelineIdResponseBody = {};
 ```
 

@@ -1,33 +1,26 @@
 # GetJobArtifactsResponse
 
-## Example Usage
-
-```typescript
-import { GetJobArtifactsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetJobArtifactsResponse = {
-  items: [
-    {
-      nodeIndex: 638390,
-      path: "/lost+found",
-      url: "https://shadowy-filter.net",
-    },
-  ],
-  nextPageToken: "<value>",
-};
-```
 
 ## Supported Types
 
 ### `operations.GetJobArtifactsArtifactListResponse`
 
 ```typescript
-const value: operations.GetJobArtifactsArtifactListResponse = /* values here */
+const value: operations.GetJobArtifactsArtifactListResponse = {
+  items: [
+    {
+      nodeIndex: 244569,
+      path: "/private",
+      url: "https://doting-mentor.biz",
+    },
+  ],
+  nextPageToken: "<value>",
+};
 ```
 
 ### `operations.GetJobArtifactsResponseBody`
 
 ```typescript
-const value: operations.GetJobArtifactsResponseBody = /* values here */
+const value: operations.GetJobArtifactsResponseBody = {};
 ```
 

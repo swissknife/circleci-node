@@ -1,19 +1,20 @@
 # CreateScheduleResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.CreateScheduleSchedule`
 
 ```typescript
-import { CreateScheduleResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: CreateScheduleResponse = {
+const value: operations.CreateScheduleSchedule = {
   actor: {
-    id: "825b6cbf-8c55-4661-a81e-0742cb2acc1a",
-    login: "Sage_Koepp",
+    id: "2846bec6-9b65-42bd-95c9-c6b61874e606",
+    login: "Sadye_Dooley",
     name: "<value>",
   },
-  createdAt: new Date("2022-12-29T08:33:05.197Z"),
-  description: "Switchable heuristic approach",
-  id: "7d709fd9-ed79-4bd0-9c7a-c8261bfc6948",
+  createdAt: new Date("2022-03-26T04:37:57.408Z"),
+  description: "wonderful cutlet pitiful",
+  id: "f24b3d52-09d4-4ec0-b993-570226bd2cae",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -21,29 +22,21 @@ let value: CreateScheduleResponse = {
   },
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
-    daysOfMonth: [
-      259341,
+    daysOfWeek: [
+      "TUE",
     ],
     hoursOfDay: [
-      964021,
+      799730,
     ],
-    perHour: 661949,
+    perHour: 162171,
   },
-  updatedAt: new Date("2022-03-17T09:07:57.019Z"),
+  updatedAt: new Date("2022-08-02T06:05:17.830Z"),
 };
-```
-
-## Supported Types
-
-### `operations.CreateScheduleSchedule`
-
-```typescript
-const value: operations.CreateScheduleSchedule = /* values here */
 ```
 
 ### `operations.CreateScheduleResponseBody`
 
 ```typescript
-const value: operations.CreateScheduleResponseBody = /* values here */
+const value: operations.CreateScheduleResponseBody = {};
 ```
 

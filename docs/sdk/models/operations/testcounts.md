@@ -8,11 +8,11 @@ Test counts for a given pipeline number
 import { TestCounts } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: TestCounts = {
-  error: 621169,
-  failure: 498180,
-  skipped: 866789,
-  success: 627735,
-  total: 401428,
+  error: 999809,
+  failure: 197259,
+  skipped: 534908,
+  success: 290248,
+  total: 304173,
 };
 ```
 

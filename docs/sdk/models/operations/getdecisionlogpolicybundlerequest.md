@@ -7,8 +7,8 @@ import { GetDecisionLogPolicyBundleRequest } from "circleci-v2-sdk/sdk/models/op
 
 let value: GetDecisionLogPolicyBundleRequest = {
   context: "<value>",
-  decisionID: "<value>",
-  ownerID: "<value>",
+  decisionID: "<id>",
+  ownerID: "<id>",
 };
 ```
 

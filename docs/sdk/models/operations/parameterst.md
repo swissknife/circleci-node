@@ -1,30 +1,23 @@
 # ParametersT
 
-## Example Usage
-
-```typescript
-import { ParametersT } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ParametersT = "<value>";
-```
 
 ## Supported Types
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 131116;
 ```
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `boolean`
 
 ```typescript
-const value: boolean = /* values here */
+const value: boolean = false;
 ```
 

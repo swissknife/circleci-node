@@ -1,30 +1,23 @@
 # ResponseBody
 
-## Example Usage
-
-```typescript
-import { ResponseBody } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ResponseBody = "<value>";
-```
 
 ## Supported Types
 
 ### `string`
 
 ```typescript
-const value: string = /* values here */
+const value: string = "<value>";
 ```
 
 ### `number`
 
 ```typescript
-const value: number = /* values here */
+const value: number = 69814;
 ```
 
 ### `boolean`
 
 ```typescript
-const value: boolean = /* values here */
+const value: boolean = false;
 ```
 

@@ -8,24 +8,24 @@ A pipeline response.
 import { ListPipelinesPipeline } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListPipelinesPipeline = {
-  createdAt: new Date("2022-01-01T01:56:18.923Z"),
+  createdAt: new Date("2023-02-23T03:33:36.485Z"),
   errors: [
     {
       message: "<value>",
-      type: "config-fetch",
+      type: "plan",
     },
   ],
   id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   number: 25,
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  state: "setup",
+  state: "errored",
   trigger: {
     actor: {
-      avatarUrl: "<value>",
-      login: "Juwan56",
+      avatarUrl: "https://intelligent-sustenance.biz",
+      login: "Ariel2",
     },
-    receivedAt: new Date("2024-07-10T13:11:55.307Z"),
-    type: "explicit",
+    receivedAt: new Date("2024-08-19T20:52:25.676Z"),
+    type: "api",
   },
   vcs: {
     branch: "feature/design-new-api",

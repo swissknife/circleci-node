@@ -10,15 +10,15 @@ let value: Webhook = {
   events: [
     "workflow-completed",
   ],
-  id: "e0161193-aed3-41ff-a572-b6c905cbaa9a",
+  id: "7d49dc30-4204-48a6-939c-bd4875a2c069",
   name: "<value>",
   scope: {
-    id: "8c576350-5613-4335-82b5-192026ba0c5a",
+    id: "a0d14401-dcbb-4140-a003-003c0fadac44",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://agreeable-skean.biz/",
+  url: "https://measly-concentration.biz",
   verifyTls: false,
 };
 ```

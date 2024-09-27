@@ -7,7 +7,7 @@ The type of trigger.
 ```typescript
 import { ListPipelinesForProjectPipelineType } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: ListPipelinesForProjectPipelineType = "explicit";
+let value: ListPipelinesForProjectPipelineType = "api";
 ```
 
 ## Values

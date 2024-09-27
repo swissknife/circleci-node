@@ -9,13 +9,13 @@ import { Job } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Job = {
   dependencies: [
-    "eb7b6628-4a6d-4c29-8b81-865953b3cf7c",
+    "b9e38c33-ace7-4b25-9a2f-2c5b6be92f83",
   ],
-  id: "cf842e57-66ce-4af3-b9ab-c5e24794e71d",
+  id: "bee2d967-cda0-4c06-9784-6c4d02e70971",
   name: "<value>",
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  startedAt: new Date("2023-01-15T13:48:09.028Z"),
-  status: "infrastructure_fail",
+  startedAt: new Date("2023-11-05T09:51:49.402Z"),
+  status: "timedout",
   type: "approval",
 };
 ```

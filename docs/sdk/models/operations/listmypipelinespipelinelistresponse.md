@@ -10,23 +10,23 @@ import { ListMyPipelinesPipelineListResponse } from "circleci-v2-sdk/sdk/models/
 let value: ListMyPipelinesPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2023-09-25T22:27:35.031Z"),
+      createdAt: new Date("2023-06-27T11:44:00.517Z"),
       errors: [
         {
           message: "<value>",
-          type: "trigger-rule",
+          type: "config-fetch",
         },
       ],
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       number: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      state: "errored",
+      state: "created",
       trigger: {
         actor: {
-          avatarUrl: "<value>",
-          login: "Domenic57",
+          avatarUrl: "https://short-term-lift.org/",
+          login: "Rickey_Mante96",
         },
-        receivedAt: new Date("2022-01-02T17:56:36.906Z"),
+        receivedAt: new Date("2023-08-06T02:09:12.930Z"),
         type: "scheduled_pipeline",
       },
       vcs: {

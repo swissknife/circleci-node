@@ -1,15 +1,16 @@
 # ListContextsResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.ListContextsResponseBody`
 
 ```typescript
-import { ListContextsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: ListContextsResponse = {
+const value: operations.ListContextsResponseBody = {
   items: [
     {
       createdAt: new Date("2015-09-21T17:29:21.042Z"),
-      id: "2019ff62-a7f1-4c43-ba3a-8684b65de035",
+      id: "4b65de03-5dff-4e4f-931f-3b0be465b327",
       name: "<value>",
     },
   ],
@@ -17,17 +18,9 @@ let value: ListContextsResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.ListContextsResponseBody`
-
-```typescript
-const value: operations.ListContextsResponseBody = /* values here */
-```
-
 ### `operations.ListContextsContextResponseBody`
 
 ```typescript
-const value: operations.ListContextsContextResponseBody = /* values here */
+const value: operations.ListContextsContextResponseBody = {};
 ```
 

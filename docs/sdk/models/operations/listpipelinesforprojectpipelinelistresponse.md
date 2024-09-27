@@ -10,7 +10,7 @@ import { ListPipelinesForProjectPipelineListResponse } from "circleci-v2-sdk/sdk
 let value: ListPipelinesForProjectPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2022-12-24T05:06:11.927Z"),
+      createdAt: new Date("2022-05-12T22:40:12.058Z"),
       errors: [
         {
           message: "<value>",
@@ -20,14 +20,14 @@ let value: ListPipelinesForProjectPipelineListResponse = {
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       number: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      state: "errored",
+      state: "setup-pending",
       trigger: {
         actor: {
-          avatarUrl: "<value>",
-          login: "Alessia33",
+          avatarUrl: "https://windy-flame.name/",
+          login: "Shakira35",
         },
-        receivedAt: new Date("2023-12-08T06:42:25.206Z"),
-        type: "explicit",
+        receivedAt: new Date("2024-08-26T16:08:40.356Z"),
+        type: "webhook",
       },
       vcs: {
         branch: "feature/design-new-api",

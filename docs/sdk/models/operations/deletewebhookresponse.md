@@ -1,26 +1,19 @@
 # DeleteWebhookResponse
 
-## Example Usage
-
-```typescript
-import { DeleteWebhookResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: DeleteWebhookResponse = {
-  message: "<value>",
-};
-```
 
 ## Supported Types
 
 ### `operations.DeleteWebhookMessageResponse`
 
 ```typescript
-const value: operations.DeleteWebhookMessageResponse = /* values here */
+const value: operations.DeleteWebhookMessageResponse = {
+  message: "<value>",
+};
 ```
 
 ### `operations.DeleteWebhookResponseBody`
 
 ```typescript
-const value: operations.DeleteWebhookResponseBody = /* values here */
+const value: operations.DeleteWebhookResponseBody = {};
 ```
 

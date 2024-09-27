@@ -5,7 +5,7 @@
 ```typescript
 import { GetWebhookByIdEvents } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: GetWebhookByIdEvents = "workflow-completed";
+let value: GetWebhookByIdEvents = "job-completed";
 ```
 
 ## Values

@@ -1,11 +1,12 @@
 # GetProjectWorkflowsPageDataResponse
 
-## Example Usage
+
+## Supported Types
+
+### `operations.GetProjectWorkflowsPageDataResponseBody`
 
 ```typescript
-import { GetProjectWorkflowsPageDataResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetProjectWorkflowsPageDataResponse = {
+const value: operations.GetProjectWorkflowsPageDataResponseBody = {
   allBranches: [
     "main",
   ],
@@ -16,16 +17,16 @@ let value: GetProjectWorkflowsPageDataResponse = {
     {
       branch: "main",
       metrics: {
-        p95DurationSecs: 5068.63,
-        successRate: 7368.53,
-        totalCreditsUsed: 97676,
-        totalRuns: 514922,
+        p95DurationSecs: 9132.84,
+        successRate: 5245.77,
+        totalCreditsUsed: 354225,
+        totalRuns: 120277,
       },
       trends: {
-        p95DurationSecs: 9384.12,
-        successRate: 2286.47,
-        totalCreditsUsed: 6771.41,
-        totalRuns: 5928.80,
+        p95DurationSecs: 7549.01,
+        successRate: 8850.22,
+        totalCreditsUsed: 1002.52,
+        totalRuns: 7589.85,
       },
       workflowName: "build-and-test",
     },
@@ -33,16 +34,16 @@ let value: GetProjectWorkflowsPageDataResponse = {
   projectWorkflowData: [
     {
       metrics: {
-        p95DurationSecs: 100.64,
-        successRate: 4758.26,
-        totalCreditsUsed: 708771,
-        totalRuns: 43975,
+        p95DurationSecs: 170.60,
+        successRate: 9670.55,
+        totalCreditsUsed: 615058,
+        totalRuns: 552439,
       },
       trends: {
-        p95DurationSecs: 8795.21,
-        successRate: 5200.81,
-        totalCreditsUsed: 306.61,
-        totalRuns: 2244.14,
+        p95DurationSecs: 2959.50,
+        successRate: 9292.92,
+        totalCreditsUsed: 2659.06,
+        totalRuns: 8281.47,
       },
       workflowName: "build-and-test",
     },
@@ -50,17 +51,9 @@ let value: GetProjectWorkflowsPageDataResponse = {
 };
 ```
 
-## Supported Types
-
-### `operations.GetProjectWorkflowsPageDataResponseBody`
-
-```typescript
-const value: operations.GetProjectWorkflowsPageDataResponseBody = /* values here */
-```
-
 ### `operations.GetProjectWorkflowsPageDataInsightsResponseBody`
 
 ```typescript
-const value: operations.GetProjectWorkflowsPageDataInsightsResponseBody = /* values here */
+const value: operations.GetProjectWorkflowsPageDataInsightsResponseBody = {};
 ```
 

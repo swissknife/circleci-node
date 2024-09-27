@@ -1,27 +1,22 @@
 # Owner
 
-## Example Usage
-
-```typescript
-import { Owner } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: Owner = {
-  id: "90d0a4bf-3999-43f7-8db4-d6e9ebb8fa69",
-  type: "organization",
-};
-```
 
 ## Supported Types
 
 ### `operations.One`
 
 ```typescript
-const value: operations.One = /* values here */
+const value: operations.One = {
+  id: "904a4962-4999-4aa6-be56-ecb1ebf2d291",
+  type: "organization",
+};
 ```
 
 ### `operations.Two`
 
 ```typescript
-const value: operations.Two = /* values here */
+const value: operations.Two = {
+  slug: "<value>",
+};
 ```
 

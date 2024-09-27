@@ -8,7 +8,7 @@ A pipeline response.
 import { ListPipelinesForProjectPipeline } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListPipelinesForProjectPipeline = {
-  createdAt: new Date("2023-03-31T05:22:40.136Z"),
+  createdAt: new Date("2023-05-21T22:57:42.336Z"),
   errors: [
     {
       message: "<value>",
@@ -18,14 +18,14 @@ let value: ListPipelinesForProjectPipeline = {
   id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   number: 25,
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  state: "created",
+  state: "pending",
   trigger: {
     actor: {
-      avatarUrl: "<value>",
-      login: "Christiana53",
+      avatarUrl: "https://nice-avalanche.biz/",
+      login: "Leilani99",
     },
-    receivedAt: new Date("2024-06-18T05:26:12.044Z"),
-    type: "scheduled_pipeline",
+    receivedAt: new Date("2023-05-25T17:46:27.444Z"),
+    type: "webhook",
   },
   vcs: {
     branch: "feature/design-new-api",

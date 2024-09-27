@@ -1,24 +1,19 @@
 # GetDecisionSettingsResponse
 
-## Example Usage
-
-```typescript
-import { GetDecisionSettingsResponse } from "circleci-v2-sdk/sdk/models/operations";
-
-let value: GetDecisionSettingsResponse = {};
-```
 
 ## Supported Types
 
 ### `shared.DecisionSettings`
 
 ```typescript
-const value: shared.DecisionSettings = /* values here */
+const value: shared.DecisionSettings = {};
 ```
 
 ### `operations.GetDecisionSettingsResponseBody`
 
 ```typescript
-const value: operations.GetDecisionSettingsResponseBody = /* values here */
+const value: operations.GetDecisionSettingsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
 ```
 
