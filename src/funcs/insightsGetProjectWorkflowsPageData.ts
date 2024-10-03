@@ -46,10 +46,8 @@ export async function insightsGetProjectWorkflowsPageData(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.GetProjectWorkflowsPageDataRequest$outboundSchema.parse(value),
     "Input validation failed",

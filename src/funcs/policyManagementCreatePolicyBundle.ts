@@ -43,10 +43,8 @@ export async function policyManagementCreatePolicyBundle(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.CreatePolicyBundleRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -43,10 +43,8 @@ export async function projectPatchProjectSettings(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.PatchProjectSettingsRequest$outboundSchema.parse(value),
     "Input validation failed",

@@ -43,10 +43,8 @@ export async function pipelineGetPipelineConfigById(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.GetPipelineConfigByIdRequest$outboundSchema.parse(value),
     "Input validation failed",

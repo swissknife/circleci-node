@@ -43,10 +43,8 @@ export async function scheduleGetScheduleById(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.GetScheduleByIdRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

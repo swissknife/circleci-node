@@ -43,10 +43,8 @@ export async function workflowGetWorkflowById(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.GetWorkflowByIdRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

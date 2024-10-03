@@ -40,10 +40,8 @@ export async function contextDeleteContext(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.DeleteContextRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

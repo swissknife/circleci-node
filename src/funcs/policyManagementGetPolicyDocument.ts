@@ -43,10 +43,8 @@ export async function policyManagementGetPolicyDocument(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.GetPolicyDocumentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

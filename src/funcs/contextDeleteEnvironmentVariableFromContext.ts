@@ -43,10 +43,8 @@ export async function contextDeleteEnvironmentVariableFromContext(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.DeleteEnvironmentVariableFromContextRequest$outboundSchema
         .parse(value),

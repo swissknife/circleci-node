@@ -43,10 +43,8 @@ export async function workflowApprovePendingApprovalJobById(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.ApprovePendingApprovalJobByIdRequest$outboundSchema.parse(
         value,

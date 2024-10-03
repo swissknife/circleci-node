@@ -43,10 +43,8 @@ export async function contextCreateContext(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.CreateContextRequestBody$outboundSchema.optional().parse(
         value,

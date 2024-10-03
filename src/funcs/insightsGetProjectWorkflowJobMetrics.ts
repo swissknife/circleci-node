@@ -43,10 +43,8 @@ export async function insightsGetProjectWorkflowJobMetrics(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.GetProjectWorkflowJobMetricsRequest$outboundSchema.parse(
         value,

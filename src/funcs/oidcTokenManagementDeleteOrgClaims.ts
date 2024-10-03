@@ -43,10 +43,8 @@ export async function oidcTokenManagementDeleteOrgClaims(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.DeleteOrgClaimsRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

@@ -43,10 +43,8 @@ export async function contextCreateContextRestriction(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.CreateContextRestrictionRequest$outboundSchema.parse(value),
     "Input validation failed",

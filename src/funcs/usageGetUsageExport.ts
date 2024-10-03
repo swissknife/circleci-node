@@ -43,10 +43,8 @@ export async function usageGetUsageExport(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.GetUsageExportRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

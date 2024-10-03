@@ -43,10 +43,8 @@ export async function projectGetEnvVar(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.GetEnvVarRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

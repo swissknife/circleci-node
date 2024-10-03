@@ -43,10 +43,8 @@ export async function scheduleUpdateSchedule(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.UpdateScheduleRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

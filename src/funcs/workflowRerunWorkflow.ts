@@ -43,10 +43,8 @@ export async function workflowRerunWorkflow(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.RerunWorkflowRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

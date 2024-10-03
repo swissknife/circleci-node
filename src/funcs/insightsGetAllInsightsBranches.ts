@@ -43,10 +43,8 @@ export async function insightsGetAllInsightsBranches(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.GetAllInsightsBranchesRequest$outboundSchema.parse(value),
     "Input validation failed",

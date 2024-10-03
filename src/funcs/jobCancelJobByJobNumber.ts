@@ -43,10 +43,8 @@ export async function jobCancelJobByJobNumber(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.CancelJobByJobNumberRequest$outboundSchema.parse(value),
     "Input validation failed",

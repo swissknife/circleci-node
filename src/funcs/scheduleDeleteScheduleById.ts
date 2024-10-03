@@ -43,10 +43,8 @@ export async function scheduleDeleteScheduleById(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) => operations.DeleteScheduleByIdRequest$outboundSchema.parse(value),
     "Input validation failed",
   );

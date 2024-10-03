@@ -43,10 +43,8 @@ export async function contextListEnvironmentVariablesFromContext(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.ListEnvironmentVariablesFromContextRequest$outboundSchema
         .parse(value),

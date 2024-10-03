@@ -43,10 +43,8 @@ export async function webhookCreateWebhook(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.CreateWebhookRequestBody$outboundSchema.optional().parse(
         value,

@@ -43,10 +43,8 @@ export async function pipelineContinuePipeline(
     | ConnectionError
   >
 > {
-  const input = request;
-
   const parsed = safeParse(
-    input,
+    request,
     (value) =>
       operations.ContinuePipelineRequestBody$outboundSchema.optional().parse(
         value,
