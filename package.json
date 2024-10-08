@@ -1,6 +1,6 @@
 {
   "name": "circleci-v2-sdk",
-  "version": "5.8.2",
+  "version": "5.8.3",
   "author": "Speakeasy API",
   "main": "./index.js",
   "sideEffects": false,
