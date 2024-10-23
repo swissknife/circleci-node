@@ -8,13 +8,13 @@
 ```typescript
 const value: operations.CreateScheduleSchedule = {
   actor: {
-    id: "2846bec6-9b65-42bd-95c9-c6b61874e606",
-    login: "Sadye_Dooley",
+    id: "46518f94-f6ba-4fe2-b1ce-7b1329304a95",
+    login: "Douglas.Macejkovic44",
     name: "<value>",
   },
-  createdAt: new Date("2022-03-26T04:37:57.408Z"),
-  description: "wonderful cutlet pitiful",
-  id: "f24b3d52-09d4-4ec0-b993-570226bd2cae",
+  createdAt: new Date("2023-07-08T02:12:48.329Z"),
+  description: "similar suddenly ugh ignite briefly",
+  id: "0ae7dcaf-c4cb-4613-8c3f-b799f24b3d52",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -22,15 +22,15 @@ const value: operations.CreateScheduleSchedule = {
   },
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
-    daysOfWeek: [
-      "TUE",
+    daysOfMonth: [
+      825283,
     ],
     hoursOfDay: [
-      799730,
+      273793,
     ],
-    perHour: 162171,
+    perHour: 917540,
   },
-  updatedAt: new Date("2022-08-02T06:05:17.830Z"),
+  updatedAt: new Date("2024-04-10T11:26:32.069Z"),
 };
 ```
 

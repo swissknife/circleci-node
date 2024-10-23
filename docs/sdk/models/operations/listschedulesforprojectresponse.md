@@ -10,13 +10,13 @@ const value: operations.ListSchedulesForProjectResponseBody = {
   items: [
     {
       actor: {
-        id: "6ba0c5a0-60d2-4a42-be9e-4df6e55ff3d5",
-        login: "Ross.Marvin",
+        id: "a060d2a4-2e9e-44df-a6e5-5ff3d5fde943",
+        login: "Margaret_Dach43",
         name: "<value>",
       },
-      createdAt: new Date("2024-01-06T23:32:58.692Z"),
-      description: "lox ew developmental baseboard basket out and likewise",
-      id: "afa86172-9bf4-462e-9dc0-831c3883700e",
+      createdAt: new Date("2023-08-30T01:07:14.865Z"),
+      description: "that ack innovation and shark",
+      id: "a23d5760-b8a4-4636-bafa-861729bf462e",
       name: "<value>",
       parameters: {
         "deploy_prod": true,
@@ -25,14 +25,14 @@ const value: operations.ListSchedulesForProjectResponseBody = {
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
       timetable: {
         daysOfMonth: [
-          496307,
+          57290,
         ],
         hoursOfDay: [
-          431108,
+          556719,
         ],
-        perHour: 295912,
+        perHour: 235013,
       },
-      updatedAt: new Date("2022-03-31T12:44:44.932Z"),
+      updatedAt: new Date("2022-05-12T04:11:57.892Z"),
     },
   ],
   nextPageToken: "<value>",

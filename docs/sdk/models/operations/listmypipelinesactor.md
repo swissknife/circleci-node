@@ -8,8 +8,8 @@ The user who triggered the Pipeline.
 import { ListMyPipelinesActor } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListMyPipelinesActor = {
-  avatarUrl: "https://vain-wafer.info/",
-  login: "Danielle.Sanford",
+  avatarUrl: "https://ugly-fen.org/",
+  login: "Wellington.Farrell77",
 };
 ```
 

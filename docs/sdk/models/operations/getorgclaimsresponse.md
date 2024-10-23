@@ -7,7 +7,7 @@
 
 ```typescript
 const value: shared.ClaimResponse = {
-  orgId: "93d511e1-2d4a-4d9f-bb18-bc0bdb878be9",
+  orgId: "0293d511-e12d-44ad-b9fb-18bc0bdb878b",
 };
 ```
 

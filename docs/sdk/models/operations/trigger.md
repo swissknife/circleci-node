@@ -9,11 +9,11 @@ import { Trigger } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Trigger = {
   actor: {
-    avatarUrl: "https://silver-ownership.com",
-    login: "Enola_Douglas",
+    avatarUrl: "https://ripe-yarmulke.net/",
+    login: "Lou20",
   },
-  receivedAt: new Date("2023-08-03T23:23:59.966Z"),
-  type: "api",
+  receivedAt: new Date("2024-02-03T04:05:53.565Z"),
+  type: "explicit",
 };
 ```
 

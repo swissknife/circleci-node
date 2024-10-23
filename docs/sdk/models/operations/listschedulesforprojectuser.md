@@ -8,8 +8,8 @@ The attribution actor who will run the scheduled pipeline.
 import { ListSchedulesForProjectUser } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListSchedulesForProjectUser = {
-  id: "8d7773e4-33dc-460f-92dc-fc5363bda209",
-  login: "Cody47",
+  id: "5363bda2-0973-458a-97f0-ae33c7f9e02a",
+  login: "Rocky11",
   name: "<value>",
 };
 ```

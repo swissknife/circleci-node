@@ -9,11 +9,11 @@ import { ListPipelinesForProjectTrigger } from "circleci-v2-sdk/sdk/models/opera
 
 let value: ListPipelinesForProjectTrigger = {
   actor: {
-    avatarUrl: "https://edible-straw.org",
-    login: "Justyn.Kutch28",
+    avatarUrl: "https://shimmering-pile.biz",
+    login: "Sadye_Lemke-OConner28",
   },
-  receivedAt: new Date("2022-07-29T04:07:06.634Z"),
-  type: "webhook",
+  receivedAt: new Date("2022-12-10T12:12:48.348Z"),
+  type: "scheduled_pipeline",
 };
 ```
 

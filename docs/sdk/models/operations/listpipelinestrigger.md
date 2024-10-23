@@ -9,11 +9,11 @@ import { ListPipelinesTrigger } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ListPipelinesTrigger = {
   actor: {
-    avatarUrl: "https://querulous-allegation.info/",
-    login: "Marjorie_Cormier",
+    avatarUrl: "https://bustling-peony.com/",
+    login: "Jazmyne75",
   },
-  receivedAt: new Date("2023-10-03T18:29:29.401Z"),
-  type: "scheduled_pipeline",
+  receivedAt: new Date("2023-09-06T06:56:35.986Z"),
+  type: "api",
 };
 ```
 

@@ -7,8 +7,8 @@
 
 ```typescript
 const value: operations.GetCurrentUserUser = {
-  id: "cfd62d05-efab-4088-b513-569b55004bac",
-  login: "Russell_Wuckert",
+  id: "5dcfd62d-05ef-4ab0-a885-13569b55004b",
+  login: "Okey97",
   name: "<value>",
 };
 ```

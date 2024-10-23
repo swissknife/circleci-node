@@ -6,8 +6,8 @@
 import { Collaboration } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Collaboration = {
-  avatarUrl: "https://fond-brook.org",
-  id: "b9cd7ee4-988f-44fe-87dc-a53ad0a7e578",
+  avatarUrl: "https://impassioned-presume.biz/",
+  id: "1eb9cd7e-e498-48f4-9fe7-dca53ad0a7e5",
   name: "<value>",
   slug: "<value>",
   vcsType: "<value>",

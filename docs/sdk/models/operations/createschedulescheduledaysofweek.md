@@ -7,7 +7,7 @@ Day in a week, in three letters format
 ```typescript
 import { CreateScheduleScheduleDaysOfWeek } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: CreateScheduleScheduleDaysOfWeek = "FRI";
+let value: CreateScheduleScheduleDaysOfWeek = "TUE";
 ```
 
 ## Values

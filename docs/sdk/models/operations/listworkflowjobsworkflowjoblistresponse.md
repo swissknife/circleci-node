@@ -14,6 +14,7 @@ let value: ListWorkflowJobsWorkflowJobListResponse = {
         "71162e36-85a9-4fd9-b799-428460a0b329",
       ],
       id: "6d08a620-6bf7-4451-97a9-0aa8f4d243ec",
+      jobNumber: 1,
       name: "<value>",
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
       startedAt: new Date("2023-02-19T07:31:07.980Z"),

@@ -7,7 +7,7 @@ import { DeleteOrgClaimsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteOrgClaimsRequest = {
   claims: "<value>",
-  orgID: "e12b196b-ecd0-4486-834f-450d234e3cce",
+  orgID: "f2e12b19-6bec-4d04-b863-4f450d234e3c",
 };
 ```
 

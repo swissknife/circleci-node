@@ -7,7 +7,7 @@ The fingerprint digest type to return. This may be either `md5` or `sha256`. If 
 ```typescript
 import { Digest } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: Digest = "sha256";
+let value: Digest = "md5";
 ```
 
 ## Values

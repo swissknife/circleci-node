@@ -6,7 +6,7 @@
 import { GetOrgClaimsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetOrgClaimsRequest = {
-  orgID: "9371547e-269f-42e1-8773-57df8d953680",
+  orgID: "c7937154-7e26-49f2-ae17-7357df8d9536",
 };
 ```
 

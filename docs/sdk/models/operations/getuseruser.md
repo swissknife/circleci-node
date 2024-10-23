@@ -8,8 +8,8 @@ User login information.
 import { GetUserUser } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetUserUser = {
-  id: "21358abe-fadc-44e0-b047-a1ac2687cfc1",
-  login: "Annabelle52",
+  id: "e021358a-befa-4dc4-be00-47a1ac2687cf",
+  login: "Arianna.Bergstrom15",
   name: "<value>",
 };
 ```

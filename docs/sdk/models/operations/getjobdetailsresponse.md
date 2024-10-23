@@ -12,13 +12,13 @@ const value: operations.GetJobDetailsJobDetails = {
       name: "<value>",
     },
   ],
-  createdAt: new Date("2023-12-25T07:51:55.110Z"),
-  duration: 580238,
+  createdAt: new Date("2024-05-19T10:28:52.033Z"),
+  duration: 659971,
   executor: {
     resourceClass: "<value>",
   },
   latestWorkflow: {
-    id: "cf02c183-4b0d-4788-9a51-5285ff99fec5",
+    id: "9cf02c18-34b0-4d78-98a5-15285ff99fec",
     name: "build-and-test",
   },
   messages: [
@@ -28,30 +28,30 @@ const value: operations.GetJobDetailsJobDetails = {
     },
   ],
   name: "<value>",
-  number: 201266,
+  number: 1,
   organization: {
     name: "<value>",
   },
   parallelRuns: [
     {
-      index: 487148,
+      index: 365539,
       status: "<value>",
     },
   ],
-  parallelism: 990369,
+  parallelism: 201266,
   pipeline: {
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   },
   project: {
     externalUrl: "https://github.com/CircleCI-Public/api-preview-docs",
-    id: "e10e83aa-1403-423a-a012-544cf8f61647",
+    id: "7fe10e83-aa14-4032-93a0-12544cf8f616",
     name: "api-preview-docs",
     slug: "gh/CircleCI-Public/api-preview-docs",
   },
-  queuedAt: new Date("2023-05-21T07:27:53.872Z"),
-  startedAt: new Date("2024-10-21T22:27:43.595Z"),
-  status: "canceled",
-  webUrl: "https://lumpy-ceramic.info",
+  queuedAt: new Date("2023-06-25T18:34:36.250Z"),
+  startedAt: new Date("2023-12-22T02:52:36.760Z"),
+  status: "not_running",
+  webUrl: "https://unfinished-premise.info",
 };
 ```
 

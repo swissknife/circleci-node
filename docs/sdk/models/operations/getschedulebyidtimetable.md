@@ -10,12 +10,12 @@ Timetable that specifies when a schedule triggers.
 ```typescript
 const value: operations.GetScheduleById1 = {
   daysOfWeek: [
-    "FRI",
+    "WED",
   ],
   hoursOfDay: [
-    367747,
+    910984,
   ],
-  perHour: 293187,
+  perHour: 31292,
 };
 ```
 
@@ -24,12 +24,12 @@ const value: operations.GetScheduleById1 = {
 ```typescript
 const value: operations.GetScheduleById2 = {
   daysOfMonth: [
-    316292,
+    165108,
   ],
   hoursOfDay: [
-    730679,
+    958602,
   ],
-  perHour: 199673,
+  perHour: 592791,
 };
 ```
 

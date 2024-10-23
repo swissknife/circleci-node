@@ -7,24 +7,24 @@
 
 ```typescript
 const value: operations.GetPipelineByNumberPipeline = {
-  createdAt: new Date("2023-09-19T08:40:07.794Z"),
+  createdAt: new Date("2022-07-28T12:36:44.736Z"),
   errors: [
     {
       message: "<value>",
-      type: "trigger-rule",
+      type: "plan",
     },
   ],
   id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   number: 25,
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  state: "created",
+  state: "setup-pending",
   trigger: {
     actor: {
-      avatarUrl: "https://unkempt-blossom.com/",
-      login: "Lionel_Smitham14",
+      avatarUrl: "https://buttery-fun.org",
+      login: "Arthur83",
     },
-    receivedAt: new Date("2023-04-14T11:56:41.335Z"),
-    type: "scheduled_pipeline",
+    receivedAt: new Date("2022-06-05T14:48:44.098Z"),
+    type: "explicit",
   },
   vcs: {
     branch: "feature/design-new-api",

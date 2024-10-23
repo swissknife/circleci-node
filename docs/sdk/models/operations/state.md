@@ -7,7 +7,7 @@ The current state of the pipeline.
 ```typescript
 import { State } from "circleci-v2-sdk/sdk/models/operations";
 
-let value: State = "created";
+let value: State = "errored";
 ```
 
 ## Values

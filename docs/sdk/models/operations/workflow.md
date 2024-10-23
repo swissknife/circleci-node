@@ -8,15 +8,15 @@ A workflow
 import { Workflow } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Workflow = {
-  createdAt: new Date("2023-05-14T00:10:37.867Z"),
-  id: "ff2e1825-b6cb-4f8c-a556-6181e0742cb2",
+  createdAt: new Date("2023-03-22T00:24:18.741Z"),
+  id: "7ff2e182-5b6c-4bf8-8c55-66181e0742cb",
   name: "build-and-test",
   pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   pipelineNumber: 25,
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  startedBy: "cc1abd87-fc85-4d71-b7d7-09fd9ed79bd0",
-  status: "error",
-  stoppedAt: new Date("2023-12-26T05:38:43.189Z"),
+  startedBy: "acc1abd8-7fc8-45d7-817d-709fd9ed79bd",
+  status: "on_hold",
+  stoppedAt: new Date("2023-05-06T11:07:49.747Z"),
   tag: "setup",
 };
 ```

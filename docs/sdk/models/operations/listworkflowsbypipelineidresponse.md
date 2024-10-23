@@ -9,15 +9,15 @@
 const value: operations.ListWorkflowsByPipelineIdWorkflowListResponse = {
   items: [
     {
-      createdAt: new Date("2022-06-23T05:36:11.637Z"),
-      id: "ab9f72a9-98f2-4123-8993-777c7c28d279",
+      createdAt: new Date("2022-03-25T10:55:20.447Z"),
+      id: "2ab9f72a-998f-4212-a399-3777c7c28d27",
       name: "build-and-test",
       pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       pipelineNumber: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      startedBy: "c1f7516a-14da-432e-a42f-4176e211e729",
-      status: "running",
-      stoppedAt: new Date("2023-10-23T22:18:54.790Z"),
+      startedBy: "2c1f7516-a14d-4a32-ae42-f4176e211e72",
+      status: "error",
+      stoppedAt: new Date("2022-08-06T10:53:27.934Z"),
       tag: "setup",
     },
   ],

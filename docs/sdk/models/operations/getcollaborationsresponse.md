@@ -8,8 +8,8 @@
 ```typescript
 const value: operations.Collaboration[] = [
   {
-    avatarUrl: "https://sweet-backbone.biz",
-    id: "0faf8c55-6a5e-4f03-9103-7d37eac8f903",
+    avatarUrl: "https://cooperative-promise.net",
+    id: "040faf8c-556a-45ef-8031-037d37eac8f9",
     name: "<value>",
     slug: "<value>",
     vcsType: "<value>",

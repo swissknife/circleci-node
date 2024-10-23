@@ -9,13 +9,13 @@ import { GetScheduleByIdSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetScheduleByIdSchedule = {
   actor: {
-    id: "d9ff2f00-ff27-47da-9c7a-bb015066e9be",
-    login: "Abbigail_Schultz35",
+    id: "8d00fdb2-7ee0-4c0f-b6f5-45b3d9ff2f00",
+    login: "Vince.Kihn",
     name: "<value>",
   },
-  createdAt: new Date("2024-10-10T06:11:06.259Z"),
-  description: "deduce with develop pleasing overconfidently",
-  id: "4afd51f6-457f-4f45-a802-e016b444d38f",
+  createdAt: new Date("2024-04-28T22:11:42.800Z"),
+  description: "blindly judicious whoever of cute abaft",
+  id: "366ea6f9-5b7e-4e58-a4af-d51f6457ff45",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -24,14 +24,14 @@ let value: GetScheduleByIdSchedule = {
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
     daysOfWeek: [
-      "WED",
+      "SAT",
     ],
     hoursOfDay: [
-      953916,
+      936059,
     ],
-    perHour: 373538,
+    perHour: 29435,
   },
-  updatedAt: new Date("2024-02-15T23:31:39.572Z"),
+  updatedAt: new Date("2022-04-21T16:04:48.222Z"),
 };
 ```
 

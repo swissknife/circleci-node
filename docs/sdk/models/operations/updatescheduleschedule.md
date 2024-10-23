@@ -9,12 +9,12 @@ import { UpdateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateScheduleSchedule = {
   actor: {
-    id: "47b85282-f82b-41c7-a20f-4f881fb81265",
-    login: "Arden.Langosh",
+    id: "615fd366-c001-4a6d-847b-85282f82b1c7",
+    login: "Ali_Goodwin-Wilderman50",
     name: "<value>",
   },
-  createdAt: new Date("2022-03-09T17:02:11.941Z"),
-  description: "sonar availability even which filthy ah",
+  createdAt: new Date("2024-11-07T23:21:57.092Z"),
+  description: "best-seller instead sonar availability even which filthy ah",
   id: "31a8300b-3402-4d3f-924d-64b0ed1cf79a",
   name: "<value>",
   parameters: {

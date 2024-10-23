@@ -14,12 +14,12 @@ const value: operations.CreateUsageExportResponseBody = {};
 ```typescript
 const value: shared.UsageExportJob = {
   downloadUrls: [
-    "https://official-scout.net",
+    "https://glass-range.name/",
   ],
-  end: new Date("2024-07-12T20:33:30.741Z"),
-  start: new Date("2023-03-31T10:47:58.920Z"),
-  state: "processing",
-  usageExportJobId: "ea185f09-b4fd-4e09-84da-818af9ffa87e",
+  end: new Date("2024-05-14T18:48:08.000Z"),
+  start: new Date("2024-06-28T21:29:27.010Z"),
+  state: "completed",
+  usageExportJobId: "66ea185f-09b4-4fde-9094-da818af9ffa8",
 };
 ```
 

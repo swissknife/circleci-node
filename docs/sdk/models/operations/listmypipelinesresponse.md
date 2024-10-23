@@ -9,23 +9,23 @@
 const value: operations.ListMyPipelinesPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2022-02-28T19:32:56.713Z"),
+      createdAt: new Date("2023-08-06T02:09:12.930Z"),
       errors: [
         {
           message: "<value>",
-          type: "other",
+          type: "config-fetch",
         },
       ],
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       number: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      state: "setup",
+      state: "created",
       trigger: {
         actor: {
-          avatarUrl: "https://amused-halt.com",
-          login: "Dell27",
+          avatarUrl: "https://sophisticated-sand.com",
+          login: "Gwen.Franey",
         },
-        receivedAt: new Date("2023-01-22T05:43:00.785Z"),
+        receivedAt: new Date("2022-11-01T01:12:15.021Z"),
         type: "webhook",
       },
       vcs: {

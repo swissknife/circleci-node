@@ -7,24 +7,24 @@
 
 ```typescript
 const value: operations.GetPipelineByIdPipeline = {
-  createdAt: new Date("2024-06-18T12:35:38.509Z"),
+  createdAt: new Date("2023-05-13T22:48:28.461Z"),
   errors: [
     {
       message: "<value>",
-      type: "plan",
+      type: "permission",
     },
   ],
   id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   number: 25,
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  state: "setup-pending",
+  state: "pending",
   trigger: {
     actor: {
-      avatarUrl: "https://stiff-legend.biz",
-      login: "Loy.Turcotte",
+      avatarUrl: "https://long-poetry.net",
+      login: "Joshua_Nienow90",
     },
-    receivedAt: new Date("2022-01-18T04:20:40.403Z"),
-    type: "explicit",
+    receivedAt: new Date("2024-09-24T12:05:45.626Z"),
+    type: "api",
   },
   vcs: {
     branch: "feature/design-new-api",

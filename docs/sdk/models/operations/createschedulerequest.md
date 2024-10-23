@@ -15,12 +15,12 @@ let value: CreateScheduleRequest = {
     },
     timetable: {
       daysOfMonth: [
-        475060,
+        930942,
       ],
       hoursOfDay: [
-        719317,
+        475060,
       ],
-      perHour: 309049,
+      perHour: 719317,
     },
   },
   projectSlug: "gh/CircleCI-Public/api-preview-docs",

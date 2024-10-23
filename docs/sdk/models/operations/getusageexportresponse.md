@@ -8,10 +8,10 @@
 ```typescript
 const value: shared.GetUsageExportJobStatus = {
   downloadUrls: [
-    "https://carefree-retention.info/",
+    "https://ambitious-cap.com",
   ],
-  state: "failed",
-  usageExportJobId: "968af991-f8c0-4644-9c97-0ff308fe945e",
+  state: "completed",
+  usageExportJobId: "5a968af9-91f8-4c06-944c-970ff308fe94",
 };
 ```
 

@@ -7,7 +7,7 @@
 
 ```typescript
 const value: operations.GetProjectBySlugProject = {
-  id: "d4f542ef-5b51-4681-bd73-9c5b6fc50a31",
+  id: "fd4f542e-f5b5-4168-81d7-39c5b6fc50a3",
   name: "api-preview-docs",
   organizationId: "CircleCI-Public",
   organizationName: "CircleCI-Public",

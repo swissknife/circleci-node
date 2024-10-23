@@ -9,14 +9,13 @@ import { CreateScheduleSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: CreateScheduleSchedule = {
   actor: {
-    id: "92cfee09-4952-477f-904d-adac73c92cf5",
-    login: "Arnaldo.Williamson48",
+    id: "d92cfee0-9495-4277-9f04-dadac73c92cf",
+    login: "Eldora_OReilly",
     name: "<value>",
   },
-  createdAt: new Date("2022-02-07T09:13:36.865Z"),
-  description:
-    "including unbearably gah rudely blah glossy substantial supposing",
-  id: "46518f94-f6ba-4fe2-b1ce-7b1329304a95",
+  createdAt: new Date("2022-04-18T16:03:25.952Z"),
+  description: "syringe but ew",
+  id: "7d7f806b-3b80-4c81-b74e-4f85db6acdd2",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -28,11 +27,11 @@ let value: CreateScheduleSchedule = {
       "SAT",
     ],
     hoursOfDay: [
-      559947,
+      622927,
     ],
-    perHour: 478216,
+    perHour: 114692,
   },
-  updatedAt: new Date("2023-05-04T18:51:53.512Z"),
+  updatedAt: new Date("2023-10-24T06:27:18.505Z"),
 };
 ```
 
