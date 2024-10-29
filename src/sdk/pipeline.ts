@@ -12,6 +12,7 @@ import { pipelineListPipelines } from "../funcs/pipelineListPipelines.js";
 import { pipelineListPipelinesForProject } from "../funcs/pipelineListPipelinesForProject.js";
 import { pipelineListWorkflowsByPipelineId } from "../funcs/pipelineListWorkflowsByPipelineId.js";
 import { pipelineTriggerPipeline } from "../funcs/pipelineTriggerPipeline.js";
+import { pipelineTriggerPipelineRun } from "../funcs/pipelineTriggerPipelineRun.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
 import { unwrapAsync } from "./types/fp.js";
@@ -174,13 +175,30 @@ export class Pipeline extends ClientSDK {
    * Trigger a new pipeline
    *
    * @remarks
-   * Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
+   * Not available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project. **GitHub App users should use the [new Trigger Pipeline API](#/triggerPipelineRun)**.
    */
   async triggerPipeline(
     request: operations.TriggerPipelineRequest,
     options?: RequestOptions,
   ): Promise<operations.TriggerPipelineResponse> {
     return unwrapAsync(pipelineTriggerPipeline(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * [Recommended] Trigger a new pipeline
+   *
+   * @remarks
+   * Trigger a pipeline given a pipeline definition ID. Supports all integrations except GitLab.
+   */
+  async triggerPipelineRun(
+    request: operations.TriggerPipelineRunRequest,
+    options?: RequestOptions,
+  ): Promise<operations.TriggerPipelineRunResponse> {
+    return unwrapAsync(pipelineTriggerPipelineRun(
       this,
       request,
       options,

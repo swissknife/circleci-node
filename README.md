@@ -129,6 +129,7 @@ run();
 * [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 * [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
 * [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
+* [triggerPipelineRun](docs/sdks/pipeline/README.md#triggerpipelinerun) - [Recommended] Trigger a new pipeline
 
 ### [policyManagement](docs/sdks/policymanagement/README.md)
 
@@ -595,6 +596,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`pipelineListPipelinesForProject`](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 - [`pipelineListWorkflowsByPipelineId`](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
 - [`pipelineTriggerPipeline`](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
+- [`pipelineTriggerPipelineRun`](docs/sdks/pipeline/README.md#triggerpipelinerun) - [Recommended] Trigger a new pipeline
 - [`policyManagementCreatePolicyBundle`](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
 - [`policyManagementGetDecisionLog`](docs/sdks/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
 - [`policyManagementGetDecisionLogPolicyBundle`](docs/sdks/policymanagement/README.md#getdecisionlogpolicybundle) - Retrieves Policy Bundle for a given decision log ID

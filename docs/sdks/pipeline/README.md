@@ -15,6 +15,7 @@
 * [listPipelinesForProject](#listpipelinesforproject) - Get all pipelines
 * [listWorkflowsByPipelineId](#listworkflowsbypipelineid) - Get a pipeline's workflows
 * [triggerPipeline](#triggerpipeline) - Trigger a new pipeline
+* [triggerPipelineRun](#triggerpipelinerun) - [Recommended] Trigger a new pipeline
 
 ## continuePipeline
 
@@ -748,7 +749,7 @@ run();
 
 ## triggerPipeline
 
-Not yet available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project.
+Not available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project. **GitHub App users should use the [new Trigger Pipeline API](#/triggerPipelineRun)**.
 
 ### Example Usage
 
@@ -833,6 +834,122 @@ run();
 ### Response
 
 **Promise\<[operations.TriggerPipelineResponse](../../sdk/models/operations/triggerpipelineresponse.md)\>**
+
+### Errors
+
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
+
+## triggerPipelineRun
+
+Trigger a pipeline given a pipeline definition ID. Supports all integrations except GitLab.
+
+### Example Usage
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const result = await circleci.pipeline.triggerPipelineRun({
+    organization: "CircleCI-Public",
+    pipelineRequest: {
+      checkout: {
+        branch: "main",
+        tag: "v2",
+      },
+      config: {
+        branch: "main",
+        tag: "v2",
+      },
+      definitionId: "2338d0ae-5541-4bbf-88a2-55e9f7281f80",
+      parameters: {
+        "example_param": "my value",
+        "example_param2": true,
+        "example_param3": 3,
+      },
+    },
+    project: "api-preview-docs",
+    provider: "gh",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { pipelineTriggerPipelineRun } from "circleci-v2-sdk/funcs/pipelineTriggerPipelineRun.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await pipelineTriggerPipelineRun(circleci, {
+    organization: "CircleCI-Public",
+    pipelineRequest: {
+      checkout: {
+        branch: "main",
+        tag: "v2",
+      },
+      config: {
+        branch: "main",
+        tag: "v2",
+      },
+      definitionId: "2338d0ae-5541-4bbf-88a2-55e9f7281f80",
+      parameters: {
+        "example_param": "my value",
+        "example_param2": true,
+        "example_param3": 3,
+      },
+    },
+    project: "api-preview-docs",
+    provider: "gh",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.TriggerPipelineRunRequest](../../sdk/models/operations/triggerpipelinerunrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.TriggerPipelineRunResponse](../../sdk/models/operations/triggerpipelinerunresponse.md)\>**
 
 ### Errors
 

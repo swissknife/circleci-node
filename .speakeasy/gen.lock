@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 46abd86ed520a65f71c11e50e771c116
+  docChecksum: 5a450ccb4b551d93aa75461cdcc85d93
   docVersion: v2
-  speakeasyVersion: 1.420.0
-  generationVersion: 2.438.15
-  releaseVersion: 5.8.4
-  configChecksum: ec07379a51f601de9718ea18927d6437
+  speakeasyVersion: 1.423.1
+  generationVersion: 2.442.11
+  releaseVersion: 5.8.5
+  configChecksum: 9005411fac83de20aeff13d9bccd8f2f
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -530,6 +530,9 @@ generatedFiles:
   - docs/sdk/models/operations/triggerpipelinerequest.md
   - docs/sdk/models/operations/triggerpipelineresponse.md
   - docs/sdk/models/operations/triggerpipelineresponsebody.md
+  - docs/sdk/models/operations/triggerpipelinerunrequest.md
+  - docs/sdk/models/operations/triggerpipelinerunresponse.md
+  - docs/sdk/models/operations/triggerpipelinerunresponsebody.md
   - docs/sdk/models/operations/triggerpipelinestate.md
   - docs/sdk/models/operations/triggerpipelinetriggerpipelineparameters.md
   - docs/sdk/models/operations/two.md
@@ -570,7 +573,9 @@ generatedFiles:
   - docs/sdk/models/shared/advanced.md
   - docs/sdk/models/shared/bundlediff.md
   - docs/sdk/models/shared/bundlepayload.md
+  - docs/sdk/models/shared/checkout.md
   - docs/sdk/models/shared/claimresponse.md
+  - docs/sdk/models/shared/config.md
   - docs/sdk/models/shared/contextprojectrestrictionslist.md
   - docs/sdk/models/shared/contextprojectrestrictionslistrestrictiontype.md
   - docs/sdk/models/shared/decision.md
@@ -580,8 +585,12 @@ generatedFiles:
   - docs/sdk/models/shared/items.md
   - docs/sdk/models/shared/metadata.md
   - docs/sdk/models/shared/patchclaimsrequest.md
+  - docs/sdk/models/shared/pipeline.md
+  - docs/sdk/models/shared/pipelinerequest.md
+  - docs/sdk/models/shared/pipelinestate.md
   - docs/sdk/models/shared/policy.md
   - docs/sdk/models/shared/projectsettings.md
+  - docs/sdk/models/shared/providernogitlab.md
   - docs/sdk/models/shared/restrictioncreated.md
   - docs/sdk/models/shared/restrictiondeleted.md
   - docs/sdk/models/shared/restrictiontype.md
@@ -649,6 +658,7 @@ generatedFiles:
   - src/funcs/pipelineListPipelinesForProject.ts
   - src/funcs/pipelineListWorkflowsByPipelineId.ts
   - src/funcs/pipelineTriggerPipeline.ts
+  - src/funcs/pipelineTriggerPipelineRun.ts
   - src/funcs/policyManagementCreatePolicyBundle.ts
   - src/funcs/policyManagementGetDecisionLog.ts
   - src/funcs/policyManagementGetDecisionLogPolicyBundle.ts
@@ -798,6 +808,7 @@ generatedFiles:
   - src/sdk/models/operations/rerunworkflow.ts
   - src/sdk/models/operations/setdecisionsettings.ts
   - src/sdk/models/operations/triggerpipeline.ts
+  - src/sdk/models/operations/triggerpipelinerun.ts
   - src/sdk/models/operations/updateschedule.ts
   - src/sdk/models/operations/updatewebhook.ts
   - src/sdk/models/shared/bundlediff.ts
@@ -810,8 +821,11 @@ generatedFiles:
   - src/sdk/models/shared/getusageexportjobstatus.ts
   - src/sdk/models/shared/index.ts
   - src/sdk/models/shared/patchclaimsrequest.ts
+  - src/sdk/models/shared/pipeline.ts
+  - src/sdk/models/shared/pipelinerequest.ts
   - src/sdk/models/shared/policy.ts
   - src/sdk/models/shared/projectsettings.ts
+  - src/sdk/models/shared/providernogitlab.ts
   - src/sdk/models/shared/restrictioncreated.ts
   - src/sdk/models/shared/restrictiondeleted.ts
   - src/sdk/models/shared/schemebasicauth.ts
@@ -1865,3 +1879,16 @@ examples:
         "200":
           application/json: {}
         default: {}
+  triggerPipelineRun:
+    "":
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {"checkout": {"branch": "main", "tag": "v2"}, "config": {"branch": "main", "tag": "v2"}, "definition_id": "2338d0ae-5541-4bbf-88a2-55e9f7281f80", "parameters": {"example_param": "my value", "example_param2": true, "example_param3": 3}}
+      responses:
+        "201":
+          application/json: {"number": 25}
+        "400": {}

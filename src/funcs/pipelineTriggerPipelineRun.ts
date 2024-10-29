@@ -22,18 +22,18 @@ import * as operations from "../sdk/models/operations/index.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
- * Trigger a new pipeline
+ * [Recommended] Trigger a new pipeline
  *
  * @remarks
- * Not available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project. **GitHub App users should use the [new Trigger Pipeline API](#/triggerPipelineRun)**.
+ * Trigger a pipeline given a pipeline definition ID. Supports all integrations except GitLab.
  */
-export async function pipelineTriggerPipeline(
+export async function pipelineTriggerPipelineRun(
   client: CircleciCore,
-  request: operations.TriggerPipelineRequest,
+  request: operations.TriggerPipelineRunRequest,
   options?: RequestOptions,
 ): Promise<
   Result<
-    operations.TriggerPipelineResponse,
+    operations.TriggerPipelineRunResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -45,23 +45,33 @@ export async function pipelineTriggerPipeline(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.TriggerPipelineRequest$outboundSchema.parse(value),
+    (value) => operations.TriggerPipelineRunRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return parsed;
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.RequestBody, { explode: true });
+  const body = encodeJSON("body", payload.pipelineRequest, { explode: true });
 
   const pathParams = {
-    "project-slug": encodeSimple("project-slug", payload["project-slug"], {
+    organization: encodeSimple("organization", payload.organization, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+    project: encodeSimple("project", payload.project, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+    provider: encodeSimple("provider", payload.provider, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path = pathToFunc("/project/{project-slug}/pipeline")(pathParams);
+  const path = pathToFunc(
+    "/project/{provider}/{organization}/{project}/pipeline/run",
+  )(pathParams);
 
   const headers = new Headers({
     "Content-Type": "application/json",
@@ -70,7 +80,7 @@ export async function pipelineTriggerPipeline(
 
   const securityInput = await extractSecurity(client._options.security);
   const context = {
-    operationID: "triggerPipeline",
+    operationID: "triggerPipelineRun",
     oAuth2Scopes: [],
     securitySource: client._options.security,
   };
@@ -102,7 +112,7 @@ export async function pipelineTriggerPipeline(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.TriggerPipelineResponse,
+    operations.TriggerPipelineRunResponse,
     | SDKError
     | SDKValidationError
     | UnexpectedClientError
@@ -111,8 +121,11 @@ export async function pipelineTriggerPipeline(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(201, operations.TriggerPipelineResponse$inboundSchema),
-    M.json("default", operations.TriggerPipelineResponse$inboundSchema),
+    M.json(201, operations.TriggerPipelineRunResponse$inboundSchema),
+    M.json(
+      [400, 401, 404],
+      operations.TriggerPipelineRunResponse$inboundSchema,
+    ),
   )(response);
   if (!result.ok) {
     return result;

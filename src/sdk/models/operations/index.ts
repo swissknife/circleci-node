@@ -82,5 +82,6 @@ export * from "./patchprojectsettings.js";
 export * from "./rerunworkflow.js";
 export * from "./setdecisionsettings.js";
 export * from "./triggerpipeline.js";
+export * from "./triggerpipelinerun.js";
 export * from "./updateschedule.js";
 export * from "./updatewebhook.js";
