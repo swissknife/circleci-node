@@ -25,7 +25,7 @@ import { Result } from "../sdk/types/fp.js";
  * Trigger a new pipeline
  *
  * @remarks
- * Not available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project. **GitHub App users should use the [new Trigger Pipeline API](#/triggerPipelineRun)**.
+ * Not available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project. **GitHub App users should use the [new Trigger Pipeline API](#tag/Pipeline/operation/triggerPipelineRun)**.
  */
 export async function pipelineTriggerPipeline(
   client: CircleciCore,
