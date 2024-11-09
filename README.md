@@ -219,9 +219,9 @@ If a HTTP request fails, an operation my also throw an error from the `sdk/model
 
 In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `addEnvironmentVariableToContext` method may throw the following errors:
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4XX, 5XX        | \*/\*           |
+| Error Type      | Status Code | Content Type |
+| --------------- | ----------- | ------------ |
+| errors.SDKError | 4XX, 5XX    | \*/\*        |
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
@@ -274,46 +274,9 @@ Validation errors can also occur when either method arguments or data returned f
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://circleci.com/api/v2` | None |
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-
-const circleci = new Circleci({
-  serverIdx: 0,
-  security: {
-    apiKeyHeader: "<YOUR_API_KEY_HERE>",
-  },
-});
-
-async function run() {
-  const result = await circleci.context.addEnvironmentVariableToContext({
-    requestBody: {
-      value: "some-secret-value",
-    },
-    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-    envVarName: "POSTGRES_USER",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
-
+The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
@@ -402,11 +365,11 @@ const sdk = new Circleci({ httpClient });
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `apiKeyHeader` | apiKey         | API key        |
-| `apiKeyQuery`  | apiKey         | API key        |
-| `basicAuth`    | http           | HTTP Basic     |
+| Name           | Type   | Scheme     |
+| -------------- | ------ | ---------- |
+| `apiKeyHeader` | apiKey | API key    |
+| `apiKeyQuery`  | apiKey | API key    |
+| `basicAuth`    | http   | HTTP Basic |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript

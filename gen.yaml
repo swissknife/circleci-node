@@ -12,7 +12,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 typescript:
-  version: 5.9.0
+  version: 5.9.1
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -20,6 +20,7 @@ typescript:
   additionalPackageJSON: {}
   author: Speakeasy API
   clientServerStatusCodesAsErrors: false
+  defaultErrorName: SDKError
   enumFormat: union
   flattenGlobalSecurity: false
   flatteningOrder: body-first
