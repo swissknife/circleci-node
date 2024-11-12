@@ -74,6 +74,9 @@ export async function pipelineGetPipelineConfigById(
   const context = {
     operationID: "getPipelineConfigById",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

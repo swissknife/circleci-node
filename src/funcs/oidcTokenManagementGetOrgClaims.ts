@@ -73,6 +73,9 @@ export async function oidcTokenManagementGetOrgClaims(
   const context = {
     operationID: "GetOrgClaims",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

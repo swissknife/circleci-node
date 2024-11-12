@@ -87,6 +87,9 @@ export async function insightsGetProjectWorkflowTestMetrics(
   const context = {
     operationID: "getProjectWorkflowTestMetrics",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

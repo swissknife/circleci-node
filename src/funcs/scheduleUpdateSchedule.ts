@@ -74,6 +74,9 @@ export async function scheduleUpdateSchedule(
   const context = {
     operationID: "updateSchedule",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

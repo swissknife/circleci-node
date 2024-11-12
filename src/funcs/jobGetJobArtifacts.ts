@@ -79,6 +79,9 @@ export async function jobGetJobArtifacts(
   const context = {
     operationID: "getJobArtifacts",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

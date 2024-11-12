@@ -73,6 +73,9 @@ export async function projectListEnvVars(
   const context = {
     operationID: "listEnvVars",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

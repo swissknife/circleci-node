@@ -83,6 +83,9 @@ export async function workflowApprovePendingApprovalJobById(
   const context = {
     operationID: "approvePendingApprovalJobById",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

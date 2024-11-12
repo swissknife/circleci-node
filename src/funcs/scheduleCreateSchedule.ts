@@ -74,6 +74,9 @@ export async function scheduleCreateSchedule(
   const context = {
     operationID: "createSchedule",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

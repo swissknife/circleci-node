@@ -80,6 +80,9 @@ export async function contextDeleteContextRestriction(
   const context = {
     operationID: "deleteContextRestriction",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

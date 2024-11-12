@@ -80,6 +80,9 @@ export async function policyManagementMakeDecision(
   const context = {
     operationID: "MakeDecision",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

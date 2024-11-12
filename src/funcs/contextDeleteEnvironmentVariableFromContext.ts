@@ -81,6 +81,9 @@ export async function contextDeleteEnvironmentVariableFromContext(
   const context = {
     operationID: "deleteEnvironmentVariableFromContext",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig

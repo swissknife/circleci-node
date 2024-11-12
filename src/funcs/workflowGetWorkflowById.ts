@@ -73,6 +73,9 @@ export async function workflowGetWorkflowById(
   const context = {
     operationID: "getWorkflowById",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.security,
     retryConfig: options?.retries
       || client._options.retryConfig
