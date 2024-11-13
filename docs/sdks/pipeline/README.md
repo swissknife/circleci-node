@@ -3,6 +3,8 @@
 
 ## Overview
 
+Endpoints relating to [pipelines](https://circleci.com/docs/pipelines/). Get information about your pipelines. Trigger or continue a pipeline.
+
 ### Available Operations
 
 * [continuePipeline](#continuepipeline) - Continue a pipeline

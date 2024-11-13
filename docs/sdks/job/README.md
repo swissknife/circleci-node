@@ -3,6 +3,8 @@
 
 ## Overview
 
+Endpoints relating to [jobs](https://circleci.com/docs/jobs-steps/). Get information about your jobs, retrieve job assets, cancel a job.
+
 ### Available Operations
 
 * [cancelJobByJobID](#canceljobbyjobid) - Cancel job by job ID

@@ -3,6 +3,8 @@
 
 ## Overview
 
+A set of endpoints you can use to get information about a specific user.
+
 ### Available Operations
 
 * [getCollaborations](#getcollaborations) - Collaborations

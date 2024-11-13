@@ -3,6 +3,8 @@
 
 ## Overview
 
+Endpoints relating to [outbound webhooks](https://circleci.com/docs/webhooks/#outbound-webhooks). Use outbound webhooks to integrate your CircleCI builds with external services.
+
 ### Available Operations
 
 * [createWebhook](#createwebhook) - Create an outbound webhook

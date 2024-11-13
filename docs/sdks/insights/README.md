@@ -3,6 +3,8 @@
 
 ## Overview
 
+Endpoints relating to [Insights](https://circleci.com/docs/insights/). Use Insights to monitor credit and compute usage for your projects.
+
 ### Available Operations
 
 * [getAllInsightsBranches](#getallinsightsbranches) - Get all branches for a project

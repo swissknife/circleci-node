@@ -3,6 +3,8 @@
 
 ## Overview
 
+Endpoints relating to [contexts](https://circleci.com/docs/contexts/). Use contexts to secure and share environment variables.
+
 ### Available Operations
 
 * [addEnvironmentVariableToContext](#addenvironmentvariabletocontext) - Add or update an environment variable

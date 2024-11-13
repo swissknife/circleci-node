@@ -3,6 +3,8 @@
 
 ## Overview
 
+Endpoints relating to [workflows](https://circleci.com/docs/workflows/). Get information about your workflows, or interact with them to rerun, cancel or approve a job.
+
 ### Available Operations
 
 * [approvePendingApprovalJobById](#approvependingapprovaljobbyid) - Approve a job
