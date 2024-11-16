@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClaimResponse = {
   audience?: Array<string> | undefined;
@@ -81,4 +84,18 @@ export namespace ClaimResponse$ {
   export const outboundSchema = ClaimResponse$outboundSchema;
   /** @deprecated use `ClaimResponse$Outbound` instead. */
   export type Outbound = ClaimResponse$Outbound;
+}
+
+export function claimResponseToJSON(claimResponse: ClaimResponse): string {
+  return JSON.stringify(ClaimResponse$outboundSchema.parse(claimResponse));
+}
+
+export function claimResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ClaimResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ClaimResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ClaimResponse' from JSON`,
+  );
 }

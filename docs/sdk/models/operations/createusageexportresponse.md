@@ -14,12 +14,12 @@ const value: operations.CreateUsageExportResponseBody = {};
 ```typescript
 const value: shared.UsageExportJob = {
   downloadUrls: [
-    "https://glass-range.name/",
+    "https://far-off-bandwidth.biz/",
   ],
-  end: new Date("2024-05-14T18:48:08.000Z"),
-  start: new Date("2024-06-28T21:29:27.010Z"),
-  state: "completed",
-  usageExportJobId: "66ea185f-09b4-4fde-9094-da818af9ffa8",
+  end: new Date("2022-05-26T00:10:06.496Z"),
+  start: new Date("2022-07-31T18:53:14.774Z"),
+  state: "failed",
+  usageExportJobId: "012544cf-8f61-4647-ba7e-eb726b41eb9c",
 };
 ```
 

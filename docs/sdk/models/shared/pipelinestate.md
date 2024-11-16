@@ -5,7 +5,7 @@
 ```typescript
 import { PipelineState } from "circleci-v2-sdk/sdk/models/shared";
 
-let value: PipelineState = "errored";
+let value: PipelineState = "setup";
 ```
 
 ## Values

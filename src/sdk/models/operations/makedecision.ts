@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type Metadata = {};
@@ -80,6 +83,20 @@ export namespace Metadata$ {
   export type Outbound = Metadata$Outbound;
 }
 
+export function metadataToJSON(metadata: Metadata): string {
+  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
+}
+
+export function metadataFromJSON(
+  jsonString: string,
+): SafeParseResult<Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const MakeDecisionRequestBody$inboundSchema: z.ZodType<
   MakeDecisionRequestBody,
@@ -117,6 +134,24 @@ export namespace MakeDecisionRequestBody$ {
   export const outboundSchema = MakeDecisionRequestBody$outboundSchema;
   /** @deprecated use `MakeDecisionRequestBody$Outbound` instead. */
   export type Outbound = MakeDecisionRequestBody$Outbound;
+}
+
+export function makeDecisionRequestBodyToJSON(
+  makeDecisionRequestBody: MakeDecisionRequestBody,
+): string {
+  return JSON.stringify(
+    MakeDecisionRequestBody$outboundSchema.parse(makeDecisionRequestBody),
+  );
+}
+
+export function makeDecisionRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<MakeDecisionRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MakeDecisionRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MakeDecisionRequestBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -169,6 +204,24 @@ export namespace MakeDecisionRequest$ {
   export type Outbound = MakeDecisionRequest$Outbound;
 }
 
+export function makeDecisionRequestToJSON(
+  makeDecisionRequest: MakeDecisionRequest,
+): string {
+  return JSON.stringify(
+    MakeDecisionRequest$outboundSchema.parse(makeDecisionRequest),
+  );
+}
+
+export function makeDecisionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<MakeDecisionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MakeDecisionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MakeDecisionRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const MakeDecisionPolicyManagementResponseResponseBody$inboundSchema:
   z.ZodType<
@@ -210,6 +263,33 @@ export namespace MakeDecisionPolicyManagementResponseResponseBody$ {
     MakeDecisionPolicyManagementResponseResponseBody$Outbound;
 }
 
+export function makeDecisionPolicyManagementResponseResponseBodyToJSON(
+  makeDecisionPolicyManagementResponseResponseBody:
+    MakeDecisionPolicyManagementResponseResponseBody,
+): string {
+  return JSON.stringify(
+    MakeDecisionPolicyManagementResponseResponseBody$outboundSchema.parse(
+      makeDecisionPolicyManagementResponseResponseBody,
+    ),
+  );
+}
+
+export function makeDecisionPolicyManagementResponseResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MakeDecisionPolicyManagementResponseResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MakeDecisionPolicyManagementResponseResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MakeDecisionPolicyManagementResponseResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const MakeDecisionPolicyManagementResponseBody$inboundSchema: z.ZodType<
   MakeDecisionPolicyManagementResponseBody,
@@ -248,6 +328,33 @@ export namespace MakeDecisionPolicyManagementResponseBody$ {
   export type Outbound = MakeDecisionPolicyManagementResponseBody$Outbound;
 }
 
+export function makeDecisionPolicyManagementResponseBodyToJSON(
+  makeDecisionPolicyManagementResponseBody:
+    MakeDecisionPolicyManagementResponseBody,
+): string {
+  return JSON.stringify(
+    MakeDecisionPolicyManagementResponseBody$outboundSchema.parse(
+      makeDecisionPolicyManagementResponseBody,
+    ),
+  );
+}
+
+export function makeDecisionPolicyManagementResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  MakeDecisionPolicyManagementResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      MakeDecisionPolicyManagementResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'MakeDecisionPolicyManagementResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const MakeDecisionResponseBody$inboundSchema: z.ZodType<
   MakeDecisionResponseBody,
@@ -282,6 +389,24 @@ export namespace MakeDecisionResponseBody$ {
   export const outboundSchema = MakeDecisionResponseBody$outboundSchema;
   /** @deprecated use `MakeDecisionResponseBody$Outbound` instead. */
   export type Outbound = MakeDecisionResponseBody$Outbound;
+}
+
+export function makeDecisionResponseBodyToJSON(
+  makeDecisionResponseBody: MakeDecisionResponseBody,
+): string {
+  return JSON.stringify(
+    MakeDecisionResponseBody$outboundSchema.parse(makeDecisionResponseBody),
+  );
+}
+
+export function makeDecisionResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<MakeDecisionResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MakeDecisionResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MakeDecisionResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -326,4 +451,22 @@ export namespace MakeDecisionResponse$ {
   export const outboundSchema = MakeDecisionResponse$outboundSchema;
   /** @deprecated use `MakeDecisionResponse$Outbound` instead. */
   export type Outbound = MakeDecisionResponse$Outbound;
+}
+
+export function makeDecisionResponseToJSON(
+  makeDecisionResponse: MakeDecisionResponse,
+): string {
+  return JSON.stringify(
+    MakeDecisionResponse$outboundSchema.parse(makeDecisionResponse),
+  );
+}
+
+export function makeDecisionResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<MakeDecisionResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MakeDecisionResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MakeDecisionResponse' from JSON`,
+  );
 }

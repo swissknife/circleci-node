@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The type of owner. Defaults to "organization". Accounts are only used as context owners in server and must be specified by an id instead of a slug.
@@ -144,6 +147,20 @@ export namespace Two$ {
   export type Outbound = Two$Outbound;
 }
 
+export function twoToJSON(two: Two): string {
+  return JSON.stringify(Two$outboundSchema.parse(two));
+}
+
+export function twoFromJSON(
+  jsonString: string,
+): SafeParseResult<Two, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Two$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Two' from JSON`,
+  );
+}
+
 /** @internal */
 export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
   Type,
@@ -197,6 +214,20 @@ export namespace One$ {
   export type Outbound = One$Outbound;
 }
 
+export function oneToJSON(one: One): string {
+  return JSON.stringify(One$outboundSchema.parse(one));
+}
+
+export function oneFromJSON(
+  jsonString: string,
+): SafeParseResult<One, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => One$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'One' from JSON`,
+  );
+}
+
 /** @internal */
 export const Owner$inboundSchema: z.ZodType<Owner, z.ZodTypeDef, unknown> = z
   .union([z.lazy(() => One$inboundSchema), z.lazy(() => Two$inboundSchema)]);
@@ -225,6 +256,20 @@ export namespace Owner$ {
   export const outboundSchema = Owner$outboundSchema;
   /** @deprecated use `Owner$Outbound` instead. */
   export type Outbound = Owner$Outbound;
+}
+
+export function ownerToJSON(owner: Owner): string {
+  return JSON.stringify(Owner$outboundSchema.parse(owner));
+}
+
+export function ownerFromJSON(
+  jsonString: string,
+): SafeParseResult<Owner, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Owner$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Owner' from JSON`,
+  );
 }
 
 /** @internal */
@@ -272,6 +317,24 @@ export namespace CreateContextRequestBody$ {
   export type Outbound = CreateContextRequestBody$Outbound;
 }
 
+export function createContextRequestBodyToJSON(
+  createContextRequestBody: CreateContextRequestBody,
+): string {
+  return JSON.stringify(
+    CreateContextRequestBody$outboundSchema.parse(createContextRequestBody),
+  );
+}
+
+export function createContextRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContextRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextRequestBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateContextResponseBody$inboundSchema: z.ZodType<
   CreateContextResponseBody,
@@ -306,6 +369,24 @@ export namespace CreateContextResponseBody$ {
   export const outboundSchema = CreateContextResponseBody$outboundSchema;
   /** @deprecated use `CreateContextResponseBody$Outbound` instead. */
   export type Outbound = CreateContextResponseBody$Outbound;
+}
+
+export function createContextResponseBodyToJSON(
+  createContextResponseBody: CreateContextResponseBody,
+): string {
+  return JSON.stringify(
+    CreateContextResponseBody$outboundSchema.parse(createContextResponseBody),
+  );
+}
+
+export function createContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContextResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -358,6 +439,24 @@ export namespace CreateContextContext$ {
   export type Outbound = CreateContextContext$Outbound;
 }
 
+export function createContextContextToJSON(
+  createContextContext: CreateContextContext,
+): string {
+  return JSON.stringify(
+    CreateContextContext$outboundSchema.parse(createContextContext),
+  );
+}
+
+export function createContextContextFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextContext, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContextContext$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextContext' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateContextResponse$inboundSchema: z.ZodType<
   CreateContextResponse,
@@ -394,4 +493,22 @@ export namespace CreateContextResponse$ {
   export const outboundSchema = CreateContextResponse$outboundSchema;
   /** @deprecated use `CreateContextResponse$Outbound` instead. */
   export type Outbound = CreateContextResponse$Outbound;
+}
+
+export function createContextResponseToJSON(
+  createContextResponse: CreateContextResponse,
+): string {
+  return JSON.stringify(
+    CreateContextResponse$outboundSchema.parse(createContextResponse),
+  );
+}
+
+export function createContextResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContextResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextResponse' from JSON`,
+  );
 }

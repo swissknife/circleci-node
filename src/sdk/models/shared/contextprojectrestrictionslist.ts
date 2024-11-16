@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Type of the restriction
@@ -154,6 +157,20 @@ export namespace Items$ {
   export type Outbound = Items$Outbound;
 }
 
+export function itemsToJSON(items: Items): string {
+  return JSON.stringify(Items$outboundSchema.parse(items));
+}
+
+export function itemsFromJSON(
+  jsonString: string,
+): SafeParseResult<Items, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Items$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Items' from JSON`,
+  );
+}
+
 /** @internal */
 export const ContextProjectRestrictionsList$inboundSchema: z.ZodType<
   ContextProjectRestrictionsList,
@@ -199,4 +216,24 @@ export namespace ContextProjectRestrictionsList$ {
   export const outboundSchema = ContextProjectRestrictionsList$outboundSchema;
   /** @deprecated use `ContextProjectRestrictionsList$Outbound` instead. */
   export type Outbound = ContextProjectRestrictionsList$Outbound;
+}
+
+export function contextProjectRestrictionsListToJSON(
+  contextProjectRestrictionsList: ContextProjectRestrictionsList,
+): string {
+  return JSON.stringify(
+    ContextProjectRestrictionsList$outboundSchema.parse(
+      contextProjectRestrictionsList,
+    ),
+  );
+}
+
+export function contextProjectRestrictionsListFromJSON(
+  jsonString: string,
+): SafeParseResult<ContextProjectRestrictionsList, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContextProjectRestrictionsList$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContextProjectRestrictionsList' from JSON`,
+  );
 }

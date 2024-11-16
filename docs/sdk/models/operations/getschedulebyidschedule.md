@@ -9,13 +9,13 @@ import { GetScheduleByIdSchedule } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetScheduleByIdSchedule = {
   actor: {
-    id: "8d00fdb2-7ee0-4c0f-b6f5-45b3d9ff2f00",
-    login: "Vince.Kihn",
+    id: "16e2d07a-09f2-4b92-b008-fab792ecf432",
+    login: "Oscar.Lueilwitz15",
     name: "<value>",
   },
-  createdAt: new Date("2024-04-28T22:11:42.800Z"),
-  description: "blindly judicious whoever of cute abaft",
-  id: "366ea6f9-5b7e-4e58-a4af-d51f6457ff45",
+  createdAt: new Date("2024-11-21T23:06:53.071Z"),
+  description: "cap seemingly deep from supposing",
+  id: "49226642-0047-4b7e-b025-9d540d69f02c",
   name: "<value>",
   parameters: {
     "deploy_prod": true,
@@ -23,15 +23,15 @@ let value: GetScheduleByIdSchedule = {
   },
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   timetable: {
-    daysOfWeek: [
-      "SAT",
+    daysOfMonth: [
+      536999,
     ],
     hoursOfDay: [
-      936059,
+      978857,
     ],
-    perHour: 29435,
+    perHour: 396184,
   },
-  updatedAt: new Date("2022-04-21T16:04:48.222Z"),
+  updatedAt: new Date("2023-10-22T17:31:37.327Z"),
 };
 ```
 
@@ -39,7 +39,7 @@ let value: GetScheduleByIdSchedule = {
 
 | Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `actor`                                                                                       | [operations.GetScheduleByIdUser](../../../sdk/models/operations/getschedulebyiduser.md)       | :heavy_check_mark:                                                                            | The attribution actor who will run the scheduled pipeline.                                    |                                                                                               |
+| `actor`                                                                                       | [operations.User](../../../sdk/models/operations/user.md)                                     | :heavy_check_mark:                                                                            | The attribution actor who will run the scheduled pipeline.                                    |                                                                                               |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | The date and time the pipeline was created.                                                   |                                                                                               |
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | Description of the schedule.                                                                  |                                                                                               |
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | The unique ID of the schedule.                                                                |                                                                                               |

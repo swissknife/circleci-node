@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteContextRequest = {
   /**
@@ -77,6 +80,24 @@ export namespace DeleteContextRequest$ {
   export type Outbound = DeleteContextRequest$Outbound;
 }
 
+export function deleteContextRequestToJSON(
+  deleteContextRequest: DeleteContextRequest,
+): string {
+  return JSON.stringify(
+    DeleteContextRequest$outboundSchema.parse(deleteContextRequest),
+  );
+}
+
+export function deleteContextRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteContextRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteContextRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteContextRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteContextResponseBody$inboundSchema: z.ZodType<
   DeleteContextResponseBody,
@@ -111,6 +132,24 @@ export namespace DeleteContextResponseBody$ {
   export const outboundSchema = DeleteContextResponseBody$outboundSchema;
   /** @deprecated use `DeleteContextResponseBody$Outbound` instead. */
   export type Outbound = DeleteContextResponseBody$Outbound;
+}
+
+export function deleteContextResponseBodyToJSON(
+  deleteContextResponseBody: DeleteContextResponseBody,
+): string {
+  return JSON.stringify(
+    DeleteContextResponseBody$outboundSchema.parse(deleteContextResponseBody),
+  );
+}
+
+export function deleteContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteContextResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteContextResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteContextResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -149,6 +188,26 @@ export namespace DeleteContextMessageResponse$ {
   export type Outbound = DeleteContextMessageResponse$Outbound;
 }
 
+export function deleteContextMessageResponseToJSON(
+  deleteContextMessageResponse: DeleteContextMessageResponse,
+): string {
+  return JSON.stringify(
+    DeleteContextMessageResponse$outboundSchema.parse(
+      deleteContextMessageResponse,
+    ),
+  );
+}
+
+export function deleteContextMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteContextMessageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteContextMessageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteContextMessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteContextResponse$inboundSchema: z.ZodType<
   DeleteContextResponse,
@@ -185,4 +244,22 @@ export namespace DeleteContextResponse$ {
   export const outboundSchema = DeleteContextResponse$outboundSchema;
   /** @deprecated use `DeleteContextResponse$Outbound` instead. */
   export type Outbound = DeleteContextResponse$Outbound;
+}
+
+export function deleteContextResponseToJSON(
+  deleteContextResponse: DeleteContextResponse,
+): string {
+  return JSON.stringify(
+    DeleteContextResponse$outboundSchema.parse(deleteContextResponse),
+  );
+}
+
+export function deleteContextResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteContextResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteContextResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteContextResponse' from JSON`,
+  );
 }

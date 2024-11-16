@@ -7,10 +7,10 @@ import { GetUsageExportJobStatus } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: GetUsageExportJobStatus = {
   downloadUrls: [
-    "https://minty-sailor.com/",
+    "https://pleasant-hyphenation.com",
   ],
-  state: "completed",
-  usageExportJobId: "7c57fb03-4fca-41c2-92d0-1e4ca1c3b68f",
+  state: "processing",
+  usageExportJobId: "17d9a342-d482-4155-9595-c15a9174a2a7",
 };
 ```
 

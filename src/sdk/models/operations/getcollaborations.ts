@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Error response.
@@ -75,6 +78,26 @@ export namespace GetCollaborationsResponseBody$ {
   export type Outbound = GetCollaborationsResponseBody$Outbound;
 }
 
+export function getCollaborationsResponseBodyToJSON(
+  getCollaborationsResponseBody: GetCollaborationsResponseBody,
+): string {
+  return JSON.stringify(
+    GetCollaborationsResponseBody$outboundSchema.parse(
+      getCollaborationsResponseBody,
+    ),
+  );
+}
+
+export function getCollaborationsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCollaborationsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCollaborationsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCollaborationsResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const Collaboration$inboundSchema: z.ZodType<
   Collaboration,
@@ -133,6 +156,20 @@ export namespace Collaboration$ {
   export type Outbound = Collaboration$Outbound;
 }
 
+export function collaborationToJSON(collaboration: Collaboration): string {
+  return JSON.stringify(Collaboration$outboundSchema.parse(collaboration));
+}
+
+export function collaborationFromJSON(
+  jsonString: string,
+): SafeParseResult<Collaboration, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Collaboration$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Collaboration' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetCollaborationsResponse$inboundSchema: z.ZodType<
   GetCollaborationsResponse,
@@ -169,4 +206,22 @@ export namespace GetCollaborationsResponse$ {
   export const outboundSchema = GetCollaborationsResponse$outboundSchema;
   /** @deprecated use `GetCollaborationsResponse$Outbound` instead. */
   export type Outbound = GetCollaborationsResponse$Outbound;
+}
+
+export function getCollaborationsResponseToJSON(
+  getCollaborationsResponse: GetCollaborationsResponse,
+): string {
+  return JSON.stringify(
+    GetCollaborationsResponse$outboundSchema.parse(getCollaborationsResponse),
+  );
+}
+
+export function getCollaborationsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCollaborationsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCollaborationsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCollaborationsResponse' from JSON`,
+  );
 }

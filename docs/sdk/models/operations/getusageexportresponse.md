@@ -8,10 +8,10 @@
 ```typescript
 const value: shared.GetUsageExportJobStatus = {
   downloadUrls: [
-    "https://ambitious-cap.com",
+    "https://unconscious-tomb.biz/",
   ],
-  state: "completed",
-  usageExportJobId: "5a968af9-91f8-4c06-944c-970ff308fe94",
+  state: "failed",
+  usageExportJobId: "88f4fe7d-ca53-4ad0-aa7e-5782bd040faf",
 };
 ```
 

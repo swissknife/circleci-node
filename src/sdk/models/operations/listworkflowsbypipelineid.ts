@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListWorkflowsByPipelineIdRequest = {
   /**
@@ -170,6 +173,26 @@ export namespace ListWorkflowsByPipelineIdRequest$ {
   export type Outbound = ListWorkflowsByPipelineIdRequest$Outbound;
 }
 
+export function listWorkflowsByPipelineIdRequestToJSON(
+  listWorkflowsByPipelineIdRequest: ListWorkflowsByPipelineIdRequest,
+): string {
+  return JSON.stringify(
+    ListWorkflowsByPipelineIdRequest$outboundSchema.parse(
+      listWorkflowsByPipelineIdRequest,
+    ),
+  );
+}
+
+export function listWorkflowsByPipelineIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListWorkflowsByPipelineIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListWorkflowsByPipelineIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListWorkflowsByPipelineIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListWorkflowsByPipelineIdResponseBody$inboundSchema: z.ZodType<
   ListWorkflowsByPipelineIdResponseBody,
@@ -206,6 +229,27 @@ export namespace ListWorkflowsByPipelineIdResponseBody$ {
     ListWorkflowsByPipelineIdResponseBody$outboundSchema;
   /** @deprecated use `ListWorkflowsByPipelineIdResponseBody$Outbound` instead. */
   export type Outbound = ListWorkflowsByPipelineIdResponseBody$Outbound;
+}
+
+export function listWorkflowsByPipelineIdResponseBodyToJSON(
+  listWorkflowsByPipelineIdResponseBody: ListWorkflowsByPipelineIdResponseBody,
+): string {
+  return JSON.stringify(
+    ListWorkflowsByPipelineIdResponseBody$outboundSchema.parse(
+      listWorkflowsByPipelineIdResponseBody,
+    ),
+  );
+}
+
+export function listWorkflowsByPipelineIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ListWorkflowsByPipelineIdResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ListWorkflowsByPipelineIdResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListWorkflowsByPipelineIdResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -341,6 +385,20 @@ export namespace Workflow$ {
   export type Outbound = Workflow$Outbound;
 }
 
+export function workflowToJSON(workflow: Workflow): string {
+  return JSON.stringify(Workflow$outboundSchema.parse(workflow));
+}
+
+export function workflowFromJSON(
+  jsonString: string,
+): SafeParseResult<Workflow, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Workflow$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Workflow' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListWorkflowsByPipelineIdWorkflowListResponse$inboundSchema:
   z.ZodType<
@@ -392,6 +450,33 @@ export namespace ListWorkflowsByPipelineIdWorkflowListResponse$ {
   export type Outbound = ListWorkflowsByPipelineIdWorkflowListResponse$Outbound;
 }
 
+export function listWorkflowsByPipelineIdWorkflowListResponseToJSON(
+  listWorkflowsByPipelineIdWorkflowListResponse:
+    ListWorkflowsByPipelineIdWorkflowListResponse,
+): string {
+  return JSON.stringify(
+    ListWorkflowsByPipelineIdWorkflowListResponse$outboundSchema.parse(
+      listWorkflowsByPipelineIdWorkflowListResponse,
+    ),
+  );
+}
+
+export function listWorkflowsByPipelineIdWorkflowListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ListWorkflowsByPipelineIdWorkflowListResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ListWorkflowsByPipelineIdWorkflowListResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ListWorkflowsByPipelineIdWorkflowListResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListWorkflowsByPipelineIdResponse$inboundSchema: z.ZodType<
   ListWorkflowsByPipelineIdResponse,
@@ -429,4 +514,24 @@ export namespace ListWorkflowsByPipelineIdResponse$ {
     ListWorkflowsByPipelineIdResponse$outboundSchema;
   /** @deprecated use `ListWorkflowsByPipelineIdResponse$Outbound` instead. */
   export type Outbound = ListWorkflowsByPipelineIdResponse$Outbound;
+}
+
+export function listWorkflowsByPipelineIdResponseToJSON(
+  listWorkflowsByPipelineIdResponse: ListWorkflowsByPipelineIdResponse,
+): string {
+  return JSON.stringify(
+    ListWorkflowsByPipelineIdResponse$outboundSchema.parse(
+      listWorkflowsByPipelineIdResponse,
+    ),
+  );
+}
+
+export function listWorkflowsByPipelineIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListWorkflowsByPipelineIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListWorkflowsByPipelineIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListWorkflowsByPipelineIdResponse' from JSON`,
+  );
 }

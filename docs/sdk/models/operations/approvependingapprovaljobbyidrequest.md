@@ -6,7 +6,7 @@
 import { ApprovePendingApprovalJobByIdRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: ApprovePendingApprovalJobByIdRequest = {
-  approvalRequestId: "87c9407e-e2d0-41f6-9170-083952f30444",
+  approvalRequestId: "0d204e48-64ec-4c8d-b777-3e433dc60f2d",
   id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
 };
 ```

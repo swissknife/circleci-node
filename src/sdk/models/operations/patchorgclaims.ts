@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type PatchOrgClaimsRequest = {
@@ -71,6 +74,24 @@ export namespace PatchOrgClaimsRequest$ {
   export type Outbound = PatchOrgClaimsRequest$Outbound;
 }
 
+export function patchOrgClaimsRequestToJSON(
+  patchOrgClaimsRequest: PatchOrgClaimsRequest,
+): string {
+  return JSON.stringify(
+    PatchOrgClaimsRequest$outboundSchema.parse(patchOrgClaimsRequest),
+  );
+}
+
+export function patchOrgClaimsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchOrgClaimsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchOrgClaimsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchOrgClaimsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const PatchOrgClaimsResponseBody$inboundSchema: z.ZodType<
   PatchOrgClaimsResponseBody,
@@ -105,6 +126,24 @@ export namespace PatchOrgClaimsResponseBody$ {
   export const outboundSchema = PatchOrgClaimsResponseBody$outboundSchema;
   /** @deprecated use `PatchOrgClaimsResponseBody$Outbound` instead. */
   export type Outbound = PatchOrgClaimsResponseBody$Outbound;
+}
+
+export function patchOrgClaimsResponseBodyToJSON(
+  patchOrgClaimsResponseBody: PatchOrgClaimsResponseBody,
+): string {
+  return JSON.stringify(
+    PatchOrgClaimsResponseBody$outboundSchema.parse(patchOrgClaimsResponseBody),
+  );
+}
+
+export function patchOrgClaimsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchOrgClaimsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchOrgClaimsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchOrgClaimsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -143,4 +182,22 @@ export namespace PatchOrgClaimsResponse$ {
   export const outboundSchema = PatchOrgClaimsResponse$outboundSchema;
   /** @deprecated use `PatchOrgClaimsResponse$Outbound` instead. */
   export type Outbound = PatchOrgClaimsResponse$Outbound;
+}
+
+export function patchOrgClaimsResponseToJSON(
+  patchOrgClaimsResponse: PatchOrgClaimsResponse,
+): string {
+  return JSON.stringify(
+    PatchOrgClaimsResponse$outboundSchema.parse(patchOrgClaimsResponse),
+  );
+}
+
+export function patchOrgClaimsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchOrgClaimsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchOrgClaimsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchOrgClaimsResponse' from JSON`,
+  );
 }

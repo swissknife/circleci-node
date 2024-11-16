@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * List of project names.
@@ -51,7 +54,7 @@ export type GetOrgSummaryDataInsightsResponseBody = {
 /**
  * Metrics for a single org metrics.
  */
-export type GetOrgSummaryDataMetrics = {
+export type Metrics = {
   successRate: number;
   /**
    * The average number of runs per day.
@@ -74,7 +77,7 @@ export type GetOrgSummaryDataMetrics = {
 /**
  * Trends for a single org.
  */
-export type GetOrgSummaryDataInsightsTrends = {
+export type Trends = {
   /**
    * The trend value for the success rate.
    */
@@ -104,17 +107,17 @@ export type OrgData = {
   /**
    * Metrics for a single org metrics.
    */
-  metrics: GetOrgSummaryDataMetrics;
+  metrics: Metrics;
   /**
    * Trends for a single org.
    */
-  trends: GetOrgSummaryDataInsightsTrends;
+  trends: Trends;
 };
 
 /**
  * Metrics for a single project, across all branches.
  */
-export type GetOrgSummaryDataInsightsMetrics = {
+export type GetOrgSummaryDataMetrics = {
   successRate: number;
   /**
    * The total credits consumed over the current timeseries interval.
@@ -156,7 +159,7 @@ export type OrgProjectData = {
   /**
    * Metrics for a single project, across all branches.
    */
-  metrics: GetOrgSummaryDataInsightsMetrics;
+  metrics: GetOrgSummaryDataMetrics;
   /**
    * The name of the project.
    */
@@ -217,6 +220,20 @@ export namespace ProjectNames$ {
   export const outboundSchema = ProjectNames$outboundSchema;
   /** @deprecated use `ProjectNames$Outbound` instead. */
   export type Outbound = ProjectNames$Outbound;
+}
+
+export function projectNamesToJSON(projectNames: ProjectNames): string {
+  return JSON.stringify(ProjectNames$outboundSchema.parse(projectNames));
+}
+
+export function projectNamesFromJSON(
+  jsonString: string,
+): SafeParseResult<ProjectNames, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProjectNames$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProjectNames' from JSON`,
+  );
 }
 
 /** @internal */
@@ -294,6 +311,24 @@ export namespace GetOrgSummaryDataRequest$ {
   export type Outbound = GetOrgSummaryDataRequest$Outbound;
 }
 
+export function getOrgSummaryDataRequestToJSON(
+  getOrgSummaryDataRequest: GetOrgSummaryDataRequest,
+): string {
+  return JSON.stringify(
+    GetOrgSummaryDataRequest$outboundSchema.parse(getOrgSummaryDataRequest),
+  );
+}
+
+export function getOrgSummaryDataRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgSummaryDataRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgSummaryDataRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgSummaryDataRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetOrgSummaryDataInsightsResponseBody$inboundSchema: z.ZodType<
   GetOrgSummaryDataInsightsResponseBody,
@@ -332,6 +367,223 @@ export namespace GetOrgSummaryDataInsightsResponseBody$ {
   export type Outbound = GetOrgSummaryDataInsightsResponseBody$Outbound;
 }
 
+export function getOrgSummaryDataInsightsResponseBodyToJSON(
+  getOrgSummaryDataInsightsResponseBody: GetOrgSummaryDataInsightsResponseBody,
+): string {
+  return JSON.stringify(
+    GetOrgSummaryDataInsightsResponseBody$outboundSchema.parse(
+      getOrgSummaryDataInsightsResponseBody,
+    ),
+  );
+}
+
+export function getOrgSummaryDataInsightsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgSummaryDataInsightsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetOrgSummaryDataInsightsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgSummaryDataInsightsResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const Metrics$inboundSchema: z.ZodType<Metrics, z.ZodTypeDef, unknown> =
+  z.object({
+    success_rate: z.number(),
+    throughput: z.number(),
+    total_credits_used: z.number().int(),
+    total_duration_secs: z.number().int(),
+    total_runs: z.number().int(),
+  }).transform((v) => {
+    return remap$(v, {
+      "success_rate": "successRate",
+      "total_credits_used": "totalCreditsUsed",
+      "total_duration_secs": "totalDurationSecs",
+      "total_runs": "totalRuns",
+    });
+  });
+
+/** @internal */
+export type Metrics$Outbound = {
+  success_rate: number;
+  throughput: number;
+  total_credits_used: number;
+  total_duration_secs: number;
+  total_runs: number;
+};
+
+/** @internal */
+export const Metrics$outboundSchema: z.ZodType<
+  Metrics$Outbound,
+  z.ZodTypeDef,
+  Metrics
+> = z.object({
+  successRate: z.number(),
+  throughput: z.number(),
+  totalCreditsUsed: z.number().int(),
+  totalDurationSecs: z.number().int(),
+  totalRuns: z.number().int(),
+}).transform((v) => {
+  return remap$(v, {
+    successRate: "success_rate",
+    totalCreditsUsed: "total_credits_used",
+    totalDurationSecs: "total_duration_secs",
+    totalRuns: "total_runs",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Metrics$ {
+  /** @deprecated use `Metrics$inboundSchema` instead. */
+  export const inboundSchema = Metrics$inboundSchema;
+  /** @deprecated use `Metrics$outboundSchema` instead. */
+  export const outboundSchema = Metrics$outboundSchema;
+  /** @deprecated use `Metrics$Outbound` instead. */
+  export type Outbound = Metrics$Outbound;
+}
+
+export function metricsToJSON(metrics: Metrics): string {
+  return JSON.stringify(Metrics$outboundSchema.parse(metrics));
+}
+
+export function metricsFromJSON(
+  jsonString: string,
+): SafeParseResult<Metrics, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Metrics$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metrics' from JSON`,
+  );
+}
+
+/** @internal */
+export const Trends$inboundSchema: z.ZodType<Trends, z.ZodTypeDef, unknown> = z
+  .object({
+    success_rate: z.number(),
+    throughput: z.number(),
+    total_credits_used: z.number(),
+    total_duration_secs: z.number(),
+    total_runs: z.number(),
+  }).transform((v) => {
+    return remap$(v, {
+      "success_rate": "successRate",
+      "total_credits_used": "totalCreditsUsed",
+      "total_duration_secs": "totalDurationSecs",
+      "total_runs": "totalRuns",
+    });
+  });
+
+/** @internal */
+export type Trends$Outbound = {
+  success_rate: number;
+  throughput: number;
+  total_credits_used: number;
+  total_duration_secs: number;
+  total_runs: number;
+};
+
+/** @internal */
+export const Trends$outboundSchema: z.ZodType<
+  Trends$Outbound,
+  z.ZodTypeDef,
+  Trends
+> = z.object({
+  successRate: z.number(),
+  throughput: z.number(),
+  totalCreditsUsed: z.number(),
+  totalDurationSecs: z.number(),
+  totalRuns: z.number(),
+}).transform((v) => {
+  return remap$(v, {
+    successRate: "success_rate",
+    totalCreditsUsed: "total_credits_used",
+    totalDurationSecs: "total_duration_secs",
+    totalRuns: "total_runs",
+  });
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Trends$ {
+  /** @deprecated use `Trends$inboundSchema` instead. */
+  export const inboundSchema = Trends$inboundSchema;
+  /** @deprecated use `Trends$outboundSchema` instead. */
+  export const outboundSchema = Trends$outboundSchema;
+  /** @deprecated use `Trends$Outbound` instead. */
+  export type Outbound = Trends$Outbound;
+}
+
+export function trendsToJSON(trends: Trends): string {
+  return JSON.stringify(Trends$outboundSchema.parse(trends));
+}
+
+export function trendsFromJSON(
+  jsonString: string,
+): SafeParseResult<Trends, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Trends$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Trends' from JSON`,
+  );
+}
+
+/** @internal */
+export const OrgData$inboundSchema: z.ZodType<OrgData, z.ZodTypeDef, unknown> =
+  z.object({
+    metrics: z.lazy(() => Metrics$inboundSchema),
+    trends: z.lazy(() => Trends$inboundSchema),
+  });
+
+/** @internal */
+export type OrgData$Outbound = {
+  metrics: Metrics$Outbound;
+  trends: Trends$Outbound;
+};
+
+/** @internal */
+export const OrgData$outboundSchema: z.ZodType<
+  OrgData$Outbound,
+  z.ZodTypeDef,
+  OrgData
+> = z.object({
+  metrics: z.lazy(() => Metrics$outboundSchema),
+  trends: z.lazy(() => Trends$outboundSchema),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OrgData$ {
+  /** @deprecated use `OrgData$inboundSchema` instead. */
+  export const inboundSchema = OrgData$inboundSchema;
+  /** @deprecated use `OrgData$outboundSchema` instead. */
+  export const outboundSchema = OrgData$outboundSchema;
+  /** @deprecated use `OrgData$Outbound` instead. */
+  export type Outbound = OrgData$Outbound;
+}
+
+export function orgDataToJSON(orgData: OrgData): string {
+  return JSON.stringify(OrgData$outboundSchema.parse(orgData));
+}
+
+export function orgDataFromJSON(
+  jsonString: string,
+): SafeParseResult<OrgData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrgData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrgData' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetOrgSummaryDataMetrics$inboundSchema: z.ZodType<
   GetOrgSummaryDataMetrics,
@@ -339,7 +591,6 @@ export const GetOrgSummaryDataMetrics$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   success_rate: z.number(),
-  throughput: z.number(),
   total_credits_used: z.number().int(),
   total_duration_secs: z.number().int(),
   total_runs: z.number().int(),
@@ -355,7 +606,6 @@ export const GetOrgSummaryDataMetrics$inboundSchema: z.ZodType<
 /** @internal */
 export type GetOrgSummaryDataMetrics$Outbound = {
   success_rate: number;
-  throughput: number;
   total_credits_used: number;
   total_duration_secs: number;
   total_runs: number;
@@ -368,7 +618,6 @@ export const GetOrgSummaryDataMetrics$outboundSchema: z.ZodType<
   GetOrgSummaryDataMetrics
 > = z.object({
   successRate: z.number(),
-  throughput: z.number(),
   totalCreditsUsed: z.number().int(),
   totalDurationSecs: z.number().int(),
   totalRuns: z.number().int(),
@@ -394,161 +643,22 @@ export namespace GetOrgSummaryDataMetrics$ {
   export type Outbound = GetOrgSummaryDataMetrics$Outbound;
 }
 
-/** @internal */
-export const GetOrgSummaryDataInsightsTrends$inboundSchema: z.ZodType<
-  GetOrgSummaryDataInsightsTrends,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  success_rate: z.number(),
-  throughput: z.number(),
-  total_credits_used: z.number(),
-  total_duration_secs: z.number(),
-  total_runs: z.number(),
-}).transform((v) => {
-  return remap$(v, {
-    "success_rate": "successRate",
-    "total_credits_used": "totalCreditsUsed",
-    "total_duration_secs": "totalDurationSecs",
-    "total_runs": "totalRuns",
-  });
-});
-
-/** @internal */
-export type GetOrgSummaryDataInsightsTrends$Outbound = {
-  success_rate: number;
-  throughput: number;
-  total_credits_used: number;
-  total_duration_secs: number;
-  total_runs: number;
-};
-
-/** @internal */
-export const GetOrgSummaryDataInsightsTrends$outboundSchema: z.ZodType<
-  GetOrgSummaryDataInsightsTrends$Outbound,
-  z.ZodTypeDef,
-  GetOrgSummaryDataInsightsTrends
-> = z.object({
-  successRate: z.number(),
-  throughput: z.number(),
-  totalCreditsUsed: z.number(),
-  totalDurationSecs: z.number(),
-  totalRuns: z.number(),
-}).transform((v) => {
-  return remap$(v, {
-    successRate: "success_rate",
-    totalCreditsUsed: "total_credits_used",
-    totalDurationSecs: "total_duration_secs",
-    totalRuns: "total_runs",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetOrgSummaryDataInsightsTrends$ {
-  /** @deprecated use `GetOrgSummaryDataInsightsTrends$inboundSchema` instead. */
-  export const inboundSchema = GetOrgSummaryDataInsightsTrends$inboundSchema;
-  /** @deprecated use `GetOrgSummaryDataInsightsTrends$outboundSchema` instead. */
-  export const outboundSchema = GetOrgSummaryDataInsightsTrends$outboundSchema;
-  /** @deprecated use `GetOrgSummaryDataInsightsTrends$Outbound` instead. */
-  export type Outbound = GetOrgSummaryDataInsightsTrends$Outbound;
+export function getOrgSummaryDataMetricsToJSON(
+  getOrgSummaryDataMetrics: GetOrgSummaryDataMetrics,
+): string {
+  return JSON.stringify(
+    GetOrgSummaryDataMetrics$outboundSchema.parse(getOrgSummaryDataMetrics),
+  );
 }
 
-/** @internal */
-export const OrgData$inboundSchema: z.ZodType<OrgData, z.ZodTypeDef, unknown> =
-  z.object({
-    metrics: z.lazy(() => GetOrgSummaryDataMetrics$inboundSchema),
-    trends: z.lazy(() => GetOrgSummaryDataInsightsTrends$inboundSchema),
-  });
-
-/** @internal */
-export type OrgData$Outbound = {
-  metrics: GetOrgSummaryDataMetrics$Outbound;
-  trends: GetOrgSummaryDataInsightsTrends$Outbound;
-};
-
-/** @internal */
-export const OrgData$outboundSchema: z.ZodType<
-  OrgData$Outbound,
-  z.ZodTypeDef,
-  OrgData
-> = z.object({
-  metrics: z.lazy(() => GetOrgSummaryDataMetrics$outboundSchema),
-  trends: z.lazy(() => GetOrgSummaryDataInsightsTrends$outboundSchema),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrgData$ {
-  /** @deprecated use `OrgData$inboundSchema` instead. */
-  export const inboundSchema = OrgData$inboundSchema;
-  /** @deprecated use `OrgData$outboundSchema` instead. */
-  export const outboundSchema = OrgData$outboundSchema;
-  /** @deprecated use `OrgData$Outbound` instead. */
-  export type Outbound = OrgData$Outbound;
-}
-
-/** @internal */
-export const GetOrgSummaryDataInsightsMetrics$inboundSchema: z.ZodType<
-  GetOrgSummaryDataInsightsMetrics,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  success_rate: z.number(),
-  total_credits_used: z.number().int(),
-  total_duration_secs: z.number().int(),
-  total_runs: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    "success_rate": "successRate",
-    "total_credits_used": "totalCreditsUsed",
-    "total_duration_secs": "totalDurationSecs",
-    "total_runs": "totalRuns",
-  });
-});
-
-/** @internal */
-export type GetOrgSummaryDataInsightsMetrics$Outbound = {
-  success_rate: number;
-  total_credits_used: number;
-  total_duration_secs: number;
-  total_runs: number;
-};
-
-/** @internal */
-export const GetOrgSummaryDataInsightsMetrics$outboundSchema: z.ZodType<
-  GetOrgSummaryDataInsightsMetrics$Outbound,
-  z.ZodTypeDef,
-  GetOrgSummaryDataInsightsMetrics
-> = z.object({
-  successRate: z.number(),
-  totalCreditsUsed: z.number().int(),
-  totalDurationSecs: z.number().int(),
-  totalRuns: z.number().int(),
-}).transform((v) => {
-  return remap$(v, {
-    successRate: "success_rate",
-    totalCreditsUsed: "total_credits_used",
-    totalDurationSecs: "total_duration_secs",
-    totalRuns: "total_runs",
-  });
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetOrgSummaryDataInsightsMetrics$ {
-  /** @deprecated use `GetOrgSummaryDataInsightsMetrics$inboundSchema` instead. */
-  export const inboundSchema = GetOrgSummaryDataInsightsMetrics$inboundSchema;
-  /** @deprecated use `GetOrgSummaryDataInsightsMetrics$outboundSchema` instead. */
-  export const outboundSchema = GetOrgSummaryDataInsightsMetrics$outboundSchema;
-  /** @deprecated use `GetOrgSummaryDataInsightsMetrics$Outbound` instead. */
-  export type Outbound = GetOrgSummaryDataInsightsMetrics$Outbound;
+export function getOrgSummaryDataMetricsFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgSummaryDataMetrics, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgSummaryDataMetrics$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgSummaryDataMetrics' from JSON`,
+  );
 }
 
 /** @internal */
@@ -610,13 +720,31 @@ export namespace GetOrgSummaryDataTrends$ {
   export type Outbound = GetOrgSummaryDataTrends$Outbound;
 }
 
+export function getOrgSummaryDataTrendsToJSON(
+  getOrgSummaryDataTrends: GetOrgSummaryDataTrends,
+): string {
+  return JSON.stringify(
+    GetOrgSummaryDataTrends$outboundSchema.parse(getOrgSummaryDataTrends),
+  );
+}
+
+export function getOrgSummaryDataTrendsFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgSummaryDataTrends, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgSummaryDataTrends$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgSummaryDataTrends' from JSON`,
+  );
+}
+
 /** @internal */
 export const OrgProjectData$inboundSchema: z.ZodType<
   OrgProjectData,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  metrics: z.lazy(() => GetOrgSummaryDataInsightsMetrics$inboundSchema),
+  metrics: z.lazy(() => GetOrgSummaryDataMetrics$inboundSchema),
   project_name: z.string(),
   trends: z.lazy(() => GetOrgSummaryDataTrends$inboundSchema),
 }).transform((v) => {
@@ -627,7 +755,7 @@ export const OrgProjectData$inboundSchema: z.ZodType<
 
 /** @internal */
 export type OrgProjectData$Outbound = {
-  metrics: GetOrgSummaryDataInsightsMetrics$Outbound;
+  metrics: GetOrgSummaryDataMetrics$Outbound;
   project_name: string;
   trends: GetOrgSummaryDataTrends$Outbound;
 };
@@ -638,7 +766,7 @@ export const OrgProjectData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   OrgProjectData
 > = z.object({
-  metrics: z.lazy(() => GetOrgSummaryDataInsightsMetrics$outboundSchema),
+  metrics: z.lazy(() => GetOrgSummaryDataMetrics$outboundSchema),
   projectName: z.string(),
   trends: z.lazy(() => GetOrgSummaryDataTrends$outboundSchema),
 }).transform((v) => {
@@ -658,6 +786,20 @@ export namespace OrgProjectData$ {
   export const outboundSchema = OrgProjectData$outboundSchema;
   /** @deprecated use `OrgProjectData$Outbound` instead. */
   export type Outbound = OrgProjectData$Outbound;
+}
+
+export function orgProjectDataToJSON(orgProjectData: OrgProjectData): string {
+  return JSON.stringify(OrgProjectData$outboundSchema.parse(orgProjectData));
+}
+
+export function orgProjectDataFromJSON(
+  jsonString: string,
+): SafeParseResult<OrgProjectData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrgProjectData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrgProjectData' from JSON`,
+  );
 }
 
 /** @internal */
@@ -714,6 +856,26 @@ export namespace GetOrgSummaryDataResponseBody$ {
   export type Outbound = GetOrgSummaryDataResponseBody$Outbound;
 }
 
+export function getOrgSummaryDataResponseBodyToJSON(
+  getOrgSummaryDataResponseBody: GetOrgSummaryDataResponseBody,
+): string {
+  return JSON.stringify(
+    GetOrgSummaryDataResponseBody$outboundSchema.parse(
+      getOrgSummaryDataResponseBody,
+    ),
+  );
+}
+
+export function getOrgSummaryDataResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgSummaryDataResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgSummaryDataResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgSummaryDataResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetOrgSummaryDataResponse$inboundSchema: z.ZodType<
   GetOrgSummaryDataResponse,
@@ -750,4 +912,22 @@ export namespace GetOrgSummaryDataResponse$ {
   export const outboundSchema = GetOrgSummaryDataResponse$outboundSchema;
   /** @deprecated use `GetOrgSummaryDataResponse$Outbound` instead. */
   export type Outbound = GetOrgSummaryDataResponse$Outbound;
+}
+
+export function getOrgSummaryDataResponseToJSON(
+  getOrgSummaryDataResponse: GetOrgSummaryDataResponse,
+): string {
+  return JSON.stringify(
+    GetOrgSummaryDataResponse$outboundSchema.parse(getOrgSummaryDataResponse),
+  );
+}
+
+export function getOrgSummaryDataResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgSummaryDataResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgSummaryDataResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgSummaryDataResponse' from JSON`,
+  );
 }

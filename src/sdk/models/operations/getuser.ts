@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetUserRequest = {
   /**
@@ -74,6 +77,20 @@ export namespace GetUserRequest$ {
   export type Outbound = GetUserRequest$Outbound;
 }
 
+export function getUserRequestToJSON(getUserRequest: GetUserRequest): string {
+  return JSON.stringify(GetUserRequest$outboundSchema.parse(getUserRequest));
+}
+
+export function getUserRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUserRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUserRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUserRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetUserResponseBody$inboundSchema: z.ZodType<
   GetUserResponseBody,
@@ -108,6 +125,24 @@ export namespace GetUserResponseBody$ {
   export const outboundSchema = GetUserResponseBody$outboundSchema;
   /** @deprecated use `GetUserResponseBody$Outbound` instead. */
   export type Outbound = GetUserResponseBody$Outbound;
+}
+
+export function getUserResponseBodyToJSON(
+  getUserResponseBody: GetUserResponseBody,
+): string {
+  return JSON.stringify(
+    GetUserResponseBody$outboundSchema.parse(getUserResponseBody),
+  );
+}
+
+export function getUserResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUserResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUserResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUserResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -152,6 +187,20 @@ export namespace GetUserUser$ {
   export type Outbound = GetUserUser$Outbound;
 }
 
+export function getUserUserToJSON(getUserUser: GetUserUser): string {
+  return JSON.stringify(GetUserUser$outboundSchema.parse(getUserUser));
+}
+
+export function getUserUserFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUserUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUserUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUserUser' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetUserResponse$inboundSchema: z.ZodType<
   GetUserResponse,
@@ -188,4 +237,20 @@ export namespace GetUserResponse$ {
   export const outboundSchema = GetUserResponse$outboundSchema;
   /** @deprecated use `GetUserResponse$Outbound` instead. */
   export type Outbound = GetUserResponse$Outbound;
+}
+
+export function getUserResponseToJSON(
+  getUserResponse: GetUserResponse,
+): string {
+  return JSON.stringify(GetUserResponse$outboundSchema.parse(getUserResponse));
+}
+
+export function getUserResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUserResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUserResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUserResponse' from JSON`,
+  );
 }

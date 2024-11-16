@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateContextRestrictionRequestBody = {
@@ -115,6 +118,27 @@ export namespace CreateContextRestrictionRequestBody$ {
   export type Outbound = CreateContextRestrictionRequestBody$Outbound;
 }
 
+export function createContextRestrictionRequestBodyToJSON(
+  createContextRestrictionRequestBody: CreateContextRestrictionRequestBody,
+): string {
+  return JSON.stringify(
+    CreateContextRestrictionRequestBody$outboundSchema.parse(
+      createContextRestrictionRequestBody,
+    ),
+  );
+}
+
+export function createContextRestrictionRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextRestrictionRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateContextRestrictionRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextRestrictionRequestBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateContextRestrictionRequest$inboundSchema: z.ZodType<
   CreateContextRestrictionRequest,
@@ -164,6 +188,26 @@ export namespace CreateContextRestrictionRequest$ {
   export type Outbound = CreateContextRestrictionRequest$Outbound;
 }
 
+export function createContextRestrictionRequestToJSON(
+  createContextRestrictionRequest: CreateContextRestrictionRequest,
+): string {
+  return JSON.stringify(
+    CreateContextRestrictionRequest$outboundSchema.parse(
+      createContextRestrictionRequest,
+    ),
+  );
+}
+
+export function createContextRestrictionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextRestrictionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContextRestrictionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextRestrictionRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateContextRestrictionContextResponse409ResponseBody$inboundSchema:
   z.ZodType<
@@ -203,6 +247,32 @@ export namespace CreateContextRestrictionContextResponse409ResponseBody$ {
   /** @deprecated use `CreateContextRestrictionContextResponse409ResponseBody$Outbound` instead. */
   export type Outbound =
     CreateContextRestrictionContextResponse409ResponseBody$Outbound;
+}
+
+export function createContextRestrictionContextResponse409ResponseBodyToJSON(
+  createContextRestrictionContextResponse409ResponseBody:
+    CreateContextRestrictionContextResponse409ResponseBody,
+): string {
+  return JSON.stringify(
+    CreateContextRestrictionContextResponse409ResponseBody$outboundSchema.parse(
+      createContextRestrictionContextResponse409ResponseBody,
+    ),
+  );
+}
+
+export function createContextRestrictionContextResponse409ResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateContextRestrictionContextResponse409ResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateContextRestrictionContextResponse409ResponseBody$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextRestrictionContextResponse409ResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -245,6 +315,33 @@ export namespace CreateContextRestrictionContextResponseBody$ {
   export type Outbound = CreateContextRestrictionContextResponseBody$Outbound;
 }
 
+export function createContextRestrictionContextResponseBodyToJSON(
+  createContextRestrictionContextResponseBody:
+    CreateContextRestrictionContextResponseBody,
+): string {
+  return JSON.stringify(
+    CreateContextRestrictionContextResponseBody$outboundSchema.parse(
+      createContextRestrictionContextResponseBody,
+    ),
+  );
+}
+
+export function createContextRestrictionContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateContextRestrictionContextResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateContextRestrictionContextResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateContextRestrictionContextResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateContextRestrictionResponseBody$inboundSchema: z.ZodType<
   CreateContextRestrictionResponseBody,
@@ -281,6 +378,27 @@ export namespace CreateContextRestrictionResponseBody$ {
     CreateContextRestrictionResponseBody$outboundSchema;
   /** @deprecated use `CreateContextRestrictionResponseBody$Outbound` instead. */
   export type Outbound = CreateContextRestrictionResponseBody$Outbound;
+}
+
+export function createContextRestrictionResponseBodyToJSON(
+  createContextRestrictionResponseBody: CreateContextRestrictionResponseBody,
+): string {
+  return JSON.stringify(
+    CreateContextRestrictionResponseBody$outboundSchema.parse(
+      createContextRestrictionResponseBody,
+    ),
+  );
+}
+
+export function createContextRestrictionResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextRestrictionResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateContextRestrictionResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextRestrictionResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -329,4 +447,24 @@ export namespace CreateContextRestrictionResponse$ {
   export const outboundSchema = CreateContextRestrictionResponse$outboundSchema;
   /** @deprecated use `CreateContextRestrictionResponse$Outbound` instead. */
   export type Outbound = CreateContextRestrictionResponse$Outbound;
+}
+
+export function createContextRestrictionResponseToJSON(
+  createContextRestrictionResponse: CreateContextRestrictionResponse,
+): string {
+  return JSON.stringify(
+    CreateContextRestrictionResponse$outboundSchema.parse(
+      createContextRestrictionResponse,
+    ),
+  );
+}
+
+export function createContextRestrictionResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateContextRestrictionResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateContextRestrictionResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextRestrictionResponse' from JSON`,
+  );
 }

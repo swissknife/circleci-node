@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Type of the scope being used
@@ -177,6 +180,24 @@ export namespace GetWebhooksRequest$ {
   export type Outbound = GetWebhooksRequest$Outbound;
 }
 
+export function getWebhooksRequestToJSON(
+  getWebhooksRequest: GetWebhooksRequest,
+): string {
+  return JSON.stringify(
+    GetWebhooksRequest$outboundSchema.parse(getWebhooksRequest),
+  );
+}
+
+export function getWebhooksRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetWebhooksWebhookResponseBody$inboundSchema: z.ZodType<
   GetWebhooksWebhookResponseBody,
@@ -211,6 +232,26 @@ export namespace GetWebhooksWebhookResponseBody$ {
   export const outboundSchema = GetWebhooksWebhookResponseBody$outboundSchema;
   /** @deprecated use `GetWebhooksWebhookResponseBody$Outbound` instead. */
   export type Outbound = GetWebhooksWebhookResponseBody$Outbound;
+}
+
+export function getWebhooksWebhookResponseBodyToJSON(
+  getWebhooksWebhookResponseBody: GetWebhooksWebhookResponseBody,
+): string {
+  return JSON.stringify(
+    GetWebhooksWebhookResponseBody$outboundSchema.parse(
+      getWebhooksWebhookResponseBody,
+    ),
+  );
+}
+
+export function getWebhooksWebhookResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksWebhookResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksWebhookResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksWebhookResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -271,6 +312,24 @@ export namespace GetWebhooksScope$ {
   export const outboundSchema = GetWebhooksScope$outboundSchema;
   /** @deprecated use `GetWebhooksScope$Outbound` instead. */
   export type Outbound = GetWebhooksScope$Outbound;
+}
+
+export function getWebhooksScopeToJSON(
+  getWebhooksScope: GetWebhooksScope,
+): string {
+  return JSON.stringify(
+    GetWebhooksScope$outboundSchema.parse(getWebhooksScope),
+  );
+}
+
+export function getWebhooksScopeFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksScope, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksScope$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksScope' from JSON`,
+  );
 }
 
 /** @internal */
@@ -348,6 +407,20 @@ export namespace Webhook$ {
   export type Outbound = Webhook$Outbound;
 }
 
+export function webhookToJSON(webhook: Webhook): string {
+  return JSON.stringify(Webhook$outboundSchema.parse(webhook));
+}
+
+export function webhookFromJSON(
+  jsonString: string,
+): SafeParseResult<Webhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Webhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Webhook' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetWebhooksResponseBody$inboundSchema: z.ZodType<
   GetWebhooksResponseBody,
@@ -395,6 +468,24 @@ export namespace GetWebhooksResponseBody$ {
   export type Outbound = GetWebhooksResponseBody$Outbound;
 }
 
+export function getWebhooksResponseBodyToJSON(
+  getWebhooksResponseBody: GetWebhooksResponseBody,
+): string {
+  return JSON.stringify(
+    GetWebhooksResponseBody$outboundSchema.parse(getWebhooksResponseBody),
+  );
+}
+
+export function getWebhooksResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetWebhooksResponse$inboundSchema: z.ZodType<
   GetWebhooksResponse,
@@ -431,4 +522,22 @@ export namespace GetWebhooksResponse$ {
   export const outboundSchema = GetWebhooksResponse$outboundSchema;
   /** @deprecated use `GetWebhooksResponse$Outbound` instead. */
   export type Outbound = GetWebhooksResponse$Outbound;
+}
+
+export function getWebhooksResponseToJSON(
+  getWebhooksResponse: GetWebhooksResponse,
+): string {
+  return JSON.stringify(
+    GetWebhooksResponse$outboundSchema.parse(getWebhooksResponse),
+  );
+}
+
+export function getWebhooksResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhooksResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhooksResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhooksResponse' from JSON`,
+  );
 }

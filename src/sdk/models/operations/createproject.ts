@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateProjectRequest = {
@@ -81,6 +84,24 @@ export namespace CreateProjectRequest$ {
   export type Outbound = CreateProjectRequest$Outbound;
 }
 
+export function createProjectRequestToJSON(
+  createProjectRequest: CreateProjectRequest,
+): string {
+  return JSON.stringify(
+    CreateProjectRequest$outboundSchema.parse(createProjectRequest),
+  );
+}
+
+export function createProjectRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateProjectRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateProjectRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateProjectRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateProjectProjectResponse404ResponseBody$inboundSchema:
   z.ZodType<
@@ -121,6 +142,33 @@ export namespace CreateProjectProjectResponse404ResponseBody$ {
   export type Outbound = CreateProjectProjectResponse404ResponseBody$Outbound;
 }
 
+export function createProjectProjectResponse404ResponseBodyToJSON(
+  createProjectProjectResponse404ResponseBody:
+    CreateProjectProjectResponse404ResponseBody,
+): string {
+  return JSON.stringify(
+    CreateProjectProjectResponse404ResponseBody$outboundSchema.parse(
+      createProjectProjectResponse404ResponseBody,
+    ),
+  );
+}
+
+export function createProjectProjectResponse404ResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateProjectProjectResponse404ResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateProjectProjectResponse404ResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateProjectProjectResponse404ResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateProjectResponseBody$inboundSchema: z.ZodType<
   CreateProjectResponseBody,
@@ -155,6 +203,24 @@ export namespace CreateProjectResponseBody$ {
   export const outboundSchema = CreateProjectResponseBody$outboundSchema;
   /** @deprecated use `CreateProjectResponseBody$Outbound` instead. */
   export type Outbound = CreateProjectResponseBody$Outbound;
+}
+
+export function createProjectResponseBodyToJSON(
+  createProjectResponseBody: CreateProjectResponseBody,
+): string {
+  return JSON.stringify(
+    CreateProjectResponseBody$outboundSchema.parse(createProjectResponseBody),
+  );
+}
+
+export function createProjectResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateProjectResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateProjectResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateProjectResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -196,4 +262,22 @@ export namespace CreateProjectResponse$ {
   export const outboundSchema = CreateProjectResponse$outboundSchema;
   /** @deprecated use `CreateProjectResponse$Outbound` instead. */
   export type Outbound = CreateProjectResponse$Outbound;
+}
+
+export function createProjectResponseToJSON(
+  createProjectResponse: CreateProjectResponse,
+): string {
+  return JSON.stringify(
+    CreateProjectResponse$outboundSchema.parse(createProjectResponse),
+  );
+}
+
+export function createProjectResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateProjectResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateProjectResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateProjectResponse' from JSON`,
+  );
 }

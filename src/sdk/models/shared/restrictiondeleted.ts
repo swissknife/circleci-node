@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RestrictionDeleted = {
   /**
@@ -45,4 +48,22 @@ export namespace RestrictionDeleted$ {
   export const outboundSchema = RestrictionDeleted$outboundSchema;
   /** @deprecated use `RestrictionDeleted$Outbound` instead. */
   export type Outbound = RestrictionDeleted$Outbound;
+}
+
+export function restrictionDeletedToJSON(
+  restrictionDeleted: RestrictionDeleted,
+): string {
+  return JSON.stringify(
+    RestrictionDeleted$outboundSchema.parse(restrictionDeleted),
+  );
+}
+
+export function restrictionDeletedFromJSON(
+  jsonString: string,
+): SafeParseResult<RestrictionDeleted, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RestrictionDeleted$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RestrictionDeleted' from JSON`,
+  );
 }

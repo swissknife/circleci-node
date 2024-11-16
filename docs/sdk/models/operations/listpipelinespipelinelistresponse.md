@@ -10,24 +10,24 @@ import { ListPipelinesPipelineListResponse } from "circleci-v2-sdk/sdk/models/op
 let value: ListPipelinesPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2023-11-15T18:13:16.525Z"),
+      createdAt: new Date("2022-05-25T04:58:30.125Z"),
       errors: [
         {
           message: "<value>",
-          type: "config",
+          type: "trigger-rule",
         },
       ],
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       number: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      state: "errored",
+      state: "pending",
       trigger: {
         actor: {
-          avatarUrl: "https://responsible-coast.info",
-          login: "Vito_Bailey27",
+          avatarUrl: "https://dirty-bracelet.net/",
+          login: "Jabari.Volkman",
         },
-        receivedAt: new Date("2023-03-18T14:06:13.429Z"),
-        type: "api",
+        receivedAt: new Date("2022-12-01T13:44:36.342Z"),
+        type: "webhook",
       },
       vcs: {
         branch: "feature/design-new-api",
@@ -50,7 +50,7 @@ let value: ListPipelinesPipelineListResponse = {
 
 ## Fields
 
-| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `items`                                                                                       | [operations.ListPipelinesPipeline](../../../sdk/models/operations/listpipelinespipeline.md)[] | :heavy_check_mark:                                                                            | N/A                                                                                           |
-| `nextPageToken`                                                                               | *string*                                                                                      | :heavy_check_mark:                                                                            | A token to pass as a `page-token` query parameter to return the next page of results.         |
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `items`                                                                               | [operations.Pipeline](../../../sdk/models/operations/pipeline.md)[]                   | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `nextPageToken`                                                                       | *string*                                                                              | :heavy_check_mark:                                                                    | A token to pass as a `page-token` query parameter to return the next page of results. |

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListWorkflowJobsRequest = {
   /**
@@ -161,6 +164,24 @@ export namespace ListWorkflowJobsRequest$ {
   export type Outbound = ListWorkflowJobsRequest$Outbound;
 }
 
+export function listWorkflowJobsRequestToJSON(
+  listWorkflowJobsRequest: ListWorkflowJobsRequest,
+): string {
+  return JSON.stringify(
+    ListWorkflowJobsRequest$outboundSchema.parse(listWorkflowJobsRequest),
+  );
+}
+
+export function listWorkflowJobsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListWorkflowJobsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListWorkflowJobsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListWorkflowJobsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListWorkflowJobsResponseBody$inboundSchema: z.ZodType<
   ListWorkflowJobsResponseBody,
@@ -195,6 +216,26 @@ export namespace ListWorkflowJobsResponseBody$ {
   export const outboundSchema = ListWorkflowJobsResponseBody$outboundSchema;
   /** @deprecated use `ListWorkflowJobsResponseBody$Outbound` instead. */
   export type Outbound = ListWorkflowJobsResponseBody$Outbound;
+}
+
+export function listWorkflowJobsResponseBodyToJSON(
+  listWorkflowJobsResponseBody: ListWorkflowJobsResponseBody,
+): string {
+  return JSON.stringify(
+    ListWorkflowJobsResponseBody$outboundSchema.parse(
+      listWorkflowJobsResponseBody,
+    ),
+  );
+}
+
+export function listWorkflowJobsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ListWorkflowJobsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListWorkflowJobsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListWorkflowJobsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -326,6 +367,20 @@ export namespace Job$ {
   export type Outbound = Job$Outbound;
 }
 
+export function jobToJSON(job: Job): string {
+  return JSON.stringify(Job$outboundSchema.parse(job));
+}
+
+export function jobFromJSON(
+  jsonString: string,
+): SafeParseResult<Job, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Job$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Job' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListWorkflowJobsWorkflowJobListResponse$inboundSchema: z.ZodType<
   ListWorkflowJobsWorkflowJobListResponse,
@@ -375,6 +430,33 @@ export namespace ListWorkflowJobsWorkflowJobListResponse$ {
   export type Outbound = ListWorkflowJobsWorkflowJobListResponse$Outbound;
 }
 
+export function listWorkflowJobsWorkflowJobListResponseToJSON(
+  listWorkflowJobsWorkflowJobListResponse:
+    ListWorkflowJobsWorkflowJobListResponse,
+): string {
+  return JSON.stringify(
+    ListWorkflowJobsWorkflowJobListResponse$outboundSchema.parse(
+      listWorkflowJobsWorkflowJobListResponse,
+    ),
+  );
+}
+
+export function listWorkflowJobsWorkflowJobListResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ListWorkflowJobsWorkflowJobListResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ListWorkflowJobsWorkflowJobListResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ListWorkflowJobsWorkflowJobListResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListWorkflowJobsResponse$inboundSchema: z.ZodType<
   ListWorkflowJobsResponse,
@@ -411,4 +493,22 @@ export namespace ListWorkflowJobsResponse$ {
   export const outboundSchema = ListWorkflowJobsResponse$outboundSchema;
   /** @deprecated use `ListWorkflowJobsResponse$Outbound` instead. */
   export type Outbound = ListWorkflowJobsResponse$Outbound;
+}
+
+export function listWorkflowJobsResponseToJSON(
+  listWorkflowJobsResponse: ListWorkflowJobsResponse,
+): string {
+  return JSON.stringify(
+    ListWorkflowJobsResponse$outboundSchema.parse(listWorkflowJobsResponse),
+  );
+}
+
+export function listWorkflowJobsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListWorkflowJobsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListWorkflowJobsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListWorkflowJobsResponse' from JSON`,
+  );
 }

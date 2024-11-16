@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Type of the restriction
@@ -130,4 +133,22 @@ export namespace RestrictionCreated$ {
   export const outboundSchema = RestrictionCreated$outboundSchema;
   /** @deprecated use `RestrictionCreated$Outbound` instead. */
   export type Outbound = RestrictionCreated$Outbound;
+}
+
+export function restrictionCreatedToJSON(
+  restrictionCreated: RestrictionCreated,
+): string {
+  return JSON.stringify(
+    RestrictionCreated$outboundSchema.parse(restrictionCreated),
+  );
+}
+
+export function restrictionCreatedFromJSON(
+  jsonString: string,
+): SafeParseResult<RestrictionCreated, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RestrictionCreated$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RestrictionCreated' from JSON`,
+  );
 }

@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetScheduleByIdRequest = {
   /**
@@ -23,7 +26,7 @@ export type GetScheduleByIdResponseBody = {
 /**
  * The attribution actor who will run the scheduled pipeline.
  */
-export type GetScheduleByIdUser = {
+export type User = {
   /**
    * The unique ID of the user.
    */
@@ -182,7 +185,7 @@ export type GetScheduleByIdSchedule = {
   /**
    * The attribution actor who will run the scheduled pipeline.
    */
-  actor: GetScheduleByIdUser;
+  actor: User;
   /**
    * The date and time the pipeline was created.
    */
@@ -265,6 +268,24 @@ export namespace GetScheduleByIdRequest$ {
   export type Outbound = GetScheduleByIdRequest$Outbound;
 }
 
+export function getScheduleByIdRequestToJSON(
+  getScheduleByIdRequest: GetScheduleByIdRequest,
+): string {
+  return JSON.stringify(
+    GetScheduleByIdRequest$outboundSchema.parse(getScheduleByIdRequest),
+  );
+}
+
+export function getScheduleByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetScheduleByIdResponseBody$inboundSchema: z.ZodType<
   GetScheduleByIdResponseBody,
@@ -301,46 +322,74 @@ export namespace GetScheduleByIdResponseBody$ {
   export type Outbound = GetScheduleByIdResponseBody$Outbound;
 }
 
-/** @internal */
-export const GetScheduleByIdUser$inboundSchema: z.ZodType<
-  GetScheduleByIdUser,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  login: z.string(),
-  name: z.string(),
-});
+export function getScheduleByIdResponseBodyToJSON(
+  getScheduleByIdResponseBody: GetScheduleByIdResponseBody,
+): string {
+  return JSON.stringify(
+    GetScheduleByIdResponseBody$outboundSchema.parse(
+      getScheduleByIdResponseBody,
+    ),
+  );
+}
+
+export function getScheduleByIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleByIdResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleByIdResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleByIdResponseBody' from JSON`,
+  );
+}
 
 /** @internal */
-export type GetScheduleByIdUser$Outbound = {
+export const User$inboundSchema: z.ZodType<User, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string(),
+    login: z.string(),
+    name: z.string(),
+  });
+
+/** @internal */
+export type User$Outbound = {
   id: string;
   login: string;
   name: string;
 };
 
 /** @internal */
-export const GetScheduleByIdUser$outboundSchema: z.ZodType<
-  GetScheduleByIdUser$Outbound,
-  z.ZodTypeDef,
-  GetScheduleByIdUser
-> = z.object({
-  id: z.string(),
-  login: z.string(),
-  name: z.string(),
-});
+export const User$outboundSchema: z.ZodType<User$Outbound, z.ZodTypeDef, User> =
+  z.object({
+    id: z.string(),
+    login: z.string(),
+    name: z.string(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetScheduleByIdUser$ {
-  /** @deprecated use `GetScheduleByIdUser$inboundSchema` instead. */
-  export const inboundSchema = GetScheduleByIdUser$inboundSchema;
-  /** @deprecated use `GetScheduleByIdUser$outboundSchema` instead. */
-  export const outboundSchema = GetScheduleByIdUser$outboundSchema;
-  /** @deprecated use `GetScheduleByIdUser$Outbound` instead. */
-  export type Outbound = GetScheduleByIdUser$Outbound;
+export namespace User$ {
+  /** @deprecated use `User$inboundSchema` instead. */
+  export const inboundSchema = User$inboundSchema;
+  /** @deprecated use `User$outboundSchema` instead. */
+  export const outboundSchema = User$outboundSchema;
+  /** @deprecated use `User$Outbound` instead. */
+  export type Outbound = User$Outbound;
+}
+
+export function userToJSON(user: User): string {
+  return JSON.stringify(User$outboundSchema.parse(user));
+}
+
+export function userFromJSON(
+  jsonString: string,
+): SafeParseResult<User, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => User$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'User' from JSON`,
+  );
 }
 
 /** @internal */
@@ -371,6 +420,24 @@ export namespace GetScheduleByIdParameters$ {
   export const outboundSchema = GetScheduleByIdParameters$outboundSchema;
   /** @deprecated use `GetScheduleByIdParameters$Outbound` instead. */
   export type Outbound = GetScheduleByIdParameters$Outbound;
+}
+
+export function getScheduleByIdParametersToJSON(
+  getScheduleByIdParameters: GetScheduleByIdParameters,
+): string {
+  return JSON.stringify(
+    GetScheduleByIdParameters$outboundSchema.parse(getScheduleByIdParameters),
+  );
+}
+
+export function getScheduleByIdParametersFromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleByIdParameters, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleByIdParameters$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleByIdParameters' from JSON`,
+  );
 }
 
 /** @internal */
@@ -480,6 +547,24 @@ export namespace GetScheduleById2$ {
   export type Outbound = GetScheduleById2$Outbound;
 }
 
+export function getScheduleById2ToJSON(
+  getScheduleById2: GetScheduleById2,
+): string {
+  return JSON.stringify(
+    GetScheduleById2$outboundSchema.parse(getScheduleById2),
+  );
+}
+
+export function getScheduleById2FromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleById2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleById2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleById2' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetScheduleByIdDaysOfWeek$inboundSchema: z.ZodNativeEnum<
   typeof GetScheduleByIdDaysOfWeek
@@ -584,6 +669,24 @@ export namespace GetScheduleById1$ {
   export type Outbound = GetScheduleById1$Outbound;
 }
 
+export function getScheduleById1ToJSON(
+  getScheduleById1: GetScheduleById1,
+): string {
+  return JSON.stringify(
+    GetScheduleById1$outboundSchema.parse(getScheduleById1),
+  );
+}
+
+export function getScheduleById1FromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleById1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleById1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleById1' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetScheduleByIdTimetable$inboundSchema: z.ZodType<
   GetScheduleByIdTimetable,
@@ -622,13 +725,31 @@ export namespace GetScheduleByIdTimetable$ {
   export type Outbound = GetScheduleByIdTimetable$Outbound;
 }
 
+export function getScheduleByIdTimetableToJSON(
+  getScheduleByIdTimetable: GetScheduleByIdTimetable,
+): string {
+  return JSON.stringify(
+    GetScheduleByIdTimetable$outboundSchema.parse(getScheduleByIdTimetable),
+  );
+}
+
+export function getScheduleByIdTimetableFromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleByIdTimetable, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleByIdTimetable$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleByIdTimetable' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetScheduleByIdSchedule$inboundSchema: z.ZodType<
   GetScheduleByIdSchedule,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  actor: z.lazy(() => GetScheduleByIdUser$inboundSchema),
+  actor: z.lazy(() => User$inboundSchema),
   "created-at": z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ),
@@ -654,7 +775,7 @@ export const GetScheduleByIdSchedule$inboundSchema: z.ZodType<
 
 /** @internal */
 export type GetScheduleByIdSchedule$Outbound = {
-  actor: GetScheduleByIdUser$Outbound;
+  actor: User$Outbound;
   "created-at": string;
   description: string;
   id: string;
@@ -671,7 +792,7 @@ export const GetScheduleByIdSchedule$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetScheduleByIdSchedule
 > = z.object({
-  actor: z.lazy(() => GetScheduleByIdUser$outboundSchema),
+  actor: z.lazy(() => User$outboundSchema),
   createdAt: z.date().transform(v => v.toISOString()),
   description: z.string(),
   id: z.string(),
@@ -702,6 +823,24 @@ export namespace GetScheduleByIdSchedule$ {
   export const outboundSchema = GetScheduleByIdSchedule$outboundSchema;
   /** @deprecated use `GetScheduleByIdSchedule$Outbound` instead. */
   export type Outbound = GetScheduleByIdSchedule$Outbound;
+}
+
+export function getScheduleByIdScheduleToJSON(
+  getScheduleByIdSchedule: GetScheduleByIdSchedule,
+): string {
+  return JSON.stringify(
+    GetScheduleByIdSchedule$outboundSchema.parse(getScheduleByIdSchedule),
+  );
+}
+
+export function getScheduleByIdScheduleFromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleByIdSchedule, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleByIdSchedule$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleByIdSchedule' from JSON`,
+  );
 }
 
 /** @internal */
@@ -740,4 +879,22 @@ export namespace GetScheduleByIdResponse$ {
   export const outboundSchema = GetScheduleByIdResponse$outboundSchema;
   /** @deprecated use `GetScheduleByIdResponse$Outbound` instead. */
   export type Outbound = GetScheduleByIdResponse$Outbound;
+}
+
+export function getScheduleByIdResponseToJSON(
+  getScheduleByIdResponse: GetScheduleByIdResponse,
+): string {
+  return JSON.stringify(
+    GetScheduleByIdResponse$outboundSchema.parse(getScheduleByIdResponse),
+  );
+}
+
+export function getScheduleByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetScheduleByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetScheduleByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetScheduleByIdResponse' from JSON`,
+  );
 }

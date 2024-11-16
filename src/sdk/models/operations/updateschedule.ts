@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The attribution-actor of the scheduled pipeline.
@@ -384,6 +387,24 @@ export namespace UpdateScheduleParameters$ {
   export type Outbound = UpdateScheduleParameters$Outbound;
 }
 
+export function updateScheduleParametersToJSON(
+  updateScheduleParameters: UpdateScheduleParameters,
+): string {
+  return JSON.stringify(
+    UpdateScheduleParameters$outboundSchema.parse(updateScheduleParameters),
+  );
+}
+
+export function updateScheduleParametersFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleParameters, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleParameters$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleParameters' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleDaysOfWeek$inboundSchema: z.ZodNativeEnum<
   typeof UpdateScheduleDaysOfWeek
@@ -488,6 +509,24 @@ export namespace UpdateScheduleTimetable$ {
   export type Outbound = UpdateScheduleTimetable$Outbound;
 }
 
+export function updateScheduleTimetableToJSON(
+  updateScheduleTimetable: UpdateScheduleTimetable,
+): string {
+  return JSON.stringify(
+    UpdateScheduleTimetable$outboundSchema.parse(updateScheduleTimetable),
+  );
+}
+
+export function updateScheduleTimetableFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleTimetable, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleTimetable$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleTimetable' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleUpdateScheduleParameters$inboundSchema: z.ZodType<
   UpdateScheduleUpdateScheduleParameters,
@@ -548,6 +587,28 @@ export namespace UpdateScheduleUpdateScheduleParameters$ {
   export type Outbound = UpdateScheduleUpdateScheduleParameters$Outbound;
 }
 
+export function updateScheduleUpdateScheduleParametersToJSON(
+  updateScheduleUpdateScheduleParameters:
+    UpdateScheduleUpdateScheduleParameters,
+): string {
+  return JSON.stringify(
+    UpdateScheduleUpdateScheduleParameters$outboundSchema.parse(
+      updateScheduleUpdateScheduleParameters,
+    ),
+  );
+}
+
+export function updateScheduleUpdateScheduleParametersFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleUpdateScheduleParameters, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      UpdateScheduleUpdateScheduleParameters$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleUpdateScheduleParameters' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleRequest$inboundSchema: z.ZodType<
   UpdateScheduleRequest,
@@ -601,6 +662,24 @@ export namespace UpdateScheduleRequest$ {
   export type Outbound = UpdateScheduleRequest$Outbound;
 }
 
+export function updateScheduleRequestToJSON(
+  updateScheduleRequest: UpdateScheduleRequest,
+): string {
+  return JSON.stringify(
+    UpdateScheduleRequest$outboundSchema.parse(updateScheduleRequest),
+  );
+}
+
+export function updateScheduleRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleResponseBody$inboundSchema: z.ZodType<
   UpdateScheduleResponseBody,
@@ -635,6 +714,24 @@ export namespace UpdateScheduleResponseBody$ {
   export const outboundSchema = UpdateScheduleResponseBody$outboundSchema;
   /** @deprecated use `UpdateScheduleResponseBody$Outbound` instead. */
   export type Outbound = UpdateScheduleResponseBody$Outbound;
+}
+
+export function updateScheduleResponseBodyToJSON(
+  updateScheduleResponseBody: UpdateScheduleResponseBody,
+): string {
+  return JSON.stringify(
+    UpdateScheduleResponseBody$outboundSchema.parse(updateScheduleResponseBody),
+  );
+}
+
+export function updateScheduleResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -679,6 +776,24 @@ export namespace UpdateScheduleUser$ {
   export type Outbound = UpdateScheduleUser$Outbound;
 }
 
+export function updateScheduleUserToJSON(
+  updateScheduleUser: UpdateScheduleUser,
+): string {
+  return JSON.stringify(
+    UpdateScheduleUser$outboundSchema.parse(updateScheduleUser),
+  );
+}
+
+export function updateScheduleUserFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleUser' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleScheduleParameters$inboundSchema: z.ZodType<
   UpdateScheduleScheduleParameters,
@@ -710,6 +825,26 @@ export namespace UpdateScheduleScheduleParameters$ {
   export const outboundSchema = UpdateScheduleScheduleParameters$outboundSchema;
   /** @deprecated use `UpdateScheduleScheduleParameters$Outbound` instead. */
   export type Outbound = UpdateScheduleScheduleParameters$Outbound;
+}
+
+export function updateScheduleScheduleParametersToJSON(
+  updateScheduleScheduleParameters: UpdateScheduleScheduleParameters,
+): string {
+  return JSON.stringify(
+    UpdateScheduleScheduleParameters$outboundSchema.parse(
+      updateScheduleScheduleParameters,
+    ),
+  );
+}
+
+export function updateScheduleScheduleParametersFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleScheduleParameters, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleScheduleParameters$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleScheduleParameters' from JSON`,
+  );
 }
 
 /** @internal */
@@ -826,6 +961,22 @@ export namespace UpdateSchedule2$ {
   export type Outbound = UpdateSchedule2$Outbound;
 }
 
+export function updateSchedule2ToJSON(
+  updateSchedule2: UpdateSchedule2,
+): string {
+  return JSON.stringify(UpdateSchedule2$outboundSchema.parse(updateSchedule2));
+}
+
+export function updateSchedule2FromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateSchedule2, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateSchedule2$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateSchedule2' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleScheduleDaysOfWeek$inboundSchema: z.ZodNativeEnum<
   typeof UpdateScheduleScheduleDaysOfWeek
@@ -930,6 +1081,22 @@ export namespace UpdateSchedule1$ {
   export type Outbound = UpdateSchedule1$Outbound;
 }
 
+export function updateSchedule1ToJSON(
+  updateSchedule1: UpdateSchedule1,
+): string {
+  return JSON.stringify(UpdateSchedule1$outboundSchema.parse(updateSchedule1));
+}
+
+export function updateSchedule1FromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateSchedule1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateSchedule1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateSchedule1' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleScheduleTimetable$inboundSchema: z.ZodType<
   UpdateScheduleScheduleTimetable,
@@ -966,6 +1133,26 @@ export namespace UpdateScheduleScheduleTimetable$ {
   export const outboundSchema = UpdateScheduleScheduleTimetable$outboundSchema;
   /** @deprecated use `UpdateScheduleScheduleTimetable$Outbound` instead. */
   export type Outbound = UpdateScheduleScheduleTimetable$Outbound;
+}
+
+export function updateScheduleScheduleTimetableToJSON(
+  updateScheduleScheduleTimetable: UpdateScheduleScheduleTimetable,
+): string {
+  return JSON.stringify(
+    UpdateScheduleScheduleTimetable$outboundSchema.parse(
+      updateScheduleScheduleTimetable,
+    ),
+  );
+}
+
+export function updateScheduleScheduleTimetableFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleScheduleTimetable, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleScheduleTimetable$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleScheduleTimetable' from JSON`,
+  );
 }
 
 /** @internal */
@@ -1050,6 +1237,24 @@ export namespace UpdateScheduleSchedule$ {
   export type Outbound = UpdateScheduleSchedule$Outbound;
 }
 
+export function updateScheduleScheduleToJSON(
+  updateScheduleSchedule: UpdateScheduleSchedule,
+): string {
+  return JSON.stringify(
+    UpdateScheduleSchedule$outboundSchema.parse(updateScheduleSchedule),
+  );
+}
+
+export function updateScheduleScheduleFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleSchedule, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleSchedule$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleSchedule' from JSON`,
+  );
+}
+
 /** @internal */
 export const UpdateScheduleResponse$inboundSchema: z.ZodType<
   UpdateScheduleResponse,
@@ -1086,4 +1291,22 @@ export namespace UpdateScheduleResponse$ {
   export const outboundSchema = UpdateScheduleResponse$outboundSchema;
   /** @deprecated use `UpdateScheduleResponse$Outbound` instead. */
   export type Outbound = UpdateScheduleResponse$Outbound;
+}
+
+export function updateScheduleResponseToJSON(
+  updateScheduleResponse: UpdateScheduleResponse,
+): string {
+  return JSON.stringify(
+    UpdateScheduleResponse$outboundSchema.parse(updateScheduleResponse),
+  );
+}
+
+export function updateScheduleResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateScheduleResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateScheduleResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateScheduleResponse' from JSON`,
+  );
 }

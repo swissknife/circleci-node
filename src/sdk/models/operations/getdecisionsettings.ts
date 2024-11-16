@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetDecisionSettingsRequest = {
@@ -62,6 +65,24 @@ export namespace GetDecisionSettingsRequest$ {
   export type Outbound = GetDecisionSettingsRequest$Outbound;
 }
 
+export function getDecisionSettingsRequestToJSON(
+  getDecisionSettingsRequest: GetDecisionSettingsRequest,
+): string {
+  return JSON.stringify(
+    GetDecisionSettingsRequest$outboundSchema.parse(getDecisionSettingsRequest),
+  );
+}
+
+export function getDecisionSettingsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionSettingsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionSettingsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionSettingsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetDecisionSettingsResponseBody$inboundSchema: z.ZodType<
   GetDecisionSettingsResponseBody,
@@ -96,6 +117,26 @@ export namespace GetDecisionSettingsResponseBody$ {
   export const outboundSchema = GetDecisionSettingsResponseBody$outboundSchema;
   /** @deprecated use `GetDecisionSettingsResponseBody$Outbound` instead. */
   export type Outbound = GetDecisionSettingsResponseBody$Outbound;
+}
+
+export function getDecisionSettingsResponseBodyToJSON(
+  getDecisionSettingsResponseBody: GetDecisionSettingsResponseBody,
+): string {
+  return JSON.stringify(
+    GetDecisionSettingsResponseBody$outboundSchema.parse(
+      getDecisionSettingsResponseBody,
+    ),
+  );
+}
+
+export function getDecisionSettingsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionSettingsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionSettingsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionSettingsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -134,4 +175,24 @@ export namespace GetDecisionSettingsResponse$ {
   export const outboundSchema = GetDecisionSettingsResponse$outboundSchema;
   /** @deprecated use `GetDecisionSettingsResponse$Outbound` instead. */
   export type Outbound = GetDecisionSettingsResponse$Outbound;
+}
+
+export function getDecisionSettingsResponseToJSON(
+  getDecisionSettingsResponse: GetDecisionSettingsResponse,
+): string {
+  return JSON.stringify(
+    GetDecisionSettingsResponse$outboundSchema.parse(
+      getDecisionSettingsResponse,
+    ),
+  );
+}
+
+export function getDecisionSettingsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionSettingsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionSettingsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionSettingsResponse' from JSON`,
+  );
 }

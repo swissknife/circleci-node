@@ -11,15 +11,15 @@ const value: operations.CreateWebhookWebhook = {
   events: [
     "workflow-completed",
   ],
-  id: "a88eeb94-0153-4986-8cbb-806770a408e0",
+  id: "9c12ab9f-72a9-498f-b212-3993777c7c28",
   name: "<value>",
   scope: {
-    id: "9801d712-950a-4012-82c1-272b7e0d2e58",
+    id: "2792c1f7-516a-414d-ba32-e42f4176e211",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://earnest-tomb.name",
+  url: "https://criminal-muscat.name/",
   verifyTls: false,
 };
 ```

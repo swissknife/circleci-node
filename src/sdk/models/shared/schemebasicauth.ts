@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SchemeBasicAuth = {
   password: string;
@@ -46,4 +49,20 @@ export namespace SchemeBasicAuth$ {
   export const outboundSchema = SchemeBasicAuth$outboundSchema;
   /** @deprecated use `SchemeBasicAuth$Outbound` instead. */
   export type Outbound = SchemeBasicAuth$Outbound;
+}
+
+export function schemeBasicAuthToJSON(
+  schemeBasicAuth: SchemeBasicAuth,
+): string {
+  return JSON.stringify(SchemeBasicAuth$outboundSchema.parse(schemeBasicAuth));
+}
+
+export function schemeBasicAuthFromJSON(
+  jsonString: string,
+): SafeParseResult<SchemeBasicAuth, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SchemeBasicAuth$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SchemeBasicAuth' from JSON`,
+  );
 }

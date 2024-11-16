@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetProjectSettingsRequest = {
@@ -73,6 +76,24 @@ export namespace GetProjectSettingsRequest$ {
   export type Outbound = GetProjectSettingsRequest$Outbound;
 }
 
+export function getProjectSettingsRequestToJSON(
+  getProjectSettingsRequest: GetProjectSettingsRequest,
+): string {
+  return JSON.stringify(
+    GetProjectSettingsRequest$outboundSchema.parse(getProjectSettingsRequest),
+  );
+}
+
+export function getProjectSettingsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectSettingsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectSettingsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectSettingsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetProjectSettingsResponseBody$inboundSchema: z.ZodType<
   GetProjectSettingsResponseBody,
@@ -107,6 +128,26 @@ export namespace GetProjectSettingsResponseBody$ {
   export const outboundSchema = GetProjectSettingsResponseBody$outboundSchema;
   /** @deprecated use `GetProjectSettingsResponseBody$Outbound` instead. */
   export type Outbound = GetProjectSettingsResponseBody$Outbound;
+}
+
+export function getProjectSettingsResponseBodyToJSON(
+  getProjectSettingsResponseBody: GetProjectSettingsResponseBody,
+): string {
+  return JSON.stringify(
+    GetProjectSettingsResponseBody$outboundSchema.parse(
+      getProjectSettingsResponseBody,
+    ),
+  );
+}
+
+export function getProjectSettingsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectSettingsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectSettingsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectSettingsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -145,4 +186,22 @@ export namespace GetProjectSettingsResponse$ {
   export const outboundSchema = GetProjectSettingsResponse$outboundSchema;
   /** @deprecated use `GetProjectSettingsResponse$Outbound` instead. */
   export type Outbound = GetProjectSettingsResponse$Outbound;
+}
+
+export function getProjectSettingsResponseToJSON(
+  getProjectSettingsResponse: GetProjectSettingsResponse,
+): string {
+  return JSON.stringify(
+    GetProjectSettingsResponse$outboundSchema.parse(getProjectSettingsResponse),
+  );
+}
+
+export function getProjectSettingsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectSettingsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectSettingsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectSettingsResponse' from JSON`,
+  );
 }

@@ -7,11 +7,11 @@
 
 ```typescript
 const value: operations.GetPipelineByIdPipeline = {
-  createdAt: new Date("2023-05-13T22:48:28.461Z"),
+  createdAt: new Date("2022-04-26T04:24:39.015Z"),
   errors: [
     {
       message: "<value>",
-      type: "permission",
+      type: "plan",
     },
   ],
   id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
@@ -20,11 +20,11 @@ const value: operations.GetPipelineByIdPipeline = {
   state: "pending",
   trigger: {
     actor: {
-      avatarUrl: "https://long-poetry.net",
-      login: "Joshua_Nienow90",
+      avatarUrl: "https://lustrous-publication.net/",
+      login: "Sven.Hahn70",
     },
-    receivedAt: new Date("2024-09-24T12:05:45.626Z"),
-    type: "api",
+    receivedAt: new Date("2022-08-01T14:44:02.184Z"),
+    type: "explicit",
   },
   vcs: {
     branch: "feature/design-new-api",

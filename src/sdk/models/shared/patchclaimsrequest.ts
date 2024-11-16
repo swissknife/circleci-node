@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type PatchClaimsRequest = {
   audience?: Array<string> | undefined;
@@ -46,4 +49,22 @@ export namespace PatchClaimsRequest$ {
   export const outboundSchema = PatchClaimsRequest$outboundSchema;
   /** @deprecated use `PatchClaimsRequest$Outbound` instead. */
   export type Outbound = PatchClaimsRequest$Outbound;
+}
+
+export function patchClaimsRequestToJSON(
+  patchClaimsRequest: PatchClaimsRequest,
+): string {
+  return JSON.stringify(
+    PatchClaimsRequest$outboundSchema.parse(patchClaimsRequest),
+  );
+}
+
+export function patchClaimsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchClaimsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchClaimsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchClaimsRequest' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BundleDiff = {
   created?: Array<string> | undefined;
@@ -50,4 +53,18 @@ export namespace BundleDiff$ {
   export const outboundSchema = BundleDiff$outboundSchema;
   /** @deprecated use `BundleDiff$Outbound` instead. */
   export type Outbound = BundleDiff$Outbound;
+}
+
+export function bundleDiffToJSON(bundleDiff: BundleDiff): string {
+  return JSON.stringify(BundleDiff$outboundSchema.parse(bundleDiff));
+}
+
+export function bundleDiffFromJSON(
+  jsonString: string,
+): SafeParseResult<BundleDiff, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BundleDiff$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BundleDiff' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Checkout = {
   /**
@@ -97,6 +100,20 @@ export namespace Checkout$ {
   export type Outbound = Checkout$Outbound;
 }
 
+export function checkoutToJSON(checkout: Checkout): string {
+  return JSON.stringify(Checkout$outboundSchema.parse(checkout));
+}
+
+export function checkoutFromJSON(
+  jsonString: string,
+): SafeParseResult<Checkout, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Checkout$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Checkout' from JSON`,
+  );
+}
+
 /** @internal */
 export const Config$inboundSchema: z.ZodType<Config, z.ZodTypeDef, unknown> = z
   .object({
@@ -131,6 +148,20 @@ export namespace Config$ {
   export const outboundSchema = Config$outboundSchema;
   /** @deprecated use `Config$Outbound` instead. */
   export type Outbound = Config$Outbound;
+}
+
+export function configToJSON(config: Config): string {
+  return JSON.stringify(Config$outboundSchema.parse(config));
+}
+
+export function configFromJSON(
+  jsonString: string,
+): SafeParseResult<Config, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Config$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Config' from JSON`,
+  );
 }
 
 /** @internal */
@@ -184,4 +215,20 @@ export namespace PipelineRequest$ {
   export const outboundSchema = PipelineRequest$outboundSchema;
   /** @deprecated use `PipelineRequest$Outbound` instead. */
   export type Outbound = PipelineRequest$Outbound;
+}
+
+export function pipelineRequestToJSON(
+  pipelineRequest: PipelineRequest,
+): string {
+  return JSON.stringify(PipelineRequest$outboundSchema.parse(pipelineRequest));
+}
+
+export function pipelineRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<PipelineRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PipelineRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PipelineRequest' from JSON`,
+  );
 }

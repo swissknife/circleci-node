@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetWebhookByIdRequest = {
   /**
@@ -130,6 +133,24 @@ export namespace GetWebhookByIdRequest$ {
   export type Outbound = GetWebhookByIdRequest$Outbound;
 }
 
+export function getWebhookByIdRequestToJSON(
+  getWebhookByIdRequest: GetWebhookByIdRequest,
+): string {
+  return JSON.stringify(
+    GetWebhookByIdRequest$outboundSchema.parse(getWebhookByIdRequest),
+  );
+}
+
+export function getWebhookByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhookByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhookByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhookByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetWebhookByIdResponseBody$inboundSchema: z.ZodType<
   GetWebhookByIdResponseBody,
@@ -164,6 +185,24 @@ export namespace GetWebhookByIdResponseBody$ {
   export const outboundSchema = GetWebhookByIdResponseBody$outboundSchema;
   /** @deprecated use `GetWebhookByIdResponseBody$Outbound` instead. */
   export type Outbound = GetWebhookByIdResponseBody$Outbound;
+}
+
+export function getWebhookByIdResponseBodyToJSON(
+  getWebhookByIdResponseBody: GetWebhookByIdResponseBody,
+): string {
+  return JSON.stringify(
+    GetWebhookByIdResponseBody$outboundSchema.parse(getWebhookByIdResponseBody),
+  );
+}
+
+export function getWebhookByIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhookByIdResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhookByIdResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhookByIdResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -224,6 +263,24 @@ export namespace GetWebhookByIdScope$ {
   export const outboundSchema = GetWebhookByIdScope$outboundSchema;
   /** @deprecated use `GetWebhookByIdScope$Outbound` instead. */
   export type Outbound = GetWebhookByIdScope$Outbound;
+}
+
+export function getWebhookByIdScopeToJSON(
+  getWebhookByIdScope: GetWebhookByIdScope,
+): string {
+  return JSON.stringify(
+    GetWebhookByIdScope$outboundSchema.parse(getWebhookByIdScope),
+  );
+}
+
+export function getWebhookByIdScopeFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhookByIdScope, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhookByIdScope$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhookByIdScope' from JSON`,
+  );
 }
 
 /** @internal */
@@ -304,6 +361,24 @@ export namespace GetWebhookByIdWebhook$ {
   export type Outbound = GetWebhookByIdWebhook$Outbound;
 }
 
+export function getWebhookByIdWebhookToJSON(
+  getWebhookByIdWebhook: GetWebhookByIdWebhook,
+): string {
+  return JSON.stringify(
+    GetWebhookByIdWebhook$outboundSchema.parse(getWebhookByIdWebhook),
+  );
+}
+
+export function getWebhookByIdWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhookByIdWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhookByIdWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhookByIdWebhook' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetWebhookByIdResponse$inboundSchema: z.ZodType<
   GetWebhookByIdResponse,
@@ -340,4 +415,22 @@ export namespace GetWebhookByIdResponse$ {
   export const outboundSchema = GetWebhookByIdResponse$outboundSchema;
   /** @deprecated use `GetWebhookByIdResponse$Outbound` instead. */
   export type Outbound = GetWebhookByIdResponse$Outbound;
+}
+
+export function getWebhookByIdResponseToJSON(
+  getWebhookByIdResponse: GetWebhookByIdResponse,
+): string {
+  return JSON.stringify(
+    GetWebhookByIdResponse$outboundSchema.parse(getWebhookByIdResponse),
+  );
+}
+
+export function getWebhookByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWebhookByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWebhookByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWebhookByIdResponse' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Advanced = {
   /**
@@ -139,6 +142,20 @@ export namespace Advanced$ {
   export type Outbound = Advanced$Outbound;
 }
 
+export function advancedToJSON(advanced: Advanced): string {
+  return JSON.stringify(Advanced$outboundSchema.parse(advanced));
+}
+
+export function advancedFromJSON(
+  jsonString: string,
+): SafeParseResult<Advanced, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Advanced$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Advanced' from JSON`,
+  );
+}
+
 /** @internal */
 export const ProjectSettings$inboundSchema: z.ZodType<
   ProjectSettings,
@@ -173,4 +190,20 @@ export namespace ProjectSettings$ {
   export const outboundSchema = ProjectSettings$outboundSchema;
   /** @deprecated use `ProjectSettings$Outbound` instead. */
   export type Outbound = ProjectSettings$Outbound;
+}
+
+export function projectSettingsToJSON(
+  projectSettings: ProjectSettings,
+): string {
+  return JSON.stringify(ProjectSettings$outboundSchema.parse(projectSettings));
+}
+
+export function projectSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<ProjectSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProjectSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProjectSettings' from JSON`,
+  );
 }

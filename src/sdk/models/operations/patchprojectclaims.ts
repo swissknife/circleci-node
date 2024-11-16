@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type PatchProjectClaimsRequest = {
@@ -75,6 +78,24 @@ export namespace PatchProjectClaimsRequest$ {
   export type Outbound = PatchProjectClaimsRequest$Outbound;
 }
 
+export function patchProjectClaimsRequestToJSON(
+  patchProjectClaimsRequest: PatchProjectClaimsRequest,
+): string {
+  return JSON.stringify(
+    PatchProjectClaimsRequest$outboundSchema.parse(patchProjectClaimsRequest),
+  );
+}
+
+export function patchProjectClaimsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchProjectClaimsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchProjectClaimsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchProjectClaimsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const PatchProjectClaimsResponseBody$inboundSchema: z.ZodType<
   PatchProjectClaimsResponseBody,
@@ -109,6 +130,26 @@ export namespace PatchProjectClaimsResponseBody$ {
   export const outboundSchema = PatchProjectClaimsResponseBody$outboundSchema;
   /** @deprecated use `PatchProjectClaimsResponseBody$Outbound` instead. */
   export type Outbound = PatchProjectClaimsResponseBody$Outbound;
+}
+
+export function patchProjectClaimsResponseBodyToJSON(
+  patchProjectClaimsResponseBody: PatchProjectClaimsResponseBody,
+): string {
+  return JSON.stringify(
+    PatchProjectClaimsResponseBody$outboundSchema.parse(
+      patchProjectClaimsResponseBody,
+    ),
+  );
+}
+
+export function patchProjectClaimsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchProjectClaimsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchProjectClaimsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchProjectClaimsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -147,4 +188,22 @@ export namespace PatchProjectClaimsResponse$ {
   export const outboundSchema = PatchProjectClaimsResponse$outboundSchema;
   /** @deprecated use `PatchProjectClaimsResponse$Outbound` instead. */
   export type Outbound = PatchProjectClaimsResponse$Outbound;
+}
+
+export function patchProjectClaimsResponseToJSON(
+  patchProjectClaimsResponse: PatchProjectClaimsResponse,
+): string {
+  return JSON.stringify(
+    PatchProjectClaimsResponse$outboundSchema.parse(patchProjectClaimsResponse),
+  );
+}
+
+export function patchProjectClaimsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchProjectClaimsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchProjectClaimsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchProjectClaimsResponse' from JSON`,
+  );
 }

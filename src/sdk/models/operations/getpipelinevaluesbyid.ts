@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetPipelineValuesByIdRequest = {
   /**
@@ -69,6 +72,26 @@ export namespace GetPipelineValuesByIdRequest$ {
   export type Outbound = GetPipelineValuesByIdRequest$Outbound;
 }
 
+export function getPipelineValuesByIdRequestToJSON(
+  getPipelineValuesByIdRequest: GetPipelineValuesByIdRequest,
+): string {
+  return JSON.stringify(
+    GetPipelineValuesByIdRequest$outboundSchema.parse(
+      getPipelineValuesByIdRequest,
+    ),
+  );
+}
+
+export function getPipelineValuesByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPipelineValuesByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPipelineValuesByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPipelineValuesByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetPipelineValuesByIdResponseBody$inboundSchema: z.ZodType<
   GetPipelineValuesByIdResponseBody,
@@ -106,6 +129,26 @@ export namespace GetPipelineValuesByIdResponseBody$ {
   export type Outbound = GetPipelineValuesByIdResponseBody$Outbound;
 }
 
+export function getPipelineValuesByIdResponseBodyToJSON(
+  getPipelineValuesByIdResponseBody: GetPipelineValuesByIdResponseBody,
+): string {
+  return JSON.stringify(
+    GetPipelineValuesByIdResponseBody$outboundSchema.parse(
+      getPipelineValuesByIdResponseBody,
+    ),
+  );
+}
+
+export function getPipelineValuesByIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPipelineValuesByIdResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPipelineValuesByIdResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPipelineValuesByIdResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const ResponseBody$inboundSchema: z.ZodType<
   ResponseBody,
@@ -134,6 +177,20 @@ export namespace ResponseBody$ {
   export const outboundSchema = ResponseBody$outboundSchema;
   /** @deprecated use `ResponseBody$Outbound` instead. */
   export type Outbound = ResponseBody$Outbound;
+}
+
+export function responseBodyToJSON(responseBody: ResponseBody): string {
+  return JSON.stringify(ResponseBody$outboundSchema.parse(responseBody));
+}
+
+export function responseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -172,4 +229,24 @@ export namespace GetPipelineValuesByIdResponse$ {
   export const outboundSchema = GetPipelineValuesByIdResponse$outboundSchema;
   /** @deprecated use `GetPipelineValuesByIdResponse$Outbound` instead. */
   export type Outbound = GetPipelineValuesByIdResponse$Outbound;
+}
+
+export function getPipelineValuesByIdResponseToJSON(
+  getPipelineValuesByIdResponse: GetPipelineValuesByIdResponse,
+): string {
+  return JSON.stringify(
+    GetPipelineValuesByIdResponse$outboundSchema.parse(
+      getPipelineValuesByIdResponse,
+    ),
+  );
+}
+
+export function getPipelineValuesByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPipelineValuesByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPipelineValuesByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPipelineValuesByIdResponse' from JSON`,
+  );
 }

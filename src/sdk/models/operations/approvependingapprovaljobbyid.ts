@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ApprovePendingApprovalJobByIdRequest = {
   /**
@@ -86,6 +89,27 @@ export namespace ApprovePendingApprovalJobByIdRequest$ {
   export type Outbound = ApprovePendingApprovalJobByIdRequest$Outbound;
 }
 
+export function approvePendingApprovalJobByIdRequestToJSON(
+  approvePendingApprovalJobByIdRequest: ApprovePendingApprovalJobByIdRequest,
+): string {
+  return JSON.stringify(
+    ApprovePendingApprovalJobByIdRequest$outboundSchema.parse(
+      approvePendingApprovalJobByIdRequest,
+    ),
+  );
+}
+
+export function approvePendingApprovalJobByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ApprovePendingApprovalJobByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ApprovePendingApprovalJobByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ApprovePendingApprovalJobByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ApprovePendingApprovalJobByIdResponseBody$inboundSchema: z.ZodType<
   ApprovePendingApprovalJobByIdResponseBody,
@@ -123,6 +147,33 @@ export namespace ApprovePendingApprovalJobByIdResponseBody$ {
     ApprovePendingApprovalJobByIdResponseBody$outboundSchema;
   /** @deprecated use `ApprovePendingApprovalJobByIdResponseBody$Outbound` instead. */
   export type Outbound = ApprovePendingApprovalJobByIdResponseBody$Outbound;
+}
+
+export function approvePendingApprovalJobByIdResponseBodyToJSON(
+  approvePendingApprovalJobByIdResponseBody:
+    ApprovePendingApprovalJobByIdResponseBody,
+): string {
+  return JSON.stringify(
+    ApprovePendingApprovalJobByIdResponseBody$outboundSchema.parse(
+      approvePendingApprovalJobByIdResponseBody,
+    ),
+  );
+}
+
+export function approvePendingApprovalJobByIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ApprovePendingApprovalJobByIdResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ApprovePendingApprovalJobByIdResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ApprovePendingApprovalJobByIdResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -165,6 +216,33 @@ export namespace ApprovePendingApprovalJobByIdMessageResponse$ {
   export type Outbound = ApprovePendingApprovalJobByIdMessageResponse$Outbound;
 }
 
+export function approvePendingApprovalJobByIdMessageResponseToJSON(
+  approvePendingApprovalJobByIdMessageResponse:
+    ApprovePendingApprovalJobByIdMessageResponse,
+): string {
+  return JSON.stringify(
+    ApprovePendingApprovalJobByIdMessageResponse$outboundSchema.parse(
+      approvePendingApprovalJobByIdMessageResponse,
+    ),
+  );
+}
+
+export function approvePendingApprovalJobByIdMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ApprovePendingApprovalJobByIdMessageResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ApprovePendingApprovalJobByIdMessageResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ApprovePendingApprovalJobByIdMessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const ApprovePendingApprovalJobByIdResponse$inboundSchema: z.ZodType<
   ApprovePendingApprovalJobByIdResponse,
@@ -203,4 +281,25 @@ export namespace ApprovePendingApprovalJobByIdResponse$ {
     ApprovePendingApprovalJobByIdResponse$outboundSchema;
   /** @deprecated use `ApprovePendingApprovalJobByIdResponse$Outbound` instead. */
   export type Outbound = ApprovePendingApprovalJobByIdResponse$Outbound;
+}
+
+export function approvePendingApprovalJobByIdResponseToJSON(
+  approvePendingApprovalJobByIdResponse: ApprovePendingApprovalJobByIdResponse,
+): string {
+  return JSON.stringify(
+    ApprovePendingApprovalJobByIdResponse$outboundSchema.parse(
+      approvePendingApprovalJobByIdResponse,
+    ),
+  );
+}
+
+export function approvePendingApprovalJobByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ApprovePendingApprovalJobByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ApprovePendingApprovalJobByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ApprovePendingApprovalJobByIdResponse' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetUsageExportRequest = {
@@ -77,6 +80,24 @@ export namespace GetUsageExportRequest$ {
   export type Outbound = GetUsageExportRequest$Outbound;
 }
 
+export function getUsageExportRequestToJSON(
+  getUsageExportRequest: GetUsageExportRequest,
+): string {
+  return JSON.stringify(
+    GetUsageExportRequest$outboundSchema.parse(getUsageExportRequest),
+  );
+}
+
+export function getUsageExportRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUsageExportRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUsageExportRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUsageExportRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetUsageExportResponseBody$inboundSchema: z.ZodType<
   GetUsageExportResponseBody,
@@ -111,6 +132,24 @@ export namespace GetUsageExportResponseBody$ {
   export const outboundSchema = GetUsageExportResponseBody$outboundSchema;
   /** @deprecated use `GetUsageExportResponseBody$Outbound` instead. */
   export type Outbound = GetUsageExportResponseBody$Outbound;
+}
+
+export function getUsageExportResponseBodyToJSON(
+  getUsageExportResponseBody: GetUsageExportResponseBody,
+): string {
+  return JSON.stringify(
+    GetUsageExportResponseBody$outboundSchema.parse(getUsageExportResponseBody),
+  );
+}
+
+export function getUsageExportResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUsageExportResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUsageExportResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUsageExportResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -149,4 +188,22 @@ export namespace GetUsageExportResponse$ {
   export const outboundSchema = GetUsageExportResponse$outboundSchema;
   /** @deprecated use `GetUsageExportResponse$Outbound` instead. */
   export type Outbound = GetUsageExportResponse$Outbound;
+}
+
+export function getUsageExportResponseToJSON(
+  getUsageExportResponse: GetUsageExportResponse,
+): string {
+  return JSON.stringify(
+    GetUsageExportResponse$outboundSchema.parse(getUsageExportResponse),
+  );
+}
+
+export function getUsageExportResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUsageExportResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUsageExportResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUsageExportResponse' from JSON`,
+  );
 }

@@ -13,7 +13,7 @@ let value: UpdateScheduleRequest = {
       "branch": "feature/design-new-api",
     },
   },
-  scheduleId: "83700e6e-7641-449c-b8c2-9e33bc35a697",
+  scheduleId: "94da818a-f9ff-4a87-be01-1c5a968af991",
 };
 ```
 

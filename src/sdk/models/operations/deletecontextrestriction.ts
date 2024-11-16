@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type DeleteContextRestrictionRequest = {
@@ -77,6 +80,26 @@ export namespace DeleteContextRestrictionRequest$ {
   export type Outbound = DeleteContextRestrictionRequest$Outbound;
 }
 
+export function deleteContextRestrictionRequestToJSON(
+  deleteContextRestrictionRequest: DeleteContextRestrictionRequest,
+): string {
+  return JSON.stringify(
+    DeleteContextRestrictionRequest$outboundSchema.parse(
+      deleteContextRestrictionRequest,
+    ),
+  );
+}
+
+export function deleteContextRestrictionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteContextRestrictionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteContextRestrictionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteContextRestrictionRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteContextRestrictionResponseBody$inboundSchema: z.ZodType<
   DeleteContextRestrictionResponseBody,
@@ -115,6 +138,27 @@ export namespace DeleteContextRestrictionResponseBody$ {
   export type Outbound = DeleteContextRestrictionResponseBody$Outbound;
 }
 
+export function deleteContextRestrictionResponseBodyToJSON(
+  deleteContextRestrictionResponseBody: DeleteContextRestrictionResponseBody,
+): string {
+  return JSON.stringify(
+    DeleteContextRestrictionResponseBody$outboundSchema.parse(
+      deleteContextRestrictionResponseBody,
+    ),
+  );
+}
+
+export function deleteContextRestrictionResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteContextRestrictionResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DeleteContextRestrictionResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteContextRestrictionResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteContextRestrictionResponse$inboundSchema: z.ZodType<
   DeleteContextRestrictionResponse,
@@ -151,4 +195,24 @@ export namespace DeleteContextRestrictionResponse$ {
   export const outboundSchema = DeleteContextRestrictionResponse$outboundSchema;
   /** @deprecated use `DeleteContextRestrictionResponse$Outbound` instead. */
   export type Outbound = DeleteContextRestrictionResponse$Outbound;
+}
+
+export function deleteContextRestrictionResponseToJSON(
+  deleteContextRestrictionResponse: DeleteContextRestrictionResponse,
+): string {
+  return JSON.stringify(
+    DeleteContextRestrictionResponse$outboundSchema.parse(
+      deleteContextRestrictionResponse,
+    ),
+  );
+}
+
+export function deleteContextRestrictionResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteContextRestrictionResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteContextRestrictionResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteContextRestrictionResponse' from JSON`,
+  );
 }

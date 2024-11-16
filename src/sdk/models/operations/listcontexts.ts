@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The type of the owner. Defaults to "organization". Accounts are only used as context owners in server.
@@ -152,6 +155,24 @@ export namespace ListContextsRequest$ {
   export type Outbound = ListContextsRequest$Outbound;
 }
 
+export function listContextsRequestToJSON(
+  listContextsRequest: ListContextsRequest,
+): string {
+  return JSON.stringify(
+    ListContextsRequest$outboundSchema.parse(listContextsRequest),
+  );
+}
+
+export function listContextsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListContextsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListContextsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListContextsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListContextsContextResponseBody$inboundSchema: z.ZodType<
   ListContextsContextResponseBody,
@@ -186,6 +207,26 @@ export namespace ListContextsContextResponseBody$ {
   export const outboundSchema = ListContextsContextResponseBody$outboundSchema;
   /** @deprecated use `ListContextsContextResponseBody$Outbound` instead. */
   export type Outbound = ListContextsContextResponseBody$Outbound;
+}
+
+export function listContextsContextResponseBodyToJSON(
+  listContextsContextResponseBody: ListContextsContextResponseBody,
+): string {
+  return JSON.stringify(
+    ListContextsContextResponseBody$outboundSchema.parse(
+      listContextsContextResponseBody,
+    ),
+  );
+}
+
+export function listContextsContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ListContextsContextResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListContextsContextResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListContextsContextResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -237,6 +278,20 @@ export namespace Context$ {
   export type Outbound = Context$Outbound;
 }
 
+export function contextToJSON(context: Context): string {
+  return JSON.stringify(Context$outboundSchema.parse(context));
+}
+
+export function contextFromJSON(
+  jsonString: string,
+): SafeParseResult<Context, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Context$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Context' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListContextsResponseBody$inboundSchema: z.ZodType<
   ListContextsResponseBody,
@@ -284,6 +339,24 @@ export namespace ListContextsResponseBody$ {
   export type Outbound = ListContextsResponseBody$Outbound;
 }
 
+export function listContextsResponseBodyToJSON(
+  listContextsResponseBody: ListContextsResponseBody,
+): string {
+  return JSON.stringify(
+    ListContextsResponseBody$outboundSchema.parse(listContextsResponseBody),
+  );
+}
+
+export function listContextsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ListContextsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListContextsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListContextsResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListContextsResponse$inboundSchema: z.ZodType<
   ListContextsResponse,
@@ -320,4 +393,22 @@ export namespace ListContextsResponse$ {
   export const outboundSchema = ListContextsResponse$outboundSchema;
   /** @deprecated use `ListContextsResponse$Outbound` instead. */
   export type Outbound = ListContextsResponse$Outbound;
+}
+
+export function listContextsResponseToJSON(
+  listContextsResponse: ListContextsResponse,
+): string {
+  return JSON.stringify(
+    ListContextsResponse$outboundSchema.parse(listContextsResponse),
+  );
+}
+
+export function listContextsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ListContextsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListContextsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListContextsResponse' from JSON`,
+  );
 }

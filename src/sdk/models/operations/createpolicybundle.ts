@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreatePolicyBundleRequest = {
@@ -89,6 +92,24 @@ export namespace CreatePolicyBundleRequest$ {
   export type Outbound = CreatePolicyBundleRequest$Outbound;
 }
 
+export function createPolicyBundleRequestToJSON(
+  createPolicyBundleRequest: CreatePolicyBundleRequest,
+): string {
+  return JSON.stringify(
+    CreatePolicyBundleRequest$outboundSchema.parse(createPolicyBundleRequest),
+  );
+}
+
+export function createPolicyBundleRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePolicyBundleRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePolicyBundleRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePolicyBundleRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreatePolicyBundlePolicyManagementResponse413ResponseBody$inboundSchema:
   z.ZodType<
@@ -131,6 +152,31 @@ export namespace CreatePolicyBundlePolicyManagementResponse413ResponseBody$ {
     CreatePolicyBundlePolicyManagementResponse413ResponseBody$Outbound;
 }
 
+export function createPolicyBundlePolicyManagementResponse413ResponseBodyToJSON(
+  createPolicyBundlePolicyManagementResponse413ResponseBody:
+    CreatePolicyBundlePolicyManagementResponse413ResponseBody,
+): string {
+  return JSON.stringify(
+    CreatePolicyBundlePolicyManagementResponse413ResponseBody$outboundSchema
+      .parse(createPolicyBundlePolicyManagementResponse413ResponseBody),
+  );
+}
+
+export function createPolicyBundlePolicyManagementResponse413ResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreatePolicyBundlePolicyManagementResponse413ResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreatePolicyBundlePolicyManagementResponse413ResponseBody$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'CreatePolicyBundlePolicyManagementResponse413ResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreatePolicyBundleResponseBody$inboundSchema: z.ZodType<
   CreatePolicyBundleResponseBody,
@@ -165,6 +211,26 @@ export namespace CreatePolicyBundleResponseBody$ {
   export const outboundSchema = CreatePolicyBundleResponseBody$outboundSchema;
   /** @deprecated use `CreatePolicyBundleResponseBody$Outbound` instead. */
   export type Outbound = CreatePolicyBundleResponseBody$Outbound;
+}
+
+export function createPolicyBundleResponseBodyToJSON(
+  createPolicyBundleResponseBody: CreatePolicyBundleResponseBody,
+): string {
+  return JSON.stringify(
+    CreatePolicyBundleResponseBody$outboundSchema.parse(
+      createPolicyBundleResponseBody,
+    ),
+  );
+}
+
+export function createPolicyBundleResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePolicyBundleResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePolicyBundleResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePolicyBundleResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -210,4 +276,22 @@ export namespace CreatePolicyBundleResponse$ {
   export const outboundSchema = CreatePolicyBundleResponse$outboundSchema;
   /** @deprecated use `CreatePolicyBundleResponse$Outbound` instead. */
   export type Outbound = CreatePolicyBundleResponse$Outbound;
+}
+
+export function createPolicyBundleResponseToJSON(
+  createPolicyBundleResponse: CreatePolicyBundleResponse,
+): string {
+  return JSON.stringify(
+    CreatePolicyBundleResponse$outboundSchema.parse(createPolicyBundleResponse),
+  );
+}
+
+export function createPolicyBundleResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePolicyBundleResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePolicyBundleResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePolicyBundleResponse' from JSON`,
+  );
 }

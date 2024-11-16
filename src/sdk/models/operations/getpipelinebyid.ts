@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetPipelineByIdRequest = {
   /**
@@ -267,6 +270,24 @@ export namespace GetPipelineByIdRequest$ {
   export type Outbound = GetPipelineByIdRequest$Outbound;
 }
 
+export function getPipelineByIdRequestToJSON(
+  getPipelineByIdRequest: GetPipelineByIdRequest,
+): string {
+  return JSON.stringify(
+    GetPipelineByIdRequest$outboundSchema.parse(getPipelineByIdRequest),
+  );
+}
+
+export function getPipelineByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPipelineByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPipelineByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPipelineByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetPipelineByIdResponseBody$inboundSchema: z.ZodType<
   GetPipelineByIdResponseBody,
@@ -301,6 +322,26 @@ export namespace GetPipelineByIdResponseBody$ {
   export const outboundSchema = GetPipelineByIdResponseBody$outboundSchema;
   /** @deprecated use `GetPipelineByIdResponseBody$Outbound` instead. */
   export type Outbound = GetPipelineByIdResponseBody$Outbound;
+}
+
+export function getPipelineByIdResponseBodyToJSON(
+  getPipelineByIdResponseBody: GetPipelineByIdResponseBody,
+): string {
+  return JSON.stringify(
+    GetPipelineByIdResponseBody$outboundSchema.parse(
+      getPipelineByIdResponseBody,
+    ),
+  );
+}
+
+export function getPipelineByIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPipelineByIdResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPipelineByIdResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPipelineByIdResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -358,6 +399,20 @@ export namespace Errors$ {
   export const outboundSchema = Errors$outboundSchema;
   /** @deprecated use `Errors$Outbound` instead. */
   export type Outbound = Errors$Outbound;
+}
+
+export function errorsToJSON(errors: Errors): string {
+  return JSON.stringify(Errors$outboundSchema.parse(errors));
+}
+
+export function errorsFromJSON(
+  jsonString: string,
+): SafeParseResult<Errors, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Errors$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Errors' from JSON`,
+  );
 }
 
 /** @internal */
@@ -422,6 +477,20 @@ export namespace Actor$ {
   export const outboundSchema = Actor$outboundSchema;
   /** @deprecated use `Actor$Outbound` instead. */
   export type Outbound = Actor$Outbound;
+}
+
+export function actorToJSON(actor: Actor): string {
+  return JSON.stringify(Actor$outboundSchema.parse(actor));
+}
+
+export function actorFromJSON(
+  jsonString: string,
+): SafeParseResult<Actor, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Actor$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Actor' from JSON`,
+  );
 }
 
 /** @internal */
@@ -494,6 +563,20 @@ export namespace Trigger$ {
   export type Outbound = Trigger$Outbound;
 }
 
+export function triggerToJSON(trigger: Trigger): string {
+  return JSON.stringify(Trigger$outboundSchema.parse(trigger));
+}
+
+export function triggerFromJSON(
+  jsonString: string,
+): SafeParseResult<Trigger, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Trigger$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Trigger' from JSON`,
+  );
+}
+
 /** @internal */
 export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
   .object({});
@@ -516,6 +599,20 @@ export namespace Four$ {
   export const outboundSchema = Four$outboundSchema;
   /** @deprecated use `Four$Outbound` instead. */
   export type Outbound = Four$Outbound;
+}
+
+export function fourToJSON(four: Four): string {
+  return JSON.stringify(Four$outboundSchema.parse(four));
+}
+
+export function fourFromJSON(
+  jsonString: string,
+): SafeParseResult<Four, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Four$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Four' from JSON`,
+  );
 }
 
 /** @internal */
@@ -562,6 +659,24 @@ export namespace TriggerParameters$ {
   export type Outbound = TriggerParameters$Outbound;
 }
 
+export function triggerParametersToJSON(
+  triggerParameters: TriggerParameters,
+): string {
+  return JSON.stringify(
+    TriggerParameters$outboundSchema.parse(triggerParameters),
+  );
+}
+
+export function triggerParametersFromJSON(
+  jsonString: string,
+): SafeParseResult<TriggerParameters, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TriggerParameters$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TriggerParameters' from JSON`,
+  );
+}
+
 /** @internal */
 export const Commit$inboundSchema: z.ZodType<Commit, z.ZodTypeDef, unknown> = z
   .object({
@@ -596,6 +711,20 @@ export namespace Commit$ {
   export const outboundSchema = Commit$outboundSchema;
   /** @deprecated use `Commit$Outbound` instead. */
   export type Outbound = Commit$Outbound;
+}
+
+export function commitToJSON(commit: Commit): string {
+  return JSON.stringify(Commit$outboundSchema.parse(commit));
+}
+
+export function commitFromJSON(
+  jsonString: string,
+): SafeParseResult<Commit, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Commit$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Commit' from JSON`,
+  );
 }
 
 /** @internal */
@@ -666,6 +795,20 @@ export namespace Vcs$ {
   export const outboundSchema = Vcs$outboundSchema;
   /** @deprecated use `Vcs$Outbound` instead. */
   export type Outbound = Vcs$Outbound;
+}
+
+export function vcsToJSON(vcs: Vcs): string {
+  return JSON.stringify(Vcs$outboundSchema.parse(vcs));
+}
+
+export function vcsFromJSON(
+  jsonString: string,
+): SafeParseResult<Vcs, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Vcs$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Vcs' from JSON`,
+  );
 }
 
 /** @internal */
@@ -762,6 +905,24 @@ export namespace GetPipelineByIdPipeline$ {
   export type Outbound = GetPipelineByIdPipeline$Outbound;
 }
 
+export function getPipelineByIdPipelineToJSON(
+  getPipelineByIdPipeline: GetPipelineByIdPipeline,
+): string {
+  return JSON.stringify(
+    GetPipelineByIdPipeline$outboundSchema.parse(getPipelineByIdPipeline),
+  );
+}
+
+export function getPipelineByIdPipelineFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPipelineByIdPipeline, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPipelineByIdPipeline$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPipelineByIdPipeline' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetPipelineByIdResponse$inboundSchema: z.ZodType<
   GetPipelineByIdResponse,
@@ -798,4 +959,22 @@ export namespace GetPipelineByIdResponse$ {
   export const outboundSchema = GetPipelineByIdResponse$outboundSchema;
   /** @deprecated use `GetPipelineByIdResponse$Outbound` instead. */
   export type Outbound = GetPipelineByIdResponse$Outbound;
+}
+
+export function getPipelineByIdResponseToJSON(
+  getPipelineByIdResponse: GetPipelineByIdResponse,
+): string {
+  return JSON.stringify(
+    GetPipelineByIdResponse$outboundSchema.parse(getPipelineByIdResponse),
+  );
+}
+
+export function getPipelineByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPipelineByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPipelineByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPipelineByIdResponse' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CancelWorkflowRequest = {
   /**
@@ -68,6 +71,24 @@ export namespace CancelWorkflowRequest$ {
   export type Outbound = CancelWorkflowRequest$Outbound;
 }
 
+export function cancelWorkflowRequestToJSON(
+  cancelWorkflowRequest: CancelWorkflowRequest,
+): string {
+  return JSON.stringify(
+    CancelWorkflowRequest$outboundSchema.parse(cancelWorkflowRequest),
+  );
+}
+
+export function cancelWorkflowRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelWorkflowRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelWorkflowRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelWorkflowRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CancelWorkflowResponseBody$inboundSchema: z.ZodType<
   CancelWorkflowResponseBody,
@@ -102,6 +123,24 @@ export namespace CancelWorkflowResponseBody$ {
   export const outboundSchema = CancelWorkflowResponseBody$outboundSchema;
   /** @deprecated use `CancelWorkflowResponseBody$Outbound` instead. */
   export type Outbound = CancelWorkflowResponseBody$Outbound;
+}
+
+export function cancelWorkflowResponseBodyToJSON(
+  cancelWorkflowResponseBody: CancelWorkflowResponseBody,
+): string {
+  return JSON.stringify(
+    CancelWorkflowResponseBody$outboundSchema.parse(cancelWorkflowResponseBody),
+  );
+}
+
+export function cancelWorkflowResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelWorkflowResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelWorkflowResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelWorkflowResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -140,6 +179,26 @@ export namespace CancelWorkflowMessageResponse$ {
   export type Outbound = CancelWorkflowMessageResponse$Outbound;
 }
 
+export function cancelWorkflowMessageResponseToJSON(
+  cancelWorkflowMessageResponse: CancelWorkflowMessageResponse,
+): string {
+  return JSON.stringify(
+    CancelWorkflowMessageResponse$outboundSchema.parse(
+      cancelWorkflowMessageResponse,
+    ),
+  );
+}
+
+export function cancelWorkflowMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelWorkflowMessageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelWorkflowMessageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelWorkflowMessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const CancelWorkflowResponse$inboundSchema: z.ZodType<
   CancelWorkflowResponse,
@@ -176,4 +235,22 @@ export namespace CancelWorkflowResponse$ {
   export const outboundSchema = CancelWorkflowResponse$outboundSchema;
   /** @deprecated use `CancelWorkflowResponse$Outbound` instead. */
   export type Outbound = CancelWorkflowResponse$Outbound;
+}
+
+export function cancelWorkflowResponseToJSON(
+  cancelWorkflowResponse: CancelWorkflowResponse,
+): string {
+  return JSON.stringify(
+    CancelWorkflowResponse$outboundSchema.parse(cancelWorkflowResponse),
+  );
+}
+
+export function cancelWorkflowResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelWorkflowResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelWorkflowResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelWorkflowResponse' from JSON`,
+  );
 }

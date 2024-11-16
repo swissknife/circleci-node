@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DecisionSettings = {
   enabled?: boolean | undefined;
@@ -42,4 +45,22 @@ export namespace DecisionSettings$ {
   export const outboundSchema = DecisionSettings$outboundSchema;
   /** @deprecated use `DecisionSettings$Outbound` instead. */
   export type Outbound = DecisionSettings$Outbound;
+}
+
+export function decisionSettingsToJSON(
+  decisionSettings: DecisionSettings,
+): string {
+  return JSON.stringify(
+    DecisionSettings$outboundSchema.parse(decisionSettings),
+  );
+}
+
+export function decisionSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<DecisionSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DecisionSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DecisionSettings' from JSON`,
+  );
 }

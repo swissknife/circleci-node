@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetDecisionLogsRequest = {
@@ -124,6 +127,24 @@ export namespace GetDecisionLogsRequest$ {
   export type Outbound = GetDecisionLogsRequest$Outbound;
 }
 
+export function getDecisionLogsRequestToJSON(
+  getDecisionLogsRequest: GetDecisionLogsRequest,
+): string {
+  return JSON.stringify(
+    GetDecisionLogsRequest$outboundSchema.parse(getDecisionLogsRequest),
+  );
+}
+
+export function getDecisionLogsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionLogsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetDecisionLogsResponseBody$inboundSchema: z.ZodType<
   GetDecisionLogsResponseBody,
@@ -158,6 +179,26 @@ export namespace GetDecisionLogsResponseBody$ {
   export const outboundSchema = GetDecisionLogsResponseBody$outboundSchema;
   /** @deprecated use `GetDecisionLogsResponseBody$Outbound` instead. */
   export type Outbound = GetDecisionLogsResponseBody$Outbound;
+}
+
+export function getDecisionLogsResponseBodyToJSON(
+  getDecisionLogsResponseBody: GetDecisionLogsResponseBody,
+): string {
+  return JSON.stringify(
+    GetDecisionLogsResponseBody$outboundSchema.parse(
+      getDecisionLogsResponseBody,
+    ),
+  );
+}
+
+export function getDecisionLogsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionLogsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -196,4 +237,22 @@ export namespace GetDecisionLogsResponse$ {
   export const outboundSchema = GetDecisionLogsResponse$outboundSchema;
   /** @deprecated use `GetDecisionLogsResponse$Outbound` instead. */
   export type Outbound = GetDecisionLogsResponse$Outbound;
+}
+
+export function getDecisionLogsResponseToJSON(
+  getDecisionLogsResponse: GetDecisionLogsResponse,
+): string {
+  return JSON.stringify(
+    GetDecisionLogsResponse$outboundSchema.parse(getDecisionLogsResponse),
+  );
+}
+
+export function getDecisionLogsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionLogsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogsResponse' from JSON`,
+  );
 }

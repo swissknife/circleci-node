@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetProjectClaimsRequest = {
@@ -62,6 +65,24 @@ export namespace GetProjectClaimsRequest$ {
   export type Outbound = GetProjectClaimsRequest$Outbound;
 }
 
+export function getProjectClaimsRequestToJSON(
+  getProjectClaimsRequest: GetProjectClaimsRequest,
+): string {
+  return JSON.stringify(
+    GetProjectClaimsRequest$outboundSchema.parse(getProjectClaimsRequest),
+  );
+}
+
+export function getProjectClaimsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectClaimsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectClaimsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectClaimsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetProjectClaimsResponseBody$inboundSchema: z.ZodType<
   GetProjectClaimsResponseBody,
@@ -96,6 +117,26 @@ export namespace GetProjectClaimsResponseBody$ {
   export const outboundSchema = GetProjectClaimsResponseBody$outboundSchema;
   /** @deprecated use `GetProjectClaimsResponseBody$Outbound` instead. */
   export type Outbound = GetProjectClaimsResponseBody$Outbound;
+}
+
+export function getProjectClaimsResponseBodyToJSON(
+  getProjectClaimsResponseBody: GetProjectClaimsResponseBody,
+): string {
+  return JSON.stringify(
+    GetProjectClaimsResponseBody$outboundSchema.parse(
+      getProjectClaimsResponseBody,
+    ),
+  );
+}
+
+export function getProjectClaimsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectClaimsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectClaimsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectClaimsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -134,4 +175,22 @@ export namespace GetProjectClaimsResponse$ {
   export const outboundSchema = GetProjectClaimsResponse$outboundSchema;
   /** @deprecated use `GetProjectClaimsResponse$Outbound` instead. */
   export type Outbound = GetProjectClaimsResponse$Outbound;
+}
+
+export function getProjectClaimsResponseToJSON(
+  getProjectClaimsResponse: GetProjectClaimsResponse,
+): string {
+  return JSON.stringify(
+    GetProjectClaimsResponse$outboundSchema.parse(getProjectClaimsResponse),
+  );
+}
+
+export function getProjectClaimsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetProjectClaimsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetProjectClaimsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetProjectClaimsResponse' from JSON`,
+  );
 }

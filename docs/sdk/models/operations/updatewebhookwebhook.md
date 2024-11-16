@@ -12,15 +12,15 @@ let value: UpdateWebhookWebhook = {
   events: [
     "workflow-completed",
   ],
-  id: "6f54153c-1244-4dc9-9459-b68ea8123910",
+  id: "66ea6f95-b7ee-4584-8afd-51f6457ff458",
   name: "<value>",
   scope: {
-    id: "bbcb9739-a191-4821-a1e9-4182c7b6ba8d",
+    id: "2e016b44-4d38-4fb5-bcf5-b1e1584a8b58",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://funny-trench.name",
+  url: "https://scratchy-maintainer.net",
   verifyTls: false,
 };
 ```

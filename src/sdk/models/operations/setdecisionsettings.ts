@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type SetDecisionSettingsRequest = {
@@ -75,6 +78,24 @@ export namespace SetDecisionSettingsRequest$ {
   export type Outbound = SetDecisionSettingsRequest$Outbound;
 }
 
+export function setDecisionSettingsRequestToJSON(
+  setDecisionSettingsRequest: SetDecisionSettingsRequest,
+): string {
+  return JSON.stringify(
+    SetDecisionSettingsRequest$outboundSchema.parse(setDecisionSettingsRequest),
+  );
+}
+
+export function setDecisionSettingsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<SetDecisionSettingsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SetDecisionSettingsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SetDecisionSettingsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const SetDecisionSettingsResponseBody$inboundSchema: z.ZodType<
   SetDecisionSettingsResponseBody,
@@ -109,6 +130,26 @@ export namespace SetDecisionSettingsResponseBody$ {
   export const outboundSchema = SetDecisionSettingsResponseBody$outboundSchema;
   /** @deprecated use `SetDecisionSettingsResponseBody$Outbound` instead. */
   export type Outbound = SetDecisionSettingsResponseBody$Outbound;
+}
+
+export function setDecisionSettingsResponseBodyToJSON(
+  setDecisionSettingsResponseBody: SetDecisionSettingsResponseBody,
+): string {
+  return JSON.stringify(
+    SetDecisionSettingsResponseBody$outboundSchema.parse(
+      setDecisionSettingsResponseBody,
+    ),
+  );
+}
+
+export function setDecisionSettingsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<SetDecisionSettingsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SetDecisionSettingsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SetDecisionSettingsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -147,4 +188,24 @@ export namespace SetDecisionSettingsResponse$ {
   export const outboundSchema = SetDecisionSettingsResponse$outboundSchema;
   /** @deprecated use `SetDecisionSettingsResponse$Outbound` instead. */
   export type Outbound = SetDecisionSettingsResponse$Outbound;
+}
+
+export function setDecisionSettingsResponseToJSON(
+  setDecisionSettingsResponse: SetDecisionSettingsResponse,
+): string {
+  return JSON.stringify(
+    SetDecisionSettingsResponse$outboundSchema.parse(
+      setDecisionSettingsResponse,
+    ),
+  );
+}
+
+export function setDecisionSettingsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<SetDecisionSettingsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SetDecisionSettingsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SetDecisionSettingsResponse' from JSON`,
+  );
 }

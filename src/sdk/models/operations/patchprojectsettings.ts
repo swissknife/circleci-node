@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type PatchProjectSettingsRequest = {
@@ -97,6 +100,26 @@ export namespace PatchProjectSettingsRequest$ {
   export type Outbound = PatchProjectSettingsRequest$Outbound;
 }
 
+export function patchProjectSettingsRequestToJSON(
+  patchProjectSettingsRequest: PatchProjectSettingsRequest,
+): string {
+  return JSON.stringify(
+    PatchProjectSettingsRequest$outboundSchema.parse(
+      patchProjectSettingsRequest,
+    ),
+  );
+}
+
+export function patchProjectSettingsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchProjectSettingsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchProjectSettingsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchProjectSettingsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const PatchProjectSettingsProjectResponseBody$inboundSchema: z.ZodType<
   PatchProjectSettingsProjectResponseBody,
@@ -135,6 +158,33 @@ export namespace PatchProjectSettingsProjectResponseBody$ {
   export type Outbound = PatchProjectSettingsProjectResponseBody$Outbound;
 }
 
+export function patchProjectSettingsProjectResponseBodyToJSON(
+  patchProjectSettingsProjectResponseBody:
+    PatchProjectSettingsProjectResponseBody,
+): string {
+  return JSON.stringify(
+    PatchProjectSettingsProjectResponseBody$outboundSchema.parse(
+      patchProjectSettingsProjectResponseBody,
+    ),
+  );
+}
+
+export function patchProjectSettingsProjectResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  PatchProjectSettingsProjectResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      PatchProjectSettingsProjectResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'PatchProjectSettingsProjectResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const PatchProjectSettingsResponseBody$inboundSchema: z.ZodType<
   PatchProjectSettingsResponseBody,
@@ -169,6 +219,26 @@ export namespace PatchProjectSettingsResponseBody$ {
   export const outboundSchema = PatchProjectSettingsResponseBody$outboundSchema;
   /** @deprecated use `PatchProjectSettingsResponseBody$Outbound` instead. */
   export type Outbound = PatchProjectSettingsResponseBody$Outbound;
+}
+
+export function patchProjectSettingsResponseBodyToJSON(
+  patchProjectSettingsResponseBody: PatchProjectSettingsResponseBody,
+): string {
+  return JSON.stringify(
+    PatchProjectSettingsResponseBody$outboundSchema.parse(
+      patchProjectSettingsResponseBody,
+    ),
+  );
+}
+
+export function patchProjectSettingsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchProjectSettingsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchProjectSettingsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchProjectSettingsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -210,4 +280,24 @@ export namespace PatchProjectSettingsResponse$ {
   export const outboundSchema = PatchProjectSettingsResponse$outboundSchema;
   /** @deprecated use `PatchProjectSettingsResponse$Outbound` instead. */
   export type Outbound = PatchProjectSettingsResponse$Outbound;
+}
+
+export function patchProjectSettingsResponseToJSON(
+  patchProjectSettingsResponse: PatchProjectSettingsResponse,
+): string {
+  return JSON.stringify(
+    PatchProjectSettingsResponse$outboundSchema.parse(
+      patchProjectSettingsResponse,
+    ),
+  );
+}
+
+export function patchProjectSettingsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<PatchProjectSettingsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PatchProjectSettingsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PatchProjectSettingsResponse' from JSON`,
+  );
 }

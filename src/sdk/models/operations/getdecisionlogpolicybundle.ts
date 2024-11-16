@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetDecisionLogPolicyBundleRequest = {
@@ -78,6 +81,26 @@ export namespace GetDecisionLogPolicyBundleRequest$ {
   export type Outbound = GetDecisionLogPolicyBundleRequest$Outbound;
 }
 
+export function getDecisionLogPolicyBundleRequestToJSON(
+  getDecisionLogPolicyBundleRequest: GetDecisionLogPolicyBundleRequest,
+): string {
+  return JSON.stringify(
+    GetDecisionLogPolicyBundleRequest$outboundSchema.parse(
+      getDecisionLogPolicyBundleRequest,
+    ),
+  );
+}
+
+export function getDecisionLogPolicyBundleRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogPolicyBundleRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionLogPolicyBundleRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogPolicyBundleRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody$inboundSchema:
   z.ZodType<
@@ -120,6 +143,31 @@ export namespace GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBo
     GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody$Outbound;
 }
 
+export function getDecisionLogPolicyBundlePolicyManagementResponse404ResponseBodyToJSON(
+  getDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody:
+    GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody,
+): string {
+  return JSON.stringify(
+    GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody$outboundSchema
+      .parse(getDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody),
+  );
+}
+
+export function getDecisionLogPolicyBundlePolicyManagementResponse404ResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetDecisionLogPolicyBundleResponseBody$inboundSchema: z.ZodType<
   GetDecisionLogPolicyBundleResponseBody,
@@ -156,6 +204,28 @@ export namespace GetDecisionLogPolicyBundleResponseBody$ {
     GetDecisionLogPolicyBundleResponseBody$outboundSchema;
   /** @deprecated use `GetDecisionLogPolicyBundleResponseBody$Outbound` instead. */
   export type Outbound = GetDecisionLogPolicyBundleResponseBody$Outbound;
+}
+
+export function getDecisionLogPolicyBundleResponseBodyToJSON(
+  getDecisionLogPolicyBundleResponseBody:
+    GetDecisionLogPolicyBundleResponseBody,
+): string {
+  return JSON.stringify(
+    GetDecisionLogPolicyBundleResponseBody$outboundSchema.parse(
+      getDecisionLogPolicyBundleResponseBody,
+    ),
+  );
+}
+
+export function getDecisionLogPolicyBundleResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogPolicyBundleResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetDecisionLogPolicyBundleResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogPolicyBundleResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -202,4 +272,25 @@ export namespace GetDecisionLogPolicyBundleResponse$ {
     GetDecisionLogPolicyBundleResponse$outboundSchema;
   /** @deprecated use `GetDecisionLogPolicyBundleResponse$Outbound` instead. */
   export type Outbound = GetDecisionLogPolicyBundleResponse$Outbound;
+}
+
+export function getDecisionLogPolicyBundleResponseToJSON(
+  getDecisionLogPolicyBundleResponse: GetDecisionLogPolicyBundleResponse,
+): string {
+  return JSON.stringify(
+    GetDecisionLogPolicyBundleResponse$outboundSchema.parse(
+      getDecisionLogPolicyBundleResponse,
+    ),
+  );
+}
+
+export function getDecisionLogPolicyBundleResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogPolicyBundleResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetDecisionLogPolicyBundleResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogPolicyBundleResponse' from JSON`,
+  );
 }

@@ -6,7 +6,7 @@
 import { PatchOrgClaimsRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: PatchOrgClaimsRequest = {
-  orgID: "c7849492-2664-4200-a47b-7e0259d540d6",
+  orgID: "916cbe4c-79ff-4d5e-9a60-c8cbc4c87a01",
 };
 ```
 

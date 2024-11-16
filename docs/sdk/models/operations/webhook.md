@@ -8,17 +8,17 @@ import { Webhook } from "circleci-v2-sdk/sdk/models/operations";
 let value: Webhook = {
   createdAt: new Date("2015-09-21T17:29:21.042Z"),
   events: [
-    "workflow-completed",
+    "job-completed",
   ],
-  id: "7d49dc30-4204-48a6-939c-bd4875a2c069",
+  id: "69b652bd-5c9c-46b6-8187-4e6066dc3d35",
   name: "<value>",
   scope: {
-    id: "a0d14401-dcbb-4140-a003-003c0fadac44",
+    id: "0ae7dcaf-c4cb-4613-8c3f-b799f24b3d52",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://measly-concentration.biz",
+  url: "https://superior-drive.org",
   verifyTls: false,
 };
 ```

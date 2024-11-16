@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The information you can supply when rerunning a workflow.
@@ -115,6 +118,27 @@ export namespace RerunWorkflowRerunWorkflowParameters$ {
   export type Outbound = RerunWorkflowRerunWorkflowParameters$Outbound;
 }
 
+export function rerunWorkflowRerunWorkflowParametersToJSON(
+  rerunWorkflowRerunWorkflowParameters: RerunWorkflowRerunWorkflowParameters,
+): string {
+  return JSON.stringify(
+    RerunWorkflowRerunWorkflowParameters$outboundSchema.parse(
+      rerunWorkflowRerunWorkflowParameters,
+    ),
+  );
+}
+
+export function rerunWorkflowRerunWorkflowParametersFromJSON(
+  jsonString: string,
+): SafeParseResult<RerunWorkflowRerunWorkflowParameters, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      RerunWorkflowRerunWorkflowParameters$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RerunWorkflowRerunWorkflowParameters' from JSON`,
+  );
+}
+
 /** @internal */
 export const RerunWorkflowRequest$inboundSchema: z.ZodType<
   RerunWorkflowRequest,
@@ -164,6 +188,24 @@ export namespace RerunWorkflowRequest$ {
   export type Outbound = RerunWorkflowRequest$Outbound;
 }
 
+export function rerunWorkflowRequestToJSON(
+  rerunWorkflowRequest: RerunWorkflowRequest,
+): string {
+  return JSON.stringify(
+    RerunWorkflowRequest$outboundSchema.parse(rerunWorkflowRequest),
+  );
+}
+
+export function rerunWorkflowRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<RerunWorkflowRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RerunWorkflowRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RerunWorkflowRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const RerunWorkflowWorkflowResponseBody$inboundSchema: z.ZodType<
   RerunWorkflowWorkflowResponseBody,
@@ -199,6 +241,26 @@ export namespace RerunWorkflowWorkflowResponseBody$ {
     RerunWorkflowWorkflowResponseBody$outboundSchema;
   /** @deprecated use `RerunWorkflowWorkflowResponseBody$Outbound` instead. */
   export type Outbound = RerunWorkflowWorkflowResponseBody$Outbound;
+}
+
+export function rerunWorkflowWorkflowResponseBodyToJSON(
+  rerunWorkflowWorkflowResponseBody: RerunWorkflowWorkflowResponseBody,
+): string {
+  return JSON.stringify(
+    RerunWorkflowWorkflowResponseBody$outboundSchema.parse(
+      rerunWorkflowWorkflowResponseBody,
+    ),
+  );
+}
+
+export function rerunWorkflowWorkflowResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<RerunWorkflowWorkflowResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RerunWorkflowWorkflowResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RerunWorkflowWorkflowResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -245,6 +307,24 @@ export namespace RerunWorkflowResponseBody$ {
   export type Outbound = RerunWorkflowResponseBody$Outbound;
 }
 
+export function rerunWorkflowResponseBodyToJSON(
+  rerunWorkflowResponseBody: RerunWorkflowResponseBody,
+): string {
+  return JSON.stringify(
+    RerunWorkflowResponseBody$outboundSchema.parse(rerunWorkflowResponseBody),
+  );
+}
+
+export function rerunWorkflowResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<RerunWorkflowResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RerunWorkflowResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RerunWorkflowResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const RerunWorkflowResponse$inboundSchema: z.ZodType<
   RerunWorkflowResponse,
@@ -281,4 +361,22 @@ export namespace RerunWorkflowResponse$ {
   export const outboundSchema = RerunWorkflowResponse$outboundSchema;
   /** @deprecated use `RerunWorkflowResponse$Outbound` instead. */
   export type Outbound = RerunWorkflowResponse$Outbound;
+}
+
+export function rerunWorkflowResponseToJSON(
+  rerunWorkflowResponse: RerunWorkflowResponse,
+): string {
+  return JSON.stringify(
+    RerunWorkflowResponse$outboundSchema.parse(rerunWorkflowResponse),
+  );
+}
+
+export function rerunWorkflowResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<RerunWorkflowResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RerunWorkflowResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RerunWorkflowResponse' from JSON`,
+  );
 }

@@ -4,14 +4,10 @@
 
 import { pipelineContinuePipeline } from "../funcs/pipelineContinuePipeline.js";
 import { pipelineGetPipelineById } from "../funcs/pipelineGetPipelineById.js";
-import { pipelineGetPipelineByNumber } from "../funcs/pipelineGetPipelineByNumber.js";
 import { pipelineGetPipelineConfigById } from "../funcs/pipelineGetPipelineConfigById.js";
 import { pipelineGetPipelineValuesById } from "../funcs/pipelineGetPipelineValuesById.js";
-import { pipelineListMyPipelines } from "../funcs/pipelineListMyPipelines.js";
 import { pipelineListPipelines } from "../funcs/pipelineListPipelines.js";
-import { pipelineListPipelinesForProject } from "../funcs/pipelineListPipelinesForProject.js";
 import { pipelineListWorkflowsByPipelineId } from "../funcs/pipelineListWorkflowsByPipelineId.js";
-import { pipelineTriggerPipeline } from "../funcs/pipelineTriggerPipeline.js";
 import { pipelineTriggerPipelineRun } from "../funcs/pipelineTriggerPipelineRun.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
@@ -53,23 +49,6 @@ export class Pipeline extends ClientSDK {
   }
 
   /**
-   * Get a pipeline by pipeline number
-   *
-   * @remarks
-   * Returns a pipeline by the pipeline number.
-   */
-  async getPipelineByNumber(
-    request: operations.GetPipelineByNumberRequest,
-    options?: RequestOptions,
-  ): Promise<operations.GetPipelineByNumberResponse> {
-    return unwrapAsync(pipelineGetPipelineByNumber(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Get a pipeline's configuration
    *
    * @remarks
@@ -104,23 +83,6 @@ export class Pipeline extends ClientSDK {
   }
 
   /**
-   * Get your pipelines
-   *
-   * @remarks
-   * Returns a sequence of all pipelines for this project triggered by the user.
-   */
-  async listMyPipelines(
-    request: operations.ListMyPipelinesRequest,
-    options?: RequestOptions,
-  ): Promise<operations.ListMyPipelinesResponse> {
-    return unwrapAsync(pipelineListMyPipelines(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Get a list of pipelines
    *
    * @remarks
@@ -138,23 +100,6 @@ export class Pipeline extends ClientSDK {
   }
 
   /**
-   * Get all pipelines
-   *
-   * @remarks
-   * Returns all pipelines for this project.
-   */
-  async listPipelinesForProject(
-    request: operations.ListPipelinesForProjectRequest,
-    options?: RequestOptions,
-  ): Promise<operations.ListPipelinesForProjectResponse> {
-    return unwrapAsync(pipelineListPipelinesForProject(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Get a pipeline's workflows
    *
    * @remarks
@@ -165,23 +110,6 @@ export class Pipeline extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.ListWorkflowsByPipelineIdResponse> {
     return unwrapAsync(pipelineListWorkflowsByPipelineId(
-      this,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Trigger a new pipeline
-   *
-   * @remarks
-   * Not available to projects that use GitLab or GitHub App. Triggers a new pipeline on the project. **GitHub App users should use the [new Trigger Pipeline API](#tag/Pipeline/operation/triggerPipelineRun)**.
-   */
-  async triggerPipeline(
-    request: operations.TriggerPipelineRequest,
-    options?: RequestOptions,
-  ): Promise<operations.TriggerPipelineResponse> {
-    return unwrapAsync(pipelineTriggerPipeline(
       this,
       request,
       options,

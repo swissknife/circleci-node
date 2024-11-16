@@ -8,8 +8,8 @@ The attribution actor who will run the scheduled pipeline.
 import { UpdateScheduleUser } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: UpdateScheduleUser = {
-  id: "dd997041-7d9a-4342-8d48-2155595c15a9",
-  login: "Idell.Murray",
+  id: "8c0644c9-70ff-4308-8fe9-45e723417ea1",
+  login: "Douglas38",
   name: "<value>",
 };
 ```

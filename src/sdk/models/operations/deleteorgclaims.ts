@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type DeleteOrgClaimsRequest = {
@@ -65,6 +68,24 @@ export namespace DeleteOrgClaimsRequest$ {
   export type Outbound = DeleteOrgClaimsRequest$Outbound;
 }
 
+export function deleteOrgClaimsRequestToJSON(
+  deleteOrgClaimsRequest: DeleteOrgClaimsRequest,
+): string {
+  return JSON.stringify(
+    DeleteOrgClaimsRequest$outboundSchema.parse(deleteOrgClaimsRequest),
+  );
+}
+
+export function deleteOrgClaimsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteOrgClaimsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteOrgClaimsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteOrgClaimsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteOrgClaimsResponseBody$inboundSchema: z.ZodType<
   DeleteOrgClaimsResponseBody,
@@ -99,6 +120,26 @@ export namespace DeleteOrgClaimsResponseBody$ {
   export const outboundSchema = DeleteOrgClaimsResponseBody$outboundSchema;
   /** @deprecated use `DeleteOrgClaimsResponseBody$Outbound` instead. */
   export type Outbound = DeleteOrgClaimsResponseBody$Outbound;
+}
+
+export function deleteOrgClaimsResponseBodyToJSON(
+  deleteOrgClaimsResponseBody: DeleteOrgClaimsResponseBody,
+): string {
+  return JSON.stringify(
+    DeleteOrgClaimsResponseBody$outboundSchema.parse(
+      deleteOrgClaimsResponseBody,
+    ),
+  );
+}
+
+export function deleteOrgClaimsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteOrgClaimsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteOrgClaimsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteOrgClaimsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -137,4 +178,22 @@ export namespace DeleteOrgClaimsResponse$ {
   export const outboundSchema = DeleteOrgClaimsResponse$outboundSchema;
   /** @deprecated use `DeleteOrgClaimsResponse$Outbound` instead. */
   export type Outbound = DeleteOrgClaimsResponse$Outbound;
+}
+
+export function deleteOrgClaimsResponseToJSON(
+  deleteOrgClaimsResponse: DeleteOrgClaimsResponse,
+): string {
+  return JSON.stringify(
+    DeleteOrgClaimsResponse$outboundSchema.parse(deleteOrgClaimsResponse),
+  );
+}
+
+export function deleteOrgClaimsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteOrgClaimsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteOrgClaimsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteOrgClaimsResponse' from JSON`,
+  );
 }

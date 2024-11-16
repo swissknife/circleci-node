@@ -14,15 +14,15 @@ let value: GetWebhooksResponseBody = {
       events: [
         "job-completed",
       ],
-      id: "6f86f145-dc4d-417a-9414-75610e14ad5a",
+      id: "09935702-26bd-42ca-9ef1-1c23ef5dd999",
       name: "<value>",
       scope: {
-        id: "060fc536-55e6-4b28-a79a-d3609e6f938a",
+        id: "9326b9fa-2213-49de-a68c-492727663243",
         type: "<value>",
       },
       signingSecret: "<value>",
       updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-      url: "https://devoted-cross-contamination.biz",
+      url: "https://outlandish-bookend.name",
       verifyTls: false,
     },
   ],

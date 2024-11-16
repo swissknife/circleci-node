@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ParametersT = number | string | boolean;
 
@@ -73,6 +76,20 @@ export namespace ParametersT$ {
   export type Outbound = ParametersT$Outbound;
 }
 
+export function parametersTToJSON(parametersT: ParametersT): string {
+  return JSON.stringify(ParametersT$outboundSchema.parse(parametersT));
+}
+
+export function parametersTFromJSON(
+  jsonString: string,
+): SafeParseResult<ParametersT, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ParametersT$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ParametersT' from JSON`,
+  );
+}
+
 /** @internal */
 export const ContinuePipelineRequestBody$inboundSchema: z.ZodType<
   ContinuePipelineRequestBody,
@@ -125,6 +142,26 @@ export namespace ContinuePipelineRequestBody$ {
   export type Outbound = ContinuePipelineRequestBody$Outbound;
 }
 
+export function continuePipelineRequestBodyToJSON(
+  continuePipelineRequestBody: ContinuePipelineRequestBody,
+): string {
+  return JSON.stringify(
+    ContinuePipelineRequestBody$outboundSchema.parse(
+      continuePipelineRequestBody,
+    ),
+  );
+}
+
+export function continuePipelineRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ContinuePipelineRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContinuePipelineRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContinuePipelineRequestBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const ContinuePipelineResponseBody$inboundSchema: z.ZodType<
   ContinuePipelineResponseBody,
@@ -159,6 +196,26 @@ export namespace ContinuePipelineResponseBody$ {
   export const outboundSchema = ContinuePipelineResponseBody$outboundSchema;
   /** @deprecated use `ContinuePipelineResponseBody$Outbound` instead. */
   export type Outbound = ContinuePipelineResponseBody$Outbound;
+}
+
+export function continuePipelineResponseBodyToJSON(
+  continuePipelineResponseBody: ContinuePipelineResponseBody,
+): string {
+  return JSON.stringify(
+    ContinuePipelineResponseBody$outboundSchema.parse(
+      continuePipelineResponseBody,
+    ),
+  );
+}
+
+export function continuePipelineResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ContinuePipelineResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContinuePipelineResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContinuePipelineResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -197,6 +254,26 @@ export namespace ContinuePipelineMessageResponse$ {
   export type Outbound = ContinuePipelineMessageResponse$Outbound;
 }
 
+export function continuePipelineMessageResponseToJSON(
+  continuePipelineMessageResponse: ContinuePipelineMessageResponse,
+): string {
+  return JSON.stringify(
+    ContinuePipelineMessageResponse$outboundSchema.parse(
+      continuePipelineMessageResponse,
+    ),
+  );
+}
+
+export function continuePipelineMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ContinuePipelineMessageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContinuePipelineMessageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContinuePipelineMessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const ContinuePipelineResponse$inboundSchema: z.ZodType<
   ContinuePipelineResponse,
@@ -233,4 +310,22 @@ export namespace ContinuePipelineResponse$ {
   export const outboundSchema = ContinuePipelineResponse$outboundSchema;
   /** @deprecated use `ContinuePipelineResponse$Outbound` instead. */
   export type Outbound = ContinuePipelineResponse$Outbound;
+}
+
+export function continuePipelineResponseToJSON(
+  continuePipelineResponse: ContinuePipelineResponse,
+): string {
+  return JSON.stringify(
+    ContinuePipelineResponse$outboundSchema.parse(continuePipelineResponse),
+  );
+}
+
+export function continuePipelineResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<ContinuePipelineResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContinuePipelineResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContinuePipelineResponse' from JSON`,
+  );
 }

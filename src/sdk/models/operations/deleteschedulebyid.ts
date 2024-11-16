@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteScheduleByIdRequest = {
   /**
@@ -77,6 +80,24 @@ export namespace DeleteScheduleByIdRequest$ {
   export type Outbound = DeleteScheduleByIdRequest$Outbound;
 }
 
+export function deleteScheduleByIdRequestToJSON(
+  deleteScheduleByIdRequest: DeleteScheduleByIdRequest,
+): string {
+  return JSON.stringify(
+    DeleteScheduleByIdRequest$outboundSchema.parse(deleteScheduleByIdRequest),
+  );
+}
+
+export function deleteScheduleByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteScheduleByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteScheduleByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteScheduleByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteScheduleByIdResponseBody$inboundSchema: z.ZodType<
   DeleteScheduleByIdResponseBody,
@@ -111,6 +132,26 @@ export namespace DeleteScheduleByIdResponseBody$ {
   export const outboundSchema = DeleteScheduleByIdResponseBody$outboundSchema;
   /** @deprecated use `DeleteScheduleByIdResponseBody$Outbound` instead. */
   export type Outbound = DeleteScheduleByIdResponseBody$Outbound;
+}
+
+export function deleteScheduleByIdResponseBodyToJSON(
+  deleteScheduleByIdResponseBody: DeleteScheduleByIdResponseBody,
+): string {
+  return JSON.stringify(
+    DeleteScheduleByIdResponseBody$outboundSchema.parse(
+      deleteScheduleByIdResponseBody,
+    ),
+  );
+}
+
+export function deleteScheduleByIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteScheduleByIdResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteScheduleByIdResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteScheduleByIdResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -150,6 +191,26 @@ export namespace DeleteScheduleByIdMessageResponse$ {
   export type Outbound = DeleteScheduleByIdMessageResponse$Outbound;
 }
 
+export function deleteScheduleByIdMessageResponseToJSON(
+  deleteScheduleByIdMessageResponse: DeleteScheduleByIdMessageResponse,
+): string {
+  return JSON.stringify(
+    DeleteScheduleByIdMessageResponse$outboundSchema.parse(
+      deleteScheduleByIdMessageResponse,
+    ),
+  );
+}
+
+export function deleteScheduleByIdMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteScheduleByIdMessageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteScheduleByIdMessageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteScheduleByIdMessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteScheduleByIdResponse$inboundSchema: z.ZodType<
   DeleteScheduleByIdResponse,
@@ -186,4 +247,22 @@ export namespace DeleteScheduleByIdResponse$ {
   export const outboundSchema = DeleteScheduleByIdResponse$outboundSchema;
   /** @deprecated use `DeleteScheduleByIdResponse$Outbound` instead. */
   export type Outbound = DeleteScheduleByIdResponse$Outbound;
+}
+
+export function deleteScheduleByIdResponseToJSON(
+  deleteScheduleByIdResponse: DeleteScheduleByIdResponse,
+): string {
+  return JSON.stringify(
+    DeleteScheduleByIdResponse$outboundSchema.parse(deleteScheduleByIdResponse),
+  );
+}
+
+export function deleteScheduleByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteScheduleByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteScheduleByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteScheduleByIdResponse' from JSON`,
+  );
 }

@@ -7,8 +7,8 @@ import { DeleteProjectClaimsRequest } from "circleci-v2-sdk/sdk/models/operation
 
 let value: DeleteProjectClaimsRequest = {
   claims: "<value>",
-  orgID: "b525ef3c-4e2a-41fb-bd97-987c22651dc8",
-  projectID: "1c453c2d-a0ca-4eb8-bd48-4f305808db9f",
+  orgID: "803f9147-0673-49c3-99af-cd72f271ffb5",
+  projectID: "42825ab0-6ad7-4f40-b74d-34cb8b600810",
 };
 ```
 

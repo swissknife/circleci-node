@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CancelJobByJobIDRequest = {
   /**
@@ -121,6 +124,24 @@ export namespace CancelJobByJobIDRequest$ {
   export type Outbound = CancelJobByJobIDRequest$Outbound;
 }
 
+export function cancelJobByJobIDRequestToJSON(
+  cancelJobByJobIDRequest: CancelJobByJobIDRequest,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDRequest$outboundSchema.parse(cancelJobByJobIDRequest),
+  );
+}
+
+export function cancelJobByJobIDRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelJobByJobIDRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelJobByJobIDRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelJobByJobIDRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CancelJobByJobIDResponseBody$inboundSchema: z.ZodType<
   CancelJobByJobIDResponseBody,
@@ -155,6 +176,26 @@ export namespace CancelJobByJobIDResponseBody$ {
   export const outboundSchema = CancelJobByJobIDResponseBody$outboundSchema;
   /** @deprecated use `CancelJobByJobIDResponseBody$Outbound` instead. */
   export type Outbound = CancelJobByJobIDResponseBody$Outbound;
+}
+
+export function cancelJobByJobIDResponseBodyToJSON(
+  cancelJobByJobIDResponseBody: CancelJobByJobIDResponseBody,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDResponseBody$outboundSchema.parse(
+      cancelJobByJobIDResponseBody,
+    ),
+  );
+}
+
+export function cancelJobByJobIDResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelJobByJobIDResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelJobByJobIDResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelJobByJobIDResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -197,6 +238,33 @@ export namespace CancelJobByJobIDJobResponse404MessageResponse$ {
   export type Outbound = CancelJobByJobIDJobResponse404MessageResponse$Outbound;
 }
 
+export function cancelJobByJobIDJobResponse404MessageResponseToJSON(
+  cancelJobByJobIDJobResponse404MessageResponse:
+    CancelJobByJobIDJobResponse404MessageResponse,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDJobResponse404MessageResponse$outboundSchema.parse(
+      cancelJobByJobIDJobResponse404MessageResponse,
+    ),
+  );
+}
+
+export function cancelJobByJobIDJobResponse404MessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CancelJobByJobIDJobResponse404MessageResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CancelJobByJobIDJobResponse404MessageResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CancelJobByJobIDJobResponse404MessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const CancelJobByJobIDJobResponse403MessageResponse$inboundSchema:
   z.ZodType<
@@ -237,6 +305,33 @@ export namespace CancelJobByJobIDJobResponse403MessageResponse$ {
   export type Outbound = CancelJobByJobIDJobResponse403MessageResponse$Outbound;
 }
 
+export function cancelJobByJobIDJobResponse403MessageResponseToJSON(
+  cancelJobByJobIDJobResponse403MessageResponse:
+    CancelJobByJobIDJobResponse403MessageResponse,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDJobResponse403MessageResponse$outboundSchema.parse(
+      cancelJobByJobIDJobResponse403MessageResponse,
+    ),
+  );
+}
+
+export function cancelJobByJobIDJobResponse403MessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CancelJobByJobIDJobResponse403MessageResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CancelJobByJobIDJobResponse403MessageResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CancelJobByJobIDJobResponse403MessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const CancelJobByJobIDJobResponseMessageResponse$inboundSchema:
   z.ZodType<CancelJobByJobIDJobResponseMessageResponse, z.ZodTypeDef, unknown> =
@@ -272,6 +367,33 @@ export namespace CancelJobByJobIDJobResponseMessageResponse$ {
     CancelJobByJobIDJobResponseMessageResponse$outboundSchema;
   /** @deprecated use `CancelJobByJobIDJobResponseMessageResponse$Outbound` instead. */
   export type Outbound = CancelJobByJobIDJobResponseMessageResponse$Outbound;
+}
+
+export function cancelJobByJobIDJobResponseMessageResponseToJSON(
+  cancelJobByJobIDJobResponseMessageResponse:
+    CancelJobByJobIDJobResponseMessageResponse,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDJobResponseMessageResponse$outboundSchema.parse(
+      cancelJobByJobIDJobResponseMessageResponse,
+    ),
+  );
+}
+
+export function cancelJobByJobIDJobResponseMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CancelJobByJobIDJobResponseMessageResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CancelJobByJobIDJobResponseMessageResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CancelJobByJobIDJobResponseMessageResponse' from JSON`,
+  );
 }
 
 /** @internal */
@@ -311,6 +433,27 @@ export namespace CancelJobByJobIDJobMessageResponse$ {
   export type Outbound = CancelJobByJobIDJobMessageResponse$Outbound;
 }
 
+export function cancelJobByJobIDJobMessageResponseToJSON(
+  cancelJobByJobIDJobMessageResponse: CancelJobByJobIDJobMessageResponse,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDJobMessageResponse$outboundSchema.parse(
+      cancelJobByJobIDJobMessageResponse,
+    ),
+  );
+}
+
+export function cancelJobByJobIDJobMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelJobByJobIDJobMessageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CancelJobByJobIDJobMessageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelJobByJobIDJobMessageResponse' from JSON`,
+  );
+}
+
 /** @internal */
 export const CancelJobByJobIDMessageResponse$inboundSchema: z.ZodType<
   CancelJobByJobIDMessageResponse,
@@ -345,6 +488,26 @@ export namespace CancelJobByJobIDMessageResponse$ {
   export const outboundSchema = CancelJobByJobIDMessageResponse$outboundSchema;
   /** @deprecated use `CancelJobByJobIDMessageResponse$Outbound` instead. */
   export type Outbound = CancelJobByJobIDMessageResponse$Outbound;
+}
+
+export function cancelJobByJobIDMessageResponseToJSON(
+  cancelJobByJobIDMessageResponse: CancelJobByJobIDMessageResponse,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDMessageResponse$outboundSchema.parse(
+      cancelJobByJobIDMessageResponse,
+    ),
+  );
+}
+
+export function cancelJobByJobIDMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelJobByJobIDMessageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelJobByJobIDMessageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelJobByJobIDMessageResponse' from JSON`,
+  );
 }
 
 /** @internal */
@@ -395,4 +558,22 @@ export namespace CancelJobByJobIDResponse$ {
   export const outboundSchema = CancelJobByJobIDResponse$outboundSchema;
   /** @deprecated use `CancelJobByJobIDResponse$Outbound` instead. */
   export type Outbound = CancelJobByJobIDResponse$Outbound;
+}
+
+export function cancelJobByJobIDResponseToJSON(
+  cancelJobByJobIDResponse: CancelJobByJobIDResponse,
+): string {
+  return JSON.stringify(
+    CancelJobByJobIDResponse$outboundSchema.parse(cancelJobByJobIDResponse),
+  );
+}
+
+export function cancelJobByJobIDResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<CancelJobByJobIDResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CancelJobByJobIDResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CancelJobByJobIDResponse' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetPolicyBundleRequest = {
@@ -62,6 +65,24 @@ export namespace GetPolicyBundleRequest$ {
   export type Outbound = GetPolicyBundleRequest$Outbound;
 }
 
+export function getPolicyBundleRequestToJSON(
+  getPolicyBundleRequest: GetPolicyBundleRequest,
+): string {
+  return JSON.stringify(
+    GetPolicyBundleRequest$outboundSchema.parse(getPolicyBundleRequest),
+  );
+}
+
+export function getPolicyBundleRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPolicyBundleRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPolicyBundleRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyBundleRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetPolicyBundleResponseBody$inboundSchema: z.ZodType<
   GetPolicyBundleResponseBody,
@@ -96,6 +117,26 @@ export namespace GetPolicyBundleResponseBody$ {
   export const outboundSchema = GetPolicyBundleResponseBody$outboundSchema;
   /** @deprecated use `GetPolicyBundleResponseBody$Outbound` instead. */
   export type Outbound = GetPolicyBundleResponseBody$Outbound;
+}
+
+export function getPolicyBundleResponseBodyToJSON(
+  getPolicyBundleResponseBody: GetPolicyBundleResponseBody,
+): string {
+  return JSON.stringify(
+    GetPolicyBundleResponseBody$outboundSchema.parse(
+      getPolicyBundleResponseBody,
+    ),
+  );
+}
+
+export function getPolicyBundleResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPolicyBundleResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPolicyBundleResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyBundleResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -134,4 +175,22 @@ export namespace GetPolicyBundleResponse$ {
   export const outboundSchema = GetPolicyBundleResponse$outboundSchema;
   /** @deprecated use `GetPolicyBundleResponse$Outbound` instead. */
   export type Outbound = GetPolicyBundleResponse$Outbound;
+}
+
+export function getPolicyBundleResponseToJSON(
+  getPolicyBundleResponse: GetPolicyBundleResponse,
+): string {
+  return JSON.stringify(
+    GetPolicyBundleResponse$outboundSchema.parse(getPolicyBundleResponse),
+  );
+}
+
+export function getPolicyBundleResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPolicyBundleResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPolicyBundleResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyBundleResponse' from JSON`,
+  );
 }

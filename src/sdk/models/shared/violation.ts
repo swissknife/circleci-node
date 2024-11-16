@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Violation = {
   reason: string;
@@ -46,4 +49,18 @@ export namespace Violation$ {
   export const outboundSchema = Violation$outboundSchema;
   /** @deprecated use `Violation$Outbound` instead. */
   export type Outbound = Violation$Outbound;
+}
+
+export function violationToJSON(violation: Violation): string {
+  return JSON.stringify(Violation$outboundSchema.parse(violation));
+}
+
+export function violationFromJSON(
+  jsonString: string,
+): SafeParseResult<Violation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Violation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Violation' from JSON`,
+  );
 }

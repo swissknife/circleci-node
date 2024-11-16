@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const State = {
   Created: "created",
@@ -99,4 +102,22 @@ export namespace GetUsageExportJobStatus$ {
   export const outboundSchema = GetUsageExportJobStatus$outboundSchema;
   /** @deprecated use `GetUsageExportJobStatus$Outbound` instead. */
   export type Outbound = GetUsageExportJobStatus$Outbound;
+}
+
+export function getUsageExportJobStatusToJSON(
+  getUsageExportJobStatus: GetUsageExportJobStatus,
+): string {
+  return JSON.stringify(
+    GetUsageExportJobStatus$outboundSchema.parse(getUsageExportJobStatus),
+  );
+}
+
+export function getUsageExportJobStatusFromJSON(
+  jsonString: string,
+): SafeParseResult<GetUsageExportJobStatus, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetUsageExportJobStatus$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetUsageExportJobStatus' from JSON`,
+  );
 }

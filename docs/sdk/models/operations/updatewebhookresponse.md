@@ -11,15 +11,15 @@ const value: operations.UpdateWebhookWebhook = {
   events: [
     "workflow-completed",
   ],
-  id: "82448b42-8d67-44c1-a2fa-8cf3c5bbf10b",
+  id: "7d9f41a1-c48c-4c7f-b744-b6604dcb0047",
   name: "<value>",
   scope: {
-    id: "bc75c69e-204c-49f8-b4ca-da7404063b31",
+    id: "649ebd22-8bf5-458a-99b6-d25c5a424e73",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://sizzling-travel.com/",
+  url: "https://slow-decongestant.name/",
   verifyTls: false,
 };
 ```

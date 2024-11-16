@@ -7,7 +7,7 @@
 
 ```typescript
 const value: { [k: string]: operations.ResponseBody } = {
-  "key": "<value>",
+  "key": false,
 };
 ```
 

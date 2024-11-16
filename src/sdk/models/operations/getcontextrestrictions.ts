@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetContextRestrictionsRequest = {
@@ -68,6 +71,26 @@ export namespace GetContextRestrictionsRequest$ {
   export type Outbound = GetContextRestrictionsRequest$Outbound;
 }
 
+export function getContextRestrictionsRequestToJSON(
+  getContextRestrictionsRequest: GetContextRestrictionsRequest,
+): string {
+  return JSON.stringify(
+    GetContextRestrictionsRequest$outboundSchema.parse(
+      getContextRestrictionsRequest,
+    ),
+  );
+}
+
+export function getContextRestrictionsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetContextRestrictionsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetContextRestrictionsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetContextRestrictionsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetContextRestrictionsResponseBody$inboundSchema: z.ZodType<
   GetContextRestrictionsResponseBody,
@@ -103,6 +126,27 @@ export namespace GetContextRestrictionsResponseBody$ {
     GetContextRestrictionsResponseBody$outboundSchema;
   /** @deprecated use `GetContextRestrictionsResponseBody$Outbound` instead. */
   export type Outbound = GetContextRestrictionsResponseBody$Outbound;
+}
+
+export function getContextRestrictionsResponseBodyToJSON(
+  getContextRestrictionsResponseBody: GetContextRestrictionsResponseBody,
+): string {
+  return JSON.stringify(
+    GetContextRestrictionsResponseBody$outboundSchema.parse(
+      getContextRestrictionsResponseBody,
+    ),
+  );
+}
+
+export function getContextRestrictionsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetContextRestrictionsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetContextRestrictionsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetContextRestrictionsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -141,4 +185,24 @@ export namespace GetContextRestrictionsResponse$ {
   export const outboundSchema = GetContextRestrictionsResponse$outboundSchema;
   /** @deprecated use `GetContextRestrictionsResponse$Outbound` instead. */
   export type Outbound = GetContextRestrictionsResponse$Outbound;
+}
+
+export function getContextRestrictionsResponseToJSON(
+  getContextRestrictionsResponse: GetContextRestrictionsResponse,
+): string {
+  return JSON.stringify(
+    GetContextRestrictionsResponse$outboundSchema.parse(
+      getContextRestrictionsResponse,
+    ),
+  );
+}
+
+export function getContextRestrictionsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetContextRestrictionsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetContextRestrictionsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetContextRestrictionsResponse' from JSON`,
+  );
 }

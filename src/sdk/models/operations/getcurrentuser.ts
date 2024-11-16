@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Error response.
@@ -69,6 +72,24 @@ export namespace GetCurrentUserResponseBody$ {
   export type Outbound = GetCurrentUserResponseBody$Outbound;
 }
 
+export function getCurrentUserResponseBodyToJSON(
+  getCurrentUserResponseBody: GetCurrentUserResponseBody,
+): string {
+  return JSON.stringify(
+    GetCurrentUserResponseBody$outboundSchema.parse(getCurrentUserResponseBody),
+  );
+}
+
+export function getCurrentUserResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCurrentUserResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCurrentUserResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCurrentUserResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetCurrentUserUser$inboundSchema: z.ZodType<
   GetCurrentUserUser,
@@ -111,6 +132,24 @@ export namespace GetCurrentUserUser$ {
   export type Outbound = GetCurrentUserUser$Outbound;
 }
 
+export function getCurrentUserUserToJSON(
+  getCurrentUserUser: GetCurrentUserUser,
+): string {
+  return JSON.stringify(
+    GetCurrentUserUser$outboundSchema.parse(getCurrentUserUser),
+  );
+}
+
+export function getCurrentUserUserFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCurrentUserUser, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCurrentUserUser$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCurrentUserUser' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetCurrentUserResponse$inboundSchema: z.ZodType<
   GetCurrentUserResponse,
@@ -147,4 +186,22 @@ export namespace GetCurrentUserResponse$ {
   export const outboundSchema = GetCurrentUserResponse$outboundSchema;
   /** @deprecated use `GetCurrentUserResponse$Outbound` instead. */
   export type Outbound = GetCurrentUserResponse$Outbound;
+}
+
+export function getCurrentUserResponseToJSON(
+  getCurrentUserResponse: GetCurrentUserResponse,
+): string {
+  return JSON.stringify(
+    GetCurrentUserResponse$outboundSchema.parse(getCurrentUserResponse),
+  );
+}
+
+export function getCurrentUserResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCurrentUserResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCurrentUserResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCurrentUserResponse' from JSON`,
+  );
 }

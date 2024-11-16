@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Violation,
   Violation$inboundSchema,
@@ -77,4 +80,18 @@ export namespace Decision$ {
   export const outboundSchema = Decision$outboundSchema;
   /** @deprecated use `Decision$Outbound` instead. */
   export type Outbound = Decision$Outbound;
+}
+
+export function decisionToJSON(decision: Decision): string {
+  return JSON.stringify(Decision$outboundSchema.parse(decision));
+}
+
+export function decisionFromJSON(
+  jsonString: string,
+): SafeParseResult<Decision, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Decision$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Decision' from JSON`,
+  );
 }

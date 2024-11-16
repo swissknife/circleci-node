@@ -13,11 +13,11 @@ let value: CreateWebhookRequestBody = {
   ],
   name: "<value>",
   scope: {
-    id: "f589c2db-0907-49ae-94d7-acbcacee5f09",
+    id: "35811646-7ff2-4e18-825b-6cbf8c556618",
     type: "project",
   },
   signingSecret: "<value>",
-  url: "https://musty-baseboard.name/",
+  url: "https://beloved-hyphenation.biz",
   verifyTls: false,
 };
 ```

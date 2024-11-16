@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Decision,
   Decision$inboundSchema,
@@ -88,6 +91,20 @@ export namespace Vcs$ {
   export type Outbound = Vcs$Outbound;
 }
 
+export function vcsToJSON(vcs: Vcs): string {
+  return JSON.stringify(Vcs$outboundSchema.parse(vcs));
+}
+
+export function vcsFromJSON(
+  jsonString: string,
+): SafeParseResult<Vcs, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Vcs$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Vcs' from JSON`,
+  );
+}
+
 /** @internal */
 export const Metadata$inboundSchema: z.ZodType<
   Metadata,
@@ -143,6 +160,20 @@ export namespace Metadata$ {
   export const outboundSchema = Metadata$outboundSchema;
   /** @deprecated use `Metadata$Outbound` instead. */
   export type Outbound = Metadata$Outbound;
+}
+
+export function metadataToJSON(metadata: Metadata): string {
+  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
+}
+
+export function metadataFromJSON(
+  jsonString: string,
+): SafeParseResult<Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metadata' from JSON`,
+  );
 }
 
 /** @internal */
@@ -205,4 +236,18 @@ export namespace DecisionLog$ {
   export const outboundSchema = DecisionLog$outboundSchema;
   /** @deprecated use `DecisionLog$Outbound` instead. */
   export type Outbound = DecisionLog$Outbound;
+}
+
+export function decisionLogToJSON(decisionLog: DecisionLog): string {
+  return JSON.stringify(DecisionLog$outboundSchema.parse(decisionLog));
+}
+
+export function decisionLogFromJSON(
+  jsonString: string,
+): SafeParseResult<DecisionLog, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DecisionLog$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DecisionLog' from JSON`,
+  );
 }

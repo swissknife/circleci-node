@@ -6,7 +6,7 @@
 import { DeleteScheduleByIdRequest } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: DeleteScheduleByIdRequest = {
-  scheduleId: "09935702-26bd-42ca-9ef1-1c23ef5dd999",
+  scheduleId: "9709fd52-cbfd-4817-b584-dd596e2bf23b",
 };
 ```
 

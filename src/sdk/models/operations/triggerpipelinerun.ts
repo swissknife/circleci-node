@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type TriggerPipelineRunRequest = {
@@ -77,6 +80,24 @@ export namespace TriggerPipelineRunRequest$ {
   export type Outbound = TriggerPipelineRunRequest$Outbound;
 }
 
+export function triggerPipelineRunRequestToJSON(
+  triggerPipelineRunRequest: TriggerPipelineRunRequest,
+): string {
+  return JSON.stringify(
+    TriggerPipelineRunRequest$outboundSchema.parse(triggerPipelineRunRequest),
+  );
+}
+
+export function triggerPipelineRunRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<TriggerPipelineRunRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TriggerPipelineRunRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TriggerPipelineRunRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const TriggerPipelineRunResponseBody$inboundSchema: z.ZodType<
   TriggerPipelineRunResponseBody,
@@ -111,6 +132,26 @@ export namespace TriggerPipelineRunResponseBody$ {
   export const outboundSchema = TriggerPipelineRunResponseBody$outboundSchema;
   /** @deprecated use `TriggerPipelineRunResponseBody$Outbound` instead. */
   export type Outbound = TriggerPipelineRunResponseBody$Outbound;
+}
+
+export function triggerPipelineRunResponseBodyToJSON(
+  triggerPipelineRunResponseBody: TriggerPipelineRunResponseBody,
+): string {
+  return JSON.stringify(
+    TriggerPipelineRunResponseBody$outboundSchema.parse(
+      triggerPipelineRunResponseBody,
+    ),
+  );
+}
+
+export function triggerPipelineRunResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<TriggerPipelineRunResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TriggerPipelineRunResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TriggerPipelineRunResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -149,4 +190,22 @@ export namespace TriggerPipelineRunResponse$ {
   export const outboundSchema = TriggerPipelineRunResponse$outboundSchema;
   /** @deprecated use `TriggerPipelineRunResponse$Outbound` instead. */
   export type Outbound = TriggerPipelineRunResponse$Outbound;
+}
+
+export function triggerPipelineRunResponseToJSON(
+  triggerPipelineRunResponse: TriggerPipelineRunResponse,
+): string {
+  return JSON.stringify(
+    TriggerPipelineRunResponse$outboundSchema.parse(triggerPipelineRunResponse),
+  );
+}
+
+export function triggerPipelineRunResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<TriggerPipelineRunResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TriggerPipelineRunResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TriggerPipelineRunResponse' from JSON`,
+  );
 }

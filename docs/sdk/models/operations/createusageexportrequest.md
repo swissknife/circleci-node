@@ -7,8 +7,8 @@ import { CreateUsageExportRequest } from "circleci-v2-sdk/sdk/models/operations"
 
 let value: CreateUsageExportRequest = {
   requestBody: {
-    end: new Date("2022-12-08T08:21:53.641Z"),
-    start: new Date("2022-09-30T02:40:00.548Z"),
+    end: new Date("2024-01-09T07:46:32.172Z"),
+    start: new Date("2023-12-08T01:38:47.300Z"),
   },
   orgId: "b9291e0d-a11e-41fb-8517-c545388b5953",
 };

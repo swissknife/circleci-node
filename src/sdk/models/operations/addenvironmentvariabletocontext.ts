@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AddEnvironmentVariableToContextRequestBody = {
   /**
@@ -109,6 +112,33 @@ export namespace AddEnvironmentVariableToContextRequestBody$ {
   export type Outbound = AddEnvironmentVariableToContextRequestBody$Outbound;
 }
 
+export function addEnvironmentVariableToContextRequestBodyToJSON(
+  addEnvironmentVariableToContextRequestBody:
+    AddEnvironmentVariableToContextRequestBody,
+): string {
+  return JSON.stringify(
+    AddEnvironmentVariableToContextRequestBody$outboundSchema.parse(
+      addEnvironmentVariableToContextRequestBody,
+    ),
+  );
+}
+
+export function addEnvironmentVariableToContextRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AddEnvironmentVariableToContextRequestBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AddEnvironmentVariableToContextRequestBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AddEnvironmentVariableToContextRequestBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const AddEnvironmentVariableToContextRequest$inboundSchema: z.ZodType<
   AddEnvironmentVariableToContextRequest,
@@ -169,6 +199,28 @@ export namespace AddEnvironmentVariableToContextRequest$ {
   export type Outbound = AddEnvironmentVariableToContextRequest$Outbound;
 }
 
+export function addEnvironmentVariableToContextRequestToJSON(
+  addEnvironmentVariableToContextRequest:
+    AddEnvironmentVariableToContextRequest,
+): string {
+  return JSON.stringify(
+    AddEnvironmentVariableToContextRequest$outboundSchema.parse(
+      addEnvironmentVariableToContextRequest,
+    ),
+  );
+}
+
+export function addEnvironmentVariableToContextRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<AddEnvironmentVariableToContextRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AddEnvironmentVariableToContextRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AddEnvironmentVariableToContextRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const AddEnvironmentVariableToContextContextResponseBody$inboundSchema:
   z.ZodType<
@@ -210,6 +262,33 @@ export namespace AddEnvironmentVariableToContextContextResponseBody$ {
     AddEnvironmentVariableToContextContextResponseBody$Outbound;
 }
 
+export function addEnvironmentVariableToContextContextResponseBodyToJSON(
+  addEnvironmentVariableToContextContextResponseBody:
+    AddEnvironmentVariableToContextContextResponseBody,
+): string {
+  return JSON.stringify(
+    AddEnvironmentVariableToContextContextResponseBody$outboundSchema.parse(
+      addEnvironmentVariableToContextContextResponseBody,
+    ),
+  );
+}
+
+export function addEnvironmentVariableToContextContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AddEnvironmentVariableToContextContextResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AddEnvironmentVariableToContextContextResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AddEnvironmentVariableToContextContextResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const MessageResponse$inboundSchema: z.ZodType<
   MessageResponse,
@@ -244,6 +323,22 @@ export namespace MessageResponse$ {
   export const outboundSchema = MessageResponse$outboundSchema;
   /** @deprecated use `MessageResponse$Outbound` instead. */
   export type Outbound = MessageResponse$Outbound;
+}
+
+export function messageResponseToJSON(
+  messageResponse: MessageResponse,
+): string {
+  return JSON.stringify(MessageResponse$outboundSchema.parse(messageResponse));
+}
+
+export function messageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<MessageResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MessageResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MessageResponse' from JSON`,
+  );
 }
 
 /** @internal */
@@ -303,6 +398,26 @@ export namespace AddEnvironmentVariableToContext1$ {
   export type Outbound = AddEnvironmentVariableToContext1$Outbound;
 }
 
+export function addEnvironmentVariableToContext1ToJSON(
+  addEnvironmentVariableToContext1: AddEnvironmentVariableToContext1,
+): string {
+  return JSON.stringify(
+    AddEnvironmentVariableToContext1$outboundSchema.parse(
+      addEnvironmentVariableToContext1,
+    ),
+  );
+}
+
+export function addEnvironmentVariableToContext1FromJSON(
+  jsonString: string,
+): SafeParseResult<AddEnvironmentVariableToContext1, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AddEnvironmentVariableToContext1$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AddEnvironmentVariableToContext1' from JSON`,
+  );
+}
+
 /** @internal */
 export const AddEnvironmentVariableToContextResponseBody$inboundSchema:
   z.ZodType<
@@ -343,6 +458,33 @@ export namespace AddEnvironmentVariableToContextResponseBody$ {
     AddEnvironmentVariableToContextResponseBody$outboundSchema;
   /** @deprecated use `AddEnvironmentVariableToContextResponseBody$Outbound` instead. */
   export type Outbound = AddEnvironmentVariableToContextResponseBody$Outbound;
+}
+
+export function addEnvironmentVariableToContextResponseBodyToJSON(
+  addEnvironmentVariableToContextResponseBody:
+    AddEnvironmentVariableToContextResponseBody,
+): string {
+  return JSON.stringify(
+    AddEnvironmentVariableToContextResponseBody$outboundSchema.parse(
+      addEnvironmentVariableToContextResponseBody,
+    ),
+  );
+}
+
+export function addEnvironmentVariableToContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AddEnvironmentVariableToContextResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AddEnvironmentVariableToContextResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AddEnvironmentVariableToContextResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -394,4 +536,31 @@ export namespace AddEnvironmentVariableToContextResponse$ {
     AddEnvironmentVariableToContextResponse$outboundSchema;
   /** @deprecated use `AddEnvironmentVariableToContextResponse$Outbound` instead. */
   export type Outbound = AddEnvironmentVariableToContextResponse$Outbound;
+}
+
+export function addEnvironmentVariableToContextResponseToJSON(
+  addEnvironmentVariableToContextResponse:
+    AddEnvironmentVariableToContextResponse,
+): string {
+  return JSON.stringify(
+    AddEnvironmentVariableToContextResponse$outboundSchema.parse(
+      addEnvironmentVariableToContextResponse,
+    ),
+  );
+}
+
+export function addEnvironmentVariableToContextResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AddEnvironmentVariableToContextResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AddEnvironmentVariableToContextResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AddEnvironmentVariableToContextResponse' from JSON`,
+  );
 }

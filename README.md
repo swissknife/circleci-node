@@ -89,24 +89,11 @@ run();
 
 ### [insights](docs/sdks/insights/README.md)
 
-* [getAllInsightsBranches](docs/sdks/insights/README.md#getallinsightsbranches) - Get all branches for a project
-* [getFlakyTests](docs/sdks/insights/README.md#getflakytests) - Get flaky tests for a project
-* [getJobTimeseries](docs/sdks/insights/README.md#getjobtimeseries) - Job timeseries data
 * [getOrgSummaryData](docs/sdks/insights/README.md#getorgsummarydata) - Get summary metrics with trends for the entire org, and for each project.
-* [getProjectWorkflowJobMetrics](docs/sdks/insights/README.md#getprojectworkflowjobmetrics) - Get summary metrics for a project workflow's jobs.
-* [getProjectWorkflowMetrics](docs/sdks/insights/README.md#getprojectworkflowmetrics) - Get summary metrics for a project's workflows
-* [getProjectWorkflowRuns](docs/sdks/insights/README.md#getprojectworkflowruns) - Get recent runs of a workflow
-* [getProjectWorkflowTestMetrics](docs/sdks/insights/README.md#getprojectworkflowtestmetrics) - Get test metrics for a project's workflows
-* [getProjectWorkflowsPageData](docs/sdks/insights/README.md#getprojectworkflowspagedata) - Get summary metrics and trends for a project across it's workflows and branches
-* [getWorkflowSummary](docs/sdks/insights/README.md#getworkflowsummary) - Get metrics and trends for workflows
 
 ### [job](docs/sdks/job/README.md)
 
 * [cancelJobByJobID](docs/sdks/job/README.md#canceljobbyjobid) - Cancel job by job ID
-* [cancelJobByJobNumber](docs/sdks/job/README.md#canceljobbyjobnumber) - Cancel job by job number
-* [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
-* [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
-* [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
 
 ### [oidcTokenManagement](docs/sdks/oidctokenmanagement/README.md)
 
@@ -121,14 +108,10 @@ run();
 
 * [continuePipeline](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
 * [getPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
-* [getPipelineByNumber](docs/sdks/pipeline/README.md#getpipelinebynumber) - Get a pipeline by pipeline number
 * [getPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
 * [getPipelineValuesById](docs/sdks/pipeline/README.md#getpipelinevaluesbyid) - Get pipeline values for a pipeline
-* [listMyPipelines](docs/sdks/pipeline/README.md#listmypipelines) - Get your pipelines
 * [listPipelines](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
-* [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 * [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
-* [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
 * [triggerPipelineRun](docs/sdks/pipeline/README.md#triggerpipelinerun) - [Recommended] Trigger a new pipeline
 
 ### [policyManagement](docs/sdks/policymanagement/README.md)
@@ -145,25 +128,14 @@ run();
 
 ### [project](docs/sdks/project/README.md)
 
-* [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
-* [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
 * [createProject](docs/sdks/project/README.md#createproject) - 🧪 Create a project
-* [deleteCheckoutKey](docs/sdks/project/README.md#deletecheckoutkey) - Delete a checkout key
-* [deleteEnvVar](docs/sdks/project/README.md#deleteenvvar) - Delete an environment variable
-* [getCheckoutKey](docs/sdks/project/README.md#getcheckoutkey) - Get a checkout key
-* [getEnvVar](docs/sdks/project/README.md#getenvvar) - Get a masked environment variable
-* [getProjectBySlug](docs/sdks/project/README.md#getprojectbyslug) - Get a project
 * [getProjectSettings](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
-* [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
-* [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
 * [patchProjectSettings](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
 
 ### [schedule](docs/sdks/schedule/README.md)
 
-* [createSchedule](docs/sdks/schedule/README.md#createschedule) - Create a schedule
 * [deleteScheduleById](docs/sdks/schedule/README.md#deleteschedulebyid) - Delete a schedule
 * [getScheduleById](docs/sdks/schedule/README.md#getschedulebyid) - Get a schedule
-* [listSchedulesForProject](docs/sdks/schedule/README.md#listschedulesforproject) - Get all schedules
 * [updateSchedule](docs/sdks/schedule/README.md#updateschedule) - Update a schedule
 
 ### [usage](docs/sdks/usage/README.md)
@@ -528,21 +500,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`contextGetContextRestrictions`](docs/sdks/context/README.md#getcontextrestrictions) - 🧪 Get context restrictions
 - [`contextListContexts`](docs/sdks/context/README.md#listcontexts) - List contexts
 - [`contextListEnvironmentVariablesFromContext`](docs/sdks/context/README.md#listenvironmentvariablesfromcontext) - List environment variables
-- [`insightsGetAllInsightsBranches`](docs/sdks/insights/README.md#getallinsightsbranches) - Get all branches for a project
-- [`insightsGetFlakyTests`](docs/sdks/insights/README.md#getflakytests) - Get flaky tests for a project
-- [`insightsGetJobTimeseries`](docs/sdks/insights/README.md#getjobtimeseries) - Job timeseries data
 - [`insightsGetOrgSummaryData`](docs/sdks/insights/README.md#getorgsummarydata) - Get summary metrics with trends for the entire org, and for each project.
-- [`insightsGetProjectWorkflowJobMetrics`](docs/sdks/insights/README.md#getprojectworkflowjobmetrics) - Get summary metrics for a project workflow's jobs.
-- [`insightsGetProjectWorkflowMetrics`](docs/sdks/insights/README.md#getprojectworkflowmetrics) - Get summary metrics for a project's workflows
-- [`insightsGetProjectWorkflowRuns`](docs/sdks/insights/README.md#getprojectworkflowruns) - Get recent runs of a workflow
-- [`insightsGetProjectWorkflowsPageData`](docs/sdks/insights/README.md#getprojectworkflowspagedata) - Get summary metrics and trends for a project across it's workflows and branches
-- [`insightsGetProjectWorkflowTestMetrics`](docs/sdks/insights/README.md#getprojectworkflowtestmetrics) - Get test metrics for a project's workflows
-- [`insightsGetWorkflowSummary`](docs/sdks/insights/README.md#getworkflowsummary) - Get metrics and trends for workflows
 - [`jobCancelJobByJobID`](docs/sdks/job/README.md#canceljobbyjobid) - Cancel job by job ID
-- [`jobCancelJobByJobNumber`](docs/sdks/job/README.md#canceljobbyjobnumber) - Cancel job by job number
-- [`jobGetJobArtifacts`](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
-- [`jobGetJobDetails`](docs/sdks/job/README.md#getjobdetails) - Get job details
-- [`jobGetTests`](docs/sdks/job/README.md#gettests) - Get test metadata
 - [`oidcTokenManagementDeleteOrgClaims`](docs/sdks/oidctokenmanagement/README.md#deleteorgclaims) - Delete org-level claims
 - [`oidcTokenManagementDeleteProjectClaims`](docs/sdks/oidctokenmanagement/README.md#deleteprojectclaims) - Delete project-level claims
 - [`oidcTokenManagementGetOrgClaims`](docs/sdks/oidctokenmanagement/README.md#getorgclaims) - Get org-level claims
@@ -551,14 +510,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`oidcTokenManagementPatchProjectClaims`](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
 - [`pipelineContinuePipeline`](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
 - [`pipelineGetPipelineById`](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
-- [`pipelineGetPipelineByNumber`](docs/sdks/pipeline/README.md#getpipelinebynumber) - Get a pipeline by pipeline number
 - [`pipelineGetPipelineConfigById`](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
 - [`pipelineGetPipelineValuesById`](docs/sdks/pipeline/README.md#getpipelinevaluesbyid) - Get pipeline values for a pipeline
-- [`pipelineListMyPipelines`](docs/sdks/pipeline/README.md#listmypipelines) - Get your pipelines
 - [`pipelineListPipelines`](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
-- [`pipelineListPipelinesForProject`](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
 - [`pipelineListWorkflowsByPipelineId`](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
-- [`pipelineTriggerPipeline`](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
 - [`pipelineTriggerPipelineRun`](docs/sdks/pipeline/README.md#triggerpipelinerun) - [Recommended] Trigger a new pipeline
 - [`policyManagementCreatePolicyBundle`](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
 - [`policyManagementGetDecisionLog`](docs/sdks/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
@@ -569,22 +524,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`policyManagementGetPolicyDocument`](docs/sdks/policymanagement/README.md#getpolicydocument) - Retrieves a policy document
 - [`policyManagementMakeDecision`](docs/sdks/policymanagement/README.md#makedecision) - Makes a decision
 - [`policyManagementSetDecisionSettings`](docs/sdks/policymanagement/README.md#setdecisionsettings) - Set the decision settings
-- [`projectCreateCheckoutKey`](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
-- [`projectCreateEnvVar`](docs/sdks/project/README.md#createenvvar) - Create an environment variable
 - [`projectCreateProject`](docs/sdks/project/README.md#createproject) - 🧪 Create a project
-- [`projectDeleteCheckoutKey`](docs/sdks/project/README.md#deletecheckoutkey) - Delete a checkout key
-- [`projectDeleteEnvVar`](docs/sdks/project/README.md#deleteenvvar) - Delete an environment variable
-- [`projectGetCheckoutKey`](docs/sdks/project/README.md#getcheckoutkey) - Get a checkout key
-- [`projectGetEnvVar`](docs/sdks/project/README.md#getenvvar) - Get a masked environment variable
-- [`projectGetProjectBySlug`](docs/sdks/project/README.md#getprojectbyslug) - Get a project
 - [`projectGetProjectSettings`](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
-- [`projectListCheckoutKeys`](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
-- [`projectListEnvVars`](docs/sdks/project/README.md#listenvvars) - List all environment variables
 - [`projectPatchProjectSettings`](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
-- [`scheduleCreateSchedule`](docs/sdks/schedule/README.md#createschedule) - Create a schedule
 - [`scheduleDeleteScheduleById`](docs/sdks/schedule/README.md#deleteschedulebyid) - Delete a schedule
 - [`scheduleGetScheduleById`](docs/sdks/schedule/README.md#getschedulebyid) - Get a schedule
-- [`scheduleListSchedulesForProject`](docs/sdks/schedule/README.md#listschedulesforproject) - Get all schedules
 - [`scheduleUpdateSchedule`](docs/sdks/schedule/README.md#updateschedule) - Update a schedule
 - [`usageCreateUsageExport`](docs/sdks/usage/README.md#createusageexport) - Create a usage export
 - [`usageGetUsageExport`](docs/sdks/usage/README.md#getusageexport) - Get a usage export

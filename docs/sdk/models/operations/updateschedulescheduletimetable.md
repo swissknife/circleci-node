@@ -13,9 +13,9 @@ const value: operations.UpdateSchedule1 = {
     "MON",
   ],
   hoursOfDay: [
-    700872,
+    714054,
   ],
-  perHour: 499270,
+  perHour: 516556,
 };
 ```
 
@@ -24,12 +24,12 @@ const value: operations.UpdateSchedule1 = {
 ```typescript
 const value: operations.UpdateSchedule2 = {
   daysOfMonth: [
-    831559,
+    133076,
   ],
   hoursOfDay: [
-    377392,
+    773455,
   ],
-  perHour: 28088,
+  perHour: 406272,
 };
 ```
 

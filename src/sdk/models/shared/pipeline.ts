@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export const PipelineState = {
   Created: "created",
@@ -95,4 +98,18 @@ export namespace Pipeline$ {
   export const outboundSchema = Pipeline$outboundSchema;
   /** @deprecated use `Pipeline$Outbound` instead. */
   export type Outbound = Pipeline$Outbound;
+}
+
+export function pipelineToJSON(pipeline: Pipeline): string {
+  return JSON.stringify(Pipeline$outboundSchema.parse(pipeline));
+}
+
+export function pipelineFromJSON(
+  jsonString: string,
+): SafeParseResult<Pipeline, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Pipeline$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Pipeline' from JSON`,
+  );
 }

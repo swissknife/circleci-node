@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetContextRequest = {
   /**
@@ -83,6 +86,24 @@ export namespace GetContextRequest$ {
   export type Outbound = GetContextRequest$Outbound;
 }
 
+export function getContextRequestToJSON(
+  getContextRequest: GetContextRequest,
+): string {
+  return JSON.stringify(
+    GetContextRequest$outboundSchema.parse(getContextRequest),
+  );
+}
+
+export function getContextRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetContextRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetContextRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetContextRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetContextResponseBody$inboundSchema: z.ZodType<
   GetContextResponseBody,
@@ -117,6 +138,24 @@ export namespace GetContextResponseBody$ {
   export const outboundSchema = GetContextResponseBody$outboundSchema;
   /** @deprecated use `GetContextResponseBody$Outbound` instead. */
   export type Outbound = GetContextResponseBody$Outbound;
+}
+
+export function getContextResponseBodyToJSON(
+  getContextResponseBody: GetContextResponseBody,
+): string {
+  return JSON.stringify(
+    GetContextResponseBody$outboundSchema.parse(getContextResponseBody),
+  );
+}
+
+export function getContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetContextResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetContextResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetContextResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -169,6 +208,24 @@ export namespace GetContextContext$ {
   export type Outbound = GetContextContext$Outbound;
 }
 
+export function getContextContextToJSON(
+  getContextContext: GetContextContext,
+): string {
+  return JSON.stringify(
+    GetContextContext$outboundSchema.parse(getContextContext),
+  );
+}
+
+export function getContextContextFromJSON(
+  jsonString: string,
+): SafeParseResult<GetContextContext, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetContextContext$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetContextContext' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetContextResponse$inboundSchema: z.ZodType<
   GetContextResponse,
@@ -205,4 +262,22 @@ export namespace GetContextResponse$ {
   export const outboundSchema = GetContextResponse$outboundSchema;
   /** @deprecated use `GetContextResponse$Outbound` instead. */
   export type Outbound = GetContextResponse$Outbound;
+}
+
+export function getContextResponseToJSON(
+  getContextResponse: GetContextResponse,
+): string {
+  return JSON.stringify(
+    GetContextResponse$outboundSchema.parse(getContextResponse),
+  );
+}
+
+export function getContextResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetContextResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetContextResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetContextResponse' from JSON`,
+  );
 }

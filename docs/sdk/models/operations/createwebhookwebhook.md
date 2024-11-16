@@ -10,17 +10,17 @@ import { CreateWebhookWebhook } from "circleci-v2-sdk/sdk/models/operations";
 let value: CreateWebhookWebhook = {
   createdAt: new Date("2015-09-21T17:29:21.042Z"),
   events: [
-    "workflow-completed",
+    "job-completed",
   ],
-  id: "560d7fe8-a542-4817-95c6-e3e9184ba16e",
+  id: "d0c7ac82-61bf-4c69-a484-b4fa10f353ea",
   name: "<value>",
   scope: {
-    id: "b1d8f8cf-b950-466d-83b0-ea64296be4a6",
+    id: "85963a5c-68c7-4fcd-af69-baf44ec39b56",
     type: "<value>",
   },
   signingSecret: "<value>",
   updatedAt: new Date("2015-09-21T17:29:21.042Z"),
-  url: "https://heavy-adult.info",
+  url: "https://slight-accompanist.info/",
   verifyTls: false,
 };
 ```

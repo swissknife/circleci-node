@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetWorkflowByIdRequest = {
   /**
@@ -23,7 +26,7 @@ export type GetWorkflowByIdResponseBody = {
 /**
  * The current status of the workflow.
  */
-export const GetWorkflowByIdStatus = {
+export const Status = {
   Success: "success",
   Running: "running",
   NotRun: "not_run",
@@ -37,7 +40,7 @@ export const GetWorkflowByIdStatus = {
 /**
  * The current status of the workflow.
  */
-export type GetWorkflowByIdStatus = ClosedEnum<typeof GetWorkflowByIdStatus>;
+export type Status = ClosedEnum<typeof Status>;
 
 /**
  * Tag used for the workflow
@@ -84,7 +87,7 @@ export type GetWorkflowByIdWorkflow = {
   /**
    * The current status of the workflow.
    */
-  status: GetWorkflowByIdStatus;
+  status: Status;
   /**
    * The date and time the workflow stopped.
    */
@@ -135,6 +138,24 @@ export namespace GetWorkflowByIdRequest$ {
   export type Outbound = GetWorkflowByIdRequest$Outbound;
 }
 
+export function getWorkflowByIdRequestToJSON(
+  getWorkflowByIdRequest: GetWorkflowByIdRequest,
+): string {
+  return JSON.stringify(
+    GetWorkflowByIdRequest$outboundSchema.parse(getWorkflowByIdRequest),
+  );
+}
+
+export function getWorkflowByIdRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWorkflowByIdRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWorkflowByIdRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWorkflowByIdRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetWorkflowByIdResponseBody$inboundSchema: z.ZodType<
   GetWorkflowByIdResponseBody,
@@ -171,25 +192,43 @@ export namespace GetWorkflowByIdResponseBody$ {
   export type Outbound = GetWorkflowByIdResponseBody$Outbound;
 }
 
-/** @internal */
-export const GetWorkflowByIdStatus$inboundSchema: z.ZodNativeEnum<
-  typeof GetWorkflowByIdStatus
-> = z.nativeEnum(GetWorkflowByIdStatus);
+export function getWorkflowByIdResponseBodyToJSON(
+  getWorkflowByIdResponseBody: GetWorkflowByIdResponseBody,
+): string {
+  return JSON.stringify(
+    GetWorkflowByIdResponseBody$outboundSchema.parse(
+      getWorkflowByIdResponseBody,
+    ),
+  );
+}
+
+export function getWorkflowByIdResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWorkflowByIdResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWorkflowByIdResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWorkflowByIdResponseBody' from JSON`,
+  );
+}
 
 /** @internal */
-export const GetWorkflowByIdStatus$outboundSchema: z.ZodNativeEnum<
-  typeof GetWorkflowByIdStatus
-> = GetWorkflowByIdStatus$inboundSchema;
+export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
+  .nativeEnum(Status);
+
+/** @internal */
+export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
+  Status$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace GetWorkflowByIdStatus$ {
-  /** @deprecated use `GetWorkflowByIdStatus$inboundSchema` instead. */
-  export const inboundSchema = GetWorkflowByIdStatus$inboundSchema;
-  /** @deprecated use `GetWorkflowByIdStatus$outboundSchema` instead. */
-  export const outboundSchema = GetWorkflowByIdStatus$outboundSchema;
+export namespace Status$ {
+  /** @deprecated use `Status$inboundSchema` instead. */
+  export const inboundSchema = Status$inboundSchema;
+  /** @deprecated use `Status$outboundSchema` instead. */
+  export const outboundSchema = Status$outboundSchema;
 }
 
 /** @internal */
@@ -225,7 +264,7 @@ export const GetWorkflowByIdWorkflow$inboundSchema: z.ZodType<
   pipeline_number: z.number().int(),
   project_slug: z.string(),
   started_by: z.string(),
-  status: GetWorkflowByIdStatus$inboundSchema,
+  status: Status$inboundSchema,
   stopped_at: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   tag: Tag$inboundSchema.optional(),
 }).transform((v) => {
@@ -272,7 +311,7 @@ export const GetWorkflowByIdWorkflow$outboundSchema: z.ZodType<
   pipelineNumber: z.number().int(),
   projectSlug: z.string(),
   startedBy: z.string(),
-  status: GetWorkflowByIdStatus$outboundSchema,
+  status: Status$outboundSchema,
   stoppedAt: z.date().transform(v => v.toISOString()),
   tag: Tag$outboundSchema.optional(),
 }).transform((v) => {
@@ -299,6 +338,24 @@ export namespace GetWorkflowByIdWorkflow$ {
   export const outboundSchema = GetWorkflowByIdWorkflow$outboundSchema;
   /** @deprecated use `GetWorkflowByIdWorkflow$Outbound` instead. */
   export type Outbound = GetWorkflowByIdWorkflow$Outbound;
+}
+
+export function getWorkflowByIdWorkflowToJSON(
+  getWorkflowByIdWorkflow: GetWorkflowByIdWorkflow,
+): string {
+  return JSON.stringify(
+    GetWorkflowByIdWorkflow$outboundSchema.parse(getWorkflowByIdWorkflow),
+  );
+}
+
+export function getWorkflowByIdWorkflowFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWorkflowByIdWorkflow, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWorkflowByIdWorkflow$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWorkflowByIdWorkflow' from JSON`,
+  );
 }
 
 /** @internal */
@@ -337,4 +394,22 @@ export namespace GetWorkflowByIdResponse$ {
   export const outboundSchema = GetWorkflowByIdResponse$outboundSchema;
   /** @deprecated use `GetWorkflowByIdResponse$Outbound` instead. */
   export type Outbound = GetWorkflowByIdResponse$Outbound;
+}
+
+export function getWorkflowByIdResponseToJSON(
+  getWorkflowByIdResponse: GetWorkflowByIdResponse,
+): string {
+  return JSON.stringify(
+    GetWorkflowByIdResponse$outboundSchema.parse(getWorkflowByIdResponse),
+  );
+}
+
+export function getWorkflowByIdResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetWorkflowByIdResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetWorkflowByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetWorkflowByIdResponse' from JSON`,
+  );
 }

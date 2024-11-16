@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetPolicyDocumentRequest = {
@@ -79,6 +82,24 @@ export namespace GetPolicyDocumentRequest$ {
   export type Outbound = GetPolicyDocumentRequest$Outbound;
 }
 
+export function getPolicyDocumentRequestToJSON(
+  getPolicyDocumentRequest: GetPolicyDocumentRequest,
+): string {
+  return JSON.stringify(
+    GetPolicyDocumentRequest$outboundSchema.parse(getPolicyDocumentRequest),
+  );
+}
+
+export function getPolicyDocumentRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPolicyDocumentRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPolicyDocumentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyDocumentRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetPolicyDocumentPolicyManagementResponse404ResponseBody$inboundSchema:
   z.ZodType<
@@ -121,6 +142,31 @@ export namespace GetPolicyDocumentPolicyManagementResponse404ResponseBody$ {
     GetPolicyDocumentPolicyManagementResponse404ResponseBody$Outbound;
 }
 
+export function getPolicyDocumentPolicyManagementResponse404ResponseBodyToJSON(
+  getPolicyDocumentPolicyManagementResponse404ResponseBody:
+    GetPolicyDocumentPolicyManagementResponse404ResponseBody,
+): string {
+  return JSON.stringify(
+    GetPolicyDocumentPolicyManagementResponse404ResponseBody$outboundSchema
+      .parse(getPolicyDocumentPolicyManagementResponse404ResponseBody),
+  );
+}
+
+export function getPolicyDocumentPolicyManagementResponse404ResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetPolicyDocumentPolicyManagementResponse404ResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetPolicyDocumentPolicyManagementResponse404ResponseBody$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyDocumentPolicyManagementResponse404ResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetPolicyDocumentResponseBody$inboundSchema: z.ZodType<
   GetPolicyDocumentResponseBody,
@@ -155,6 +201,26 @@ export namespace GetPolicyDocumentResponseBody$ {
   export const outboundSchema = GetPolicyDocumentResponseBody$outboundSchema;
   /** @deprecated use `GetPolicyDocumentResponseBody$Outbound` instead. */
   export type Outbound = GetPolicyDocumentResponseBody$Outbound;
+}
+
+export function getPolicyDocumentResponseBodyToJSON(
+  getPolicyDocumentResponseBody: GetPolicyDocumentResponseBody,
+): string {
+  return JSON.stringify(
+    GetPolicyDocumentResponseBody$outboundSchema.parse(
+      getPolicyDocumentResponseBody,
+    ),
+  );
+}
+
+export function getPolicyDocumentResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPolicyDocumentResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPolicyDocumentResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyDocumentResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -200,4 +266,22 @@ export namespace GetPolicyDocumentResponse$ {
   export const outboundSchema = GetPolicyDocumentResponse$outboundSchema;
   /** @deprecated use `GetPolicyDocumentResponse$Outbound` instead. */
   export type Outbound = GetPolicyDocumentResponse$Outbound;
+}
+
+export function getPolicyDocumentResponseToJSON(
+  getPolicyDocumentResponse: GetPolicyDocumentResponse,
+): string {
+  return JSON.stringify(
+    GetPolicyDocumentResponse$outboundSchema.parse(getPolicyDocumentResponse),
+  );
+}
+
+export function getPolicyDocumentResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPolicyDocumentResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPolicyDocumentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyDocumentResponse' from JSON`,
+  );
 }

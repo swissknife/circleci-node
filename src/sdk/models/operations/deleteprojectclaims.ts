@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type DeleteProjectClaimsRequest = {
@@ -69,6 +72,24 @@ export namespace DeleteProjectClaimsRequest$ {
   export type Outbound = DeleteProjectClaimsRequest$Outbound;
 }
 
+export function deleteProjectClaimsRequestToJSON(
+  deleteProjectClaimsRequest: DeleteProjectClaimsRequest,
+): string {
+  return JSON.stringify(
+    DeleteProjectClaimsRequest$outboundSchema.parse(deleteProjectClaimsRequest),
+  );
+}
+
+export function deleteProjectClaimsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteProjectClaimsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteProjectClaimsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteProjectClaimsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteProjectClaimsResponseBody$inboundSchema: z.ZodType<
   DeleteProjectClaimsResponseBody,
@@ -103,6 +124,26 @@ export namespace DeleteProjectClaimsResponseBody$ {
   export const outboundSchema = DeleteProjectClaimsResponseBody$outboundSchema;
   /** @deprecated use `DeleteProjectClaimsResponseBody$Outbound` instead. */
   export type Outbound = DeleteProjectClaimsResponseBody$Outbound;
+}
+
+export function deleteProjectClaimsResponseBodyToJSON(
+  deleteProjectClaimsResponseBody: DeleteProjectClaimsResponseBody,
+): string {
+  return JSON.stringify(
+    DeleteProjectClaimsResponseBody$outboundSchema.parse(
+      deleteProjectClaimsResponseBody,
+    ),
+  );
+}
+
+export function deleteProjectClaimsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteProjectClaimsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteProjectClaimsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteProjectClaimsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -141,4 +182,24 @@ export namespace DeleteProjectClaimsResponse$ {
   export const outboundSchema = DeleteProjectClaimsResponse$outboundSchema;
   /** @deprecated use `DeleteProjectClaimsResponse$Outbound` instead. */
   export type Outbound = DeleteProjectClaimsResponse$Outbound;
+}
+
+export function deleteProjectClaimsResponseToJSON(
+  deleteProjectClaimsResponse: DeleteProjectClaimsResponse,
+): string {
+  return JSON.stringify(
+    DeleteProjectClaimsResponse$outboundSchema.parse(
+      deleteProjectClaimsResponse,
+    ),
+  );
+}
+
+export function deleteProjectClaimsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteProjectClaimsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteProjectClaimsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteProjectClaimsResponse' from JSON`,
+  );
 }

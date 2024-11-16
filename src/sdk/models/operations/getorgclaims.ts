@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetOrgClaimsRequest = {
@@ -58,6 +61,24 @@ export namespace GetOrgClaimsRequest$ {
   export type Outbound = GetOrgClaimsRequest$Outbound;
 }
 
+export function getOrgClaimsRequestToJSON(
+  getOrgClaimsRequest: GetOrgClaimsRequest,
+): string {
+  return JSON.stringify(
+    GetOrgClaimsRequest$outboundSchema.parse(getOrgClaimsRequest),
+  );
+}
+
+export function getOrgClaimsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgClaimsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgClaimsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgClaimsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetOrgClaimsResponseBody$inboundSchema: z.ZodType<
   GetOrgClaimsResponseBody,
@@ -92,6 +113,24 @@ export namespace GetOrgClaimsResponseBody$ {
   export const outboundSchema = GetOrgClaimsResponseBody$outboundSchema;
   /** @deprecated use `GetOrgClaimsResponseBody$Outbound` instead. */
   export type Outbound = GetOrgClaimsResponseBody$Outbound;
+}
+
+export function getOrgClaimsResponseBodyToJSON(
+  getOrgClaimsResponseBody: GetOrgClaimsResponseBody,
+): string {
+  return JSON.stringify(
+    GetOrgClaimsResponseBody$outboundSchema.parse(getOrgClaimsResponseBody),
+  );
+}
+
+export function getOrgClaimsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgClaimsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgClaimsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgClaimsResponseBody' from JSON`,
+  );
 }
 
 /** @internal */
@@ -130,4 +169,22 @@ export namespace GetOrgClaimsResponse$ {
   export const outboundSchema = GetOrgClaimsResponse$outboundSchema;
   /** @deprecated use `GetOrgClaimsResponse$Outbound` instead. */
   export type Outbound = GetOrgClaimsResponse$Outbound;
+}
+
+export function getOrgClaimsResponseToJSON(
+  getOrgClaimsResponse: GetOrgClaimsResponse,
+): string {
+  return JSON.stringify(
+    GetOrgClaimsResponse$outboundSchema.parse(getOrgClaimsResponse),
+  );
+}
+
+export function getOrgClaimsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<GetOrgClaimsResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetOrgClaimsResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetOrgClaimsResponse' from JSON`,
+  );
 }

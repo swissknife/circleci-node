@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BundlePayload = {
   policies?: { [k: string]: string } | undefined;
@@ -42,4 +45,18 @@ export namespace BundlePayload$ {
   export const outboundSchema = BundlePayload$outboundSchema;
   /** @deprecated use `BundlePayload$Outbound` instead. */
   export type Outbound = BundlePayload$Outbound;
+}
+
+export function bundlePayloadToJSON(bundlePayload: BundlePayload): string {
+  return JSON.stringify(BundlePayload$outboundSchema.parse(bundlePayload));
+}
+
+export function bundlePayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<BundlePayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BundlePayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BundlePayload' from JSON`,
+  );
 }

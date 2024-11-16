@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteEnvironmentVariableFromContextRequest = {
   /**
@@ -90,6 +93,33 @@ export namespace DeleteEnvironmentVariableFromContextRequest$ {
   export type Outbound = DeleteEnvironmentVariableFromContextRequest$Outbound;
 }
 
+export function deleteEnvironmentVariableFromContextRequestToJSON(
+  deleteEnvironmentVariableFromContextRequest:
+    DeleteEnvironmentVariableFromContextRequest,
+): string {
+  return JSON.stringify(
+    DeleteEnvironmentVariableFromContextRequest$outboundSchema.parse(
+      deleteEnvironmentVariableFromContextRequest,
+    ),
+  );
+}
+
+export function deleteEnvironmentVariableFromContextRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DeleteEnvironmentVariableFromContextRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DeleteEnvironmentVariableFromContextRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DeleteEnvironmentVariableFromContextRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteEnvironmentVariableFromContextResponseBody$inboundSchema:
   z.ZodType<
@@ -131,6 +161,33 @@ export namespace DeleteEnvironmentVariableFromContextResponseBody$ {
     DeleteEnvironmentVariableFromContextResponseBody$Outbound;
 }
 
+export function deleteEnvironmentVariableFromContextResponseBodyToJSON(
+  deleteEnvironmentVariableFromContextResponseBody:
+    DeleteEnvironmentVariableFromContextResponseBody,
+): string {
+  return JSON.stringify(
+    DeleteEnvironmentVariableFromContextResponseBody$outboundSchema.parse(
+      deleteEnvironmentVariableFromContextResponseBody,
+    ),
+  );
+}
+
+export function deleteEnvironmentVariableFromContextResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DeleteEnvironmentVariableFromContextResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DeleteEnvironmentVariableFromContextResponseBody$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DeleteEnvironmentVariableFromContextResponseBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const DeleteEnvironmentVariableFromContextMessageResponse$inboundSchema:
   z.ZodType<
@@ -170,6 +227,33 @@ export namespace DeleteEnvironmentVariableFromContextMessageResponse$ {
   /** @deprecated use `DeleteEnvironmentVariableFromContextMessageResponse$Outbound` instead. */
   export type Outbound =
     DeleteEnvironmentVariableFromContextMessageResponse$Outbound;
+}
+
+export function deleteEnvironmentVariableFromContextMessageResponseToJSON(
+  deleteEnvironmentVariableFromContextMessageResponse:
+    DeleteEnvironmentVariableFromContextMessageResponse,
+): string {
+  return JSON.stringify(
+    DeleteEnvironmentVariableFromContextMessageResponse$outboundSchema.parse(
+      deleteEnvironmentVariableFromContextMessageResponse,
+    ),
+  );
+}
+
+export function deleteEnvironmentVariableFromContextMessageResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DeleteEnvironmentVariableFromContextMessageResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DeleteEnvironmentVariableFromContextMessageResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DeleteEnvironmentVariableFromContextMessageResponse' from JSON`,
+  );
 }
 
 /** @internal */
@@ -220,4 +304,31 @@ export namespace DeleteEnvironmentVariableFromContextResponse$ {
     DeleteEnvironmentVariableFromContextResponse$outboundSchema;
   /** @deprecated use `DeleteEnvironmentVariableFromContextResponse$Outbound` instead. */
   export type Outbound = DeleteEnvironmentVariableFromContextResponse$Outbound;
+}
+
+export function deleteEnvironmentVariableFromContextResponseToJSON(
+  deleteEnvironmentVariableFromContextResponse:
+    DeleteEnvironmentVariableFromContextResponse,
+): string {
+  return JSON.stringify(
+    DeleteEnvironmentVariableFromContextResponse$outboundSchema.parse(
+      deleteEnvironmentVariableFromContextResponse,
+    ),
+  );
+}
+
+export function deleteEnvironmentVariableFromContextResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  DeleteEnvironmentVariableFromContextResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DeleteEnvironmentVariableFromContextResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'DeleteEnvironmentVariableFromContextResponse' from JSON`,
+  );
 }

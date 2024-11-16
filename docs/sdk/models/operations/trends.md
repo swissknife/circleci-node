@@ -1,6 +1,6 @@
 # Trends
 
-Trends for aggregated metrics across a workflow for a given time window.
+Trends for a single org.
 
 ## Example Usage
 
@@ -8,26 +8,20 @@ Trends for aggregated metrics across a workflow for a given time window.
 import { Trends } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Trends = {
-  failedRuns: 9878.89,
-  medianDurationSecs: 6033.23,
-  mttr: 1280.21,
-  p95DurationSecs: 5831.93,
-  successRate: 20.65,
-  throughput: 1989.11,
-  totalCreditsUsed: 9561.23,
-  totalRuns: 3304.41,
+  successRate: 4706.49,
+  throughput: 3782.45,
+  totalCreditsUsed: 9795.27,
+  totalDurationSecs: 1746.58,
+  totalRuns: 3279.88,
 };
 ```
 
 ## Fields
 
-| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `failedRuns`                                                                         | *number*                                                                             | :heavy_check_mark:                                                                   | The trend value for number of failed runs.                                           |
-| `medianDurationSecs`                                                                 | *number*                                                                             | :heavy_check_mark:                                                                   | Trend value for the 50th percentile duration for a workflow for a given time window. |
-| `mttr`                                                                               | *number*                                                                             | :heavy_check_mark:                                                                   | trend for mean time to recovery (mean time between failures and their next success). |
-| `p95DurationSecs`                                                                    | *number*                                                                             | :heavy_check_mark:                                                                   | Trend value for the 95th percentile duration for a workflow for a given time window. |
-| `successRate`                                                                        | *number*                                                                             | :heavy_check_mark:                                                                   | The trend value for the success rate.                                                |
-| `throughput`                                                                         | *number*                                                                             | :heavy_check_mark:                                                                   | Trend value for the average number of runs per day.                                  |
-| `totalCreditsUsed`                                                                   | *number*                                                                             | :heavy_check_mark:                                                                   | The trend value for total credits consumed.                                          |
-| `totalRuns`                                                                          | *number*                                                                             | :heavy_check_mark:                                                                   | The trend value for total number of runs.                                            |
+| Field                                               | Type                                                | Required                                            | Description                                         |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| `successRate`                                       | *number*                                            | :heavy_check_mark:                                  | The trend value for the success rate.               |
+| `throughput`                                        | *number*                                            | :heavy_check_mark:                                  | Trend value for the average number of runs per day. |
+| `totalCreditsUsed`                                  | *number*                                            | :heavy_check_mark:                                  | The trend value for total credits consumed.         |
+| `totalDurationSecs`                                 | *number*                                            | :heavy_check_mark:                                  | Trend value for total duration.                     |
+| `totalRuns`                                         | *number*                                            | :heavy_check_mark:                                  | The trend value for total number of runs.           |

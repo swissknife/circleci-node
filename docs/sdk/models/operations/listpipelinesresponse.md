@@ -9,24 +9,24 @@
 const value: operations.ListPipelinesPipelineListResponse = {
   items: [
     {
-      createdAt: new Date("2022-01-19T16:14:20.571Z"),
+      createdAt: new Date("2024-12-21T18:06:07.641Z"),
       errors: [
         {
           message: "<value>",
-          type: "permission",
+          type: "config-fetch",
         },
       ],
       id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
       number: 25,
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      state: "setup-pending",
+      state: "setup",
       trigger: {
         actor: {
-          avatarUrl: "https://insignificant-marksman.net",
-          login: "Spencer4",
+          avatarUrl: "https://putrid-solution.net/",
+          login: "Haylie88",
         },
-        receivedAt: new Date("2023-02-18T15:55:24.931Z"),
-        type: "api",
+        receivedAt: new Date("2022-02-28T16:02:35.267Z"),
+        type: "scheduled_pipeline",
       },
       vcs: {
         branch: "feature/design-new-api",
