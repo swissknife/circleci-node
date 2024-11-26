@@ -7,12 +7,10 @@ import { PipelineRequest } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: PipelineRequest = {
   checkout: {
-    branch: "main",
     tag: "v2",
   },
   config: {
     branch: "main",
-    tag: "v2",
   },
   definitionId: "2338d0ae-5541-4bbf-88a2-55e9f7281f80",
   parameters: {

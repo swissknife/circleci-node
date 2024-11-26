@@ -7,7 +7,6 @@ import { Config } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: Config = {
   branch: "main",
-  tag: "v2",
 };
 ```
 

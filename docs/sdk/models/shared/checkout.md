@@ -6,7 +6,6 @@
 import { Checkout } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: Checkout = {
-  branch: "main",
   tag: "v2",
 };
 ```
