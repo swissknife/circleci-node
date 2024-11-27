@@ -23,6 +23,13 @@ export type ListWorkflowJobsResponseBody = {
   message?: string | undefined;
 };
 
+export const Requires = {
+  Success: "success",
+  Failed: "failed",
+  Canceled: "canceled",
+} as const;
+export type Requires = ClosedEnum<typeof Requires>;
+
 /**
  * The current status of the job.
  */
@@ -95,6 +102,10 @@ export type Job = {
    * The project-slug for the job.
    */
   projectSlug: string;
+  /**
+   * A sequence of the unique jobs and required statuses that this job depends upon in the workflow.
+   */
+  requires?: { [k: string]: Array<Requires> } | undefined;
   /**
    * The date and time the job started.
    */
@@ -239,6 +250,25 @@ export function listWorkflowJobsResponseBodyFromJSON(
 }
 
 /** @internal */
+export const Requires$inboundSchema: z.ZodNativeEnum<typeof Requires> = z
+  .nativeEnum(Requires);
+
+/** @internal */
+export const Requires$outboundSchema: z.ZodNativeEnum<typeof Requires> =
+  Requires$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Requires$ {
+  /** @deprecated use `Requires$inboundSchema` instead. */
+  export const inboundSchema = Requires$inboundSchema;
+  /** @deprecated use `Requires$outboundSchema` instead. */
+  export const outboundSchema = Requires$outboundSchema;
+}
+
+/** @internal */
 export const ListWorkflowJobsStatus$inboundSchema: z.ZodNativeEnum<
   typeof ListWorkflowJobsStatus
 > = z.nativeEnum(ListWorkflowJobsStatus);
@@ -291,6 +321,7 @@ export const Job$inboundSchema: z.ZodType<Job, z.ZodTypeDef, unknown> = z
     job_number: z.number().int().optional(),
     name: z.string(),
     project_slug: z.string(),
+    requires: z.record(z.array(Requires$inboundSchema)).optional(),
     started_at: z.string().datetime({ offset: true }).transform(v =>
       new Date(v)
     ),
@@ -321,6 +352,7 @@ export type Job$Outbound = {
   job_number?: number | undefined;
   name: string;
   project_slug: string;
+  requires?: { [k: string]: Array<string> } | undefined;
   started_at: string;
   status: string;
   stopped_at?: string | undefined;
@@ -338,6 +370,7 @@ export const Job$outboundSchema: z.ZodType<Job$Outbound, z.ZodTypeDef, Job> = z
     jobNumber: z.number().int().optional(),
     name: z.string(),
     projectSlug: z.string(),
+    requires: z.record(z.array(Requires$outboundSchema)).optional(),
     startedAt: z.date().transform(v => v.toISOString()),
     status: ListWorkflowJobsStatus$outboundSchema,
     stoppedAt: z.date().transform(v => v.toISOString()).optional(),

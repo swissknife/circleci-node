@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 76e5cd725c12e84438ddf15fefa94f61
+  docChecksum: 09ebcfbc3d7e9a098c6c087f0abc1b94
   docVersion: v2
-  speakeasyVersion: 1.446.0
-  generationVersion: 2.462.0
-  releaseVersion: 5.9.5
-  configChecksum: b75510b3bca83bddb0c15cea347ba1cc
+  speakeasyVersion: 1.448.0
+  generationVersion: 2.466.0
+  releaseVersion: 5.9.6
+  configChecksum: 2f2d73eb3cec329a526c145239713a1d
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -285,6 +285,7 @@ generatedFiles:
   - docs/sdk/models/operations/pipeline.md
   - docs/sdk/models/operations/projectnames.md
   - docs/sdk/models/operations/reportingwindow.md
+  - docs/sdk/models/operations/requires.md
   - docs/sdk/models/operations/rerunworkflowrequest.md
   - docs/sdk/models/operations/rerunworkflowrerunworkflowparameters.md
   - docs/sdk/models/operations/rerunworkflowresponse.md

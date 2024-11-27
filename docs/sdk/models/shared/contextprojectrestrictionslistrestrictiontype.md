@@ -7,7 +7,7 @@ Type of the restriction
 ```typescript
 import { ContextProjectRestrictionsListRestrictionType } from "circleci-v2-sdk/sdk/models/shared";
 
-let value: ContextProjectRestrictionsListRestrictionType = "expression";
+let value: ContextProjectRestrictionsListRestrictionType = "project";
 ```
 
 ## Values

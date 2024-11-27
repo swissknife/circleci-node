@@ -7,10 +7,10 @@ import { GetUsageExportJobStatus } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: GetUsageExportJobStatus = {
   downloadUrls: [
-    "https://pleasant-hyphenation.com",
+    "https://knotty-alb.biz",
   ],
-  state: "processing",
-  usageExportJobId: "17d9a342-d482-4155-9595-c15a9174a2a7",
+  state: "created",
+  usageExportJobId: "7d9a342d-4821-4555-a95c-15a9174a2a74",
 };
 ```
 

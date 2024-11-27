@@ -5,7 +5,7 @@
 ```typescript
 import { State } from "circleci-v2-sdk/sdk/models/shared";
 
-let value: State = "completed";
+let value: State = "failed";
 ```
 
 ## Values

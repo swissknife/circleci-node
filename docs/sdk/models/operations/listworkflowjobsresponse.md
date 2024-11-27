@@ -10,14 +10,28 @@ const value: operations.ListWorkflowJobsWorkflowJobListResponse = {
   items: [
     {
       dependencies: [
-        "2e9e4df6-e55f-4f3d-95fd-e9438ab28638",
+        "e9e4df6e-55ff-43d5-afde-9438ab286384",
       ],
-      id: "83e591a4-f693-4dc3-8e0c-7d713f52c014",
+      id: "3e591a4f-693d-4c3e-b0c7-d713f52c0140",
       jobNumber: 1,
       name: "<value>",
       projectSlug: "gh/CircleCI-Public/api-preview-docs",
-      startedAt: new Date("2024-12-27T07:13:35.174Z"),
-      status: "on_hold",
+      requires: {
+        "d212e286-9962-4ed7-92e2-8699622ed720": [
+          "success",
+        ],
+        "74be7583-44de-42a6-be75-8344de52a6f2": [
+          "failed",
+          "canceled",
+        ],
+        "a3349b77-90f7-4a39-b49b-7790f7da3943": [
+          "success",
+          "failed",
+          "canceled",
+        ],
+      },
+      startedAt: new Date("2024-01-28T11:27:15.190Z"),
+      status: "infrastructure_fail",
       type: "approval",
     },
   ],

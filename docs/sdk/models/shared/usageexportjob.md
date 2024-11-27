@@ -7,12 +7,12 @@ import { UsageExportJob } from "circleci-v2-sdk/sdk/models/shared";
 
 let value: UsageExportJob = {
   downloadUrls: [
-    "https://esteemed-carnival.net",
+    "https://closed-scale.biz/",
   ],
-  end: new Date("2022-08-20T21:26:11.367Z"),
-  start: new Date("2023-07-03T21:21:03.279Z"),
-  state: "failed",
-  usageExportJobId: "3700e6e7-6414-49c8-bc29-e33bc35a697c",
+  end: new Date("2023-07-03T21:21:03.279Z"),
+  start: new Date("2023-07-31T14:26:18.054Z"),
+  state: "created",
+  usageExportJobId: "700e6e76-4149-4c8c-b29e-33bc35a697cd",
 };
 ```
 
