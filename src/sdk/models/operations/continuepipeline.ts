@@ -76,11 +76,11 @@ export namespace ParametersT$ {
   export type Outbound = ParametersT$Outbound;
 }
 
-export function parametersTToJSON(parametersT: ParametersT): string {
+export function parametersToJSON(parametersT: ParametersT): string {
   return JSON.stringify(ParametersT$outboundSchema.parse(parametersT));
 }
 
-export function parametersTFromJSON(
+export function parametersFromJSON(
   jsonString: string,
 ): SafeParseResult<ParametersT, SDKValidationError> {
   return safeParse(
