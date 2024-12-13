@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 3dd68f3e671922db7324771d2c6b813f
+  docChecksum: b6e676d7e4d567d6e1c7618cc09ea60e
   docVersion: v2
-  speakeasyVersion: 1.453.3
-  generationVersion: 2.474.6
-  releaseVersion: 5.9.11
-  configChecksum: 55e37ec4ae6d57aa4d27c005d8d54a4c
+  speakeasyVersion: 1.454.2
+  generationVersion: 2.477.4
+  releaseVersion: 5.9.12
+  configChecksum: f3a7192ae8de59e07a5743204aa513e2
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.8
+    core: 3.18.9
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
