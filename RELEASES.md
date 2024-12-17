@@ -1827,3 +1827,13 @@ Based on:
 - [typescript v5.9.12] .
 ### Releases
 - [NPM v5.9.12] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.12 - .
+
+## 2024-12-17 01:02:14
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.455.7 (2.480.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.13] .
+### Releases
+- [NPM v5.9.13] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.13 - .
