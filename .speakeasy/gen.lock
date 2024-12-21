@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: b6e676d7e4d567d6e1c7618cc09ea60e
+  docChecksum: 3e327a840cdbee4da1d34f273f9b547e
   docVersion: v2
-  speakeasyVersion: 1.455.7
-  generationVersion: 2.480.1
-  releaseVersion: 5.9.13
-  configChecksum: 4a724a16d4f3334d5478dc433c6d463b
+  speakeasyVersion: 1.459.2
+  generationVersion: 2.483.1
+  releaseVersion: 5.9.14
+  configChecksum: ae80957925667a63bf72b9275f17ce30
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.11
+    core: 3.18.12
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -584,7 +584,8 @@ examples:
       responses:
         "200":
           application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "de7eaaf7-f3ff-437a-a73d-51ad1dc6e334", "name": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   createContextRestriction:
     "":
       parameters:
@@ -649,7 +650,8 @@ examples:
       responses:
         "200":
           application/json: {"message": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   deleteContextRestriction:
     "":
       parameters:
@@ -683,7 +685,8 @@ examples:
       responses:
         "200":
           application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "8943f2af-3244-4e53-8020-056d40e6b76b", "name": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   getContextRestrictions:
     "":
       parameters:
@@ -694,7 +697,8 @@ examples:
       responses:
         "200":
           application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   listEnvironmentVariablesFromContext:
     speakeasy-default-list-environment-variables-from-context:
       parameters:
@@ -704,7 +708,8 @@ examples:
       responses:
         "200":
           application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   getAllInsightsBranches:
     "":
       parameters:
@@ -839,7 +844,8 @@ examples:
           application/json: {"message": "<value>"}
         "404":
           application/json: {"message": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   cancelJobByJobNumber:
     "":
       parameters:
@@ -885,13 +891,15 @@ examples:
       responses:
         "200":
           application/json: []
-        default: {}
+        default:
+          application/json: {}
   getCurrentUser:
     speakeasy-default-get-current-user:
       responses:
         "200":
           application/json: {"id": "802c7c7e-abfa-4383-8fe2-e8badc1983a8", "login": "Erich.Johnson93", "name": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   getUser:
     speakeasy-default-get-user:
       parameters:
@@ -900,7 +908,8 @@ examples:
       responses:
         "200":
           application/json: {"id": "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e", "login": "Candido.Sipes89", "name": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   DeleteOrgClaims:
     speakeasy-default-delete-org-claims:
       parameters:
@@ -1001,7 +1010,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "413":
           application/json: {"error": "http: request payload too large"}
-        "200": {}
+        "200":
+          application/json: {}
   GetDecisionLog:
     speakeasy-default-get-decision-log:
       parameters:
@@ -1051,7 +1061,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200": {}
+        "200":
+          application/json: {}
   GetPolicyBundle:
     speakeasy-default-get-policy-bundle:
       parameters:
@@ -1075,7 +1086,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "404":
           application/json: {"error": "policy not found"}
-        "200": {}
+        "200":
+          application/json: {}
   MakeDecision:
     speakeasy-default-make-decision:
       parameters:
@@ -1100,7 +1112,8 @@ examples:
       responses:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200": {}
+        "200":
+          application/json: {}
   continuePipeline:
     speakeasy-default-continue-pipeline:
       requestBody:
@@ -1108,7 +1121,8 @@ examples:
       responses:
         "200":
           application/json: {"message": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   getPipelineById:
     "":
       parameters:
@@ -1461,7 +1475,8 @@ examples:
       responses:
         "200":
           application/json: {"message": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   getScheduleById:
     speakeasy-default-get-schedule-by-id:
       parameters:
@@ -1470,7 +1485,8 @@ examples:
       responses:
         "200":
           application/json: {"actor": {"id": "05e36069-8bea-487f-adb5-d6ecd797b100", "login": "Francesco_Skiles", "name": "<value>"}, "created-at": "2022-08-18T08:05:10.341Z", "description": "Face to face dedicated superstructure", "id": "756719ee-0c51-4902-9227-9fb7bff42588", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-month": [], "hours-of-day": [], "per-hour": 341220}, "updated-at": "2023-02-07T09:38:04.431Z"}
-        default: {}
+        default:
+          application/json: {}
   listSchedulesForProject:
     "":
       parameters:
@@ -1491,13 +1507,15 @@ examples:
       responses:
         "200":
           application/json: {"actor": {"id": "416e5210-1701-4572-9a23-8d214cafb0a8", "login": "Guillermo31", "name": "<value>"}, "created-at": "2023-02-11T13:08:08.911Z", "description": "User-centric global throughput", "id": "0e3388c8-cf7c-4d56-b839-de533f229030", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-month": [], "hours-of-day": [], "per-hour": 578628}, "updated-at": "2024-01-13T00:41:13.990Z"}
-        default: {}
+        default:
+          application/json: {}
   createWebhook:
     speakeasy-default-create-webhook:
       responses:
         "201":
           application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "8ef8f63e-3b7d-4224-808a-c4c59d30daac", "name": "<value>", "scope": {"id": "81ad9fab-885f-4a09-8632-ba7712b3c0af", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "http://courteous-worshiper.biz", "verify-tls": false}
-        default: {}
+        default:
+          application/json: {}
   deleteWebhook:
     speakeasy-default-delete-webhook:
       parameters:
@@ -1506,7 +1524,8 @@ examples:
       responses:
         "200":
           application/json: {"message": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   getWebhookById:
     speakeasy-default-get-webhook-by-id:
       parameters:
@@ -1515,7 +1534,8 @@ examples:
       responses:
         "200":
           application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "05d55176-851f-4ce1-9551-3ebf4676d897", "name": "<value>", "scope": {"id": "186e3e76-60aa-4bb9-bf1c-b39a349aa708", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://daring-quiet.com", "verify-tls": false}
-        default: {}
+        default:
+          application/json: {}
   getWebhooks:
     speakeasy-default-get-webhooks:
       parameters:
@@ -1525,7 +1545,8 @@ examples:
       responses:
         "200":
           application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
+        default:
+          application/json: {}
   updateWebhook:
     speakeasy-default-update-webhook:
       parameters:
@@ -1534,7 +1555,8 @@ examples:
       responses:
         "200":
           application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "89dc7808-cca3-41dc-8a44-e9dac9f6ecf0", "name": "<value>", "scope": {"id": "51c85295-b624-44dd-8194-9bacc353e34d", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://corrupt-recorder.com", "verify-tls": true}
-        default: {}
+        default:
+          application/json: {}
   approvePendingApprovalJobById:
     "":
       parameters:
