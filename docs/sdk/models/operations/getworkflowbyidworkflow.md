@@ -8,7 +8,7 @@ A workflow
 import { GetWorkflowByIdWorkflow } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: GetWorkflowByIdWorkflow = {
-  createdAt: new Date("2024-04-27T15:28:30.620Z"),
+  createdAt: new Date("2025-04-27T15:28:30.620Z"),
   id: "5363bda2-0973-458a-97f0-ae33c7f9e02a",
   name: "build-and-test",
   pipelineId: "5034460f-c7c4-4c43-9457-de07e2029e7b",
@@ -16,7 +16,7 @@ let value: GetWorkflowByIdWorkflow = {
   projectSlug: "gh/CircleCI-Public/api-preview-docs",
   startedBy: "d6b91bb1-8576-4121-93d0-6c13ba92c22c",
   status: "not_run",
-  stoppedAt: new Date("2022-11-02T10:11:22.695Z"),
+  stoppedAt: new Date("2023-11-02T10:11:22.695Z"),
   tag: "setup",
 };
 ```

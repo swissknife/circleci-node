@@ -12,7 +12,7 @@ const value: operations.UpdateScheduleSchedule = {
     login: "Felix_Davis",
     name: "<value>",
   },
-  createdAt: new Date("2022-01-07T00:56:47.831Z"),
+  createdAt: new Date("2023-01-07T00:56:47.831Z"),
   description:
     "beneath slime next fair pish jiggle keenly only self-confidence",
   id: "6a7bb3ad-3caf-4424-b4cb-a3df8a84453e",
@@ -31,7 +31,7 @@ const value: operations.UpdateScheduleSchedule = {
     ],
     perHour: 222373,
   },
-  updatedAt: new Date("2023-08-30T16:22:03.727Z"),
+  updatedAt: new Date("2024-08-29T16:22:03.727Z"),
 };
 ```
 

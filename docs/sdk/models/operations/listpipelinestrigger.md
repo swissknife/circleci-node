@@ -12,7 +12,7 @@ let value: ListPipelinesTrigger = {
     avatarUrl: "https://artistic-lawmaker.name",
     login: "Eusebio.Fay",
   },
-  receivedAt: new Date("2024-03-02T17:47:11.428Z"),
+  receivedAt: new Date("2025-03-02T17:47:11.428Z"),
   type: "explicit",
 };
 ```

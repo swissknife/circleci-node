@@ -8,7 +8,7 @@ A pipeline response.
 import { Pipeline } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Pipeline = {
-  createdAt: new Date("2022-01-22T13:58:08.292Z"),
+  createdAt: new Date("2023-01-22T13:58:08.292Z"),
   errors: [
     {
       message: "<value>",
@@ -24,7 +24,7 @@ let value: Pipeline = {
       avatarUrl: "https://practical-runway.net",
       login: "Russell_Wuckert",
     },
-    receivedAt: new Date("2022-02-07T13:21:36.825Z"),
+    receivedAt: new Date("2023-02-07T13:21:36.825Z"),
     type: "webhook",
   },
   vcs: {

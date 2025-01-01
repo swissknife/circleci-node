@@ -13,7 +13,7 @@ let value: GetScheduleByIdSchedule = {
     login: "Oscar.Lueilwitz15",
     name: "<value>",
   },
-  createdAt: new Date("2024-11-21T23:06:53.071Z"),
+  createdAt: new Date("2025-11-21T23:06:53.071Z"),
   description: "cap seemingly deep from supposing",
   id: "49226642-0047-4b7e-b025-9d540d69f02c",
   name: "<value>",
@@ -31,7 +31,7 @@ let value: GetScheduleByIdSchedule = {
     ],
     perHour: 396184,
   },
-  updatedAt: new Date("2023-10-22T17:31:37.327Z"),
+  updatedAt: new Date("2024-10-21T17:31:37.327Z"),
 };
 ```
 

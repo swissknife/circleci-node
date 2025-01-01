@@ -12,7 +12,7 @@ let value: Trigger = {
     avatarUrl: "https://magnificent-travel.net/",
     login: "Pierre_Wuckert4",
   },
-  receivedAt: new Date("2023-03-20T15:09:55.930Z"),
+  receivedAt: new Date("2024-03-19T15:09:55.930Z"),
   type: "api",
 };
 ```

@@ -13,7 +13,7 @@ let value: UpdateScheduleSchedule = {
     login: "Reina_Parker",
     name: "<value>",
   },
-  createdAt: new Date("2022-05-17T18:38:44.755Z"),
+  createdAt: new Date("2023-05-17T18:38:44.755Z"),
   description: "obedient pfft however cope blossom dock structure",
   id: "5ef734c4-679f-4354-9515-e45fb8c17132",
   name: "<value>",
@@ -31,7 +31,7 @@ let value: UpdateScheduleSchedule = {
     ],
     perHour: 472429,
   },
-  updatedAt: new Date("2024-06-08T06:31:25.831Z"),
+  updatedAt: new Date("2025-06-08T06:31:25.831Z"),
 };
 ```
 
