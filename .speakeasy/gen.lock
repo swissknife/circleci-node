@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 1d9bd6821cbfe1bc122b5be2b3a422fb
+  docChecksum: 39e3035cfa092aa4fbb22ff919bf4f70
   docVersion: v2
-  speakeasyVersion: 1.465.1
-  generationVersion: 2.488.4
-  releaseVersion: 5.9.18
-  configChecksum: b6328195a2a2ec2c913411e43b4c8dbe
+  speakeasyVersion: 1.468.2
+  generationVersion: 2.493.4
+  releaseVersion: 5.9.19
+  configChecksum: 7aaa9fa28bc3b870f78c212884550a66
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -32,7 +32,6 @@ generatedFiles:
   - .eslintrc.cjs
   - .gitattributes
   - .npmignore
-  - CONTRIBUTING.md
   - FUNCTIONS.md
   - RUNTIMES.md
   - USAGE.md
@@ -1039,7 +1038,7 @@ examples:
         "404":
           application/json: {"error": "decision log not found"}
         "200":
-          application/json: {"key": [], "key1": []}
+          application/json: {"key": [{}], "key1": [{}]}
   GetDecisionLogs:
     speakeasy-default-get-decision-logs:
       parameters:
@@ -1073,7 +1072,7 @@ examples:
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
-          application/json: {"key": []}
+          application/json: {"key": [{}, {}]}
   GetPolicyDocument:
     speakeasy-default-get-policy-document:
       parameters:
