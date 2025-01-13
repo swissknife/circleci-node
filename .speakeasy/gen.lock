@@ -5,8 +5,8 @@ management:
   docVersion: v2
   speakeasyVersion: 1.468.2
   generationVersion: 2.493.4
-  releaseVersion: 5.9.19
-  configChecksum: 7aaa9fa28bc3b870f78c212884550a66
+  releaseVersion: 5.9.20
+  configChecksum: 9510c2a9891a1b7e7b1d6dd73fabb3de
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
