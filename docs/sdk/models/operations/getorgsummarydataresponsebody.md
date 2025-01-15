@@ -14,7 +14,7 @@ let value: GetOrgSummaryDataResponseBody = {
   orgData: {
     metrics: {
       successRate: 3354.98,
-      throughput: 1476.86,
+      throughput: 1476.85,
       totalCreditsUsed: 62636,
       totalDurationSecs: 241901,
       totalRuns: 432281,
@@ -23,7 +23,7 @@ let value: GetOrgSummaryDataResponseBody = {
       successRate: 5219.96,
       throughput: 7730.84,
       totalCreditsUsed: 9587.41,
-      totalDurationSecs: 1173.20,
+      totalDurationSecs: 1173.2,
       totalRuns: 1070.04,
     },
   },
@@ -37,10 +37,10 @@ let value: GetOrgSummaryDataResponseBody = {
       },
       projectName: "api-preview-docs",
       trends: {
-        successRate: 9834.26,
+        successRate: 9834.27,
         totalCreditsUsed: 3998.02,
         totalDurationSecs: 3803.35,
-        totalRuns: 1478.09,
+        totalRuns: 1478.08,
       },
     },
   ],

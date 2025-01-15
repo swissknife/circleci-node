@@ -17,7 +17,7 @@ let value: OrgProjectData = {
     successRate: 9762.26,
     totalCreditsUsed: 8897.94,
     totalDurationSecs: 7645.62,
-    totalRuns: 6982.48,
+    totalRuns: 6982.49,
   },
 };
 ```

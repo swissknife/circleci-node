@@ -3,10 +3,10 @@ id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
   docChecksum: 39e3035cfa092aa4fbb22ff919bf4f70
   docVersion: v2
-  speakeasyVersion: 1.468.2
-  generationVersion: 2.493.4
-  releaseVersion: 5.9.20
-  configChecksum: 9510c2a9891a1b7e7b1d6dd73fabb3de
+  speakeasyVersion: 1.468.6
+  generationVersion: 2.493.13
+  releaseVersion: 5.9.21
+  configChecksum: db578627812458fef78fb6da1f26c5d5
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.12
+    core: 3.18.14
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -596,6 +596,8 @@ examples:
       parameters:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "This restriction cannot be applied to this context."}
@@ -605,6 +607,8 @@ examples:
       parameters:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "Project does not exist, or user does not have access to this project."}
@@ -614,6 +618,8 @@ examples:
       parameters:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
       responses:
         "401":
           application/json: {"message": "Invalid token provided."}
@@ -622,6 +628,8 @@ examples:
       parameters:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
       responses:
         "401":
           application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
@@ -630,6 +638,8 @@ examples:
       parameters:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
       responses:
         "401":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
@@ -638,6 +648,8 @@ examples:
       parameters:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
       responses:
         "409":
           application/json: {"message": "The restriction you're trying to add already exists."}
@@ -1364,6 +1376,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "Invalid JSON body."}
@@ -1374,6 +1388,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "Field 'pr_only_branch_overrides' only supports up to 100 branches."}
@@ -1384,6 +1400,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "No JSON fields found."}
@@ -1394,6 +1412,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "Unexpected JSON field 'incorrect'"}
@@ -1404,6 +1424,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "Unknown advanced setting 'incorrect'."}
@@ -1414,6 +1436,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "Setting 'autocancel_builds' must be boolean."}
@@ -1424,6 +1448,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "400":
           application/json: {"message": "Feature flag 'oss' is not settable for this project."}
@@ -1434,6 +1460,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "401":
           application/json: {"message": "Invalid token provided."}
@@ -1443,6 +1471,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "401":
           application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
@@ -1452,6 +1482,8 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      requestBody:
+        application/json: {}
       responses:
         "401":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}

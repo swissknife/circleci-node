@@ -9,7 +9,7 @@ import { Metrics } from "circleci-v2-sdk/sdk/models/operations";
 
 let value: Metrics = {
   successRate: 6725.82,
-  throughput: 5289.40,
+  throughput: 5289.4,
   totalCreditsUsed: 304446,
   totalDurationSecs: 997963,
   totalRuns: 362189,

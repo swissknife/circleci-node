@@ -12,7 +12,7 @@ const value: operations.GetOrgSummaryDataResponseBody = {
   ],
   orgData: {
     metrics: {
-      successRate: 6849.34,
+      successRate: 6849.35,
       throughput: 6567.62,
       totalCreditsUsed: 862063,
       totalDurationSecs: 97258,
@@ -23,7 +23,7 @@ const value: operations.GetOrgSummaryDataResponseBody = {
       throughput: 2415.57,
       totalCreditsUsed: 1690.25,
       totalDurationSecs: 8595.81,
-      totalRuns: 585.35,
+      totalRuns: 585.34,
     },
   },
   orgProjectData: [
@@ -38,7 +38,7 @@ const value: operations.GetOrgSummaryDataResponseBody = {
       trends: {
         successRate: 4237.06,
         totalCreditsUsed: 8571.25,
-        totalDurationSecs: 1173.16,
+        totalDurationSecs: 1173.15,
         totalRuns: 2712.52,
       },
     },
