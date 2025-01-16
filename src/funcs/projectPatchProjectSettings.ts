@@ -134,9 +134,10 @@ export async function projectPatchProjectSettings(
     M.json(200, operations.PatchProjectSettingsResponse$inboundSchema),
     M.json(400, operations.PatchProjectSettingsResponse$inboundSchema),
     M.json(
-      [401, 403, 404, 429, 500],
+      [401, 403, 404, 429],
       operations.PatchProjectSettingsResponse$inboundSchema,
     ),
+    M.json(500, operations.PatchProjectSettingsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

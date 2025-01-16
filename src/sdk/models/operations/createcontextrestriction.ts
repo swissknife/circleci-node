@@ -36,16 +36,16 @@ export type CreateContextRestrictionRequest = {
 };
 
 /**
- * Request conflict.
+ * Credentials provided are invalid.
  */
-export type CreateContextRestrictionContextResponse409ResponseBody = {
+export type CreateContextRestrictionContextResponseBody = {
   message?: string | undefined;
 };
 
 /**
- * Credentials provided are invalid.
+ * Request conflict.
  */
-export type CreateContextRestrictionContextResponseBody = {
+export type CreateContextRestrictionContextResponse409ResponseBody = {
   message?: string | undefined;
 };
 
@@ -209,73 +209,6 @@ export function createContextRestrictionRequestFromJSON(
 }
 
 /** @internal */
-export const CreateContextRestrictionContextResponse409ResponseBody$inboundSchema:
-  z.ZodType<
-    CreateContextRestrictionContextResponse409ResponseBody,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    message: z.string().optional(),
-  });
-
-/** @internal */
-export type CreateContextRestrictionContextResponse409ResponseBody$Outbound = {
-  message?: string | undefined;
-};
-
-/** @internal */
-export const CreateContextRestrictionContextResponse409ResponseBody$outboundSchema:
-  z.ZodType<
-    CreateContextRestrictionContextResponse409ResponseBody$Outbound,
-    z.ZodTypeDef,
-    CreateContextRestrictionContextResponse409ResponseBody
-  > = z.object({
-    message: z.string().optional(),
-  });
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateContextRestrictionContextResponse409ResponseBody$ {
-  /** @deprecated use `CreateContextRestrictionContextResponse409ResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateContextRestrictionContextResponse409ResponseBody$inboundSchema;
-  /** @deprecated use `CreateContextRestrictionContextResponse409ResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateContextRestrictionContextResponse409ResponseBody$outboundSchema;
-  /** @deprecated use `CreateContextRestrictionContextResponse409ResponseBody$Outbound` instead. */
-  export type Outbound =
-    CreateContextRestrictionContextResponse409ResponseBody$Outbound;
-}
-
-export function createContextRestrictionContextResponse409ResponseBodyToJSON(
-  createContextRestrictionContextResponse409ResponseBody:
-    CreateContextRestrictionContextResponse409ResponseBody,
-): string {
-  return JSON.stringify(
-    CreateContextRestrictionContextResponse409ResponseBody$outboundSchema.parse(
-      createContextRestrictionContextResponse409ResponseBody,
-    ),
-  );
-}
-
-export function createContextRestrictionContextResponse409ResponseBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CreateContextRestrictionContextResponse409ResponseBody,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CreateContextRestrictionContextResponse409ResponseBody$inboundSchema
-        .parse(JSON.parse(x)),
-    `Failed to parse 'CreateContextRestrictionContextResponse409ResponseBody' from JSON`,
-  );
-}
-
-/** @internal */
 export const CreateContextRestrictionContextResponseBody$inboundSchema:
   z.ZodType<
     CreateContextRestrictionContextResponseBody,
@@ -339,6 +272,73 @@ export function createContextRestrictionContextResponseBodyFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'CreateContextRestrictionContextResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateContextRestrictionContextResponse409ResponseBody$inboundSchema:
+  z.ZodType<
+    CreateContextRestrictionContextResponse409ResponseBody,
+    z.ZodTypeDef,
+    unknown
+  > = z.object({
+    message: z.string().optional(),
+  });
+
+/** @internal */
+export type CreateContextRestrictionContextResponse409ResponseBody$Outbound = {
+  message?: string | undefined;
+};
+
+/** @internal */
+export const CreateContextRestrictionContextResponse409ResponseBody$outboundSchema:
+  z.ZodType<
+    CreateContextRestrictionContextResponse409ResponseBody$Outbound,
+    z.ZodTypeDef,
+    CreateContextRestrictionContextResponse409ResponseBody
+  > = z.object({
+    message: z.string().optional(),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateContextRestrictionContextResponse409ResponseBody$ {
+  /** @deprecated use `CreateContextRestrictionContextResponse409ResponseBody$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateContextRestrictionContextResponse409ResponseBody$inboundSchema;
+  /** @deprecated use `CreateContextRestrictionContextResponse409ResponseBody$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateContextRestrictionContextResponse409ResponseBody$outboundSchema;
+  /** @deprecated use `CreateContextRestrictionContextResponse409ResponseBody$Outbound` instead. */
+  export type Outbound =
+    CreateContextRestrictionContextResponse409ResponseBody$Outbound;
+}
+
+export function createContextRestrictionContextResponse409ResponseBodyToJSON(
+  createContextRestrictionContextResponse409ResponseBody:
+    CreateContextRestrictionContextResponse409ResponseBody,
+): string {
+  return JSON.stringify(
+    CreateContextRestrictionContextResponse409ResponseBody$outboundSchema.parse(
+      createContextRestrictionContextResponse409ResponseBody,
+    ),
+  );
+}
+
+export function createContextRestrictionContextResponse409ResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateContextRestrictionContextResponse409ResponseBody,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateContextRestrictionContextResponse409ResponseBody$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'CreateContextRestrictionContextResponse409ResponseBody' from JSON`,
   );
 }
 

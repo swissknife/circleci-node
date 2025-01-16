@@ -125,7 +125,8 @@ export async function oidcTokenManagementDeleteOrgClaims(
     | ConnectionError
   >(
     M.json(200, operations.DeleteOrgClaimsResponse$inboundSchema),
-    M.json([400, 403, 500], operations.DeleteOrgClaimsResponse$inboundSchema),
+    M.json([400, 403], operations.DeleteOrgClaimsResponse$inboundSchema),
+    M.json(500, operations.DeleteOrgClaimsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

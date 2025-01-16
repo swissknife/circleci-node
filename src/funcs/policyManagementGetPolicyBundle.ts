@@ -126,10 +126,8 @@ export async function policyManagementGetPolicyBundle(
     | ConnectionError
   >(
     M.json(200, operations.GetPolicyBundleResponse$inboundSchema),
-    M.json(
-      [400, 401, 403, 500],
-      operations.GetPolicyBundleResponse$inboundSchema,
-    ),
+    M.json([400, 401, 403], operations.GetPolicyBundleResponse$inboundSchema),
+    M.json(500, operations.GetPolicyBundleResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

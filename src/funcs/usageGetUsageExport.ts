@@ -128,9 +128,10 @@ export async function usageGetUsageExport(
   >(
     M.json(200, operations.GetUsageExportResponse$inboundSchema),
     M.json(
-      [400, 401, 404, 429, 500],
+      [400, 401, 404, 429],
       operations.GetUsageExportResponse$inboundSchema,
     ),
+    M.json(500, operations.GetUsageExportResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

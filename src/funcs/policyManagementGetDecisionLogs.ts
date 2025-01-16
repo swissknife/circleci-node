@@ -137,10 +137,8 @@ export async function policyManagementGetDecisionLogs(
     | ConnectionError
   >(
     M.json(200, operations.GetDecisionLogsResponse$inboundSchema),
-    M.json(
-      [400, 401, 403, 500],
-      operations.GetDecisionLogsResponse$inboundSchema,
-    ),
+    M.json([400, 401, 403], operations.GetDecisionLogsResponse$inboundSchema),
+    M.json(500, operations.GetDecisionLogsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

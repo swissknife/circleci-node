@@ -24,16 +24,16 @@ export type CreateProjectRequest = {
 };
 
 /**
- * Either a branch or a project were not found.
+ * Unexpected request body provided.
  */
-export type CreateProjectProjectResponse404ResponseBody = {
+export type CreateProjectResponseBody = {
   message?: string | undefined;
 };
 
 /**
- * Unexpected request body provided.
+ * Either a branch or a project were not found.
  */
-export type CreateProjectResponseBody = {
+export type CreateProjectProjectResponse404ResponseBody = {
   message?: string | undefined;
 };
 
@@ -103,6 +103,60 @@ export function createProjectRequestFromJSON(
 }
 
 /** @internal */
+export const CreateProjectResponseBody$inboundSchema: z.ZodType<
+  CreateProjectResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  message: z.string().default("Unexpected request body provided."),
+});
+
+/** @internal */
+export type CreateProjectResponseBody$Outbound = {
+  message: string;
+};
+
+/** @internal */
+export const CreateProjectResponseBody$outboundSchema: z.ZodType<
+  CreateProjectResponseBody$Outbound,
+  z.ZodTypeDef,
+  CreateProjectResponseBody
+> = z.object({
+  message: z.string().default("Unexpected request body provided."),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateProjectResponseBody$ {
+  /** @deprecated use `CreateProjectResponseBody$inboundSchema` instead. */
+  export const inboundSchema = CreateProjectResponseBody$inboundSchema;
+  /** @deprecated use `CreateProjectResponseBody$outboundSchema` instead. */
+  export const outboundSchema = CreateProjectResponseBody$outboundSchema;
+  /** @deprecated use `CreateProjectResponseBody$Outbound` instead. */
+  export type Outbound = CreateProjectResponseBody$Outbound;
+}
+
+export function createProjectResponseBodyToJSON(
+  createProjectResponseBody: CreateProjectResponseBody,
+): string {
+  return JSON.stringify(
+    CreateProjectResponseBody$outboundSchema.parse(createProjectResponseBody),
+  );
+}
+
+export function createProjectResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateProjectResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateProjectResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateProjectResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateProjectProjectResponse404ResponseBody$inboundSchema:
   z.ZodType<
     CreateProjectProjectResponse404ResponseBody,
@@ -166,60 +220,6 @@ export function createProjectProjectResponse404ResponseBodyFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'CreateProjectProjectResponse404ResponseBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const CreateProjectResponseBody$inboundSchema: z.ZodType<
-  CreateProjectResponseBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  message: z.string().default("Unexpected request body provided."),
-});
-
-/** @internal */
-export type CreateProjectResponseBody$Outbound = {
-  message: string;
-};
-
-/** @internal */
-export const CreateProjectResponseBody$outboundSchema: z.ZodType<
-  CreateProjectResponseBody$Outbound,
-  z.ZodTypeDef,
-  CreateProjectResponseBody
-> = z.object({
-  message: z.string().default("Unexpected request body provided."),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateProjectResponseBody$ {
-  /** @deprecated use `CreateProjectResponseBody$inboundSchema` instead. */
-  export const inboundSchema = CreateProjectResponseBody$inboundSchema;
-  /** @deprecated use `CreateProjectResponseBody$outboundSchema` instead. */
-  export const outboundSchema = CreateProjectResponseBody$outboundSchema;
-  /** @deprecated use `CreateProjectResponseBody$Outbound` instead. */
-  export type Outbound = CreateProjectResponseBody$Outbound;
-}
-
-export function createProjectResponseBodyToJSON(
-  createProjectResponseBody: CreateProjectResponseBody,
-): string {
-  return JSON.stringify(
-    CreateProjectResponseBody$outboundSchema.parse(createProjectResponseBody),
-  );
-}
-
-export function createProjectResponseBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateProjectResponseBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateProjectResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateProjectResponseBody' from JSON`,
   );
 }
 

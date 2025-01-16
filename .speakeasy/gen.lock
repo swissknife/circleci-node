@@ -3,10 +3,10 @@ id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
   docChecksum: 39e3035cfa092aa4fbb22ff919bf4f70
   docVersion: v2
-  speakeasyVersion: 1.468.6
-  generationVersion: 2.493.13
-  releaseVersion: 5.9.21
-  configChecksum: db578627812458fef78fb6da1f26c5d5
+  speakeasyVersion: 1.468.8
+  generationVersion: 2.493.19
+  releaseVersion: 5.9.22
+  configChecksum: 3c24a983a7b5544f0207a05536fbce50
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.14
+    core: 3.18.15
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -624,6 +624,8 @@ examples:
         "401":
           application/json: {"message": "Invalid token provided."}
         "409": {}
+        "500":
+          application/json: {"message": "Invalid token provided."}
     old_token:
       parameters:
         path:
@@ -634,6 +636,8 @@ examples:
         "401":
           application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
         "409": {}
+        "500":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
     query_auth:
       parameters:
         path:
@@ -644,6 +648,8 @@ examples:
         "401":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
         "409": {}
+        "500":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
     restriction_conflict:
       parameters:
         path:
@@ -933,6 +939,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"org_id": "56c7db21-f354-44d2-8a53-d8b02d62f07c"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   DeleteProjectClaims:
     speakeasy-default-delete-project-claims:
       parameters:
@@ -946,6 +954,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"org_id": "8d31466e-45c6-467d-a12f-45793f4014a8"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetOrgClaims:
     speakeasy-default-get-org-claims:
       parameters:
@@ -956,6 +966,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"org_id": "faa87345-442f-4070-a007-ecf098342349"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetProjectClaims:
     speakeasy-default-get-project-claims:
       parameters:
@@ -967,6 +979,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"org_id": "01345488-5416-440e-9811-7333cda41eee"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   PatchOrgClaims:
     speakeasy-default-patch-org-claims:
       parameters:
@@ -977,6 +991,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"org_id": "b6c03243-08db-481d-a939-b2ebcfa7ef13"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   PatchProjectClaims:
     speakeasy-default-patch-project-claims:
       parameters:
@@ -988,6 +1004,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"org_id": "ddf25b42-5814-4fe1-af2a-ce9e5283bd11"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   createUsageExport:
     "":
       parameters:
@@ -999,6 +1017,7 @@ examples:
         "201":
           application/json: {"download_urls": [], "end": "2024-04-25T08:17:56.389Z", "start": "2022-04-10T20:35:03.698Z", "state": "processing", "usage_export_job_id": "49513e73-3604-4194-8a53-1baf237fcbd5"}
         "400": {}
+        "500": {}
   getUsageExport:
     "":
       parameters:
@@ -1009,6 +1028,7 @@ examples:
         "200":
           application/json: {"download_urls": [], "state": "created", "usage_export_job_id": "b2cd27b8-2b03-47d3-a50b-3f37d2d2ca7a"}
         "400": {}
+        "500": {}
   CreatePolicyBundle:
     speakeasy-default-create-policy-bundle:
       parameters:
@@ -1023,6 +1043,8 @@ examples:
           application/json: {"error": "http: request payload too large"}
         "200":
           application/json: {}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetDecisionLog:
     speakeasy-default-get-decision-log:
       parameters:
@@ -1037,6 +1059,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "404":
           application/json: {"error": "decision log not found"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetDecisionLogPolicyBundle:
     speakeasy-default-get-decision-log-policy-bundle:
       parameters:
@@ -1051,6 +1075,8 @@ examples:
           application/json: {"error": "decision log not found"}
         "200":
           application/json: {"key": [{}], "key1": [{}]}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetDecisionLogs:
     speakeasy-default-get-decision-logs:
       parameters:
@@ -1063,6 +1089,8 @@ examples:
           application/json: []
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetDecisionSettings:
     speakeasy-default-get-decision-settings:
       parameters:
@@ -1074,6 +1102,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetPolicyBundle:
     speakeasy-default-get-policy-bundle:
       parameters:
@@ -1085,6 +1115,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"key": [{}, {}]}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   GetPolicyDocument:
     speakeasy-default-get-policy-document:
       parameters:
@@ -1099,6 +1131,8 @@ examples:
           application/json: {"error": "policy not found"}
         "200":
           application/json: {}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   MakeDecision:
     speakeasy-default-make-decision:
       parameters:
@@ -1125,6 +1159,8 @@ examples:
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
   continuePipeline:
     speakeasy-default-continue-pipeline:
       requestBody:
@@ -1324,6 +1360,8 @@ examples:
       responses:
         "401":
           application/json: {"message": "Invalid token provided."}
+        "500":
+          application/json: {"message": "Invalid token provided."}
     old_token:
       parameters:
         path:
@@ -1333,6 +1371,8 @@ examples:
       responses:
         "401":
           application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+        "500":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
     query_auth:
       parameters:
         path:
@@ -1341,6 +1381,8 @@ examples:
           project: "api-preview-docs"
       responses:
         "401":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+        "500":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
   listCheckoutKeys:
     "":
@@ -1465,6 +1507,8 @@ examples:
       responses:
         "401":
           application/json: {"message": "Invalid token provided."}
+        "500":
+          application/json: {"message": "Invalid token provided."}
     old_token:
       parameters:
         path:
@@ -1476,6 +1520,8 @@ examples:
       responses:
         "401":
           application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+        "500":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
     query_auth:
       parameters:
         path:
@@ -1486,6 +1532,8 @@ examples:
         application/json: {}
       responses:
         "401":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+        "500":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
   createSchedule:
     "":

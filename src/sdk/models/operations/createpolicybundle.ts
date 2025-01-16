@@ -17,20 +17,20 @@ export type CreatePolicyBundleRequest = {
 };
 
 /**
- * The request exceeds the maximum payload size for policy bundles ~2.5Mib
- *
- * @remarks
- */
-export type CreatePolicyBundlePolicyManagementResponse413ResponseBody = {
-  error: string;
-};
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
  */
 export type CreatePolicyBundleResponseBody = {
+  error: string;
+};
+
+/**
+ * The request exceeds the maximum payload size for policy bundles ~2.5Mib
+ *
+ * @remarks
+ */
+export type CreatePolicyBundlePolicyManagementResponse413ResponseBody = {
   error: string;
 };
 
@@ -111,6 +111,62 @@ export function createPolicyBundleRequestFromJSON(
 }
 
 /** @internal */
+export const CreatePolicyBundleResponseBody$inboundSchema: z.ZodType<
+  CreatePolicyBundleResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  error: z.string(),
+});
+
+/** @internal */
+export type CreatePolicyBundleResponseBody$Outbound = {
+  error: string;
+};
+
+/** @internal */
+export const CreatePolicyBundleResponseBody$outboundSchema: z.ZodType<
+  CreatePolicyBundleResponseBody$Outbound,
+  z.ZodTypeDef,
+  CreatePolicyBundleResponseBody
+> = z.object({
+  error: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreatePolicyBundleResponseBody$ {
+  /** @deprecated use `CreatePolicyBundleResponseBody$inboundSchema` instead. */
+  export const inboundSchema = CreatePolicyBundleResponseBody$inboundSchema;
+  /** @deprecated use `CreatePolicyBundleResponseBody$outboundSchema` instead. */
+  export const outboundSchema = CreatePolicyBundleResponseBody$outboundSchema;
+  /** @deprecated use `CreatePolicyBundleResponseBody$Outbound` instead. */
+  export type Outbound = CreatePolicyBundleResponseBody$Outbound;
+}
+
+export function createPolicyBundleResponseBodyToJSON(
+  createPolicyBundleResponseBody: CreatePolicyBundleResponseBody,
+): string {
+  return JSON.stringify(
+    CreatePolicyBundleResponseBody$outboundSchema.parse(
+      createPolicyBundleResponseBody,
+    ),
+  );
+}
+
+export function createPolicyBundleResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreatePolicyBundleResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreatePolicyBundleResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreatePolicyBundleResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreatePolicyBundlePolicyManagementResponse413ResponseBody$inboundSchema:
   z.ZodType<
     CreatePolicyBundlePolicyManagementResponse413ResponseBody,
@@ -174,62 +230,6 @@ export function createPolicyBundlePolicyManagementResponse413ResponseBodyFromJSO
       CreatePolicyBundlePolicyManagementResponse413ResponseBody$inboundSchema
         .parse(JSON.parse(x)),
     `Failed to parse 'CreatePolicyBundlePolicyManagementResponse413ResponseBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const CreatePolicyBundleResponseBody$inboundSchema: z.ZodType<
-  CreatePolicyBundleResponseBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  error: z.string(),
-});
-
-/** @internal */
-export type CreatePolicyBundleResponseBody$Outbound = {
-  error: string;
-};
-
-/** @internal */
-export const CreatePolicyBundleResponseBody$outboundSchema: z.ZodType<
-  CreatePolicyBundleResponseBody$Outbound,
-  z.ZodTypeDef,
-  CreatePolicyBundleResponseBody
-> = z.object({
-  error: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreatePolicyBundleResponseBody$ {
-  /** @deprecated use `CreatePolicyBundleResponseBody$inboundSchema` instead. */
-  export const inboundSchema = CreatePolicyBundleResponseBody$inboundSchema;
-  /** @deprecated use `CreatePolicyBundleResponseBody$outboundSchema` instead. */
-  export const outboundSchema = CreatePolicyBundleResponseBody$outboundSchema;
-  /** @deprecated use `CreatePolicyBundleResponseBody$Outbound` instead. */
-  export type Outbound = CreatePolicyBundleResponseBody$Outbound;
-}
-
-export function createPolicyBundleResponseBodyToJSON(
-  createPolicyBundleResponseBody: CreatePolicyBundleResponseBody,
-): string {
-  return JSON.stringify(
-    CreatePolicyBundleResponseBody$outboundSchema.parse(
-      createPolicyBundleResponseBody,
-    ),
-  );
-}
-
-export function createPolicyBundleResponseBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<CreatePolicyBundleResponseBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreatePolicyBundleResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreatePolicyBundleResponseBody' from JSON`,
   );
 }
 

@@ -130,11 +130,9 @@ export async function policyManagementGetPolicyDocument(
     | ConnectionError
   >(
     M.json(200, operations.GetPolicyDocumentResponse$inboundSchema),
-    M.json(
-      [400, 401, 403, 500],
-      operations.GetPolicyDocumentResponse$inboundSchema,
-    ),
+    M.json([400, 401, 403], operations.GetPolicyDocumentResponse$inboundSchema),
     M.json(404, operations.GetPolicyDocumentResponse$inboundSchema),
+    M.json(500, operations.GetPolicyDocumentResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

@@ -131,9 +131,10 @@ export async function projectGetProjectSettings(
   >(
     M.json(200, operations.GetProjectSettingsResponse$inboundSchema),
     M.json(
-      [401, 403, 404, 429, 500],
+      [401, 403, 404, 429],
       operations.GetProjectSettingsResponse$inboundSchema,
     ),
+    M.json(500, operations.GetProjectSettingsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

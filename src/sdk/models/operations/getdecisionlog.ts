@@ -15,20 +15,20 @@ export type GetDecisionLogRequest = {
 };
 
 /**
- * There was no decision log found for given decision_id, and owner_id.
- *
- * @remarks
- */
-export type GetDecisionLogPolicyManagementResponse404ResponseBody = {
-  error: string;
-};
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
  */
 export type GetDecisionLogResponseBody = {
+  error: string;
+};
+
+/**
+ * There was no decision log found for given decision_id, and owner_id.
+ *
+ * @remarks
+ */
+export type GetDecisionLogPolicyManagementResponse404ResponseBody = {
   error: string;
 };
 
@@ -98,6 +98,60 @@ export function getDecisionLogRequestFromJSON(
 }
 
 /** @internal */
+export const GetDecisionLogResponseBody$inboundSchema: z.ZodType<
+  GetDecisionLogResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  error: z.string(),
+});
+
+/** @internal */
+export type GetDecisionLogResponseBody$Outbound = {
+  error: string;
+};
+
+/** @internal */
+export const GetDecisionLogResponseBody$outboundSchema: z.ZodType<
+  GetDecisionLogResponseBody$Outbound,
+  z.ZodTypeDef,
+  GetDecisionLogResponseBody
+> = z.object({
+  error: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetDecisionLogResponseBody$ {
+  /** @deprecated use `GetDecisionLogResponseBody$inboundSchema` instead. */
+  export const inboundSchema = GetDecisionLogResponseBody$inboundSchema;
+  /** @deprecated use `GetDecisionLogResponseBody$outboundSchema` instead. */
+  export const outboundSchema = GetDecisionLogResponseBody$outboundSchema;
+  /** @deprecated use `GetDecisionLogResponseBody$Outbound` instead. */
+  export type Outbound = GetDecisionLogResponseBody$Outbound;
+}
+
+export function getDecisionLogResponseBodyToJSON(
+  getDecisionLogResponseBody: GetDecisionLogResponseBody,
+): string {
+  return JSON.stringify(
+    GetDecisionLogResponseBody$outboundSchema.parse(getDecisionLogResponseBody),
+  );
+}
+
+export function getDecisionLogResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDecisionLogResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetDecisionLogPolicyManagementResponse404ResponseBody$inboundSchema:
   z.ZodType<
     GetDecisionLogPolicyManagementResponse404ResponseBody,
@@ -162,60 +216,6 @@ export function getDecisionLogPolicyManagementResponse404ResponseBodyFromJSON(
         JSON.parse(x),
       ),
     `Failed to parse 'GetDecisionLogPolicyManagementResponse404ResponseBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const GetDecisionLogResponseBody$inboundSchema: z.ZodType<
-  GetDecisionLogResponseBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  error: z.string(),
-});
-
-/** @internal */
-export type GetDecisionLogResponseBody$Outbound = {
-  error: string;
-};
-
-/** @internal */
-export const GetDecisionLogResponseBody$outboundSchema: z.ZodType<
-  GetDecisionLogResponseBody$Outbound,
-  z.ZodTypeDef,
-  GetDecisionLogResponseBody
-> = z.object({
-  error: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetDecisionLogResponseBody$ {
-  /** @deprecated use `GetDecisionLogResponseBody$inboundSchema` instead. */
-  export const inboundSchema = GetDecisionLogResponseBody$inboundSchema;
-  /** @deprecated use `GetDecisionLogResponseBody$outboundSchema` instead. */
-  export const outboundSchema = GetDecisionLogResponseBody$outboundSchema;
-  /** @deprecated use `GetDecisionLogResponseBody$Outbound` instead. */
-  export type Outbound = GetDecisionLogResponseBody$Outbound;
-}
-
-export function getDecisionLogResponseBodyToJSON(
-  getDecisionLogResponseBody: GetDecisionLogResponseBody,
-): string {
-  return JSON.stringify(
-    GetDecisionLogResponseBody$outboundSchema.parse(getDecisionLogResponseBody),
-  );
-}
-
-export function getDecisionLogResponseBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<GetDecisionLogResponseBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetDecisionLogResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetDecisionLogResponseBody' from JSON`,
   );
 }
 

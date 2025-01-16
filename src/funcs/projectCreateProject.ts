@@ -131,10 +131,11 @@ export async function projectCreateProject(
   >(
     M.json(201, operations.CreateProjectResponse$inboundSchema),
     M.json(
-      [400, 401, 403, 405, 429, 500],
+      [400, 401, 403, 405, 429],
       operations.CreateProjectResponse$inboundSchema,
     ),
     M.json(404, operations.CreateProjectResponse$inboundSchema),
+    M.json(500, operations.CreateProjectResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

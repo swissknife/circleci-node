@@ -18,20 +18,20 @@ export type GetPolicyDocumentRequest = {
 };
 
 /**
- * There was no policy that was found with the given owner_id and policy name.
- *
- * @remarks
- */
-export type GetPolicyDocumentPolicyManagementResponse404ResponseBody = {
-  error: string;
-};
-
-/**
  * The request is malformed (e.g, a given path parameter is invalid)
  *
  * @remarks
  */
 export type GetPolicyDocumentResponseBody = {
+  error: string;
+};
+
+/**
+ * There was no policy that was found with the given owner_id and policy name.
+ *
+ * @remarks
+ */
+export type GetPolicyDocumentPolicyManagementResponse404ResponseBody = {
   error: string;
 };
 
@@ -101,6 +101,62 @@ export function getPolicyDocumentRequestFromJSON(
 }
 
 /** @internal */
+export const GetPolicyDocumentResponseBody$inboundSchema: z.ZodType<
+  GetPolicyDocumentResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  error: z.string(),
+});
+
+/** @internal */
+export type GetPolicyDocumentResponseBody$Outbound = {
+  error: string;
+};
+
+/** @internal */
+export const GetPolicyDocumentResponseBody$outboundSchema: z.ZodType<
+  GetPolicyDocumentResponseBody$Outbound,
+  z.ZodTypeDef,
+  GetPolicyDocumentResponseBody
+> = z.object({
+  error: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetPolicyDocumentResponseBody$ {
+  /** @deprecated use `GetPolicyDocumentResponseBody$inboundSchema` instead. */
+  export const inboundSchema = GetPolicyDocumentResponseBody$inboundSchema;
+  /** @deprecated use `GetPolicyDocumentResponseBody$outboundSchema` instead. */
+  export const outboundSchema = GetPolicyDocumentResponseBody$outboundSchema;
+  /** @deprecated use `GetPolicyDocumentResponseBody$Outbound` instead. */
+  export type Outbound = GetPolicyDocumentResponseBody$Outbound;
+}
+
+export function getPolicyDocumentResponseBodyToJSON(
+  getPolicyDocumentResponseBody: GetPolicyDocumentResponseBody,
+): string {
+  return JSON.stringify(
+    GetPolicyDocumentResponseBody$outboundSchema.parse(
+      getPolicyDocumentResponseBody,
+    ),
+  );
+}
+
+export function getPolicyDocumentResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPolicyDocumentResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPolicyDocumentResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPolicyDocumentResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetPolicyDocumentPolicyManagementResponse404ResponseBody$inboundSchema:
   z.ZodType<
     GetPolicyDocumentPolicyManagementResponse404ResponseBody,
@@ -164,62 +220,6 @@ export function getPolicyDocumentPolicyManagementResponse404ResponseBodyFromJSON
       GetPolicyDocumentPolicyManagementResponse404ResponseBody$inboundSchema
         .parse(JSON.parse(x)),
     `Failed to parse 'GetPolicyDocumentPolicyManagementResponse404ResponseBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const GetPolicyDocumentResponseBody$inboundSchema: z.ZodType<
-  GetPolicyDocumentResponseBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  error: z.string(),
-});
-
-/** @internal */
-export type GetPolicyDocumentResponseBody$Outbound = {
-  error: string;
-};
-
-/** @internal */
-export const GetPolicyDocumentResponseBody$outboundSchema: z.ZodType<
-  GetPolicyDocumentResponseBody$Outbound,
-  z.ZodTypeDef,
-  GetPolicyDocumentResponseBody
-> = z.object({
-  error: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetPolicyDocumentResponseBody$ {
-  /** @deprecated use `GetPolicyDocumentResponseBody$inboundSchema` instead. */
-  export const inboundSchema = GetPolicyDocumentResponseBody$inboundSchema;
-  /** @deprecated use `GetPolicyDocumentResponseBody$outboundSchema` instead. */
-  export const outboundSchema = GetPolicyDocumentResponseBody$outboundSchema;
-  /** @deprecated use `GetPolicyDocumentResponseBody$Outbound` instead. */
-  export type Outbound = GetPolicyDocumentResponseBody$Outbound;
-}
-
-export function getPolicyDocumentResponseBodyToJSON(
-  getPolicyDocumentResponseBody: GetPolicyDocumentResponseBody,
-): string {
-  return JSON.stringify(
-    GetPolicyDocumentResponseBody$outboundSchema.parse(
-      getPolicyDocumentResponseBody,
-    ),
-  );
-}
-
-export function getPolicyDocumentResponseBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<GetPolicyDocumentResponseBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetPolicyDocumentResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetPolicyDocumentResponseBody' from JSON`,
   );
 }
 

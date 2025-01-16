@@ -15,6 +15,15 @@ export type GetDecisionLogPolicyBundleRequest = {
 };
 
 /**
+ * The request is malformed (e.g, a given path parameter is invalid)
+ *
+ * @remarks
+ */
+export type GetDecisionLogPolicyBundleResponseBody = {
+  error: string;
+};
+
+/**
  * There was no decision log found for given decision_id, and owner_id.
  *
  * @remarks
@@ -23,15 +32,6 @@ export type GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody =
   {
     error: string;
   };
-
-/**
- * The request is malformed (e.g, a given path parameter is invalid)
- *
- * @remarks
- */
-export type GetDecisionLogPolicyBundleResponseBody = {
-  error: string;
-};
 
 export type GetDecisionLogPolicyBundleResponse =
   | GetDecisionLogPolicyBundleResponseBody
@@ -102,6 +102,66 @@ export function getDecisionLogPolicyBundleRequestFromJSON(
 }
 
 /** @internal */
+export const GetDecisionLogPolicyBundleResponseBody$inboundSchema: z.ZodType<
+  GetDecisionLogPolicyBundleResponseBody,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  error: z.string(),
+});
+
+/** @internal */
+export type GetDecisionLogPolicyBundleResponseBody$Outbound = {
+  error: string;
+};
+
+/** @internal */
+export const GetDecisionLogPolicyBundleResponseBody$outboundSchema: z.ZodType<
+  GetDecisionLogPolicyBundleResponseBody$Outbound,
+  z.ZodTypeDef,
+  GetDecisionLogPolicyBundleResponseBody
+> = z.object({
+  error: z.string(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetDecisionLogPolicyBundleResponseBody$ {
+  /** @deprecated use `GetDecisionLogPolicyBundleResponseBody$inboundSchema` instead. */
+  export const inboundSchema =
+    GetDecisionLogPolicyBundleResponseBody$inboundSchema;
+  /** @deprecated use `GetDecisionLogPolicyBundleResponseBody$outboundSchema` instead. */
+  export const outboundSchema =
+    GetDecisionLogPolicyBundleResponseBody$outboundSchema;
+  /** @deprecated use `GetDecisionLogPolicyBundleResponseBody$Outbound` instead. */
+  export type Outbound = GetDecisionLogPolicyBundleResponseBody$Outbound;
+}
+
+export function getDecisionLogPolicyBundleResponseBodyToJSON(
+  getDecisionLogPolicyBundleResponseBody:
+    GetDecisionLogPolicyBundleResponseBody,
+): string {
+  return JSON.stringify(
+    GetDecisionLogPolicyBundleResponseBody$outboundSchema.parse(
+      getDecisionLogPolicyBundleResponseBody,
+    ),
+  );
+}
+
+export function getDecisionLogPolicyBundleResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDecisionLogPolicyBundleResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetDecisionLogPolicyBundleResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDecisionLogPolicyBundleResponseBody' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody$inboundSchema:
   z.ZodType<
     GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody,
@@ -165,66 +225,6 @@ export function getDecisionLogPolicyBundlePolicyManagementResponse404ResponseBod
       GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody$inboundSchema
         .parse(JSON.parse(x)),
     `Failed to parse 'GetDecisionLogPolicyBundlePolicyManagementResponse404ResponseBody' from JSON`,
-  );
-}
-
-/** @internal */
-export const GetDecisionLogPolicyBundleResponseBody$inboundSchema: z.ZodType<
-  GetDecisionLogPolicyBundleResponseBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  error: z.string(),
-});
-
-/** @internal */
-export type GetDecisionLogPolicyBundleResponseBody$Outbound = {
-  error: string;
-};
-
-/** @internal */
-export const GetDecisionLogPolicyBundleResponseBody$outboundSchema: z.ZodType<
-  GetDecisionLogPolicyBundleResponseBody$Outbound,
-  z.ZodTypeDef,
-  GetDecisionLogPolicyBundleResponseBody
-> = z.object({
-  error: z.string(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetDecisionLogPolicyBundleResponseBody$ {
-  /** @deprecated use `GetDecisionLogPolicyBundleResponseBody$inboundSchema` instead. */
-  export const inboundSchema =
-    GetDecisionLogPolicyBundleResponseBody$inboundSchema;
-  /** @deprecated use `GetDecisionLogPolicyBundleResponseBody$outboundSchema` instead. */
-  export const outboundSchema =
-    GetDecisionLogPolicyBundleResponseBody$outboundSchema;
-  /** @deprecated use `GetDecisionLogPolicyBundleResponseBody$Outbound` instead. */
-  export type Outbound = GetDecisionLogPolicyBundleResponseBody$Outbound;
-}
-
-export function getDecisionLogPolicyBundleResponseBodyToJSON(
-  getDecisionLogPolicyBundleResponseBody:
-    GetDecisionLogPolicyBundleResponseBody,
-): string {
-  return JSON.stringify(
-    GetDecisionLogPolicyBundleResponseBody$outboundSchema.parse(
-      getDecisionLogPolicyBundleResponseBody,
-    ),
-  );
-}
-
-export function getDecisionLogPolicyBundleResponseBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<GetDecisionLogPolicyBundleResponseBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetDecisionLogPolicyBundleResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetDecisionLogPolicyBundleResponseBody' from JSON`,
   );
 }
 

@@ -128,9 +128,10 @@ export async function contextDeleteContextRestriction(
   >(
     M.json(200, operations.DeleteContextRestrictionResponse$inboundSchema),
     M.json(
-      [400, 401, 404, 429, 500],
+      [400, 401, 404, 429],
       operations.DeleteContextRestrictionResponse$inboundSchema,
     ),
+    M.json(500, operations.DeleteContextRestrictionResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

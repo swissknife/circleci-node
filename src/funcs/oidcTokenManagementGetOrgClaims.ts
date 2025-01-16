@@ -120,7 +120,8 @@ export async function oidcTokenManagementGetOrgClaims(
     | ConnectionError
   >(
     M.json(200, operations.GetOrgClaimsResponse$inboundSchema),
-    M.json([400, 403, 500], operations.GetOrgClaimsResponse$inboundSchema),
+    M.json([400, 403], operations.GetOrgClaimsResponse$inboundSchema),
+    M.json(500, operations.GetOrgClaimsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

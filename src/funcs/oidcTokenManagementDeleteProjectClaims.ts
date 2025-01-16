@@ -132,10 +132,8 @@ export async function oidcTokenManagementDeleteProjectClaims(
     | ConnectionError
   >(
     M.json(200, operations.DeleteProjectClaimsResponse$inboundSchema),
-    M.json(
-      [400, 403, 500],
-      operations.DeleteProjectClaimsResponse$inboundSchema,
-    ),
+    M.json([400, 403], operations.DeleteProjectClaimsResponse$inboundSchema),
+    M.json(500, operations.DeleteProjectClaimsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

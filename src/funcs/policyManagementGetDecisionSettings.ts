@@ -128,9 +128,10 @@ export async function policyManagementGetDecisionSettings(
   >(
     M.json(200, operations.GetDecisionSettingsResponse$inboundSchema),
     M.json(
-      [400, 401, 403, 500],
+      [400, 401, 403],
       operations.GetDecisionSettingsResponse$inboundSchema,
     ),
+    M.json(500, operations.GetDecisionSettingsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

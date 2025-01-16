@@ -132,10 +132,11 @@ export async function policyManagementGetDecisionLogPolicyBundle(
   >(
     M.json(200, operations.GetDecisionLogPolicyBundleResponse$inboundSchema),
     M.json(
-      [400, 401, 403, 500],
+      [400, 401, 403],
       operations.GetDecisionLogPolicyBundleResponse$inboundSchema,
     ),
     M.json(404, operations.GetDecisionLogPolicyBundleResponse$inboundSchema),
+    M.json(500, operations.GetDecisionLogPolicyBundleResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

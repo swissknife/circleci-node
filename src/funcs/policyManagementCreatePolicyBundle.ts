@@ -133,10 +133,11 @@ export async function policyManagementCreatePolicyBundle(
   >(
     M.json([200, 201], operations.CreatePolicyBundleResponse$inboundSchema),
     M.json(
-      [400, 401, 403, 500],
+      [400, 401, 403],
       operations.CreatePolicyBundleResponse$inboundSchema,
     ),
     M.json(413, operations.CreatePolicyBundleResponse$inboundSchema),
+    M.json(500, operations.CreatePolicyBundleResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;

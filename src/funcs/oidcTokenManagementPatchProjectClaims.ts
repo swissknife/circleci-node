@@ -129,10 +129,8 @@ export async function oidcTokenManagementPatchProjectClaims(
     | ConnectionError
   >(
     M.json(200, operations.PatchProjectClaimsResponse$inboundSchema),
-    M.json(
-      [400, 403, 500],
-      operations.PatchProjectClaimsResponse$inboundSchema,
-    ),
+    M.json([400, 403], operations.PatchProjectClaimsResponse$inboundSchema),
+    M.json(500, operations.PatchProjectClaimsResponse$inboundSchema),
   )(response);
   if (!result.ok) {
     return result;
