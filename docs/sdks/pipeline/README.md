@@ -523,12 +523,10 @@ async function run() {
     organization: "CircleCI-Public",
     pipelineRequest: {
       checkout: {
-        branch: "main",
         tag: "v2",
       },
       config: {
         branch: "main",
-        tag: "v2",
       },
       definitionId: "2338d0ae-5541-4bbf-88a2-55e9f7281f80",
       parameters: {
@@ -569,12 +567,10 @@ async function run() {
     organization: "CircleCI-Public",
     pipelineRequest: {
       checkout: {
-        branch: "main",
         tag: "v2",
       },
       config: {
         branch: "main",
-        tag: "v2",
       },
       definitionId: "2338d0ae-5541-4bbf-88a2-55e9f7281f80",
       parameters: {

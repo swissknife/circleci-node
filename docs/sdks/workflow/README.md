@@ -30,7 +30,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.workflow.approvePendingApprovalJobById({
-    approvalRequestId: "afd4e8a2-73f4-4706-8fed-d209a62dd146",
+    approvalRequestId: "adea7f76-fd29-46d1-b69a-24cbe2fa5261",
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 
@@ -59,7 +59,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await workflowApprovePendingApprovalJobById(circleci, {
-    approvalRequestId: "afd4e8a2-73f4-4706-8fed-d209a62dd146",
+    approvalRequestId: "adea7f76-fd29-46d1-b69a-24cbe2fa5261",
     id: "5034460f-c7c4-4c43-9457-de07e2029e7b",
   });
 

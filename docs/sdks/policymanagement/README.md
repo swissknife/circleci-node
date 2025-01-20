@@ -35,7 +35,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.createPolicyBundle({
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -64,7 +64,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementCreatePolicyBundle(circleci, {
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {
@@ -117,8 +117,8 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.getDecisionLog({
     context: "<value>",
-    decisionID: "<value>",
-    ownerID: "<value>",
+    decisionID: "<id>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -147,8 +147,8 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementGetDecisionLog(circleci, {
     context: "<value>",
-    decisionID: "<value>",
-    ownerID: "<value>",
+    decisionID: "<id>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {
@@ -201,8 +201,8 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.getDecisionLogPolicyBundle({
     context: "<value>",
-    decisionID: "<value>",
-    ownerID: "<value>",
+    decisionID: "<id>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -231,8 +231,8 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementGetDecisionLogPolicyBundle(circleci, {
     context: "<value>",
-    decisionID: "<value>",
-    ownerID: "<value>",
+    decisionID: "<id>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {
@@ -285,7 +285,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.getDecisionLogs({
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -314,7 +314,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementGetDecisionLogs(circleci, {
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {
@@ -367,7 +367,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.getDecisionSettings({
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -396,7 +396,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementGetDecisionSettings(circleci, {
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {
@@ -449,7 +449,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.getPolicyBundle({
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -478,7 +478,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementGetPolicyBundle(circleci, {
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {
@@ -531,7 +531,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.getPolicyDocument({
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
     policyName: "<value>",
   });
 
@@ -561,7 +561,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementGetPolicyDocument(circleci, {
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
     policyName: "<value>",
   });
 
@@ -615,7 +615,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.makeDecision({
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -644,7 +644,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementMakeDecision(circleci, {
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {
@@ -697,7 +697,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.policyManagement.setDecisionSettings({
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   // Handle the result
@@ -726,7 +726,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await policyManagementSetDecisionSettings(circleci, {
     context: "<value>",
-    ownerID: "<value>",
+    ownerID: "<id>",
   });
 
   if (!res.ok) {

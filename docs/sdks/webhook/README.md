@@ -106,7 +106,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.webhook.deleteWebhook({
-    webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
+    webhookId: "9e756bb0-3b43-4e42-9b9d-e5948a11afb8",
   });
 
   // Handle the result
@@ -134,7 +134,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookDeleteWebhook(circleci, {
-    webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
+    webhookId: "9e756bb0-3b43-4e42-9b9d-e5948a11afb8",
   });
 
   if (!res.ok) {
@@ -186,7 +186,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.webhook.getWebhookById({
-    webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
+    webhookId: "4f745726-c0b4-415d-a955-165fed53b47d",
   });
 
   // Handle the result
@@ -214,7 +214,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookGetWebhookById(circleci, {
-    webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
+    webhookId: "4f745726-c0b4-415d-a955-165fed53b47d",
   });
 
   if (!res.ok) {
@@ -266,7 +266,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.webhook.getWebhooks({
-    scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
+    scopeId: "1cf54a1c-ad92-485e-90c4-d681aa77bcc1",
     scopeType: "project",
   });
 
@@ -295,7 +295,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookGetWebhooks(circleci, {
-    scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
+    scopeId: "1cf54a1c-ad92-485e-90c4-d681aa77bcc1",
     scopeType: "project",
   });
 
@@ -348,7 +348,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.webhook.updateWebhook({
-    webhookId: "8ac25520-482a-4d43-a100-ab198d297078",
+    webhookId: "8c5242d3-10b9-4d90-b89c-88c3d44edcfe",
   });
 
   // Handle the result
@@ -376,7 +376,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await webhookUpdateWebhook(circleci, {
-    webhookId: "8ac25520-482a-4d43-a100-ab198d297078",
+    webhookId: "8c5242d3-10b9-4d90-b89c-88c3d44edcfe",
   });
 
   if (!res.ok) {

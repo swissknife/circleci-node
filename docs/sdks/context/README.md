@@ -38,7 +38,7 @@ async function run() {
     requestBody: {
       value: "some-secret-value",
     },
-    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
     envVarName: "POSTGRES_USER",
   });
 
@@ -70,7 +70,7 @@ async function run() {
     requestBody: {
       value: "some-secret-value",
     },
-    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
     envVarName: "POSTGRES_USER",
   });
 
@@ -299,7 +299,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.context.deleteContext({
-    contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
+    contextId: "74242287-b0aa-4f7c-bade-49ec6511e2c6",
   });
 
   // Handle the result
@@ -327,7 +327,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextDeleteContext(circleci, {
-    contextId: "7e402047-2522-48a7-bbf0-da8a8f076c4a",
+    contextId: "74242287-b0aa-4f7c-bade-49ec6511e2c6",
   });
 
   if (!res.ok) {
@@ -461,7 +461,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.context.deleteEnvironmentVariableFromContext({
-    contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
+    contextId: "02914a99-1a28-4752-b780-bdeeb780d1c8",
     envVarName: "POSTGRES_USER",
   });
 
@@ -490,7 +490,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextDeleteEnvironmentVariableFromContext(circleci, {
-    contextId: "08279212-4ea7-49d9-b11a-c208b7a59267",
+    contextId: "02914a99-1a28-4752-b780-bdeeb780d1c8",
     envVarName: "POSTGRES_USER",
   });
 
@@ -543,7 +543,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.context.getContext({
-    contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
+    contextId: "16bf7325-4fd2-4f68-9093-2f245c2064eb",
   });
 
   // Handle the result
@@ -571,7 +571,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextGetContext(circleci, {
-    contextId: "186cb1f2-7e39-4255-944f-1d226fb6d890",
+    contextId: "16bf7325-4fd2-4f68-9093-2f245c2064eb",
   });
 
   if (!res.ok) {
@@ -779,7 +779,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.context.listEnvironmentVariablesFromContext({
-    contextId: "bd93f37e-8737-476a-be63-944592b835e7",
+    contextId: "b9f7837a-e345-4285-b74b-d523d65ec63d",
   });
 
   // Handle the result
@@ -807,7 +807,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await contextListEnvironmentVariablesFromContext(circleci, {
-    contextId: "bd93f37e-8737-476a-be63-944592b835e7",
+    contextId: "b9f7837a-e345-4285-b74b-d523d65ec63d",
   });
 
   if (!res.ok) {

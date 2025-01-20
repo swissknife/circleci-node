@@ -13,7 +13,7 @@ async function run() {
     requestBody: {
       value: "some-secret-value",
     },
-    contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
     envVarName: "POSTGRES_USER",
   });
 

@@ -184,7 +184,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.user.getUser({
-    id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
+    id: "b2ee9b96-90b8-4b3d-8ed3-23cd9332a419",
   });
 
   // Handle the result
@@ -212,7 +212,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await userGetUser(circleci, {
-    id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e",
+    id: "b2ee9b96-90b8-4b3d-8ed3-23cd9332a419",
   });
 
   if (!res.ok) {

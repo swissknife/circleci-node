@@ -100,8 +100,8 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.usage.createUsageExport({
     requestBody: {
-      end: new Date("2024-04-25T08:17:56.389Z"),
-      start: new Date("2022-04-10T20:35:03.698Z"),
+      end: new Date("2025-04-25T08:17:56.431Z"),
+      start: new Date("2024-06-27T05:57:33.306Z"),
     },
     orgId: "b9291e0d-a11e-41fb-8517-c545388b5953",
   });
@@ -132,8 +132,8 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await usageCreateUsageExport(circleci, {
     requestBody: {
-      end: new Date("2024-04-25T08:17:56.389Z"),
-      start: new Date("2022-04-10T20:35:03.698Z"),
+      end: new Date("2025-04-25T08:17:56.431Z"),
+      start: new Date("2024-06-27T05:57:33.306Z"),
     },
     orgId: "b9291e0d-a11e-41fb-8517-c545388b5953",
   });

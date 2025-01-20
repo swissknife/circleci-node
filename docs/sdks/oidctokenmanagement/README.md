@@ -32,7 +32,7 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.oidcTokenManagement.deleteOrgClaims({
     claims: "<value>",
-    orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
+    orgID: "5cd2f542-a380-4d20-bccd-c76e2456a32f",
   });
 
   // Handle the result
@@ -61,7 +61,7 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await oidcTokenManagementDeleteOrgClaims(circleci, {
     claims: "<value>",
-    orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c",
+    orgID: "5cd2f542-a380-4d20-bccd-c76e2456a32f",
   });
 
   if (!res.ok) {
@@ -114,8 +114,8 @@ const circleci = new Circleci({
 async function run() {
   const result = await circleci.oidcTokenManagement.deleteProjectClaims({
     claims: "<value>",
-    orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
-    projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
+    orgID: "83464c6d-1f59-4f04-a86d-af9fb2296248",
+    projectID: "89d4894a-3c77-4a96-b14f-8b4e3a2d3f63",
   });
 
   // Handle the result
@@ -144,8 +144,8 @@ const circleci = new CircleciCore({
 async function run() {
   const res = await oidcTokenManagementDeleteProjectClaims(circleci, {
     claims: "<value>",
-    orgID: "8d31466e-45c6-467d-a12f-45793f4014a8",
-    projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2",
+    orgID: "83464c6d-1f59-4f04-a86d-af9fb2296248",
+    projectID: "89d4894a-3c77-4a96-b14f-8b4e3a2d3f63",
   });
 
   if (!res.ok) {
@@ -197,7 +197,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.oidcTokenManagement.getOrgClaims({
-    orgID: "faa87345-442f-4070-a007-ecf098342349",
+    orgID: "fa744200-07c0-4843-b98e-11553f1d9022",
   });
 
   // Handle the result
@@ -225,7 +225,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementGetOrgClaims(circleci, {
-    orgID: "faa87345-442f-4070-a007-ecf098342349",
+    orgID: "fa744200-07c0-4843-b98e-11553f1d9022",
   });
 
   if (!res.ok) {
@@ -277,8 +277,8 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.oidcTokenManagement.getProjectClaims({
-    orgID: "01345488-5416-440e-9811-7333cda41eee",
-    projectID: "17124405-51b9-4707-91e2-d3024606dad9",
+    orgID: "0358514e-8133-4d4e-be72-451901ed040d",
+    projectID: "2f247712-b5e1-46ae-acbe-d2e64b8eac05",
   });
 
   // Handle the result
@@ -306,8 +306,8 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementGetProjectClaims(circleci, {
-    orgID: "01345488-5416-440e-9811-7333cda41eee",
-    projectID: "17124405-51b9-4707-91e2-d3024606dad9",
+    orgID: "0358514e-8133-4d4e-be72-451901ed040d",
+    projectID: "2f247712-b5e1-46ae-acbe-d2e64b8eac05",
   });
 
   if (!res.ok) {
@@ -359,7 +359,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.oidcTokenManagement.patchOrgClaims({
-    orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
+    orgID: "bc340d8d-992b-4f7f-9352-c770a986a84d",
   });
 
   // Handle the result
@@ -387,7 +387,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementPatchOrgClaims(circleci, {
-    orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13",
+    orgID: "bc340d8d-992b-4f7f-9352-c770a986a84d",
   });
 
   if (!res.ok) {
@@ -439,8 +439,8 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.oidcTokenManagement.patchProjectClaims({
-    orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
-    projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
+    orgID: "df5451f1-faee-423d-a172-9586a625d2a3",
+    projectID: "13af08fc-dfff-47b9-a331-a59c4a03d414",
   });
 
   // Handle the result
@@ -468,8 +468,8 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await oidcTokenManagementPatchProjectClaims(circleci, {
-    orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11",
-    projectID: "9732a915-1836-4aa8-a323-5ad82ba63480",
+    orgID: "df5451f1-faee-423d-a172-9586a625d2a3",
+    projectID: "13af08fc-dfff-47b9-a331-a59c4a03d414",
   });
 
   if (!res.ok) {

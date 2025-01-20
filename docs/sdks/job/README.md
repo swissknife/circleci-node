@@ -26,7 +26,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.job.cancelJobByJobID({
-    jobId: "afacffe1-191b-4f17-a3d4-b9d17568b0b6",
+    jobId: "aafe11f7-3491-4580-a6ff-57afa281476c",
   });
 
   // Handle the result
@@ -54,7 +54,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await jobCancelJobByJobID(circleci, {
-    jobId: "afacffe1-191b-4f17-a3d4-b9d17568b0b6",
+    jobId: "aafe11f7-3491-4580-a6ff-57afa281476c",
   });
 
   if (!res.ok) {

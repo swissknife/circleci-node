@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: 461bb9807aeed82f20ba1cf1fd0d986e
+  docChecksum: f55702254ebdd9f795586eacd49683d5
   docVersion: v2
-  speakeasyVersion: 1.468.9
-  generationVersion: 2.493.21
-  releaseVersion: 5.9.23
-  configChecksum: 7d53484b3e7edc4cc29f1dec3d46df68
+  speakeasyVersion: 1.469.2
+  generationVersion: 2.493.23
+  releaseVersion: 5.9.24
+  configChecksum: 6ab7bd7e0152125c9a2456292825db90
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -568,13 +568,13 @@ examples:
     "":
       parameters:
         path:
-          context-id: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96"
+          context-id: "00ac7939-2dac-470a-a639-ebd1d3b53886"
           env-var-name: "POSTGRES_USER"
       requestBody:
         application/json: {"value": "some-secret-value"}
       responses:
         "200":
-          application/json: {"context_id": "359feab3-d71b-4d63-bb45-a32838a61b4c", "created_at": "2015-09-21T17:29:21.042Z", "updated_at": "2015-09-21T17:29:21.042Z", "variable": "POSTGRES_USER"}
+          application/json: {"message": "<value>"}
         default: {}
   createContext:
     speakeasy-default-create-context:
@@ -582,7 +582,7 @@ examples:
         application/json: {"name": "<value>", "owner": {"slug": "<value>"}}
       responses:
         "200":
-          application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "de7eaaf7-f3ff-437a-a73d-51ad1dc6e334", "name": "<value>"}
+          application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "eea73f7e-35a1-4ce3-82d3-968fb2d492b5", "name": "<value>"}
         default:
           application/json: {}
   createContextRestriction:
@@ -601,8 +601,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "This restriction cannot be applied to this context."}
-        "401": {}
-        "409": {}
     invalid_access:
       parameters:
         path:
@@ -612,8 +610,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "Project does not exist, or user does not have access to this project."}
-        "401": {}
-        "409": {}
     invalid_token:
       parameters:
         path:
@@ -623,7 +619,6 @@ examples:
       responses:
         "401":
           application/json: {"message": "Invalid token provided."}
-        "409": {}
         "500":
           application/json: {"message": "Invalid token provided."}
     old_token:
@@ -635,7 +630,6 @@ examples:
       responses:
         "401":
           application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
-        "409": {}
         "500":
           application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
     query_auth:
@@ -647,7 +641,6 @@ examples:
       responses:
         "401":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
-        "409": {}
         "500":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
     restriction_conflict:
@@ -663,7 +656,7 @@ examples:
     speakeasy-default-delete-context:
       parameters:
         path:
-          context-id: "7e402047-2522-48a7-bbf0-da8a8f076c4a"
+          context-id: "74242287-b0aa-4f7c-bade-49ec6511e2c6"
       responses:
         "200":
           application/json: {"message": "<value>"}
@@ -675,6 +668,11 @@ examples:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
           restriction_id: "1c23d2cb-07b1-4a28-8af3-e369732050ed"
+      responses:
+        "400":
+          application/json: {"message": "restriction_id is invalid."}
+        "500":
+          application/json: {"message": "restriction_id is invalid."}
     successful_delete:
       parameters:
         path:
@@ -683,13 +681,12 @@ examples:
       responses:
         "200":
           application/json: {"message": "Context restriction deleted."}
-        "400": {}
   deleteEnvironmentVariableFromContext:
     "":
       parameters:
         path:
           env-var-name: "POSTGRES_USER"
-          context-id: "08279212-4ea7-49d9-b11a-c208b7a59267"
+          context-id: "02914a99-1a28-4752-b780-bdeeb780d1c8"
       responses:
         "200":
           application/json: {"message": "<value>"}
@@ -698,10 +695,10 @@ examples:
     speakeasy-default-get-context:
       parameters:
         path:
-          context-id: "186cb1f2-7e39-4255-944f-1d226fb6d890"
+          context-id: "16bf7325-4fd2-4f68-9093-2f245c2064eb"
       responses:
         "200":
-          application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "8943f2af-3244-4e53-8020-056d40e6b76b", "name": "<value>"}
+          application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "1dfa9a6f-3e82-4414-a380-82bb813bb522", "name": "<value>"}
         default:
           application/json: {}
   getContextRestrictions:
@@ -709,58 +706,29 @@ examples:
       parameters:
         path:
           context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      responses:
+        "400":
+          application/json: {"message": "context_id is invalid."}
+        "500":
+          application/json: {"message": "context_id is invalid."}
   listContexts:
     speakeasy-default-list-contexts:
       responses:
         "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
+          application/json: {"items": [{"created_at": "2015-09-21T17:29:21.042Z", "id": "27489ec0-def5-4a20-9aa0-35137b6a9506", "name": "<value>"}], "next_page_token": "<value>"}
         default:
           application/json: {}
   listEnvironmentVariablesFromContext:
     speakeasy-default-list-environment-variables-from-context:
       parameters:
         path:
-          context-id: "bd93f37e-8737-476a-be63-944592b835e7"
+          context-id: "b9f7837a-e345-4285-b74b-d523d65ec63d"
         query: {}
       responses:
         "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
+          application/json: {"items": [{"context_id": "4dc00d88-17e6-4b7a-a2cc-62bb9226d00b", "created_at": "2015-09-21T17:29:21.042Z", "updated_at": "2015-09-21T17:29:21.042Z", "variable": "POSTGRES_USER"}, {"context_id": "110cdad0-8c51-4b0d-ad5f-c60de430bd14", "created_at": "2015-09-21T17:29:21.042Z", "updated_at": "2015-09-21T17:29:21.042Z", "variable": "POSTGRES_USER"}], "next_page_token": "<value>"}
         default:
           application/json: {}
-  getAllInsightsBranches:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-        query:
-          workflow-name: "build-and-test"
-      responses:
-        "200":
-          application/json: {"branches": ["main"], "org_id": "<value>", "project_id": "<value>"}
-        default: {}
-  getFlakyTests:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      responses:
-        "200":
-          application/json: {"flaky-tests": [], "total-flaky-tests": 5}
-        default: {}
-  getJobTimeseries:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          workflow-name: "build-and-test"
-        query:
-          granularity: "hourly"
-          start-date: "2020-08-21T13:26:29Z"
-          end-date: "2020-09-04T13:26:29Z"
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
   getOrgSummaryData:
     "":
       parameters:
@@ -768,88 +736,15 @@ examples:
           org-slug: "gh/CircleCI-Public"
         query:
           reporting-window: "last-90-days"
-          project-names: "For a single project: ?project-names=some-project or for multiple projects: ?project-names=some-project1&project-names=some-project2"
       responses:
         "200":
-          application/json: {"all_projects": [], "org_data": {"metrics": {"success_rate": "1307.29", "throughput": "709.53", "total_credits_used": 807657, "total_duration_secs": 272962, "total_runs": 700505}, "trends": {"success_rate": "9416.71", "throughput": "5212.99", "total_credits_used": "9689.36", "total_duration_secs": "6969.87", "total_runs": "2529.23"}}, "org_project_data": []}
-        default: {}
-  getProjectWorkflowJobMetrics:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          workflow-name: "build-and-test"
-        query:
-          reporting-window: "last-90-days"
-          job-name: "lint"
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
-  getProjectWorkflowMetrics:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-        query:
-          reporting-window: "last-90-days"
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
-  getProjectWorkflowRuns:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          workflow-name: "build-and-test"
-        query:
-          start-date: "2020-08-21T13:26:29Z"
-          end-date: "2020-09-04T13:26:29Z"
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
-  getProjectWorkflowTestMetrics:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          workflow-name: "build-and-test"
-        query: {}
-      responses:
-        "200":
-          application/json: {"average_test_count": 842643, "most_failed_tests": [], "most_failed_tests_extra": 788897, "slowest_tests": [], "slowest_tests_extra": 818678, "test_runs": [], "total_test_runs": 267028}
-        default: {}
-  getProjectWorkflowsPageData:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-        query:
-          reporting-window: "last-90-days"
-          branches: "A single branch: ?branches=main or for multiple branches: ?branches=main&branches=feature&branches=dev"
-          workflow-names: "A single workflow name: ?workflow-names=build-test-deploy or\n    for multiple workflow names: ?workflow-names=build&workflow-names=test-and-deploy."
-      responses:
-        "200":
-          application/json: {"all_branches": ["main"], "all_workflows": ["build-and-test"], "project_workflow_branch_data": [], "project_workflow_data": []}
-        default: {}
-  getWorkflowSummary:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          workflow-name: "build-and-test"
-        query: {}
-      responses:
-        "200":
-          application/json: {"metrics": {"completed_runs": 484160, "duration_metrics": {"max": 103577, "mean": 264282, "median": 965701, "min": 250881, "p95": 465308, "standard_deviation": "1718.98"}, "failed_runs": 906060, "mttr": 99254, "success_rate": "8116.68", "successful_runs": 976138, "throughput": "4612.04", "total_credits_used": 374196, "total_runs": 105398, "window_end": "2022-03-09T07:10:47.395Z", "window_start": "2023-08-12T23:40:20.004Z"}, "trends": {"failed_runs": "1946.02", "median_duration_secs": "8618.53", "mttr": "7639.15", "p95_duration_secs": "6230.99", "success_rate": "4959.75", "throughput": "9963.22", "total_credits_used": "8325.07", "total_runs": "3775.91"}, "workflow_names": []}
+          application/json: {"all_projects": [], "org_data": {"metrics": {"success_rate": 8076.57, "throughput": 7005.05, "total_credits_used": 521299, "total_duration_secs": 696987, "total_runs": 974540}, "trends": {"success_rate": 5761.17, "throughput": 3272.43, "total_credits_used": 7396.2, "total_duration_secs": 9409.81, "total_runs": 1647.16}}, "org_project_data": []}
         default: {}
   cancelJobByJobID:
     speakeasy-default-cancel-job-by-job-ID:
       parameters:
         path:
-          job-id: "afacffe1-191b-4f17-a3d4-b9d17568b0b6"
+          job-id: "aafe11f7-3491-4580-a6ff-57afa281476c"
       responses:
         "200":
           application/json: {"message": "<value>"}
@@ -863,147 +758,107 @@ examples:
           application/json: {"message": "<value>"}
         default:
           application/json: {}
-  cancelJobByJobNumber:
-    "":
-      parameters:
-        path:
-          job-number: "123"
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      responses:
-        "200":
-          application/json: {"message": "<value>"}
-        default: {}
-  getJobArtifacts:
-    "":
-      parameters:
-        path:
-          job-number: "123"
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
-  getJobDetails:
-    "":
-      parameters:
-        path:
-          job-number: "123"
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      responses:
-        "200":
-          application/json: {"contexts": [], "created_at": "2022-01-04T22:36:14.982Z", "duration": 196444, "executor": {"resource_class": "<value>"}, "latest_workflow": {"id": "34350c85-1416-401c-b3c1-bc9114eb090d", "name": "build-and-test"}, "messages": [], "name": "<value>", "number": 458322, "organization": {"name": "<value>"}, "parallel_runs": [], "parallelism": 52503, "pipeline": {"id": "5034460f-c7c4-4c43-9457-de07e2029e7b"}, "project": {"external_url": "https://github.com/CircleCI-Public/api-preview-docs", "id": "172c7dcf-92e9-44e3-a955-3636f45be93b", "name": "api-preview-docs", "slug": "gh/CircleCI-Public/api-preview-docs"}, "queued_at": "2023-03-05T06:56:29.121Z", "started_at": "2022-05-07T11:14:32.068Z", "status": "failed", "web_url": "<value>"}
-        default: {}
-  getTests:
-    "":
-      parameters:
-        path:
-          job-number: "123"
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
   getCollaborations:
     speakeasy-default-get-collaborations:
       responses:
         "200":
-          application/json: []
+          application/json: [{"avatar_url": "https://ruddy-lid.name/", "id": "4f2d467f-ad8e-4e4f-91e2-bdaac1cd3c20", "name": "<value>", "slug": "<value>", "vcs-type": "<value>"}, {"avatar_url": "https://deep-eyeliner.org", "id": "15d5c28c-ff90-42c6-a924-361cdb132e21", "name": "<value>", "slug": "<value>", "vcs-type": "<value>"}, {"avatar_url": "https://plump-hamburger.com", "id": "5f053be3-503f-481b-869a-df2a96932fc1", "name": "<value>", "slug": "<value>", "vcs-type": "<value>"}]
         default:
           application/json: {}
   getCurrentUser:
     speakeasy-default-get-current-user:
       responses:
         "200":
-          application/json: {"id": "802c7c7e-abfa-4383-8fe2-e8badc1983a8", "login": "Erich.Johnson93", "name": "<value>"}
+          application/json: {"id": "8277af33-f28a-4c93-b866-cb9bf5d49f08", "login": "Monica_Jones", "name": "<value>"}
         default:
           application/json: {}
   getUser:
     speakeasy-default-get-user:
       parameters:
         path:
-          id: "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e"
+          id: "b2ee9b96-90b8-4b3d-8ed3-23cd9332a419"
       responses:
         "200":
-          application/json: {"id": "bf29e4e9-96b2-49f6-8980-3bb87b43bd7e", "login": "Candido.Sipes89", "name": "<value>"}
+          application/json: {"id": "4a4a7141-0524-4507-9154-519e9ad0dbe8", "login": "Walton77", "name": "<value>"}
         default:
           application/json: {}
   DeleteOrgClaims:
     speakeasy-default-delete-org-claims:
       parameters:
         path:
-          orgID: "56c7db21-f354-44d2-8a53-d8b02d62f07c"
+          orgID: "5cd2f542-a380-4d20-bccd-c76e2456a32f"
         query:
           claims: "<value>"
       responses:
+        "200":
+          application/json: {"org_id": "ebf9f95d-8b39-4c87-81c5-6e6639afc220"}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200":
-          application/json: {"org_id": "56c7db21-f354-44d2-8a53-d8b02d62f07c"}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   DeleteProjectClaims:
     speakeasy-default-delete-project-claims:
       parameters:
         path:
-          orgID: "8d31466e-45c6-467d-a12f-45793f4014a8"
-          projectID: "568d1acf-09ef-41b1-a52a-93672e4182b2"
+          orgID: "83464c6d-1f59-4f04-a86d-af9fb2296248"
+          projectID: "89d4894a-3c77-4a96-b14f-8b4e3a2d3f63"
         query:
           claims: "<value>"
       responses:
+        "200":
+          application/json: {"org_id": "ef04d9a2-0448-49a5-8a7a-4e23a453bbbb"}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200":
-          application/json: {"org_id": "8d31466e-45c6-467d-a12f-45793f4014a8"}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   GetOrgClaims:
     speakeasy-default-get-org-claims:
       parameters:
         path:
-          orgID: "faa87345-442f-4070-a007-ecf098342349"
+          orgID: "fa744200-07c0-4843-b98e-11553f1d9022"
       responses:
+        "200":
+          application/json: {"org_id": "f9c7083f-a44c-4f22-82ff-99e2446adb56"}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200":
-          application/json: {"org_id": "faa87345-442f-4070-a007-ecf098342349"}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   GetProjectClaims:
     speakeasy-default-get-project-claims:
       parameters:
         path:
-          orgID: "01345488-5416-440e-9811-7333cda41eee"
-          projectID: "17124405-51b9-4707-91e2-d3024606dad9"
+          orgID: "0358514e-8133-4d4e-be72-451901ed040d"
+          projectID: "2f247712-b5e1-46ae-acbe-d2e64b8eac05"
       responses:
+        "200":
+          application/json: {"org_id": "6143ebe5-cb6b-4999-9893-7dca78e3dc2e"}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200":
-          application/json: {"org_id": "01345488-5416-440e-9811-7333cda41eee"}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   PatchOrgClaims:
     speakeasy-default-patch-org-claims:
       parameters:
         path:
-          orgID: "b6c03243-08db-481d-a939-b2ebcfa7ef13"
+          orgID: "bc340d8d-992b-4f7f-9352-c770a986a84d"
       responses:
+        "200":
+          application/json: {"org_id": "9d569367-405d-46d3-b59f-acec369bc809"}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200":
-          application/json: {"org_id": "b6c03243-08db-481d-a939-b2ebcfa7ef13"}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   PatchProjectClaims:
     speakeasy-default-patch-project-claims:
       parameters:
         path:
-          orgID: "ddf25b42-5814-4fe1-af2a-ce9e5283bd11"
-          projectID: "9732a915-1836-4aa8-a323-5ad82ba63480"
+          orgID: "df5451f1-faee-423d-a172-9586a625d2a3"
+          projectID: "13af08fc-dfff-47b9-a331-a59c4a03d414"
       responses:
+        "200":
+          application/json: {"org_id": "7c231c31-ebfb-4db7-854c-26aa59da5c21"}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
-        "200":
-          application/json: {"org_id": "ddf25b42-5814-4fe1-af2a-ce9e5283bd11"}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   createUsageExport:
@@ -1012,12 +867,14 @@ examples:
         path:
           org_id: "b9291e0d-a11e-41fb-8517-c545388b5953"
       requestBody:
-        application/json: {"end": "2024-04-25T08:17:56.389Z", "start": "2022-04-10T20:35:03.698Z"}
+        application/json: {"end": "2025-04-25T08:17:56.431Z", "start": "2024-06-27T05:57:33.306Z"}
       responses:
         "201":
-          application/json: {"download_urls": [], "end": "2024-04-25T08:17:56.389Z", "start": "2022-04-10T20:35:03.698Z", "state": "processing", "usage_export_job_id": "49513e73-3604-4194-8a53-1baf237fcbd5"}
-        "400": {}
-        "500": {}
+          application/json: {"download_urls": ["https://unsightly-declaration.info/", "https://nutritious-barge.info/"], "end": "2023-04-09T20:08:17.626Z", "start": "2024-12-31T03:58:19.358Z", "state": "created", "usage_export_job_id": "7cda3666-1798-46f0-92b6-4ec8dd274849"}
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
+        "500":
+          application/json: {"message": "Unexpected request body provided."}
   getUsageExport:
     "":
       parameters:
@@ -1026,32 +883,34 @@ examples:
           usage_export_job_id: "e8235eed-f121-4ae3-9c72-2719d6572818"
       responses:
         "200":
-          application/json: {"download_urls": [], "state": "created", "usage_export_job_id": "b2cd27b8-2b03-47d3-a50b-3f37d2d2ca7a"}
-        "400": {}
-        "500": {}
+          application/json: {"download_urls": [], "state": "created", "usage_export_job_id": "d78b3d60-33dd-4c72-a220-a4ed0845d7e6"}
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
+        "500":
+          application/json: {"message": "Unexpected request body provided."}
   CreatePolicyBundle:
     speakeasy-default-create-policy-bundle:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
         query: {}
       responses:
+        "200":
+          application/json: {}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "413":
           application/json: {"error": "http: request payload too large"}
-        "200":
-          application/json: {}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   GetDecisionLog:
     speakeasy-default-get-decision-log:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
-          decisionID: "<value>"
+          decisionID: "<id>"
       responses:
         "200":
           application/json: {"policies": {"policy_name1": "1f40fc92da241694750979ee6cf582f2d5d7d28e18335de05abc54d0560e0f5302860c652bf08d560252aa5e74210546f369fbbbce8c12cfc7957b2652fe9a75", "policy_name2": "5267768822ee624d48fce15ec5ca79cbd602cb7f4c2157a516556991f22ef8c7b5ef7b18d1ff41c59370efb0858651d44a936c11b7b144c48fe04df3c6a3e8da"}}
@@ -1065,28 +924,28 @@ examples:
     speakeasy-default-get-decision-log-policy-bundle:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
-          decisionID: "<value>"
+          decisionID: "<id>"
       responses:
+        "200":
+          application/json: {"key": [{}], "key1": [{}], "key2": [{}]}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "404":
           application/json: {"error": "decision log not found"}
-        "200":
-          application/json: {"key": [{}], "key1": [{}]}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   GetDecisionLogs:
     speakeasy-default-get-decision-logs:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
         query: {}
       responses:
         "200":
-          application/json: []
+          application/json: [{"policies": {"policy_name1": "1f40fc92da241694750979ee6cf582f2d5d7d28e18335de05abc54d0560e0f5302860c652bf08d560252aa5e74210546f369fbbbce8c12cfc7957b2652fe9a75", "policy_name2": "5267768822ee624d48fce15ec5ca79cbd602cb7f4c2157a516556991f22ef8c7b5ef7b18d1ff41c59370efb0858651d44a936c11b7b144c48fe04df3c6a3e8da"}}]
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "500":
@@ -1095,70 +954,70 @@ examples:
     speakeasy-default-get-decision-settings:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
       responses:
-        "400":
-          application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   GetPolicyBundle:
     speakeasy-default-get-policy-bundle:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
       responses:
-        "400":
-          application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {"key": [{}, {}]}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   GetPolicyDocument:
     speakeasy-default-get-policy-document:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
           policyName: "<value>"
       responses:
+        "200":
+          application/json: {}
         "400":
           application/json: {"error": "OwnerID: must be a valid UUID."}
         "404":
           application/json: {"error": "policy not found"}
-        "200":
-          application/json: {}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   MakeDecision:
     speakeasy-default-make-decision:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
       responses:
+        "200":
+          application/json: {"status": "<value>"}
         "400":
           application/json: {"error": "context: must be a valid value."}
         "401":
           application/json: {"error": "Unauthorized."}
         "500":
           application/json: {"error": "There was an error processing your request."}
-        "200":
-          application/json: {"status": "<value>"}
   SetDecisionSettings:
     speakeasy-default-set-decision-settings:
       parameters:
         path:
-          ownerID: "<value>"
+          ownerID: "<id>"
           context: "<value>"
       responses:
-        "400":
-          application/json: {"error": "OwnerID: must be a valid UUID."}
         "200":
           application/json: {}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
         "500":
           application/json: {"error": "OwnerID: must be a valid UUID."}
   continuePipeline:
@@ -1177,17 +1036,7 @@ examples:
           pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
       responses:
         "200":
-          application/json: {"created_at": "2024-07-19T10:16:41.025Z", "errors": [], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": "25", "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "setup", "trigger": {"actor": {"avatar_url": "<value>", "login": "Reggie_Quigley"}, "received_at": "2023-06-01T19:30:21.007Z", "type": "explicit"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}
-        default: {}
-  getPipelineByNumber:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          pipeline-number: "123"
-      responses:
-        "200":
-          application/json: {"created_at": "2023-07-22T06:46:26.037Z", "errors": [], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": "25", "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "pending", "trigger": {"actor": {"avatar_url": "<value>", "login": "Abdiel.Ebert"}, "received_at": "2024-06-03T13:09:28.298Z", "type": "scheduled_pipeline"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}
+          application/json: {"created_at": "2025-07-19T10:16:40.846Z", "errors": [{"message": "<value>", "type": "timeout"}, {"message": "<value>", "type": "permission"}, {"message": "<value>", "type": "config-fetch"}], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "setup-pending", "trigger": {"actor": {"avatar_url": "https://far-tarragon.org/", "login": "Ulises27"}, "received_at": "2023-12-14T11:23:45.750Z", "type": "scheduled_pipeline"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}
         default: {}
   getPipelineConfigById:
     "":
@@ -1198,15 +1047,14 @@ examples:
         "200":
           application/json: {"compiled": "<value>", "source": "<value>"}
         default: {}
-  listMyPipelines:
+  getPipelineValuesById:
     "":
       parameters:
         path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-        query: {}
+          pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
       responses:
         "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
+          application/json: {"key": "<value>"}
         default: {}
   listPipelines:
     "":
@@ -1215,17 +1063,7 @@ examples:
           org-slug: "gh/CircleCI-Public"
       responses:
         "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
-  listPipelinesForProject:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-        query: {}
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
+          application/json: {"items": [{"created_at": "2025-02-08T17:24:54.905Z", "errors": [{"message": "<value>", "type": "config"}, {"message": "<value>", "type": "config"}, {"message": "<value>", "type": "trigger-rule"}], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "pending", "trigger": {"actor": {"avatar_url": "https://sandy-reach.net", "login": "Alexandria.Boyle14"}, "received_at": "2025-07-12T06:10:20.111Z", "type": "webhook"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}, {"created_at": "2025-07-24T17:25:36.173Z", "errors": [{"message": "<value>", "type": "other"}], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "setup", "trigger": {"actor": {"avatar_url": "https://bleak-effector.biz", "login": "Finn_Hartmann87"}, "received_at": "2025-01-25T17:43:07.115Z", "type": "scheduled_pipeline"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}], "next_page_token": "<value>"}
         default: {}
   listWorkflowsByPipelineId:
     "":
@@ -1235,41 +1073,22 @@ examples:
         query: {}
       responses:
         "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
+          application/json: {"items": [{"created_at": "2025-09-04T15:23:43.080Z", "id": "fbdb770b-a28d-465d-858c-766fe865a8b5", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "29aa8470-8d1b-4a6c-a8a3-bc27abb35fba", "status": "error", "stopped_at": "2024-12-31T13:02:43.027Z", "tag": "setup"}, {"created_at": "2025-04-05T01:13:28.576Z", "id": "141665b7-cc3f-42a6-9bc0-3325e1fd7615", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "490e5863-d04b-4fb2-b3dd-a0d0c1e6c0b0", "status": "error", "stopped_at": "2024-02-16T02:41:12.308Z", "tag": "setup"}, {"created_at": "2024-09-12T13:38:07.355Z", "id": "b5575ab3-022e-4c7c-961f-cf6c282613b7", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "65b186bf-58e4-44ec-9f13-c433732c7b41", "status": "failed", "stopped_at": "2024-04-19T05:38:30.077Z", "tag": "setup"}], "next_page_token": "<value>"}
         default: {}
-  triggerPipeline:
+  triggerPipelineRun:
     "":
       parameters:
         path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
       requestBody:
-        application/json: {"branch": "feature/design-new-api", "parameters": {"deploy_prod": true}, "tag": "v3.1.4159"}
+        application/json: {"checkout": {"tag": "v2"}, "config": {"branch": "main"}, "definition_id": "2338d0ae-5541-4bbf-88a2-55e9f7281f80", "parameters": {"example_param": "my value", "example_param2": true, "example_param3": 3}}
       responses:
         "201":
-          application/json: {"created_at": "2024-05-18T17:19:17.125Z", "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": "25", "state": "created"}
-        default: {}
-  createCheckoutKey:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      requestBody:
-        application/json: {"type": "deploy-key"}
-      responses:
-        "201":
-          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "fingerprint": "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f", "preferred": true, "public-key": "ssh-rsa ...", "type": "deploy-key"}
-        default: {}
-  createEnvVar:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      requestBody:
-        application/json: {"name": "foo", "value": "xxxx1234"}
-      responses:
-        "201":
-          application/json: {"created-at": "#joda/inst 2023-04-14T21:20:14+0000", "name": "foo", "value": "xxxx1234"}
-        default: {}
+          application/json: {"number": 25}
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
   createProject:
     "":
       parameters:
@@ -1277,6 +1096,12 @@ examples:
           provider: "gh"
           organization: "CircleCI-Public"
           project: "api-preview-docs"
+      responses:
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
+        "404": {}
+        "500":
+          application/json: {"message": "Unexpected request body provided."}
     branch_not_found:
       parameters:
         path:
@@ -1295,55 +1120,6 @@ examples:
       responses:
         "404":
           application/json: {"message": "Project not found."}
-  deleteCheckoutKey:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          fingerprint: "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f"
-      responses:
-        "200":
-          application/json: {"message": "<value>"}
-        default: {}
-  deleteEnvVar:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          name: "foo"
-      responses:
-        "200":
-          application/json: {"message": "<value>"}
-        default: {}
-  getCheckoutKey:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          fingerprint: "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f"
-      responses:
-        "200":
-          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "fingerprint": "c9:0b:1c:4f:d5:65:56:b9:ad:88:f9:81:2b:37:74:2f", "preferred": true, "public-key": "ssh-rsa ...", "type": "deploy-key"}
-        default: {}
-  getEnvVar:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-          name: "foo"
-      responses:
-        "200":
-          application/json: {"created-at": "#joda/inst 2023-04-14T21:20:14+0000", "name": "foo", "value": "xxxx1234"}
-        default: {}
-  getProjectBySlug:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      responses:
-        "200":
-          application/json: {"id": "58ef2213-3a36-4ddf-949b-16ac27d0bbc3", "name": "api-preview-docs", "organization_id": "CircleCI-Public", "organization_name": "CircleCI-Public", "organization_slug": "CircleCI-Public", "slug": "gh/CircleCI-Public/api-preview-docs", "vcs_info": {"default_branch": "main", "provider": "GitHub", "vcs_url": "https://github.com/CircleCI-Public/api-preview-docs"}}
-        default: {}
   getProjectSettings:
     "":
       parameters:
@@ -1384,25 +1160,6 @@ examples:
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
         "500":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
-  listCheckoutKeys:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-        query: {}
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
-  listEnvVars:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
   patchProjectSettings:
     "":
       parameters:
@@ -1423,7 +1180,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "Invalid JSON body."}
-        "401": {}
     too_many_branch_overrides:
       parameters:
         path:
@@ -1435,7 +1191,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "Field 'pr_only_branch_overrides' only supports up to 100 branches."}
-        "401": {}
     no_json:
       parameters:
         path:
@@ -1447,7 +1202,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "No JSON fields found."}
-        "401": {}
     unexpected_field:
       parameters:
         path:
@@ -1459,7 +1213,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "Unexpected JSON field 'incorrect'"}
-        "401": {}
     unknown_setting:
       parameters:
         path:
@@ -1471,7 +1224,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "Unknown advanced setting 'incorrect'."}
-        "401": {}
     incorrect_type:
       parameters:
         path:
@@ -1483,7 +1235,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "Setting 'autocancel_builds' must be boolean."}
-        "401": {}
     oss:
       parameters:
         path:
@@ -1495,7 +1246,6 @@ examples:
       responses:
         "400":
           application/json: {"message": "Feature flag 'oss' is not settable for this project."}
-        "401": {}
     invalid_token:
       parameters:
         path:
@@ -1535,22 +1285,11 @@ examples:
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
         "500":
           application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
-  createSchedule:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-      requestBody:
-        application/json: {"attribution-actor": "current", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "timetable": {"days-of-month": [], "hours-of-day": [], "per-hour": 67744}}
-      responses:
-        "201":
-          application/json: {"actor": {"id": "8e2d7bae-59a4-49a0-af9a-5854d529d959", "login": "Loyce_Klocko", "name": "<value>"}, "created-at": "2022-01-03T04:08:34.281Z", "description": "Multi-layered dedicated emulation", "id": "f5daef21-994a-4c92-a013-ddd017eeb1c4", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-week": [], "hours-of-day": [], "per-hour": 507775}, "updated-at": "2023-12-11T04:00:01.116Z"}
-        default: {}
   deleteScheduleById:
     speakeasy-default-delete-schedule-by-id:
       parameters:
         path:
-          schedule-id: "d61435f8-c8fd-4d1b-8e96-b194177e1b46"
+          schedule-id: "d13fcfdb-e614-47eb-8639-c0132ec88269"
       responses:
         "200":
           application/json: {"message": "<value>"}
@@ -1560,46 +1299,36 @@ examples:
     speakeasy-default-get-schedule-by-id:
       parameters:
         path:
-          schedule-id: "89f339bb-2346-462d-b60a-cb48dec1fc3b"
+          schedule-id: "8f3b246d-6ab8-4e1c-8b53-09ba7abded9b"
       responses:
         "200":
-          application/json: {"actor": {"id": "05e36069-8bea-487f-adb5-d6ecd797b100", "login": "Francesco_Skiles", "name": "<value>"}, "created-at": "2022-08-18T08:05:10.341Z", "description": "Face to face dedicated superstructure", "id": "756719ee-0c51-4902-9227-9fb7bff42588", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-month": [], "hours-of-day": [], "per-hour": 341220}, "updated-at": "2023-02-07T09:38:04.431Z"}
+          application/json: {"actor": {"id": "5934761e-0592-427f-b7f4-5855fdf917c4", "login": "Raven20", "name": "<value>"}, "created-at": "2024-11-26T18:41:33.698Z", "description": "pointed machine upon husky humiliating because", "id": "3568e9be-2605-42ca-9bf7-e38530089e6f", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-week": ["THU"], "hours-of-day": [400191], "per-hour": 385036}, "updated-at": "2024-07-25T18:10:40.419Z"}
         default:
           application/json: {}
-  listSchedulesForProject:
-    "":
-      parameters:
-        path:
-          project-slug: "gh/CircleCI-Public/api-preview-docs"
-        query: {}
-      responses:
-        "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
-        default: {}
   updateSchedule:
     speakeasy-default-update-schedule:
       parameters:
         path:
-          schedule-id: "6d9c15e6-0e97-4e64-894d-3e9ab9ea99c1"
+          schedule-id: "691e09e4-9dea-49a9-a11e-2071752824ab"
       requestBody:
         application/json: {"attribution-actor": "current", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}}
       responses:
         "200":
-          application/json: {"actor": {"id": "416e5210-1701-4572-9a23-8d214cafb0a8", "login": "Guillermo31", "name": "<value>"}, "created-at": "2023-02-11T13:08:08.911Z", "description": "User-centric global throughput", "id": "0e3388c8-cf7c-4d56-b839-de533f229030", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-month": [], "hours-of-day": [], "per-hour": 578628}, "updated-at": "2024-01-13T00:41:13.990Z"}
+          application/json: {"actor": {"id": "6456038c-c7d6-489e-b3f2-009a3cd28d77", "login": "Ayden_Mills", "name": "<value>"}, "created-at": "2023-05-12T15:48:00.600Z", "description": "gleefully a both vice meaningfully", "id": "b5d3bad9-d559-4a08-8205-f2ba03001181", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-week": ["SAT", "SUN", "TUE"], "hours-of-day": [600588, 63525], "per-hour": 638002}, "updated-at": "2025-02-18T22:45:34.014Z"}
         default:
           application/json: {}
   createWebhook:
     speakeasy-default-create-webhook:
       responses:
         "201":
-          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "8ef8f63e-3b7d-4224-808a-c4c59d30daac", "name": "<value>", "scope": {"id": "81ad9fab-885f-4a09-8632-ba7712b3c0af", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "http://courteous-worshiper.biz", "verify-tls": false}
+          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": ["job-completed", "job-completed"], "id": "337240a4-5d0a-4c1d-bfb8-f003b71bca4f", "name": "<value>", "scope": {"id": "dcc11c1a-dcf4-4bae-8570-8be72140b1ff", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://dependable-citizen.biz/", "verify-tls": false}
         default:
           application/json: {}
   deleteWebhook:
     speakeasy-default-delete-webhook:
       parameters:
         path:
-          webhook-id: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb"
+          webhook-id: "9e756bb0-3b43-4e42-9b9d-e5948a11afb8"
       responses:
         "200":
           application/json: {"message": "<value>"}
@@ -1609,38 +1338,38 @@ examples:
     speakeasy-default-get-webhook-by-id:
       parameters:
         path:
-          webhook-id: "48f47148-587e-42d6-8c80-5b1461e57de9"
+          webhook-id: "4f745726-c0b4-415d-a955-165fed53b47d"
       responses:
         "200":
-          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "05d55176-851f-4ce1-9551-3ebf4676d897", "name": "<value>", "scope": {"id": "186e3e76-60aa-4bb9-bf1c-b39a349aa708", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://daring-quiet.com", "verify-tls": false}
+          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "6376ab9f-c3a4-4a78-a209-f7a25b6bc52f", "name": "<value>", "scope": {"id": "379f1a5b-e8a0-4671-b7fe-e5dfe8882188", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://sudden-tomography.net/", "verify-tls": true}
         default:
           application/json: {}
   getWebhooks:
     speakeasy-default-get-webhooks:
       parameters:
         query:
-          scope-id: "14ccf55a-42ac-416c-bacd-a992e8b59ec0"
+          scope-id: "1cf54a1c-ad92-485e-90c4-d681aa77bcc1"
           scope-type: "project"
       responses:
         "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
+          application/json: {"items": [{"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "1dfebab0-fb50-477b-b439-759522a371b3", "name": "<value>", "scope": {"id": "23af8239-4e88-4f3e-bfc6-551f06d73744", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://old-fashioned-toothbrush.info", "verify-tls": true}, {"created-at": "2015-09-21T17:29:21.042Z", "events": ["workflow-completed", "workflow-completed", "job-completed"], "id": "9bf7063b-4b78-46fd-92be-4ca2b770bab7", "name": "<value>", "scope": {"id": "0d0bba53-b1d0-4266-bc1e-e991df56cd5b", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://pessimistic-babushka.net/", "verify-tls": false}], "next_page_token": "<value>"}
         default:
           application/json: {}
   updateWebhook:
     speakeasy-default-update-webhook:
       parameters:
         path:
-          webhook-id: "8ac25520-482a-4d43-a100-ab198d297078"
+          webhook-id: "8c5242d3-10b9-4d90-b89c-88c3d44edcfe"
       responses:
         "200":
-          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "89dc7808-cca3-41dc-8a44-e9dac9f6ecf0", "name": "<value>", "scope": {"id": "51c85295-b624-44dd-8194-9bacc353e34d", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://corrupt-recorder.com", "verify-tls": true}
+          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": ["job-completed"], "id": "59b24d14-bc33-43d2-b049-fc1ec697b4ff", "name": "<value>", "scope": {"id": "2375b6b4-9358-4096-869f-71406f21de11", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://robust-skean.com", "verify-tls": false}
         default:
           application/json: {}
   approvePendingApprovalJobById:
     "":
       parameters:
         path:
-          approval_request_id: "afd4e8a2-73f4-4706-8fed-d209a62dd146"
+          approval_request_id: "adea7f76-fd29-46d1-b69a-24cbe2fa5261"
           id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
       responses:
         "202":
@@ -1662,7 +1391,7 @@ examples:
           id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
       responses:
         "200":
-          application/json: {"created_at": "2023-09-09T20:05:32.893Z", "id": "471ae6d5-ba0e-49c7-b5dc-99815c6257a7", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": "25", "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "a96bdd8c-5f4e-4c41-803c-ba01cd01f85b", "status": "failing", "stopped_at": "2023-11-18T19:42:18.182Z", "tag": "setup"}
+          application/json: {"created_at": "2024-09-08T20:05:32.871Z", "id": "7a65aecb-d985-465a-aa6d-854c10ca1d18", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "a9374683-ceb1-4ee3-b0ca-ab0f8c1e5603", "status": "on_hold", "stopped_at": "2025-07-08T12:28:12.355Z", "tag": "setup"}
         default: {}
   listWorkflowJobs:
     "":
@@ -1671,7 +1400,7 @@ examples:
           id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
       responses:
         "200":
-          application/json: {"items": [], "next_page_token": "<value>"}
+          application/json: {"items": [{"dependencies": ["42e37245-40d5-4b0a-b7cb-cac92894bee2", "364d7a13-57cf-459a-8d5f-144b65e89434"], "id": "2def8ba0-c022-4951-8331-a3b8206b89f6", "job_number": 1, "name": "<value>", "project_slug": "gh/CircleCI-Public/api-preview-docs", "requires": {"d212e286-9962-4ed7-92e2-8699622ed720": ["success"], "74be7583-44de-42a6-be75-8344de52a6f2": ["failed", "canceled"], "a3349b77-90f7-4a39-b49b-7790f7da3943": ["success", "failed", "canceled"]}, "started_at": "2024-05-01T05:00:32.043Z", "status": "not_run", "type": "approval"}, {"dependencies": ["ac17d3c3-a5fa-4587-809e-4d7afc251ccc", "4c0441b6-9a43-4bd1-8949-a0b40205dca2", "0e7cdb92-a6e9-4574-a162-07ee90ce36ac"], "id": "749a5e03-532b-4629-b6b1-e4ac254e463f", "job_number": 1, "name": "<value>", "project_slug": "gh/CircleCI-Public/api-preview-docs", "requires": {"d212e286-9962-4ed7-92e2-8699622ed720": ["success"], "74be7583-44de-42a6-be75-8344de52a6f2": ["failed", "canceled"], "a3349b77-90f7-4a39-b49b-7790f7da3943": ["success", "failed", "canceled"]}, "started_at": "2023-02-24T10:32:03.226Z", "status": "failed", "type": "approval"}, {"dependencies": ["7d55b80d-363f-473b-9889-c4200da35b3c", "3ee463ef-7258-435c-9a7c-8d2eadf54969", "59b04ed9-f0b3-482c-a31b-20b0cb06ee8b"], "id": "8c1abbfe-f91f-4b42-9313-979802237f2e", "job_number": 1, "name": "<value>", "project_slug": "gh/CircleCI-Public/api-preview-docs", "requires": {"d212e286-9962-4ed7-92e2-8699622ed720": ["success"], "74be7583-44de-42a6-be75-8344de52a6f2": ["failed", "canceled"], "a3349b77-90f7-4a39-b49b-7790f7da3943": ["success", "failed", "canceled"]}, "started_at": "2023-08-12T04:33:15.670Z", "status": "unauthorized", "type": "approval"}], "next_page_token": "<value>"}
         default: {}
   rerunWorkflow:
     "":
@@ -1684,26 +1413,5 @@ examples:
         "202":
           application/json: {"workflow_id": "0e53027b-521a-4c40-9042-47e72b3c63a3"}
         default: {}
-  getPipelineValuesById:
-    "":
-      parameters:
-        path:
-          pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
-      responses:
-        "200":
-          application/json: {}
-        default: {}
-  triggerPipelineRun:
-    "":
-      parameters:
-        path:
-          provider: "gh"
-          organization: "CircleCI-Public"
-          project: "api-preview-docs"
-      requestBody:
-        application/json: {"checkout": {"branch": "main", "tag": "v2"}, "config": {"branch": "main", "tag": "v2"}, "definition_id": "2338d0ae-5541-4bbf-88a2-55e9f7281f80", "parameters": {"example_param": "my value", "example_param2": true, "example_param3": 3}}
-      responses:
-        "201":
-          application/json: {"number": 25}
-        "400": {}
+examplesVersion: 1.0.0
 generatedTests: {}

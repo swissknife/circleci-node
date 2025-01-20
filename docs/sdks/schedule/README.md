@@ -26,7 +26,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.schedule.deleteScheduleById({
-    scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
+    scheduleId: "d13fcfdb-e614-47eb-8639-c0132ec88269",
   });
 
   // Handle the result
@@ -54,7 +54,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await scheduleDeleteScheduleById(circleci, {
-    scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
+    scheduleId: "d13fcfdb-e614-47eb-8639-c0132ec88269",
   });
 
   if (!res.ok) {
@@ -106,7 +106,7 @@ const circleci = new Circleci({
 
 async function run() {
   const result = await circleci.schedule.getScheduleById({
-    scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
+    scheduleId: "8f3b246d-6ab8-4e1c-8b53-09ba7abded9b",
   });
 
   // Handle the result
@@ -134,7 +134,7 @@ const circleci = new CircleciCore({
 
 async function run() {
   const res = await scheduleGetScheduleById(circleci, {
-    scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
+    scheduleId: "8f3b246d-6ab8-4e1c-8b53-09ba7abded9b",
   });
 
   if (!res.ok) {
@@ -193,7 +193,7 @@ async function run() {
         "branch": "feature/design-new-api",
       },
     },
-    scheduleId: "6d9c15e6-0e97-4e64-894d-3e9ab9ea99c1",
+    scheduleId: "691e09e4-9dea-49a9-a11e-2071752824ab",
   });
 
   // Handle the result
@@ -228,7 +228,7 @@ async function run() {
         "branch": "feature/design-new-api",
       },
     },
-    scheduleId: "6d9c15e6-0e97-4e64-894d-3e9ab9ea99c1",
+    scheduleId: "691e09e4-9dea-49a9-a11e-2071752824ab",
   });
 
   if (!res.ok) {
