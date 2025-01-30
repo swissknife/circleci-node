@@ -1,5 +1,16 @@
 # GetPolicyDocumentRequest
 
+## Example Usage
+
+```typescript
+import { GetPolicyDocumentRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPolicyDocumentRequest = {
+  context: "<value>",
+  ownerID: "<id>",
+  policyName: "<value>",
+};
+```
 
 ## Fields
 

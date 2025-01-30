@@ -1,5 +1,12 @@
 # ListContextsRequest
 
+## Example Usage
+
+```typescript
+import { ListContextsRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListContextsRequest = {};
+```
 
 ## Fields
 

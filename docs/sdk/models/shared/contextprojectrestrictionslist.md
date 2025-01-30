@@ -1,5 +1,12 @@
 # ContextProjectRestrictionsList
 
+## Example Usage
+
+```typescript
+import { ContextProjectRestrictionsList } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: ContextProjectRestrictionsList = {};
+```
 
 ## Fields
 

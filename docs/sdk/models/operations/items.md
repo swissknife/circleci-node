@@ -1,5 +1,17 @@
 # Items
 
+## Example Usage
+
+```typescript
+import { Items } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Items = {
+  contextId: "8458c5ed-0471-45ba-99b3-5ae840b058e1",
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+  variable: "POSTGRES_USER",
+};
+```
 
 ## Fields
 

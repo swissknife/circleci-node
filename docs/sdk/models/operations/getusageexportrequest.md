@@ -1,5 +1,15 @@
 # GetUsageExportRequest
 
+## Example Usage
+
+```typescript
+import { GetUsageExportRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetUsageExportRequest = {
+  orgId: "b9291e0d-a11e-41fb-8517-c545388b5953",
+  usageExportJobId: "e8235eed-f121-4ae3-9c72-2719d6572818",
+};
+```
 
 ## Fields
 

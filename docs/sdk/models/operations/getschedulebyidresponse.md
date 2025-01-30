@@ -1,12 +1,42 @@
 # GetScheduleByIdResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                           | *string*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response content type for this operation                                                           |
-| `schedule`                                                                                              | [operations.GetScheduleByIdSchedule](../../../sdk/models/operations/getschedulebyidschedule.md)         | :heavy_minus_sign:                                                                                      | A schedule object.                                                                                      |
-| `statusCode`                                                                                            | *number*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response status code for this operation                                                            |
-| `rawResponse`                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                 | :heavy_check_mark:                                                                                      | Raw HTTP response; suitable for custom response parsing                                                 |
-| `object`                                                                                                | [operations.GetScheduleByIdResponseBody](../../../sdk/models/operations/getschedulebyidresponsebody.md) | :heavy_minus_sign:                                                                                      | Error response.                                                                                         |
+### `operations.GetScheduleByIdSchedule`
+
+```typescript
+const value: operations.GetScheduleByIdSchedule = {
+  actor: {
+    id: "16b3fa4c-1f0e-44c0-a4b8-1669ad762cb6",
+    login: "Mallory.Balistreri",
+    name: "<value>",
+  },
+  createdAt: new Date("2025-01-29T00:57:24.858Z"),
+  description: "with ick enlightened wide solemnly lest onto closely arcade",
+  id: "7a893d8b-f6e0-4094-b345-b9cdd66ea185",
+  name: "<value>",
+  parameters: {
+    "deploy_prod": true,
+    "branch": "feature/design-new-api",
+  },
+  projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  timetable: {
+    daysOfWeek: [
+      "THU",
+    ],
+    hoursOfDay: [
+      723623,
+    ],
+    perHour: 288907,
+  },
+  updatedAt: new Date("2025-12-03T02:39:59.387Z"),
+};
+```
+
+### `operations.GetScheduleByIdResponseBody`
+
+```typescript
+const value: operations.GetScheduleByIdResponseBody = {};
+```
+

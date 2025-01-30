@@ -1,5 +1,12 @@
 # Items
 
+## Example Usage
+
+```typescript
+import { Items } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: Items = {};
+```
 
 ## Fields
 

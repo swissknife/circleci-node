@@ -10,11 +10,22 @@ generation:
     requestResponseComponentNamesFeb2024: false
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 typescript:
-  version: 5.1.1
+  version: 5.9.25
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
   author: Speakeasy API
   clientServerStatusCodesAsErrors: false
+  defaultErrorName: SDKError
+  enableCustomCodeRegions: false
+  enableReactQuery: false
+  enumFormat: union
   flattenGlobalSecurity: false
+  flatteningOrder: body-first
   imports:
     option: openapi
     paths:
@@ -25,6 +36,10 @@ typescript:
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
   maxMethodParams: 0
+  methodArguments: require-security-and-request
+  moduleFormat: commonjs
   outputModelSuffix: output
   packageName: circleci-v2-sdk
-  templateVersion: v1
+  responseFormat: flat
+  templateVersion: v2
+  useIndexModules: true

@@ -1,5 +1,12 @@
 # BundleDiff
 
+## Example Usage
+
+```typescript
+import { BundleDiff } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: BundleDiff = {};
+```
 
 ## Fields
 

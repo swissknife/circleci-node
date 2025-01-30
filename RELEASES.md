@@ -1437,3 +1437,523 @@ Based on:
 - [typescript v5.1.1] .
 ### Releases
 - [NPM v5.1.1] https://www.npmjs.com/package/circleci-v2-sdk/v/5.1.1 - .
+
+## 2024-08-08 00:50:59
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.357.3 (2.390.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.1.2] .
+### Releases
+- [NPM v5.1.2] https://www.npmjs.com/package/circleci-v2-sdk/v/5.1.2 - .
+
+## 2024-08-09 00:51:29
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.358.0 (2.390.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.2.0] .
+### Releases
+- [NPM v5.2.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.2.0 - .
+
+## 2024-08-10 00:50:56
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.361.0 (2.392.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.3.0] .
+### Releases
+- [NPM v5.3.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.3.0 - .
+
+## 2024-08-11 00:54:49
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.361.1 (2.393.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.3.1] .
+### Releases
+- [NPM v5.3.1] https://www.npmjs.com/package/circleci-v2-sdk/v/5.3.1 - .
+
+## 2024-08-14 00:51:22
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.366.0 (2.396.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.3.2] .
+### Releases
+- [NPM v5.3.2] https://www.npmjs.com/package/circleci-v2-sdk/v/5.3.2 - .
+
+## 2024-08-15 00:48:10
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.368.0 (2.399.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.3.3] .
+### Releases
+- [NPM v5.3.3] https://www.npmjs.com/package/circleci-v2-sdk/v/5.3.3 - .
+
+## 2024-08-20 00:50:36
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.376.0 (2.402.5) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.4.0] .
+### Releases
+- [NPM v5.4.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.4.0 - .
+
+## 2024-08-24 00:49:34
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.378.0 (2.404.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.4.1] .
+### Releases
+- [NPM v5.4.1] https://www.npmjs.com/package/circleci-v2-sdk/v/5.4.1 - .
+
+## 2024-08-30 00:53:27
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.383.2 (2.407.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.4.2] .
+### Releases
+- [NPM v5.4.2] https://www.npmjs.com/package/circleci-v2-sdk/v/5.4.2 - .
+
+## 2024-09-04 00:53:35
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.390.1 (2.409.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.5.0] .
+### Releases
+- [NPM v5.5.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.5.0 - .
+
+## 2024-09-05 00:53:32
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.390.5 (2.409.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.5.1] .
+### Releases
+- [NPM v5.5.1] https://www.npmjs.com/package/circleci-v2-sdk/v/5.5.1 - .
+
+## 2024-09-06 00:53:28
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.390.7 (2.409.8) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.5.2] .
+### Releases
+- [NPM v5.5.2] https://www.npmjs.com/package/circleci-v2-sdk/v/5.5.2 - .
+
+## 2024-09-07 00:52:34
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.392.1 (2.411.9) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.5.3] .
+### Releases
+- [NPM v5.5.3] https://www.npmjs.com/package/circleci-v2-sdk/v/5.5.3 - .
+
+## 2024-09-10 00:54:07
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.394.0 (2.413.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.6.0] .
+### Releases
+- [NPM v5.6.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.6.0 - .
+
+## 2024-09-13 00:54:04
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.396.6 (2.415.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.7.0] .
+### Releases
+- [NPM v5.7.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.7.0 - .
+
+## 2024-09-14 00:53:32
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.396.9 (2.415.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.7.1] .
+### Releases
+- [NPM v5.7.1] https://www.npmjs.com/package/circleci-v2-sdk/v/5.7.1 - .
+
+## 2024-09-20 00:54:53
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.400.1 (2.420.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.7.2] .
+### Releases
+- [NPM v5.7.2] https://www.npmjs.com/package/circleci-v2-sdk/v/5.7.2 - .
+
+## 2024-09-21 00:54:03
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.401.2 (2.421.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.7.3] .
+### Releases
+- [NPM v5.7.3] https://www.npmjs.com/package/circleci-v2-sdk/v/5.7.3 - .
+
+## 2024-09-25 00:57:04
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.402.12 (2.422.15) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.7.4] .
+### Releases
+- [NPM v5.7.4] https://www.npmjs.com/package/circleci-v2-sdk/v/5.7.4 - .
+
+## 2024-09-27 00:56:17
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.403.3 (2.424.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.8.0] .
+### Releases
+- [NPM v5.8.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.8.0 - .
+
+## 2024-10-01 01:01:48
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.405.6 (2.428.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.8.1] .
+### Releases
+- [NPM v5.8.1] https://www.npmjs.com/package/circleci-v2-sdk/v/5.8.1 - .
+
+## 2024-10-03 00:56:22
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.406.0 (2.429.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.8.2] .
+### Releases
+- [NPM v5.8.2] https://www.npmjs.com/package/circleci-v2-sdk/v/5.8.2 - .
+
+## 2024-10-08 00:56:18
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.411.1 (2.436.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.8.3] .
+### Releases
+- [NPM v5.8.3] https://www.npmjs.com/package/circleci-v2-sdk/v/5.8.3 - .
+
+## 2024-10-23 00:56:16
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.420.0 (2.438.15) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.8.4] .
+### Releases
+- [NPM v5.8.4] https://www.npmjs.com/package/circleci-v2-sdk/v/5.8.4 - .
+
+## 2024-10-29 00:58:14
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.423.1 (2.442.11) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.8.5] .
+### Releases
+- [NPM v5.8.5] https://www.npmjs.com/package/circleci-v2-sdk/v/5.8.5 - .
+
+## 2024-10-30 00:57:26
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.423.2 (2.442.11) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.8.6] .
+### Releases
+- [NPM v5.8.6] https://www.npmjs.com/package/circleci-v2-sdk/v/5.8.6 - .
+
+## 2024-11-06 00:55:52
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.431.0 (2.451.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.0] .
+### Releases
+- [NPM v5.9.0] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.0 - .
+
+## 2024-11-09 00:54:24
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.436.0 (2.455.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.1] .
+### Releases
+- [NPM v5.9.1] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.1 - .
+
+## 2024-11-12 00:55:11
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.438.1 (2.457.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.2] .
+### Releases
+- [NPM v5.9.2] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.2 - .
+
+## 2024-11-13 00:56:31
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.438.1 (2.457.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.3] .
+### Releases
+- [NPM v5.9.3] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.3 - .
+
+## 2024-11-16 00:58:29
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.440.1 (2.460.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.4] .
+### Releases
+- [NPM v5.9.4] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.4 - .
+
+## 2024-11-26 01:00:04
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.446.0 (2.462.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.5] .
+### Releases
+- [NPM v5.9.5] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.5 - .
+
+## 2024-11-27 01:00:36
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.448.0 (2.466.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.6] .
+### Releases
+- [NPM v5.9.6] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.6 - .
+
+## 2024-11-28 01:01:00
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.448.2 (2.467.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.7] .
+### Releases
+- [NPM v5.9.7] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.7 - .
+
+## 2024-12-04 01:02:18
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.451.1 (2.470.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.8] .
+### Releases
+- [NPM v5.9.8] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.8 - .
+
+## 2024-12-05 01:02:16
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.451.6 (2.471.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.9] .
+### Releases
+- [NPM v5.9.9] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.9 - .
+
+## 2024-12-07 01:01:08
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.453.2 (2.474.5) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.10] .
+### Releases
+- [NPM v5.9.10] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.10 - .
+
+## 2024-12-08 01:06:44
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.453.3 (2.474.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.11] .
+### Releases
+- [NPM v5.9.11] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.11 - .
+
+## 2024-12-13 01:03:03
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.454.2 (2.477.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.12] .
+### Releases
+- [NPM v5.9.12] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.12 - .
+
+## 2024-12-17 01:02:14
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.455.7 (2.480.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.13] .
+### Releases
+- [NPM v5.9.13] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.13 - .
+
+## 2024-12-21 00:56:12
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.459.2 (2.483.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.14] .
+### Releases
+- [NPM v5.9.14] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.14 - .
+
+## 2024-12-24 00:57:05
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.460.2 (2.484.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.15] .
+### Releases
+- [NPM v5.9.15] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.15 - .
+
+## 2025-01-01 01:02:00
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.460.3 (2.484.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.16] .
+### Releases
+- [NPM v5.9.16] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.16 - .
+
+## 2025-01-04 00:55:42
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.462.2 (2.486.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.17] .
+### Releases
+- [NPM v5.9.17] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.17 - .
+
+## 2025-01-09 00:57:04
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.465.1 (2.488.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.18] .
+### Releases
+- [NPM v5.9.18] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.18 - .
+
+## 2025-01-12 01:02:51
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.468.2 (2.493.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.19] .
+### Releases
+- [NPM v5.9.19] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.19 - .
+
+## 2025-01-13 01:00:28
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.468.2 (2.493.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.20] .
+### Releases
+- [NPM v5.9.20] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.20 - .
+
+## 2025-01-15 00:56:10
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.468.6 (2.493.13) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.21] .
+### Releases
+- [NPM v5.9.21] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.21 - .
+
+## 2025-01-16 00:55:27
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.468.8 (2.493.19) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.22] .
+### Releases
+- [NPM v5.9.22] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.22 - .
+
+## 2025-01-17 00:55:09
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.468.9 (2.493.21) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.23] .
+### Releases
+- [NPM v5.9.23] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.23 - .
+
+## 2025-01-20 00:56:49
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.469.2 (2.493.23) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.24] .
+### Releases
+- [NPM v5.9.24] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.24 - .
+
+## 2025-01-30 00:54:48
+### Changes
+Based on:
+- OpenAPI Doc v2 https://circleci.com/api/v2/openapi.json
+- Speakeasy CLI 1.477.2 (2.497.8) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v5.9.25] .
+### Releases
+- [NPM v5.9.25] https://www.npmjs.com/package/circleci-v2-sdk/v/5.9.25 - .

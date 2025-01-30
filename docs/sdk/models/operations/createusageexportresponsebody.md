@@ -2,6 +2,13 @@
 
 Unexpected request body provided.
 
+## Example Usage
+
+```typescript
+import { CreateUsageExportResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateUsageExportResponseBody = {};
+```
 
 ## Fields
 

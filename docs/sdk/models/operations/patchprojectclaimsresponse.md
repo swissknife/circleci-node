@@ -1,12 +1,21 @@
 # PatchProjectClaimsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                         | Type                                                                                                          | Required                                                                                                      | Description                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `claimResponse`                                                                                               | [shared.ClaimResponse](../../../sdk/models/shared/claimresponse.md)                                           | :heavy_minus_sign:                                                                                            | Claims successfully patched.                                                                                  |
-| `contentType`                                                                                                 | *string*                                                                                                      | :heavy_check_mark:                                                                                            | HTTP response content type for this operation                                                                 |
-| `statusCode`                                                                                                  | *number*                                                                                                      | :heavy_check_mark:                                                                                            | HTTP response status code for this operation                                                                  |
-| `rawResponse`                                                                                                 | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                       | :heavy_check_mark:                                                                                            | Raw HTTP response; suitable for custom response parsing                                                       |
-| `object`                                                                                                      | [operations.PatchProjectClaimsResponseBody](../../../sdk/models/operations/patchprojectclaimsresponsebody.md) | :heavy_minus_sign:                                                                                            | The request is malformed (e.g, a given path parameter is invalid)<br/>                                        |
+### `shared.ClaimResponse`
+
+```typescript
+const value: shared.ClaimResponse = {
+  orgId: "34b0d788-a515-4285-bff9-9fec5537fe10",
+};
+```
+
+### `operations.PatchProjectClaimsResponseBody`
+
+```typescript
+const value: operations.PatchProjectClaimsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
+```
+

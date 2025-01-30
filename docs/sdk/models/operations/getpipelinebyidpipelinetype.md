@@ -1,16 +1,17 @@
 # GetPipelineByIdPipelineType
 
-The type of error.
+The type of trigger.
 
+## Example Usage
+
+```typescript
+import { GetPipelineByIdPipelineType } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetPipelineByIdPipelineType = "webhook";
+```
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `Config`      | config        |
-| `ConfigFetch` | config-fetch  |
-| `Timeout`     | timeout       |
-| `Permission`  | permission    |
-| `Other`       | other         |
-| `TriggerRule` | trigger-rule  |
-| `Plan`        | plan          |
+```typescript
+"scheduled_pipeline" | "explicit" | "api" | "webhook"
+```

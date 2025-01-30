@@ -1,649 +1,1420 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: d3eacb7ed5d623a6bd7bb173c7cf70a1
+  docChecksum: 0ced78f689503e9ad63eff3f9548a1dc
   docVersion: v2
-  speakeasyVersion: 1.352.0
-  generationVersion: 2.384.4
-  releaseVersion: 5.1.1
-  configChecksum: 71a27921128a5928632cfca5bc7adb79
+  speakeasyVersion: 1.477.2
+  generationVersion: 2.497.8
+  releaseVersion: 5.9.25
+  configChecksum: 7acf1aa1af8bfc96db27f72625824492
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
   published: true
 features:
   typescript:
-    core: 3.4.14
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.11
+    core: 3.18.19
+    defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
-    globalSecurity: 2.82.5
-    globalServerURLs: 2.82.2
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.12
+    globalSecurityCallbacks: 0.1.0
+    globalServerURLs: 2.82.4
+    nullables: 0.1.0
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.2.0
+    unions: 2.85.8
 generatedFiles:
-  - src/sdk/context.ts
-  - src/sdk/insights.ts
-  - src/sdk/user.ts
-  - src/sdk/oidctokenmanagement.ts
-  - src/sdk/usage.ts
-  - src/sdk/policymanagement.ts
-  - src/sdk/pipeline.ts
-  - src/sdk/project.ts
-  - src/sdk/job.ts
-  - src/sdk/schedule.ts
-  - src/sdk/webhook.ts
-  - src/sdk/workflow.ts
-  - src/sdk/sdk.ts
-  - .eslintrc.yml
-  - jest.config.js
-  - package-lock.json
+  - .eslintrc.cjs
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/sdk/models/operations/actor.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontext1.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontextcontextresponsebody.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontextrequest.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontextrequestbody.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontextresponse.md
+  - docs/sdk/models/operations/addenvironmentvariabletocontextresponsebody.md
+  - docs/sdk/models/operations/approvependingapprovaljobbyidmessageresponse.md
+  - docs/sdk/models/operations/approvependingapprovaljobbyidrequest.md
+  - docs/sdk/models/operations/approvependingapprovaljobbyidresponse.md
+  - docs/sdk/models/operations/approvependingapprovaljobbyidresponsebody.md
+  - docs/sdk/models/operations/canceljobbyjobidjobmessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidjobresponse403messageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidjobresponse404messageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidjobresponsemessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidmessageresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidrequest.md
+  - docs/sdk/models/operations/canceljobbyjobidresponse.md
+  - docs/sdk/models/operations/canceljobbyjobidresponsebody.md
+  - docs/sdk/models/operations/cancelworkflowmessageresponse.md
+  - docs/sdk/models/operations/cancelworkflowrequest.md
+  - docs/sdk/models/operations/cancelworkflowresponse.md
+  - docs/sdk/models/operations/cancelworkflowresponsebody.md
+  - docs/sdk/models/operations/collaboration.md
+  - docs/sdk/models/operations/commit.md
+  - docs/sdk/models/operations/context.md
+  - docs/sdk/models/operations/continuepipelinemessageresponse.md
+  - docs/sdk/models/operations/continuepipelinerequestbody.md
+  - docs/sdk/models/operations/continuepipelineresponse.md
+  - docs/sdk/models/operations/continuepipelineresponsebody.md
+  - docs/sdk/models/operations/createcontextcontext.md
+  - docs/sdk/models/operations/createcontextrequestbody.md
+  - docs/sdk/models/operations/createcontextresponse.md
+  - docs/sdk/models/operations/createcontextresponsebody.md
+  - docs/sdk/models/operations/createcontextrestrictioncontextresponse409responsebody.md
+  - docs/sdk/models/operations/createcontextrestrictioncontextresponsebody.md
+  - docs/sdk/models/operations/createcontextrestrictionrequest.md
+  - docs/sdk/models/operations/createcontextrestrictionrequestbody.md
+  - docs/sdk/models/operations/createcontextrestrictionresponse.md
+  - docs/sdk/models/operations/createcontextrestrictionresponsebody.md
+  - docs/sdk/models/operations/createcontexttype.md
+  - docs/sdk/models/operations/createpolicybundlepolicymanagementresponse413responsebody.md
+  - docs/sdk/models/operations/createpolicybundlerequest.md
+  - docs/sdk/models/operations/createpolicybundleresponse.md
+  - docs/sdk/models/operations/createpolicybundleresponsebody.md
+  - docs/sdk/models/operations/createprojectprojectresponse404responsebody.md
+  - docs/sdk/models/operations/createprojectrequest.md
+  - docs/sdk/models/operations/createprojectresponse.md
+  - docs/sdk/models/operations/createprojectresponsebody.md
+  - docs/sdk/models/operations/createusageexportrequest.md
+  - docs/sdk/models/operations/createusageexportrequestbody.md
+  - docs/sdk/models/operations/createusageexportresponse.md
+  - docs/sdk/models/operations/createusageexportresponsebody.md
+  - docs/sdk/models/operations/createwebhookevents.md
+  - docs/sdk/models/operations/createwebhookrequestbody.md
+  - docs/sdk/models/operations/createwebhookresponse.md
+  - docs/sdk/models/operations/createwebhookresponsebody.md
+  - docs/sdk/models/operations/createwebhookscope.md
+  - docs/sdk/models/operations/createwebhooktype.md
+  - docs/sdk/models/operations/createwebhookwebhook.md
+  - docs/sdk/models/operations/deletecontextmessageresponse.md
+  - docs/sdk/models/operations/deletecontextrequest.md
+  - docs/sdk/models/operations/deletecontextresponse.md
+  - docs/sdk/models/operations/deletecontextresponsebody.md
+  - docs/sdk/models/operations/deletecontextrestrictionrequest.md
+  - docs/sdk/models/operations/deletecontextrestrictionresponse.md
+  - docs/sdk/models/operations/deletecontextrestrictionresponsebody.md
+  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextmessageresponse.md
+  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextrequest.md
+  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextresponse.md
+  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextresponsebody.md
+  - docs/sdk/models/operations/deleteorgclaimsrequest.md
+  - docs/sdk/models/operations/deleteorgclaimsresponse.md
+  - docs/sdk/models/operations/deleteorgclaimsresponsebody.md
+  - docs/sdk/models/operations/deleteprojectclaimsrequest.md
+  - docs/sdk/models/operations/deleteprojectclaimsresponse.md
+  - docs/sdk/models/operations/deleteprojectclaimsresponsebody.md
+  - docs/sdk/models/operations/deleteschedulebyidmessageresponse.md
+  - docs/sdk/models/operations/deleteschedulebyidrequest.md
+  - docs/sdk/models/operations/deleteschedulebyidresponse.md
+  - docs/sdk/models/operations/deleteschedulebyidresponsebody.md
+  - docs/sdk/models/operations/deletewebhookmessageresponse.md
+  - docs/sdk/models/operations/deletewebhookrequest.md
+  - docs/sdk/models/operations/deletewebhookresponse.md
+  - docs/sdk/models/operations/deletewebhookresponsebody.md
+  - docs/sdk/models/operations/errors.md
+  - docs/sdk/models/operations/events.md
+  - docs/sdk/models/operations/four.md
+  - docs/sdk/models/operations/getcollaborationsresponse.md
+  - docs/sdk/models/operations/getcollaborationsresponsebody.md
+  - docs/sdk/models/operations/getcontextcontext.md
+  - docs/sdk/models/operations/getcontextrequest.md
+  - docs/sdk/models/operations/getcontextresponse.md
+  - docs/sdk/models/operations/getcontextresponsebody.md
+  - docs/sdk/models/operations/getcontextrestrictionsrequest.md
+  - docs/sdk/models/operations/getcontextrestrictionsresponse.md
+  - docs/sdk/models/operations/getcontextrestrictionsresponsebody.md
+  - docs/sdk/models/operations/getcurrentuserresponse.md
+  - docs/sdk/models/operations/getcurrentuserresponsebody.md
+  - docs/sdk/models/operations/getcurrentuseruser.md
+  - docs/sdk/models/operations/getdecisionlogpolicybundlepolicymanagementresponse404responsebody.md
+  - docs/sdk/models/operations/getdecisionlogpolicybundlerequest.md
+  - docs/sdk/models/operations/getdecisionlogpolicybundleresponse.md
+  - docs/sdk/models/operations/getdecisionlogpolicybundleresponsebody.md
+  - docs/sdk/models/operations/getdecisionlogpolicymanagementresponse404responsebody.md
+  - docs/sdk/models/operations/getdecisionlogrequest.md
+  - docs/sdk/models/operations/getdecisionlogresponse.md
+  - docs/sdk/models/operations/getdecisionlogresponsebody.md
+  - docs/sdk/models/operations/getdecisionlogsrequest.md
+  - docs/sdk/models/operations/getdecisionlogsresponse.md
+  - docs/sdk/models/operations/getdecisionlogsresponsebody.md
+  - docs/sdk/models/operations/getdecisionsettingsrequest.md
+  - docs/sdk/models/operations/getdecisionsettingsresponse.md
+  - docs/sdk/models/operations/getdecisionsettingsresponsebody.md
+  - docs/sdk/models/operations/getorgclaimsrequest.md
+  - docs/sdk/models/operations/getorgclaimsresponse.md
+  - docs/sdk/models/operations/getorgclaimsresponsebody.md
+  - docs/sdk/models/operations/getorgsummarydatainsightsresponsebody.md
+  - docs/sdk/models/operations/getorgsummarydatametrics.md
+  - docs/sdk/models/operations/getorgsummarydatarequest.md
+  - docs/sdk/models/operations/getorgsummarydataresponse.md
+  - docs/sdk/models/operations/getorgsummarydataresponsebody.md
+  - docs/sdk/models/operations/getorgsummarydatatrends.md
+  - docs/sdk/models/operations/getpipelinebyidpipeline.md
+  - docs/sdk/models/operations/getpipelinebyidpipelinetype.md
+  - docs/sdk/models/operations/getpipelinebyidrequest.md
+  - docs/sdk/models/operations/getpipelinebyidresponse.md
+  - docs/sdk/models/operations/getpipelinebyidresponsebody.md
+  - docs/sdk/models/operations/getpipelinebyidtype.md
+  - docs/sdk/models/operations/getpipelineconfigbyidpipelineconfig.md
+  - docs/sdk/models/operations/getpipelineconfigbyidrequest.md
+  - docs/sdk/models/operations/getpipelineconfigbyidresponse.md
+  - docs/sdk/models/operations/getpipelineconfigbyidresponsebody.md
+  - docs/sdk/models/operations/getpipelinevaluesbyidrequest.md
+  - docs/sdk/models/operations/getpipelinevaluesbyidresponse.md
+  - docs/sdk/models/operations/getpipelinevaluesbyidresponsebody.md
+  - docs/sdk/models/operations/getpolicybundlerequest.md
+  - docs/sdk/models/operations/getpolicybundleresponse.md
+  - docs/sdk/models/operations/getpolicybundleresponsebody.md
+  - docs/sdk/models/operations/getpolicydocumentpolicymanagementresponse404responsebody.md
+  - docs/sdk/models/operations/getpolicydocumentrequest.md
+  - docs/sdk/models/operations/getpolicydocumentresponse.md
+  - docs/sdk/models/operations/getpolicydocumentresponsebody.md
+  - docs/sdk/models/operations/getprojectclaimsrequest.md
+  - docs/sdk/models/operations/getprojectclaimsresponse.md
+  - docs/sdk/models/operations/getprojectclaimsresponsebody.md
+  - docs/sdk/models/operations/getprojectsettingsrequest.md
+  - docs/sdk/models/operations/getprojectsettingsresponse.md
+  - docs/sdk/models/operations/getprojectsettingsresponsebody.md
+  - docs/sdk/models/operations/getschedulebyid1.md
+  - docs/sdk/models/operations/getschedulebyid2.md
+  - docs/sdk/models/operations/getschedulebyiddaysofweek.md
+  - docs/sdk/models/operations/getschedulebyidmonths.md
+  - docs/sdk/models/operations/getschedulebyidparameters.md
+  - docs/sdk/models/operations/getschedulebyidrequest.md
+  - docs/sdk/models/operations/getschedulebyidresponse.md
+  - docs/sdk/models/operations/getschedulebyidresponsebody.md
+  - docs/sdk/models/operations/getschedulebyidschedule.md
+  - docs/sdk/models/operations/getschedulebyidscheduledaysofweek.md
+  - docs/sdk/models/operations/getschedulebyidschedulemonths.md
+  - docs/sdk/models/operations/getschedulebyidtimetable.md
+  - docs/sdk/models/operations/getusageexportrequest.md
+  - docs/sdk/models/operations/getusageexportresponse.md
+  - docs/sdk/models/operations/getusageexportresponsebody.md
+  - docs/sdk/models/operations/getuserrequest.md
+  - docs/sdk/models/operations/getuserresponse.md
+  - docs/sdk/models/operations/getuserresponsebody.md
+  - docs/sdk/models/operations/getuseruser.md
+  - docs/sdk/models/operations/getwebhookbyidevents.md
+  - docs/sdk/models/operations/getwebhookbyidrequest.md
+  - docs/sdk/models/operations/getwebhookbyidresponse.md
+  - docs/sdk/models/operations/getwebhookbyidresponsebody.md
+  - docs/sdk/models/operations/getwebhookbyidscope.md
+  - docs/sdk/models/operations/getwebhookbyidwebhook.md
+  - docs/sdk/models/operations/getwebhooksevents.md
+  - docs/sdk/models/operations/getwebhooksrequest.md
+  - docs/sdk/models/operations/getwebhooksresponse.md
+  - docs/sdk/models/operations/getwebhooksresponsebody.md
+  - docs/sdk/models/operations/getwebhooksscope.md
+  - docs/sdk/models/operations/getwebhookswebhookresponsebody.md
+  - docs/sdk/models/operations/getworkflowbyidrequest.md
+  - docs/sdk/models/operations/getworkflowbyidresponse.md
+  - docs/sdk/models/operations/getworkflowbyidresponsebody.md
+  - docs/sdk/models/operations/getworkflowbyidworkflow.md
+  - docs/sdk/models/operations/items.md
+  - docs/sdk/models/operations/job.md
+  - docs/sdk/models/operations/listcontextscontextresponsebody.md
+  - docs/sdk/models/operations/listcontextsrequest.md
+  - docs/sdk/models/operations/listcontextsresponse.md
+  - docs/sdk/models/operations/listcontextsresponsebody.md
+  - docs/sdk/models/operations/listenvironmentvariablesfromcontextcontextresponsebody.md
+  - docs/sdk/models/operations/listenvironmentvariablesfromcontextrequest.md
+  - docs/sdk/models/operations/listenvironmentvariablesfromcontextresponse.md
+  - docs/sdk/models/operations/listenvironmentvariablesfromcontextresponsebody.md
+  - docs/sdk/models/operations/listpipelines4.md
+  - docs/sdk/models/operations/listpipelinesactor.md
+  - docs/sdk/models/operations/listpipelinescommit.md
+  - docs/sdk/models/operations/listpipelineserrors.md
+  - docs/sdk/models/operations/listpipelinespipelinelistresponse.md
+  - docs/sdk/models/operations/listpipelinespipelinetype.md
+  - docs/sdk/models/operations/listpipelinesrequest.md
+  - docs/sdk/models/operations/listpipelinesresponse.md
+  - docs/sdk/models/operations/listpipelinesresponsebody.md
+  - docs/sdk/models/operations/listpipelinesstate.md
+  - docs/sdk/models/operations/listpipelinestrigger.md
+  - docs/sdk/models/operations/listpipelinestriggerparameters.md
+  - docs/sdk/models/operations/listpipelinestype.md
+  - docs/sdk/models/operations/listpipelinesvcs.md
+  - docs/sdk/models/operations/listworkflowjobsrequest.md
+  - docs/sdk/models/operations/listworkflowjobsresponse.md
+  - docs/sdk/models/operations/listworkflowjobsresponsebody.md
+  - docs/sdk/models/operations/listworkflowjobsstatus.md
+  - docs/sdk/models/operations/listworkflowjobstype.md
+  - docs/sdk/models/operations/listworkflowjobsworkflowjoblistresponse.md
+  - docs/sdk/models/operations/listworkflowsbypipelineidrequest.md
+  - docs/sdk/models/operations/listworkflowsbypipelineidresponse.md
+  - docs/sdk/models/operations/listworkflowsbypipelineidresponsebody.md
+  - docs/sdk/models/operations/listworkflowsbypipelineidstatus.md
+  - docs/sdk/models/operations/listworkflowsbypipelineidtag.md
+  - docs/sdk/models/operations/listworkflowsbypipelineidworkflowlistresponse.md
+  - docs/sdk/models/operations/makedecisionpolicymanagementresponsebody.md
+  - docs/sdk/models/operations/makedecisionpolicymanagementresponseresponsebody.md
+  - docs/sdk/models/operations/makedecisionrequest.md
+  - docs/sdk/models/operations/makedecisionrequestbody.md
+  - docs/sdk/models/operations/makedecisionresponse.md
+  - docs/sdk/models/operations/makedecisionresponsebody.md
+  - docs/sdk/models/operations/messageresponse.md
+  - docs/sdk/models/operations/metadata.md
+  - docs/sdk/models/operations/metrics.md
+  - docs/sdk/models/operations/one.md
+  - docs/sdk/models/operations/orgdata.md
+  - docs/sdk/models/operations/orgprojectdata.md
+  - docs/sdk/models/operations/owner.md
+  - docs/sdk/models/operations/ownertype.md
+  - docs/sdk/models/operations/parameterst.md
+  - docs/sdk/models/operations/patchorgclaimsrequest.md
+  - docs/sdk/models/operations/patchorgclaimsresponse.md
+  - docs/sdk/models/operations/patchorgclaimsresponsebody.md
+  - docs/sdk/models/operations/patchprojectclaimsrequest.md
+  - docs/sdk/models/operations/patchprojectclaimsresponse.md
+  - docs/sdk/models/operations/patchprojectclaimsresponsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
+  - docs/sdk/models/operations/patchprojectsettingsrequest.md
+  - docs/sdk/models/operations/patchprojectsettingsresponse.md
+  - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
+  - docs/sdk/models/operations/pipeline.md
+  - docs/sdk/models/operations/projectnames.md
+  - docs/sdk/models/operations/reportingwindow.md
+  - docs/sdk/models/operations/requires.md
+  - docs/sdk/models/operations/rerunworkflowrequest.md
+  - docs/sdk/models/operations/rerunworkflowrerunworkflowparameters.md
+  - docs/sdk/models/operations/rerunworkflowresponse.md
+  - docs/sdk/models/operations/rerunworkflowresponsebody.md
+  - docs/sdk/models/operations/rerunworkflowworkflowresponsebody.md
+  - docs/sdk/models/operations/responsebody.md
+  - docs/sdk/models/operations/scope.md
+  - docs/sdk/models/operations/scopetype.md
+  - docs/sdk/models/operations/setdecisionsettingsrequest.md
+  - docs/sdk/models/operations/setdecisionsettingsresponse.md
+  - docs/sdk/models/operations/setdecisionsettingsresponsebody.md
+  - docs/sdk/models/operations/state.md
+  - docs/sdk/models/operations/status.md
+  - docs/sdk/models/operations/tag.md
+  - docs/sdk/models/operations/trends.md
+  - docs/sdk/models/operations/trigger.md
+  - docs/sdk/models/operations/triggerparameters.md
+  - docs/sdk/models/operations/triggerpipelinerunrequest.md
+  - docs/sdk/models/operations/triggerpipelinerunresponse.md
+  - docs/sdk/models/operations/triggerpipelinerunresponsebody.md
+  - docs/sdk/models/operations/two.md
+  - docs/sdk/models/operations/type.md
+  - docs/sdk/models/operations/updateschedule1.md
+  - docs/sdk/models/operations/updateschedule2.md
+  - docs/sdk/models/operations/updatescheduleattributionactor.md
+  - docs/sdk/models/operations/updatescheduledaysofweek.md
+  - docs/sdk/models/operations/updateschedulemonths.md
+  - docs/sdk/models/operations/updatescheduleparameters.md
+  - docs/sdk/models/operations/updateschedulerequest.md
+  - docs/sdk/models/operations/updatescheduleresponse.md
+  - docs/sdk/models/operations/updatescheduleresponsebody.md
+  - docs/sdk/models/operations/updatescheduleschedule.md
+  - docs/sdk/models/operations/updateschedulescheduledaysofweek.md
+  - docs/sdk/models/operations/updatescheduleschedulemonths.md
+  - docs/sdk/models/operations/updateschedulescheduleparameters.md
+  - docs/sdk/models/operations/updateschedulescheduleresponsedaysofweek.md
+  - docs/sdk/models/operations/updateschedulescheduleresponsemonths.md
+  - docs/sdk/models/operations/updateschedulescheduletimetable.md
+  - docs/sdk/models/operations/updatescheduletimetable.md
+  - docs/sdk/models/operations/updatescheduleupdatescheduleparameters.md
+  - docs/sdk/models/operations/updatescheduleuser.md
+  - docs/sdk/models/operations/updatewebhookevents.md
+  - docs/sdk/models/operations/updatewebhookrequest.md
+  - docs/sdk/models/operations/updatewebhookrequestbody.md
+  - docs/sdk/models/operations/updatewebhookresponse.md
+  - docs/sdk/models/operations/updatewebhookresponsebody.md
+  - docs/sdk/models/operations/updatewebhookscope.md
+  - docs/sdk/models/operations/updatewebhookwebhook.md
+  - docs/sdk/models/operations/updatewebhookwebhookevents.md
+  - docs/sdk/models/operations/user.md
+  - docs/sdk/models/operations/vcs.md
+  - docs/sdk/models/operations/webhook.md
+  - docs/sdk/models/operations/workflow.md
+  - docs/sdk/models/shared/advanced.md
+  - docs/sdk/models/shared/bundlediff.md
+  - docs/sdk/models/shared/bundlepayload.md
+  - docs/sdk/models/shared/checkout.md
+  - docs/sdk/models/shared/claimresponse.md
+  - docs/sdk/models/shared/config.md
+  - docs/sdk/models/shared/contextprojectrestrictionslist.md
+  - docs/sdk/models/shared/contextprojectrestrictionslistrestrictiontype.md
+  - docs/sdk/models/shared/decision.md
+  - docs/sdk/models/shared/decisionlog.md
+  - docs/sdk/models/shared/decisionsettings.md
+  - docs/sdk/models/shared/getusageexportjobstatus.md
+  - docs/sdk/models/shared/items.md
+  - docs/sdk/models/shared/metadata.md
+  - docs/sdk/models/shared/patchclaimsrequest.md
+  - docs/sdk/models/shared/pipeline.md
+  - docs/sdk/models/shared/pipelinerequest.md
+  - docs/sdk/models/shared/pipelinestate.md
+  - docs/sdk/models/shared/policy.md
+  - docs/sdk/models/shared/projectsettings.md
+  - docs/sdk/models/shared/providernogitlab.md
+  - docs/sdk/models/shared/restrictioncreated.md
+  - docs/sdk/models/shared/restrictiondeleted.md
+  - docs/sdk/models/shared/restrictiontype.md
+  - docs/sdk/models/shared/schemebasicauth.md
+  - docs/sdk/models/shared/security.md
+  - docs/sdk/models/shared/state.md
+  - docs/sdk/models/shared/usageexportjob.md
+  - docs/sdk/models/shared/usageexportjobstate.md
+  - docs/sdk/models/shared/vcs.md
+  - docs/sdk/models/shared/violation.md
+  - docs/sdks/circleci/README.md
+  - docs/sdks/context/README.md
+  - docs/sdks/insights/README.md
+  - docs/sdks/job/README.md
+  - docs/sdks/oidctokenmanagement/README.md
+  - docs/sdks/pipeline/README.md
+  - docs/sdks/policymanagement/README.md
+  - docs/sdks/project/README.md
+  - docs/sdks/schedule/README.md
+  - docs/sdks/usage/README.md
+  - docs/sdks/user/README.md
+  - docs/sdks/webhook/README.md
+  - docs/sdks/workflow/README.md
+  - jsr.json
   - package.json
+  - src/core.ts
+  - src/funcs/contextAddEnvironmentVariableToContext.ts
+  - src/funcs/contextCreateContext.ts
+  - src/funcs/contextCreateContextRestriction.ts
+  - src/funcs/contextDeleteContext.ts
+  - src/funcs/contextDeleteContextRestriction.ts
+  - src/funcs/contextDeleteEnvironmentVariableFromContext.ts
+  - src/funcs/contextGetContext.ts
+  - src/funcs/contextGetContextRestrictions.ts
+  - src/funcs/contextListContexts.ts
+  - src/funcs/contextListEnvironmentVariablesFromContext.ts
+  - src/funcs/insightsGetOrgSummaryData.ts
+  - src/funcs/jobCancelJobByJobID.ts
+  - src/funcs/oidcTokenManagementDeleteOrgClaims.ts
+  - src/funcs/oidcTokenManagementDeleteProjectClaims.ts
+  - src/funcs/oidcTokenManagementGetOrgClaims.ts
+  - src/funcs/oidcTokenManagementGetProjectClaims.ts
+  - src/funcs/oidcTokenManagementPatchOrgClaims.ts
+  - src/funcs/oidcTokenManagementPatchProjectClaims.ts
+  - src/funcs/pipelineContinuePipeline.ts
+  - src/funcs/pipelineGetPipelineById.ts
+  - src/funcs/pipelineGetPipelineConfigById.ts
+  - src/funcs/pipelineGetPipelineValuesById.ts
+  - src/funcs/pipelineListPipelines.ts
+  - src/funcs/pipelineListWorkflowsByPipelineId.ts
+  - src/funcs/pipelineTriggerPipelineRun.ts
+  - src/funcs/policyManagementCreatePolicyBundle.ts
+  - src/funcs/policyManagementGetDecisionLog.ts
+  - src/funcs/policyManagementGetDecisionLogPolicyBundle.ts
+  - src/funcs/policyManagementGetDecisionLogs.ts
+  - src/funcs/policyManagementGetDecisionSettings.ts
+  - src/funcs/policyManagementGetPolicyBundle.ts
+  - src/funcs/policyManagementGetPolicyDocument.ts
+  - src/funcs/policyManagementMakeDecision.ts
+  - src/funcs/policyManagementSetDecisionSettings.ts
+  - src/funcs/projectCreateProject.ts
+  - src/funcs/projectGetProjectSettings.ts
+  - src/funcs/projectPatchProjectSettings.ts
+  - src/funcs/scheduleDeleteScheduleById.ts
+  - src/funcs/scheduleGetScheduleById.ts
+  - src/funcs/scheduleUpdateSchedule.ts
+  - src/funcs/usageCreateUsageExport.ts
+  - src/funcs/usageGetUsageExport.ts
+  - src/funcs/userGetCollaborations.ts
+  - src/funcs/userGetCurrentUser.ts
+  - src/funcs/userGetUser.ts
+  - src/funcs/webhookCreateWebhook.ts
+  - src/funcs/webhookDeleteWebhook.ts
+  - src/funcs/webhookGetWebhookById.ts
+  - src/funcs/webhookGetWebhooks.ts
+  - src/funcs/webhookUpdateWebhook.ts
+  - src/funcs/workflowApprovePendingApprovalJobById.ts
+  - src/funcs/workflowCancelWorkflow.ts
+  - src/funcs/workflowGetWorkflowById.ts
+  - src/funcs/workflowListWorkflowJobs.ts
+  - src/funcs/workflowRerunWorkflow.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
   - src/index.ts
-  - src/internal/utils/contenttype.ts
-  - src/internal/utils/headers.ts
-  - src/internal/utils/index.ts
-  - src/internal/utils/pathparams.ts
-  - src/internal/utils/queryparams.ts
-  - src/internal/utils/requestbody.ts
-  - src/internal/utils/retries.ts
-  - src/internal/utils/security.ts
-  - src/internal/utils/utils.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/sdk/context.ts
   - src/sdk/index.ts
+  - src/sdk/insights.ts
+  - src/sdk/job.ts
+  - src/sdk/models/errors/httpclienterrors.ts
+  - src/sdk/models/errors/index.ts
   - src/sdk/models/errors/sdkerror.ts
-  - src/sdk/types/index.ts
-  - src/sdk/types/rfcdate.ts
-  - tsconfig.json
+  - src/sdk/models/errors/sdkvalidationerror.ts
   - src/sdk/models/operations/addenvironmentvariabletocontext.ts
+  - src/sdk/models/operations/approvependingapprovaljobbyid.ts
+  - src/sdk/models/operations/canceljobbyjobid.ts
+  - src/sdk/models/operations/cancelworkflow.ts
+  - src/sdk/models/operations/continuepipeline.ts
   - src/sdk/models/operations/createcontext.ts
   - src/sdk/models/operations/createcontextrestriction.ts
+  - src/sdk/models/operations/createpolicybundle.ts
+  - src/sdk/models/operations/createproject.ts
+  - src/sdk/models/operations/createusageexport.ts
+  - src/sdk/models/operations/createwebhook.ts
   - src/sdk/models/operations/deletecontext.ts
   - src/sdk/models/operations/deletecontextrestriction.ts
   - src/sdk/models/operations/deleteenvironmentvariablefromcontext.ts
-  - src/sdk/models/operations/getcontext.ts
-  - src/sdk/models/operations/getcontextrestrictions.ts
-  - src/sdk/models/operations/listcontexts.ts
-  - src/sdk/models/operations/listenvironmentvariablesfromcontext.ts
-  - src/sdk/models/operations/getallinsightsbranches.ts
-  - src/sdk/models/operations/getflakytests.ts
-  - src/sdk/models/operations/getjobtimeseries.ts
-  - src/sdk/models/operations/getorgsummarydata.ts
-  - src/sdk/models/operations/getprojectworkflowjobmetrics.ts
-  - src/sdk/models/operations/getprojectworkflowmetrics.ts
-  - src/sdk/models/operations/getprojectworkflowruns.ts
-  - src/sdk/models/operations/getprojectworkflowtestmetrics.ts
-  - src/sdk/models/operations/getprojectworkflowspagedata.ts
-  - src/sdk/models/operations/getworkflowsummary.ts
-  - src/sdk/models/operations/getcollaborations.ts
-  - src/sdk/models/operations/getcurrentuser.ts
-  - src/sdk/models/operations/getuser.ts
   - src/sdk/models/operations/deleteorgclaims.ts
   - src/sdk/models/operations/deleteprojectclaims.ts
-  - src/sdk/models/operations/getorgclaims.ts
-  - src/sdk/models/operations/getprojectclaims.ts
-  - src/sdk/models/operations/patchorgclaims.ts
-  - src/sdk/models/operations/patchprojectclaims.ts
-  - src/sdk/models/operations/createusageexport.ts
-  - src/sdk/models/operations/getusageexport.ts
-  - src/sdk/models/operations/createpolicybundle.ts
+  - src/sdk/models/operations/deleteschedulebyid.ts
+  - src/sdk/models/operations/deletewebhook.ts
+  - src/sdk/models/operations/getcollaborations.ts
+  - src/sdk/models/operations/getcontext.ts
+  - src/sdk/models/operations/getcontextrestrictions.ts
+  - src/sdk/models/operations/getcurrentuser.ts
   - src/sdk/models/operations/getdecisionlog.ts
   - src/sdk/models/operations/getdecisionlogpolicybundle.ts
   - src/sdk/models/operations/getdecisionlogs.ts
   - src/sdk/models/operations/getdecisionsettings.ts
+  - src/sdk/models/operations/getorgclaims.ts
+  - src/sdk/models/operations/getorgsummarydata.ts
+  - src/sdk/models/operations/getpipelinebyid.ts
+  - src/sdk/models/operations/getpipelineconfigbyid.ts
+  - src/sdk/models/operations/getpipelinevaluesbyid.ts
   - src/sdk/models/operations/getpolicybundle.ts
   - src/sdk/models/operations/getpolicydocument.ts
-  - src/sdk/models/operations/makedecision.ts
-  - src/sdk/models/operations/setdecisionsettings.ts
-  - src/sdk/models/operations/continuepipeline.ts
-  - src/sdk/models/operations/getpipelinebyid.ts
-  - src/sdk/models/operations/getpipelinebynumber.ts
-  - src/sdk/models/operations/getpipelineconfigbyid.ts
-  - src/sdk/models/operations/listmypipelines.ts
-  - src/sdk/models/operations/listpipelines.ts
-  - src/sdk/models/operations/listpipelinesforproject.ts
-  - src/sdk/models/operations/listworkflowsbypipelineid.ts
-  - src/sdk/models/operations/triggerpipeline.ts
-  - src/sdk/models/operations/createcheckoutkey.ts
-  - src/sdk/models/operations/createenvvar.ts
-  - src/sdk/models/operations/createproject.ts
-  - src/sdk/models/operations/deletecheckoutkey.ts
-  - src/sdk/models/operations/deleteenvvar.ts
-  - src/sdk/models/operations/getcheckoutkey.ts
-  - src/sdk/models/operations/getenvvar.ts
-  - src/sdk/models/operations/getprojectbyslug.ts
+  - src/sdk/models/operations/getprojectclaims.ts
   - src/sdk/models/operations/getprojectsettings.ts
-  - src/sdk/models/operations/listcheckoutkeys.ts
-  - src/sdk/models/operations/listenvvars.ts
-  - src/sdk/models/operations/patchprojectsettings.ts
-  - src/sdk/models/operations/canceljob.ts
-  - src/sdk/models/operations/getjobartifacts.ts
-  - src/sdk/models/operations/getjobdetails.ts
-  - src/sdk/models/operations/gettests.ts
-  - src/sdk/models/operations/createschedule.ts
-  - src/sdk/models/operations/deleteschedulebyid.ts
   - src/sdk/models/operations/getschedulebyid.ts
-  - src/sdk/models/operations/listschedulesforproject.ts
-  - src/sdk/models/operations/updateschedule.ts
-  - src/sdk/models/operations/createwebhook.ts
-  - src/sdk/models/operations/deletewebhook.ts
+  - src/sdk/models/operations/getusageexport.ts
+  - src/sdk/models/operations/getuser.ts
   - src/sdk/models/operations/getwebhookbyid.ts
   - src/sdk/models/operations/getwebhooks.ts
-  - src/sdk/models/operations/updatewebhook.ts
-  - src/sdk/models/operations/approvependingapprovaljobbyid.ts
-  - src/sdk/models/operations/cancelworkflow.ts
   - src/sdk/models/operations/getworkflowbyid.ts
+  - src/sdk/models/operations/index.ts
+  - src/sdk/models/operations/listcontexts.ts
+  - src/sdk/models/operations/listenvironmentvariablesfromcontext.ts
+  - src/sdk/models/operations/listpipelines.ts
   - src/sdk/models/operations/listworkflowjobs.ts
+  - src/sdk/models/operations/listworkflowsbypipelineid.ts
+  - src/sdk/models/operations/makedecision.ts
+  - src/sdk/models/operations/patchorgclaims.ts
+  - src/sdk/models/operations/patchprojectclaims.ts
+  - src/sdk/models/operations/patchprojectsettings.ts
   - src/sdk/models/operations/rerunworkflow.ts
-  - src/sdk/models/shared/restrictioncreated.ts
-  - src/sdk/models/shared/restrictiondeleted.ts
-  - src/sdk/models/shared/contextprojectrestrictionslist.ts
-  - src/sdk/models/shared/claimresponse.ts
-  - src/sdk/models/shared/patchclaimsrequest.ts
-  - src/sdk/models/shared/usageexportjob.ts
-  - src/sdk/models/shared/getusageexportjobstatus.ts
+  - src/sdk/models/operations/setdecisionsettings.ts
+  - src/sdk/models/operations/triggerpipelinerun.ts
+  - src/sdk/models/operations/updateschedule.ts
+  - src/sdk/models/operations/updatewebhook.ts
   - src/sdk/models/shared/bundlediff.ts
   - src/sdk/models/shared/bundlepayload.ts
-  - src/sdk/models/shared/decisionlog.ts
+  - src/sdk/models/shared/claimresponse.ts
+  - src/sdk/models/shared/contextprojectrestrictionslist.ts
   - src/sdk/models/shared/decision.ts
-  - src/sdk/models/shared/violation.ts
-  - src/sdk/models/shared/policy.ts
+  - src/sdk/models/shared/decisionlog.ts
   - src/sdk/models/shared/decisionsettings.ts
-  - src/sdk/models/shared/projectsettings.ts
-  - src/sdk/models/shared/security.ts
-  - src/sdk/models/shared/schemebasicauth.ts
-  - src/sdk/models/errors/index.ts
-  - src/sdk/models/operations/index.ts
+  - src/sdk/models/shared/getusageexportjobstatus.ts
   - src/sdk/models/shared/index.ts
-  - docs/sdk/models/operations/addenvironmentvariabletocontextrequestbody.md
-  - docs/sdk/models/operations/addenvironmentvariabletocontextrequest.md
-  - docs/sdk/models/operations/addenvironmentvariabletocontextresponsebody.md
-  - docs/sdk/models/operations/addenvironmentvariabletocontextresponse.md
-  - docs/sdk/models/operations/createcontextrequestbody.md
-  - docs/sdk/models/operations/createcontextresponsebody.md
-  - docs/sdk/models/operations/createcontextcontext.md
-  - docs/sdk/models/operations/createcontextresponse.md
-  - docs/sdk/models/operations/createcontextrestrictionrequestbody.md
-  - docs/sdk/models/operations/createcontextrestrictionrequest.md
-  - docs/sdk/models/operations/createcontextrestrictioncontextresponse409responsebody.md
-  - docs/sdk/models/operations/createcontextrestrictioncontextresponsebody.md
-  - docs/sdk/models/operations/createcontextrestrictionresponsebody.md
-  - docs/sdk/models/operations/createcontextrestrictionresponse.md
-  - docs/sdk/models/operations/deletecontextrequest.md
-  - docs/sdk/models/operations/deletecontextresponsebody.md
-  - docs/sdk/models/operations/deletecontextmessageresponse.md
-  - docs/sdk/models/operations/deletecontextresponse.md
-  - docs/sdk/models/operations/deletecontextrestrictionrequest.md
-  - docs/sdk/models/operations/deletecontextrestrictionresponsebody.md
-  - docs/sdk/models/operations/deletecontextrestrictionresponse.md
-  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextrequest.md
-  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextresponsebody.md
-  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextmessageresponse.md
-  - docs/sdk/models/operations/deleteenvironmentvariablefromcontextresponse.md
-  - docs/sdk/models/operations/getcontextrequest.md
-  - docs/sdk/models/operations/getcontextresponsebody.md
-  - docs/sdk/models/operations/getcontextcontext.md
-  - docs/sdk/models/operations/getcontextresponse.md
-  - docs/sdk/models/operations/getcontextrestrictionsrequest.md
-  - docs/sdk/models/operations/getcontextrestrictionsresponsebody.md
-  - docs/sdk/models/operations/getcontextrestrictionsresponse.md
-  - docs/sdk/models/operations/ownertype.md
-  - docs/sdk/models/operations/listcontextsrequest.md
-  - docs/sdk/models/operations/listcontextscontextresponsebody.md
-  - docs/sdk/models/operations/context.md
-  - docs/sdk/models/operations/listcontextsresponsebody.md
-  - docs/sdk/models/operations/listcontextsresponse.md
-  - docs/sdk/models/operations/listenvironmentvariablesfromcontextrequest.md
-  - docs/sdk/models/operations/listenvironmentvariablesfromcontextcontextresponsebody.md
-  - docs/sdk/models/operations/items.md
-  - docs/sdk/models/operations/listenvironmentvariablesfromcontextresponsebody.md
-  - docs/sdk/models/operations/listenvironmentvariablesfromcontextresponse.md
-  - docs/sdk/models/operations/getallinsightsbranchesrequest.md
-  - docs/sdk/models/operations/getallinsightsbranchesinsightsresponsebody.md
-  - docs/sdk/models/operations/getallinsightsbranchesresponsebody.md
-  - docs/sdk/models/operations/getallinsightsbranchesresponse.md
-  - docs/sdk/models/operations/getflakytestsrequest.md
-  - docs/sdk/models/operations/getflakytestsinsightsresponsebody.md
-  - docs/sdk/models/operations/flakytests.md
-  - docs/sdk/models/operations/getflakytestsresponsebody.md
-  - docs/sdk/models/operations/getflakytestsresponse.md
-  - docs/sdk/models/operations/granularity.md
-  - docs/sdk/models/operations/getjobtimeseriesrequest.md
-  - docs/sdk/models/operations/getjobtimeseriesinsightsresponsebody.md
-  - docs/sdk/models/operations/getjobtimeseriesdurationmetrics.md
-  - docs/sdk/models/operations/getjobtimeseriesmetrics.md
-  - docs/sdk/models/operations/getjobtimeseriesitems.md
-  - docs/sdk/models/operations/getjobtimeseriesresponsebody.md
-  - docs/sdk/models/operations/getjobtimeseriesresponse.md
-  - docs/sdk/models/operations/projectnames.md
-  - docs/sdk/models/operations/reportingwindow.md
-  - docs/sdk/models/operations/getorgsummarydatarequest.md
-  - docs/sdk/models/operations/getorgsummarydatainsightsresponsebody.md
-  - docs/sdk/models/operations/getorgsummarydatametrics.md
-  - docs/sdk/models/operations/getorgsummarydatainsightstrends.md
-  - docs/sdk/models/operations/orgdata.md
-  - docs/sdk/models/operations/getorgsummarydatainsightsmetrics.md
-  - docs/sdk/models/operations/getorgsummarydatatrends.md
-  - docs/sdk/models/operations/orgprojectdata.md
-  - docs/sdk/models/operations/getorgsummarydataresponsebody.md
-  - docs/sdk/models/operations/getorgsummarydataresponse.md
-  - docs/sdk/models/operations/queryparamreportingwindow.md
-  - docs/sdk/models/operations/getprojectworkflowjobmetricsrequest.md
-  - docs/sdk/models/operations/getprojectworkflowjobmetricsinsightsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowjobmetricsdurationmetrics.md
-  - docs/sdk/models/operations/getprojectworkflowjobmetricsmetrics.md
-  - docs/sdk/models/operations/getprojectworkflowjobmetricsitems.md
-  - docs/sdk/models/operations/getprojectworkflowjobmetricsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowjobmetricsresponse.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsqueryparamreportingwindow.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsrequest.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsinsightsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsdurationmetrics.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsmetrics.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsitems.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowmetricsresponse.md
-  - docs/sdk/models/operations/getprojectworkflowrunsrequest.md
-  - docs/sdk/models/operations/getprojectworkflowrunsinsightsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowrunsstatus.md
-  - docs/sdk/models/operations/getprojectworkflowrunsitems.md
-  - docs/sdk/models/operations/getprojectworkflowrunsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowrunsresponse.md
-  - docs/sdk/models/operations/getprojectworkflowtestmetricsrequest.md
-  - docs/sdk/models/operations/getprojectworkflowtestmetricsinsightsresponsebody.md
-  - docs/sdk/models/operations/mostfailedtests.md
-  - docs/sdk/models/operations/slowesttests.md
-  - docs/sdk/models/operations/testcounts.md
-  - docs/sdk/models/operations/testruns.md
-  - docs/sdk/models/operations/getprojectworkflowtestmetricsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowtestmetricsresponse.md
-  - docs/sdk/models/operations/branches.md
-  - docs/sdk/models/operations/getprojectworkflowspagedataqueryparamreportingwindow.md
-  - docs/sdk/models/operations/workflownames.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatarequest.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatainsightsresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatametrics.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatatrends.md
-  - docs/sdk/models/operations/projectdata.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatainsightsmetrics.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatainsightstrends.md
-  - docs/sdk/models/operations/projectworkflowbranchdata.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatainsightsresponsemetrics.md
-  - docs/sdk/models/operations/getprojectworkflowspagedatainsightsresponsetrends.md
-  - docs/sdk/models/operations/projectworkflowdata.md
-  - docs/sdk/models/operations/getprojectworkflowspagedataresponsebody.md
-  - docs/sdk/models/operations/getprojectworkflowspagedataresponse.md
-  - docs/sdk/models/operations/getworkflowsummaryrequest.md
-  - docs/sdk/models/operations/getworkflowsummaryinsightsresponsebody.md
-  - docs/sdk/models/operations/durationmetrics.md
-  - docs/sdk/models/operations/metrics.md
-  - docs/sdk/models/operations/trends.md
-  - docs/sdk/models/operations/getworkflowsummaryresponsebody.md
-  - docs/sdk/models/operations/getworkflowsummaryresponse.md
-  - docs/sdk/models/operations/getcollaborationsresponsebody.md
-  - docs/sdk/models/operations/collaboration.md
-  - docs/sdk/models/operations/getcollaborationsresponse.md
-  - docs/sdk/models/operations/getcurrentuserresponsebody.md
-  - docs/sdk/models/operations/getcurrentuseruser.md
-  - docs/sdk/models/operations/getcurrentuserresponse.md
-  - docs/sdk/models/operations/getuserrequest.md
-  - docs/sdk/models/operations/getuserresponsebody.md
-  - docs/sdk/models/operations/getuseruser.md
-  - docs/sdk/models/operations/getuserresponse.md
-  - docs/sdk/models/operations/deleteorgclaimsrequest.md
-  - docs/sdk/models/operations/deleteorgclaimsresponsebody.md
-  - docs/sdk/models/operations/deleteorgclaimsresponse.md
-  - docs/sdk/models/operations/deleteprojectclaimsrequest.md
-  - docs/sdk/models/operations/deleteprojectclaimsresponsebody.md
-  - docs/sdk/models/operations/deleteprojectclaimsresponse.md
-  - docs/sdk/models/operations/getorgclaimsrequest.md
-  - docs/sdk/models/operations/getorgclaimsresponsebody.md
-  - docs/sdk/models/operations/getorgclaimsresponse.md
-  - docs/sdk/models/operations/getprojectclaimsrequest.md
-  - docs/sdk/models/operations/getprojectclaimsresponsebody.md
-  - docs/sdk/models/operations/getprojectclaimsresponse.md
-  - docs/sdk/models/operations/patchorgclaimsrequest.md
-  - docs/sdk/models/operations/patchorgclaimsresponsebody.md
-  - docs/sdk/models/operations/patchorgclaimsresponse.md
-  - docs/sdk/models/operations/patchprojectclaimsrequest.md
-  - docs/sdk/models/operations/patchprojectclaimsresponsebody.md
-  - docs/sdk/models/operations/patchprojectclaimsresponse.md
-  - docs/sdk/models/operations/createusageexportrequestbody.md
-  - docs/sdk/models/operations/createusageexportrequest.md
-  - docs/sdk/models/operations/createusageexportresponsebody.md
-  - docs/sdk/models/operations/createusageexportresponse.md
-  - docs/sdk/models/operations/getusageexportrequest.md
-  - docs/sdk/models/operations/getusageexportresponsebody.md
-  - docs/sdk/models/operations/getusageexportresponse.md
-  - docs/sdk/models/operations/createpolicybundlerequest.md
-  - docs/sdk/models/operations/createpolicybundlepolicymanagementresponse413responsebody.md
-  - docs/sdk/models/operations/createpolicybundleresponsebody.md
-  - docs/sdk/models/operations/createpolicybundleresponse.md
-  - docs/sdk/models/operations/getdecisionlogrequest.md
-  - docs/sdk/models/operations/getdecisionlogpolicymanagementresponse404responsebody.md
-  - docs/sdk/models/operations/getdecisionlogresponsebody.md
-  - docs/sdk/models/operations/getdecisionlogresponse.md
-  - docs/sdk/models/operations/getdecisionlogpolicybundlerequest.md
-  - docs/sdk/models/operations/getdecisionlogpolicybundlepolicymanagementresponse404responsebody.md
-  - docs/sdk/models/operations/getdecisionlogpolicybundleresponsebody.md
-  - docs/sdk/models/operations/getdecisionlogpolicybundleresponse.md
-  - docs/sdk/models/operations/getdecisionlogsrequest.md
-  - docs/sdk/models/operations/getdecisionlogsresponsebody.md
-  - docs/sdk/models/operations/getdecisionlogsresponse.md
-  - docs/sdk/models/operations/getdecisionsettingsrequest.md
-  - docs/sdk/models/operations/getdecisionsettingsresponsebody.md
-  - docs/sdk/models/operations/getdecisionsettingsresponse.md
-  - docs/sdk/models/operations/getpolicybundlerequest.md
-  - docs/sdk/models/operations/getpolicybundleresponsebody.md
-  - docs/sdk/models/operations/getpolicybundleresponse.md
-  - docs/sdk/models/operations/getpolicydocumentrequest.md
-  - docs/sdk/models/operations/getpolicydocumentpolicymanagementresponse404responsebody.md
-  - docs/sdk/models/operations/getpolicydocumentresponsebody.md
-  - docs/sdk/models/operations/getpolicydocumentresponse.md
-  - docs/sdk/models/operations/metadata.md
-  - docs/sdk/models/operations/makedecisionrequestbody.md
-  - docs/sdk/models/operations/makedecisionrequest.md
-  - docs/sdk/models/operations/makedecisionpolicymanagementresponseresponsebody.md
-  - docs/sdk/models/operations/makedecisionpolicymanagementresponsebody.md
-  - docs/sdk/models/operations/makedecisionresponsebody.md
-  - docs/sdk/models/operations/makedecisionresponse.md
-  - docs/sdk/models/operations/setdecisionsettingsrequest.md
-  - docs/sdk/models/operations/setdecisionsettingsresponsebody.md
-  - docs/sdk/models/operations/setdecisionsettingsresponse.md
-  - docs/sdk/models/operations/continuepipelinerequestbody.md
-  - docs/sdk/models/operations/continuepipelineresponsebody.md
-  - docs/sdk/models/operations/continuepipelinemessageresponse.md
-  - docs/sdk/models/operations/continuepipelineresponse.md
-  - docs/sdk/models/operations/getpipelinebyidrequest.md
-  - docs/sdk/models/operations/getpipelinebyidresponsebody.md
-  - docs/sdk/models/operations/getpipelinebyidpipelinetype.md
-  - docs/sdk/models/operations/errors.md
-  - docs/sdk/models/operations/state.md
-  - docs/sdk/models/operations/actor.md
-  - docs/sdk/models/operations/getpipelinebyidtype.md
-  - docs/sdk/models/operations/trigger.md
-  - docs/sdk/models/operations/commit.md
-  - docs/sdk/models/operations/vcs.md
-  - docs/sdk/models/operations/getpipelinebyidpipeline.md
-  - docs/sdk/models/operations/getpipelinebyidresponse.md
-  - docs/sdk/models/operations/getpipelinebynumberrequest.md
-  - docs/sdk/models/operations/getpipelinebynumberresponsebody.md
-  - docs/sdk/models/operations/getpipelinebynumbertype.md
-  - docs/sdk/models/operations/getpipelinebynumbererrors.md
-  - docs/sdk/models/operations/getpipelinebynumberstate.md
-  - docs/sdk/models/operations/getpipelinebynumberactor.md
-  - docs/sdk/models/operations/getpipelinebynumberpipelinetype.md
-  - docs/sdk/models/operations/getpipelinebynumbertrigger.md
-  - docs/sdk/models/operations/getpipelinebynumbercommit.md
-  - docs/sdk/models/operations/getpipelinebynumbervcs.md
-  - docs/sdk/models/operations/getpipelinebynumberpipeline.md
-  - docs/sdk/models/operations/getpipelinebynumberresponse.md
-  - docs/sdk/models/operations/getpipelineconfigbyidrequest.md
-  - docs/sdk/models/operations/getpipelineconfigbyidresponsebody.md
-  - docs/sdk/models/operations/getpipelineconfigbyidpipelineconfig.md
-  - docs/sdk/models/operations/getpipelineconfigbyidresponse.md
-  - docs/sdk/models/operations/listmypipelinesrequest.md
-  - docs/sdk/models/operations/listmypipelinesresponsebody.md
-  - docs/sdk/models/operations/listmypipelinestype.md
-  - docs/sdk/models/operations/listmypipelineserrors.md
-  - docs/sdk/models/operations/listmypipelinesstate.md
-  - docs/sdk/models/operations/listmypipelinesactor.md
-  - docs/sdk/models/operations/listmypipelinespipelinetype.md
-  - docs/sdk/models/operations/listmypipelinestrigger.md
-  - docs/sdk/models/operations/listmypipelinescommit.md
-  - docs/sdk/models/operations/listmypipelinesvcs.md
-  - docs/sdk/models/operations/listmypipelinespipeline.md
-  - docs/sdk/models/operations/listmypipelinespipelinelistresponse.md
-  - docs/sdk/models/operations/listmypipelinesresponse.md
-  - docs/sdk/models/operations/listpipelinesrequest.md
-  - docs/sdk/models/operations/listpipelinesresponsebody.md
-  - docs/sdk/models/operations/listpipelinestype.md
-  - docs/sdk/models/operations/listpipelineserrors.md
-  - docs/sdk/models/operations/listpipelinesstate.md
-  - docs/sdk/models/operations/listpipelinesactor.md
-  - docs/sdk/models/operations/listpipelinespipelinetype.md
-  - docs/sdk/models/operations/listpipelinestrigger.md
-  - docs/sdk/models/operations/listpipelinescommit.md
-  - docs/sdk/models/operations/listpipelinesvcs.md
-  - docs/sdk/models/operations/listpipelinespipeline.md
-  - docs/sdk/models/operations/listpipelinespipelinelistresponse.md
-  - docs/sdk/models/operations/listpipelinesresponse.md
-  - docs/sdk/models/operations/listpipelinesforprojectrequest.md
-  - docs/sdk/models/operations/listpipelinesforprojectresponsebody.md
-  - docs/sdk/models/operations/listpipelinesforprojecttype.md
-  - docs/sdk/models/operations/listpipelinesforprojecterrors.md
-  - docs/sdk/models/operations/listpipelinesforprojectstate.md
-  - docs/sdk/models/operations/listpipelinesforprojectactor.md
-  - docs/sdk/models/operations/listpipelinesforprojectpipelinetype.md
-  - docs/sdk/models/operations/listpipelinesforprojecttrigger.md
-  - docs/sdk/models/operations/listpipelinesforprojectcommit.md
-  - docs/sdk/models/operations/listpipelinesforprojectvcs.md
-  - docs/sdk/models/operations/listpipelinesforprojectpipeline.md
-  - docs/sdk/models/operations/listpipelinesforprojectpipelinelistresponse.md
-  - docs/sdk/models/operations/listpipelinesforprojectresponse.md
-  - docs/sdk/models/operations/listworkflowsbypipelineidrequest.md
-  - docs/sdk/models/operations/listworkflowsbypipelineidresponsebody.md
-  - docs/sdk/models/operations/listworkflowsbypipelineidstatus.md
-  - docs/sdk/models/operations/listworkflowsbypipelineidtag.md
-  - docs/sdk/models/operations/workflow.md
-  - docs/sdk/models/operations/listworkflowsbypipelineidworkflowlistresponse.md
-  - docs/sdk/models/operations/listworkflowsbypipelineidresponse.md
-  - docs/sdk/models/operations/triggerpipelinetriggerpipelineparameters.md
-  - docs/sdk/models/operations/triggerpipelinerequest.md
-  - docs/sdk/models/operations/triggerpipelineresponsebody.md
-  - docs/sdk/models/operations/triggerpipelinestate.md
-  - docs/sdk/models/operations/triggerpipelinepipelinecreation.md
-  - docs/sdk/models/operations/triggerpipelineresponse.md
-  - docs/sdk/models/operations/checkoutkeyinputtype.md
-  - docs/sdk/models/operations/createcheckoutkeycheckoutkeyinput.md
-  - docs/sdk/models/operations/createcheckoutkeyrequest.md
-  - docs/sdk/models/operations/createcheckoutkeyresponsebody.md
-  - docs/sdk/models/operations/checkoutkeytype.md
-  - docs/sdk/models/operations/createcheckoutkeycheckoutkey.md
-  - docs/sdk/models/operations/createcheckoutkeyresponse.md
-  - docs/sdk/models/operations/createenvvarenvironmentvariable.md
-  - docs/sdk/models/operations/createenvvarrequest.md
-  - docs/sdk/models/operations/createenvvarresponsebody.md
-  - docs/sdk/models/operations/createenvvarprojectenvironmentvariable.md
-  - docs/sdk/models/operations/createenvvarresponse.md
-  - docs/sdk/models/operations/createprojectrequest.md
-  - docs/sdk/models/operations/createprojectprojectresponse404responsebody.md
-  - docs/sdk/models/operations/createprojectresponsebody.md
-  - docs/sdk/models/operations/createprojectresponse.md
-  - docs/sdk/models/operations/deletecheckoutkeyrequest.md
-  - docs/sdk/models/operations/deletecheckoutkeyresponsebody.md
-  - docs/sdk/models/operations/deletecheckoutkeymessageresponse.md
-  - docs/sdk/models/operations/deletecheckoutkeyresponse.md
-  - docs/sdk/models/operations/deleteenvvarrequest.md
-  - docs/sdk/models/operations/deleteenvvarresponsebody.md
-  - docs/sdk/models/operations/deleteenvvarmessageresponse.md
-  - docs/sdk/models/operations/deleteenvvarresponse.md
-  - docs/sdk/models/operations/getcheckoutkeyrequest.md
-  - docs/sdk/models/operations/getcheckoutkeyresponsebody.md
-  - docs/sdk/models/operations/getcheckoutkeycheckoutkeytype.md
-  - docs/sdk/models/operations/getcheckoutkeycheckoutkey.md
-  - docs/sdk/models/operations/getcheckoutkeyresponse.md
-  - docs/sdk/models/operations/getenvvarrequest.md
-  - docs/sdk/models/operations/getenvvarresponsebody.md
-  - docs/sdk/models/operations/getenvvarenvironmentvariable.md
-  - docs/sdk/models/operations/getenvvarresponse.md
-  - docs/sdk/models/operations/getprojectbyslugrequest.md
-  - docs/sdk/models/operations/getprojectbyslugresponsebody.md
-  - docs/sdk/models/operations/provider.md
-  - docs/sdk/models/operations/vcsinfo.md
-  - docs/sdk/models/operations/getprojectbyslugproject.md
-  - docs/sdk/models/operations/getprojectbyslugresponse.md
-  - docs/sdk/models/operations/getprojectsettingsrequest.md
-  - docs/sdk/models/operations/getprojectsettingsresponsebody.md
-  - docs/sdk/models/operations/getprojectsettingsresponse.md
-  - docs/sdk/models/operations/digest.md
-  - docs/sdk/models/operations/listcheckoutkeysrequest.md
-  - docs/sdk/models/operations/listcheckoutkeysresponsebody.md
-  - docs/sdk/models/operations/listcheckoutkeyscheckoutkeytype.md
-  - docs/sdk/models/operations/checkoutkey.md
-  - docs/sdk/models/operations/listcheckoutkeyscheckoutkeylistresponse.md
-  - docs/sdk/models/operations/listcheckoutkeysresponse.md
-  - docs/sdk/models/operations/listenvvarsrequest.md
-  - docs/sdk/models/operations/listenvvarsresponsebody.md
-  - docs/sdk/models/operations/environmentvariable.md
-  - docs/sdk/models/operations/listenvvarsenvironmentvariablelistresponse.md
-  - docs/sdk/models/operations/listenvvarsresponse.md
-  - docs/sdk/models/operations/patchprojectsettingsrequest.md
-  - docs/sdk/models/operations/patchprojectsettingsprojectresponsebody.md
-  - docs/sdk/models/operations/patchprojectsettingsresponsebody.md
-  - docs/sdk/models/operations/patchprojectsettingsresponse.md
-  - docs/sdk/models/operations/canceljobrequest.md
-  - docs/sdk/models/operations/canceljobresponsebody.md
-  - docs/sdk/models/operations/canceljobmessageresponse.md
-  - docs/sdk/models/operations/canceljobresponse.md
-  - docs/sdk/models/operations/getjobartifactsrequest.md
-  - docs/sdk/models/operations/getjobartifactsresponsebody.md
-  - docs/sdk/models/operations/artifact.md
-  - docs/sdk/models/operations/getjobartifactsartifactlistresponse.md
-  - docs/sdk/models/operations/getjobartifactsresponse.md
-  - docs/sdk/models/operations/getjobdetailsrequest.md
-  - docs/sdk/models/operations/getjobdetailsresponsebody.md
-  - docs/sdk/models/operations/contexts.md
-  - docs/sdk/models/operations/executor.md
-  - docs/sdk/models/operations/latestworkflow.md
-  - docs/sdk/models/operations/messages.md
-  - docs/sdk/models/operations/organization.md
-  - docs/sdk/models/operations/parallelruns.md
-  - docs/sdk/models/operations/pipeline.md
-  - docs/sdk/models/operations/project.md
-  - docs/sdk/models/operations/status.md
-  - docs/sdk/models/operations/getjobdetailsjobdetails.md
-  - docs/sdk/models/operations/getjobdetailsresponse.md
-  - docs/sdk/models/operations/gettestsrequest.md
-  - docs/sdk/models/operations/gettestsresponsebody.md
-  - docs/sdk/models/operations/gettestsitems.md
-  - docs/sdk/models/operations/getteststestsresponse.md
-  - docs/sdk/models/operations/gettestsresponse.md
-  - docs/sdk/models/operations/attributionactor.md
-  - docs/sdk/models/operations/createschedulecreatescheduleparameters.md
-  - docs/sdk/models/operations/createschedulerequest.md
-  - docs/sdk/models/operations/createscheduleresponsebody.md
-  - docs/sdk/models/operations/user.md
-  - docs/sdk/models/operations/createscheduleschedule.md
-  - docs/sdk/models/operations/createscheduleresponse.md
-  - docs/sdk/models/operations/deleteschedulebyidrequest.md
-  - docs/sdk/models/operations/deleteschedulebyidresponsebody.md
-  - docs/sdk/models/operations/deleteschedulebyidmessageresponse.md
-  - docs/sdk/models/operations/deleteschedulebyidresponse.md
-  - docs/sdk/models/operations/getschedulebyidrequest.md
-  - docs/sdk/models/operations/getschedulebyidresponsebody.md
-  - docs/sdk/models/operations/getschedulebyiduser.md
-  - docs/sdk/models/operations/getschedulebyidschedule.md
-  - docs/sdk/models/operations/getschedulebyidresponse.md
-  - docs/sdk/models/operations/listschedulesforprojectrequest.md
-  - docs/sdk/models/operations/listschedulesforprojectscheduleresponsebody.md
-  - docs/sdk/models/operations/listschedulesforprojectuser.md
-  - docs/sdk/models/operations/schedule.md
-  - docs/sdk/models/operations/listschedulesforprojectresponsebody.md
-  - docs/sdk/models/operations/listschedulesforprojectresponse.md
-  - docs/sdk/models/operations/updatescheduleattributionactor.md
-  - docs/sdk/models/operations/daysofweek.md
-  - docs/sdk/models/operations/months.md
-  - docs/sdk/models/operations/timetable.md
-  - docs/sdk/models/operations/updatescheduleupdatescheduleparameters.md
-  - docs/sdk/models/operations/updateschedulerequest.md
-  - docs/sdk/models/operations/updatescheduleresponsebody.md
-  - docs/sdk/models/operations/updatescheduleuser.md
-  - docs/sdk/models/operations/updatescheduleschedule.md
-  - docs/sdk/models/operations/updatescheduleresponse.md
-  - docs/sdk/models/operations/events.md
-  - docs/sdk/models/operations/typet.md
-  - docs/sdk/models/operations/scope.md
-  - docs/sdk/models/operations/createwebhookrequestbody.md
-  - docs/sdk/models/operations/createwebhookresponsebody.md
-  - docs/sdk/models/operations/createwebhookevents.md
-  - docs/sdk/models/operations/createwebhookscope.md
-  - docs/sdk/models/operations/createwebhookwebhook.md
-  - docs/sdk/models/operations/createwebhookresponse.md
-  - docs/sdk/models/operations/deletewebhookrequest.md
-  - docs/sdk/models/operations/deletewebhookresponsebody.md
-  - docs/sdk/models/operations/deletewebhookmessageresponse.md
-  - docs/sdk/models/operations/deletewebhookresponse.md
-  - docs/sdk/models/operations/getwebhookbyidrequest.md
-  - docs/sdk/models/operations/getwebhookbyidresponsebody.md
-  - docs/sdk/models/operations/getwebhookbyidevents.md
-  - docs/sdk/models/operations/getwebhookbyidscope.md
-  - docs/sdk/models/operations/getwebhookbyidwebhook.md
-  - docs/sdk/models/operations/getwebhookbyidresponse.md
-  - docs/sdk/models/operations/scopetype.md
-  - docs/sdk/models/operations/getwebhooksrequest.md
-  - docs/sdk/models/operations/getwebhookswebhookresponsebody.md
-  - docs/sdk/models/operations/getwebhooksevents.md
-  - docs/sdk/models/operations/getwebhooksscope.md
-  - docs/sdk/models/operations/webhook.md
-  - docs/sdk/models/operations/getwebhooksresponsebody.md
-  - docs/sdk/models/operations/getwebhooksresponse.md
-  - docs/sdk/models/operations/updatewebhookevents.md
-  - docs/sdk/models/operations/updatewebhookrequestbody.md
-  - docs/sdk/models/operations/updatewebhookrequest.md
-  - docs/sdk/models/operations/updatewebhookresponsebody.md
-  - docs/sdk/models/operations/updatewebhookwebhookevents.md
-  - docs/sdk/models/operations/updatewebhookscope.md
-  - docs/sdk/models/operations/updatewebhookwebhook.md
-  - docs/sdk/models/operations/updatewebhookresponse.md
-  - docs/sdk/models/operations/approvependingapprovaljobbyidrequest.md
-  - docs/sdk/models/operations/approvependingapprovaljobbyidresponsebody.md
-  - docs/sdk/models/operations/approvependingapprovaljobbyidmessageresponse.md
-  - docs/sdk/models/operations/approvependingapprovaljobbyidresponse.md
-  - docs/sdk/models/operations/cancelworkflowrequest.md
-  - docs/sdk/models/operations/cancelworkflowresponsebody.md
-  - docs/sdk/models/operations/cancelworkflowmessageresponse.md
-  - docs/sdk/models/operations/cancelworkflowresponse.md
-  - docs/sdk/models/operations/getworkflowbyidrequest.md
-  - docs/sdk/models/operations/getworkflowbyidresponsebody.md
-  - docs/sdk/models/operations/getworkflowbyidstatus.md
-  - docs/sdk/models/operations/tag.md
-  - docs/sdk/models/operations/getworkflowbyidworkflow.md
-  - docs/sdk/models/operations/getworkflowbyidresponse.md
-  - docs/sdk/models/operations/listworkflowjobsrequest.md
-  - docs/sdk/models/operations/listworkflowjobsresponsebody.md
-  - docs/sdk/models/operations/listworkflowjobsstatus.md
-  - docs/sdk/models/operations/listworkflowjobstype.md
-  - docs/sdk/models/operations/job.md
-  - docs/sdk/models/operations/listworkflowjobsworkflowjoblistresponse.md
-  - docs/sdk/models/operations/listworkflowjobsresponse.md
-  - docs/sdk/models/operations/rerunworkflowrerunworkflowparameters.md
-  - docs/sdk/models/operations/rerunworkflowrequest.md
-  - docs/sdk/models/operations/rerunworkflowworkflowresponsebody.md
-  - docs/sdk/models/operations/rerunworkflowresponsebody.md
-  - docs/sdk/models/operations/rerunworkflowresponse.md
-  - docs/sdk/models/shared/restrictiontype.md
-  - docs/sdk/models/shared/restrictioncreated.md
-  - docs/sdk/models/shared/restrictiondeleted.md
-  - docs/sdk/models/shared/contextprojectrestrictionslistrestrictiontype.md
-  - docs/sdk/models/shared/items.md
-  - docs/sdk/models/shared/contextprojectrestrictionslist.md
-  - docs/sdk/models/shared/claimresponse.md
-  - docs/sdk/models/shared/patchclaimsrequest.md
-  - docs/sdk/models/shared/usageexportjobstate.md
-  - docs/sdk/models/shared/usageexportjob.md
-  - docs/sdk/models/shared/state.md
-  - docs/sdk/models/shared/getusageexportjobstatus.md
-  - docs/sdk/models/shared/bundlediff.md
-  - docs/sdk/models/shared/bundlepayload.md
-  - docs/sdk/models/shared/vcs.md
-  - docs/sdk/models/shared/metadata.md
-  - docs/sdk/models/shared/decisionlog.md
-  - docs/sdk/models/shared/decision.md
-  - docs/sdk/models/shared/violation.md
-  - docs/sdk/models/shared/policy.md
-  - docs/sdk/models/shared/decisionsettings.md
-  - docs/sdk/models/shared/advanced.md
-  - docs/sdk/models/shared/projectsettings.md
-  - docs/sdk/models/shared/security.md
-  - docs/sdk/models/shared/schemebasicauth.md
-  - docs/sdks/circleci/README.md
-  - docs/sdks/context/README.md
-  - docs/sdks/insights/README.md
-  - docs/sdks/user/README.md
-  - docs/sdks/oidctokenmanagement/README.md
-  - docs/sdks/usage/README.md
-  - docs/sdks/policymanagement/README.md
-  - docs/sdks/pipeline/README.md
-  - docs/sdks/project/README.md
-  - docs/sdks/job/README.md
-  - docs/sdks/schedule/README.md
-  - docs/sdks/webhook/README.md
-  - docs/sdks/workflow/README.md
-  - USAGE.md
-  - .gitattributes
+  - src/sdk/models/shared/patchclaimsrequest.ts
+  - src/sdk/models/shared/pipeline.ts
+  - src/sdk/models/shared/pipelinerequest.ts
+  - src/sdk/models/shared/policy.ts
+  - src/sdk/models/shared/projectsettings.ts
+  - src/sdk/models/shared/providernogitlab.ts
+  - src/sdk/models/shared/restrictioncreated.ts
+  - src/sdk/models/shared/restrictiondeleted.ts
+  - src/sdk/models/shared/schemebasicauth.ts
+  - src/sdk/models/shared/security.ts
+  - src/sdk/models/shared/usageexportjob.ts
+  - src/sdk/models/shared/violation.ts
+  - src/sdk/oidctokenmanagement.ts
+  - src/sdk/pipeline.ts
+  - src/sdk/policymanagement.ts
+  - src/sdk/project.ts
+  - src/sdk/schedule.ts
+  - src/sdk/sdk.ts
+  - src/sdk/types/blobs.ts
+  - src/sdk/types/constdatetime.ts
+  - src/sdk/types/enums.ts
+  - src/sdk/types/fp.ts
+  - src/sdk/types/index.ts
+  - src/sdk/types/operations.ts
+  - src/sdk/types/rfcdate.ts
+  - src/sdk/types/streams.ts
+  - src/sdk/usage.ts
+  - src/sdk/user.ts
+  - src/sdk/webhook.ts
+  - src/sdk/workflow.ts
+  - tsconfig.json
+examples:
+  addEnvironmentVariableToContext:
+    "":
+      parameters:
+        path:
+          context-id: "00ac7939-2dac-470a-a639-ebd1d3b53886"
+          env-var-name: "POSTGRES_USER"
+      requestBody:
+        application/json: {"value": "some-secret-value"}
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
+  createContext:
+    speakeasy-default-create-context:
+      requestBody:
+        application/json: {"name": "<value>", "owner": {"slug": "<value>"}}
+      responses:
+        "200":
+          application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "eea73f7e-35a1-4ce3-82d3-968fb2d492b5", "name": "<value>"}
+        default:
+          application/json: {}
+  createContextRestriction:
+    "":
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {"project_id": "405d8375-3514-403b-8c43-83ae74cfe0e9", "restriction_type": "project", "restriction_value": "405d8375-3514-403b-8c43-83ae74cfe0e9"}
+    invalid_restriction:
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "This restriction cannot be applied to this context."}
+    invalid_access:
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "Project does not exist, or user does not have access to this project."}
+    invalid_token:
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
+      responses:
+        "401":
+          application/json: {"message": "Invalid token provided."}
+        "500":
+          application/json: {"message": "Invalid token provided."}
+    old_token:
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
+      responses:
+        "401":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+        "500":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+    query_auth:
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
+      responses:
+        "401":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+        "500":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+    restriction_conflict:
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      requestBody:
+        application/json: {}
+      responses:
+        "409":
+          application/json: {"message": "The restriction you're trying to add already exists."}
+  deleteContext:
+    speakeasy-default-delete-context:
+      parameters:
+        path:
+          context-id: "74242287-b0aa-4f7c-bade-49ec6511e2c6"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default:
+          application/json: {}
+  deleteContextRestriction:
+    "":
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+          restriction_id: "1c23d2cb-07b1-4a28-8af3-e369732050ed"
+      responses:
+        "400":
+          application/json: {"message": "restriction_id is invalid."}
+        "500":
+          application/json: {"message": "restriction_id is invalid."}
+        "200": {}
+    successful_delete:
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+          restriction_id: "1c23d2cb-07b1-4a28-8af3-e369732050ed"
+      responses:
+        "200":
+          application/json: {"message": "Context restriction deleted."}
+  deleteEnvironmentVariableFromContext:
+    "":
+      parameters:
+        path:
+          env-var-name: "POSTGRES_USER"
+          context-id: "02914a99-1a28-4752-b780-bdeeb780d1c8"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default: {}
+  getContext:
+    speakeasy-default-get-context:
+      parameters:
+        path:
+          context-id: "16bf7325-4fd2-4f68-9093-2f245c2064eb"
+      responses:
+        "200":
+          application/json: {"created_at": "2015-09-21T17:29:21.042Z", "id": "1dfa9a6f-3e82-4414-a380-82bb813bb522", "name": "<value>"}
+        default:
+          application/json: {}
+  getContextRestrictions:
+    "":
+      parameters:
+        path:
+          context_id: "be8bb2e3-c3d6-4098-89f4-572ff976ba9a"
+      responses:
+        "400":
+          application/json: {"message": "context_id is invalid."}
+        "500":
+          application/json: {"message": "context_id is invalid."}
+        "200": {}
+  listContexts:
+    speakeasy-default-list-contexts:
+      responses:
+        "200":
+          application/json: {"items": [{"created_at": "2015-09-21T17:29:21.042Z", "id": "27489ec0-def5-4a20-9aa0-35137b6a9506", "name": "<value>"}], "next_page_token": "<value>"}
+        default:
+          application/json: {}
+  listEnvironmentVariablesFromContext:
+    speakeasy-default-list-environment-variables-from-context:
+      parameters:
+        path:
+          context-id: "b9f7837a-e345-4285-b74b-d523d65ec63d"
+        query: {}
+      responses:
+        "200":
+          application/json: {"items": [{"context_id": "4dc00d88-17e6-4b7a-a2cc-62bb9226d00b", "created_at": "2015-09-21T17:29:21.042Z", "updated_at": "2015-09-21T17:29:21.042Z", "variable": "POSTGRES_USER"}, {"context_id": "110cdad0-8c51-4b0d-ad5f-c60de430bd14", "created_at": "2015-09-21T17:29:21.042Z", "updated_at": "2015-09-21T17:29:21.042Z", "variable": "POSTGRES_USER"}], "next_page_token": "<value>"}
+        default:
+          application/json: {}
+  getOrgSummaryData:
+    "":
+      parameters:
+        path:
+          org-slug: "gh/CircleCI-Public"
+        query:
+          reporting-window: "last-90-days"
+      responses:
+        "200":
+          application/json: {"all_projects": [], "org_data": {"metrics": {"success_rate": 8076.57, "throughput": 7005.05, "total_credits_used": 521299, "total_duration_secs": 696987, "total_runs": 974540}, "trends": {"success_rate": 5761.17, "throughput": 3272.43, "total_credits_used": 7396.2, "total_duration_secs": 9409.81, "total_runs": 1647.16}}, "org_project_data": []}
+        default: {}
+  cancelJobByJobID:
+    speakeasy-default-cancel-job-by-job-ID:
+      parameters:
+        path:
+          job-id: "aafe11f7-3491-4580-a6ff-57afa281476c"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        "400":
+          application/json: {"message": "<value>"}
+        "401":
+          application/json: {"message": "<value>"}
+        "403":
+          application/json: {"message": "<value>"}
+        "404":
+          application/json: {"message": "<value>"}
+        default:
+          application/json: {}
+  getCollaborations:
+    speakeasy-default-get-collaborations:
+      responses:
+        "200":
+          application/json: [{"avatar_url": "https://ruddy-lid.name/", "id": "4f2d467f-ad8e-4e4f-91e2-bdaac1cd3c20", "name": "<value>", "slug": "<value>", "vcs-type": "<value>"}, {"avatar_url": "https://deep-eyeliner.org", "id": "15d5c28c-ff90-42c6-a924-361cdb132e21", "name": "<value>", "slug": "<value>", "vcs-type": "<value>"}, {"avatar_url": "https://plump-hamburger.com", "id": "5f053be3-503f-481b-869a-df2a96932fc1", "name": "<value>", "slug": "<value>", "vcs-type": "<value>"}]
+        default:
+          application/json: {}
+  getCurrentUser:
+    speakeasy-default-get-current-user:
+      responses:
+        "200":
+          application/json: {"id": "8277af33-f28a-4c93-b866-cb9bf5d49f08", "login": "Monica_Jones", "name": "<value>"}
+        default:
+          application/json: {}
+  getUser:
+    speakeasy-default-get-user:
+      parameters:
+        path:
+          id: "b2ee9b96-90b8-4b3d-8ed3-23cd9332a419"
+      responses:
+        "200":
+          application/json: {"id": "4a4a7141-0524-4507-9154-519e9ad0dbe8", "login": "Walton77", "name": "<value>"}
+        default:
+          application/json: {}
+  DeleteOrgClaims:
+    speakeasy-default-delete-org-claims:
+      parameters:
+        path:
+          orgID: "5cd2f542-a380-4d20-bccd-c76e2456a32f"
+        query:
+          claims: "<value>"
+      responses:
+        "200":
+          application/json: {"org_id": "ebf9f95d-8b39-4c87-81c5-6e6639afc220"}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  DeleteProjectClaims:
+    speakeasy-default-delete-project-claims:
+      parameters:
+        path:
+          orgID: "83464c6d-1f59-4f04-a86d-af9fb2296248"
+          projectID: "89d4894a-3c77-4a96-b14f-8b4e3a2d3f63"
+        query:
+          claims: "<value>"
+      responses:
+        "200":
+          application/json: {"org_id": "ef04d9a2-0448-49a5-8a7a-4e23a453bbbb"}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetOrgClaims:
+    speakeasy-default-get-org-claims:
+      parameters:
+        path:
+          orgID: "fa744200-07c0-4843-b98e-11553f1d9022"
+      responses:
+        "200":
+          application/json: {"org_id": "f9c7083f-a44c-4f22-82ff-99e2446adb56"}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetProjectClaims:
+    speakeasy-default-get-project-claims:
+      parameters:
+        path:
+          orgID: "0358514e-8133-4d4e-be72-451901ed040d"
+          projectID: "2f247712-b5e1-46ae-acbe-d2e64b8eac05"
+      responses:
+        "200":
+          application/json: {"org_id": "6143ebe5-cb6b-4999-9893-7dca78e3dc2e"}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  PatchOrgClaims:
+    speakeasy-default-patch-org-claims:
+      parameters:
+        path:
+          orgID: "bc340d8d-992b-4f7f-9352-c770a986a84d"
+      responses:
+        "200":
+          application/json: {"org_id": "9d569367-405d-46d3-b59f-acec369bc809"}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  PatchProjectClaims:
+    speakeasy-default-patch-project-claims:
+      parameters:
+        path:
+          orgID: "df5451f1-faee-423d-a172-9586a625d2a3"
+          projectID: "13af08fc-dfff-47b9-a331-a59c4a03d414"
+      responses:
+        "200":
+          application/json: {"org_id": "7c231c31-ebfb-4db7-854c-26aa59da5c21"}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  createUsageExport:
+    "":
+      parameters:
+        path:
+          org_id: "b9291e0d-a11e-41fb-8517-c545388b5953"
+      requestBody:
+        application/json: {"end": "2025-04-25T08:17:56.431Z", "start": "2024-06-27T05:57:33.306Z"}
+      responses:
+        "201":
+          application/json: {"download_urls": ["https://unsightly-declaration.info/", "https://nutritious-barge.info/"], "end": "2023-04-09T20:08:17.626Z", "start": "2024-12-31T03:58:19.358Z", "state": "created", "usage_export_job_id": "7cda3666-1798-46f0-92b6-4ec8dd274849"}
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
+        "500":
+          application/json: {"message": "Unexpected request body provided."}
+  getUsageExport:
+    "":
+      parameters:
+        path:
+          org_id: "b9291e0d-a11e-41fb-8517-c545388b5953"
+          usage_export_job_id: "e8235eed-f121-4ae3-9c72-2719d6572818"
+      responses:
+        "200":
+          application/json: {"download_urls": [], "state": "created", "usage_export_job_id": "d78b3d60-33dd-4c72-a220-a4ed0845d7e6"}
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
+        "500":
+          application/json: {"message": "Unexpected request body provided."}
+  CreatePolicyBundle:
+    speakeasy-default-create-policy-bundle:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+        query: {}
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "413":
+          application/json: {"error": "http: request payload too large"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetDecisionLog:
+    speakeasy-default-get-decision-log:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+          decisionID: "<id>"
+      responses:
+        "200":
+          application/json: {"policies": {"policy_name1": "1f40fc92da241694750979ee6cf582f2d5d7d28e18335de05abc54d0560e0f5302860c652bf08d560252aa5e74210546f369fbbbce8c12cfc7957b2652fe9a75", "policy_name2": "5267768822ee624d48fce15ec5ca79cbd602cb7f4c2157a516556991f22ef8c7b5ef7b18d1ff41c59370efb0858651d44a936c11b7b144c48fe04df3c6a3e8da"}}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "404":
+          application/json: {"error": "decision log not found"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetDecisionLogPolicyBundle:
+    speakeasy-default-get-decision-log-policy-bundle:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+          decisionID: "<id>"
+      responses:
+        "200":
+          application/json: {"key": [{}], "key1": [{}], "key2": [{}]}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "404":
+          application/json: {"error": "decision log not found"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetDecisionLogs:
+    speakeasy-default-get-decision-logs:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+        query: {}
+      responses:
+        "200":
+          application/json: [{"policies": {"policy_name1": "1f40fc92da241694750979ee6cf582f2d5d7d28e18335de05abc54d0560e0f5302860c652bf08d560252aa5e74210546f369fbbbce8c12cfc7957b2652fe9a75", "policy_name2": "5267768822ee624d48fce15ec5ca79cbd602cb7f4c2157a516556991f22ef8c7b5ef7b18d1ff41c59370efb0858651d44a936c11b7b144c48fe04df3c6a3e8da"}}]
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetDecisionSettings:
+    speakeasy-default-get-decision-settings:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetPolicyBundle:
+    speakeasy-default-get-policy-bundle:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+      responses:
+        "200":
+          application/json: {"key": [{}, {}]}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  GetPolicyDocument:
+    speakeasy-default-get-policy-document:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+          policyName: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "404":
+          application/json: {"error": "policy not found"}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  MakeDecision:
+    speakeasy-default-make-decision:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+      responses:
+        "200":
+          application/json: {"status": "<value>"}
+        "400":
+          application/json: {"error": "context: must be a valid value."}
+        "401":
+          application/json: {"error": "Unauthorized."}
+        "500":
+          application/json: {"error": "There was an error processing your request."}
+  SetDecisionSettings:
+    speakeasy-default-set-decision-settings:
+      parameters:
+        path:
+          ownerID: "<id>"
+          context: "<value>"
+      responses:
+        "200":
+          application/json: {}
+        "400":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+        "500":
+          application/json: {"error": "OwnerID: must be a valid UUID."}
+  continuePipeline:
+    speakeasy-default-continue-pipeline:
+      requestBody:
+        application/json: {"configuration": "<value>", "continuation-key": "<value>", "parameters": {"deploy_prod": true}}
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default:
+          application/json: {}
+  getPipelineById:
+    "":
+      parameters:
+        path:
+          pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "200":
+          application/json: {"created_at": "2025-07-19T10:16:40.846Z", "errors": [{"message": "<value>", "type": "timeout"}, {"message": "<value>", "type": "permission"}, {"message": "<value>", "type": "config-fetch"}], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "setup-pending", "trigger": {"actor": {"avatar_url": "https://far-tarragon.org/", "login": "Ulises27"}, "received_at": "2023-12-14T11:23:45.750Z", "type": "scheduled_pipeline"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}
+        default: {}
+  getPipelineConfigById:
+    "":
+      parameters:
+        path:
+          pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "200":
+          application/json: {"compiled": "<value>", "source": "<value>"}
+        default: {}
+  getPipelineValuesById:
+    "":
+      parameters:
+        path:
+          pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "200":
+          application/json: {"key": "<value>"}
+        default: {}
+  listPipelines:
+    "":
+      parameters:
+        query:
+          org-slug: "gh/CircleCI-Public"
+      responses:
+        "200":
+          application/json: {"items": [{"created_at": "2025-02-08T17:24:54.905Z", "errors": [{"message": "<value>", "type": "config"}, {"message": "<value>", "type": "config"}, {"message": "<value>", "type": "trigger-rule"}], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "pending", "trigger": {"actor": {"avatar_url": "https://sandy-reach.net", "login": "Alexandria.Boyle14"}, "received_at": "2025-07-12T06:10:20.111Z", "type": "webhook"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}, {"created_at": "2025-07-24T17:25:36.173Z", "errors": [{"message": "<value>", "type": "other"}], "id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "state": "setup", "trigger": {"actor": {"avatar_url": "https://bleak-effector.biz", "login": "Finn_Hartmann87"}, "received_at": "2025-01-25T17:43:07.115Z", "type": "scheduled_pipeline"}, "vcs": {"branch": "feature/design-new-api", "origin_repository_url": "https://github.com/CircleCI-Public/api-preview-docs", "provider_name": "GitHub", "review_id": "123", "review_url": "https://github.com/CircleCI-Public/api-preview-docs/pull/123", "revision": "f454a02b5d10fcccfd7d9dd7608a76d6493a98b4", "tag": "v3.1.4159", "target_repository_url": "https://github.com/CircleCI-Public/api-preview-docs"}}], "next_page_token": "<value>"}
+        default: {}
+  listWorkflowsByPipelineId:
+    "":
+      parameters:
+        path:
+          pipeline-id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+        query: {}
+      responses:
+        "200":
+          application/json: {"items": [{"created_at": "2025-09-04T15:23:43.080Z", "id": "fbdb770b-a28d-465d-858c-766fe865a8b5", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "29aa8470-8d1b-4a6c-a8a3-bc27abb35fba", "status": "error", "stopped_at": "2024-12-31T13:02:43.027Z", "tag": "setup"}, {"created_at": "2025-04-05T01:13:28.576Z", "id": "141665b7-cc3f-42a6-9bc0-3325e1fd7615", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "490e5863-d04b-4fb2-b3dd-a0d0c1e6c0b0", "status": "error", "stopped_at": "2024-02-16T02:41:12.308Z", "tag": "setup"}, {"created_at": "2024-09-12T13:38:07.355Z", "id": "b5575ab3-022e-4c7c-961f-cf6c282613b7", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "65b186bf-58e4-44ec-9f13-c433732c7b41", "status": "failed", "stopped_at": "2024-04-19T05:38:30.077Z", "tag": "setup"}], "next_page_token": "<value>"}
+        default: {}
+  triggerPipelineRun:
+    "":
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {"checkout": {"tag": "v2"}, "config": {"branch": "main"}, "definition_id": "2338d0ae-5541-4bbf-88a2-55e9f7281f80", "parameters": {"example_param": "my value", "example_param2": true, "example_param3": 3}}
+      responses:
+        "201":
+          application/json: {"number": 25}
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
+  createProject:
+    "":
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      responses:
+        "400":
+          application/json: {"message": "Unexpected request body provided."}
+        "404": {}
+        "500":
+          application/json: {"message": "Unexpected request body provided."}
+        "201": {}
+    branch_not_found:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      responses:
+        "404":
+          application/json: {"message": "Branch not found."}
+    project_not_found:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      responses:
+        "404":
+          application/json: {"message": "Project not found."}
+  getProjectSettings:
+    "":
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+    invalid_token:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      responses:
+        "401":
+          application/json: {"message": "Invalid token provided."}
+        "500":
+          application/json: {"message": "Invalid token provided."}
+    old_token:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      responses:
+        "401":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+        "500":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+    query_auth:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      responses:
+        "401":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+        "500":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+  patchProjectSettings:
+    "":
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {"advanced": {"autocancel_builds": false, "build_prs_only": true, "pr_only_branch_overrides": ["main"]}}
+    invalid_json:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "Invalid JSON body."}
+    too_many_branch_overrides:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "Field 'pr_only_branch_overrides' only supports up to 100 branches."}
+    no_json:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "No JSON fields found."}
+    unexpected_field:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "Unexpected JSON field 'incorrect'"}
+    unknown_setting:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "Unknown advanced setting 'incorrect'."}
+    incorrect_type:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "Setting 'autocancel_builds' must be boolean."}
+    oss:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "400":
+          application/json: {"message": "Feature flag 'oss' is not settable for this project."}
+    invalid_token:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "401":
+          application/json: {"message": "Invalid token provided."}
+        "500":
+          application/json: {"message": "Invalid token provided."}
+    old_token:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "401":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+        "500":
+          application/json: {"message": "New format tokens are needed to authenticate this API endpoint. Create a new API token for access."}
+    query_auth:
+      parameters:
+        path:
+          provider: "gh"
+          organization: "CircleCI-Public"
+          project: "api-preview-docs"
+      requestBody:
+        application/json: {}
+      responses:
+        "401":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+        "500":
+          application/json: {"message": "Support for query parameter authentication has been deprecated to improve security. Please use a supported authentication method such as header-based, or basic authentication."}
+  deleteScheduleById:
+    speakeasy-default-delete-schedule-by-id:
+      parameters:
+        path:
+          schedule-id: "d13fcfdb-e614-47eb-8639-c0132ec88269"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default:
+          application/json: {}
+  getScheduleById:
+    speakeasy-default-get-schedule-by-id:
+      parameters:
+        path:
+          schedule-id: "8f3b246d-6ab8-4e1c-8b53-09ba7abded9b"
+      responses:
+        "200":
+          application/json: {"actor": {"id": "5934761e-0592-427f-b7f4-5855fdf917c4", "login": "Raven20", "name": "<value>"}, "created-at": "2024-11-26T18:41:33.698Z", "description": "pointed machine upon husky humiliating because", "id": "3568e9be-2605-42ca-9bf7-e38530089e6f", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-week": ["THU"], "hours-of-day": [400191], "per-hour": 385036}, "updated-at": "2024-07-25T18:10:40.419Z"}
+        default:
+          application/json: {}
+  updateSchedule:
+    speakeasy-default-update-schedule:
+      parameters:
+        path:
+          schedule-id: "691e09e4-9dea-49a9-a11e-2071752824ab"
+      requestBody:
+        application/json: {"attribution-actor": "current", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}}
+      responses:
+        "200":
+          application/json: {"actor": {"id": "6456038c-c7d6-489e-b3f2-009a3cd28d77", "login": "Ayden_Mills", "name": "<value>"}, "created-at": "2023-05-12T15:48:00.600Z", "description": "gleefully a both vice meaningfully", "id": "b5d3bad9-d559-4a08-8205-f2ba03001181", "name": "<value>", "parameters": {"deploy_prod": true, "branch": "feature/design-new-api"}, "project-slug": "gh/CircleCI-Public/api-preview-docs", "timetable": {"days-of-week": ["SAT", "SUN", "TUE"], "hours-of-day": [600588, 63525], "per-hour": 638002}, "updated-at": "2025-02-18T22:45:34.014Z"}
+        default:
+          application/json: {}
+  createWebhook:
+    speakeasy-default-create-webhook:
+      responses:
+        "201":
+          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": ["job-completed", "job-completed"], "id": "337240a4-5d0a-4c1d-bfb8-f003b71bca4f", "name": "<value>", "scope": {"id": "dcc11c1a-dcf4-4bae-8570-8be72140b1ff", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://dependable-citizen.biz/", "verify-tls": false}
+        default:
+          application/json: {}
+  deleteWebhook:
+    speakeasy-default-delete-webhook:
+      parameters:
+        path:
+          webhook-id: "9e756bb0-3b43-4e42-9b9d-e5948a11afb8"
+      responses:
+        "200":
+          application/json: {"message": "<value>"}
+        default:
+          application/json: {}
+  getWebhookById:
+    speakeasy-default-get-webhook-by-id:
+      parameters:
+        path:
+          webhook-id: "4f745726-c0b4-415d-a955-165fed53b47d"
+      responses:
+        "200":
+          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "6376ab9f-c3a4-4a78-a209-f7a25b6bc52f", "name": "<value>", "scope": {"id": "379f1a5b-e8a0-4671-b7fe-e5dfe8882188", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://sudden-tomography.net/", "verify-tls": true}
+        default:
+          application/json: {}
+  getWebhooks:
+    speakeasy-default-get-webhooks:
+      parameters:
+        query:
+          scope-id: "1cf54a1c-ad92-485e-90c4-d681aa77bcc1"
+          scope-type: "project"
+      responses:
+        "200":
+          application/json: {"items": [{"created-at": "2015-09-21T17:29:21.042Z", "events": [], "id": "1dfebab0-fb50-477b-b439-759522a371b3", "name": "<value>", "scope": {"id": "23af8239-4e88-4f3e-bfc6-551f06d73744", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://old-fashioned-toothbrush.info", "verify-tls": true}, {"created-at": "2015-09-21T17:29:21.042Z", "events": ["workflow-completed", "workflow-completed", "job-completed"], "id": "9bf7063b-4b78-46fd-92be-4ca2b770bab7", "name": "<value>", "scope": {"id": "0d0bba53-b1d0-4266-bc1e-e991df56cd5b", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://pessimistic-babushka.net/", "verify-tls": false}], "next_page_token": "<value>"}
+        default:
+          application/json: {}
+  updateWebhook:
+    speakeasy-default-update-webhook:
+      parameters:
+        path:
+          webhook-id: "8c5242d3-10b9-4d90-b89c-88c3d44edcfe"
+      responses:
+        "200":
+          application/json: {"created-at": "2015-09-21T17:29:21.042Z", "events": ["job-completed"], "id": "59b24d14-bc33-43d2-b049-fc1ec697b4ff", "name": "<value>", "scope": {"id": "2375b6b4-9358-4096-869f-71406f21de11", "type": "<value>"}, "signing-secret": "<value>", "updated-at": "2015-09-21T17:29:21.042Z", "url": "https://robust-skean.com", "verify-tls": false}
+        default:
+          application/json: {}
+  approvePendingApprovalJobById:
+    "":
+      parameters:
+        path:
+          approval_request_id: "adea7f76-fd29-46d1-b69a-24cbe2fa5261"
+          id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "202":
+          application/json: {"message": "<value>"}
+        default: {}
+  cancelWorkflow:
+    "":
+      parameters:
+        path:
+          id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "202":
+          application/json: {"message": "<value>"}
+        default: {}
+  getWorkflowById:
+    "":
+      parameters:
+        path:
+          id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "200":
+          application/json: {"created_at": "2024-09-08T20:05:32.871Z", "id": "7a65aecb-d985-465a-aa6d-854c10ca1d18", "name": "build-and-test", "pipeline_id": "5034460f-c7c4-4c43-9457-de07e2029e7b", "pipeline_number": 25, "project_slug": "gh/CircleCI-Public/api-preview-docs", "started_by": "a9374683-ceb1-4ee3-b0ca-ab0f8c1e5603", "status": "on_hold", "stopped_at": "2025-07-08T12:28:12.355Z", "tag": "setup"}
+        default: {}
+  listWorkflowJobs:
+    "":
+      parameters:
+        path:
+          id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      responses:
+        "200":
+          application/json: {"items": [{"dependencies": ["42e37245-40d5-4b0a-b7cb-cac92894bee2", "364d7a13-57cf-459a-8d5f-144b65e89434"], "id": "2def8ba0-c022-4951-8331-a3b8206b89f6", "job_number": 1, "name": "<value>", "project_slug": "gh/CircleCI-Public/api-preview-docs", "requires": {"d212e286-9962-4ed7-92e2-8699622ed720": ["success"], "74be7583-44de-42a6-be75-8344de52a6f2": ["failed", "canceled"], "a3349b77-90f7-4a39-b49b-7790f7da3943": ["success", "failed", "canceled"]}, "started_at": "2024-05-01T05:00:32.043Z", "status": "not_run", "type": "approval"}, {"dependencies": ["ac17d3c3-a5fa-4587-809e-4d7afc251ccc", "4c0441b6-9a43-4bd1-8949-a0b40205dca2", "0e7cdb92-a6e9-4574-a162-07ee90ce36ac"], "id": "749a5e03-532b-4629-b6b1-e4ac254e463f", "job_number": 1, "name": "<value>", "project_slug": "gh/CircleCI-Public/api-preview-docs", "requires": {"d212e286-9962-4ed7-92e2-8699622ed720": ["success"], "74be7583-44de-42a6-be75-8344de52a6f2": ["failed", "canceled"], "a3349b77-90f7-4a39-b49b-7790f7da3943": ["success", "failed", "canceled"]}, "started_at": "2023-02-24T10:32:03.226Z", "status": "failed", "type": "approval"}, {"dependencies": ["7d55b80d-363f-473b-9889-c4200da35b3c", "3ee463ef-7258-435c-9a7c-8d2eadf54969", "59b04ed9-f0b3-482c-a31b-20b0cb06ee8b"], "id": "8c1abbfe-f91f-4b42-9313-979802237f2e", "job_number": 1, "name": "<value>", "project_slug": "gh/CircleCI-Public/api-preview-docs", "requires": {"d212e286-9962-4ed7-92e2-8699622ed720": ["success"], "74be7583-44de-42a6-be75-8344de52a6f2": ["failed", "canceled"], "a3349b77-90f7-4a39-b49b-7790f7da3943": ["success", "failed", "canceled"]}, "started_at": "2023-08-12T04:33:15.670Z", "status": "unauthorized", "type": "approval"}], "next_page_token": "<value>"}
+        default: {}
+  rerunWorkflow:
+    "":
+      parameters:
+        path:
+          id: "5034460f-c7c4-4c43-9457-de07e2029e7b"
+      requestBody:
+        application/json: {"enable_ssh": false, "from_failed": false, "jobs": ["c65b68ef-e73b-4bf2-be9a-7a322a9df150", "5e957edd-5e8c-4985-9178-5d0d69561822"], "sparse_tree": false}
+      responses:
+        "202":
+          application/json: {"workflow_id": "0e53027b-521a-4c40-9042-47e72b3c63a3"}
+        default: {}
+examplesVersion: 1.0.0
+generatedTests: {}

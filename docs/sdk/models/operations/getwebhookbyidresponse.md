@@ -1,12 +1,32 @@
 # GetWebhookByIdResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                         | *string*                                                                                              | :heavy_check_mark:                                                                                    | HTTP response content type for this operation                                                         |
-| `statusCode`                                                                                          | *number*                                                                                              | :heavy_check_mark:                                                                                    | HTTP response status code for this operation                                                          |
-| `rawResponse`                                                                                         | [AxiosResponse](https://axios-http.com/docs/res_schema)                                               | :heavy_check_mark:                                                                                    | Raw HTTP response; suitable for custom response parsing                                               |
-| `webhook`                                                                                             | [operations.GetWebhookByIdWebhook](../../../sdk/models/operations/getwebhookbyidwebhook.md)           | :heavy_minus_sign:                                                                                    | A webhook                                                                                             |
-| `object`                                                                                              | [operations.GetWebhookByIdResponseBody](../../../sdk/models/operations/getwebhookbyidresponsebody.md) | :heavy_minus_sign:                                                                                    | Error response.                                                                                       |
+### `operations.GetWebhookByIdWebhook`
+
+```typescript
+const value: operations.GetWebhookByIdWebhook = {
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  events: [
+    "job-completed",
+  ],
+  id: "495277f0-4dad-4ac7-a3c9-2cf541af2710",
+  name: "<value>",
+  scope: {
+    id: "d5e13e89-020e-42d5-ac54-147d7f806b3b",
+    type: "<value>",
+  },
+  signingSecret: "<value>",
+  updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+  url: "https://sorrowful-meal.com/",
+  verifyTls: false,
+};
+```
+
+### `operations.GetWebhookByIdResponseBody`
+
+```typescript
+const value: operations.GetWebhookByIdResponseBody = {};
+```
+

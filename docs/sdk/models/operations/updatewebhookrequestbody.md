@@ -2,6 +2,13 @@
 
 The parameters for an update webhook request
 
+## Example Usage
+
+```typescript
+import { UpdateWebhookRequestBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: UpdateWebhookRequestBody = {};
+```
 
 ## Fields
 

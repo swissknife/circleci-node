@@ -1,12 +1,26 @@
 # ListContextsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `twoHundredApplicationJsonObject`                                                                               | [operations.ListContextsResponseBody](../../../sdk/models/operations/listcontextsresponsebody.md)               | :heavy_minus_sign:                                                                                              | A paginated list of contexts                                                                                    |
-| `contentType`                                                                                                   | *string*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response content type for this operation                                                                   |
-| `statusCode`                                                                                                    | *number*                                                                                                        | :heavy_check_mark:                                                                                              | HTTP response status code for this operation                                                                    |
-| `rawResponse`                                                                                                   | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                         | :heavy_check_mark:                                                                                              | Raw HTTP response; suitable for custom response parsing                                                         |
-| `defaultApplicationJsonObject`                                                                                  | [operations.ListContextsContextResponseBody](../../../sdk/models/operations/listcontextscontextresponsebody.md) | :heavy_minus_sign:                                                                                              | Error response.                                                                                                 |
+### `operations.ListContextsResponseBody`
+
+```typescript
+const value: operations.ListContextsResponseBody = {
+  items: [
+    {
+      createdAt: new Date("2015-09-21T17:29:21.042Z"),
+      id: "4b65de03-5dff-4e4f-931f-3b0be465b327",
+      name: "<value>",
+    },
+  ],
+  nextPageToken: "<value>",
+};
+```
+
+### `operations.ListContextsContextResponseBody`
+
+```typescript
+const value: operations.ListContextsContextResponseBody = {};
+```
+

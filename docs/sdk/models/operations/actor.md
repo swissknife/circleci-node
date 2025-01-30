@@ -2,6 +2,16 @@
 
 The user who triggered the Pipeline.
 
+## Example Usage
+
+```typescript
+import { Actor } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Actor = {
+  avatarUrl: "https://hateful-tenement.org",
+  login: "Alexander.Bruen",
+};
+```
 
 ## Fields
 

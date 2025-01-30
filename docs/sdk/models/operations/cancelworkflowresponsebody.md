@@ -2,6 +2,13 @@
 
 Error response.
 
+## Example Usage
+
+```typescript
+import { CancelWorkflowResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CancelWorkflowResponseBody = {};
+```
 
 ## Fields
 

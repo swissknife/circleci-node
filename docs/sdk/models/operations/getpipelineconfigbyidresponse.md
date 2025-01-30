@@ -1,12 +1,20 @@
 # GetPipelineConfigByIdResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                   | Type                                                                                                                    | Required                                                                                                                | Description                                                                                                             |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                                           | *string*                                                                                                                | :heavy_check_mark:                                                                                                      | HTTP response content type for this operation                                                                           |
-| `pipelineConfig`                                                                                                        | [operations.GetPipelineConfigByIdPipelineConfig](../../../sdk/models/operations/getpipelineconfigbyidpipelineconfig.md) | :heavy_minus_sign:                                                                                                      | The configuration strings for the pipeline.                                                                             |
-| `statusCode`                                                                                                            | *number*                                                                                                                | :heavy_check_mark:                                                                                                      | HTTP response status code for this operation                                                                            |
-| `rawResponse`                                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                                 | :heavy_check_mark:                                                                                                      | Raw HTTP response; suitable for custom response parsing                                                                 |
-| `object`                                                                                                                | [operations.GetPipelineConfigByIdResponseBody](../../../sdk/models/operations/getpipelineconfigbyidresponsebody.md)     | :heavy_minus_sign:                                                                                                      | Error response.                                                                                                         |
+### `operations.GetPipelineConfigByIdPipelineConfig`
+
+```typescript
+const value: operations.GetPipelineConfigByIdPipelineConfig = {
+  compiled: "<value>",
+  source: "<value>",
+};
+```
+
+### `operations.GetPipelineConfigByIdResponseBody`
+
+```typescript
+const value: operations.GetPipelineConfigByIdResponseBody = {};
+```
+

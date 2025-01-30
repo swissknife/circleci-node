@@ -1,23 +1,17 @@
 # Status
 
-The current status of the job.
+The current status of the workflow.
 
+## Example Usage
+
+```typescript
+import { Status } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: Status = "unauthorized";
+```
 
 ## Values
 
-| Name                 | Value                |
-| -------------------- | -------------------- |
-| `Success`            | success              |
-| `Running`            | running              |
-| `NotRun`             | not_run              |
-| `Failed`             | failed               |
-| `Retried`            | retried              |
-| `Queued`             | queued               |
-| `NotRunning`         | not_running          |
-| `InfrastructureFail` | infrastructure_fail  |
-| `Timedout`           | timedout             |
-| `OnHold`             | on_hold              |
-| `TerminatedUnknown`  | terminated-unknown   |
-| `Blocked`            | blocked              |
-| `Canceled`           | canceled             |
-| `Unauthorized`       | unauthorized         |
+```typescript
+"success" | "running" | "not_run" | "failed" | "error" | "failing" | "on_hold" | "canceled" | "unauthorized"
+```

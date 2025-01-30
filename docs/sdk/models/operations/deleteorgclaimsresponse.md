@@ -1,12 +1,21 @@
 # DeleteOrgClaimsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `claimResponse`                                                                                         | [shared.ClaimResponse](../../../sdk/models/shared/claimresponse.md)                                     | :heavy_minus_sign:                                                                                      | Claims successfully deleted.                                                                            |
-| `contentType`                                                                                           | *string*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response content type for this operation                                                           |
-| `statusCode`                                                                                            | *number*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response status code for this operation                                                            |
-| `rawResponse`                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                 | :heavy_check_mark:                                                                                      | Raw HTTP response; suitable for custom response parsing                                                 |
-| `object`                                                                                                | [operations.DeleteOrgClaimsResponseBody](../../../sdk/models/operations/deleteorgclaimsresponsebody.md) | :heavy_minus_sign:                                                                                      | The request is malformed (e.g, a given path parameter is invalid)<br/>                                  |
+### `shared.ClaimResponse`
+
+```typescript
+const value: shared.ClaimResponse = {
+  orgId: "38449ecb-8e7d-4d3c-b053-8b18f3a907b0",
+};
+```
+
+### `operations.DeleteOrgClaimsResponseBody`
+
+```typescript
+const value: operations.DeleteOrgClaimsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
+```
+

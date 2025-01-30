@@ -1,12 +1,21 @@
 # GetContextResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | HTTP response content type for this operation                                                 |
-| `context`                                                                                     | [operations.GetContextContext](../../../sdk/models/operations/getcontextcontext.md)           | :heavy_minus_sign:                                                                            | The context                                                                                   |
-| `statusCode`                                                                                  | *number*                                                                                      | :heavy_check_mark:                                                                            | HTTP response status code for this operation                                                  |
-| `rawResponse`                                                                                 | [AxiosResponse](https://axios-http.com/docs/res_schema)                                       | :heavy_check_mark:                                                                            | Raw HTTP response; suitable for custom response parsing                                       |
-| `object`                                                                                      | [operations.GetContextResponseBody](../../../sdk/models/operations/getcontextresponsebody.md) | :heavy_minus_sign:                                                                            | Error response.                                                                               |
+### `operations.GetContextContext`
+
+```typescript
+const value: operations.GetContextContext = {
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  id: "0c1849fa-0688-4a42-a6f2-e87e7b6ebb5c",
+  name: "<value>",
+};
+```
+
+### `operations.GetContextResponseBody`
+
+```typescript
+const value: operations.GetContextResponseBody = {};
+```
+

@@ -1,5 +1,18 @@
 # ContinuePipelineRequestBody
 
+## Example Usage
+
+```typescript
+import { ContinuePipelineRequestBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ContinuePipelineRequestBody = {
+  configuration: "<value>",
+  continuationKey: "<value>",
+  parameters: {
+    "deploy_prod": true,
+  },
+};
+```
 
 ## Fields
 
@@ -7,4 +20,4 @@
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `configuration`                                                                                                                                                                   | *string*                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                | A configuration string for the pipeline.                                                                                                                                          |                                                                                                                                                                                   |
 | `continuationKey`                                                                                                                                                                 | *string*                                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                                | A pipeline continuation key.                                                                                                                                                      |                                                                                                                                                                                   |
-| `parameters`                                                                                                                                                                      | Record<string, *any*>                                                                                                                                                             | :heavy_minus_sign:                                                                                                                                                                | An object containing pipeline parameters and their values. Pipeline parameters have the following size limits: 100 max entries, 128 maximum key length, 512 maximum value length. | {<br/>"deploy_prod": true<br/>}                                                                                                                                                   |
+| `parameters`                                                                                                                                                                      | Record<string, *operations.ParametersT*>                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                | An object containing pipeline parameters and their values. Pipeline parameters have the following size limits: 100 max entries, 128 maximum key length, 512 maximum value length. | {<br/>"deploy_prod": true<br/>}                                                                                                                                                   |

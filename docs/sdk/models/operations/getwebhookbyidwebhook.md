@@ -2,6 +2,28 @@
 
 A webhook
 
+## Example Usage
+
+```typescript
+import { GetWebhookByIdWebhook } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetWebhookByIdWebhook = {
+  createdAt: new Date("2015-09-21T17:29:21.042Z"),
+  events: [
+    "job-completed",
+  ],
+  id: "de7b415b-4dc3-45d3-a55c-0196a4ec1cff",
+  name: "<value>",
+  scope: {
+    id: "194fb9b7-5e50-46ca-bf1e-57613b020d92",
+    type: "<value>",
+  },
+  signingSecret: "<value>",
+  updatedAt: new Date("2015-09-21T17:29:21.042Z"),
+  url: "https://vivid-toothpick.com",
+  verifyTls: false,
+};
+```
 
 ## Fields
 

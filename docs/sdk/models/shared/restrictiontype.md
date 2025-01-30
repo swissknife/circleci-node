@@ -2,10 +2,16 @@
 
 Type of the restriction
 
+## Example Usage
+
+```typescript
+import { RestrictionType } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: RestrictionType = "expression";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Project`    | project      |
-| `Expression` | expression   |
+```typescript
+"project" | "expression"
+```

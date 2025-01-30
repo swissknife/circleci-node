@@ -1,6 +1,10 @@
 # Webhook
 (*webhook*)
 
+## Overview
+
+Endpoints relating to [outbound webhooks](https://circleci.com/docs/webhooks/#outbound-webhooks). Use outbound webhooks to integrate your CircleCI builds with external services.
+
 ### Available Operations
 
 * [createWebhook](#createwebhook) - Create an outbound webhook
@@ -17,32 +21,50 @@ Creates an outbound webhook.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { Events, TypeT } from "circleci-v2-sdk/dist/sdk/models/operations";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
+  const result = await circleci.webhook.createWebhook();
 
-  const res = await sdk.webhook.createWebhook({
-    events: [
-      Events.JobCompleted,
-    ],
-    name: "<value>",
-    scope: {
-      id: "ef8f63e3-b7d2-4240-88ac-4c59d30daac8",
-      type: TypeT.Project,
-    },
-    signingSecret: "<value>",
-    url: "http://ragged-suppression.name",
-    verifyTls: false,
-  });
+  // Handle the result
+  console.log(result);
+}
 
-  if (res.statusCode == 200) {
-    // handle response
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { webhookCreateWebhook } from "circleci-v2-sdk/funcs/webhookCreateWebhook.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await webhookCreateWebhook(circleci);
+
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -50,20 +72,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CreateWebhookRequestBody](../../sdk/models/operations/createwebhookrequestbody.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateWebhookRequestBody](../../sdk/models/operations/createwebhookrequestbody.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.CreateWebhookResponse](../../sdk/models/operations/createwebhookresponse.md)>**
+**Promise\<[operations.CreateWebhookResponse](../../sdk/models/operations/createwebhookresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## deleteWebhook
 
@@ -74,20 +98,53 @@ Deletes an outbound webhook
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const result = await circleci.webhook.deleteWebhook({
+    webhookId: "9e756bb0-3b43-4e42-9b9d-e5948a11afb8",
   });
 
-  const res = await sdk.webhook.deleteWebhook({
-    webhookId: "90ed7052-6bb0-4b60-93ab-e4433ee4e2bb",
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { webhookDeleteWebhook } from "circleci-v2-sdk/funcs/webhookDeleteWebhook.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await webhookDeleteWebhook(circleci, {
+    webhookId: "9e756bb0-3b43-4e42-9b9d-e5948a11afb8",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -95,20 +152,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.DeleteWebhookRequest](../../sdk/models/operations/deletewebhookrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteWebhookRequest](../../sdk/models/operations/deletewebhookrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.DeleteWebhookResponse](../../sdk/models/operations/deletewebhookresponse.md)>**
+**Promise\<[operations.DeleteWebhookResponse](../../sdk/models/operations/deletewebhookresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## getWebhookById
 
@@ -119,20 +178,53 @@ Get an outbound webhook by id.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const result = await circleci.webhook.getWebhookById({
+    webhookId: "4f745726-c0b4-415d-a955-165fed53b47d",
   });
 
-  const res = await sdk.webhook.getWebhookById({
-    webhookId: "48f47148-587e-42d6-8c80-5b1461e57de9",
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { webhookGetWebhookById } from "circleci-v2-sdk/funcs/webhookGetWebhookById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await webhookGetWebhookById(circleci, {
+    webhookId: "4f745726-c0b4-415d-a955-165fed53b47d",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -140,20 +232,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetWebhookByIdRequest](../../sdk/models/operations/getwebhookbyidrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetWebhookByIdRequest](../../sdk/models/operations/getwebhookbyidrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.GetWebhookByIdResponse](../../sdk/models/operations/getwebhookbyidresponse.md)>**
+**Promise\<[operations.GetWebhookByIdResponse](../../sdk/models/operations/getwebhookbyidresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## getWebhooks
 
@@ -163,23 +257,56 @@ Get a list of outbound webhooks that match the given scope-type and scope-id
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { ScopeType } from "circleci-v2-sdk/dist/sdk/models/operations";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const result = await circleci.webhook.getWebhooks({
+    scopeId: "1cf54a1c-ad92-485e-90c4-d681aa77bcc1",
+    scopeType: "project",
   });
 
-  const res = await sdk.webhook.getWebhooks({
-    scopeId: "14ccf55a-42ac-416c-bacd-a992e8b59ec0",
-    scopeType: ScopeType.Project,
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { webhookGetWebhooks } from "circleci-v2-sdk/funcs/webhookGetWebhooks.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await webhookGetWebhooks(circleci, {
+    scopeId: "1cf54a1c-ad92-485e-90c4-d681aa77bcc1",
+    scopeType: "project",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -187,20 +314,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.GetWebhooksRequest](../../sdk/models/operations/getwebhooksrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetWebhooksRequest](../../sdk/models/operations/getwebhooksrequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.GetWebhooksResponse](../../sdk/models/operations/getwebhooksresponse.md)>**
+**Promise\<[operations.GetWebhooksResponse](../../sdk/models/operations/getwebhooksresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## updateWebhook
 
@@ -210,27 +339,54 @@ Updates an outbound webhook.
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { UpdateWebhookEvents } from "circleci-v2-sdk/dist/sdk/models/operations";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const result = await circleci.webhook.updateWebhook({
+    webhookId: "8c5242d3-10b9-4d90-b89c-88c3d44edcfe",
   });
 
-  const res = await sdk.webhook.updateWebhook({
-    requestBody: {
-      events: [
-        UpdateWebhookEvents.JobCompleted,
-      ],
-    },
-    webhookId: "ac255204-82ad-4436-900a-b198d2970788",
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { webhookUpdateWebhook } from "circleci-v2-sdk/funcs/webhookUpdateWebhook.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await webhookUpdateWebhook(circleci, {
+    webhookId: "8c5242d3-10b9-4d90-b89c-88c3d44edcfe",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -238,17 +394,19 @@ run();
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.UpdateWebhookRequest](../../sdk/models/operations/updatewebhookrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateWebhookRequest](../../sdk/models/operations/updatewebhookrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.UpdateWebhookResponse](../../sdk/models/operations/updatewebhookresponse.md)>**
+**Promise\<[operations.UpdateWebhookResponse](../../sdk/models/operations/updatewebhookresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |

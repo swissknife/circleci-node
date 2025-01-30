@@ -1,37 +1,70 @@
 # Job
 (*job*)
 
+## Overview
+
+Endpoints relating to [jobs](https://circleci.com/docs/jobs-steps/). Get information about your jobs, retrieve job assets, cancel a job.
+
 ### Available Operations
 
-* [cancelJob](#canceljob) - Cancel job
-* [getJobArtifacts](#getjobartifacts) - Get a job's artifacts
-* [getJobDetails](#getjobdetails) - Get job details
-* [getTests](#gettests) - Get test metadata
+* [cancelJobByJobID](#canceljobbyjobid) - Cancel job by job ID
 
-## cancelJob
+## cancelJobByJobID
 
-Cancel job with a given job number.
+Cancel job with a given job ID.
 
 ### Example Usage
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const result = await circleci.job.cancelJobByJobID({
+    jobId: "aafe11f7-3491-4580-a6ff-57afa281476c",
   });
 
-  const res = await sdk.job.cancelJob({
-    jobNumber: "123",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { jobCancelJobByJobID } from "circleci-v2-sdk/funcs/jobCancelJobByJobID.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await jobCancelJobByJobID(circleci, {
+    jobId: "aafe11f7-3491-4580-a6ff-57afa281476c",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -39,155 +72,19 @@ run();
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.CancelJobRequest](../../sdk/models/operations/canceljobrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
-
-
-### Response
-
-**Promise<[operations.CancelJobResponse](../../sdk/models/operations/canceljobresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## getJobArtifacts
-
-Returns a job's artifacts.
-
-### Example Usage
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
-
-  const res = await sdk.job.getJobArtifacts({
-    jobNumber: "123",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetJobArtifactsRequest](../../sdk/models/operations/getjobartifactsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CancelJobByJobIDRequest](../../sdk/models/operations/canceljobbyjobidrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.GetJobArtifactsResponse](../../sdk/models/operations/getjobartifactsresponse.md)>**
+**Promise\<[operations.CancelJobByJobIDResponse](../../sdk/models/operations/canceljobbyjobidresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## getJobDetails
-
-Returns job details.
-
-### Example Usage
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
-
-  const res = await sdk.job.getJobDetails({
-    jobNumber: "123",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.GetJobDetailsRequest](../../sdk/models/operations/getjobdetailsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
-
-
-### Response
-
-**Promise<[operations.GetJobDetailsResponse](../../sdk/models/operations/getjobdetailsresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## getTests
-
-Get test metadata for a build. In the rare case where there is more than 250MB of test data on the job, no results will be returned.
-
-### Example Usage
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
-
-  const res = await sdk.job.getTests({
-    jobNumber: "123",
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetTestsRequest](../../sdk/models/operations/gettestsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
-
-
-### Response
-
-**Promise<[operations.GetTestsResponse](../../sdk/models/operations/gettestsresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |

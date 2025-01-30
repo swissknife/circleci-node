@@ -2,6 +2,13 @@
 
 Error response.
 
+## Example Usage
+
+```typescript
+import { DeleteEnvironmentVariableFromContextResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteEnvironmentVariableFromContextResponseBody = {};
+```
 
 ## Fields
 

@@ -5,16 +5,33 @@ The CircleCI API Node SDK is a NPM library for accessing the resources that make
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
+The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
+
 ### NPM
 
 ```bash
 npm add circleci-v2-sdk
 ```
 
+### PNPM
+
+```bash
+pnpm add circleci-v2-sdk
+```
+
+### Bun
+
+```bash
+bun add circleci-v2-sdk
+```
+
 ### Yarn
 
 ```bash
-yarn add circleci-v2-sdk
+yarn add circleci-v2-sdk zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -26,24 +43,23 @@ yarn add circleci-v2-sdk
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-    const sdk = new Circleci({
-        security: {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        },
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
+    envVarName: "POSTGRES_USER",
+  });
 
-    const res = await sdk.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -53,6 +69,10 @@ run();
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
+
+<details open>
+<summary>Available methods</summary>
+
 
 ### [context](docs/sdks/context/README.md)
 
@@ -69,22 +89,11 @@ run();
 
 ### [insights](docs/sdks/insights/README.md)
 
-* [getAllInsightsBranches](docs/sdks/insights/README.md#getallinsightsbranches) - Get all branches for a project
-* [getFlakyTests](docs/sdks/insights/README.md#getflakytests) - Get flaky tests for a project
-* [getJobTimeseries](docs/sdks/insights/README.md#getjobtimeseries) - Job timeseries data
 * [getOrgSummaryData](docs/sdks/insights/README.md#getorgsummarydata) - Get summary metrics with trends for the entire org, and for each project.
-* [getProjectWorkflowJobMetrics](docs/sdks/insights/README.md#getprojectworkflowjobmetrics) - Get summary metrics for a project workflow's jobs.
-* [getProjectWorkflowMetrics](docs/sdks/insights/README.md#getprojectworkflowmetrics) - Get summary metrics for a project's workflows
-* [getProjectWorkflowRuns](docs/sdks/insights/README.md#getprojectworkflowruns) - Get recent runs of a workflow
-* [getProjectWorkflowTestMetrics](docs/sdks/insights/README.md#getprojectworkflowtestmetrics) - Get test metrics for a project's workflows
-* [getProjectWorkflowsPageData](docs/sdks/insights/README.md#getprojectworkflowspagedata) - Get summary metrics and trends for a project across it's workflows and branches
-* [getWorkflowSummary](docs/sdks/insights/README.md#getworkflowsummary) - Get metrics and trends for workflows
 
-### [user](docs/sdks/user/README.md)
+### [job](docs/sdks/job/README.md)
 
-* [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
-* [getCurrentUser](docs/sdks/user/README.md#getcurrentuser) - User Information
-* [getUser](docs/sdks/user/README.md#getuser) - User Information
+* [cancelJobByJobID](docs/sdks/job/README.md#canceljobbyjobid) - Cancel job by job ID
 
 ### [oidcTokenManagement](docs/sdks/oidctokenmanagement/README.md)
 
@@ -95,10 +104,15 @@ run();
 * [patchOrgClaims](docs/sdks/oidctokenmanagement/README.md#patchorgclaims) - Patch org-level claims
 * [patchProjectClaims](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
 
-### [usage](docs/sdks/usage/README.md)
+### [pipeline](docs/sdks/pipeline/README.md)
 
-* [createUsageExport](docs/sdks/usage/README.md#createusageexport) - Create a usage export
-* [getUsageExport](docs/sdks/usage/README.md#getusageexport) - Get a usage export
+* [continuePipeline](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
+* [getPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
+* [getPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
+* [getPipelineValuesById](docs/sdks/pipeline/README.md#getpipelinevaluesbyid) - Get pipeline values for a pipeline
+* [listPipelines](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
+* [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
+* [triggerPipelineRun](docs/sdks/pipeline/README.md#triggerpipelinerun) - [Recommended] Trigger a new pipeline
 
 ### [policyManagement](docs/sdks/policymanagement/README.md)
 
@@ -112,47 +126,28 @@ run();
 * [makeDecision](docs/sdks/policymanagement/README.md#makedecision) - Makes a decision
 * [setDecisionSettings](docs/sdks/policymanagement/README.md#setdecisionsettings) - Set the decision settings
 
-### [pipeline](docs/sdks/pipeline/README.md)
-
-* [continuePipeline](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
-* [getPipelineById](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
-* [getPipelineByNumber](docs/sdks/pipeline/README.md#getpipelinebynumber) - Get a pipeline by pipeline number
-* [getPipelineConfigById](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
-* [listMyPipelines](docs/sdks/pipeline/README.md#listmypipelines) - Get your pipelines
-* [listPipelines](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
-* [listPipelinesForProject](docs/sdks/pipeline/README.md#listpipelinesforproject) - Get all pipelines
-* [listWorkflowsByPipelineId](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
-* [triggerPipeline](docs/sdks/pipeline/README.md#triggerpipeline) - Trigger a new pipeline
-
 ### [project](docs/sdks/project/README.md)
 
-* [createCheckoutKey](docs/sdks/project/README.md#createcheckoutkey) - Create a new checkout key
-* [createEnvVar](docs/sdks/project/README.md#createenvvar) - Create an environment variable
 * [createProject](docs/sdks/project/README.md#createproject) - 🧪 Create a project
-* [deleteCheckoutKey](docs/sdks/project/README.md#deletecheckoutkey) - Delete a checkout key
-* [deleteEnvVar](docs/sdks/project/README.md#deleteenvvar) - Delete an environment variable
-* [getCheckoutKey](docs/sdks/project/README.md#getcheckoutkey) - Get a checkout key
-* [getEnvVar](docs/sdks/project/README.md#getenvvar) - Get a masked environment variable
-* [getProjectBySlug](docs/sdks/project/README.md#getprojectbyslug) - Get a project
 * [getProjectSettings](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
-* [listCheckoutKeys](docs/sdks/project/README.md#listcheckoutkeys) - Get all checkout keys
-* [listEnvVars](docs/sdks/project/README.md#listenvvars) - List all environment variables
 * [patchProjectSettings](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
-
-### [job](docs/sdks/job/README.md)
-
-* [cancelJob](docs/sdks/job/README.md#canceljob) - Cancel job
-* [getJobArtifacts](docs/sdks/job/README.md#getjobartifacts) - Get a job's artifacts
-* [getJobDetails](docs/sdks/job/README.md#getjobdetails) - Get job details
-* [getTests](docs/sdks/job/README.md#gettests) - Get test metadata
 
 ### [schedule](docs/sdks/schedule/README.md)
 
-* [createSchedule](docs/sdks/schedule/README.md#createschedule) - Create a schedule
 * [deleteScheduleById](docs/sdks/schedule/README.md#deleteschedulebyid) - Delete a schedule
 * [getScheduleById](docs/sdks/schedule/README.md#getschedulebyid) - Get a schedule
-* [listSchedulesForProject](docs/sdks/schedule/README.md#listschedulesforproject) - Get all schedules
 * [updateSchedule](docs/sdks/schedule/README.md#updateschedule) - Update a schedule
+
+### [usage](docs/sdks/usage/README.md)
+
+* [createUsageExport](docs/sdks/usage/README.md#createusageexport) - Create a usage export
+* [getUsageExport](docs/sdks/usage/README.md#getusageexport) - Get a usage export
+
+### [user](docs/sdks/user/README.md)
+
+* [getCollaborations](docs/sdks/user/README.md#getcollaborations) - Collaborations
+* [getCurrentUser](docs/sdks/user/README.md#getcurrentuser) - User Information
+* [getUser](docs/sdks/user/README.md#getuser) - User Information
 
 ### [webhook](docs/sdks/webhook/README.md)
 
@@ -169,6 +164,8 @@ run();
 * [getWorkflowById](docs/sdks/workflow/README.md#getworkflowbyid) - Get a workflow
 * [listWorkflowJobs](docs/sdks/workflow/README.md#listworkflowjobs) - Get a workflow's jobs
 * [rerunWorkflow](docs/sdks/workflow/README.md#rerunworkflow) - Rerun a workflow
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -180,48 +177,76 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+If the request fails due to, for example 4XX or 5XX status codes, it will throw a `SDKError`.
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-Example
+| Error Type      | Status Code | Content Type |
+| --------------- | ----------- | ------------ |
+| errors.SDKError | 4XX, 5XX    | \*/\*        |
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
+import { SDKValidationError } from "circleci-v2-sdk/sdk/models/errors";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
 async function run() {
-    const sdk = new Circleci({
-        security: {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        },
+  let result;
+  try {
+    result = await circleci.context.addEnvironmentVariableToContext({
+      requestBody: {
+        value: "some-secret-value",
+      },
+      contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
+      envVarName: "POSTGRES_USER",
     });
 
-    let res;
-    try {
-        res = await sdk.context.addEnvironmentVariableToContext({
-            requestBody: {
-                value: "some-secret-value",
-            },
-            contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-            envVarName: "POSTGRES_USER",
-        });
-    } catch (err) {
-        if (err instanceof errors.SDKError) {
-            console.error(err); // handle exception
-            throw err;
+    // Handle the result
+    console.log(result);
+  } catch (err) {
+    switch (true) {
+      // The server response does not match the expected SDK schema
+      case (err instanceof SDKValidationError):
+        {
+          // Pretty-print will provide a human-readable multi-line error message
+          console.error(err.pretty());
+          // Raw value may also be inspected
+          console.error(err.rawValue);
+          return;
         }
+        sdkerror.js;
+      // Server returned an error status code or an unknown content type
+      case (err instanceof SDKError): {
+        console.error(err.statusCode);
+        console.error(err.rawResponse.body);
+        return;
+      }
+      default: {
+        // Other errors such as network errors, see HTTPClientErrors for more details
+        throw err;
+      }
     }
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
+  }
 }
 
 run();
 
 ```
+
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+
+In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `sdk/models/errors/httpclienterrors.ts` module:
+
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
 
@@ -229,70 +254,30 @@ run();
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://circleci.com/api/v2` | None |
-
-#### Example
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-
-async function run() {
-    const sdk = new Circleci({
-        serverIdx: 0,
-        security: {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        },
-    });
-
-    const res = await sdk.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
-}
-
-run();
-
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  serverURL: "https://circleci.com/api/v2",
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-    const sdk = new Circleci({
-        serverURL: "https://circleci.com/api/v2",
-        security: {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        },
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
+    envVarName: "POSTGRES_USER",
+  });
 
-    const res = await sdk.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -305,19 +290,49 @@ run();
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
+[Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). This
+client is a thin wrapper around `fetch` and provides the ability to attach hooks
+around the request lifecycle that can be used to modify the request or handle
+errors and response.
 
-For example, you could specify a header for every request that your sdk makes as follows:
+The `HTTPClient` constructor takes an optional `fetcher` argument that can be
+used to integrate a third-party HTTP client or when writing tests to mock out
+the HTTP client and feed in fixtures.
+
+The following example shows how to use the `"beforeRequest"` hook to to add a
+custom header and a timeout to requests and how to use the `"requestError"` hook
+to log errors:
 
 ```typescript
-import { circleci-v2-sdk } from "Circleci";
-import axios from "axios";
+import { Circleci } from "circleci-v2-sdk";
+import { HTTPClient } from "circleci-v2-sdk/lib/http";
 
-const httpClient = axios.create({
-    headers: {'x-custom-header': 'someValue'}
-})
+const httpClient = new HTTPClient({
+  // fetcher takes a function that has the same signature as native `fetch`.
+  fetcher: (request) => {
+    return fetch(request);
+  }
+});
 
-const sdk = new Circleci({defaultClient: httpClient});
+httpClient.addHook("beforeRequest", (request) => {
+  const nextRequest = new Request(request, {
+    signal: request.signal || AbortSignal.timeout(5000)
+  });
+
+  nextRequest.headers.set("x-custom-header", "custom value");
+
+  return nextRequest;
+});
+
+httpClient.addHook("requestError", (error, request) => {
+  console.group("Request Error");
+  console.log("Reason:", `${error}`);
+  console.log("Endpoint:", `${request.method} ${request.url}`);
+  console.groupEnd();
+});
+
+const sdk = new Circleci({ httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -330,40 +345,241 @@ const sdk = new Circleci({defaultClient: httpClient});
 
 This SDK supports the following security schemes globally:
 
-| Name           | Type           | Scheme         |
-| -------------- | -------------- | -------------- |
-| `apiKeyHeader` | apiKey         | API key        |
-| `apiKeyQuery`  | apiKey         | API key        |
-| `basicAuth`    | http           | HTTP Basic     |
+| Name           | Type   | Scheme     |
+| -------------- | ------ | ---------- |
+| `apiKeyHeader` | apiKey | API key    |
+| `apiKeyQuery`  | apiKey | API key    |
+| `basicAuth`    | http   | HTTP Basic |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-    const sdk = new Circleci({
-        security: {
-            apiKeyHeader: "<YOUR_API_KEY_HERE>",
-        },
-    });
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
+    envVarName: "POSTGRES_USER",
+  });
 
-    const res = await sdk.context.addEnvironmentVariableToContext({
-        requestBody: {
-            value: "some-secret-value",
-        },
-        contextId: "0407a4cd-7d9d-4359-a2ad-0a7c67c0ba96",
-        envVarName: "POSTGRES_USER",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
+  // Handle the result
+  console.log(result);
 }
 
 run();
 
 ```
 <!-- End Authentication [security] -->
+
+<!-- Start Requirements [requirements] -->
+## Requirements
+
+For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
+<!-- End Requirements [requirements] -->
+
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
+    envVarName: "POSTGRES_USER",
+  }, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+const circleci = new Circleci({
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
+    },
+    retryConnectionErrors: false,
+  },
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const result = await circleci.context.addEnvironmentVariableToContext({
+    requestBody: {
+      value: "some-secret-value",
+    },
+    contextId: "00ac7939-2dac-470a-a639-ebd1d3b53886",
+    envVarName: "POSTGRES_USER",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+
+```
+<!-- End Retries [retries] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+You can setup your SDK to emit debug logs for SDK requests and responses.
+
+You can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { Circleci } from "circleci-v2-sdk";
+
+const sdk = new Circleci({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
+
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [`contextAddEnvironmentVariableToContext`](docs/sdks/context/README.md#addenvironmentvariabletocontext) - Add or update an environment variable
+- [`contextCreateContext`](docs/sdks/context/README.md#createcontext) - Create a new context
+- [`contextCreateContextRestriction`](docs/sdks/context/README.md#createcontextrestriction) - 🧪 Create context restriction
+- [`contextDeleteContext`](docs/sdks/context/README.md#deletecontext) - Delete a context
+- [`contextDeleteContextRestriction`](docs/sdks/context/README.md#deletecontextrestriction) - 🧪 Delete context restriction
+- [`contextDeleteEnvironmentVariableFromContext`](docs/sdks/context/README.md#deleteenvironmentvariablefromcontext) - Remove an environment variable
+- [`contextGetContext`](docs/sdks/context/README.md#getcontext) - Get a context
+- [`contextGetContextRestrictions`](docs/sdks/context/README.md#getcontextrestrictions) - 🧪 Get context restrictions
+- [`contextListContexts`](docs/sdks/context/README.md#listcontexts) - List contexts
+- [`contextListEnvironmentVariablesFromContext`](docs/sdks/context/README.md#listenvironmentvariablesfromcontext) - List environment variables
+- [`insightsGetOrgSummaryData`](docs/sdks/insights/README.md#getorgsummarydata) - Get summary metrics with trends for the entire org, and for each project.
+- [`jobCancelJobByJobID`](docs/sdks/job/README.md#canceljobbyjobid) - Cancel job by job ID
+- [`oidcTokenManagementDeleteOrgClaims`](docs/sdks/oidctokenmanagement/README.md#deleteorgclaims) - Delete org-level claims
+- [`oidcTokenManagementDeleteProjectClaims`](docs/sdks/oidctokenmanagement/README.md#deleteprojectclaims) - Delete project-level claims
+- [`oidcTokenManagementGetOrgClaims`](docs/sdks/oidctokenmanagement/README.md#getorgclaims) - Get org-level claims
+- [`oidcTokenManagementGetProjectClaims`](docs/sdks/oidctokenmanagement/README.md#getprojectclaims) - Get project-level claims
+- [`oidcTokenManagementPatchOrgClaims`](docs/sdks/oidctokenmanagement/README.md#patchorgclaims) - Patch org-level claims
+- [`oidcTokenManagementPatchProjectClaims`](docs/sdks/oidctokenmanagement/README.md#patchprojectclaims) - Patch project-level claims
+- [`pipelineContinuePipeline`](docs/sdks/pipeline/README.md#continuepipeline) - Continue a pipeline
+- [`pipelineGetPipelineById`](docs/sdks/pipeline/README.md#getpipelinebyid) - Get a pipeline by ID
+- [`pipelineGetPipelineConfigById`](docs/sdks/pipeline/README.md#getpipelineconfigbyid) - Get a pipeline's configuration
+- [`pipelineGetPipelineValuesById`](docs/sdks/pipeline/README.md#getpipelinevaluesbyid) - Get pipeline values for a pipeline
+- [`pipelineListPipelines`](docs/sdks/pipeline/README.md#listpipelines) - Get a list of pipelines
+- [`pipelineListWorkflowsByPipelineId`](docs/sdks/pipeline/README.md#listworkflowsbypipelineid) - Get a pipeline's workflows
+- [`pipelineTriggerPipelineRun`](docs/sdks/pipeline/README.md#triggerpipelinerun) - [Recommended] Trigger a new pipeline
+- [`policyManagementCreatePolicyBundle`](docs/sdks/policymanagement/README.md#createpolicybundle) - Creates policy bundle for the context
+- [`policyManagementGetDecisionLog`](docs/sdks/policymanagement/README.md#getdecisionlog) - Retrieves the owner's decision audit log by given decisionID
+- [`policyManagementGetDecisionLogPolicyBundle`](docs/sdks/policymanagement/README.md#getdecisionlogpolicybundle) - Retrieves Policy Bundle for a given decision log ID
+- [`policyManagementGetDecisionLogs`](docs/sdks/policymanagement/README.md#getdecisionlogs) - Retrieves the owner's decision audit logs.
+- [`policyManagementGetDecisionSettings`](docs/sdks/policymanagement/README.md#getdecisionsettings) - Get the decision settings
+- [`policyManagementGetPolicyBundle`](docs/sdks/policymanagement/README.md#getpolicybundle) - Retrieves Policy Bundle
+- [`policyManagementGetPolicyDocument`](docs/sdks/policymanagement/README.md#getpolicydocument) - Retrieves a policy document
+- [`policyManagementMakeDecision`](docs/sdks/policymanagement/README.md#makedecision) - Makes a decision
+- [`policyManagementSetDecisionSettings`](docs/sdks/policymanagement/README.md#setdecisionsettings) - Set the decision settings
+- [`projectCreateProject`](docs/sdks/project/README.md#createproject) - 🧪 Create a project
+- [`projectGetProjectSettings`](docs/sdks/project/README.md#getprojectsettings) - 🧪 Get project settings
+- [`projectPatchProjectSettings`](docs/sdks/project/README.md#patchprojectsettings) - 🧪 Update project settings
+- [`scheduleDeleteScheduleById`](docs/sdks/schedule/README.md#deleteschedulebyid) - Delete a schedule
+- [`scheduleGetScheduleById`](docs/sdks/schedule/README.md#getschedulebyid) - Get a schedule
+- [`scheduleUpdateSchedule`](docs/sdks/schedule/README.md#updateschedule) - Update a schedule
+- [`usageCreateUsageExport`](docs/sdks/usage/README.md#createusageexport) - Create a usage export
+- [`usageGetUsageExport`](docs/sdks/usage/README.md#getusageexport) - Get a usage export
+- [`userGetCollaborations`](docs/sdks/user/README.md#getcollaborations) - Collaborations
+- [`userGetCurrentUser`](docs/sdks/user/README.md#getcurrentuser) - User Information
+- [`userGetUser`](docs/sdks/user/README.md#getuser) - User Information
+- [`webhookCreateWebhook`](docs/sdks/webhook/README.md#createwebhook) - Create an outbound webhook
+- [`webhookDeleteWebhook`](docs/sdks/webhook/README.md#deletewebhook) - Delete an outbound webhook
+- [`webhookGetWebhookById`](docs/sdks/webhook/README.md#getwebhookbyid) - Get a webhook
+- [`webhookGetWebhooks`](docs/sdks/webhook/README.md#getwebhooks) - List webhooks
+- [`webhookUpdateWebhook`](docs/sdks/webhook/README.md#updatewebhook) - Update an outbound webhook
+- [`workflowApprovePendingApprovalJobById`](docs/sdks/workflow/README.md#approvependingapprovaljobbyid) - Approve a job
+- [`workflowCancelWorkflow`](docs/sdks/workflow/README.md#cancelworkflow) - Cancel a workflow
+- [`workflowGetWorkflowById`](docs/sdks/workflow/README.md#getworkflowbyid) - Get a workflow
+- [`workflowListWorkflowJobs`](docs/sdks/workflow/README.md#listworkflowjobs) - Get a workflow's jobs
+- [`workflowRerunWorkflow`](docs/sdks/workflow/README.md#rerunworkflow) - Rerun a workflow
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
+<!-- Start Summary [summary] -->
+## Summary
+
+CircleCI API: This describes the resources that make up the CircleCI API v2.
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [CircleCI API Node SDK](#circleci-api-node-sdk)
+  * [SDK Installation](#sdk-installation)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Requirements](#requirements)
+  * [Retries](#retries)
+  * [Debugging](#debugging)
+  * [Standalone functions](#standalone-functions)
+
+<!-- End Table of Contents [toc] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

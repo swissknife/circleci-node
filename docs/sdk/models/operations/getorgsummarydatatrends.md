@@ -2,6 +2,18 @@
 
 Trends for a single project, across all branches.
 
+## Example Usage
+
+```typescript
+import { GetOrgSummaryDataTrends } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: GetOrgSummaryDataTrends = {
+  successRate: 5910.27,
+  totalCreditsUsed: 6591.77,
+  totalDurationSecs: 3972.57,
+  totalRuns: 9992.78,
+};
+```
 
 ## Fields
 

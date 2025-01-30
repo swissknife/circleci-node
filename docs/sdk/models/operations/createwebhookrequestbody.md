@@ -2,6 +2,25 @@
 
 The parameters for a create webhook request
 
+## Example Usage
+
+```typescript
+import { CreateWebhookRequestBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: CreateWebhookRequestBody = {
+  events: [
+    "job-completed",
+  ],
+  name: "<value>",
+  scope: {
+    id: "35811646-7ff2-4e18-825b-6cbf8c556618",
+    type: "project",
+  },
+  signingSecret: "<value>",
+  url: "https://beloved-hyphenation.biz",
+  verifyTls: false,
+};
+```
 
 ## Fields
 

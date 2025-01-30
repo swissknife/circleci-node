@@ -1,5 +1,14 @@
 # ClaimResponse
 
+## Example Usage
+
+```typescript
+import { ClaimResponse } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: ClaimResponse = {
+  orgId: "3d5760b8-a463-46af-8a86-1729bf462edc",
+};
+```
 
 ## Fields
 

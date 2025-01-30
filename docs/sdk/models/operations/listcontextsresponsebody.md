@@ -2,6 +2,22 @@
 
 A paginated list of contexts
 
+## Example Usage
+
+```typescript
+import { ListContextsResponseBody } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListContextsResponseBody = {
+  items: [
+    {
+      createdAt: new Date("2015-09-21T17:29:21.042Z"),
+      id: "53900614-3420-419f-af62-a7f1c43a3a86",
+      name: "<value>",
+    },
+  ],
+  nextPageToken: "<value>",
+};
+```
 
 ## Fields
 

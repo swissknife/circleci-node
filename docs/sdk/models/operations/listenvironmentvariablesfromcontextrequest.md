@@ -1,5 +1,14 @@
 # ListEnvironmentVariablesFromContextRequest
 
+## Example Usage
+
+```typescript
+import { ListEnvironmentVariablesFromContextRequest } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: ListEnvironmentVariablesFromContextRequest = {
+  contextId: "d38fadfc-bff7-4142-8629-6ef849e68476",
+};
+```
 
 ## Fields
 

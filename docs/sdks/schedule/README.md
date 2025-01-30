@@ -1,68 +1,13 @@
 # Schedule
 (*schedule*)
 
+## Overview
+
 ### Available Operations
 
-* [createSchedule](#createschedule) - Create a schedule
 * [deleteScheduleById](#deleteschedulebyid) - Delete a schedule
 * [getScheduleById](#getschedulebyid) - Get a schedule
-* [listSchedulesForProject](#listschedulesforproject) - Get all schedules
 * [updateSchedule](#updateschedule) - Update a schedule
-
-## createSchedule
-
-Not yet available to projects that use GitLab or GitHub App. Creates a schedule and returns the created schedule.
-
-### Example Usage
-
-```typescript
-import { Circleci } from "circleci-v2-sdk";
-import { AttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
-
-async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
-
-  const res = await sdk.schedule.createSchedule({
-    requestBody: {
-      attributionActor: AttributionActor.Current,
-      name: "<value>",
-      parameters: {
-        "deploy_prod": true,
-        "branch": "feature/design-new-api",
-      },
-      timetable: "<value>",
-    },
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.CreateScheduleRequest](../../sdk/models/operations/createschedulerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
-
-
-### Response
-
-**Promise<[operations.CreateScheduleResponse](../../sdk/models/operations/createscheduleresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
 
 ## deleteScheduleById
 
@@ -73,20 +18,53 @@ Not yet available to projects that use GitLab or GitHub App. Deletes the schedul
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const result = await circleci.schedule.deleteScheduleById({
+    scheduleId: "d13fcfdb-e614-47eb-8639-c0132ec88269",
   });
 
-  const res = await sdk.schedule.deleteScheduleById({
-    scheduleId: "d61435f8-c8fd-4d1b-8e96-b194177e1b46",
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleDeleteScheduleById } from "circleci-v2-sdk/funcs/scheduleDeleteScheduleById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await scheduleDeleteScheduleById(circleci, {
+    scheduleId: "d13fcfdb-e614-47eb-8639-c0132ec88269",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -94,20 +72,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.DeleteScheduleByIdRequest](../../sdk/models/operations/deleteschedulebyidrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteScheduleByIdRequest](../../sdk/models/operations/deleteschedulebyidrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.DeleteScheduleByIdResponse](../../sdk/models/operations/deleteschedulebyidresponse.md)>**
+**Promise\<[operations.DeleteScheduleByIdResponse](../../sdk/models/operations/deleteschedulebyidresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## getScheduleById
 
@@ -118,65 +98,53 @@ Get a schedule by id.
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
 
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const result = await circleci.schedule.getScheduleById({
+    scheduleId: "8f3b246d-6ab8-4e1c-8b53-09ba7abded9b",
   });
 
-  const res = await sdk.schedule.getScheduleById({
-    scheduleId: "89f339bb-2346-462d-b60a-cb48dec1fc3b",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result);
 }
 
 run();
 ```
 
-### Parameters
+### Standalone function
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [operations.GetScheduleByIdRequest](../../sdk/models/operations/getschedulebyidrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
-
-
-### Response
-
-**Promise<[operations.GetScheduleByIdResponse](../../sdk/models/operations/getschedulebyidresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## listSchedulesForProject
-
-Returns all schedules for this project.
-
-### Example Usage
+The standalone function version of this method:
 
 ```typescript
-import { Circleci } from "circleci-v2-sdk";
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleGetScheduleById } from "circleci-v2-sdk/funcs/scheduleGetScheduleById.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
+  const res = await scheduleGetScheduleById(circleci, {
+    scheduleId: "8f3b246d-6ab8-4e1c-8b53-09ba7abded9b",
   });
 
-  const res = await sdk.schedule.listSchedulesForProject({
-    projectSlug: "gh/CircleCI-Public/api-preview-docs",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -184,20 +152,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.ListSchedulesForProjectRequest](../../sdk/models/operations/listschedulesforprojectrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetScheduleByIdRequest](../../sdk/models/operations/getschedulebyidrequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.ListSchedulesForProjectResponse](../../sdk/models/operations/listschedulesforprojectresponse.md)>**
+**Promise\<[operations.GetScheduleByIdResponse](../../sdk/models/operations/getschedulebyidresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## updateSchedule
 
@@ -207,43 +177,68 @@ Not yet available to projects that use GitLab or GitHub App. Updates a schedule 
 
 ```typescript
 import { Circleci } from "circleci-v2-sdk";
-import { DaysOfWeek, Months, UpdateScheduleAttributionActor } from "circleci-v2-sdk/dist/sdk/models/operations";
+
+const circleci = new Circleci({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
 
 async function run() {
-  const sdk = new Circleci({
-    security: {
-      apiKeyHeader: "<YOUR_API_KEY_HERE>",
-    },
-  });
-
-  const res = await sdk.schedule.updateSchedule({
+  const result = await circleci.schedule.updateSchedule({
     requestBody: {
-      attributionActor: UpdateScheduleAttributionActor.Current,
+      attributionActor: "current",
       parameters: {
         "deploy_prod": true,
         "branch": "feature/design-new-api",
       },
-      timetable: {
-        daysOfMonth: [
-          422422,
-        ],
-        daysOfWeek: [
-          DaysOfWeek.Wed,
-        ],
-        hoursOfDay: [
-          565089,
-        ],
-        months: [
-          Months.Aug,
-        ],
-      },
     },
-    scheduleId: "15e60e97-e640-494d-be9a-b9ea99c1416e",
+    scheduleId: "691e09e4-9dea-49a9-a11e-2071752824ab",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CircleciCore } from "circleci-v2-sdk/core.js";
+import { scheduleUpdateSchedule } from "circleci-v2-sdk/funcs/scheduleUpdateSchedule.js";
+
+// Use `CircleciCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const circleci = new CircleciCore({
+  security: {
+    apiKeyHeader: "<YOUR_API_KEY_HERE>",
+  },
+});
+
+async function run() {
+  const res = await scheduleUpdateSchedule(circleci, {
+    requestBody: {
+      attributionActor: "current",
+      parameters: {
+        "deploy_prod": true,
+        "branch": "feature/design-new-api",
+      },
+    },
+    scheduleId: "691e09e4-9dea-49a9-a11e-2071752824ab",
+  });
+
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -251,17 +246,19 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.UpdateScheduleRequest](../../sdk/models/operations/updateschedulerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateScheduleRequest](../../sdk/models/operations/updateschedulerequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.UpdateScheduleResponse](../../sdk/models/operations/updatescheduleresponse.md)>**
+**Promise\<[operations.UpdateScheduleResponse](../../sdk/models/operations/updatescheduleresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
+| Error Type      | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |

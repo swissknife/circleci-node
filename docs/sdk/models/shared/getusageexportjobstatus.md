@@ -1,5 +1,18 @@
 # GetUsageExportJobStatus
 
+## Example Usage
+
+```typescript
+import { GetUsageExportJobStatus } from "circleci-v2-sdk/sdk/models/shared";
+
+let value: GetUsageExportJobStatus = {
+  downloadUrls: [
+    "https://knotty-alb.biz",
+  ],
+  state: "created",
+  usageExportJobId: "7d9a342d-4821-4555-a95c-15a9174a2a74",
+};
+```
 
 ## Fields
 

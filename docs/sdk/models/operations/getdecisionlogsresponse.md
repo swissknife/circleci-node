@@ -1,12 +1,28 @@
 # GetDecisionLogsResponse
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `contentType`                                                                                           | *string*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response content type for this operation                                                           |
-| `statusCode`                                                                                            | *number*                                                                                                | :heavy_check_mark:                                                                                      | HTTP response status code for this operation                                                            |
-| `rawResponse`                                                                                           | [AxiosResponse](https://axios-http.com/docs/res_schema)                                                 | :heavy_check_mark:                                                                                      | Raw HTTP response; suitable for custom response parsing                                                 |
-| `classes`                                                                                               | [shared.DecisionLog](../../../sdk/models/shared/decisionlog.md)[]                                       | :heavy_minus_sign:                                                                                      | Decision logs successfully retrieved.                                                                   |
-| `object`                                                                                                | [operations.GetDecisionLogsResponseBody](../../../sdk/models/operations/getdecisionlogsresponsebody.md) | :heavy_minus_sign:                                                                                      | The request is malformed (e.g, a given path parameter is invalid)<br/>                                  |
+### `shared.DecisionLog[]`
+
+```typescript
+const value: shared.DecisionLog[] = [
+  {
+    policies: {
+      "policy_name1":
+        "1f40fc92da241694750979ee6cf582f2d5d7d28e18335de05abc54d0560e0f5302860c652bf08d560252aa5e74210546f369fbbbce8c12cfc7957b2652fe9a75",
+      "policy_name2":
+        "5267768822ee624d48fce15ec5ca79cbd602cb7f4c2157a516556991f22ef8c7b5ef7b18d1ff41c59370efb0858651d44a936c11b7b144c48fe04df3c6a3e8da",
+    },
+  },
+];
+```
+
+### `operations.GetDecisionLogsResponseBody`
+
+```typescript
+const value: operations.GetDecisionLogsResponseBody = {
+  error: "OwnerID: must be a valid UUID.",
+};
+```
+

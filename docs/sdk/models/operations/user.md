@@ -2,6 +2,17 @@
 
 The attribution actor who will run the scheduled pipeline.
 
+## Example Usage
+
+```typescript
+import { User } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: User = {
+  id: "293d511e-12d4-4ad9-afb1-8bc0bdb878be",
+  login: "Shirley_Bernhard28",
+  name: "<value>",
+};
+```
 
 ## Fields
 

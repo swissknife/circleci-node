@@ -2,6 +2,15 @@
 
 message response
 
+## Example Usage
+
+```typescript
+import { DeleteContextMessageResponse } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: DeleteContextMessageResponse = {
+  message: "<value>",
+};
+```
 
 ## Fields
 

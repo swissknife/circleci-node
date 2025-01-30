@@ -2,6 +2,21 @@
 
 The information you can supply when rerunning a workflow.
 
+## Example Usage
+
+```typescript
+import { RerunWorkflowRerunWorkflowParameters } from "circleci-v2-sdk/sdk/models/operations";
+
+let value: RerunWorkflowRerunWorkflowParameters = {
+  enableSsh: false,
+  fromFailed: false,
+  jobs: [
+    "c65b68ef-e73b-4bf2-be9a-7a322a9df150",
+    "5e957edd-5e8c-4985-9178-5d0d69561822",
+  ],
+  sparseTree: false,
+};
+```
 
 ## Fields
 
