@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 2fe44d60-fc18-427c-9720-9c02e2f88a2a
 management:
-  docChecksum: f55702254ebdd9f795586eacd49683d5
+  docChecksum: 0ced78f689503e9ad63eff3f9548a1dc
   docVersion: v2
-  speakeasyVersion: 1.469.2
-  generationVersion: 2.493.23
-  releaseVersion: 5.9.24
-  configChecksum: 6ab7bd7e0152125c9a2456292825db90
+  speakeasyVersion: 1.477.2
+  generationVersion: 2.497.8
+  releaseVersion: 5.9.25
+  configChecksum: 7acf1aa1af8bfc96db27f72625824492
   repoURL: https://github.com/swissknife/circleci-node.git
   repoSubDirectory: .
   installationURL: https://github.com/swissknife/circleci-node
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.18.16
+    core: 3.18.19
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
@@ -673,6 +673,7 @@ examples:
           application/json: {"message": "restriction_id is invalid."}
         "500":
           application/json: {"message": "restriction_id is invalid."}
+        "200": {}
     successful_delete:
       parameters:
         path:
@@ -711,6 +712,7 @@ examples:
           application/json: {"message": "context_id is invalid."}
         "500":
           application/json: {"message": "context_id is invalid."}
+        "200": {}
   listContexts:
     speakeasy-default-list-contexts:
       responses:
@@ -1102,6 +1104,7 @@ examples:
         "404": {}
         "500":
           application/json: {"message": "Unexpected request body provided."}
+        "201": {}
     branch_not_found:
       parameters:
         path:

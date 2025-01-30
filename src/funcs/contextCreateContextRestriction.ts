@@ -123,11 +123,11 @@ export async function contextCreateContextRestriction(
   >(
     M.json(201, operations.CreateContextRestrictionResponse$inboundSchema),
     M.json(400, operations.CreateContextRestrictionResponse$inboundSchema),
+    M.json(409, operations.CreateContextRestrictionResponse$inboundSchema),
     M.json(
       [401, 404, 429],
       operations.CreateContextRestrictionResponse$inboundSchema,
     ),
-    M.json(409, operations.CreateContextRestrictionResponse$inboundSchema),
     M.json(500, operations.CreateContextRestrictionResponse$inboundSchema),
   )(response);
   if (!result.ok) {
